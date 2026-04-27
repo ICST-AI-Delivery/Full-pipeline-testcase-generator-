@@ -1,0 +1,61 @@
+# MAP-2 6.2.1.2  Positioning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2 MAP-2 Positioning
+
+- ID: 3713660
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713672
+- Contents: System shall retrieve the vehicle position based on the triangulation of at least 4 GPS Satellites.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify the vehicle position based on the triangulation of at least 4 GPS Satellites.
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, Kernel
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: GPS, GLONASS, Galileo, Beidou
+
+### Informational Items:
+
+1. ID: 3713670
+- Contents: The aim of this function is to determine the vehicle's position.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of MAP-2 6.2.1.2  Positioning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

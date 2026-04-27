@@ -1,0 +1,330 @@
+# VEH-F020 6.2.1.1.1.4  Speedometer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.4 VEH-F020 Speedometer
+
+- ID: 3405877
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4720639
+- Contents: System shall consider real speed of the vehicle: Vreale as VehicleSpeedVSOSig if VehicleSpeedVSOSigFailSts is "Fail_not_present".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system consider's the real speed of the the vehicle incase of VehicleSpeedVSOSigFailSTS is "Fail_not_present".
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, VehicleSpeedVSOSigFailSts, consider, is, speed, Vreale, VehicleSpeedVSOSig" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4720640
+- Contents: System shall consider real speed of the vehicle: Vreale as 0 if VehicleSpeedVSOSigFailSts is "Fail_present".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that thr vehicle display speed as "0" if VehicleSpeedVSOSigFailSts is Fail Present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, VehicleSpeedVSOSigFailSts, consider, is, speed, Vreale, Fail_present" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4720642
+- Contents: System shall indicate  the calculated speed informations in:
+[km/h] as: Vindicata[km/h] = TRUNC (Vreale * k_speed_error)
+[mph] as: Vindicata[mph] = TRUNC (Vreale * k_speed_error * 0,6215)
+IDC shall calculate Vindicata[km/h] and Vindicata[mph] with a frequency of 10Hz.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Speed informations are calculated and displayed as per the logic.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall indicate, shall calculate" ) 
+Missing limits
+ (Look for: "‘, 6215 Hz’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3415312
+- Contents: During key off, system shall indicate vehicle speed as zero
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: During ign off, verify speed indicted as zero on Speedometer - Left Dial as per Figma
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI_LF_Left_Dial -> Speed Dial
+HMI_LF_Specifictions_Vehicle ->Vehicle Speed
+
+5. ID: 4889507
+- Contents: System shall apply a first order filter on the converted input signals (Vreale) In order to avoid any possible oscillations of the analog speed indicatoras reported bellow:
+y(t)=y(t-1)*K_speed + x(t)*(1-K_speed)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system apply First Order filter  on the converted input signals (Vreale) to avoid possible oscillations of the analog speed indicators as per the logic.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Escape clause
+ (Look for: "In order to" ) 
+Unclear term
+ (Look for: "any" ) 
+Passive voice
+ (Look for: "reported" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+6. ID: 3476226
+- Contents: During Key on and steady state, system shall indicate vehicle speed in NQS (binnacle) display as
+Single dial with unit based on market and unit settings
+Double speed dial when user selects unit different from current unit setting
+Double speed dial for UK market
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Proxi reference : 3491881: Speedometer visualization based on market and unit proxi
+
+Verify vehicle speed displayed as per Figma in left dial 
+Verify single vehicle speed display in mph and km/h
+Verify double display in single dial (mph/km/h for UK)
+Verify double display in single dial( when calibrated value and user selection differ)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Will be tested for default proxi till proxi architecture is clarified. Domain to have task in FPI for complete esting once proxi architecture is clear
+- State (Harman_Requirement): Approved
+- Proxi Details:
+| Use Case | Proxi: Country Market | Proxi: Detail for Extra Market | Proxi: km/mi | INFO_Distance Unit signal | Speed Visualization                     |
+|----------|-----------------------|--------------------------------|--------------|---------------------------|-----------------------------------------|
+| A1       | 2                     | 3                              | Don't care   | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| A2       | 2                     | 3                              | Don't care   | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| B        | 0/1/3                 | -                              | 0            | miles                     | Single Speed [km/h]                     |
+| C        | 0/1/3                 | -                              | 1            | km                        | Single Speed [mph]                      |
+| D        | 2                     | 0/1/2                          | 0            | miles                     | Single Speed [km/h]                     |
+| E        | 2                     | 0/1/2                          | 1            | km                        | Single Speed [mph]                      |
+| F        | 0/1/3                 | -                              | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| G        | 0/1/3                 | -                              | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| H        | 2                     | 0/1/2                          | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| I        | 2                     | 0/1/2                          | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+
+7. ID: 4889512
+- Contents: System shall comply with the maximum tolerance required by  Directive CE 75/443 when calculating and generating the graphics for displaying the speed information.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the maximum tolerance required by calculating 75/443 the generating the graphics for displaying the speed information.
+- Grooming Status: Approved
+- Grooming Comments: Please refer Jira ticket FQ-1069
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, comply with, required, calculating, generating, displaying, tolerance, CE, graphics, information" ) 
+Unclear term
+ (Look for: "maximum" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+8. ID: 3476222
+- Contents: System shall indicate vehicle speed as 0 <unit> on detecting error.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger error, VehicleSpeedVSOSigFailSts = 1 (CAN)
+Verify
+VEH_Speed_Indicator_kmh = 0
+Speed_Indicator_kmh = 0
+VEH_Speed_Indicator_mph = 0
+Speed_Indicator_mph = 0
+Verify speedometer indicates zero pn left dial as per figma
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "as 0  unit" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3490743
+- Contents: System shall display a dynamic graph with vehicle speed and average vehicle speed in central display (NDR and RNDR)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify vehicle speed display in central display as C2.3 = Current speed graph
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 5557460
+- Contents: During Key-ON and Key-OFF State System shall display speed indicator equal to 0 as following based on the Proxi and Setting Combination:
+IDC shall send send VEH_Speed_Indicator_kmh=0
+IDC shall send send Speed_Indicator_kmh=0
+IDC shall send send VEH_Speed_Indicator_mph=0
+IDC shall send send Speed_Indicator_mph=0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the speed indication is displayed as per the Proxi Combination during the Key-On and Key-Off
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+11. ID: 5288678
+- Contents: If signals missing for a time greater or equal to <tREC2> or VehicleSpeedVSOSigFailSts="Fail_present" then system shall display Speed Indicator as +/-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Veify that the system displays vehicle speed as 0 when there is no message from the CAN-Signal. for a time greater than or equal to tREC2.
+
+CAN-Signal:
+NFR_SPEED.VehicleSpeedVSOSigFailSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signals, system, missing, display, greater, VehicleSpeedVSOSigFailSts, Indicator" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+12. ID: 5557461
+- Contents: Diagnostic Service For k_speed_error parameter adjustment and K_speed parameter adjustment.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify  k_speed_error Diagnostic parameter is having default value , and it can be changed using diagnostics.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3494598
+- Contents: HMI examples provided might differ from final Figma Design.
+Refer Figma for latest design :https://www.figma.com/design/fJYc1AZBDeWbFMzoievzgy/F244-BASELINE-(PI03---S2)---IPC?node-id=650-10614&t=T494SegdNXZUOkCg-0
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Approved
+
+2. ID: 3494601
+- Contents: System shall display speedometer in accordance to Ferrari Design
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify speedometer indicated as per Ferrari design based on Figma
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI_LF_Left_Dial -> Speed Dial
+HMI_LF_Specifictions_Vehicle ->Vehicle Speed
+
+3. ID: 3490724
+- Contents: Single dial with calibrated unit
+(see: image5.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image5.png
+
+4. ID: 3490727
+- Contents: Double speed when user select unit different to current market setting
+(see: image6.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Approved
+- Visual Elements: image6.png
+
+5. ID: 3490733
+- Contents: Dal with double speed UK market
+(see: image7.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Approved
+- Visual Elements: image7.png
+
+### Referenced Requirements:
+
+1. ID: 3491881
+- **NOTE: This requirement is referenced but not defined in this document.**
+- Contents: Speedometer visualization based on market and unit proxi
+- Referenced In: 3476226
+- Contents: Speedometer visualization based on market and unit proxi
+- Proxi Details:
+| Use Case | Proxi: Country Market | Proxi: Detail for Extra Market | Proxi: km/mi | INFO_Distance Unit signal | Speed Visualization                     |
+|----------|-----------------------|--------------------------------|--------------|---------------------------|-----------------------------------------|
+| A1       | 2                     | 3                              | Don't care   | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| A2       | 2                     | 3                              | Don't care   | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| B        | 0/1/3                 | -                              | 0            | miles                     | Single Speed [km/h]                     |
+| C        | 0/1/3                 | -                              | 1            | km                        | Single Speed [mph]                      |
+| D        | 2                     | 0/1/2                          | 0            | miles                     | Single Speed [km/h]                     |
+| E        | 2                     | 0/1/2                          | 1            | km                        | Single Speed [mph]                      |
+| F        | 0/1/3                 | -                              | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| G        | 0/1/3                 | -                              | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| H        | 2                     | 0/1/2                          | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| I        | 2                     | 0/1/2                          | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image7.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image6.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image5.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+Data Element: [Proxi Configuration]
+  - Type: Proxi
+  - Purpose: [Explain the purpose of this Proxi configuration]
+  - Structure: [Analyze the Proxi table structure and explain its significance]
+  - Dependencies: [Identify key data relationships]
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F020 6.2.1.1.1.4  Speedometer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,1841 @@
+{
+  "timestamp": "2026-04-16T19:56:40.326912",
+  "main_fpi": "2xA2B_Audio_Layout",
+  "methodology": "Corrected Antisymmetric Matrix Analysis",
+  "context_injection_summary": {
+    "critical_upstream": [
+      {
+        "fpi": "AUD-2_A2B_Network_2_configuration_via_diagnostics",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "AUD-2_A2B_Network_Management",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "AUD-2_IOC_A2B_Network_Management",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD81111)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD81112)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD81013)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD81011)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD81012)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD81001)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8101A)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Positive_wire_shorted_to_ground_(0xD81411)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Reverse_wires_or_wrong_port_(0xD81401)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD81511)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD81512)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD81413)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD81412)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Wires_shorted_together_(0xD8141A)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD82111)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD82112)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD82013)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD82011)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD82012)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD82001)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8201A)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD82511)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD82512)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD82413)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_ground_(0xD82411)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD82412)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Reverse_wires_or_wrong_port_(0xD82401)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Wires_shorted_together(0xD8241A)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_ground_(0xD82911)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_VBATT_(0xD82912)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Open_wires_or_wrong_port_(0xD82813)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_ground_(0xD82811)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_VBATT_(0xD82812)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Reverse_wires_or_wrong_port_(0xD82801)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Wires_shorted_together_(0xD8281A)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_ground_(0xD82D11)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_VBATT_(0xD82D12)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Open_wires_or_wrong_port_(0xD82C13)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_ground_(0xD82C11)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_VBATT_(0xD82C12)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Reverse_wires_or_wrong_port_(0xD82C01)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Wires_shorted_together_(0xD82C1A)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "A2B_Network_2_Configuration_($0528)",
+        "score": -3,
+        "context": [
+          "A2B network configuration and topology"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "T_POWER_MANAGEMENT_($0503)",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "PMN-1_IDC_Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_ON",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      }
+    ],
+    "high_upstream": [
+      {
+        "fpi": "AUD-7_CAN_Control_Signals",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Echo,_Noise_Cancellation_and_barge-in_function",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Bluetooth_Link_Control",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Call_handling",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Call_handling-Usecases",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PHN-10_Decline_Call",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PHN-13_Call_handling",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Scanning",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Cancel_Maps_at_EOL_(0xFF85)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "DMS_-_BLINDNESS_(0xD90031)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Front_Camera_- Blinded_(0x9103,_0x86)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "HMI_CAN_Bus-off_(0xD001,_0x88)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "HMI_CAN_Missing_Message_(0xD001,_0x87)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Left_Camera_- Blinded_(0x9105,_0x86)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PROFILING_MANAGEMENT_($052B)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Rear_Camera_- Blinded_(0x9104,_0x86)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Right_Camera_-_Blinded_(0x9106,_0x86)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SVS_- Trajectory_Lines_Corruption_(0x911A,_0x00)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Video_Output_1_FPD_Fault_-_Link_not_locked_(0x905A,_0x93)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Video_Output_2_FPD_Fault_-_Link_not_locked_(0x905B,_0x93)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Video_Output_3_FPD_Fault_-_Link_not_locked_(0x905D,_0x93)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "DMS-9_BLINDNESS_DETECTION",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_Settings_Persistence",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_settings_via_Diagnostics",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_setting_introduction",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "AUS-0__Audio_settings_via_Diagnostics",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "AUS-0 Audio_Settings_Persistence",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Blindspot_-_Front_Audio",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Blindspot_-_Rear_Audio",
+        "score": -2,
+        "context": [
+          "Audio system configuration parameters"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Blind_Spot_Detection Enabled_-_HMI_Settings",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "ECallERAGLONASS_Calling",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PFL-0_Profiling_Introduction",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0_Obstacle_Proximity_Signalling_Command_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0_Obstacle_Proximity_Signalling_Indication_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0_Obstacle_Proximity_Signalling_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0_Obstacle_Proximity_Signalling_Visualization_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0__Obstacle_Proximity_Signalling_Command_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0__Obstacle_Proximity_Signalling_Indication_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0__Obstacle_Proximity_Signalling_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0__Obstacle_Proximity_Signalling_Visualization_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-16_BLINDNESS_DETECTION",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-18_ONLINE_CALIBRATION",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-2_Flagging_lines",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-2_Parking_Lines",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK6_Obstacle_Proximity_Signalling_Buzzer_Management",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SET-42_Blindspot_setting",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VFI-F200_Dependence_on_vehicle_state_conditions",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VFI-F559_Blindspot_and_Rear_Cross_Traffic_Alert",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F140_Unfastened_Seat_Belts_Signalling",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F141_Signalling_of_Speed_Limit_Exceeded",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F179_Obstacles_Proximity_Signalling",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F559_Blind_Spot_Monitoring",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Cancel_Maps_at_EOL",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "F244_NOS_C_CAN_02102024_PI_6",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "F244_NOS_GLOBAL_CAN_PI_6",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "F244_R5_NOS_ETHERNET_PI_6",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "RAD-16_DAB_Service_Follow_(linking)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "RAD-36_HD_Radio_Scan",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "RAD-6_Scan_Strong_Station",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      }
+    ],
+    "optional_upstream": [
+      {
+        "fpi": "AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Diagnostics_Test_Tone_Generator",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ESE-1_ESE_BEV_Management_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Active_Roles",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Disallowed_Certificate_List",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Previous_Access",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_t_DebounceTimeDTC_($FE48)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DTCFailureType  ($6082)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ECU_Time_first_DTC_detection_(EEPROM)  ($200B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      }
+    ],
+    "critical_downstream": [
+      {
+        "fpi": "FAD-1_Audio_Channels_Interaction",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "FAD-2_Audio_Channels_Control",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "FAD-2_Audio_Channels_Control_-_Min_Switch-On_Volume",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Volume control behavior and limits"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "FAD-2_Channel_Directionality",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "FAD-2 Channel_Directionality",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_open_(0x940013)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94001A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940012)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940011)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_open_(0x940113)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94011A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940112)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940111)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_open_(0x940213)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94021A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940212)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940211)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_open_(0x940313)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94031A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940312)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940311)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_open_(0x940413)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94041A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940412)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940411)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_open_(0x940513)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94051A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940512)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940511)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_open_(0x940613)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94061A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940612)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940611)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_open_(0x940713)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94071A)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940712)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940711)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration",
+          "Speaker output mapping and parameters"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "RAD-31_HD_Radio_SPS_channel",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "RAD-40_SXM_Channel_Search",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "RAD-42_SXM_Channel_info",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "RAD-43_SXM_Favourite_channel",
+        "score": 3,
+        "context": [
+          "Audio channel routing and configuration"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      }
+    ],
+    "high_downstream": [
+      {
+        "fpi": "Audio_&_Sound_processing",
+        "score": 2,
+        "context": [
+          "General audio layout context"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Max_Switch-On_Volume ($0527)",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Min_Switch-On_Volume ($XXXX)",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Speed_Dependent_Volume_($0525)",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Volume_Attenuation_Enable_($052F)",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Volume_Attenuation_Levels_($0526)",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Volume_Control_($0520)",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-11_Ringtone_Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-12_General_Warning_Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-13_Parking_Sensor_Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-4_Audio_Presets",
+        "score": 2,
+        "context": [
+          "General audio layout context"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-7_Speed_Dependent_Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-8_Navigation_Voice_Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "AUS-9_Voice_Control_Volume",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Volume_Bar",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Displays_Physical_Commands_for_Central_Display_-_VolumeMute_Command",
+        "score": 2,
+        "context": [
+          "Volume control behavior and limits"
+        ],
+        "justification": "High priority downstream dependency"
+      }
+    ],
+    "optional_downstream": []
+  },
+  "testcase_generation_guidance": {
+    "mandatory_upstream_context": [
+      "AUD-2_A2B_Network_2_configuration_via_diagnostics: A2B network configuration and topology",
+      "AUD-2_A2B_Network_Management: A2B network configuration and topology",
+      "AUD-2_IOC_A2B_Network_Management: A2B network configuration and topology",
+      "Power_Management: Power state and voltage requirements",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD81111): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD81112): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD81013): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD81011): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD81012): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD81001): A2B network configuration and topology",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8101A): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1-_Positive_wire_shorted_to_ground_(0xD81411): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1-_Reverse_wires_or_wrong_port_(0xD81401): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD81511): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD81512): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD81413): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD81412): A2B network configuration and topology",
+      "A2B_Network_1_-_Sub_0_to_Sub_1_-_Wires_shorted_together_(0xD8141A): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD82111): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD82112): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD82013): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD82011): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD82012): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD82001): A2B network configuration and topology",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8201A): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD82511): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD82512): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD82413): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_ground_(0xD82411): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD82412): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Reverse_wires_or_wrong_port_(0xD82401): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Wires_shorted_together(0xD8241A): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_ground_(0xD82911): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_VBATT_(0xD82912): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Open_wires_or_wrong_port_(0xD82813): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_ground_(0xD82811): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_VBATT_(0xD82812): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Reverse_wires_or_wrong_port_(0xD82801): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Wires_shorted_together_(0xD8281A): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_ground_(0xD82D11): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_VBATT_(0xD82D12): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Open_wires_or_wrong_port_(0xD82C13): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_ground_(0xD82C11): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_VBATT_(0xD82C12): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Reverse_wires_or_wrong_port_(0xD82C01): A2B network configuration and topology",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Wires_shorted_together_(0xD82C1A): A2B network configuration and topology",
+      "A2B_Network_2_Configuration_($0528): A2B network configuration and topology",
+      "T_POWER_MANAGEMENT_($0503): Power state and voltage requirements",
+      "Power_Management: Power state and voltage requirements",
+      "PMN-1_IDC_Power_Management: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_OFF: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_ON: Power state and voltage requirements"
+    ],
+    "mandatory_downstream_context": [
+      "FAD-1_Audio_Channels_Interaction: Audio channel routing and configuration",
+      "FAD-2_Audio_Channels_Control: Audio channel routing and configuration",
+      "FAD-2_Audio_Channels_Control_-_Min_Switch-On_Volume: Audio channel routing and configuration; Volume control behavior and limits",
+      "FAD-2_Channel_Directionality: Audio channel routing and configuration",
+      "FAD-2 Channel_Directionality: Audio channel routing and configuration",
+      "Channel_1_Loudspeaker_Output_-_Circuit_open_(0x940013): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_1_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94001A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_1_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940012): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_1_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940011): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_2_Loudspeaker_Output_-_Circuit_open_(0x940113): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_2_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94011A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_2_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940112): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_2_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940111): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_3_Loudspeaker_Output_-_Circuit_open_(0x940213): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_3_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94021A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_3_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940212): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_3_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940211): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_4_Loudspeaker_Output_-_Circuit_open_(0x940313): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_4_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94031A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_4_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940312): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_4_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940311): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_5_Loudspeaker_Output_-_Circuit_open_(0x940413): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_5_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94041A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_5_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940412): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_5_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940411): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_6_Loudspeaker_Output_-_Circuit_open_(0x940513): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_6_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94051A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_6_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940512): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_6_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940511): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_7_Loudspeaker_Output_-_Circuit_open_(0x940613): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_7_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94061A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_7_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940612): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_7_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940611): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_8_Loudspeaker_Output_-_Circuit_open_(0x940713): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_8_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94071A): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_8_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940712): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_8_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940711): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792): Audio channel routing and configuration; Speaker output mapping and parameters",
+      "RAD-31_HD_Radio_SPS_channel: Audio channel routing and configuration",
+      "RAD-40_SXM_Channel_Search: Audio channel routing and configuration",
+      "RAD-42_SXM_Channel_info: Audio channel routing and configuration",
+      "RAD-43_SXM_Favourite_channel: Audio channel routing and configuration"
+    ],
+    "recommended_upstream_context": [
+      "AUD-7_CAN_Control_Signals: General system context",
+      "Echo,_Noise_Cancellation_and_barge-in_function: General system context",
+      "Bluetooth_Link_Control: General system context",
+      "Call_handling: General system context",
+      "Call_handling-Usecases: General system context",
+      "PHN-10_Decline_Call: General system context",
+      "PHN-13_Call_handling: General system context",
+      "Scanning: General system context",
+      "Cancel_Maps_at_EOL_(0xFF85): General system context",
+      "DMS_-_BLINDNESS_(0xD90031): General system context",
+      "Front_Camera_- Blinded_(0x9103,_0x86): General system context",
+      "HMI_CAN_Bus-off_(0xD001,_0x88): General system context",
+      "HMI_CAN_Missing_Message_(0xD001,_0x87): General system context",
+      "Left_Camera_- Blinded_(0x9105,_0x86): General system context",
+      "PROFILING_MANAGEMENT_($052B): General system context",
+      "Rear_Camera_- Blinded_(0x9104,_0x86): General system context",
+      "Right_Camera_-_Blinded_(0x9106,_0x86): General system context",
+      "SVS_- Trajectory_Lines_Corruption_(0x911A,_0x00): General system context",
+      "Video_Output_1_FPD_Fault_-_Link_not_locked_(0x905A,_0x93): General system context",
+      "Video_Output_2_FPD_Fault_-_Link_not_locked_(0x905B,_0x93): General system context",
+      "Video_Output_3_FPD_Fault_-_Link_not_locked_(0x905D,_0x93): General system context",
+      "DMS-9_BLINDNESS_DETECTION: General system context",
+      "AUS-0_Audio_Settings_Persistence: Audio system configuration parameters",
+      "AUS-0_Audio_settings_via_Diagnostics: Audio system configuration parameters",
+      "AUS-0_Audio_setting_introduction: Audio system configuration parameters",
+      "AUS-0__Audio_settings_via_Diagnostics: Audio system configuration parameters",
+      "AUS-0 Audio_Settings_Persistence: Audio system configuration parameters",
+      "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile): General system context",
+      "Blindspot_-_Front_Audio: Audio system configuration parameters",
+      "Blindspot_-_Rear_Audio: Audio system configuration parameters",
+      "Blind_Spot_Detection Enabled_-_HMI_Settings: General system context",
+      "ECallERAGLONASS_Calling: General system context",
+      "PFL-0_Profiling_Introduction: General system context",
+      "PRK-0_Obstacle_Proximity_Signalling_Command_Management: General system context",
+      "PRK-0_Obstacle_Proximity_Signalling_Indication_Management: General system context",
+      "PRK-0_Obstacle_Proximity_Signalling_Management: General system context",
+      "PRK-0_Obstacle_Proximity_Signalling_Visualization_Management: General system context",
+      "PRK-0__Obstacle_Proximity_Signalling_Command_Management: General system context",
+      "PRK-0__Obstacle_Proximity_Signalling_Indication_Management: General system context",
+      "PRK-0__Obstacle_Proximity_Signalling_Management: General system context",
+      "PRK-0__Obstacle_Proximity_Signalling_Visualization_Management: General system context",
+      "PRK-16_BLINDNESS_DETECTION: General system context",
+      "PRK-18_ONLINE_CALIBRATION: General system context",
+      "PRK-2_Flagging_lines: General system context",
+      "PRK-2_Parking_Lines: General system context",
+      "PRK6_Obstacle_Proximity_Signalling_Buzzer_Management: General system context",
+      "SET-42_Blindspot_setting: General system context",
+      "VFI-F200_Dependence_on_vehicle_state_conditions: General system context",
+      "VFI-F559_Blindspot_and_Rear_Cross_Traffic_Alert: General system context",
+      "VEH-F140_Unfastened_Seat_Belts_Signalling: General system context",
+      "VEH-F141_Signalling_of_Speed_Limit_Exceeded: General system context",
+      "VEH-F179_Obstacles_Proximity_Signalling: General system context",
+      "VEH-F559_Blind_Spot_Monitoring: General system context",
+      "Cancel_Maps_at_EOL: General system context",
+      "F244_NOS_C_CAN_02102024_PI_6: General system context",
+      "F244_NOS_GLOBAL_CAN_PI_6: General system context",
+      "F244_R5_NOS_ETHERNET_PI_6: General system context",
+      "RAD-16_DAB_Service_Follow_(linking): General system context",
+      "RAD-36_HD_Radio_Scan: General system context",
+      "RAD-6_Scan_Strong_Station: General system context"
+    ],
+    "recommended_downstream_context": [
+      "Audio_&_Sound_processing: General audio layout context",
+      "Volume: Volume control behavior and limits",
+      "Max_Switch-On_Volume ($0527): Volume control behavior and limits",
+      "Min_Switch-On_Volume ($XXXX): Volume control behavior and limits",
+      "Speed_Dependent_Volume_($0525): Volume control behavior and limits",
+      "Volume_Attenuation_Enable_($052F): Volume control behavior and limits",
+      "Volume_Attenuation_Levels_($0526): Volume control behavior and limits",
+      "Volume_Control_($0520): Volume control behavior and limits",
+      "AUS-11_Ringtone_Volume: Volume control behavior and limits",
+      "AUS-12_General_Warning_Volume: Volume control behavior and limits",
+      "AUS-13_Parking_Sensor_Volume: Volume control behavior and limits",
+      "AUS-4_Audio_Presets: General audio layout context",
+      "AUS-7_Speed_Dependent_Volume: Volume control behavior and limits",
+      "AUS-8_Navigation_Voice_Volume: Volume control behavior and limits",
+      "AUS-9_Voice_Control_Volume: Volume control behavior and limits",
+      "Volume_Bar: Volume control behavior and limits",
+      "Displays_Physical_Commands_for_Central_Display_-_VolumeMute_Command: Volume control behavior and limits"
+    ]
+  },
+  "statistics": {
+    "total_features_analyzed": 1426,
+    "total_dependencies_found": 197,
+    "critical_upstream_count": 60,
+    "high_upstream_count": 60,
+    "optional_upstream_count": 11,
+    "critical_downstream_count": 49,
+    "high_downstream_count": 17,
+    "optional_downstream_count": 0
+  }
+}

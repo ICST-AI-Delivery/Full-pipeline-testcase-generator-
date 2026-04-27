@@ -1,0 +1,78 @@
+# UnknownID 6.2.2.32.9 End of Charge indication Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32.9 End of Charge indication
+
+- ID: 4895726
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895728
+- Contents: IDC shall display time to complete charge indication in hours and minutes.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify charge time in hours and minutes 
+HVB_RechargeEndTime_hour
+HVB_RechargeEndTime_minute
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, to complete, time, indication, hours, minutes" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4896221
+- Contents: System shall allow user to select 12 hour/24 hour format through HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify User able to select time format (24H or 12H)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 5030484
+- Contents: IDC shall display time in [hh:mm] [AM/PM] format, when user select 12H.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that system able to display time in [hh]:[mm] [AM/PM] format when user select 12 hours format
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, mm, select, time, format" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.32.9 End of Charge indication Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

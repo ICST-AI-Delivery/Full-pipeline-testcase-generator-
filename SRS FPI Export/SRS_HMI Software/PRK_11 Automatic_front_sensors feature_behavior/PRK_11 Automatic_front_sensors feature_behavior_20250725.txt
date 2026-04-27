@@ -1,0 +1,443 @@
+# UnknownID 6.2.4.12.1 PRK 11: Automatic front sensors feature behavior Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.12.1 PRK 11: Automatic front sensors feature behavior
+
+- ID: 3883770
+- Artifact Type: SRS Feature
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_Diag, IOC_IOC, Parking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3883772
+- Contents: The system shall trigger the visualization of the Parking (Frontal parking sensor
+view or Surround view according to the parking version), automatically when satisfying the below conditions.
+Parking sensors are already active under '10' km/h
+Parking sensors detect an obstacle under threshold
+Speed is under 20km/h(Only for Surround).
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Enable the Automatic front sensors settings.
+
+Verify that the Parking view is visible during the below Automatic activation/reactivation conditions.
+
+1.  (Rear Camera + Sensors):
+Parking sensors are already active under 10 km/h.
+
+2. Parking sensors detect an obstacle under threshold.
+
+3.  (Surround view Camera + Sensors)
+Speed is under 20km/h (Only for Surround).
+- Grooming Status: Approved
+- Grooming Comments: [Abdul , Wei 30.12.2024] Approved
+
+https://jira.harman.com/jira/browse/FQ-600
+
+Comment to customer
+[Artashes 21.08.2024]
+What should be the behavior if we have an RVC system with driving backward with speed under 20 Kmph
+- Expert Domains: Android HMI, IOC_IOC, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, sensors, Speed, trigger, according, satisfying, are already, Parking, detect, is, visualization, sensorview, view, version, conditions, active, obstacle, threshold" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3927041
+- Contents: The system shall perform the below action, if Automatic Front sensors setting is On & the speed decreases below 10 km/h:
+Activate the Front sensors.
+Turn On the Parking sound.
+Visualize Park layout only if a front obstacle is detected
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Automatic front sensors setting is ON.
+
+
+Decrease the speed to <10 Km/h and verify the below behavior
+The Front sensors are active.
+Parking sound is On.
+Park layout is visualized only if a front obstacle is detected
+- Grooming Status: Approved
+- Grooming Comments: [Prashant]OK to approve
+- Expert Domains: Android HMI, Audio Control, Camera, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, perform, decreases, Activate, Turn, Visualize, detected, action, sensors, is On  amp, sound, layout, obstacle" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3886530
+- Contents: The system shall follow the below behavior, when the speed increases over '10km/h' with a gear different from Reverse:
+Deactivate the Front sensors
+Parking sound is OFF.
+Deactivate Park layout (happens at 20 km/h for Surround view).
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Reverse gear is not activated.
+Verify the below behavior if speed  > 10 km/h 
+
+1. The Front sensors are deactivated (Note: Verify by using the CAN signal)
+
+2. Parking sound is Off.
+
+3. Park layout shall be deactivated (this happens at >=  20 km/h for Surround view).
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, speed, sound, follow, increases, Deactivate, is, happens, behavior, h, different, Reverse, sensors, OFF, view" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3888777
+- Contents: The system shall follow the below behavior if "the speed decreases "less than" "10 km/h" during frontal park sensors "Off" when Automatic Front sensors setting" is in "Off" condition.
+The parking view shall "not-activate" automatically.
+Front sensors & parking sound shall remain "Off".
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn Off the front parking sensors from HMI
+Turn Off Automatic Front sensors setting from HMI.
+
+Decrease the speed to  < 10 Km/h
+
+Verify 
+1. the parking view is not launched automatically.
+2.Front sensors remains off and  parking sound remains Off.
+- Grooming Status: Approved
+- Grooming Comments: OK to approve
+- Expert Domains: Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, view, sound, follow, setting, is, activate, remain, behavior, h, sensors, Off, condition, sensors  amp" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3979320
+- Contents: The system shall switch to a TOP view in the Stream Frame when the "AUTO" icon selected in the Bird View due to obstacle detection near the vehicle
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Auto icon is activated in the bird view
+
+Simulate an obstacle within threshold distance
+
+Verify the TOP view in the Stream Frame is activated.
+- Grooming Status: Approved
+- Grooming Comments: [Sunil 27.02.2025] Approved
+
+Ask ferrarri:
+Need claity on Auto icon and Top view activation.
+
+1)
+Need to frame the quesiton
+- Expert Domains: Camera, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, selected, presence, near, vehicle, view, Frame, AUTO, icon" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3979322
+- Contents: The system shall deactivate the TOP views through the following methods:
+Choice of another view.
+Opposite gear engagement.
+Following the threshold of disengagement.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Top View is already activated.
+
+Verify that is possible to deactivate the top view via the following methods.
+
+Choice of another view.
+Opposite gear engagement.
+Following the threshold of disengagement.
+- Grooming Status: Approved
+- Grooming Comments: [Sunil Abdul 27.02.2025] Approved
+
+Ask Ferrari:
+
+Surround view is in front top view
+User switches to left view
+User select the front view again.(Assuming front top view activation conditions are met)
+Which view should show now (Is it Front Top view)
+- Expert Domains: Android HMI, IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "another" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3979329
+- Contents: The system shall show the 'TOP-REAR' view in the Stream-Frame if 'reverse-gear' = "inserted"(NCR_INFO.FutureSyncGear == R)' & an obstacle "detection" behind the vehicle at a distance less than or equal to "Le_len_ObstActTh".
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Top rear view is shown in the stream frame if Reverse gear is engaged and an obstacle is detected behild the vehicle at a distance <=  threshold distance.
+
+Note: threshold distance value depends on the sector.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, IOC_IOC, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, detected, TOP-REAR, view, Stream-Frame, 's, vehicle, distance" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: R + W (SV implementation is from WL ,,, what to show in which conditions from Red)
+
+8. ID: 3979330
+- Contents: The system shall show TOP-FRONT view in the Stream-Frame if reverse-gear is withdrawn(NCR_INFO.FutureSyncGear != R)' & an obstacle detected in front of the vehicle at a distance less than or equal to Top-view activation distance threshold('Le_len_ObstActTh').
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Top front view is shown in the stream frame if Reverse gear is  withdrawn and an obstacle is detected in front of the vehicle at a distance <=  threshold distance (Le_len_ObstActTh).
+
+Note: threshold distance value depends on the sector.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, IOC_IOC, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, detected, view, Stream-Frame, obstacle, front, vehicle, distance" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3979340
+- Contents: The system shall deactivateTOP views If the distance of the obstacles becomes greater than  Le_len_ObstActTh + Ce_len_ObstDistHyst.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Top view is active
+bring the obstacle distance >"Top view activation distance  threshold + hysteresis"
+
+Verify that the top view is closed
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, Surround_View, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Le_len_ObstActTh + Ce_len_ObstDistHyst. is top view activation disatcne threshild  +  hysterisis (30 cm)
+
+10. ID: 4003656
+- Contents: The system shall show the view present before the automatic activation if the Top-views are automatically deactivated following the threshold of dis-engagement.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: bring the obstacle distance <  Top view activation distance  threshold 
+
+verify that the view before top view activation is shown
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Surround_View, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "automatically" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3979417
+- Contents: The system shall show the parking view with Sensor view & Rear camera stream If reverse gear = "inserted" "(Ie_bol_RevGearBCSts == R)" & an obstacle detection behind the vehicle at a distance less than or equal to "Le_len_ObstActTh".
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: This is applicable for RVC configuration only.
+
+Verify rear view is displayed when the object is within the threshold and also display the virtual walls.
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Abdul 17.12.2024]
+OK to map to the existing SRS  requirement
+- Expert Domains: Android HMI, IOC_Diag, IOC_IOC, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "show, Rear" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3982749
+- Contents: The system shall show Sensors view If reverse gear shouldn't insert'(Ie_bol_RevGearBCSts != R)' & an obstacle should detect in front of the vehicle at a distance less than or equal to 'Le_len_ObstActTh'.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: This is applicable for RVC configuration only.
+
+Precondition : Reverse gear is not engaged.
+
+Front obstacle is detected.
+
+Verify that front sensor view is launched.
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Abdul 17.12.2024]
+OK to map to the existing SRS  requirement
+- Expert Domains: Android HMI, IOC_Diag, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, obstacle, show, view, n't insert, detect in front, vehicle, distance" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3979427
+- Contents: The system shall dismiss parking-view if already "activated" & the distance of the obstacles becomes greater than 'Le_len_ObstActTh + Ce_len_ObstDistHyst'.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: This is applicable for RVC configuration only.
+
+Precondition : Front sensor view is active.
+
+Vehicle moves away from the obstacle where obstacle distance is greater than 'Le_len_ObstActTh + Ce_len_ObstDistHyst'. 
+
+Verify that parking view is closed.
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Abdul 17.12.2024]
+OK to map to the existing SRS  requirement
+- Expert Domains: Android HMI, IOC_Diag, Parking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "if already" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3979428
+- Contents: The system shall show the view present before the automatic activation if the parking view is automatically deactivated following the threshold of dis-engagement.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: This is applicable for RVC configuration only.
+
+Precondition : Front sensor view is active.
+
+Vehicle moves away from the obstacle where obstacle distance is greater than 'Le_len_ObstActTh + Ce_len_ObstDistHyst'. 
+
+Verify that parking view is closed and previous screen is displayed.
+- Grooming Status: Approved
+- Grooming Comments: Approved
+
+[Prashant, Abdul 17.12.2024]
+OK to map to the existing SRS  requirement
+- Expert Domains: Camera, IOC_Diag, Parking
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "automatically" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3979295
+- Contents: The system shall implement the logics of Obstacle Detection Automation according to: 
+SFS F802 – Front and Rear Parking Camera Management 
+SFS F560 – Surround View Management 
+SFS F179 - Obstacle Proximity Signalling
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, according, logics, Automation, SFS, Management, Signalling" )
+- State (Harman_Requirement): Review
+
+2. ID: 3979296
+- Contents: The system shall implement automations based on parking sensors information received from NSP signals.
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Grooming Status: Review
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 3979327
+- Contents: The system shall compute obstacle distance threshold for the activation of the TOP views as follows:
+Obstacle detected by central sensors (Rear or Front): Le_len_ObstActTh = Ce_len_ObstDistCntrTh
+Obstacle detected by lateral sensors (Rear or Front): Le_len_ObstActTh = Ce_len_ObstDistLatT
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, compute, follows, detected, distance, activation, views, sensors Rear, Front, Rear" )
+- State (Harman_Requirement): Review
+
+4. ID: 3979361
+- Contents: The system shall compliant Surround view activation states to regulation requirements defined in reference documents PRK_UN_01, PRK_UN_02, PRK_US_01, PRK_SK_01, PRK_CH_01 according to Proxi parameter value IDC_SurroundView_Compliance_Norm.
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the surround view compliance Norm by using the Proxi parameter IDC_SurroundView_Compliance_Norm.
+
+Verify the surround view activation states are as per the Norms.
+- Grooming Status: Review
+- Expert Domains: Android HMI, Surround_View, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+5. ID: 3979408
+- Contents: The system shall compute the obstacle distance threshold for the activation of the parking views as follows:
+Obstacle detected by central sensors (Rear or Front): Le_len_ObstActTh = Ce_len_ObstDistCntrTh
+Obstacle detected by lateral sensors (Rear or Front): Le_len_ObstActTh = Ce_len_ObstDistLatT
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the signal values
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, compute, follows, detected, threshold, activation, views, sensors Rear, Front, Rear" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3979429
+- Contents: Proxi
+Start Byte 112, Start bit 6- Rear View Camera disable/enable (0 = "disabled", 1 = "enabled")
+Start Byte 184, Start bit 4- IDC_SurroundViewFunctionality (0 = "Not Present", 1 = "Present")
+Start Byte 186, Start bit 1 - IDC_SurroundView_Compliance_Norm (0 = "Not Present", 1 = "Default", 2 = "FMVSS", 3 = "KMVSS", 4 = "UNECE_R158")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 3979430
+- Contents: Diagnosis
+  Calibration Parameters
+Ce_len_ObstDistCntrTh
+Ce_len_ObstDistLatTh
+Ce_len_ObstDistHyst
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 3979431
+- Contents: Inputs
+Ie_enu_NSPTotFrmNbr
+Ie_enu_NSPFrmNbr
+Ie_enu_NSPFailSts
+Ie_enu_NSPCtrlSts
+Ie_len_NSPLHLatObstDist
+Ie_len_NSPLHCenObstDist
+Ie_len_NSPRHLatObstDist
+Ie_len_NSPRHCenObstDist
+Ie_bol_RevGearBCSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.12.1 PRK 11: Automatic front sensors feature behavior Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

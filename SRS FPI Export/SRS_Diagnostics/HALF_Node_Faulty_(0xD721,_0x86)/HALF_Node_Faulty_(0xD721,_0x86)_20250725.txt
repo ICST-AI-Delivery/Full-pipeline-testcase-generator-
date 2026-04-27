@@ -1,0 +1,66 @@
+# UnknownID 6.2.1.1.24 HALF Node Faulty (0xD721, 0x86) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.24 HALF Node Faulty (0xD721, 0x86)
+
+- ID: 3899572
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3899573
+- Contents: The system shall be able to detect half node faulty missing message immediately during key on & wrong DLC
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Proxi byte 30, bit 1 (“HALF”)  = "Present".
+-Set Half node missing messages.
+-Or do not send wrong DLC messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, have, message, configuration, bit 1  #8220;HALF #8221, Present" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg ID. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+2. ID: 3899576
+- Contents: The System shall de-validate/clear the half node faulty within 0.5s with right DLC.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send wrong DLC message
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "message, system, is, received, face, Maturation, amp, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg ID. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.24 HALF Node Faulty (0xD721, 0x86) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

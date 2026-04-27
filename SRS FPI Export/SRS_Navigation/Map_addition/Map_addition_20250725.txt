@@ -1,0 +1,203 @@
+# UnknownID 6.2.1.7.5 Map addition Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7.5 Map addition
+
+- ID: 4896220
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4896222
+- Contents: IDC shall retrieve the additional map contained in the connected USB drive.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to retrieve the additional map from USB
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4896224
+- Contents: System shall detect the map package in the connected USB is intended for the addition procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the system able to detect the map package in USB for addition procedure.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is intended" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4896229
+- Contents: System shall identify the map package file on the available USB drive and start the activation procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to identify the map package file in USB to start the activation
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, identify, start, file, drive, procedure" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4896230
+- Contents: IDC shall download the map data (license, map packages) from the USB drive to the IDC flash memory.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to download the map data from USB
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4896233
+- Contents: System shall display a pop up when system detects a mismatch between the digital signature stored and the identifier under which the updated maps package download.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the popup when mismatch between the digital signature and identifier.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, display, detects, stored, updated, maps, up, mismatch, signature, identifier, package download" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4896238
+- Contents: IDC shall verify the map package integrity loaded in the IDC memory by the means of a diagnostic routine.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to verify map package integrity in the IDC memory.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4896241
+- Contents: IDC shall display a pop up about the unavailability of the license.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the popup that license unavailability.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4896242
+- Contents: IDC shall display a pop up to the dealer that the license activate.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the popup that license activated.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, activate, pop, dealer" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4896246
+- Contents: IDC shall display a pop up to the dealer that the initial car date incorrectly update.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the popup that dealer updated car date incorrectly
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, pop, dealer, date, update" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4896247
+- Contents: IDC shall display a pop up to the dealer that the current procedure has failed.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the popup that current procedure is fail
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, failed, pop, dealer, has" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4896248
+- Contents: IDC shall display a pop up to the dealer that the map package install.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up that map package install.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, install, pop, dealer" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4896249
+- Contents: IDC shall display a pop up to the dealer that the current process is in progress.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up that current process in progress
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, process, display, is, pop, dealer, progress" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4896250
+- Contents: IDC shall be able to detect the map package corruption.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to detect map package corruption.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4896257
+- Contents: If an error occurs during the license activation or map update, the dealer shall repeat the map update procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify dealer able to repeat the map update when error occur.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.7.5 Map addition Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

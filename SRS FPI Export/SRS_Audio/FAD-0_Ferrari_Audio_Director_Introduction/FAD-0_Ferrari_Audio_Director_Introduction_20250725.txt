@@ -1,0 +1,180 @@
+# FAD-0 6.2.2.1  Ferrari Audio Director Introduction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1 FAD-0 Ferrari Audio Director Introduction
+
+- ID: 3408484
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, GNSS_Navigation, Media Core, Projections, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3494827
+- Contents: The system shall support  Ferrari Audio Director (FAD) library integration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the FAD library version by using the XTP command.
+
+Verify that FAD library version is correct.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3501338
+- Contents: FAD library shall support the below audio streams in Android Partition:
+Entertainment Audio & Multimedia
+Telephony
+Voice Assistant
+Navigation
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Inspection / Review
+- Verification Criteria: Play the mentioned audio sources.
+
+Verify that audio is heard in the loudspeaker.
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, Media Core, Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3501339
+- Contents: FAD library shall support the below Audio streams in Linux partition:
+ADAS Chimes
+UI Feedbacks
+General Warnings
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Inspection / Review
+- Verification Criteria: Play the mentioned audio sources.
+
+Verify that audio is heard in the loudspeaker.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3524005
+- Contents: FAD library shall support the below Audio streams in DSP partition:
+early sound
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Inspection / Review
+- Verification Criteria: Play the early sound while starting the Head unit.
+
+Verify that audio is heard in the loudspeaker(e.g.,Turn indicators, Power Doors and Power Lift gate).
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "early" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3524201
+- Contents: The system shall mix the early sound with processed audio output coming from ESE BEV, AVAS, Android and Linux.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the audio sources from ESE BEV, AVAS, Android  and Linux are mixed with Early Chimes.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, mix, coming, sound, BEV, AVAS, Linux" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3501335
+- Contents: The Audio system shall support tuning the FAD library by using the external tuning tool (GTT) through AWX framework.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the tuning of the FAD library is happening through GTT tool.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3674738
+- Contents: The System shall implement the overall audio path as described in the following diagram:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Guaranteed by Design
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3524028
+- Contents: (see: image28.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image28.png
+
+2. ID: 3945804
+- Contents: The system shall control the FAD through a FAD control library (FAD_CTRL).
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 3945805
+- Contents: The system shall send commands to the FAD_CTRL through a set of API.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+4. ID: 3945806
+- Contents: The FAD_CTRL shall  forward the received commands to the FAD via xTP protocol.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image28.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-0 6.2.2.1  Ferrari Audio Director Introduction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,541 @@
+# AUS-6 6.2.1.12  VIP Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.12 AUS-6 VIP
+
+- ID: 4033333
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4037349
+- Contents: The system shall allow user to activate the VIP mode by short pressing on one of the four zone (this is valid also if bench with 3 seat is fitted in the car).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Short press on one of the four zone (this is valid also if bench with 3 seat is fitted in
+the car)
+
+Verify that VIP mode for the selected zone is activated.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to activate, moving, short, pressing, zone, seat, passenger" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer to menustructure
+
+2. ID: 4623288
+- Contents: The system shall provide a VIP activation feedback on the zone selected
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the VIP activated zone is highlighted on HMI
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4037357
+- Contents: The system shall deactivate the VIP mode If user short press again on the selected zone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Press again on the VIP selected zone
+
+Verify that VIP mode is deactivated 
+(Cleared the Highlighted zone).
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, deactivate, shortpress, selected, moves, centered, mode, seat, dot, area" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer to menustructure
+
+4. ID: 4035808
+- Contents: The system shall make available the VIP Functionality & setting only if proxi parameter Audio_Level == 3 ("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level == '3'("High End").
+
+Verify that the VIP functionality & settings is visible can be changed (activated/deactivated) from HMI
+
+VIP functionality & settings should not be available if proxi parameter Audio_Level ! = 3("High End").
+- Grooming Status: Approved
+- Grooming Comments: to ferrari: what is manage here?
+https://jira.harman.com/jira/browse/FQ-894
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4035809
+- Contents: The system shall apply the 'VIP setting' for the ENTERTAINMENT sources
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the VIP setting is visible on HMI.
+
+Verify the VIP settings can be changed for Entertainment Sources.
+
+Note: Entertainment Sources includes 
+ Radio, Android Auto, Apple CarPlay, Traffic Alert
+- Grooming Status: Approved
+- Grooming Comments: [Muthu, Abdul 13.12.2024] OK to approve
+
+what is applicable means?
+
+https://jira.harman.com/jira/browse/FQ-879
+- Expert Domains: Android HMI, Media Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 4035810
+- Contents: The system shall set output signal 'IDC_AudioSettings.VIPSet' as follows when the user selects an option for VIP setting.
+(see: image14.png)
+If proxi parameter SideDriver == 0 ("left").
+(see: image15.png, image16.png)
+If proxi parameter SideDriver == 1 ("right").
+(see: image17.png, image18.png)
+(see: image19.png)
+(see: image20.png)
+(see: image21.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the VIP setting value  (select/deselect the zone).
+
+Verify that the set value is shown on the HMI and in the CAN signal IDC_AudioSettings.VIPSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, follow, selects, signal, option, setting" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image14.png, image15.png, image16.png, image17.png, image18.png, image19.png, image20.png, image21.png
+
+7. ID: 4035861
+- Contents: The system shall manage VIP functionality as follows:
+0 ("No_VIP"): the IDC shall deactivate VIP mode;
+1 ("SEAT_1"): the IDC shall activate VIP mode on front left seat position;
+2 ("SEAT_2"): the IDC shall activate VIP mode on front right seat position;
+3 ("SEAT_3"): the IDC shall activate VIP mode on rear left seat position;
+4 ("SEAT_4"): the IDC shall activate VIP mode on rear right seat position.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the zone from HMI
+
+Verify that the selected zone is highlighted on HMI
+
+On deselecting, the zone should not be highlighted
+
+Verify that the selected zone is correct by using the Logcat log
+- Grooming Status: Approved
+- Grooming Comments: Approved after confirming with Audio team,
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4035892
+- Contents: The system shall inhibit user interaction with Balance setting While VIPSet != '0'("No_Vip").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: VIP setting is selected (i.e. one of the zone is selected)
+
+Verify that user interaction is not allowed with balance setting
+- Grooming Status: Approved
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, inhibit, setting, interaction, VIPSet" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4037106
+- Contents: The system shall inhibit user interaction with Fader setting While VIPSet != '0'("No_Vip").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: VIP setting is selected (i.e. one of the zone is selected)
+
+Verify that user interaction is not allowed with Fader setting
+- Grooming Status: Approved
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, inhibit, setting, interaction, VIPSet" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4037109
+- Contents: The system shall show the Automatic VIP Setting only if the calibration parameter 'AutomaticVIPEnable = 1'("Enabled").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the setting is available in Engineering Menu if parameter 'AutomaticVIPEnable = 1'("Enabled").
+
+Verify that the setting can be made visible on HMI via the Engineering Menu.
+
+Note:
+The calibration parameter indicates whether or not the setting can be made visible via the Engineering Menu.
+- Grooming Status: Approved
+- Grooming Comments: Ferarri:
+f and only if Audio Level == ‘High End’, a calibratable parameter is available via Diagnosis  The calibratable parameter indicates whether or not the setting can be made visible via the Engineering Menu.
+
+
+Blocked: why  this parameter is needed , we have an engineering menu to activate/deactivate
+Note: AutomaticVIPEnable != 1'("Enabled") then we can not enable it via engineering menu?
+https://jira.harman.com/jira/browse/FQ-896
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Purple Colored Audio Setting in Menu structure can be controlled via Engineering Menu.
+
+11. ID: 4037132
+- Contents: The system shall manage the Automatic VIP setting only in Engineering Mode.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+calibration parameter
+AutomaticVIPEnable is set to 1 ("Enabled").
+
+Verify that Automatic VIP Setting can be enabled/disabled via Engineering menu
+
+Verify that Automatic VIP setting screen is visible if it enabled
+- Grooming Status: Approved
+- Grooming Comments: Ferrari:
+The calibration parameter indicates whether or not the setting can be made visible via the Engineering Menu.
+
+contradiction with above requirement
+https://jira.harman.com/jira/browse/FQ-896
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to ENG domain for
+activation.
+
+The calibratable parameter indicates whether or not the setting can be made visible via the Engineering Menu.
+
+12. ID: 4037156
+- Contents: The system shall set 'IDC_AudioSettings.AutomaticVIPSet' output signal as follows when user requests the update of Automatic VIP setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Update the Automatic VIP setting value.
+
+Verify that the CAN signal "IDC_AudioSettings.AutomaticVIPSet" is set as per the below artifact ID 4758722
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, according, follows, requests, update, value" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4758723
+- Contents: If setting Persistence type is Standard, the system shall persist the VIP setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (VIP setting) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4758724
+- Contents: If setting persistent type = standard, the system shall set the VIP setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the VIP setting value.
+
+Create error in memory reading.
+Verify that the VIP setting value is set to default value in HMI..
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, value, portion" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4758725
+- Contents: If setting Persistence type = Profiled, the system shall store the last VIP setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (VIP setting) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, reboot, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4758726
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (VIP setting) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4758727
+- Contents: If setting Persistence type = Profiled, the system shall set the VIP setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the VIP setting value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, value, portion" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4037226
+- Contents: The system shall set the signal IDC_AudioSettings.VIPSet = 0("NO_VIP") If proxi parameter Audio_Level != 3 ("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level != '3'("High End").
+
+Verify that the VIP Settings signal 'IDC_AudioSettings.VIPSet' = 0
+.
+Verify that VIP setting is not selected  in HMI.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+19. ID: 4037254
+- Contents: The system shall set the signal IDC_AudioSettings.AutomaticVIPSet = 0("OFF") If proxi parameter Audio_Level != 3 ("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level != '3'("High End").
+
+Verify that the Automatic VIP Settings is 0 (Off) in HMI and in the CAN signal IDC_AudioSettings.AutomaticVIPSet = 0
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-896
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4035806
+- Contents: The VIP Mode feature is designed to enhance the audio experience for a desired seat position.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+2. ID: 4035807
+- Contents: The system shall display the "VIP" interfaces as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 4037341
+- Contents: Through this setting user is able to enhance audio scene on selected seat.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+4. ID: 4627453
+- Contents: (see: image12.png, image13.png)
+Figure: VIP mode activated           Figure: VIP Mode deactivated.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+- Visual Elements: image12.png, image13.png
+
+5. ID: 4035853
+- Contents: The system shall adjust the tuning according to the selected seat through the 'FAD_CTRL__setVIPSeat(void *fad_ctrl_memory, int seat_value)' API If the value of VIPSet changes, where:
+seat_value = VIP setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adjust, according, selected, tuning, seat" )
+- State (Harman_Requirement): Review
+
+6. ID: 4758722
+- Contents: (see: image22.png)
+(see: image23.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image22.png, image23.png
+
+7. ID: 4037190
+- Contents: The system shall enable/disable the Automatic VIP functionality through the 'FAD_CTRL__setAutomaticVIP(void *fad_ctrl_memory, bool enable)' API If the Automatic VIP setting changes, where:
+enable = false IF HMI_Value == OFF
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, enable, disable, functionality, changes" )
+- State (Harman_Requirement): Review
+
+8. ID: 4037219
+- Contents: The system shall apply Persistence logics to VIP setting as defined in Audio setting introduction.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer IDC-430467 - AUS-0 Audio setting
+introduction.
+
+9. ID: 4037260
+- Contents: Diagnosis
+  Calibration Parameters
+VIPSet
+AutomaticVIPSet
+AutomaticVIPEnable
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 4037266
+- Contents: Proxi
+Start Byte 154, Start bit 6 - Audio Level (0 = "Invalid", 1 = "Base", 2 = "Premium", 3 = "High End")
+Start Byte 58, Start bit 4 - SideDriver (0 = "left", 1 = "right")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+11. ID: 4037273
+- Contents: Outputs
+   INFO_CAN:
+IDC_AudioSettings.VIPSet
+IDC_AudioSettings.AutomaticVIPSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image22.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image23.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image21.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image19.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image15.png, image16.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image17.png, image18.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image14.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image12.png, image13.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image20.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-6 6.2.1.12  VIP Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,127 @@
+# FAD-5 6.2.2.6.1 : Dynamic equalization adjustment Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.6.1 FAD-5: Dynamic equalization adjustment
+
+- ID: 3837523
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul 09.01.2025]: Not in Harman scope
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3837530
+- Contents: The audio system shall manage the window tonality adjustment in accordance with the window position acquired. (The function is applicable only to Base Audio Level.)
+Not needed, obsolete if the signals mentioned in the Verification is already covered above
+[Abdul 17.01.2025]: If these signals are not covered above, then talk to domain team
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: .Set the window position via CAN signal (STS_DRS_DriverWindowSts STS_DRS_PsngrWindowSts
+STS_DRS_RearLeftWindowSts
+STS_DRS_RearRightWindowSts)
+Verify the window tonality is adjusted in accordance with the window position acquired.
+Use logcat log for verification.
+Note: This is applicable to Base configuration.
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul 09.01.2025]: Not in Harman scope
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3837539
+- Contents: The audio system shall manage the RPM tonality adjustment in accordance with the RPM value acquired(The function is applicable only to Base Audio Level).
+obsolete
+[Abdul 17.01.2025]: If these signals are not covered above, then talk to domain team
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify the window tonality is adjusted in accordance with the window position acquired.
+
+Use logcat log for verification.
+
+Add as above
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul 09.01.2025]: Not in Harman scope
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3837548
+- Contents: The audio system shall manage the speed tonality adjustment in accordance with the speed value acquired(The function is applicable only to Base Audio Level).
+obsolete
+[Abdul 17.01.2025]: If these signals are not covered above, then talk to domain team
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify the window tonality is adjusted in accordance with the window position acquired.
+
+Use ...
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul 09.01.2025]: Not in Harman scope
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3837552
+- Contents: The system shall apply the equalization referred to all closed Windows Position in case of missing 'STATUS_DOORS' input message.
+obsolete if the CAN signal is covered above, Harman scope is just to pass the signal to FAD [Abdul 17.01.2025]: If these signals are not covered above, then talk to domain team
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: stop sending the status message to the Head Unit.
+
+Verify that the Audio equalization is applied as per all the closed windows position.
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul 09.01.2025]: Not in Harman scope
+
+https://jira.harman.com/jira/browse/FQ-750
+
+[Ahmed] : Not offered as it is not relevant for Harman. Ferrari to Confirm
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3837565
+- Contents: In case of missing STATUS_C_NCM input message, the system shall apply the equalization referred to a standard parameter.
+obsolete, same as above
+[Abdul 17.01.2025]: If these signals are not covered above, then talk to domain team
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Set Audio_Level to 3
+
+stop sending the status message to the Head Unit.
+
+Verify that the Audio equalization is applied as per all the closed windows position.
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul 09.01.2025]: Not in Harman scope
+
+[Ahmed] : Not offered as it is not relevant for Harman.
+
+https://jira.harman.com/jira/browse/FQ-448
+
+Not clear, Need input from Ferrari
+
+What is the standard parameter here?
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-5 6.2.2.6.1 : Dynamic equalization adjustment Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

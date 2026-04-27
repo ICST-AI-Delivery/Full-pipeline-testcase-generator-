@@ -1,0 +1,176 @@
+# AUD-4 6.2.1.5.1  : I2C over A2B Communication Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.1 AUD-4 : I2C over A2B Communication
+
+- ID: 3551576
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3536710
+- Contents: The system shall periodically send every 100 ms to the external amplifier 1 byte of data containing the below signals.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Verify that the information (provided in the Artifact ID 3551580) is sending to external amplifier every 100ms.
+
+Use A2B Analyzer for verification.
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024 Dawid Strzelec]: OK to approve.
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘100’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3941720
+- Contents: The system shall periodically(every 10 s) send 10 byte of data containing the following signals to the external amplifier.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Verify that the information (provided in the Artifact ID 3941721) is sending to external amplifier every 10 ms.
+
+Use A2B Analyzer for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘10 s byte’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3536711
+- Contents: The system shall periodically receive "1 byte" of data containing the below signals every "100ms" from the external amplifier.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Verify that the information (provided in the Artifact ID 3591369) is receiving from external amplifier every 100ms.
+
+Use A2B Analyzer for verification.
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024 Dawid Strzelec]: OK to approve.
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘100’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3536686
+- Contents: The IDC and the external amplifier exchange a set of information using I2C over A2B.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3551580
+- Contents: (see: image18.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image18.png
+
+3. ID: 3941721
+- Contents: (see: image19.png, image20.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image19.png, image20.png
+
+4. ID: 3591369
+- Contents: (see: image21.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Approved
+- Visual Elements: image21.png
+
+5. ID: 3537577
+- Contents: Inputs
+  HMI_CAN
+STATUS_B_CAN.KeySts
+TRIP_A_E_B.TotalOdometer
+STATUS_B_CAN.ExternalTemperture
+TIME_E_DATE.Hour2
+TIME_E_DATE.Hour1
+TIME_E_DATE.Minute2
+TIME_E_DATE.Minute1
+TIME_E_DATE.Day2
+TIME_E_DATE.Day1
+TIME_E_DATE.Month2
+TIME_E_DATE.Month1
+TIME_E_DATE.Year2
+TIME_E_DATE.Year1
+TIME_E_DATE.Year4
+TIME_E_DATE.Year3
+HMI_INFO.HMISts
+I2C over A2B
+ExternalAmplifierSts
+ExternalAmplifierFailSts
+AVASFailSts
+ConfigurationFailSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3537960
+- Contents: Outputs
+AUD_ConfigurationFailSts
+I2C over A2B
+ExternalAmplifierMuteAll
+STATUS_B_CAN.KeySts
+TRIP_A_E_B.Odometer
+STATUS_B_CAN.ExternalTemperature
+TIME_E_DATE.Hour2
+TIME_E_DATE.Hour1
+TIME_E_DATE.Minute2
+TIME_E_DATE.Minute1
+TIME_E_DATE.Day2
+TIME_E_DATE.Day1
+TIME_E_DATE.Month2
+TIME_E_DATE.Month1
+TIME_E_DATE.Year2
+TIME_E_DATE.Year1
+TIME_E_DATE.Year4
+TIME_E_DATE.Year3
+HMI_INFO.HMISts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image19.png, image20.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image21.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image18.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-4 6.2.1.5.1  : I2C over A2B Communication Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

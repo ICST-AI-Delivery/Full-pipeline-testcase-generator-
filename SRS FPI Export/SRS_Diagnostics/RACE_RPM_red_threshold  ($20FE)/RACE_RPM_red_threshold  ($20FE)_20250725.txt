@@ -1,0 +1,84 @@
+# UnknownID 6.2.4.3.2.28 RACE RPM red threshold  ($20FE) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.28 RACE RPM red threshold  ($20FE)
+
+- ID: 4008843
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: As per MTA it is not applicable for current program. Need to be checked with ferrari.
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4008964
+- Contents: The System Shall have a command that manages RACE RPM red threshold, When engine speed value is greater than or equal to(>=) the threshold NQS shall color the element.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Engine speed value is greater than or equal to(>=) the threshold NQS.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, manages, is, color, command, RPM, threshold, value, NQS, element" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the race rpm so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: RACE RPM red threshold Accepted Range is [0 RPM, 10000 RPM]
+
+2. ID: 4008968
+- Contents: The System shall have RecordDataIdentifier ($20FE) to know the RACE RPM red threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20FE)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the race rpm so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4009019
+- Contents: The System shall support the following NRC's
+Read NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the race rpm so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.28 RACE RPM red threshold  ($20FE) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

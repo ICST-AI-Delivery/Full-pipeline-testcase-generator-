@@ -1,0 +1,90 @@
+# VEH-F851 6.2.1.1.1.37  Fade Warning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.37 VEH-F851 Fade Warning
+
+- ID: 4007643
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4007889
+- Contents: System shall display Warning-1 Pop-up with Buzzer when FadeWarning equal to 1.
+Note: Warning-1 follows D01 visulaisation behaviour with Priority 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-1 Pop-up with Buzzer when FadeWarning equal to 1.
+
+Pop-Up ID: 08510001
+Audio Buzzer : Buzzer 2B
+
+CAN-Signal: NFR_HMI.FadeWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, FadeWarning, follows, Pop-up, Buzzer, Priority 1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4007896
+- Contents: System shall display Warning-2 Pop-up with Buzzer and Telltale when FadeWarning equal to 2.
+Note: Warning-2 follows D01 visulaisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-1 Pop-up with Buzzer when FadeWarning equal to 2.
+
+Pop-Up ID: 08510002
+
+CAN-Signal: NFR_HMI.FadeWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, FadeWarning, follows, Pop-up, Buzzer, Priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4007646
+- Contents: System shall display the Fade Warning Indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F851 6.2.1.1.1.37  Fade Warning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

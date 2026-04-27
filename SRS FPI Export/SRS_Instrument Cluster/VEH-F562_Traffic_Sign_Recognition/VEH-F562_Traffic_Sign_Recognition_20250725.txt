@@ -1,0 +1,1681 @@
+# VEH-F562 6.2.1.1.2.31  Traffic Sign Recognition Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.31 VEH-F562 Traffic Sign Recognition
+
+- ID: 3408599
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3840653
+- Contents: System shall store the Traffic Sign Recognition  values in E2P TSR Enable when byte-149, bit-6 (“Traffic_Sign_Recognition” present)  and SpeedLimitSignEnable before and after the Key-Off event.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR values are stored in E2P TSR when 
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+
+Proxi:Byte:149 , Bit-6
+
+Interface:
+INFO_SpeedLimitSignEnable
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, values, before, event" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3840689
+- Contents: System shall display the Traffic Sign Assistance Virtual Telltale Check Phase if Proxi Proxi Traffic_Sign_Assistance is "present" and  stop displaying the Traffic Sign Assistance Virtual Telltale Check Phase if Proxi Proxi Traffic_Sign_Assistance is "Absent"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Assistance, display, is, stop, displaying, Phase, Absent" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3840720
+- Contents: During the Key-On System shall start the "TSA fail" virtual telltale check phase (VTTCP) of tCKS( Duration of check telltale at key-on (4 Seocnds)) when following conditions met:
+Welcome ceremony finished or interrupted.
+Welcome ceremony unneeded( Display Completely during the previous key-cycle).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, start, following, met, finished, interrupted, fail, phase, telltale, Seocnds, Completely" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3840732
+- Contents: During the TSA Fail VTTCP , System shall display the Icon in A5 Wire Frame
+(see: image154.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image154.png
+
+5. ID: 3840744
+- Contents: System shall display TSR Warning-4 or Warning-5 and the TSA indications displayed by TSRMainSign2 signal after the “TSA Fail” VTTCP, and stop displaying the TSR Warning-4 or Warning-5 and the TSA indications displayed by TSRMainSign2 signal during  the “TSA Fail” VTTCP in the A5 wireframe Area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, displayed, stop, displaying, Warning-4, indications, signal, Fail #8221, VTTCP, Area" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3841647
+- Contents: System shall enable the Traffic Sign Recognition Functionality when Proxi (byte-149, bit-6) Traffic sign recognition  is present AND INFO_TSR_Enable is Enable.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: set proxi to (byte 149, bit 6) Traffic_Sign_Recognition = "Present", AND INFO_TSREnable ="Enable", and verify the Indication strategies are working.
+
+Note: IDC-439213.
+
+Internal Interfaces:
+INFO_TSREnable
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recognition, enable, is present, is Enable, Functionality, INFO" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3847918
+- Contents: If proxi (byte 149, bit6) Traffic Sign Recognition is absent AND INFO_TSREnable is Enable, System shall follow the Logic reports in "TSR management without ADAS" paragraph considering "IDC_INFO" internal Interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR indiactions without ADAS are indicated as per the Proxi settings.
+
+Note:IDC-439242
+
+Internal Interfaces:
+INFO_TSRHandOfTraffic 
+INFO_TSRMainSign1 
+INFO_TSRSignType 
+INFO_TSRSpdLimitUnits
+INFO_TSREnable
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, is Enable, follow, reports, considering, management, ADAS, paragraph" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3848502
+- Contents: If proxi (byte 149, bit6) Traffic Sign Recognition is Present AND INFO_TSREnable is Enable, System shall follow the Logic reports in "TSR management with ADAS" paragraph considering "NIT_TSR_01" frame.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: set proxi to (byte 149, bit 6) Traffic_Sign_Recognition = "Present", AND INFO_TSREnable ="Enable", TSR_01 Frame  and verify the Indication strategies are working.
+
+Note: IDC-439213.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, is Enable, follow, reports, considering, management, ADAS, paragraph" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3848559
+- Contents: System shall follow the Logic reports in "TSR managenent without ADAS  paragraph considering "INFO_TSREnable" Frame only when below conditions met:
+Proxi(byte-149 , bit-6) Traffic_Sign_Recognition is Present.
+TSREnable is Disabled AND Speed Limit Sign Enable is Enable.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR indiactions without ADAS are indicated as per the Proxi settings.
+
+Note:IDC-439242
+
+Interfaces:
+INFO_SpeedLimitSignEnable
+INFO_TSREnable
+
+Proxi: byte-149, bit-6
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, follow, reports, considering, met, is Present, is, Disabled, Speed, managenent, only, Sign, Enable" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3848567
+- Contents: System shall stop TSR indicators when below conditions met:
+Proxi(byte-149 , bit-6) Traffic_Sign_Recognition is Present.
+TSREnable is Disabled AND Speed Limit Sign Enable is Disable
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the PROXI to TSREnable to Disable AND SpeedLimitSign is Disable and verify that the TSR indication strategy is not performed(With and With-Out ADAS)
+
+Interfaces:
+INFO_SpeedLimitSignEnable
+INFO_TSREnable
+
+Proxi: byte-149, bit-6
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, met, is Present, is, Disabled, Speed, indicators, Sign, Disable" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3848643
+- Contents: system shall inhibit every visualization. when below conditions are met:
+After a Key OFF to Key ON transition ,
+proxi (byte 149, bit 6) Traffic_Sign_Recognition = "Present", AND
+INFO_TSREnable ="Enable" if the visualized speed is lower than V_car_moving(5 KM/hr)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Visualisation is inhibited when necessary conditions are met.
+
+Note:IDC-439213
+
+CAN-Signal:
+STATUS_B_Keysts
+NFR_SPEED.VehicleSpeedVSOSig
+
+Interfaces:
+INFO_SpeedLimitSignEnable
+INFO_TSREnable
+
+Proxi: byte-149, bit-6
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Key, moving, inhibit, OFF, transition, visualization, time" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3848646
+- Contents: After the first exceeding of the V_car_moving threshold,System shall display TSR indications even if the vehicle speed goes below the V_car_moving
+threshold (until a new key cycle event).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR Functioanlity is enabled and shall continue to display the TSR signs even if the Speed of the Car is less than 5Km/hr.
+
+NOTE: IDC-439213
+
+CAN-
+TSR_01
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, vehicle, moving, display, described, goes, exceeding, indications, event" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3848650
+- Contents: System shall stop displaying the TSR indication if TSR_ON is set to OFF and driven by TSR_01 Frame.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR indications were not displayed by the system when TSR_ON is set to OFF and the Input is driven by TSR_01 frame.
+
+NOTE: IDC-439213
+
+CAN-TSR_01.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "be, driven" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3848655
+- Contents: TSRMainSign1 signal shall command what has to show in B wireframe area(Current Speed Limit),
+The system shall show the correct pictogram based on the signal and to the family logics below, following the values
+(see: image155.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR indications are displayed according to the table by providing the CAN values.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+
+Wireframe:B6, B5
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall command, shall show" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image155.png
+
+15. ID: 3848661
+- Contents: TSRMainSign2 signal shall command what has to show in B wireframe area (Overtaking Prohibition,WorkInProgress or SlipperyRoad).
+The system shall show the correct pictogram based on the signal and the family logics described below, following the values.
+(see: image156.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR indications are displayed according to the table by providing the CAN values.
+
+CAN-Signal:
+TSR_01.TSRMainSign2
+
+Wireframe:B6, B5
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall command, shall show" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image156.png
+
+16. ID: 3848664
+- Contents: System shall show signs as a scrolling sequence When more of the Traffic Sign Recognistion signs detected.
+(see: image157.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trafiic Signs are displayed in a scrolling sequence when there is more traffic signs detected by the System.
+
+CAN-Signal:
+CAN-Signal:
+TSR_01.TSRMainSign2
+TSR_01.TSRMainSign1
+
+
+Wire Frame:
+Area B
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "more, System, detect, show, signs, sequence" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image157.png
+
+17. ID: 3848665
+- Contents: Sytem shall identify the correct family of icons matching two CAN inputs:
+TSRSignType
+TSRHandOfTraffic
+(see: image158.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the correct family of Icons were displayed based on the CAN inputs.
+
+CAN-Signal:
+TSR_01.TSRSignType
+TSR_01.TSRHandOfTraffic
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image158.png
+
+18. ID: 3848703
+- Contents: If (TSRSignType == Unknown OR TSRSignType == Not_Used OR TSRHandOfTraffic == Unknown OR TSRHandOfTraffic == Not_Used),
+then system shall show ViennaConvention_Family icons.
+(see: image159.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ViennaConvention_Family icons were displayed when CAN signals were set as per the condition.
+
+CAN-Signal:
+TSR_01.TSRSignType
+TSR_01.TSRHandOfTraffic
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image159.png
+
+19. ID: 3848705
+- Contents: The following table describes the icons related to each family through the TSRMainSign1 and TSRMainSign2 signals:
+(see: image160.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR indications are displayed according to the table by providing the CAN values.
+
+CAN-Signal:
+TSR_01.TSRMainSign2
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Grooming Comments: Image is too blurry, need better quality image.
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "table, following, describes, icons, signals" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image160.png
+
+20. ID: 3848706
+- Contents: Speed Limit (TSRMainSign1): HMI Telltale Strategy:
+(see: image161.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the mentioned text from the table is displayed in the TSR screen.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image161.png
+
+21. ID: 3848709
+- Contents: System shall display the  speed limit exceeding  following the logic described below:
+If TSRSpdLimitUnits=”Km/h” and Vindicata[km/h]> TSRMainSign1 value+SpeedOverLimit, the speed limit icon background shall become red.
+If TSRSpdLimitUnits=”Mph” and Vindicata[mph]> TSRMainSign1 value+SpeedOverLimit, the speed limit icon background shall become red.
+If TSRSpdLimitUnits= “Unknown”, the speed limit icon background shall become white.
+The warning will stop immediately if the visualized speed value goes below the limit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Speed Limit signs visualisatio Graphic Elemtns cahnges the Background colour as per the conditions.
+
+
+SpeedOverLimit : 1(value)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "follow, become, stop" ) 
+Missing unit 
+ (Look for: "‘+5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3925417
+- Contents: System shall activate the External crown visualisation in Left Dial when TSRMainSign1 is other than "Unknown" , "Cancellation".
+(see: image162.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the External Crown Visualisation is displayed in left dial when TSRMainSign1 is not set to Unknown or Cancellation.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Sign1, activate, visualisation, Dial, Unknown, Cancellation" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image162.png
+
+23. ID: 3925418
+- Contents: The start position of the External crown shall be aligned with TSRMain Sign1 Value.
+(see: image163.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the External crown displays the following the TSRMainSign1 value.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be aligned" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image163.png
+
+24. ID: 3925438
+- Contents: The end position of the External crown shall be aligned with the current speed of the Vehicle.
+(see: image164.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify  that the End position of the External Crown is displayed using the Current Speed of the Vehicle.
+
+CAN-Signal:
+NFR_SPEED.VehicleSpeedVSOSig
+TSR_01.TSRMainSign1
+
+Note:
+Please refer IDC-418518 for Vreale
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be aligned" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image164.png
+
+25. ID: 3925439
+- Contents: System shall color the  speed value in the center of the left dial and performs the animation when V_Indicata[km/h or mph] greater than TSRMainSign1Value+SpeedOverLimit parameter.
+(see: image165.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Speed Value in the Center of the Left Dial in Red and Performs Animation when V_Indicata Greater than TSRMainSign1Value+SpeedOverLimit parameter.
+
+CAN-Signal:
+NFR_SPEED.VehicleSpeedVSOSig
+TSR_01.TSRMainSign1
+
+Note:
+Please refer IDC-418518 for Vreale
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, color, performs, value, center, dial, animation, specifications, h, parameter" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image165.png
+
+26. ID: 3848716
+- Contents: System shall display Warning-1 Pop-up , Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+If PROXI(Traffic_Sign_Recognition == "present) AND PROXI (Traffic_Sign_Assistance == "absent")
+TSR_Fault == ON
+Note: Warning-1 Follows D01 Visualisation Behaviour with Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+PROXI (Traffic_Sign_Recognition = "present) AND PROXI (Traffic_Sign_Assistance = "absent")
+
+Trigger Condition:
+TSR_Fault = ON
+
+Verify that the Warning-1 is triggered based on the Condition.
+
+Proxi: Byte-149, Bit-6(TSR)
+Byte-170, Bit-1 (TSA)
+
+Pop-Up ID:05620001
+
+Buzzer:2B
+
+CAN-Signal:
+HAPTIC1.TSR_Fault
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, met" )
+- State (Harman_Requirement): Approved
+
+27. ID: 3848717
+- Contents: During Warning-1(TSR_Fault is ON), TSR System shall stop displaying the Telltales
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltales(TSR Tellates) were not displayed when TSR_Fault is set ON.
+
+CAN-Signal:
+HAPTIC1.TSR_Fault
+TSR_01.TSRMainSign1
+TSR_01.TSRMainSign2
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be non-visualized" )
+- State (Harman_Requirement): Approved
+
+28. ID: 3848718
+- Contents: Warning-1 shall show even if the function is disable through the specific settings voice (TSREnable=“Not_Enable”).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+INFO_TSREnable is Not_Enable
+
+Verify that the telltales(TSR Tellates) were not displayed when TSR_Fault is set ON.
+
+CAN-Signal:
+HAPTIC1.TSR_Fault
+TSR_01.TSRMainSign1
+TSR_01.TSRMainSign2
+
+Internal Interface:
+INFO_TSREnable
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "function, Warning, show even, is disable, voice, see, settings, Specification - Settings" )
+- State (Harman_Requirement): Approved
+
+29. ID: 3848803
+- Contents: After a Key OFF to Key ON transition if the visualized speed is lower than V_car_moving(5 KM/hr) system shall inhibit every visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+V_Car_Moving is less than 5kmph
+
+Verify TSR Indications are not displayed when Key Off to KeyOn transition occured.
+
+CAN-Signal:
+HAPTIC1.TSR_Fault
+TSR_01.TSRMainSign1
+TSR_01.TSRMainSign2
+STATUS_B_Keysts
+
+Internal Interface:
+INFO_TSREnable
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Key, moving, inhibit, OFF, transition, visualization" ) 
+Unclear term
+ (Look for: "every" )
+- State (Harman_Requirement): Approved
+
+30. ID: 3848804
+- Contents: After the first exceeding of the V_car_moving threshold,System shall display TSR indications , even if the vehicle speed goes below the V_car_moving
+threshold (until a new key cycle event).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+V_Car_Moving is more than 5kmph
+
+Verify TSR Indications are displayed when Cr moving speed is more than 5kmph and remains till next key on cycle.
+
+CAN-Signal:
+HAPTIC1.TSR_Fault
+TSR_01.TSRMainSign1
+TSR_01.TSRMainSign2
+STATUS_B_Keysts
+
+Internal Interface:
+INFO_TSREnable
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, vehicle, moving, display, described, goes, exceeding, indications, event" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3848805
+- Contents: If INFO_SpeedLimitSignEnable=Not_Enable ,
+TSR indicators shall be non-visualize  driven by the frame:INFO_TSR_01
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSR stops displaying the Telltales when SpeedLimitSignEnable is set to Not_Enable and driven by the INFO_TSR_01.
+
+Internal Interfaces:
+INFO_SpeedLimitSignEnable
+INFO_TSRHandOfTraffic
+INFO_TSRMainSign1 
+INFO_TSRSignType 
+INFO_TSRSpdLimitUnits
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "be, driven" )
+- State (Harman_Requirement): Approved
+
+32. ID: 3848806
+- Contents: INFO_TSRMainSign1 signal shall command what has to show in B wireframe area i.e. current-speed limit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Current speed limit is displayed in B-Wireframe Area following the INFO_TSRMainSign1.
+
+Internal Interfaces:
+INFO_TSRMainSign1
+- Grooming Status: Approved
+- Grooming Comments: Check with ADAS_Horizon team , how to simulate the req's
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this, their" ) 
+Compound requirement
+ (Look for: "shall command, shall show" )
+- State (Harman_Requirement): Approved
+
+33. ID: 3848808
+- Contents: The IDC shall identify the correct icons family matching two internal inputs:
+INFO_TSRSignType
+INFO_TSRHandOfTraffic
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the correct family of icons family wil be displayed following the two internal inputs.
+INFO_TSRSignType
+INFO_TSRHandOfTraffic
+- Grooming Status: Approved
+- Grooming Comments: Check with ADAS_Horizon team , how to simulate the req's
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "family" )
+- State (Harman_Requirement): Approved
+
+34. ID: 3848809
+- Contents: If INFO_TSRSignType = Unknown or INFO_TSRSignType = Not_Used or INFO_TSRHandOfTraffic = Unknown or INFO_TSRHandOfTraffic = Not_Used, then
+the System shall show “ViennaConvention_Family" icons
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ViennaConvention_Family Icons were displayed when necessary conditions are met.
+
+Internal Interfaces:
+INFO_TSRSignType
+INFO_TSRHandOfTraffic
+- Grooming Status: Approved
+- Grooming Comments: Check with ADAS_Horizon team , how to simulate the req's
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "In addition" )
+- State (Harman_Requirement): Approved
+
+35. ID: 3848811
+- Contents: The following table describes the icons related to each family through the INFO_TSRMainSign1 signal:
+(see: image167.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the the below mentioned icons were displayed via INFO_TSRMainSign1 signal
+
+Internal Interface:
+INFO_TSRMainSign1
+- Grooming Status: Approved
+- Grooming Comments: Check with ADAS_Horizon team , how to simulate the req's
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image167.png
+
+36. ID: 3848814
+- Contents: The speed limit exceeding shall follow the logic described below:
+If INFO_TSRSpdLimitUnits=”Km/h” and Vindicata[km/h]> INFO_TSRMainSign1 value+SpeedOverLimit, the speed limit icon background shall become red
+If INFO_TSRSpdLimitUnits=”Mph” and Vindicata[mph]> INFO_TSRMainSign1 value+SpeedOverLimit, the speed limit icon background shall become red.
+If INFO_TSRSpdLimitUnits= “Unknown”, the speed limit icon background shall become white.
+The warning will stop immediately if the visualized speed value goes below the limit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Speed Limit signs visualisatio Graphic Elements changes the Background colour as per the conditions.
+
+
+SpeedOverLimit : 1(value)
+- Grooming Status: Approved
+- Grooming Comments: Check with ADAS_Horizon team , how to simulate the req's
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "follow, become, stop" ) 
+Missing unit 
+ (Look for: "‘+5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+37. ID: 4889786
+- Contents: System shall enable this functionality if (proxi Traffic_Sign_Assistance = “Present” ,TSA_ON = (“Visual” or “Visual_Acoustic”)) AND If INFO_TSAEnable = Enable
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Proxi Traffic_Sign_Assistance is Present 
+
+Verify that the Traffic Sign Assistance is enabled when TSA_ON is visual or Visual Acoustic AND If INFO_TSAEnable is Enable.
+
+CAN-Signal:
+HAPTIC1.TSA_ON
+
+Internal Interface:
+INFO_TSAEnable
+
+Note: Please Refer IDC-439316
+- Grooming Status: Approved
+- Grooming Comments: Check with ADAS_Horizon team , how to simulate the req's
+- Expert Domains: ADAS_Horizon, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" ) 
+Compound requirement
+ (Look for: "System, enable, functionality, #8221" )
+- State (Harman_Requirement): Approved
+
+38. ID: 3851311
+- Contents: System shall enable the functionality when proxi Traffic_Sign_Assistance = “Present” AND TSA_ON = (“Visual” or “Visual_Acoustic”).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Traffic Sign Assistance functionality is Enabled when Proxi Traffic_Sign_Assistance is set to Present AND TSA_ON is Visual or Visual_Acoustic.
+
+CAN-Signal:
+HAPTIC1.TSA_ON
+
+Note: Please Refer IDC-439316
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, functionality, #8221, TSA_ON    #8220" )
+- State (Harman_Requirement): Approved
+
+39. ID: 3851331
+- Contents: After a Key OFF / Key ON transition, if the visualized speed is lower than V_car_moving, the IDC shall inhibit visualization
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall display Empty in the TSA indication Area when there is a Key Off to Key-On transistion is received and Speed of the car is lessthan 5KMPH.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "speed, visualized, is, moving, inhibit, OFF / Key, transition, visualization" )
+- State (Harman_Requirement): Approved
+
+40. ID: 3851340
+- Contents: After the first exceeding of the
+V_car_moving threshold, IDC shall display TSA indications as described below, even if the vehicle speed goes below the V_car_moving threshold (until a new key cycle event.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Traffic Sign Assistance indications are displayed when the car speed is more than 5KMPH and continue to display until next key cycle.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, vehicle, moving, display, described, goes, exceeding, indications, threshold, event" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+41. ID: 3851343
+- Contents: System shall stop displaying the Traffic Sign Assistance  indications if TSA_ON is set to OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TSA indicatins are not displayed by the system when TSA_ON signal is set to OFF.
+
+CAN-Signal:
+HAPTIC1.TSA_ON
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "frame, Enable, driven, stop, indicators, Visualisation" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+42. ID: 3851351
+- Contents: System shall display the current speed limit based on the value of TSRMainSign1 in the B wireframe area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the current speed limit based on the value TSRMainSign1 in B6/B7 wireframe area.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+43. ID: 3851445
+- Contents: System shall display the pictogram base on the TSRMainSign1 value and on the family logic reported below
+(see: image169.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Icons displayed in the B6/B7 wireframe areas are displayed as per the logics from the table.
+
+CAN-Signal:
+TSR_01.TSRSignType
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, reported, thepictogram base, value" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image169.png
+
+44. ID: 3851446
+- Contents: System shall display the secondary sign, i.e. Overtaking Prohibition, Roadworks or Slippery Road, based on the value of TSRMainSign2  in the B wireframe area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Seconday signs like Overtaking Prohibition , Road Works , Slippery road are displayed based onthe value  of TSRMainSign2. in B wireframe Area.
+
+CAN-Signal:
+TSR_01.TSRMainSign2
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Overtaking, based, sign, Roadworks, Road, value, wireframe area" )
+- State (Harman_Requirement): Approved
+
+45. ID: 3851449
+- Contents: IDC shall display the pictogram based on the TSRMainSign2 value and on the family logic reported below.
+(see: image170.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Icons displayed in the B6/B7 wireframe areas are displayed as per the logics from the table.
+
+CAN-Signal:
+TSR_01.TSRSignType
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, based, reported, pictogram, value" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image170.png
+
+46. ID: 3851458
+- Contents: System shall stop display the secondary sign based on the value of TSRMainSign2
+signal when TSAMainSign2Fbk != “ON”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System stops displaying the TSA icosn in the B wireframe Area when TSAMainSign2FBK is Not equal to ON.
+
+CAN-Signal:
+HAPTIC1.TSAMainSign2Fbk
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop display, based, sign, value" )
+- State (Harman_Requirement): Approved
+
+47. ID: 3851463
+- Contents: System shall identify the correct icons family matching two CAN inputs:
+TSRSignType
+TSRHandOfTraffic
+(see: image171.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Icons displayed in the B6/B7 wireframe areas are displayed as per the logics from the table.
+
+CAN-Signal:
+TSR_01.TSRSignType
+TSR_01.TSRHandOfTraffic
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "family" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image171.png
+
+48. ID: 3851466
+- Contents: System shall display the “ViennaConvention_Family" icons  if TSRSignType = Unknown or TSRSignType = Not_Used or TSRHandOfTraffic = Unknown or TSRHandOfTraffic = Not_Used.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display the ViennaConventio_Family icons when TSRSignType = Unknown or TSRSignType = Not_Used or TSRHandOfTraffic = Unknown or TSRHandOfTraffic = Not_Used
+
+
+CAN-Signal:
+TSR_01.TSRSignType
+TSR_01.TSRHandOfTraffic
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, #8220, icons" )
+- State (Harman_Requirement): Approved
+
+49. ID: 3851468
+- Contents: The following table describes the icons related to each family through the TSRMainSign1 and TSRMainSign2 signals:
+(see: image172.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays the family of ICONS through the TSRMainSign1 and TSRMainSign2 signals.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+TSR_01.TSRMainSign2
+- Grooming Status: Approved
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "table, following, describes, icons, signals" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image172.png
+
+50. ID: 3851530
+- Contents: System shall activate the visual warning when PWT_STATUS_5.1SA_VisualWarning is One.
+(see: image174.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Visual warning of the speed sign detected is displayed by the system in B4 to B7 wireframe area.
+
+CAN-Signal:
+PWT_STATUS_5.ISA_VisualWarning
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image174.png
+
+51. ID: 3925762
+- Contents: System shall activate the external crown visualisation in left dial when TSRMainSign is other than Unknown , Cancellation.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system activates external crown visualisation in left dial is displayed when TSRMainSign is other than Unknown , Cancellation.
+
+CAN-signal:
+TSR_01.TSRMainSign2 
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TSRMainSign, activate, is, visualisation, dial, Cancellation" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+
+52. ID: 3925763
+- Contents: The start position of the External crown shall be aligned with the TSRMainSign1 Value.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the External crown shall be displayed according to the TSRMainSign1 signal.
+
+CAN-Signal:
+TSR_01.TSRMainSign1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be aligned" )
+- State (Harman_Requirement): Approved
+
+53. ID: 3925764
+- Contents: The end position of the external crown shall be aligned with current speed of vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the end position of the External crown shall be displayed according to the current speed of the Vehicle.
+
+CAN-Signal:
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be aligned" )
+- State (Harman_Requirement): Approved
+
+54. ID: 3925765
+- Contents: System shall color the speed value in the Center of the left dial perform the animation in accordingly.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system color the speed value in the center of the left dial perform the animation accordingly.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+55. ID: 3851686
+- Contents: System shall display Warning-2 Pop-up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS Wireframe  when Proxi Traffic_Sign_Assistance == "present" AND  TSR_Fault == "ON" OR OR ISA_Fault = Active
+Note: Warning-2 follows D01 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Traffic_Sign_Assistance = "present"
+
+Trigger Condition:
+TSR_Fault = "ON" OR ISA_Fault = Active
+
+
+Verify that the Warning-2 is displayed when necessary conditions are met.
+
+Proxi: Byte170, Bit-1(TSA)
+
+Buzzer:2B
+
+Pop-Up ID:05620002
+
+
+CAN-Signal:
+PWT_STATUS_5.ISA_Fault
+HAPTIC1.TSR_Fault
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, Buzzer, Telltale, TSR_Fault, Priority-0" )
+- State (Harman_Requirement): Approved
+
+56. ID: 3851726
+- Contents: System shall continue to display Warning-2 even if Function TSA is disable by setting TSA_ON is OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-2 is displayed even if the TSA_ON is set to OFF.
+
+CAN-Signal:
+HAPTIC1.TSA_ON
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "road sign icon, be, Warning, show even, disable, case, OFF, function, TSA_ON" )
+- State (Harman_Requirement): Approved
+
+57. ID: 3851713
+- Contents: System shall display Warning-3 Pop-up with Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Traffic_Sign_Assistance == "present" AND singal transition  from TSA_ON == "Visual or Visual_Acoustic" to TSA_ON == "OFF"
+Note: Warning-3 follows D01 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Traffic_Sign_Assistance = "present"
+
+Trigger Condition:
+Signal transition from TSA_ON= "Visual or Visual acoustic" to TSA_ON is OFF 
+
+
+Verify that the Warning-3 is displayed when necessary conditions are met.
+
+Proxi: Byte170, Bit-1(TSA)
+
+Buzzer:2B
+
+Pop-Up ID:05620003
+
+
+CAN-Signal:
+HAPTIC1.TSA_ON
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, Buzzer, Telltale, TSR_ON, Priority-0" )
+- State (Harman_Requirement): Approved
+
+58. ID: 3851747
+- Contents: System shall display Info-1 Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when Proxi Traffic_Sign_Assistance == "present" AND signal transition from TSA_ON="Visual Acoustic" to  TSA_ON="Visual"
+Note: Info-1 follows D01 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Proxi Traffic_Sign_Assistance is Present 
+
+Trigger Condition:
+ Signal Transition from TSA_ON+ Visaul Acoustic to TSA_ON="Visual"
+
+PopUp ID: 05620004
+
+CAN-Signal:
+HAPTIC1.TSA_ON
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, Buzzer, Telltale, TSR_Fault, Info-1, Priority-0" )
+- State (Harman_Requirement): Approved
+
+59. ID: 3851812
+- Contents: System shall display Info-2  Buzzer when Traffic_Sign_Assistance ==Present  AND  ISA_AcusticWarning = "Active")
+Note: Maximum Sound Duration
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Traffic_Sign_Assistance is Present 
+
+Trigger Condition:
+ISA_AcusticWarning = "Active")
+
+Verify that the Audio Buzzer is played when necessary conditins are met.
+
+Buzzer:Buzzer_Speed_Alert_ISA
+
+CAN-Signal:
+PWT_STATUS_5.ISA_AcusticWarning
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, AcousticWarning, Buzzer, Duration" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+60. ID: 3851872
+- Contents: System shall play Info-3 audio buzzer  when PROXI (Traffic_Sign_Assistance = "present") AND PROXI (TSASignChangeFbk_Link = "with acoustic") and (TSASignChangeFbk = “ON” AND TSA_ON = “Visual_Acoustic” AND (on change of TSRMainSign1))
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+(Traffic_Sign_Assistance = "present") AND PROXI (TSASignChangeFbk_Link = "with acoustic"),
+
+Trigger Condition:
+TSASignChangeFbk = “ON” AND TSA_ON = “Visual_Acoustic” AND (on change of TSRMainSign1
+
+Verify that the Buzzer_Limit_Change_ISA is played by the system when necessary conditions are met.
+
+Buzzer: Buzzer_Limit_Change_ISA
+
+CAN-Signal:
+HAPTIC1.TSASignChangeFbk
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+61. ID: 3851873
+- Contents: System shall play Info-4 audio buzzer  when PROXI (Traffic_Sign_Assistance = "present") AND PROXI (TSASignChangeFbk_Link = "with visual") and (TSASignChangeFbk = “ON” AND TSA_ON = “Visual_Acoustic” or "Visual" AND (on change of TSRMainSign1))
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+(Traffic_Sign_Assistance = "present") AND PROXI (TSASignChangeFbk_Link = "with visual"),
+
+Trigger Condition:
+TSASignChangeFbk = “ON” AND TSA_ON = “Visual” AND (on change of TSRMainSign1
+
+Verify that the Buzzer_Limit_Change_ISA is played by the system when necessary conditions are met.
+
+Buzzer: Buzzer_Limit_Change_ISA
+
+CAN-Signal:
+HAPTIC1.TSASignChangeFbk
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+62. ID: 3912759
+- Contents: System shall follow the below recovery logic when INFO IDC frame is missing on the network for tREC time when proxi (byte 149, bit 6) Traffic_Sign_Recognition = "Present" AND proxi (byte 170, bit 1) Traffic_Sign_Assistance = “Absent” then:
+If INFO_TSREnable=Enabled, then the IDC shall follow TSR_01 frame to visualize TSR indications.
+If INFO_SpeedLimitSignEnable=Enable and INFO_TSREnable=Disabled, then the IDC shall not show any TSR indicationss.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Recovery for CAN and Internal Frames are performed as per the Logic mentioned in the requirement.
+
+CAN-Signal:
+TSR_01.TSRHandOfTraffic 
+TSR_01.TSRSignType 
+TSR_01.TSRMainSign2 
+TSR_01.TSRMainSign1 
+TSR_01.TSRSpdLimitUnits
+
+Internal Interface:
+INFO_TSRHandOfTraffic
+INFO_TSRMainSign1
+INFO_TSRSignType 
+INFO_TSRSpdLimitUnits 
+INFO_TSREnable 
+INFO_TSAEnable 
+INFO_SpeedLimitSignEnable
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, Android HMI, IOC_IOC, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+- Proxi Details:
+| Use Case | Proxi: Country Market | Proxi: Detail for Extra Market | Proxi: km/mi | INFO_Distance Unit signal | Speed Visualization                     |
+|----------|-----------------------|--------------------------------|--------------|---------------------------|-----------------------------------------|
+| A1       | 2                     | 3                              | Don't care   | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| A2       | 2                     | 3                              | Don't care   | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| B        | 0/1/3                 | -                              | 0            | miles                     | Single Speed [km/h]                     |
+| C        | 0/1/3                 | -                              | 1            | km                        | Single Speed [mph]                      |
+| D        | 2                     | 0/1/2                          | 0            | miles                     | Single Speed [km/h]                     |
+| E        | 2                     | 0/1/2                          | 1            | km                        | Single Speed [mph]                      |
+| F        | 0/1/3                 | -                              | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| G        | 0/1/3                 | -                              | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| H        | 2                     | 0/1/2                          | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| I        | 2                     | 0/1/2                          | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+
+63. ID: 5386193
+- Contents: System shall follow the below recovery logic when TSR_01 frame is missing on the network for tREC time when proxi (byte 149, bit 6) Traffic_Sign_Recognition = "Present" AND proxi (byte 170, bit 1) Traffic_Sign_Assistance = “Absent” then:
+If INFO_TSREnable=Enabled, then the IDC shall not show any TSR indications
+If INFO_SpeedLimitSignEnable=Enable and INFO_TSREnable=Disabled, then the IDC shall follow INFO IDC frame to visualize TSR indications.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Recovery for CAN and Internal Frames are performed as per the Logic mentioned in the requirement.
+
+CAN-Signal:
+TSR_01.TSRHandOfTraffic 
+TSR_01.TSRSignType 
+TSR_01.TSRMainSign2 
+TSR_01.TSRMainSign1 
+TSR_01.TSRSpdLimitUnits
+
+Internal Interface:
+INFO_TSRHandOfTraffic
+INFO_TSRMainSign1
+INFO_TSRSignType 
+INFO_TSRSpdLimitUnits 
+INFO_TSREnable 
+INFO_TSAEnable 
+INFO_SpeedLimitSignEnable
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, IOC_IOC, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, frame, IDC, follow, is missing, proxi, Absent, show, to visualize, logic, network, time, byte, indications" ) 
+Missing unit 
+ (Look for: "‘6,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Enabled, Disabled" )
+- State (Harman_Requirement): Approved
+- Proxi Details:
+| Use Case | Proxi: Country Market | Proxi: Detail for Extra Market | Proxi: km/mi | INFO_Distance Unit signal | Speed Visualization                     |
+|----------|-----------------------|--------------------------------|--------------|---------------------------|-----------------------------------------|
+| A1       | 2                     | 3                              | Don't care   | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| A2       | 2                     | 3                              | Don't care   | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| B        | 0/1/3                 | -                              | 0            | miles                     | Single Speed [km/h]                     |
+| C        | 0/1/3                 | -                              | 1            | km                        | Single Speed [mph]                      |
+| D        | 2                     | 0/1/2                          | 0            | miles                     | Single Speed [km/h]                     |
+| E        | 2                     | 0/1/2                          | 1            | km                        | Single Speed [mph]                      |
+| F        | 0/1/3                 | -                              | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| G        | 0/1/3                 | -                              | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| H        | 2                     | 0/1/2                          | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| I        | 2                     | 0/1/2                          | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+
+64. ID: 5386476
+- Contents: System shall stop displaying the TSR indications when TSR_01 and INFO IDC frames are missing on the network for tREC time.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Recovery for CAN and Internal Frames are performed as per the Logic mentioned in the requirement.
+
+CAN-Signal:
+TSR_01.TSRHandOfTraffic 
+TSR_01.TSRSignType 
+TSR_01.TSRMainSign2 
+TSR_01.TSRMainSign1 
+TSR_01.TSRSpdLimitUnits
+
+Internal Interface:
+INFO_TSRHandOfTraffic
+INFO_TSRMainSign1
+INFO_TSRSignType 
+INFO_TSRSpdLimitUnits 
+INFO_TSREnable 
+INFO_TSAEnable 
+INFO_SpeedLimitSignEnable
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, displaying, are missing, indications, frames, network, time" )
+- State (Harman_Requirement): Approved
+
+65. ID: 5389937
+- Contents: System shall display Warning-2 when proxi Traffic_Sign_Assistance = “Present” and below conditions are met in case of recovery conditions:
+(PWT_STATUS_5) frame is missing on the network for tREC2 time
+(HAPTIC1) frame is missing on the network for tREC2 time,
+(TSR01) frame is missing on the network for tREC time
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Warning-2 is displayed when the recovery logic conditions are met.
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, frame, display, is missing, #8221, conditions, network, time" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+66. ID: 5038345
+- Contents: System shall store in E2P INFO_TSAEnable and INFO_SpeedLimitSignEnable last values received when before a sleep event and only coming from a key-on status after sleep phase
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System stores the last value received before a sleep event and coming only at Key-On status after sleep phase.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, received, coming, values, event, status" )
+- State (Harman_Requirement): Approved
+
+67. ID: 3935751
+- Contents: Diagnostic service for V_car_moving calibration
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3833280
+- Contents: System shall display Traffic Sign Recognition indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+2. ID: 3912017
+- Contents: System shall use the mentioned CAN signals to display External Lights Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3912016
+- Contents: System shall use the following proxi parameters:
+byte-149, bit-6 (“Traffic_Sign_Recognition” absent/present)
+byte-170, bit-1 ("Traffic_Sign_Assistance" absent / present)
+byte-170, bit-4 ("TSASignChangeFbk_Link" with acoustic/with visual)
+byte-170, bit-6 ("TSASignChangeFbk" absent /present)
+byte-146, bit-0(“Adaptive_Cruise_Control” absent/present)
+byte-69, bit-6(“Cruise Control” absent/present)
+F562 Warning-1 active if proxi (Traffic_Sign_Recognition = "present" and Traffic_Sign_Assistance = “absent”).
+F562 Warning-2,Warning-3, Info-1 and Info-2 active if proxi Traffic_Sign_Assistance = “present”.
+F562 Info-3 active if (proxi Traffic_Sign_Assistance = “present” and proxi TSASignChangeFbk_Link = “with acoustic”).
+F562 Info-4 can active if (proxi Traffic_Sign_Assistance= “present” and proxi TSASignChangeFbk_Link = “with visual”).
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Proxi settings Enables the various functionality   by setting the Proper Values.
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "proxi parameters, following, use, absent, bit-6  #8220, bit-1, TSASignChangeFbk_Link, bit-6, bit-0 #8220, presentbyte-69, bit-6 #8220, Control #8221, active, Traffic, Info-1, present, TSASignChangeFbk_Link    #8220" )
+- State (Harman_Requirement): In Work
+
+4. ID: 3848711
+- Contents: Overtaking/ Work in progress / Slippery road /(TSRMainSign2): HMI TellTale Strategy:
+(see: image166.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+- Visual Elements: image166.png
+
+5. ID: 3848813
+- Contents: Speed Limit (INFO_TSRMainSign1): Telltale Strategy:
+(see: image168.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: ADAS_Horizon, System Infra
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+- Visual Elements: image168.png
+
+6. ID: 3850686
+- Contents: 6.2.1.1.2.31.1 Traffic Sign Assistance (TSA) functionality
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+7. ID: 3851486
+- Contents: Speed Limit (TSRMainSign1): HMI Telltale Strategy:
+(see: image173.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+- Visual Elements: image173.png
+
+8. ID: 3851629
+- Contents: Overtaking/ Work in progress / Slippery road Signs /(TSRMainSign2): HMI TellTale Strategy:
+(see: image175.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+- Visual Elements: image175.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image169.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image165.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image155.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image154.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image170.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image160.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image173.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image161.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image157.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image159.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image168.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image158.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image163.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image175.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image164.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image166.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image156.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image171.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image167.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image162.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image174.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image172.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+Data Element: [Proxi Configuration]
+  - Type: Proxi
+  - Purpose: [Explain the purpose of this Proxi configuration]
+  - Structure: [Analyze the Proxi table structure and explain its significance]
+  - Dependencies: [Identify key data relationships]
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F562 6.2.1.1.2.31  Traffic Sign Recognition Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

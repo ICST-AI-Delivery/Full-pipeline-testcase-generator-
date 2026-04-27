@@ -1,0 +1,398 @@
+# UnknownID 6.2.3.1.1 Radio Source Control ($5035) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.1 Radio Source Control ($5035)
+
+- ID: 4011448
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4011450
+- Contents: The system shall support Radio source control with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the user is able to read the radio source control in extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+2. ID: 4011454
+- Contents: The System shall support the Timer values  as follows (see: image46.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the bit value from the given table.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image46.png
+
+3. ID: 4011455
+- Contents: The System shall support the Source values  as follows (see: image47.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the bit value from the given table.
+- Grooming Status: Approved
+- Grooming Comments: SDARS is not supported as of now. Apart from SDARS all are supported like AM, FM, DAB.
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image47.png
+
+4. ID: 4011470
+- Contents: The System shall support the Mute values  as follows (see: image48.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the bit value from the given table.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image48.png
+
+5. ID: 4011472
+- Contents: Volume (see: image49.png, image50.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the bit value from the given table.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image49.png, image50.png
+
+6. ID: 4011474
+- Contents: Frequency (see: image51.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the bit value from the given table.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image51.png
+
+7. ID: 4126907
+- Contents: If the Control service is correctly activated, the system shall apply the following logics.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control service is correctly activated.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "correctly" ) 
+Passive voice
+ (Look for: "activated" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+8. ID: 4126910
+- Contents: The system shall store the current visualization
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall store the current visualization
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+9. ID: 4126911
+- Contents: The system shall force the Radio screen visualization on the primary display according to the received parameters in the Control record (refer to "Source activation logic" subchapter for detailed logics)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Radio screen visualization on the primary display according to the received parameters in the Control record
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+10. ID: 4135044
+- Contents: The IDC shall retrieve the Mute parameter in order to set the mute status according to the master specification
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall retrieve the Mute parameter in order to set the mute status according to the master specification
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+11. ID: 4135045
+- Contents: The system shall retrieve the Volume parameter in order to set the volume level according to the master specification, following the formula:
+
+VolumeLevelStep = Round(Volume * VolumeLevelStep_max / 100)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall retrieve the Volume parameter in order to set the volume level according to the master specification, following the formula:
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" ) 
+Missing unit 
+ (Look for: "‘100’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+12. ID: 4136799
+- Contents: If Timer value != [0xFB - 0xFF], then the system shall start a timeout of Timer value seconds else timeout start status is negative.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall start a timeout of Timer value seconds else timeout start status is negative.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, start, is negative, timeout, seconds, status" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+13. ID: 4136801
+- Contents: The system shall show the previous stored virtualization when timeout is expired.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall show the previous stored virtualization when timeout is expired.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is expired" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+14. ID: 4136803
+- Contents: If Source == 0x00("FM"), Then the system shall force the FM radio source visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: system shall force the FM radio source visualization.If Source == 0x00("FM")
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, force, FM, visualization" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+15. ID: 4136805
+- Contents: The system shall retrieve the Frequency parameter in order to tune to the frequency
+described in the following table: (see: image52.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the frequency parameter from the given table.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image52.png
+
+16. ID: 4136806
+- Contents: If parameter Source == 0x01 ("AM"), Then system shall force the AM radio source visualization
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall force the AM radio source visualization If parameter Source == 0x01
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+17. ID: 4136808
+- Contents: The system shall retrieve the Frequency parameter in order to tune to the frequency
+described in the following table (see: image53.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the frequency parameter from the given table
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image53.png
+
+18. ID: 4136809
+- Contents: If parameter Source == 0x02 ("DAB"), Then the system shall force the DAB radio source visualization
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall force the AM radio source visualization If parameter Source == 0x02
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+19. ID: 4136811
+- Contents: The system shall retrieve the Frequency parameter in order to tune to the frequency
+described in the following table (see: image54.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the frequency parameter from the given table
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image54.png
+
+20. ID: 4136812
+- Contents: If parameter Source == 0x03 ("SDARS"), Then the system shall force the SXM radio source visualization
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall force the AM radio source visualization If parameter Source == 0x03
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, force, SDARS, visualization" )
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+
+21. ID: 4136814
+- Contents: IDC shall retrieve the Frequency parameter in order to tune to the channel described in the following table: (see: image55.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the frequency parameter from the given table
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_Diag
+- TestTeamComment: RWeber_DIAG_241210: We won't test, that control values will be correct placed at HMI.
+Restrictions: SDARS check only possible with available SDARS units.
+- State (Harman_Requirement): Approved
+- Visual Elements: image55.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image49.png, image50.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image46.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image48.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image47.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image53.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image51.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image52.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image54.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image55.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.1 Radio Source Control ($5035) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

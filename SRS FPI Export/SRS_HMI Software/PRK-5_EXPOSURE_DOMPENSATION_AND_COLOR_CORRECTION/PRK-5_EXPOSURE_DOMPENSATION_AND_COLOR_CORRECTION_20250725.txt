@@ -1,0 +1,104 @@
+# PRK-5 6.2.4.6  EXPOSURE DOMPENSATION AND COLOR CORRECTION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.6 PRK-5 EXPOSURE DOMPENSATION AND COLOR CORRECTION
+
+- ID: 3939642
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Wei, Saheel, Abdul 14.02.205] Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3958447
+- Contents: The system shall compensate the color & brightness mismatch between different camera images to have a uniform-color and exposure in every view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, compensate, have, amp, mismatch, images, exposure, view" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3958495
+- Contents: The SV shall perform color correction & exposure compensation in order to harmonize the color and brightness between stitched camera images for all the views where more than one camera image is used.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Launch the views (Bird View, Top front, Top right)
+
+Verify the frames from different cameras have the same brightness and color.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "SV, perform, to harmonize, stitched, used, correction, color, images, views, image" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3958689
+- Contents: The system shall follow the below behavior on color correction.
+Shall not change or reduce the dynamic range of the individual camera images
+The sharpness of the camera image remains unaffected
+Shall not introduce any additional blur to the processed images.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the mentioned behavior on color correction.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, change, reduce, range, images, correction" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3958697
+- Contents: The sharpness of the camera image shall remain unaffected as a result of color correction.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3958703
+- Contents: The color correction shall not introduce any additional blur to the processed images.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3958433
+- Contents: This function describes the color correction and exposure compensation features of the system.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-5 6.2.4.6  EXPOSURE DOMPENSATION AND COLOR CORRECTION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

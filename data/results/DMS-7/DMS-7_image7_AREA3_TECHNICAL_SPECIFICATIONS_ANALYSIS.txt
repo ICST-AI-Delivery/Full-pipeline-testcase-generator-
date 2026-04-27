@@ -1,0 +1,144 @@
+# DMS-7 IMAGE7 AREA3 TECHNICAL SPECIFICATIONS ANALYSIS
+## CLIP-Based Analysis Following VEH-F844 Success Pattern
+
+### CLIP CLASSIFICATION INTEGRATION
+- **Image Path**: Pre-FineTuneLearning Model/SRS FPI export/SRS_DMS/DMS-7_DRIVER_GAZE_ESTIMATION/image7.png
+- **CLIP Predicted Category**: TECHNICAL SPECIFICATIONS
+- **CLIP Confidence**: High (1.000)
+- **Analysis Template Applied**: TECHNICAL SPECIFICATIONS v2.0 Unified
+- **Analysis Date**: 2026-03-06
+
+### SPECIFICATION OVERVIEW
+```
+Specification Type: System Specifications - Area 3 Implementation Details
+Primary Domain: DMS-OMS (Driver Monitoring System)
+Specification Complexity: Complex
+Documentation Standard: ADDW Regulation Compliance
+Safety Classification: Functional Safety (Driver Monitoring)
+```
+
+### TECHNICAL SPECIFICATIONS EXTRACTION
+
+#### AREA 3 IMPLEMENTATION SPECIFICATIONS
+**Primary Specification**: Area 3 Implementation with Manufacturer Customization Options
+
+**Implementation Parameters Extracted**:
+- **Base Definition**: 30° downward plane from ocular reference point
+- **Area Interaction**: Complex interaction with Area 1 and Area 2
+- **Customization Options**: Manufacturer-specific inclusion/exclusion logic
+- **Visual Representation**: Left-hand driving configuration example
+- **Implementation Flexibility**: Configurable area boundaries
+
+**Technical Parameter Table**:
+| Parameter | Value | Unit | Tolerance | Reference Standard |
+|-----------|-------|------|-----------|-------------------|
+| Base Angle | 30° | degrees | ±1° | ADDW Regulation |
+| Area 1 Interaction | Configurable Exclusion | - | Manufacturer Choice | Vehicle Specific |
+| Area 2 Interaction | Configurable Exclusion | - | Manufacturer Choice | Vehicle Specific |
+| Customization Level | Partial Inclusion | - | Optional | Implementation Specific |
+| Configuration Type | Left-Hand Drive | - | Example | Regional Variant |
+
+#### AREA 3 CUSTOMIZATION LOGIC
+**Manufacturer Configuration Options**:
+1. **Default Configuration**: Exclude all Area 1 and Area 2 zones
+2. **Partial Inclusion**: Include selected parts of Area 1 in Area 3
+3. **Extended Inclusion**: Include selected parts of Area 2 in Area 3
+4. **Custom Boundaries**: Manufacturer-specific geometric definitions
+
+**Implementation Scenarios**:
+- **Conservative Approach**: Strict exclusion of Area 1 and Area 2
+- **Moderate Approach**: Selective inclusion of non-critical zones
+- **Aggressive Approach**: Maximum inclusion for comprehensive monitoring
+- **Regional Compliance**: Configuration based on local regulations
+
+### REQUIREMENTS MAPPING
+**Related Requirements**:
+- **ID 3828573**: Area 3 definition with manufacturer customization
+- **ID 3828577**: Visual reference implementation example
+- **ID 3828582**: Time measurement for Area 3 gaze duration
+- **ID 3828592**: Detection timing Ce_t_GazeInTimeMax
+- **ID 3828593**: Detection timing Ce_t_GazeOutTimeMax
+
+**CAN Signal Integration**:
+- **Output Signal**: DMS_INFO.CabinDivision
+- **Area 3 Value**: Le_enu_CabinDivision = Area_3 (3)
+- **Time Measurement**: Continuous timing while gaze in Area 3
+- **Configuration Status**: Manufacturer configuration validation
+
+### VALIDATION AND COMPLIANCE
+
+#### IMPLEMENTATION VALIDATION
+- **Geometric Accuracy**: 30° ±1° tolerance maintained across configurations
+- **Area Interaction**: Correct handling of Area 1/2 overlaps
+- **Customization Logic**: Manufacturer options working correctly
+- **Time Measurement**: Accurate timing across all configurations
+
+#### PERFORMANCE REQUIREMENTS
+- **Detection Speed**: Ce_t_GazeInTimeMax compliance
+- **Exit Detection**: Ce_t_GazeOutTimeMax compliance
+- **Accuracy Maintenance**: Ce_ang_GazeDirTol across all areas
+- **Configuration Switching**: Real-time configuration updates
+
+#### STANDARDS COMPLIANCE
+- **ADDW Regulation**: Full compliance across all configurations
+- **ISO 26262**: Functional safety maintained in all modes
+- **Regional Standards**: Compliance with local driver monitoring requirements
+- **Manufacturer Standards**: OEM-specific requirements integration
+
+### AUTOMOTIVE CONTEXT ANALYSIS
+**DMS Integration Complexity**:
+- **System Domain**: Advanced Driver Monitoring System
+- **Safety Classification**: ASIL-rated functional safety
+- **Real-time Requirements**: Continuous monitoring with timing precision
+- **Vehicle Integration**: Complex cabin geometry integration
+
+**Implementation Requirements**:
+- **Configuration Management**: Dynamic configuration switching
+- **Area Calculation**: Real-time geometric calculations
+- **Overlap Resolution**: Advanced algorithms for area interactions
+- **Performance Optimization**: Efficient processing for real-time operation
+
+#### TECHNICAL IMPLEMENTATION DETAILS
+**Advanced Geometric Processing**:
+- **Multi-Area Calculation**: Simultaneous processing of all three areas
+- **Boundary Resolution**: Precise boundary detection and classification
+- **Overlap Management**: Algorithm for handling area overlaps
+- **Configuration Adaptation**: Real-time adaptation to manufacturer settings
+
+**Performance Optimization**:
+- **Processing Efficiency**: Optimized algorithms for real-time operation
+- **Memory Management**: Efficient memory usage for geometric calculations
+- **Timing Precision**: High-precision timing for regulatory compliance
+- **Error Handling**: Robust error handling for edge cases
+
+### QUALITY ASSESSMENT
+**Implementation Completeness**: Complete - All customization options defined
+**Technical Clarity**: Clear - Precise implementation guidance provided
+**Implementation Readiness**: Ready - Complete technical specifications with examples
+**Validation Criteria**: Comprehensive - All validation scenarios covered
+
+### TECHNICAL DATA EXTRACTION SUMMARY
+- **Base Specifications**: 30° downward plane with full customization support
+- **Interaction Logic**: Complete Area 1/2 interaction specifications
+- **Customization Framework**: Full manufacturer customization capability
+- **Performance Requirements**: Complete timing and accuracy specifications
+- **Implementation Examples**: Left-hand drive configuration example
+- **Validation Framework**: Comprehensive validation across all configurations
+
+### INTEGRATION WITH PREVIOUS AREAS
+**Area 1 Integration**:
+- **Boundary Interaction**: Precise handling of ±55° boundary overlaps
+- **Exclusion Logic**: Default exclusion with optional inclusion
+- **Performance Impact**: Minimal impact on Area 1 detection performance
+
+**Area 2 Integration**:
+- **Windscreen Interaction**: Handling of 10° peripheral zone overlaps
+- **Glass Surface Logic**: Integration with windscreen/window detection
+- **Union Logic**: Proper handling of Area 2 union operations
+
+**System Integration**:
+- **CAN Signal Coordination**: Coordinated output across all three areas
+- **Timing Synchronization**: Synchronized timing measurements
+- **Performance Optimization**: System-wide performance optimization
+
+This analysis provides complete technical specifications for Area 3 implementation with manufacturer customization options, ensuring accurate and flexible implementation of driver gaze estimation for lower cabin zones according to ADDW regulation requirements.

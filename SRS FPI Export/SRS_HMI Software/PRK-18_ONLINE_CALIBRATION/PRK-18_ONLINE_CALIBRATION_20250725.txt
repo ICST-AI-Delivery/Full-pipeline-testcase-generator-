@@ -1,0 +1,251 @@
+# PRK-18 6.2.4.19  ONLINE CALIBRATION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.19 PRK-18 ONLINE CALIBRATION
+
+- ID: 3939660
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976510
+- Contents: The system shall implement a function for Online calibration of the surround view & shall cover the following use cases:
+Head unit re-placed
+Vehicle load changed
+Car damage or repair that affects camera poses
+Camera poses gradually degrade (aging).
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondtion :
+- Set trigger time in configuration file (e.g 12 PM )
+- Drive the car 
+- Vehicle shall move forward
+- Vehicle speed shall be above 10 [km/h]
+- Vehicle speed shall be below 40 [km/h]
+- Vehicle acceleration shall be below 0.3 [g] absolute value
+- Vehicle road wheel angle shall be below 3 [deg] absolute value)
+- Steering road wheel angle is assumed to be in the range [-60;+60] [deg];
+- Road surface is assumed to be flat for 2 meters around the vehicle in any direction.
+ 
+For Bench testing : No need to check the vehicle acceleration, steering road  wheel angle, and road surface.
+
+Verify :
+check the logs.
+("Received new automatic calibration status: state XXXX, progress YY") --> Not the exact logs, it will be similar to this).
+ 
+check the Jason file for online calibration (output file)
+
+/opt/svl/workdir/ocalib_activator_config.json
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1078
+[Wei, Abdul 12.03.2025] 
+Ask Ferrari: 
+There is no information to activate online calibration 
+The information for HMI display is not clear 
+. 
+[Saheel 06.03.2025] Blocked
+
+Ask Ferrari: 
+There is no information to activate online calibration 
+
+[Prashant 27-03-2025] Need both Red and White label Teams.
+
+Need more clarity on how to test.
+
+[Wei, Ganesh_24-04-2025] Clarify with customer about the online calibration triggered condition.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, damage, cover, following, re-placed, changed, affects, degrade, aging, cases, repair, poses" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3976562
+- Contents: The system shall consider the below conditions (Vehicle motion conditions) for online calibration:
+Vehicle move forward
+Vehicle speed above '10' [km/h]
+Vehicle speed below '40' [km/h]
+Vehicle acceleration below '0.3' [g] absolute value
+Vehicle road wheel angle below '3' [deg] absolute value.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+Vehicle move forward
+Vehicle speed above '10' [km/h]
+Vehicle speed below '40' [km/h]
+Vehicle acceleration below '0.3' [g] absolute value
+Vehicle road wheel angle below '3' [deg] absolute value.
+
+Verify when an online calibration is enabled on HMI.The calibration process begins and calibrates the system.
+Restart the Head unit and check the image stitching is correct.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3976564
+- Contents: The system shall automatically trigger Online calibration at specific period of days specified in configuration defined at compile time.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+In configuration the days are already defined for online calibration.
+
+Change the date according to the online calibration configuration and check the online calibration triggers on that day
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1078
+
+[Wei, Abdul 12.03.2025]
+How to automatically trigger online calibration if we need inform the user automatically on warning message popup 
+
+[We, Saheel 06.03.2025] Blocked
+
+Need to ask Ferrari:
+Requirement is not clear
+
+[Ganesh_16-04-2025] How to verify and validate online calibration.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "automatically" ) 
+Passive voice
+ (Look for: "defined" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3976569
+- Contents: The system shall allow online calibration to retry failed calibration for '3' times & shall try again on the next event if three fails.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+Vehicle move forward
+Vehicle speed above '10' [km/h]
+Vehicle speed below '40' [km/h]
+Vehicle acceleration below '0.3' [g] absolute value
+Vehicle road wheel angle below '3' [deg] absolute value.
+
+Verify when an online calibration is enabled on HMI. when an online calibration fails then Retry can be done 3 times.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to retry, failed, try, again, calibration, event" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3976497
+- Contents: This function describes the Online calibration feature for Surround View.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3976505
+- Contents: The system shall implement a function for Online calibration of the surround view system to guarantee correct operation of the system.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "correct" )
+- State (Harman_Requirement): New
+
+3. ID: 3976535
+- Contents: The system shall measure the illumination level on the ground & ensure it exceeds '1000' Lux.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" )
+- State (Harman_Requirement): New
+
+4. ID: 4117129
+- Contents: The system shall monitor the Road surface from reflective materials, water, ice & snow.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+5. ID: 4117132
+- Contents: The system shall check the status of camera lense if the cleaning required.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, check, required, status, lense, cleaning" )
+- State (Harman_Requirement): New
+
+6. ID: 3976543
+- Contents: All '4' surround view cameras shall observe a common surface.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "All" )
+- State (Harman_Requirement): New
+
+7. ID: 3976544
+- Contents: The system shall well texture the Road surface.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+8. ID: 3976556
+- Contents: The system shall clear the surface from dynamic and moving objects for at least 2[m] in any direction around the vehicle body.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, clear, moving, surface, dynamic, objects, direction, body" )
+- State (Harman_Requirement): New
+
+9. ID: 3976559
+- Contents: The system shall not deviate Road surface from an ideal plane by more than 30[mm] in vertical direction in the clear area.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): New
+
+10. ID: 3976570
+- Contents: Inputs
+Ie_v_VehicleSpeed
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-18 6.2.4.19  ONLINE CALIBRATION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

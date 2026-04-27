@@ -1,0 +1,97 @@
+# AUD-4 6.2.1.5  External Amplifier Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5 AUD-4 External Amplifier Management
+
+- ID: 3408481
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Grooming Comments: [24.05.2024, Abdul]:Kept in Analyzed state as the Diagnostics is not in scope now.
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3536675
+- Contents: The system shall have the external amplifier channel assignment in Base and High End loud speaker configurations as per the below table.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Base or High End loud speaker configuration by using the proxi parameter Audio level.
+
+Verify that the loud speakers connected in the corresponding channels are functional.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, have, assignment, configurations, table" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3537139
+- Contents: The system shall display the popup (POPUP_AUD_CFGERR) in Central display if system receives on A2B network the "ConfigurationFailSts" with value Fail_Present
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Simulate Fail_Present error signal on A2B network (the signal ConfigurationFailSts = 1) 
+Verify the error popup (POPUP_AUD_CFGERR) on central display .
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024, Xiongwei, Siva, Dawid]: Responsible Domain is Audio.
+Domain team has no idea on the corresponding user action for ConfigurationFailSts = 1 ("Fail_Present").
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3591364
+- Contents: The Sub0 on A2B Network 2 is an external amplifier, which is used to drive up to 16 loudspeaker channels.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3591365
+- Contents: (see: image16.png)
+(see: image17.png)
+Table: External amplifier channel assignment in Base and High End loud speaker configurations.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image16.png, image17.png
+
+3. ID: 3537138
+- Contents: Refer to AD-14 for further details about this visualization cycle
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image16.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image17.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-4 6.2.1.5  External Amplifier Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

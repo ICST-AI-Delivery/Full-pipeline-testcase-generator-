@@ -1,0 +1,204 @@
+# VEH-F531 6.2.1.1.1.27  Advanced Driver Attention Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.27 VEH-F531 Advanced Driver Attention Management
+
+- ID: 3939902
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, DMS, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5037980
+- Contents: System shall enable the Advanced Driver Attention Management functionality , When  INFO_DMS_Enable= "Active" is received.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Advance Driver Attention Management Functionality Is enabled when 
+INFO_DMS_Enable= "Active" is received.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "enable, received" ) 
+Passive voice
+ (Look for: "is received" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+2. ID: 3977860
+- Contents: System shall display Info-1 Pop-up with Buzzer and Telltale  when  Proxi parameter is Present AND DMS_HMICode_DMS is visual_acoustic.
+(see: image60.png)
+Note: Info-1 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-1 Pop-Up with Buzzer and Telltale when Proxi and DMS_HMICode_DMS is visual_acoustic.
+
+
+Proxi : Byte: 174, Bit:2  Distraction =”Present"
+
+Pop_Up ID: 05310001
+
+Audio Buzzer: Buzzer 2B
+
+Teltale ID: DMS001
+
+Interface: DMS_HMICode_DMS ,
+INFO_DMS_Enable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, DMS, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, parameter, DMS, display, is, follows, Pop-up, Buzzer, Telltale, Info-1, priority-0" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image60.png
+
+3. ID: 3977973
+- Contents: System shall enable the Virtual Telltales_DMS001(China market version)  Proxi China_Specific_Indication_NQS is Present .
+(see: image61.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi to China_Specific_Indication_NQS is Present and verify that the System Displays DMS001 Telltale.
+
+Proxi : Byte-123, Bit-7.
+
+Pop_Up ID: 05310001
+
+Audio Buzzer: Buzzer 2B
+
+Teltale ID: DMS001
+
+Interface: DMS_HMICode_DMS ,
+INFO_DMS_Enable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image61.png
+
+4. ID: 3977964
+- Contents: System shall display Fail-1 Pop-up with Telltales when Proxi parameter distraction is present AND DMS_HMICode_DMS is Degrade.
+Note: Fail-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 Pop-Up with Telltale when Proxi and DMS_HMICode_DMS is Degrade
+
+Proxi : Byte: 174, Bit:2  Distraction =”Present"
+
+
+Pop_Up ID: 05310003
+
+
+Teltale ID: DMS003
+
+Interface: DMS_HMICode_DMS
+INFO_DMS_Enable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, DMS, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, distraction, DMS, display, is present, is, follows, Pop-up, Telltales, Degrade, priority-1" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3979011
+- Contents: System shall display Fail-2 Pop-up with Buzzer and Telltale when below conditions met:
+Proxi parameter distraction is Present.
+DMS_DMSSystemStatus is Error AND
+DMS_DMSSystemFail is Temp_fail OR
+DMS_DMSSystemFail is Perma_fail
+Note: Fail-2 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 Pop-Up with Telltale when necessary conditions are met.
+
+Pop_Up ID: 05310004
+
+
+Teltale ID: DMS003
+
+CAN-Signal: DMS_HMICode_DMS
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, distraction, DMSSystemStatus, display, met, is, follows, Pop-up, Buzzer, Telltale, Present, AND, priority-1" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4627421
+- Contents: System shall display Fail-3 Telltale when below conditions met:
+Proxi parameter distraction is Present.
+DMS_DMSSystemStatus is Error AND
+DMS_DMSSystemFail is Temp_fail OR
+DMS_DMSSystemFail is Perma_fail
+Note: Fail-3 follows S01 Specific behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 Pop-Up with Telltale when necessary conditions are met.
+
+Pop_Up ID: 05310005
+
+
+Teltale ID: DMS004
+
+CAN-Signal: DMS_HMICode_DMS
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, DMS, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, distraction, DMSSystemStatus, display, met, is, follows, Telltale, Present, AND, priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3977809
+- Contents: System shall display Advance Driver Attention Management indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image60.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image61.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F531 6.2.1.1.1.27  Advanced Driver Attention Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

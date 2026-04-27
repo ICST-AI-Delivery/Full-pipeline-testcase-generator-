@@ -1,0 +1,188 @@
+# DMS-1 6.2.1.2.2 _DMS State: USER PRESENCE Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.2 DMS-1_DMS State: USER PRESENCE
+
+- ID: 3726638
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3727022
+- Contents: The DMS shall switch to User Presence state from INIT state after checking that the system is running ok.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditions:
+None
+
+Conditions:
+Reset the system and verify that the state,  Le_enu_StatusDMS, goes from INIT to USER PRESENCE
+- Grooming Status: Approved
+- Grooming Comments: Ask Ferrari: [Abdul, Antonio 18.12.2024] 
+
+IDC-460206 - IF Le_enu_StatusDMS = 2 (USER PRESENCE) THEN DMS shall send:
+Oe_enu_DMSSysSts = Off
+
+Question: 
+Please clarify usage and values of DMSSysSts.
+
+https://jira.harman.com/jira/browse/FQ-874
+
+--------------------------
+
+LakshmiPrasad, Mayank, Abdul 24.07.2024]: Space 2 will provide the API about the current state of the DMS alogorithm
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "automatically" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4642798
+- Contents: The system shall send the below 'CAN signals & values'  for DMS 'USER PRESENCE' state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = '2' (USER PRESENCE).
+DMS_INFO.DMSSystemStatus = Off
+DMS_INFO.HMICode_DMS = not_active
+DMS_INFO.DMS_Attentiveness = Status_not_available
+DMS_INFO.DMS_DriverPresent according to User presence
+DMS_INFO.Nominal_condition= Status_not_available
+DMS_INFO.DMSSystemFail = not_fail
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in User Presence state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: Marwan, Antonio, Abdul, Vinayak 19.12.2024: Approved
+
+
+IDC-460206 - IF Le_enu_StatusDMS = 2 (USER PRESENCE) THEN DMS shall send:
+Oe_enu_DMSSysSts = Off
+
+Question: 
+Please clarify usage and values of DMSSysSts.
+
+https://jira.harman.com/jira/browse/FQ-874
+https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3726639
+- Contents: The DMS shall monitor the driver seat for driver presence, without warning the driver according to Attention Warning.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: DMS is in User presence state.
+
+Check the below CAN signals when driver is present and not present condition.
+or
+if driver is present and Driver is attentive or not.
+
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+
+DMS_INFO.HMICode_DMS = not_active
+DMS_INFO.DMS_Attentiveness = Status_not_available
+- Grooming Status: Approved
+- Grooming Comments: [Lakshmi, Mayank, Abdul 24.07.2024]: Space 2 will provide the API about the current state of the DMS alogorithm
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, monitor, warning, according, seat, presence, driver, Warning" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3538825
+- Contents: The system shall go to INIT state from any other state when Key-off requested.-> removed in PI4
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, go, requested, removed, state" ) 
+Unclear term
+ (Look for: "any, other" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3727028
+- Contents: The DMS shall switch to USER PRESENCE state from ACTIVE, RUNNING and WARNING state when vehicle power down is requested(key-off).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS is switched to USER PRESENCE state from Active, Running and Warning state on Turning off the Ignition.
+
+Verify the state by using the CAN signal MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+- Grooming Status: Approved
+- Grooming Comments: Output signal mapping is from red label
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, power down, switch, is, state, ACTIVE, RUNNING" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3733668
+- Contents: The DMS shall switch to USER PRESENCE state from Error state due to temporary fault recovery.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: DMS is in Error state.
+
+Verify that the DMS switched to User Presence state due to temporary Fault Recovery
+
+Verify by using the CAN signal
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+- Grooming Status: Approved
+- Grooming Comments: [Saheel, Mayank, Abdul]: Ok to approve
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "temporary" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Temporary failure is defined as a SW or network error that can be recovered during
+operation of the system.
+NOTE: A temporary failure is related to network errors or invalid signals. If the failure persists, this will
+become a permanent failure.
+
+7. ID: 3733669
+- Contents: The DMS shall not switch to DEGRADED state from USER PRESENCE state
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: DMS is in User presence state and Create degradation condition (e.g. partial camera obstruction, driver not present, etc.).
+
+Verify that DMS is still in User presence state
+
+Use CAN signal for verification MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-1 6.2.1.2.2 _DMS State: USER PRESENCE Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

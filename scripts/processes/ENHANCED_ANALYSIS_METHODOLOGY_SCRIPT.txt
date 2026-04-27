@@ -1,0 +1,233 @@
+=== ENHANCED ANALYSIS METHODOLOGY SCRIPT ===
+**Version:** 2.0.0
+**Created:** 2026-01-29
+**Author:** Picture Analyze Agent Development Team
+**Purpose:** Complete methodology for analyzing automotive FPI diagrams
+**Compatibility:** All diagram types (state matrices, sequential flows, decision trees)
+
+## METHODOLOGY OVERVIEW
+
+This script documents the complete evolution of our FPI analysis methodology, from simple state matrices to complex sequential flowcharts with decision points and cyclic patterns.
+
+## DIAGRAM TYPE IDENTIFICATION
+
+### **Step 1: Initial Assessment**
+1. **Image Examination**
+   - Identify start/end points (terminators)
+   - Count total blocks/shapes
+   - Identify flow direction (top-to-bottom, left-to-right)
+   - Look for decision diamonds vs. process rectangles
+
+2. **Diagram Classification**
+   - **Simple State Matrix:** Rectangular grid with input/output mapping
+   - **Sequential Flow:** Linear progression with decision points
+   - **Complex State Machine:** Multiple states with transitions
+   - **Hybrid Diagram:** Combination of flow and matrix elements
+
+### **Step 2: Diagram Type Determination**
+```
+IF (start/end terminators AND sequential blocks) THEN
+    → Sequential Flow Diagram
+ELSE IF (grid pattern AND input/output headers) THEN
+    → State Matrix Diagram  
+ELSE IF (multiple decision diamonds AND loops) THEN
+    → Complex State Machine
+ELSE
+    → Hybrid Analysis Required
+```
+
+## SEQUENTIAL FLOW ANALYSIS METHODOLOGY
+
+### **Block-by-Block Analysis Process**
+```
+FOR each block in diagram:
+    1. Identify block shape (rectangle, diamond, oval)
+    2. Determine block type:
+       - Terminator (oval): Start/End points
+       - Process (rectangle): Actions/Operations
+       - Decision (diamond): Conditional logic
+       - Connector (circle): Flow continuation
+    
+    3. Extract block content:
+       - Action description
+       - Preconditions
+       - Decision criteria (if applicable)
+       
+    4. Map relationships:
+       - Input from previous block
+       - Output to next block(s)
+       - Alternative paths (for decisions)
+```
+
+### **Decision Point Analysis**
+```
+FOR each decision diamond:
+    1. Identify decision criteria
+    2. Map logical operators (AND, OR, NOT)
+    3. Trace YES/NO paths
+    4. Document path conditions:
+       - Path A: Condition set 1
+       - Path B: Condition set 2
+       - Result: IF (A OR B) THEN next_block
+```
+
+### **Example Implementation:**
+**Block N: Decision Point**
+- **Shape:** Decision (Diamond)
+- **Condition:** SystemReady AND NoErrors
+- **Paths:**
+  - **YES:** Continue to Block N+1
+  - **NO:** Return to error handling or Block X
+- **Logic:** Boolean evaluation required
+
+## STATE MATRIX CONSTRUCTION
+
+### **Complete Flow State Matrix Format:**
+```
+| Block | Preconditions | Action | Conditions Checked | Output State | Next Block |
+|-------|---------------|--------|--------------------|--------------|------------|
+| N     | Input_Req     | Action | Logic_Check        | Output_State | Target     |
+```
+
+### **Input/Output Parameter Mapping:**
+```
+Input Parameters:
+- System States: (Sleep, Suspend, Active)
+- Hardware Connections: (Connected, Disconnected)
+- CAN Signals: (Signal_Name: Value1, Value2)
+- User Inputs: (Present, Absent)
+
+Output Parameters:
+- System Responses: (State_Name: ON, OFF)
+- Signal Outputs: (CAN_Signal: 0, 1)
+- State Transitions: (Next_State_Name)
+```
+
+## CYCLIC FLOW PATTERN RECOGNITION
+
+### **Cycle Detection Algorithm:**
+```
+1. Map all flow paths from start to end
+2. Identify blocks that reference previous blocks
+3. Document cycle conditions:
+   - Entry point: Block where cycle begins
+   - Exit conditions: When cycle terminates
+   - Loop logic: Conditions for continuation
+
+Example: Block 9 → Block 1 (suspend cycle)
+```
+
+### **Cyclic Pattern Documentation:**
+- **Primary Flow:** Sequential progression (Blocks 1-10)
+- **Cycle Entry:** Block 9 (Monitor System State)
+- **Cycle Condition:** Check suspend conditions
+- **Cycle Action:** Return to Block 1 OR proceed to Block 10
+- **Termination:** System shutdown triggers Block 10
+
+## VALIDATION CHECKLIST
+
+### **Flow Logic Validation:**
+- [ ] All blocks identified and analyzed
+- [ ] Decision points properly documented
+- [ ] Flow paths traced from start to end
+- [ ] Cyclic patterns identified
+- [ ] Error handling paths documented
+
+### **Technical Validation:**
+- [ ] Input parameters completely mapped
+- [ ] Output states clearly defined
+- [ ] CAN signals properly interpreted
+- [ ] Boolean logic correctly documented
+- [ ] State dependencies verified
+
+### **Documentation Validation:**
+- [ ] State matrix complete and accurate
+- [ ] Decision points with AND/OR logic documented
+- [ ] Preconditions and actions clearly stated
+- [ ] Quality metrics calculated
+- [ ] Processing summary updated
+
+## QUALITY METRICS CALCULATION
+
+### **Complexity Assessment:**
+```
+Flow Complexity = (Number of Decision Points × 2) + (Number of Blocks × 1) + (Number of Cycles × 3)
+
+Example: VEH-Suspend HMI States
+= (4 decision points × 2) + (10 blocks × 1) + (1 cycle × 3)
+= 8 + 10 + 3 = 21 (High Complexity)
+```
+
+### **Processing Time Estimation:**
+```
+Base Time = 5 minutes per block
+Decision Penalty = +2 minutes per decision point
+Cycle Penalty = +5 minutes per cycle
+Quality Review = +10 minutes
+
+Total Time = (Blocks × 5) + (Decisions × 2) + (Cycles × 5) + 10
+
+Example: VEH-Suspend HMI States
+= (10 × 5) + (4 × 2) + (1 × 5) + 10 = 63 minutes
+```
+
+## AUTOMOTIVE-SPECIFIC CONSIDERATIONS
+
+### **CAN Signal Interpretation:**
+- **Format:** DOMAIN.SIGNAL_NAME.Parameter
+- **Example:** HMI_CAN.STATUS_DOORS.Interior_Lock
+- **Values:** Typically binary (Active/Inactive, ON/OFF, 0/1)
+
+### **State Persistence:**
+- Document how states are maintained across transitions
+- Identify power-dependent vs. persistent states
+- Map initialization requirements
+
+### **Error Handling:**
+- Always look for error paths in decision points
+- Document retry mechanisms
+- Identify graceful degradation scenarios
+
+## TEMPLATE INTEGRATION
+
+### **Analysis Output Structure:**
+1. **Header Information** (Version, dates, compatibility)
+2. **Flowchart Analysis** (Block-by-block breakdown)
+3. **State Matrix Representation** (Complete flow table)
+4. **Input/Output Parameters** (Signal mapping)
+5. **Decision Points** (Logic documentation)
+6. **Validation Results** (Quality checks)
+7. **Processing Summary** (Metrics and statistics)
+8. **Notes** (Observations and recommendations)
+
+## LESSONS LEARNED
+
+### **Evolution of Methodology:**
+1. **Simple State Matrices:** Direct input/output mapping
+2. **Enhanced State Matrices:** Include initial state consideration
+3. **Sequential Flow Diagrams:** Block-by-block progression analysis
+4. **Complex Flow Patterns:** Cyclic behavior and error handling
+
+### **Key Success Factors:**
+- **Treat each block as a unique scenario** with specific preconditions
+- **Document decision logic explicitly** with AND/OR operators  
+- **Map complete flow paths** including error and cycle scenarios
+- **Validate state dependencies** across the entire diagram
+- **Update metrics continuously** to reflect actual complexity
+
+### **Common Pitfalls to Avoid:**
+- Don't oversimplify complex sequential flows into simple matrices
+- Don't ignore cyclic patterns or error handling paths  
+- Don't assume decision logic without explicit documentation
+- Don't skip validation of precondition dependencies
+
+## FUTURE ENHANCEMENTS
+
+### **Planned Improvements:**
+1. **Automated Flow Path Detection:** Script to identify all possible execution paths
+2. **CAN Signal Database:** Reference library for automotive signal interpretation
+3. **Decision Logic Validator:** Tool to verify AND/OR logic consistency
+4. **Cycle Detection Algorithm:** Automated identification of flow loops
+5. **Quality Metrics Dashboard:** Real-time processing statistics
+
+=== END OF METHODOLOGY SCRIPT ===

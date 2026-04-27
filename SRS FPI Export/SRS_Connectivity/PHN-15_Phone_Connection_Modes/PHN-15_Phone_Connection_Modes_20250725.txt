@@ -1,0 +1,163 @@
+# PHN-15 6.2.1.15  Phone Connection Modes Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.15 PHN-15 Phone Connection Modes
+
+- ID: 3714258
+- Artifact Type: SRS Feature
+- Responsible Domain: Projections
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT, Projections, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713972
+- Contents: System shall support phone connection in one of the two modes.
+1)Primary mode. - "Primary" - projection mode for smart devices that have Apple CarPlay or Android Auto enable
+2)Secondary mode. - "Secondary" - for phones for the calls execution only.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall support any phone connection in one of the two modes.
+
+1)Primary mode. - "Primary" - projection mode for smart devices that have Apple CarPlay or Android Auto enabled
+
+2)Secondary mode. - "Secondary" - for phones that are supposed to be applied for the calls execution only
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, have, enable, connection, mode, devices, CarPlay, Auto, phones, execution" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3713979
+- Contents: System shall allow connection of phones that have Apple CarPlay or Android Auto disable in Secondary mode.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow connection of phones that do not have Apple CarPlay or Android Auto enabled only in Secondary mode.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, have, connection, phones, CarPlay, disable, mode" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3714095
+- Contents: During user profile activation, System shall recover and establish a reconnection with connected phone, when device still available.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If Proxi parameter is Active then system shall automatically reconnect  with last connected phone if still available during any user profile activation.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recover, establish, connected, activation, reconnection, phone, still" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Proxi ==1 (Active)
+
+4. ID: 3714096
+- Contents: System shall establish the connection when a user manually requests for phone connection.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall establish the connection directly when a user manually requests for phone connection through HMI. (Secondary Connection)
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, establish, connection, requests" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3714477
+- Contents: If the user selects for a connection of new device in Primary mode, while primary device is already connected, then the new device shall connect in Primary mode, while previous connected device disconnects.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify when the user selects for a connection of new device in Primary mode, while a primary device is already connected, then the new selected device is connected in Primary mode, while the previously connected one will disconnect.
+
+Please refer Requirement
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "connect, disconnects" ) 
+Passive voice
+ (Look for: "is connected" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3714479
+- Contents: If the user selects for a connection of new device in Secondary mode, while a secondary device is already connected, then the new device shall connect in Secondary mode, while the previously connected device shall disconnect.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify when the user selects for a connection of new device in Secondary mode, while a secondary device is already connected, then the new selected device is connected in Secondary mode, while the previously connected one will get disconnected.
+
+Refer requirement
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "connected, connect, disconnect" ) 
+Passive voice
+ (Look for: "is already connected" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4571477
+- Contents: If selected primary device is "not capable" then system shall connect the device as secondary.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall connect the device as secondary, If selected primary device is "not capable" .
+- Grooming Status: Blocked
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-860
+- Expert Domains: BT, Projections
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3714480
+- Contents: When two devices are connected (as Primary and Secondary) and the user connects a new device in Primary mode, the system shall establish connection with the new device as primary and the current primary device establish connection as secondary device, while the previously connected as secondary device shall disconnects.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When two devices are already connected (as Primary and Secondary) and the user connects a new device in Primary mode, the system shall connect the new device as primary and the current primary device gets connected as secondary while the previously connected secondary will get disconnected.
+
+Refer Requirement
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "devices, system, connects, establish, connected, disconnects, Secondary, device, mode, connection" ) 
+Escape clause
+ (Look for: "as primary" ) 
+Passive voice
+ (Look for: "are connected" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-15 6.2.1.15  Phone Connection Modes Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

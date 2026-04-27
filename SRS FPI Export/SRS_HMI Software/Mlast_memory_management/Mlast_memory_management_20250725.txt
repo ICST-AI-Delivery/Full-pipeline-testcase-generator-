@@ -1,0 +1,164 @@
+# UnknownID 6.2.2.3.11 Mlast memory management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.11 Mlast memory management
+
+- ID: 4886595
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886597
+- Contents: System shall store in Mlast the values retrieved by Mirrors Configuration input signals when
+proxi parameter Profile == 0("absent")
+AND
+IDC is in HMI Power On status
+AND
+IDC reads a transition from MirrorProfileSts != 3("Manual_Reached") to MirrorProfileSts == 3("Manual_Reached").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to store the values in Mlast when
+
+proxi parameter Profile == 0 ("absent")
+AND
+IDC is in HMI Power On status
+AND
+IDC reads a transition from MirrorProfileSts != 3 ("Manual_Reached") to MirrorProfileSts == 3
+("Manual_Reached").
+
+ LIN_MIRROR_FEEDBACK.Fdbk_Pos_Ver_LH_Exmi
+
+ LIN_MIRROR_FEEDBACK.Fdbk_Pos_Hor_LH_Exmi
+
+LIN_MIRROR_FEEDBACK.Fdbk_Pos_Ver_RH_Exmi
+ 
+
+ LIN_MIRROR_FEEDBACK.Fdbk_Pos_Hor_RH_Exmi
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ANDIDC, store, retrieved, proxi, is, reads, values, signals, Profile, Power, transition, MirrorProfileSts" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886599
+- Contents: System shall store in Mlast the values retrieved by Mirrors Configuration input signals when
+proxi parameter Profile == 1("present")
+AND
+AutoSave setting set to ON
+AND
+IDC is in HMI Power On condition
+AND
+ReverseGearBCSts == 0("Not_Inserted")
+AND
+IDC reads a transition from MirrorProfileSts != 3("Manual_Reached") to MirrorProfileSts == 3("Manual_Reached")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to store the values in Mlast when
+
+proxi parameter Profile == 1 ("present")
+AND
+AutoSave setting is set to ON
+AND
+IDC is in HMI Power On condition
+AND
+ReverseGearBCSts == 0 ("Not_Inserted")
+AND
+IDC reads a transition from MirrorProfileSts != 3 ("Manual_Reached") to MirrorProfileSts == 3
+("Manual_Reached")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ONANDIDC, store, retrieved, setting, set, is, Inserted, reads, values, signals, present, Power, transition, MirrorProfileSts" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886602
+- Contents: System shall display a pop up to the user when
+proxi parameter Profile == 1("present")
+AND
+AutoSave setting set to OFF
+AND
+IDC is in HMI Power On condition
+AND
+ReverseGearBCSts == 0("Not_Inserted")
+AND
+IDC reads a transition from MirrorProfileSts != 3("Manual_Reached") to MirrorProfileSts == 3("Manual_Reached").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when 
+
+proxi parameter Profile == 1 ("present")
+AND
+AutoSave setting is set to OFF
+AND
+IDC is in HMI Power On condition
+AND
+ReverseGearBCSts == 0 ("Not_Inserted")
+AND
+IDC reads a transition from MirrorProfileSts != 3 ("Manual_Reached") to MirrorProfileSts == 3
+("Manual_Reached").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, setting, set, is, Inserted, reads, pop, user, present, OFFANDIDC, Power, transition, MirrorProfileSts" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886605
+- Contents: IDC shall store in Mlast the values retrieved by Mirrors Configuration input signals when user confirms the memorization.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the Mlast values when user confirms the memorization.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "store, retrieved, confirms, values, signals, memorization" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4886608
+- Contents: IDC shall discard the Mirrors Configuration input signals and keep the Mlast values unchanged when user denies the memorization.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the Mlast values (unchanged) when user denies the memorization.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "discard, keep, values, denies, signals, memorization" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.11 Mlast memory management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

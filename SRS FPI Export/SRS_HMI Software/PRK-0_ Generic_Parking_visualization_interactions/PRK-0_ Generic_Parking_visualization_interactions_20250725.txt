@@ -1,0 +1,92 @@
+# PRK-0 6.2.4.1.2 : Generic Parking visualization interactions Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.2 PRK-0: Generic Parking visualization interactions
+
+- ID: 4655845
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3604108
+- Contents: The HMI popups shall not overlap the camera stream views & frames when Parking visualization is ongoing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: HMI popup should not block the parking view
+
+Note: There is a separate area available for HMI popup
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "popups, visualization, overlap, is ongoing, amp, frames" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: There is a separate area available for HMI popup
+
+2. ID: 4661907
+- Contents: The system shall provide the wide view in both Surround view & rear view configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Wide view is working in both Surround view and Rear View configurations
+- Grooming Status: Approved
+- Grooming Comments: Sunil Abdul 24.1.2025: Approved
+- Expert Domains: Camera, Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4661989
+- Contents: The system shall provide the 'close button (bar)' outside the 'B' Area when possible to dismiss the parking system according to the 'homologative' requirements for each market.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Close button (bar) is available outside B area except 'when the parking system active with reverse gear engaged'.
+- Grooming Status: Approved
+- Grooming Comments: Sunil Abdul, Muthu 24.1.2025: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "when possible" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4884460
+- Contents: (see: image68.png)
+Figure  Close button/bar
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image68.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image68.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.2 : Generic Parking visualization interactions Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

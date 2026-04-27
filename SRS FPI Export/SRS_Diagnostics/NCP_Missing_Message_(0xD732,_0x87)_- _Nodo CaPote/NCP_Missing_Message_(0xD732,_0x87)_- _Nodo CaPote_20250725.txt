@@ -1,0 +1,78 @@
+# UnknownID 6.2.1.1.62 NCP Missing Message (0xD732, 0x87) -  Nodo CaPote Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.62 NCP Missing Message (0xD732, 0x87) -  Nodo CaPote
+
+- ID: 3845019
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3845020
+- Contents: The system shall detect NCP missing message fault upon detecting missing STATUS_NCP with maturation time of "2"s
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NCP missing message fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: IDC detects a missing STATUS_NCP
+    Maturation Time: 2s
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NCP does not send a scheduled message
+Vehicle Configuration: Proxi byte 29, bit 7 (NCP) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3845034
+- Contents: The system shall make the NCP missing message Fault inactive upon detecting he relative message from missing message
+condition with De-maturation time "1"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NCP missing message fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: IDC detects the relative message from missing message condition
+    De-Maturation Time: 1s
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "he" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NCP does not send a scheduled message
+Vehicle Configuration: Proxi byte 29, bit 7 (NCP) == "Present"
+Fault Detection Conditions: Key-On
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.62 NCP Missing Message (0xD732, 0x87) -  Nodo CaPote Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

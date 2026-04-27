@@ -1,0 +1,252 @@
+# FAD-2 6.2.2.3.2  Mute Control Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.2 FAD-2 Mute Control
+
+- ID: 3788813
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3557627
+- Contents: The system shall mute the active audio source when a mute request triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the active audio source is muted when mute request is triggered.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3557631
+- Contents: If a mute request triggered for an active Audio source", the FAD library shall perform a volume fade-out on the corresponding audio stream.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: play a source
+trigger mute request (e.g. HMI, Harkey)
+
+Verify that the  volume fade-out the corresponding audio stream.
+
+Verify by using the speaker.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3557632
+- Contents: The system shall un-mute the active audio source when an un-mute request triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the active audio source is un-muted when un-mute request is triggered.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3557634
+- Contents: When an un-mute request triggered,  the FAD library shall perform a volume fade-in on the corresponding audio stream.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Precondition: 
+ active audio source volume is Muted.
+trigger an unmute request (via HMI, Hard key)
+
+Verify  the  volume fade-in on the corresponding audio stream.
+
+Verify by using the speaker.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3940760
+- Contents: The system shall set the proper channel activation CAN signal to '0'("Not_Active") When a mute request of an active audio source triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Mute an active Audio source
+Verify the corresponding CAN signal  value is 0
+Note: the CAN signals are
+IDC_AudioStreams.EntertainmentStreamActivation 
+IDC_AudioStreams.TelephonyVoiceStreamActivation 
+IDC_AudioStreams.NavigationStreamActivation 
+IDC_AudioStreams.HMIAndroidStreamActivation
+IDC_AudioStreams.HMILinuxStreamActivation 
+IDC_AudioStreams2.ParkAssistStreamActivation
+IDC_AudioStreams2.BSM_RCTAStreamActivation
+IDC_AudioStreams2.LaneCrossingStreamActivation
+IDC_AudioStreams2.LaneKeepingStreamActivation
+IDC_AudioStreams.GeneralWarning1StreamActivation
+IDC_AudioStreams.GeneralWarning2StreamActivation
+IDC_AudioStreams.TurnIndicatorsStreamActivation
+IDC_AudioStreams.FLDoorStreamActivation
+IDC_AudioStreams.FRDoorStreamActivation
+IDC_AudioStreams.RLDoorStreamActivation
+IDC_AudioStreams.RRDoorStreamActivation
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, signal, to ', triggered, activation, Not_Active, request, source" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3940904
+- Contents: The system shall set the proper channel activation CAN signal to 1 ("Active") if unmute request of an active audio source is triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Unmute the muted audio source
+Verify the corresponding CAN signal  value is set to 1.
+Note: the CAN signals are
+IDC_AudioStreams.EntertainmentStreamActivation 
+IDC_AudioStreams.TelephonyVoiceStreamActivation 
+IDC_AudioStreams.NavigationStreamActivation 
+IDC_AudioStreams.HMIAndroidStreamActivation
+IDC_AudioStreams.HMILinuxStreamActivation 
+IDC_AudioStreams2.ParkAssistStreamActivation
+IDC_AudioStreams2.BSM_RCTAStreamActivation
+IDC_AudioStreams2.LaneCrossingStreamActivation
+IDC_AudioStreams2.LaneKeepingStreamActivation
+IDC_AudioStreams.GeneralWarning1StreamActivation
+IDC_AudioStreams.GeneralWarning2StreamActivation
+IDC_AudioStreams.TurnIndicatorsStreamActivation
+IDC_AudioStreams.FLDoorStreamActivation
+IDC_AudioStreams.FRDoorStreamActivation
+IDC_AudioStreams.RLDoorStreamActivation
+IDC_AudioStreams.RRDoorStreamActivation
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is triggered" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3557642
+- Contents: The system shall apply the mute action on different audio sources in the following conditions:
+ - Phone source if an active call is ongoing.
+ - Navigation source if a navigation prompt or navigation warning is in playback.
+ - Ringtone source if an incoming call is received.
+ - Entertainment source if Phone/Navigation/Ringtone/Voice are not streamed.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the below audio sources are muted as provided below.
+
+ - Phone call uplink audio if an active call is ongoing. 
+ - Navi source if a navigation prompt or navigation warning is in playback.
+ - Ringtone source if an incoming call received.
+ - Entertainment source if Phone/Navigation/Ringtone/Voice are not streamed.
+- Grooming Status: Approved
+- Grooming Comments: Xiongwei: Abdul 24.01.2025: approved
+
+[Xiongwei 29.07.2024, Abdul]: This is removed from PI5 document. Marked as Obsolete
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, navigation, source, apply, following, prompt, warning, received, streamed, action, sources, conditions, call ongoing, call, not" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3557643
+- Contents: If the system receives the volume button press for a time less than T_NVO_LongDH, the system shall apply the following logic:
+- mute the current active audio source if the current active audio source is unmuted.
+- unmute the current active audio source if the current active audio source is muted.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Press the volume button (STATUS_NVO.VolumeButtonPushSts = 1 ("Pressed") shorter than T_NVO_LongDH when the audio is unmuted.
+Verify that  the current active audio source is muted.
+
+Press the volume button shorter than T_NVO_LongDH when the audio is muted.
+Verify that  the current active audio source is unmuted.
+- Grooming Status: Approved
+- Grooming Comments: Search T_NVO_LongDH / Need input from custome if it is not there -> OK to pprove as of now
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3557658
+- Contents: If the system receives the DH_1 rotary button press, the system shall apply the following logic:
+- mute the current active audio source if the current active audio source is unmuted.
+- unmute the current active audio source if the current active audio source is muted.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Press the DH_1 rotary button  when the audio is unmuted.
+Verify that  the current active audio source is muted.
+
+Press the DH_1 rotary button  when the audio is muted.
+Verify that  the current active audio source is unmuted.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is unmuted, is muted" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3940759
+- Contents: The system shall 'mute' the 'proper-channel' through 'FAD_CTRL__setMute(void *fad_ctrl_memory, fad_source_id_e sourceID, bool enable)' API when 'mute' request of an active audio source triggered, where:
+sourceID = SOURCE ID of the source muted.
+enable = true.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, enable, triggered, muted, mute, proper-channel, request, source, SOURCE ID" )
+- State (Harman_Requirement): Review
+
+2. ID: 3940903
+- Contents: The system shall unmute the 'proper-channel' through 'FAD_CTRL__setMute(void *fad_ctrl_memory, fad_source_id_e sourceID, bool enable)' API when 'unmute' request of an active audio source triggered, where:
+sourceID = 'SOURCE ID' of the source unmuted
+enable = false.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, unmute, enable, triggered, proper-channel, request, source, SOURCE ID" )
+- State (Harman_Requirement): Review
+
+3. ID: 4753526
+- Contents: (see: image128.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image128.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image128.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-2 6.2.2.3.2  Mute Control Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

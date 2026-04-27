@@ -1,0 +1,95 @@
+# UnknownID 6.2.1.1.35 Google ID (0x9041, 0x55) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.35 Google ID (0x9041, 0x55)
+
+- ID: 3919824
+- Artifact Type: SRS Feature
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3919825
+- Contents: If Google Certification's authentication has fail , the system shall send  GPS Antena Google IDmessage with Permanent evaulation in Vehicle configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the GPS module is open circuit.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, GPS Antena  Google ID message, evaulation, configuration" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3919826
+- Contents: The system shall be able to detect Fault Conditions, if Key is on
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Pre condition Key-ON.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "able to" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3919827
+- Contents: If the Communication with the MFI Chip has fail for a reason, the system shall come into contact with Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Maturation time as 1s.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, come, contact, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Maturation time is 1s
+
+4. ID: 3919828
+- Contents: If the De-Maturation is 1sec  &  DTC is devalidated as soon as communication with the MFI Chip is re-established , the system shall face with De-Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as 1s.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.35 Google ID (0x9041, 0x55) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

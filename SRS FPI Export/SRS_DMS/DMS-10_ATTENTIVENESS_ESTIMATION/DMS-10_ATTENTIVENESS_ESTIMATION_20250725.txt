@@ -1,0 +1,247 @@
+# DMS-10 6.2.1.11  ATTENTIVENESS ESTIMATION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.11 DMS-10 ATTENTIVENESS ESTIMATION
+
+- ID: 3738752
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3738783
+- Contents: The system shall set the CAN signal 'DMS_INFO.DMS_Attentiveness' to 'Driver_inattentive' if DMS Status is ACTIVE OR RUNNING OR WARNING & Cabin Division is 'Area_3'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS Status is ACTIVE OR RUNNING OR WARNING and CabinDivision = Area_3  
+
+Verify the value of the CAN signal
+
+DMS_INFO.DMS_Attentiveness = Driver_inattentive
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, signal, is, Division" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Le_t_AttWrnCount
+Description: Attention warning counter for the time between the start of distraction of the driver and the
+corresponding warning activation
+Unit: Milliseconds [ms]
+
+2. ID: 5026965
+- Contents: The system shall start the counter 'Le_t_AttWrnCount' if 'DMS Status' is RUNNING OR WARNING & Cabin Division is  'Area_3'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS Status is  RUNNING OR WARNING and CabinDivision = Area_3  
+
+Verify the counter value Le_t_AttWrnCount is incrementing.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, start, is, counter, Division" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3740575
+- Contents: The system shall "not-change" Cabin division out of Area '3' 'CabinDivision' = 'Area_3' & 'DMS_INFO.DMS_Attentiveness' = 'Driver_inattentive' &"not-reset" the counter 'Le_t_AttWrnCount' if driver look out or gaze estimation flickers for a time < 'Ce_t_GazeChangeTimeMax'(250ms).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Step 1:
+Driver look out or gaze estimation flickers for a time < 'Ce_t_GazeChangeTimeMax'
+
+Verify the driver attentiveness = Inattentive and Cabin Division = Area_3  
+Verify the counter value Le_t_AttWrnCount is not resetting
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, change, division, CabinDivision, amp, counter" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Ce_t_GazeChangeTimeMax
+Description: Maximum time for driver to gaze "in, out and back in" Area 3 to not reset the DMS attention counter
+
+4. ID: 3739121
+- Contents: The system shall set 'the CAN signal DMS_INFO.DMS_Attentiveness' to 'Driver_attentive' & reset the counter 'Le_t_AttWrnCount'  if Cabin Division' equals 'Area_1' or 'Area_2' for a time > 'Ce_t_GazeChangeTimeMax'(250ms).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondtion:
+counter 'Le_t_AttWrnCount' is incremeting
+
+Look into  'Area_1' or 'Area_2'.(Cabin Division' equals to Area_1' or 'Area_2) for a time longer than 'Ce_t_GazeChangeTimeMax'(250ms).
+
+Verify the CAN signal DMS_INFO.DMS_Attentiveness' = 'Driver_attentive'
+and the counter 'Le_t_AttWrnCount' is reset.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, signal, reset, DMS, amp, counter" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: NOTE: when Cabin division is communicated on CAN, it means that debounce logic has already been
+considered. When Driver is attentive, counter can be reset.
+
+5. ID: 3739123
+- Contents: The system shall set the CAN signal "DMS_INFO.DMS_Attentiveness" to "Status_not_available" & reset the counter 'Le_t_AttWrnCount' if the CabinDivision' "not-equals" to 'Area_1' or 'Area_2' or 'Area_3'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Cabin division is not in Area _1, Area_2 and Area_3 (undefined Area)
+
+The driver is looking backwards to make sure headtracking is not available.
+
+Verify the CAN signal DMS_INFO.DMS_Attentiveness= Status_not_available  &  the counter 'Le_t_AttWrnCount' is reset.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, signal, reset, amp, counter" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3740555
+- Contents: The system shall reset the counter Le_t_AttWrnCount if DMS Status exits WARNING STATE.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+counter  Le_t_AttWrnCount is incrementing
+
+Switch DMS Status to ACTIVE.
+Verify the counter Le_t_AttWrnCount is reset to 0.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3740580
+- Contents: System shall-not reset 'Le_t_AttWrnCount' if 'Le_enu_CabinDivision' equals 'Area_3' & the processing artifact or condition affects correct 'driver gaze' estimation for a time shorter than 'Ce_t_GazeChangeTimeMax'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, reset, correct, artifact, condition, gaze, estimation, time" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3740648
+- Contents: The system shall send the counter 'Le_t_AttWrnCount' over the CAN through the debug signal 'MSG_DMS_DebugInfo.SG_DMS_AttWrnCount
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the value of the counter 
+'Le_t_AttWrnCount' is sent over the CAN through the debug signal 'MSG_DMS_DebugInfo.SG_DMS_AttWrnCount
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3738760
+- Contents: This functions explains how to estimate driver's attentiveness depending on the driver's gaze.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3738761
+- Contents: The system shall implement the logics of Attentiveness Estimation according to:
+SFS F531
+Performance Target setting
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+3. ID: 3738782
+- Contents: The system shall monitor driver attentiveness & initiate distraction detection logic when the DMS status is "ACTIVE, RUNNING, WARNING".
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, status, monitor, initiate, is, driver, amp, logic, ACTIVE, RUNNING, WARNING" )
+- State (Harman_Requirement): New
+
+4. ID: 3741011
+- Contents: The system shall design the ADDW to minimize the system error rate(false positives) under real driving conditions.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+5. ID: 3741169
+- Contents: The system shall set the false positives(FP) rate lower than Ce_n_FPrateMax/Km in nominal conditions.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+- Requirement Rationale: Name: Ce_n_FPrateMax
+Description: Maximum acceptable attention detection false positives rate
+Value: TBD
+Unit: Number
+Range: TBD
+Resolution: TBD
+
+6. ID: 3741178
+- Contents: Diagnosis
+Calibration Parameters
+Ce_t_GazeChangeTimeMax
+Ce_n_FPrateMax
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 3741179
+- Contents: Interfaces
+Network interfaces
+Outputs
+Oe_t_AttWrnCount
+Oe_enu_DrvrAttentive
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 3741180
+- Contents: Internal interfaces
+Outputs
+Oe_t_AttWrnCount
+Oe_enu_DrvrAttentive
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-10 6.2.1.11  ATTENTIVENESS ESTIMATION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,161 @@
+# UnknownID 6.1.2.3.10 SSID Configuration
+
+
+
+SSID Configuration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.10 SSID Configuration
+
+
+
+SSID Configuration
+
+- ID: 2353428
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353429
+- Contents: 6.1.2.3.10.1 The User shall be able to configure the SSID of the WLAN AP on the HMI.
+
+
+
+The User shall be able to configure the SSID of the WLAN AP on the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353430
+- Contents: 6.1.2.3.10.2 The User-configured SSID shall be up to 32 bytes long if the diagnosis flag for...
+
+
+
+The User-configured SSID shall be up to 32 bytes long if the diagnosis flag for different SSIDs in 2.4 and 5 GHz is not set.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Red label. What is the specific use case and suggestion is to stay with AOSP implementation?
+
+3. ID: 2353431
+- Contents: 6.1.2.3.10.3 The User-configured SSID shall be up to 27 bytes long if the diagnosis flag for...
+
+
+
+The User-configured SSID shall be up to 27 bytes long if the diagnosis flag for different SSIDs in 2.4 and 5 GHz is set.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Red label. What is the specific use case and suggestion is to stay with AOSP implementation?
+
+4. ID: 2353432
+- Contents: 6.1.2.3.10.4 The User shall be able to have different SSIDs for 2.4 and 5 GHz if the diagnosi...
+
+
+
+The User shall be able to have different SSIDs for 2.4 and 5 GHz if the diagnosis flag for different SSIDs in 2.4 and 5 GHz is set.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Diagnosis requirement is specific to Ferrari.Move to Red label.
+AOSP do not support band configuration for station.
+
+5. ID: 2353433
+- Contents: 6.1.2.3.10.5 The System shall provide the same SSID for both APs if the flag is reset.
+
+
+
+The System shall provide the same SSID for both APs if the flag is reset.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: Diagnosis requirement is specific to Ferrari.Move to Red label.
+As per discussion with Sarita AOSP do not support band configuration for station.
+
+6. ID: 2353434
+- Contents: 6.1.2.3.10.6 The SSID shall comply with the rules laid out in the IEEE 802.11-2012 specificat...
+
+
+
+The SSID shall comply with the rules laid out in the IEEE 802.11-2012 specification, chapter 8.4.2.2.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+7. ID: 2353435
+- Contents: 6.1.2.3.10.7 The System shall define the SSID according to Ferrari norms.
+
+
+
+The System shall define the SSID according to Ferrari norms.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Verification Criteria: HU shall display the SSID name according to
+- Grooming Status: Approved
+- Grooming Comments: Move to redlabel.New implementation.
+- TestTeamComment: [HsutterHsutter [2024-04-10]  Send mail to Divakar Ravupalli  -> Information in Verification Criteria is missing
+
+, 2024-01-15]JHaerig: 30.10.2023: Mail sent by Saranya, no further update received
+
+20231109_Hsutter: Verfification Criteria not completely
+
+8. ID: 2353436
+- Contents: 6.1.2.3.10.8 The User shall use a random 4-byte alphanumeric string instead of the last four...
+
+
+
+The User shall use a random 4-byte alphanumeric string instead of the last four digits of the VIN to create the SSID if no vehicle information is available.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Move to redlabel.New implementation.
+- TestTeamComment: [Hsutter, 2024-04-08] Ravupalli, Divakar by email for more information
+
+[Hsutter, 2024-01-15]JHaerig: 26.10.2023: Mail sent to Saranya, Swetha, etc. Status pending
+
+The Verification Criteria was not accepted by System Test
+
+9. ID: 2353437
+- Contents: 6.1.2.3.10.9 The User shall not be able to configure a hidden WLAN network.
+
+
+
+The User shall not be able to configure a hidden WLAN network.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+10. ID: 2353438
+- Contents: 6.1.2.3.10.10 The System shall have the 100 ms beacon interval for both bands.
+
+
+
+The System shall have the 100 ms beacon interval for both bands.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.10 SSID Configuration]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

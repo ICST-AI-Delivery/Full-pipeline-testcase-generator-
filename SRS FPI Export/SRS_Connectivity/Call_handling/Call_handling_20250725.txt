@@ -1,0 +1,460 @@
+# UnknownID 6.1.3.1.5 Call handling
+
+
+
+Call handling Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.3.1.5 Call handling
+
+
+
+Call handling
+
+- ID: 2353683
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Approved
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353684
+- Contents: 6.1.3.1.5.1 The System shall handle single outgoing and incoming calls with all possible cal...
+
+
+
+The System shall handle single outgoing and incoming calls with all possible call states.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353685
+- Contents: 6.1.3.1.5.2 The System shall handle multiparty calls with all possible call states.
+
+
+
+The System shall handle multiparty calls with all possible call states.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+3. ID: 2353686
+- Contents: 6.1.3.1.5.3 The System shall support hang-up at all HMIs and the remote side.
+
+
+
+The System shall support hang-up at all HMIs and the remote side.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+4. ID: 2353687
+- Contents: 6.1.3.1.5.4 The System shall not trigger a dial request to an HFP connected phone if another...
+
+
+
+The System shall not trigger a dial request to an HFP connected phone if another call is in the state of "dialing" or "alerting" at the same phone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+5. ID: 2353688
+- Contents: 6.1.3.1.5.5 The System will send the appropriate error message to the HMI.
+
+
+
+The System will send the appropriate error message to the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- TestTeamComment: [Hsutter, 2024-01-15] TestTeamApproval was removed because "System Qualification Test" was removed from the Test Stage
+
+The Verification Criteria was not accepted by System Test
+- State (Harman_Requirement): Approved
+
+6. ID: 2353689
+- Contents: 6.1.3.1.5.6 The System shall administrate a unique call-id during all call states within the...
+
+
+
+The System shall administrate a unique call-id during all call states within the whole life-cycle of the calls.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+7. ID: 2353690
+- Contents: 6.1.3.1.5.7 The System shall be able to handle an outgoing call initiated via HMI over the w...
+
+
+
+The System shall be able to handle an outgoing call initiated via HMI over the whole life cycle of the call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+8. ID: 2353691
+- Contents: 6.1.3.1.5.8 The System shall dial a phone number independent of the registered state and the...
+
+
+
+The System shall dial a phone number independent of the registered state and the field strength.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+9. ID: 2353692
+- Contents: 6.1.3.1.5.9 The System shall abort the outgoing call if a hang-up command is received with t...
+
+
+
+The System shall abort the outgoing call if a hang-up command is received with the emulated call id.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Comments: To be moved to   white label
+
+10. ID: 2353693
+- Contents: 6.1.3.1.5.10 The User shall be able to accept or reject an incoming call.
+
+
+
+The User shall be able to accept or reject an incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+11. ID: 2353694
+- Contents: 6.1.3.1.5.11 The User shall be able to accept or reject a waiting call.
+
+
+
+The User shall be able to accept or reject a waiting call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+12. ID: 2353695
+- Contents: 6.1.3.1.5.12 The User shall be able to 'response and hold' an incoming call.
+
+
+
+The User shall be able to 'response and hold' an incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+13. ID: 2353696
+- Contents: 6.1.3.1.5.13 The User shall be able to mute and unmute the ringtone while an incoming call is...
+
+
+
+The User shall be able to mute and unmute the ringtone while an incoming call is in call state ringing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+14. ID: 2353697
+- Contents: 6.1.3.1.5.14 The User shall be able to ignore an incoming call by muting the ringtone while t...
+
+
+
+The User shall be able to ignore an incoming call by muting the ringtone while the incoming call is in call state ringing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+15. ID: 2353698
+- Contents: 6.1.3.1.5.15 The System shall accept or reject a waiting call while another call is active if...
+
+
+
+The System shall accept or reject a waiting call while another call is active if this is supported by the connected phone.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+16. ID: 2353699
+- Contents: 6.1.3.1.5.16 The System shall accept or reject a waiting call while another call is on hold i...
+
+
+
+The System shall accept or reject a waiting call while another call is on hold if this is supported by the connected phone.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+17. ID: 2353700
+- Contents: 6.1.3.1.5.17 The System shall inform the User about the types of the current calls.
+
+
+
+The System shall inform the User about the types of the current calls.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+18. ID: 2353701
+- Contents: 6.1.3.1.5.18 The System shall inform the User about all call states of the current calls.
+
+
+
+The System shall inform the User about all call states of the current calls.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+19. ID: 2353702
+- Contents: 6.1.3.1.5.19 The User shall be able to hang up an active or a held call or a dialing/alerting...
+
+
+
+The User shall be able to hang up an active or a held call or a dialing/alerting call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+20. ID: 2353703
+- Contents: 6.1.3.1.5.20 The System shall process the hang-up command with higher priority.
+
+
+
+The System shall process the hang-up command with higher priority.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+21. ID: 2353704
+- Contents: 6.1.3.1.5.21 The Telephone application shall execute the hang-up command immediately in case...
+
+
+
+The Telephone application shall execute the hang-up command immediately in case of executing a DTMF sequence. The Telephone Application clears the DTMF buffer and sends the hang-up command with high priority.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+22. ID: 2353705
+- Contents: 6.1.3.1.5.22 The System shall handle call hang-ups initiated by the remote side at every poss...
+
+
+
+The System shall handle call hang-ups initiated by the remote side at every possible call state.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+23. ID: 2353706
+- Contents: 6.1.3.1.5.23 The System shall update the call state immediately after the hang-up indication...
+
+
+
+The System shall update the call state immediately after the hang-up indication initiated by the remote side.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+24. ID: 2353707
+- Contents: 6.1.3.1.5.24 The System shall show correct disconnect reasons in case the call gets disconnec...
+
+
+
+The System shall show correct disconnect reasons in case the call gets disconnected by the remote side.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+25. ID: 2353708
+- Contents: 6.1.3.1.5.25 The System shall show correct disconnect reasons in case the call gets disconnec...
+
+
+
+The System shall show correct disconnect reasons in case the call gets disconnected by the network.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+26. ID: 2353709
+- Contents: 6.1.3.1.5.26 The User shall be able to set an active call on hold.
+
+
+
+The User shall be able to set an active call on hold.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+27. ID: 2353710
+- Contents: 6.1.3.1.5.27 The User shall be able to set a held call back to active.
+
+
+
+The User shall be able to set a held call back to active.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+28. ID: 2353711
+- Contents: 6.1.3.1.5.28 The System shall inform the User about the duration of the call (elapsed time).
+
+
+
+The System shall inform the User about the duration of the call (elapsed time).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+29. ID: 2353712
+- Contents: 6.1.3.1.5.29 The System shall update a call duration continuously every second.
+
+
+
+The System shall update a call duration continuously every second.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+30. ID: 2353713
+- Contents: 6.1.3.1.5.30 The System shall provide a unique call duration for every call.
+
+
+
+The System shall provide a unique call duration for every call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+31. ID: 2353714
+- Contents: 6.1.3.1.5.31 The System shall continue counting the call duration while a call is in state 'h...
+
+
+
+The System shall continue counting the call duration while a call is in state 'hold'.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+32. ID: 2353715
+- Contents: 6.1.3.1.5.32 The System shall start the call duration from 0:00 after two calls are joined to...
+
+
+
+The System shall start the call duration from 0:00 after two calls are joined to a conference.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+33. ID: 2353716
+- Contents: 6.1.3.1.5.33 The System shall not influence the already running conference call duration if a...
+
+
+
+The System shall not influence the already running conference call duration if additional joined members of an already active conference.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+34. ID: 2353717
+- Contents: 6.1.3.1.5.34 The System shall continue counting the call duration of every call id in the con...
+
+
+
+The System shall continue counting the call duration of every call id in the conference.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+35. ID: 2353718
+- Contents: 6.1.3.1.5.35 The System shall start the call duration at 0:00 after a call handover if a mobi...
+
+
+
+The System shall start the call duration at 0:00 after a call handover if a mobile reconnects with an active call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+36. ID: 2353719
+- Contents: 6.1.3.1.5.36 The System shall handle multiparty call situations if the connected phone suppor...
+
+
+
+The System shall handle multiparty call situations if the connected phone supports this feature.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+37. ID: 2353720
+- Contents: 6.1.3.1.5.37 The User shall be able to swap an active and a held call if supported by the con...
+
+
+
+The User shall be able to swap an active and a held call if supported by the connected phone.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+38. ID: 2353721
+- Contents: 6.1.3.1.5.38 The User shall be able to establish a conference call by joining an active call...
+
+
+
+The User shall be able to establish a conference call by joining an active call and held call if this is supported by the connected phone.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+39. ID: 2353722
+- Contents: 6.1.3.1.5.39 The User shall be able to add call to conference call by joining an active call...
+
+
+
+The User shall be able to add call to conference call by joining an active call and a held conference.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+40. ID: 2353723
+- Contents: 6.1.3.1.5.40 The User shall be able to terminate a conference call by closing all calls at on...
+
+
+
+The User shall be able to terminate a conference call by closing all calls at once.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+41. ID: 2353724
+- Contents: 6.1.3.1.5.41 The User shall be able to swap an active conference call, and a held single call...
+
+
+
+The User shall be able to swap an active conference call, and a held single call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+42. ID: 2353725
+- Contents: 6.1.3.1.5.42 The User shall be able to set a conference call on hold and resume a held confer...
+
+
+
+The User shall be able to set a conference call on hold and resume a held conference call.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+43. ID: 2353726
+- Contents: 6.1.3.1.5.43 The User shall be able to remove a call from the conference if this is supported...
+
+
+
+The User shall be able to remove a call from the conference if this is supported by the connected phone.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+44. ID: 2353727
+- Contents: 6.1.3.1.5.44 The User shall be able to split a conference call into an active call and a held...
+
+
+
+The User shall be able to split a conference call into an active call and a held conference if this is supported by the connected phone.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+45. ID: 2353728
+- Contents: 6.1.3.1.5.45 The System shall limit the maximum number of call members up to 6.
+
+
+
+The System shall limit the maximum number of call members up to 6.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: BT team to check and come back.
+BT team confirmation: This can be marked Red label. The limit can be configured in Project space.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.3.1.5 Call handling]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

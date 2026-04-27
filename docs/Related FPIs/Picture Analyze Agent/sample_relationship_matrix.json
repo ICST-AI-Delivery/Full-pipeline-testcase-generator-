@@ -1,0 +1,53 @@
+{
+  "Engine_Start_Stop": {
+    "Ignition_Switch": 3,
+    "Battery_Voltage": 2,
+    "Fuel_Level": 1,
+    "Engine_Temperature": 2
+  },
+  "Ignition_Switch": {
+    "Engine_Start_Stop": -3,
+    "Dashboard_Illumination": 3,
+    "Power_Management": 2
+  },
+  "Battery_Voltage": {
+    "Engine_Start_Stop": -2,
+    "Power_Management": 3,
+    "Charging_System": 1
+  },
+  "Fuel_Level": {
+    "Engine_Start_Stop": -1,
+    "Low_Fuel_Warning": 3,
+    "Range_Calculation": 2
+  },
+  "Dashboard_Illumination": {
+    "Ignition_Switch": -3,
+    "Ambient_Light_Sensor": 2,
+    "Display_Brightness": 3
+  },
+  "Power_Management": {
+    "Ignition_Switch": -2,
+    "Battery_Voltage": -3,
+    "Sleep_Mode": 3
+  },
+  "Low_Fuel_Warning": {
+    "Fuel_Level": -3,
+    "Warning_Display": 3,
+    "Audio_Alert": 2
+  },
+  "Range_Calculation": {
+    "Fuel_Level": -2,
+    "Fuel_Consumption": -2,
+    "Display_Update": 3
+  },
+  "Ambient_Light_Sensor": {
+    "Dashboard_Illumination": -2,
+    "Auto_Headlights": 3,
+    "Display_Brightness": 2
+  },
+  "Display_Brightness": {
+    "Dashboard_Illumination": -3,
+    "Ambient_Light_Sensor": -2,
+    "User_Settings": 1
+  }
+}

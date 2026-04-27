@@ -1,0 +1,153 @@
+# PFL-0 6.2.6.1  Profiling Introduction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.1 PFL-0 Profiling Introduction
+
+- ID: 3939674
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3969944
+- Contents: System shall manage Profiling feature when proxi parameter Profile ==1("present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxy parameter condition.
+ Profile ==1("present").
+
+Start Byte 167, Start bit 5 - Profile (0 = "absent", 1="present")
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, Profiling, proxi, feature, parameter Profile   1, present" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 3969945
+- Contents: IDC shall manage 9 profile slots as follow:
+1 guest/default profile
+8 user profiles
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 9 profiles.
+1 guest/default profile and 8 user profiles
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘9’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3969947
+- Contents: IDC shall set Presence Profile bit_x to 1, where x = [1,8] when Profile_x should created.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system sets Profile bit_x when profile x is created.
+
+where x = [1,8]
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "where x    1,8" ) 
+Missing limits
+ (Look for: "‘, 8’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4643277
+- Contents: System shall store the profiled settings and driver and mirror positions for each profile in database.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to store the profile settings and driver and mirror positions.
+
+please ref VFI-f119 rear view mirrors
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, profiled, settings, driver, positions, profile, database" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4643287
+- Contents: System shall set ActiveProfile = 0("Guest_Profile") when proxi Profile == 0("absent").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the active profile status when proxi Profile == 0 ("absent").
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, 0, Guest_Profile, Profile" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4643303
+- Contents: System shall provide the driver statistics as requested for the case of proxi Profile == 1 for a generic user profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to provide driver statistics when proxi Profile == 1
+
+Driver statistics (graph on central display)
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4093886
+- Contents: (see: image128.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image128.png
+
+2. ID: 3969946
+- Contents: System shall set bit0 =1 and bit1 to bit8 to 0 when no User Profile created.
+- Artifact Type: Information
+- Grooming Status: New
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image128.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-0 6.2.6.1  Profiling Introduction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,344 @@
+# VAS-1 6.2.4.1 A AVAS Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1 AVAS-1 AVAS Management
+
+- ID: 3408496
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Manufacturing, System Infra, Virtualization
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3618316
+- Contents: The system shall "enable/disable" the AVAS functionality by using the proxi signal "AVAS Enable".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the AVAS functionality can be enabled/disabled by using the proxi signal AVAS Enable
+ 
+ Note: If AVAS Enable = 0
+THEN
+AVAS system is muted (disabled)
+ IF AVAS Enable = 1
+THEN
+ AVAS system is active (enabled).
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, enable, disable, using, functionality, signal" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3619214
+- Contents: The system shall be able to configure the number of AVAS speakers by using the proxi signal "AVAS Speaker number".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the AVAS speaker number can be configured by using the proxi signal AVAS Speaker number. 
+Note: Value 0 means 1 Speaker; value 1 means 2 Speakers.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3622168
+- Contents: The system shall support the below behavior if the proxi signal "AVAS Speaker number" is zero.
+route the sound to the speakers connected on External amplifier channel "1" in both forward & reverse motion
+Disable the DTC of the speaker 2nd channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the proxi signal AVAS Speaker number = 0.
+Verify the below behavior:
+⦁	Sound is routed to the speakers connected on Channel 1 in both forward and reverse motion
+⦁	DTC of the speaker 2nd channel is disabled
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, parameter, support, is, route, connected, Disable, behavior, number, sound, speakers, channel, amp, motion, DTC" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3622169
+- Contents: The system shall support the below behavior if the proxi signal "AVAS Speaker number" is "1".
+⦁    route the Sound to the speakers connected on External amplifier Channel "1" in forward motion & to the speaker connected on External amplifier Channel "2" in reverse motion.
+⦁   Enable the DTC of the speaker 2nd channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the proxi parameter AVAS Speaker number = 1.
+
+Verify the below behavior.
+⦁	Sound is routed to the speakers connected on Channel 1 in forward motion and to the speaker connected on Channel 2 in reverse motion;
+⦁	DTC of the speaker 2nd channel is enabled.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, parameter, support, is, route, connected, Enable, behavior, number, Sound, speakers, amplifier Channel, motion  amp, speaker, Channel, motion, DTC, channel" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3619215
+- Contents: The system shall configure the AVAS switch off speed region by using the proxi signal "AVAS Logic".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Very that the AVAS switch off speed is set to the selected region.
+
+Note: 
+IF
+AVAS Logic ==0
+THEN
+Switch Off Speed = 'AVAS_Switch_Off_Speed_NAFTA' value
+ELSE IF
+AVAS Logic == 1
+THEN
+Switch Off Speed = 'AVAS_Switch_Off_Speed_EU' value
+- Grooming Status: Approved
+- Expert Domains: Manufacturing, System Infra, Virtualization
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3713858
+- Contents: The system shall set the default value "31 Km/h" for "AVAS_Switch_Off_Speed_NAFTA".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the Software.
+Verify that the AVAS functionality is switched Off at > 31 Kmph in NAFTA
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Manufacturing, Virtualization
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘31 Km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3713859
+- Contents: The system shall set the default value "21 Km/h" for "AVAS_Switch_Off_Speed_EU"
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the Software.
+Verify that the AVAS functionality is switched Off at > 31 Kmph in NAFTA
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Manufacturing, Virtualization
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘21 Km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3619335
+- Contents: The system shall be able to configure the Stationary Sound Logic behavior for AVAS by using the proxi signal "Stationary Sound Logic".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the stationary sound logic for AVAS can be configured by using the proxi parameter "Stationary Sound Logic" 
+
+Note:
+IF
+ Stationary Sound Logic  == 0
+THEN
+ AVAS is muted when VehicleSpeed = 0
+ELSE IF
+ Stationary Sound Logic  == 1
+THEN
+ AVAS is playing when VehicleSpeed = 0 AND ActualGearForDisplay != P
+ELSE IF
+ Stationary Sound  Logic == 2
+THEN
+ AVAS is playing when VehicleSpeed == 0 AND ActualGearForDisplay != P  AND ActualGearForDisplay != N.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3619385
+- Contents: As an additional option, IDC_INFO shall read the PROXI values "AVAS_EDrive_Evaluated False/True" and/or "AVAS_S&S_Evaluated False/True" in order to manage the play sound logics as described in the diagram below.
+Map to below SRS
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 60
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3619387
+- Contents: System shall recognize malfunctions by IDC _INFO system internal diagnostic set, which is able to detect both internal faults and peripherals connections faults.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: WHAT Is internal fault? is it can be added in the below SRS?
+Where to map F244-4425
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3619389
+- Contents: The system shall detect the AVAS system malfunction & show the "AVAS system malfunction warning".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Create an AVAS system malfunction (Disconnect the A2B cable, Disconnect the speaker which is connected to the Booster amplifier)
+
+Verify the value of the CAN signal AUDIO_INFO.AVASFailSts is set to 1 and verify the AVAS malfunction warning on HMI.
+
+Remove the malfunction.
+Verify the value of the CAN signal AUDIO_INFO.AVASFailSts is 0  and AVAS malfunction warning should be disabled.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+12. ID: 3532745
+- Contents: The system shall allow the user to activate the AVAS sound as per the AVAS sound activation logic.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the AVAS audio from the speakers (front and rear external speakers)
+
+Verify the Value of the "CAN signal 
+AUDIO_INFO.AvasAlertSound" 0 or 1). as per the AVAS sound activation status.
+ IF 
+ sound is playing
+THEN 
+ AvasAlertSound = "On"
+
+ELSE
+ AvasAlertSound = "Off".
+
+Note: For more information: Refer the page
+"https://confluence.harman.com/confluence/display/COCM/How+to+test+AVAS+funtionality".
+- Grooming Status: Approved
+- Grooming Comments: [Ahmed 28.05.2024];"internal interface AvasAlertSound" is not needed as part of SRS
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 4468715
+- Contents: The system shall play the AVAS audio via "front external speakers & rear external speakers"
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the AVAS Audio is played by the System Via Front and Rear External Speakers.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 4598957
+- Contents: The system shall set the internal interface AUD_AVASFailSts = 1 ("Fail_Present") if the signal AUDIO_INFO.AVASFailSts == 1 ("Fail_Present") OR NFR_SPEED.VehicleSpeedVSOSigFailSts= "FailPresent" OR PWT_STATUS_3.GasPedalPositionValidData = "Not Valid".
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the popup indicaction and that should be on the central and cluster display.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, populate, to default, interface, Fail_Present, value, Not_Present, signal, AUDIO_INFO.AVASFailSts, FailPresent" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4598960
+- Contents: The system shall populate the internal interface 'AUD_AVASAlertSound' = '1' ("On"), if the signal 'AUDIO_INFO.AvasAlertSound' == '1' ("On").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the popup indication when the AVAS is ON
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Autosar
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "populate, signal" )
+- State (Harman_Requirement): Approved
+
+16. ID: 5113094
+- Contents: The system shall populate the AUD_AVAAlertSound to default value 0 ("Off").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the popup indication is OFF when the AVAS is OFF
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3526495
+- Contents: For the AVAS sound activation logics, please refer to SFS F853.
+https://workplace.harman.com/apps/PLOEM/55/OEM288/_layouts/15/WopiFrame2.aspx?sourcedoc=%7BD6F67391-30F9-4449-A3BB-366A702150B0%7D&file=F244_Specifications_F853_Vf2_R2_AcousticVehicleAlertingSystem.pdf&action=default
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3619392
+- Contents: The system shall acquire the following CAN signals
+KeySts
+ActualGearForDisplay
+VehicleSpeedVSOSig
+VehicleSpeedVSOSigFailSts
+StopStartSts
+EngineSts
+EdriveSts
+PowerTrainSts
+RoboticTransmissionWarning
+and it shall manage them for sound activation logics.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3619388
+- Contents: The system has to play the warning sound according to FMVSS 141(F.R. Vol.87 No. 133 - 13/07/2022) or ECE 138(01 series supplement 2) Regulations depending on the destination country.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3619390
+- Contents: Note: For the behaviour of the warning output visualization “AVAS System Malfunction” on IDC_INFO, see “IDC Finalized Specification” document.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 3526500
+- Contents: AVAS sound activation logic.
+(see: image146.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image146.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image146.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VAS-1 6.2.4.1 A AVAS Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

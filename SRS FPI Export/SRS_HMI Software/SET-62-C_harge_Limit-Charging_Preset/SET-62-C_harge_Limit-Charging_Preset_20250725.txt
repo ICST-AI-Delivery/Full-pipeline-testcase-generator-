@@ -1,0 +1,112 @@
+# SET-62-C 6.2.3.6.3.2 harge Limit-Charging Preset Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.3.2 SET-62-Charge Limit-Charging Preset
+
+- ID: 4733081
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: 28
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4733084
+- Contents: IDC shall provide following charge limit presets:
+"Max" preset"
+"Extended" preset"
+"Daily" preset"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 3 charging presets
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4733086
+- Contents: System shall populate the "Max" preset charge limit indication with the max possible "Charging limit" value (i.e. 100%)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the max preset max charge limit i.e 100%. 
+NIT_VEHICLE_SETUP_3.User_SOC_Preset
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4733088
+- Contents: System shall align the "Extended" preset charge limit indication to 90%.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the extended preset charge limit i.e 90%
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘90 %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4733089
+- Contents: System shall align the "Daily" preset charge limit indication to 80%
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the daily preset charge limit i.e 80%
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘80 %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4733090
+- Contents: IDC shall update preset when user select a preset
+"Max" preset = 1("Preset1")
+"Extended" preset = 2("Preset2")
+"Daily" preset = 3("Preset3")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 3 presets
+
+NIT_VEHICLE_SETUP_3.User_SOC_Preset
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "update, select, preset, Extended" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-62-C 6.2.3.6.3.2 harge Limit-Charging Preset Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

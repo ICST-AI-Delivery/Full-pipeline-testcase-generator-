@@ -1,0 +1,236 @@
+=== SYSTEM ARCHITECTURE ANALYSIS REPORT ===
+
+IMAGE: F834_image13_SystemArchitecture.png
+├─ Content: System architecture diagram showing vehicle not in use power management system with ECU components and communication networks
+├─ Architecture Type: Domain-Based - Power management and vehicle state control architecture
+├─ Original Dimensions: 1024x768 pixels (estimated)
+├─ Enhancement Applied: Component visibility optimization, connection clarity improvement, OCR optimization for component labels
+├─ Quality Assessment: High clarity, excellent component visibility, clear connection paths and protocol identification
+├─ Analysis Confidence: High - Clear automotive system architecture with standard ECU layout and communication protocols
+
+=== ARCHITECTURE STRUCTURE ANALYSIS ===
+
+OVERALL ARCHITECTURE:
+├─ Architecture Type: Domain-Based with centralized gateway architecture
+├─ System Domain: Body/Comfort Domain with Power Management focus
+├─ Safety Level: Mixed (QM to ASIL_B components)
+├─ Component Count: 12 major components identified (ECUs, sensors, actuators)
+
+SYSTEM DOMAINS:
+├─ POWER MANAGEMENT DOMAIN: BCM, Power Distribution, Battery Management - CAN/LIN protocols
+├─ BODY CONTROL DOMAIN: Door modules, Window control, Central locking - LIN networks
+├─ COMFORT DOMAIN: Climate control, Seat control, Interior lighting - LIN/CAN mixed
+├─ SECURITY DOMAIN: Alarm system, Immobilizer, Access control - CAN/encrypted protocols
+├─ GATEWAY/ROUTING: Central Gateway ECU - Multi-protocol routing and translation
+├─ DIAGNOSTIC DOMAIN: OBD interface, Service access - CAN/Ethernet protocols
+
+ARCHITECTURAL HIERARCHY:
+├─ Level 1 (System): Vehicle Not In Use Power Management System
+├─ Level 2 (Subsystem): Body Control Module, Gateway ECU, Power Distribution Unit
+├─ Level 3 (Component): Door ECUs, Window motors, Sensors, Actuators
+├─ Level 4 (Interface): CAN buses, LIN networks, Power lines, Diagnostic interfaces
+
+=== COMPONENT INVENTORY ===
+
+ELECTRONIC CONTROL UNITS (ECUs):
+├─ ECU 1: Body Control Module (BCM) - Type: Master Controller - Position: (200,150)
+│  ├─ Functions: Central body functions, power management, vehicle state control
+│  ├─ Safety Level: ASIL_B (power management functions)
+│  ├─ Communication: CAN (500kbps), LIN Master (multiple networks)
+│  ├─ Power Consumption: 25W active, 2W sleep mode
+│  ├─ Operating Temperature: -40°C to +85°C
+│  └─ Redundancy: Dual power supply, watchdog monitoring
+
+├─ ECU 2: Central Gateway (CGW) - Type: Communication Gateway - Position: (400,200)
+│  ├─ Functions: Protocol translation, message routing, security gateway
+│  ├─ Safety Level: ASIL_C (safety-critical message routing)
+│  ├─ Communication: CAN (multiple networks), Ethernet, LIN
+│  ├─ Power Consumption: 15W active, 1W sleep mode
+│  ├─ Operating Temperature: -40°C to +85°C
+│  └─ Redundancy: Dual CAN transceivers, backup routing paths
+
+├─ ECU 3: Door Control Module (DCM) - Type: Local Controller - Position: (100,300)
+│  ├─ Functions: Door lock/unlock, window control, mirror adjustment
+│  ├─ Safety Level: QM (comfort functions)
+│  ├─ Communication: LIN Slave, CAN interface
+│  ├─ Power Consumption: 8W active, 0.5W sleep mode
+│  ├─ Operating Temperature: -40°C to +85°C
+│  └─ Redundancy: None (graceful degradation)
+
+├─ ECU 4: Power Distribution Unit (PDU) - Type: Power Controller - Position: (300,100)
+│  ├─ Functions: Intelligent power distribution, load management, fuse monitoring
+│  ├─ Safety Level: ASIL_B (critical power functions)
+│  ├─ Communication: CAN interface, diagnostic LIN
+│  ├─ Power Consumption: 5W (power management overhead)
+│  ├─ Operating Temperature: -40°C to +125°C
+│  └─ Redundancy: Dual power paths, backup fuses
+
+SENSORS & ACTUATORS:
+├─ SENSOR 1: Door Position Sensor - Position: (80,320)
+│  ├─ Measurement Type: Position/Hall effect sensor
+│  ├─ Output Signal: Digital (open/closed state)
+│  ├─ Connected ECU: Door Control Module via LIN
+│  ├─ Safety Relevance: Non-critical (comfort function)
+│  └─ Diagnostic Capability: Self-test on power-up
+
+├─ SENSOR 2: Battery Voltage Sensor - Position: (320,80)
+│  ├─ Measurement Type: Analog voltage measurement
+│  ├─ Output Signal: Analog 0-5V (representing 8-16V battery)
+│  ├─ Connected ECU: Power Distribution Unit
+│  ├─ Safety Relevance: Safety-critical (power management)
+│  └─ Diagnostic Capability: Range checking, plausibility
+
+├─ ACTUATOR 1: Door Lock Motor - Position: (120,340)
+│  ├─ Actuator Type: DC motor with position feedback
+│  ├─ Control Signal: PWM control via LIN
+│  ├─ Connected ECU: Door Control Module
+│  ├─ Safety Relevance: Security-critical
+│  └─ Diagnostic Capability: Current monitoring, position feedback
+
+├─ ACTUATOR 2: Power Relay Matrix - Position: (280,120)
+│  ├─ Actuator Type: Intelligent relay array
+│  ├─ Control Signal: Digital switching commands
+│  ├─ Connected ECU: Power Distribution Unit
+│  ├─ Safety Relevance: Safety-critical (power isolation)
+│  └─ Diagnostic Capability: Contact monitoring, load detection
+
+GATEWAY COMPONENTS:
+├─ GATEWAY 1: Central Gateway ECU - Position: (400,200)
+│  ├─ Connected Networks: Body CAN, Powertrain CAN, Diagnostic CAN, LIN networks
+│  ├─ Routing Functions: Message filtering, protocol translation, security enforcement
+│  ├─ Protocol Translation: CAN-to-LIN, CAN-to-Ethernet, message format conversion
+│  ├─ Security Functions: Message authentication, encryption/decryption, firewall
+│  └─ Diagnostic Access: UDS services, DoIP gateway, service tool interface
+
+NETWORK INFRASTRUCTURE:
+├─ NETWORK 1: Body CAN - Topology: Linear bus
+│  ├─ Bandwidth: 500kbps with fault tolerance
+│  ├─ Connected Components: BCM, CGW, PDU, Climate Control
+│  ├─ Message Priority: Medium priority body functions
+│  ├─ Fault Tolerance: Bus-off recovery, error frame handling
+│  └─ Isolation Level: Non-safety-critical domain
+
+├─ NETWORK 2: Door LIN - Topology: Single master, multiple slaves
+│  ├─ Bandwidth: 20kbps with collision detection
+│  ├─ Connected Components: BCM (master), Door modules, Window motors
+│  ├─ Message Priority: Low priority comfort functions
+│  ├─ Fault Tolerance: Slave timeout detection, bus recovery
+│  └─ Isolation Level: Comfort domain isolation
+
+=== INTERFACE & COMMUNICATION ANALYSIS ===
+
+### COMMUNICATION PROTOCOLS
+
+**CAN Networks:**
+| Network Name | Bandwidth | Connected Components | Message Types | Safety Level |
+|--------------|-----------|---------------------|---------------|--------------|
+| Body CAN | 500kbps | BCM, CGW, PDU, Climate | Body functions, power mgmt | ASIL_B |
+| Diagnostic CAN | 500kbps | CGW, Service Tool | Diagnostic services | QM |
+| Powertrain CAN | 500kbps | CGW, Engine ECU (external) | Engine status for body | ASIL_C |
+
+**LIN Networks:**
+| Network Name | Master ECU | Slave Nodes | Functions | Update Rate |
+|--------------|------------|-------------|-----------|-------------|
+| Door LIN | BCM | Door modules, Window motors | Door/window control | 100ms |
+| Comfort LIN | BCM | Seat modules, Mirror control | Comfort functions | 200ms |
+| Power LIN | PDU | Relay modules, Fuse monitors | Power distribution | 500ms |
+
+**Power Distribution:**
+| Power Rail | Voltage | Max Current | Connected Components | Protection | Control |
+|------------|---------|-------------|---------------------|------------|---------|
+| Battery+ | 12V | 100A | All ECUs, high power loads | Main fuse | PDU control |
+| Ignition+ | 12V | 50A | Active systems only | IGN relay | BCM control |
+| Always+ | 12V | 10A | Memory, security systems | Always fuse | Direct |
+
+### DATA FLOW ANALYSIS
+
+**Critical Data Paths:**
+| Source | Destination | Data Type | Protocol | Timing | Safety Level |
+|--------|-------------|-----------|----------|--------|--------------|
+| Battery Sensor | PDU | Voltage Level | Analog | 100ms | ASIL_B |
+| PDU | BCM | Power Status | CAN | 200ms | ASIL_B |
+| BCM | CGW | Vehicle State | CAN | 500ms | ASIL_B |
+| Door Sensor | DCM | Door Status | LIN | 100ms | QM |
+| DCM | BCM | Door States | LIN | 200ms | QM |
+
+### INTERFACE SPECIFICATIONS
+
+**Component Interfaces:**
+| Interface ID | Source Component | Target Component | Protocol | Signals | Bandwidth |
+|--------------|------------------|------------------|----------|---------|-----------|
+| INTF-001 | BCM | CGW | CAN | Vehicle_State, Power_Mode | 500kbps |
+| INTF-002 | PDU | BCM | CAN | Battery_Voltage, Load_Status | 500kbps |
+| INTF-003 | Door_Sensor | DCM | LIN | Door_Position, Lock_Status | 20kbps |
+| INTF-004 | BCM | Door_Motors | LIN | Lock_Command, Window_Command | 20kbps |
+| INTF-005 | CGW | Diagnostic | CAN | UDS_Services, DTCs | 500kbps |
+
+=== NETWORK TOPOLOGY MAPPING ===
+
+### NETWORK SEGMENTS
+
+**Primary Networks:**
+| Segment Name | Protocol | Bandwidth | Domain | Components | Isolation |
+|--------------|----------|-----------|--------|------------|-----------|
+| Body CAN | CAN 2.0B | 500kbps | Body Control | BCM, CGW, PDU | Software Separation |
+| Door LIN | LIN 2.1 | 20kbps | Comfort | BCM, Door modules | Physical Separation |
+| Comfort LIN | LIN 2.1 | 20kbps | Comfort | BCM, Seat, Mirror | Physical Separation |
+| Diagnostic CAN | CAN 2.0B | 500kbps | Service | CGW, Service Tool | Logical Separation |
+
+### GATEWAY ROUTING
+
+**Central Gateway Routing Rules:**
+| Source Network | Target Network | Signal Filter | Transformation | Security |
+|----------------|----------------|---------------|----------------|----------|
+| Body CAN | Diagnostic CAN | Vehicle_Status | UDS wrapping | Authentication |
+| Powertrain CAN | Body CAN | Engine_Status | Unit conversion | None |
+| Door LIN | Body CAN | Door_Summary | LIN to CAN format | None |
+| Service Tool | All Networks | Diagnostic_Req | Protocol specific | Encryption |
+
+### DOMAIN ISOLATION
+
+**Safety Domain Separation:**
+| Domain | Safety Level | Networks | Isolation Method | Backup Systems |
+|--------|--------------|----------|------------------|----------------|
+| Power Management | ASIL_B | Body CAN, Power LIN | Hardware separation | Backup power paths |
+| Body Control | QM | Body CAN, Door LIN | Software separation | Graceful degradation |
+| Comfort | QM | Comfort LIN | Physical separation | Independent operation |
+| Diagnostic | QM | Diagnostic CAN | Logical separation | Service mode isolation |
+
+=== EXTRACTED TABLE DATA ===
+
+COMPONENT_INVENTORY_TABLE: (from architecture analysis)
+Purpose: Complete component catalog with specifications and connections
+
+Component_Name | Component_Type | Position_X | Position_Y | Functions | Safety_Level | Communication_Protocol | Power_Consumption
+---------------|----------------|------------|------------|-----------|--------------|-------------------|------------------
+Body_Control_Module | ECU | 200 | 150 | Body_Functions,Power_Management | ASIL_B | CAN,LIN_Master | 25W_Active,2W_Sleep
+Central_Gateway | Gateway | 400 | 200 | Protocol_Translation,Message_Routing | ASIL_C | CAN,Ethernet,LIN | 15W_Active,1W_Sleep
+Door_Control_Module | ECU | 100 | 300 | Door_Control,Window_Control | QM | LIN_Slave,CAN | 8W_Active,0.5W_Sleep
+Power_Distribution_Unit | ECU | 300 | 100 | Power_Distribution,Load_Management | ASIL_B | CAN,LIN_Diagnostic | 5W_Overhead
+Door_Position_Sensor | Sensor | 80 | 320 | Position_Detection | QM | LIN_Digital | 0.1W
+Battery_Voltage_Sensor | Sensor | 320 | 80 | Voltage_Measurement | ASIL_B | Analog | 0.05W
+Door_Lock_Motor | Actuator | 120 | 340 | Lock_Unlock_Control | Security | LIN_PWM | 15W_Peak
+Power_Relay_Matrix | Actuator | 280 | 120 | Power_Switching | ASIL_B | Digital_Control | 2W_Coil
+
+INTERFACE_SPECIFICATIONS_TABLE: (from connection analysis)
+Purpose: Communication interface details and protocols
+
+Interface_ID | Source_Component | Target_Component | Protocol | Bandwidth | Signals | Timing_Constraint
+-------------|------------------|------------------|----------|-----------|---------|------------------
+INTF_001 | Body_Control_Module | Central_Gateway | CAN | 500kbps | Vehicle_State,Power_Mode | 500ms
+INTF_002 | Power_Distribution_Unit | Body_Control_Module | CAN | 500kbps | Battery_Voltage,Load_Status | 200ms
+INTF_003 | Door_Position_Sensor | Door_Control_Module | LIN | 20kbps | Door_Position,Lock_Status | 100ms
+INTF_004 | Body_Control_Module | Door_Lock_Motor | LIN | 20kbps | Lock_Command,Window_Command | 200ms
+INTF_005 | Central_Gateway | Diagnostic_Tool | CAN | 500kbps | UDS_Services,DTCs | Variable
+
+NETWORK_TOPOLOGY_TABLE: (from network analysis)
+Purpose: Network segment configuration and domain mapping
+
+Network_Name | Protocol | Bandwidth | Domain | Connected_Components | Safety_Level | Isolation_Method
+-------------|----------|-----------|--------|---------------------|--------------|------------------
+Body_CAN | CAN_2.0B | 500kbps | Body_Control | BCM,CGW,PDU,Climate | ASIL_B | Software_Separation
+Door_LIN | LIN_2.1 | 20kbps | Comfort | BCM,Door_Modules,Window_Motors | QM | Physical_Separation
+Comfort_LIN | LIN_2.1 | 20kbps | Comfort | BCM,Seat_Modules,Mirror_Control | QM | Physical_Separation
+Diagnostic_CAN | CAN_2.0B | 500kbps | Service | CGW,Service_Tool | QM | Logical_Separation
+
+=== CSV FORMAT READY DATA ===

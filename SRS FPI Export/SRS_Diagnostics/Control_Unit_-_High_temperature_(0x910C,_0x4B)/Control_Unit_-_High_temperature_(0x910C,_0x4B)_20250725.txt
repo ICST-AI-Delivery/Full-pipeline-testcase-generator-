@@ -1,0 +1,67 @@
+# UnknownID 6.2.1.1.82 Control Unit - High temperature (0x910C, 0x4B) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.82 Control Unit - High temperature (0x910C, 0x4B)
+
+- ID: 3938766
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4610046
+- Contents: The System shall detect High temperature Fault in control unit within 5s after key-ON, if the Functional limitation of Control Unit due to over temperature protection and Average read IDC temperature is >=85°C.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Functional limitation due to over temperature protection. 
+-High temperature Fault in control unit should be detect within 5s after key-ON.
+-Verify Average read IDC temperature is >=85°C
+-Verify (0x910C, 0x4B) DTC will trigger.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, is, Fault, unit within, temperature" )
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. Restrictions: We have no climate chamber or mod DUT to get this temperatures.
+- State (Harman_Requirement): Approved
+
+2. ID: 4610047
+- Contents: The System shall clear the High temperature Fault in control unit within 2s, if the Average read IDC temperature is < 85°C.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -The Average read IDC temperature is < 85°C.
+-Verify (0x910C, 0x4B) DTC will clear within 2s.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘85’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. Restrictions: We have no climate chamber or mod DUT to get this temperatures.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.82 Control Unit - High temperature (0x910C, 0x4B) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

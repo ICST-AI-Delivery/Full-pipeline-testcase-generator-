@@ -1,0 +1,165 @@
+# RAD-19 6.2.1.1.20  Radio Text Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.20 RAD-19 Radio Text
+
+- ID: 3939618
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3981269
+- Contents: System shall display RDS Text in Radio program text area as follows:
+1. Horizontal wrapping:
+System must wrap RDS text to fit within the available horizontal display area, text shall split into lines to ensure the characters or string shall display within the screen
+2. Vertical scrolling
+Seconds pause
+Scroll text from bottom to top till the end of the text is visible
+2 seconds pause
+Refresh and display beginning of line (if RDS update detects in meanwhile new text shall show).
+Repeat
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display RDS Text in Radio program text area as follows:
+Horizontal wrapping and vertical scrolling.
+
+1. Horizontal wrapping
+System must wrap RDS text to fit within the available horizontal display area, text shall split into lines to ensure the characters or string shall display within the screen
+2. Vertical scrolling
+
+Seconds pause
+Scroll text from bottom to top till the end of the text is visible
+2 seconds pause
+Refresh and display beginning of line (if RDS update detects in meanwhile new text shall show).
+Repeat
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, text, display, follows, wrap, to fit, split, to ensure, string, scrolling, pause, Scroll, to top, Refresh, Text, program text, display area, lines, characters, screen, bottom, end, beginning" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3982073
+- Contents: System shall display song data in first row and Artist metadata on the second row, when song/Artist data unavailable then available metadata shall display in the first row.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display song data in first row and Artist metadata on the second row, when song/Artist data unavailable then available metadata shall display in the first row.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, metadata, display, data, row, data unavailable" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3982075
+- Contents: System shall display Radio Text information to the user (without modification or spliting of RT context).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Radio Text information to the user (without modification or spliting of RT context).
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, spliting, information, user, modification, context" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4103632
+- Contents: System shall retrieve and transmit Enhanced RadioText information to the user(without modification or splliting of RT context) For Enhanced RadioText,  RadioText+.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display RadioText information to the user (without modification or splliting of RT context)
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, transmit, splliting, information, modification, context, RadioText" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4103633
+- Contents: System shall allow user to visualize Radio Text functionality from RDS metadata of tuned stations for FM and FM HD Radio.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show Radio Text functionality of tuned stations for FM and FM HD Radio.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, visualize, tuned, functionality, metadata, stations, Radio" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4103634
+- Contents: System shall show indication, when the Radio Text can't show or the antenna detached.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show indication, when the Radio Text cannot be shown or the antenna is detached.
+- Grooming Status: Approved
+- Grooming Comments: Need confirmation from System infra and IOC
+- Expert Domains: AM_FM_HD, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, detached, indication, Text" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4103635
+- Contents: System shall retrieve and transmit Radio Text information to the user with
+possibility to split RT information to dedicated area on HMI depends on the context .
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Radio Text information to the user on HMI depends on the context .
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, transmit, to split, depends, information, withpossibility, area, context" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (e.g. Artist name, Song name, etc.)
+
+### Informational Items:
+
+1. ID: 3981285
+- Contents: This function allows the user to visualize RadioText functionality extracted from RDS metadata of tuned stations.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4103630
+- Contents: [Info] RadioText consists of 64 characters long free text
+[Info] Enhanced RadioText is an improvement of RadioText and consists of 128 characters long free text
+[Info] Refer to RD_FM-01 for all technical requirements in order to handle the RadioText correctly
+[Info] Implementation of RadioText recognition should be done due to RadioText contains different static (e.g. station slogan) and dynamic(e.g. Song/Artist name) information
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-19 6.2.1.1.20  Radio Text Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

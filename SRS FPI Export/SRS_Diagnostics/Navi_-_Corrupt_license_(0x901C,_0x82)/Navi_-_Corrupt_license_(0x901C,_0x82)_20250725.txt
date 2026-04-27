@@ -1,0 +1,65 @@
+# UnknownID 6.2.1.1.33 Navi - Corrupt license (0x901C, 0x82) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.33 Navi - Corrupt license (0x901C, 0x82)
+
+- ID: 4684809
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Sadiq will check and get back by 2nd April
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4684810
+- Contents: The system shall send Navi - Corrupt license message in 5sec during key-on & Map update flow was incomplete.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall send Navi- Corrupt license message in 5 seconds during key-on and Map update flow was incomplete.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. applicative test to set DTC to state active/passive should be tested by NAVI domain or experts. No info about how to set error state for the feature.
+- State (Harman_Requirement): Approved
+
+2. ID: 4684811
+- Contents: The System shall de-validate/clear the Navi - Corrupt license with in 2sec.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system de-validate/clear the Navi- Corrupt license with in 2 seconds.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, de, validate, clear, license" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. applicative test to set DTC to state active/passive should be tested by NAVI domain or experts. No info about how to set error state for the feature.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.33 Navi - Corrupt license (0x901C, 0x82) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

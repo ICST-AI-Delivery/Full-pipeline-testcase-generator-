@@ -1,0 +1,150 @@
+# RAD-4 6.2.1.1.5.1  Source switch - Proxi Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.5.1 RAD-4 Source switch - Proxi
+
+- ID: 3974982
+- Artifact Type: SRS Feature
+- Responsible Domain: Software Architecture
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3612493
+- Contents: System shall display tuner sources based on software Version and Hardware. Region depends on the settings of SDARS or DAB and system shall start playing the source based on user selection.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display all the available sources depends on the country configurations, SW version, Hardware and Region. Upon user selection system start playing the selected source.
+- Grooming Status: Approved
+- Grooming Comments: [Devi C - 07/11] Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting.
+
+Proxi architectural discussion is in Progress (Azmat, Shiva)
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall start" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer AD -04 Document for regions.
+
+2. ID: 3612503
+- Contents: System shall display HD radio source based on the country configuration. example: North America.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall display HD radio sources based on country configuration in NAR variant.
+- Grooming Status: Approved
+- Grooming Comments: [Devi C - 07/11]
+
+[Devi Chandra:01-jul-2024]: Need Clarification regarding HD Radio source. (Based on Proxi settings or Not)
+- Expert Domains: Android HMI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3536704
+- Contents: System shall allow user to switch between radio source available through source switch component and play the selected source.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall allow user to switch between the radio sources and selected source shall play immediately based on signal.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to switch, switch component, play, selected, source" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Info: 
+
+ROW Markets > AM and FM (or FM-DAB)
+
+NAR Makets > AM.HD and FM.HD
+
+4. ID: 3537425
+- Contents: IDC shall tune to the Last radio source  At HMI OFF to HMI ON transition.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: verify IDC shall tune to last radio source active at HMI off to HMI on transition.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3537427
+- Contents: System shall hide source for selection when a source is unavailable depends on country configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall not show the source for selection, If a source is not available from the applicable list according to the country configuration.
+- Grooming Status: Approved
+- Grooming Comments: [Devi Chandra]:
+[Update from Sheik ] : Based on the call with Ferrari on 7/12/2024 ,they confirmed that HMI need not to show the source if it is not applicable.
+
+
+
+
+[Devi Chandra:01-jul-2024]: Need clarification regarding disable the source or not to display on the HMI at all?
+ Customer Clarification Pending
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, source, hide, selection, is, depends, configuration" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3604101
+- Contents: System shall allow user to switch sources on different radio sources. (AM, FM, DAB+, AM HD, FM HD,SXM)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall allow user to switch sources for AM, FM, DAB+, AM HD, FM HD.
+- Grooming Status: Approved
+- Grooming Comments: We are supporting all sources Expect SXM.
+
+SXM CR is still under discussion
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to switch, sources, FM, DAB+, HD" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3583575
+- Contents: This function allows user to change the Radio source
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3583588
+- Contents: In NAR HW variant, DAB+ radio is not available
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-4 6.2.1.1.5.1  Source switch - Proxi Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

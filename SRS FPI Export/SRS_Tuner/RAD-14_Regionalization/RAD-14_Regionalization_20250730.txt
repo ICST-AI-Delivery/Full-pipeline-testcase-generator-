@@ -1,0 +1,162 @@
+# RAD-14 6.2.1.1.15  Regionalization Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.15 RAD-14 Regionalization
+
+- ID: 3939610
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4096630
+- Contents: When Regionalisation interface is inactive, then the system shall maintain the current radio station, without tuning to local radio station with a stronger signal.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When Regionalisation interface is switched off, the system shall maintain the current radio station, without tuning to another local radio station with a stronger signal.
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is, maintain" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4096637
+- Contents: System shall enable/disable the Regionalization functionality based on user selection 
+ON --> Regionalization is active,  OFF --> Regionalization is inactive.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall enable/disable the Regionalization functionality based on user selection 
+ON --> Regionalization is active,  OFF --> Regionalization is not active.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, disable, based, is active, is inactive, functionality, selection, Regionalization" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4103594
+- Contents: System shall display indication of regional flag that the now playing tune station is region specific when regionalization is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display regional flag that the now playing tune station is region specific while regionalization is active
+- Grooming Status: Blocked
+- Grooming Comments: Feedback: since no indication is anylonger requested on the UI, this requirement can be skipped by Harman. We will remove it from the specification.
+
+What is meant by Regional Flag and what indication we need to show?
+
+
+Need information about regional flag indication.
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, regionalization, display, playing, is, is active, indication, flag, station" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4096640
+- Contents: System shall display data from the RDS metadata the required data to provide the regional indication
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display data from the RDS metadata the required data to provide the regional indication.
+- Grooming Status: Blocked
+- Grooming Comments: Feedback: since no indication is anylonger requested on the UI, this requirement can be skipped by Harman. We will remove it from the specification.
+
+Need more information about DATA to be displayed
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 4096641
+- Contents: System shall filter out Alternate Frequency (AF) using the PI and ECC codes to ensure selected frequency matches the region of Now playing station, While the regionalization is active.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall select an Alternate Frequency (AF) While the regionalization is active.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, regionalization, filter out, using, to ensure, selected, matches, playing, is active, AF, PI, codes, region, station" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4096644
+- Contents: System shall store Regionalization setting value for persistency
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Regionalization setting value persistency 
+
+Persistency - Profile changes
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: according to the logic defined in RAD-0 "Radio Setting Persistence" paragraph
+
+7. ID: 4096647
+- Contents: System shall allows user to activate/deactivate regionalization for FM Source
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to activate/deactivate regionalization for FM
+- Grooming Status: Approved
+- Grooming Comments: DAB source is not offered in CRS
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allows, to activate, deactivate, user, regionalization, FM" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4096629
+- Contents: [Info]This function allows user to activate/deactivate regionalization feature
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4096638
+- Contents: Elaboration based on internal signals
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 4096642
+- Contents: [Info] for additional information regarding Alternate Frequencies, please refer to RAD-15
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4096643
+- Contents: Persistence
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-14 6.2.1.1.15  Regionalization Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

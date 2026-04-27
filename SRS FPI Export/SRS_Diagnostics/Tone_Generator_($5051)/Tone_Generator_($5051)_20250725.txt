@@ -1,0 +1,173 @@
+# UnknownID 6.2.3.3.2 Tone Generator ($5051) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.3.2 Tone Generator ($5051)
+
+- ID: 4005797
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4005798
+- Contents: The system shall allow to generate a tone at a desired frequency to the desired output channels.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall able to generate a tone
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+2. ID: 4005799
+- Contents: The Tone Generator IO-Control shall support the following protocol services (see: image113.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the protocol service from the given table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image113.png
+
+3. ID: 4005801
+- Contents: The System shall follow the below conversions
+ControlStates (zz) (see: image114.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control states from the given table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image114.png
+
+4. ID: 4005802
+- Contents: The system shall set the internal interface ChannelMute = Bytes [2 - 4] of ControlStates (zz)
+The system shall deactivate the current active Main source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the internal interface channel mute  = Bytes [2 - 4]
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+5. ID: 4005902
+- Contents: The IDC shall reproduce a tone at the requested frequency as "Tone Generator" audio source (refer to IDC-482864 - "MEASUREMENT" Channel).
+The IDC shall Set the frequency of the reproduced Tone through the FAD_CTRL__setToneGeneratorFreq(void *fad_ctrl_memory, int tone_freq) API, where:
+• tone_freq = value of Frequency [Hz] parameter (Bytes [0 – 1] of ControlStates)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall reproduce a tone at the requested frequency as "Tone Generator" audio source
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+6. ID: 5528035
+- Contents: The system shall Enable the Tone Generator through the FAD_CTRL__toggleToneGenerator(void *fad_ctrl_memory, bool toggle_tone_generator) API, where:
+• toggle_tone_generator = true
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall reproduce a tone at the requested frequency as "Tone Generator" audio source
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+7. ID: 4596701
+- Contents: The IDC shall send information to FAD about the output audio channels to be muted through FAD_CTRL__selectiveMute(void *fad_ctrl_memory, int mask) API.
+The system shall send information to FAD about the output audio channels to be muted through FAD_CTRL__selectiveMute(void *fad_ctrl_memory, int mask) API, where:
+
+mask = Bytes [2 - 4] of ControlStates
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the output audio channels to be muted through FAD_CTRL__selectiveMute
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+8. ID: 4005804
+- Contents: The system shall stop the tone reproduction.
+The system shall disable the Tone Generator through the FAD_CTRL__toggleToneGenerator(void *fad_ctrl_memory, bool toggle_tone_generator) API, where:
+toggle_tone_generator = false
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall able to stop the tone reproduction.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+9. ID: 4005908
+- Contents: The system shall set internal interface ChannelMute = 0x00 00 00 (unmute each one of channels).
+The system shall send information to FAD about the output audio channels to be unmuted through FAD_CTRL__selectiveMute(void *fad_ctrl_memory, int mask) API, where:
+mask = 0x00 00 00 (unmute all channels)
+Then, the IDC shall activate the current Main source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall set internal interface ChannelMute = 0x00 00 00
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘00’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for tone and system functionality.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image114.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image113.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.3.2 Tone Generator ($5051) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

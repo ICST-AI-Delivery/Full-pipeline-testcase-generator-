@@ -1,0 +1,209 @@
+# FAD-0 6.2.2.1.3 : Audio Stream Interfaces Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.3 FAD-0: Audio Stream Interfaces
+
+- ID: 3716176
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Audio Control, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3524078
+- Contents: The system shall have the stream activation interface to detect the presence of an active audio source in the stream.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source.
+
+Verify  by using the corresponding CAN signal, the stream activation interface has the following values:
+1 ("Active"): when an audio source is active on the stream.
+
+0 ("Not_Active"): when an audio source is not active on the channel.
+
+Verify the value of the CAN signal(e.g. IDC_AudioStreams.EntertainmentStreamActivation for Entertainment Audio source).
+
+Note: Refer to the artifact 3731533 (IDC-418040) for stream activation interfaces CAN signal.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3524082
+- Contents: The system shall have the content identification CAN signal to univocally-identify the audio content that is currently being reproduced.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the value of the CAN signal(e.g.,IDC_AudioStreams.EntertainmentSourceID for Entertainment Audio Source).
+
+Refer to the artifact :3712055 (IDC-418040) for source identification interfaces CAN signal.
+
+Refer the artifact ID: 3725907 for the source Id of each Entertainment Audio Sources.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, have, identify, is currently-active, identification interface, source, stream" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3646014
+- Contents: System shall set the content identification CAN signal to 0("Stream_Not_Active") when no audio content is reproduced on the relative channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that value of content identification
+CAN signal is set to 0 when no audio content is reproduced on the relative channel. (e.g. make a carplay phone call when the carplay media is active.)
+
+Refer to the artifact :3712055 for source identification interfaces CAN signal.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3646015
+- Contents: The system shall have the channel volume CAN signal to report the desired volume level for playback of the audio source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify from the CAN signal value, the channel volume level, for the playback of the audio source .
+
+Refer the artifact :3716428 for Source volume interfaces CAN signal.
+- Grooming Status: Approved
+- Grooming Comments: [Abdul_05-07-2024] volume level is not mentioned in the CRS, needs to be confirmed in the grooming.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3524980
+- Contents: System shall set the source volume interface to 0("Stream_Not_Active") if no audio source is currently streaming.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that value of source volume interface is set to 0 when no audio source is currently being streamed.
+
+Verify that the value of the CAN signal of the not streamed audio source is 0.
+
+Refer the artifact :3716428 for Source volume interfaces CAN signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3524981
+- Contents: The system shall have the source mute interface to report a mute request on the currently active audio source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that source mute interface can have the following values.
+0("Unmute") : Indicates that the currently active audio source shall not be muted.
+1("Mute") : Indicates that the currently active audio source shall be muted, or if no audio source is currently being streamed.
+Verify the value of the CAN signal.
+Refer the Artifact : 3716434 for Source mute interfaces CAN signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3716434
+- Contents: IDC_AudioStreams.EntertainmentMute
+IDC_AudioStreams.TelephonyVoiceMute
+IDC_AudioStreams.NavigationMute
+IDC_AudioStreams.HMIAndroidMute
+IDC_AudioStreams.HMIAndroidMute
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3524986
+- Contents: The system shall provide source directionality interface to specify the desired directionality of the currently active audio source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify the value of the source directionality interface of the currently active source.
+Verify the value of the CAN signal.
+Refer to the artifact : 3716437 for source directionality interfaces CAN signal.
+- Grooming Status: Blocked
+- Grooming Comments: [Ahmed_15-07-2024]This requirement is removed in PI5.
+
+[Abdul 22.07.2024]: Keep this SRS in obsolete state.
+- Expert Domains: IOC_Autosar
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3524989
+- Contents: System shall set the source directionality interface to 0 ("Undefined") if no audio source is currently streaming.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that value of source directionality interface is set to 0 when no audio source is currently being broadcasted on the stream.
+Verify the value of the CAN signal.
+- Grooming Status: Review
+- Grooming Comments: [Ahmed_15-07-2024]This requirement is removed in PI5 document.
+
+[Abdul 22.07.2024]: Keep this SRS in obsolete state.
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3716428
+- Contents: IDC_AudioStreams.EntertainmentVolume
+IDC_AudioStreams.TelephonyVoiceVolume
+IDC_AudioStreams.NavigationVolume
+IDC_AudioStreams.HMIAndroidVolume
+IDC_AudioStreams.HMILinuxVolume
+IDC_AudioStreams2.ParkAssistVolume
+IDC_AudioStreams2.GeneralWarning1Volume
+IDC_AudioStreams2.GeneralWarning2Volume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3929194
+- Contents: (see: image85.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image85.png
+
+3. ID: 3716437
+- Contents: IDC_AudioStreams.ParkAssistDirectionality
+IDC_AudioStreams.BSM_RCTADirectionality
+IDC_AudioStreams.LaneCorssingDirectionality
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image85.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-0 6.2.2.1.3 : Audio Stream Interfaces Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

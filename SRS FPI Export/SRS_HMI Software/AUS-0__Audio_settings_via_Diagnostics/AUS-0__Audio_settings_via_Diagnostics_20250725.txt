@@ -1,0 +1,76 @@
+# AUS-0 6.2.1.7.2 : Audio settings via Diagnostics Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7.2 AUS-0: Audio settings via Diagnostics
+
+- ID: 3535118
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3536720
+- Contents: If the persistency is enabled, the system shall allow the user to configure the storage type "either standard or Profiled" via diagnostics
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Verification Criteria: Enable the persistency from HMI.
+
+Verify the persistency type can be configured by the user via diagnostics.
+
+and Verify the changed value from HMI
+- Grooming Status: Review
+- Grooming Comments: [Jaraslaw 01.08.2024]:  This is not needed for diagnostics, This is for proxi
+- Expert Domains: Android HMI, Audio Control, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to configure, type, standard" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: "Standard", independent by the current user
+"Profiled", according to the current user
+
+### Informational Items:
+
+1. ID: 3532430
+- Contents: The system shall allow the user to change the audio setting via diagnostics.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the below mentioned Audio settings (Navigation Volume, Ringtone_Volume, Voice Control Volume, Ringtone Volume, General Warning Volume...etc.) can be changed via diagnostics and Verify the changed value from HMI and via Diagniostics.
+
+Verify the Value of the relevant Audio settings via the CAN signal "IDC_AudioSettings"
+
+https://confluence.harman.com/confluence/display/BUDCPLLDA/Meetings+Audio+-+Architecture
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note:
+For each audio setting a calibration parameter is defined, which can be used to change by diagnosis the HMI_Value of the setting
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-0 6.2.1.7.2 : Audio settings via Diagnostics Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

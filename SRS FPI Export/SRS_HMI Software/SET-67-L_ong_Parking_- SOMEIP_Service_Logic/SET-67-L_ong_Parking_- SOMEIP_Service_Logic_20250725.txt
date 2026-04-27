@@ -1,0 +1,155 @@
+# SET-67-L 6.2.3.6.7.2 ong Parking - SOME/IP Service Logic Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.7.2 SET-67-Long Parking - SOME/IP Service Logic
+
+- ID: 4753812
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_Networking, System Infra
+- HB_Comment: 28
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4754633
+- Contents: IDC shall provide the method S11.setLongParking for the LongParkSet parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the longparkset parameter via S11.setLongParking method
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4754636
+- Contents: System receives S11.setLongParking request AND OBC_ChargePlugType == 1("Plug_AC"), then:
+IDC shall align the setting visualization to the LongParkSet value receive.
+IDC shall populate CAN output signal LongParkingSetting according to LongParkSet parameter value.
+inhibit the HMI setting for user interaction till t timeout expire.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the following when S11.setLongParking request AND OBC_ChargePlugType == 1("Plug_AC")
+
+verify the longparkset value.
+verify the output signalfor longparksetting parameter value.
+
+NIT_VEHICLE_SETUP_2.LongParkingSetting
+
+verify user unable to access till t time out
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall align, shall populate" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4754639
+- Contents: IDC shall set functional_ack = 0x0000 when LongParkingSts signal is received within ttimeout with the value aligned to the value requested.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the function ack status when LongParkingSts signal is received within ttimeout with the value aligned to the value
+requested.
+
+S11.setLongParking_return.functional_ack
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4754640
+- Contents: System shall set functional_ack = 0x0053 when IDC does not receive the feedback signal LongParkingSts aligned to the requested value within the ttimeout time.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify functional _act status when LongParkingSts signal not receive within time out.
+
+functional_ack = 0x0053
+
+ S11.setLongParking_return.functional_ack
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, receive, functional_ack, time out" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4754642
+- Contents: IDC shall discard the request by providing the following feedback when S11.setLongParking request AND OBC_ChargePlugType != 1 ("Plug_AC"):
+functional_ack = 0x0052
+LongParkSet = NIT_VEHICLE_SETUP_2.LongParkingSetting
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the following feedback when S11.setLongParking request AND OBC_ChargePlugType != 1 ("Plug_AC")
+
+functional_ack = 0x0052
+LongParkSet = NIT_VEHICLE_SETUP_2.LongParkingSetting
+
+ OBC_STATUS.OBC_ChargePlugType
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4754648
+- Contents: System shall provide a dedicated indication when LongParkingSts == 1("Active").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the indication when LongParkingSts == 1("Active").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4754650
+- Contents: System shall display the state of charge in the range of ["40%","70%"] when LongParkingSts == "1"("Active")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the state of charge when LongParkingSts == "1"("Active")
+
+["40%","70%"]
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, state, charge, range" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-67-L 6.2.3.6.7.2 ong Parking - SOME/IP Service Logic Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,2268 @@
+# VEH-F803 6.2.1.1.2.34  Hybrid System Indications Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.34 VEH-F803 Hybrid System Indications
+
+- ID: 3408602
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design, Can we consider the design which is mentioned in the Master document.
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3592502
+- Contents: System shall use specific  telltales for the Chinese market in the in the visualization cycles if PROXI China_specific_Indication_NQS is Present.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: "China_Specific_Indication_NQS" == "present" (Byte 123, bit 7)
+
+Verify that the specific telltales were displayed when the proxi is set to China market.
+- Grooming Status: Approved
+- Grooming Comments: Telltale need to be known
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, use, is Present, telltales, market, cycles" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3592504
+- Contents: System shall display the Emotional Index (Emotional Gauge) after the Key-ON event.
+(see: image181.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:Key ON
+
+
+Verify that the system shall dispaly emotional gauge is displayed after key on event.
+
+CAN-Signal: STATUS_B_CAN.KeySts
+HMI_INDICATOR.BoostRegen_Analog
+HMI_INDICATOR.BoostRegen_Digital
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image181.png
+
+3. ID: 3935771
+- Contents: System shall IDC-457028|
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3593280
+- Contents: System shall display as per Ferrari design Emotional Index Manual Mode when Status Shift mode status is in Manual and Status Performance Launch Mode is in-active
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: When STATUS_C_NCA_NCR.ShiftModeSts == Manual AND STATUS_C_NCA_NCR.PerformanceLaunchMode == Not Active
+
+
+Verify that the Emotional Index manual mode  visualisation is displayed when necessary conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, mode status, display, design, is, Mode" ) 
+Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3608053
+- Contents: System shall display the Analog Needle value from Minimum - 100% to Maximum +100% through HMI_INDICATOR.BoostRegen_Actual.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Analog needle displays Minimum Value if -100% to Maximum Value +100 and shall move as per the values received by the signal.
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Minimum, Maximum" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3925916
+- Contents: System shall display the batteryPre-conditioning for Launch control bar, to show the battery pre-conditioning status bar when BatPrecondVis is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the Battery Pre-conditioning for Launch cotrol to show the Battery Pre-Conditioning status bar when BatPrecondV is active.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, conditioning, to manage, pre-conditioning, is active, bar, BatPrecondVis" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3925983
+- Contents: System shall set a minimum value for the pre-conditioning section(Battery Pre-Conditioning for Launch Control Bar) equal to 0%.IDC-455844|
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3925984
+- Contents: System shall set a minimum value for the pre-conditioning section(Battery Pre-Conditioning for Launch Control Bar) equal to 100%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3926343
+- Contents: System shall show a dark label "LAUNCH" in the number position equal to 110% of the External Scale.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3926447
+- Contents: System shall light-up the battery pre-conditioning for launch control bar with Light Red lines following the signal BatteryPrecondprogress.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, light-up, pre-conditioning, following, bar, lines, BatteryPrecondprogress" )
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3926826
+- Contents: System shall remove Battery Preconditioning for Launch Control Bar when HMI_BOOST.BatPrecondVis is Not Active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, BOOST.BatPrecondVis, remove, is, Preconditioning, Bar, Active" )
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3926859
+- Contents: System shall remove the Label "LAUNCH" when BatPrecondVis is Not Active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, BatPrecondVis, remove, is, Label, LAUNCH, Active" )
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3608632
+- Contents: System shall lightup the positive external scale (Boost) with Light/Grey numbers using the signal HMI_BOOST.Boost_MaxAvail.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall light up external scale in Light grey numbers.
+
+CAN-Signal:HMI_INDICATOR.BoostRegen_Actual
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3609718
+- Contents: System shall set a Minimum value as 0% and Maximum value of 100% of a Boost
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the minimum value of 0% to maximum value of 100% for a positive external scale of Boost
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvail.
+- Grooming Status: Approved
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, Boost" ) 
+Unclear term
+ (Look for: "Minimum, Maximum" )
+- State (Harman_Requirement): Obsolete
+
+15. ID: 4892060
+- Contents: System  shall manage the positive external scale indication depending on the  eManettino  position.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system displays positive external scale indication depending on the eManettino position.
+
+CAN-Signal: PWT_STATUS_2.EManettinoSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+16. ID: 4892059
+- Contents: System shall light up the positive external scale (Boost) with yellow numbers following the signal BoostRegen_Digital.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the positive external scale is displayed folloeing the  signal BoostRegen_Digital with yellow numbers.
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Digital
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+17. ID: 3921058
+- Contents: System shall set boost marker following signal Boost_MaxAvailMan representing maximum boost value
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Boost is displayed based on the Boost_MaxAvailMan  in the external numbers.
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvailMan
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4711491
+- Contents: When in Boost, the System shall manage a yellow external crown following the signal Boost_MaxAvailMan.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Boost is displayed based on the Boost_MaxAvailMan  in the external numbers.
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvailMan
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, crown, manage, following, Boost" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3609719
+- Contents: System shall light up the negative external scale(Regen) with green numbers using BoostRegen_Digital.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall light up external scale in green numbers.
+
+CAN-Signal:HMI_REGEN.Regen_MInAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+20. ID: 3921070
+- Contents: System shall set boost marker following signal Regen_MinAvail representing minimum regen value before braking
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the boost maker number is displayed based on the CAN signal.
+
+CAN-Signal:
+HMI_REG.Regen_MinAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "minimum" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3609720
+- Contents: System shall set a minimum value as -100% and maximum value as 0% for Regen
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the minimum value of -100% to maximum value of 0% for a positive external scale of regen
+
+CAN-Signal: HMI_REGEN.Regen_MInAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, Regen" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3609723
+- Contents: System shall display an external crown  for both Boost and Regen area. - IDC-453026
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the external crown is displayed for both Boost and Regen area.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, crown, Boost, area" )
+- State (Harman_Requirement): Obsolete
+
+23. ID: 3609754
+- Contents: When in boost System shall display a Yellow extarnal crown using the signal Boost_MaxAvailMan.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: when in boost Verify that the system shall display  yellow external crown .
+
+CAN-Signal:   HMI_BOOST.Boost_MaxAvailMan.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, crown, signal" )
+- State (Harman_Requirement): Approved
+
+24. ID: 3609741
+- Contents: System shall set a minimum value equal to 0% and a maximum value equal to 100% to display Boost in external crown area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall set a minimum value for the Boost area external crown equal to 0% and a maximum value equal to 100%
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Digital
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, to display, value, Boost, area" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3609744
+- Contents: System shall display a dark yellow external crown representing the selection of lower torque index for Boost using the signal  HMI_BOOST.Boost_MaxAvailManDark.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the a Dark yellow external crown is displayed representing the selection of lower torque index of  boost.
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvailManDark.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+26. ID: 4892061
+- Contents: When in Boost, the System shall manage a black dynamic indication  from the minimum value of the boost external crown to the signal Boost_RegenDigital (digital needle)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system displays a black dynamic indication from the minimum value of the boost external crown (Digital needle)
+
+CAN-Signal:
+HMI_INDICATOR.BoostRegen_Digital
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, indication, value, crown, Boost, needle" )
+- State (Harman_Requirement): Approved
+
+27. ID: 3609746
+- Contents: System shall display a green external crown using the signal HMI_REG.Regen_MinAvailMan for Regen
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display a green external crown when in Regen.
+
+CAN-Signal: HMI_REG.Regen_MinAvailMan
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+28. ID: 3609748
+- Contents: System shall set a minimum value for the Regen area external crown equal to -100%. and a maximum value as 0%
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the -100% to 100% values are displayed for a Regen are external Crown.
+
+CAN-Signal: HMI_REG.Regen_MinAvailMan
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, equal" )
+- State (Harman_Requirement): Approved
+
+29. ID: 4892062
+- Contents: When in Regen, the IDC shall manage a black dynamic indication  from the minimum value of the regen external crown to the signal Boost_RegenDigital (digital needle)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system displays a black dynamic indication from the minimum value of the boost external crown (Digital needle)
+
+CAN-Signal:
+HMI_INDICATOR.BoostRegen_Digital
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "manage, indication, value, crown, Boost, needle" )
+- State (Harman_Requirement): Approved
+
+30. ID: 3609772
+- Contents: System shall display the label "BRAKE" in the external crown of the negative external scale right after the brake marker.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Brake label is displayed in the external scale right after the brake maker.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+31. ID: 3609773
+- Contents: System shall allow to display the green external crown to cover the label "BRAKE" when the signal Regen_MinAvailMan is lower than the value of the brake marker.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display  green external crown to cover the label Brake is lower than the value of the brake.
+
+CAN-Signal: HMI_REG.Regen_MinAvailMan
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signal, allow, to display, to cover, is, green, crown, label, BRAKE, value, marker" )
+- State (Harman_Requirement): Obsolete
+
+32. ID: 3609774
+- Contents: System shall display a Digital Needle while Boosting OR Regenerating
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the digital needle is displayed while boosting or Regenerating.
+
+CAN-Signal:
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Boosting, Needle, Regenerating" )
+- State (Harman_Requirement): Approved
+
+33. ID: 3609775
+- Contents: System shall display the position in sync with physical and digital needle
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the position of the Boost and Regen is displayed in sync with physical and digital needle.
+
+CAN: 
+
+(Boost or Regen is not mentioned)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, position, needle" )
+- State (Harman_Requirement): Approved
+
+34. ID: 4892055
+- Contents: System shall display the central dial gear indication using the signal ActualGearForDisplay when ShiftModeSts is Manual.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Gear Indication is displayed in the Central dial when ShiftModeST is Manual following the signal.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, is, dial, indication, ActualGearForDisplay, ShiftModeSts, Manual" )
+- State (Harman_Requirement): Approved
+
+35. ID: 4892056
+- Contents: IF IDC internal parameter Analog_Negative_Position = Enabled
+THEN IDC shall manage Analog indication also with negative values (each value of BoostRegen_Analog)
+ELSE IDC shall manage Analog indication only with positive values (BoostRegen_Analog >= 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the negative values of the Analog indication is displayed following BoostRegen_Analog when Analog_Negative_Position is Enabled.
+
+CAN-Signal:
+HMI_INDICATOR.BoostRegen_Analog
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, manage, parameter, indication, values, value" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+36. ID: 3609780
+- Contents: System shall display an internal scale following the Digital Needle without misalignment
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall manage an internal scale following the Digital Needle without misalignment.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, following, scale, Needle, misalignment" )
+- State (Harman_Requirement): Obsolete
+
+37. ID: 3609785
+- Contents: When in Boost, the system shall display a light yellow Digital Needle using the signal HMI_INDICATOR.BoostRegen_Actual
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display  light yellow digital needle .
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, using, Boost, light yellow, Needle, signal" )
+- State (Harman_Requirement): Obsolete
+
+38. ID: 3609788
+- Contents: The system shall set a minimum value for the Digital Needle equal to 0%. and a  maximum value for the Digital Needle equal to 100%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall set a minimum value for the digital needle equal to 0% and a maximum value for the digital needle equal to 100%
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, value, equal" )
+- State (Harman_Requirement): Obsolete
+
+39. ID: 3957083
+- Contents: System shall extend the external crown following the signal BoostRegen_Actual when BoostRegen_Actual greater than Boost_MinAvailMan.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system extends the external crown following the signal BoostRegen_Actual when BoostRegen_Actual greater than Boost_MinAvailMan.
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, crown, extend, following, BoostRegen" )
+- State (Harman_Requirement): Approved
+
+40. ID: 3609789
+- Contents: When in Regen, the system shall display a light green Digital Needle using the signal HMI_INDICATOR.BoostRegen_Actual.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall manage a light green digital needle when system is in Regen.
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, using, Regen, green, Needle, signal" )
+- State (Harman_Requirement): Obsolete
+
+41. ID: 3609982
+- Contents: The system shall set a minimum value for the Digital Needle equal to -100%. and  a maximum value for the Digital Needle equal to 0%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall set a minimum value for the digital needle equal to -100% and a maximum value for the digital needle equal to 0%
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, value, equal" )
+- State (Harman_Requirement): Obsolete
+
+42. ID: 3926865
+- Contents: System shall extend the external crown following the signal BoostRegen_Actual when BoostRegen_Actual Lessthan Regen_MinAvaikMan.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, crown, extend, following, BoostRegen" )
+- State (Harman_Requirement): Obsolete
+
+43. ID: 3609993
+- Contents: System shall change the brightness of the brake marker value to the value of the signal HMI_INDICATOR.BoostRegen_Actual   If the signal HMI_INDICATOR.BoostRegen_Actual is lower then the brake marker.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the change in brightness for brake maker is happened when the
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, change, brightness, value, signal" )
+- State (Harman_Requirement): Obsolete
+
+44. ID: 3957084
+- Contents: System shall colour the External  Crown in Red following the  signal ShiftIndicatorLightstatus is  Fix_Light_Indication AND Boost.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Vehcicle has to be in Boost Mode
+
+System shall display the External Crown in Red colour following the Signal ShiftIndicatorLightStatus is Fix_Light_Indication AND Boost.
+
+CAN-Signal:
+STATUS_C_NCM_ShiftIndicatorLightSts
+HMI_INDICATOR.BoostRegen_Analog 
+HMI_INDICATOR.BoostRegen_Digital
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, crown, ShiftIndicatorLightstatus, colour, following, is, Boost" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+
+45. ID: 3957085
+- Contents: System shall colour the external crown following the signal Regen_MinAvailMan when the signal ShiftIndicatorLightstatus is other than Fix_Light_Indication AND Regen.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, crown, ShiftIndicatorLightstatus, colour, following, is, Regen" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Obsolete
+
+46. ID: 3609994
+- Contents: System shall colour the external crown in red when the ShiftIndicatorLightStatus id Fix_Light_Indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+47. ID: 3610001
+- Contents: System shall display Emotional Index Automatic  Mode visualisation when Status Shift mode status is in Automatic and Status Performance Launch Mode is in-active
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: STATUS_C_NCA_NCR.ShiftModeSts == Automatic AND STATUS_C_NCA_NCR.PerformanceLaunchMode == Not Active
+
+Verify that the Automatic Emotional Index is displayed when status mode is in Automatic and Status performance mode is in-active.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, mode status, display, is, visualisation, Mode" )
+- State (Harman_Requirement): Approved
+
+48. ID: 3610004
+- Contents: When ShiftModeSts = Automatic AND PerformanceLaunchMode = Not Active, then the IDC shall manage the Emotional Index Automatic mode visualization System shall perform following indications:
+The IDC shall move the Analog Needle following the signal BoostRegen_Analog.
+The IDC shall manage the Digital Needle following the signal BoostRegen_Digital, while Boosting OR Regenerating.
+The IDC shall show the Ferrari logo indication on the central dial (ref. to VEH-F200).
+The IDC shall rescale the external scale indication (regenerative power) as reported in HMI documentation
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Analog needle displays the value from Minimum -100% to Maximum+100%  
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall move, shall display" ) 
+Unclear term
+ (Look for: "Minimum, Maximum" )
+- State (Harman_Requirement): Approved
+
+49. ID: 3610010
+- Contents: System shall lightup the positive external scale (Boost) with Light grey numbers using the signal HMI_BOOST.Boost_MaxAvail.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall light-up the positive external scale with light grey numbers.
+
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+50. ID: 3610012
+- Contents: System shall set a minimum value as 0% and maximum value of 100% of a Boost
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the minimum  0%  and maximum  100% is set for a Boost
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, Boost" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+51. ID: 3610016
+- Contents: System shall light up the negative external scale(Regen) with green numbers using HMI_REGEN.Regen_MinAvail.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall light-up the positive external scale with green numbers.
+
+
+CAN-Signal: HMI_REGEN.Regen_MinAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+52. ID: 3610018
+- Contents: System shall set a minimum value as -100% and maximum value as 0% for a Regen
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the minimum  -100%  and maximum  0% is set for a Regen
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, Regen" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+53. ID: 3611197
+- Contents: The system shall set the BRAKE marker following the signal HMI_REG.Regen_MinAvail representing the limit between minimum regen scale value and brake marker
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display  the Brake maker between regen scale value and brake maker
+
+CAN-Signal: HMI_REG.Regen_MinAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, following, representing, marker, signal, limit, value" ) 
+Unclear term
+ (Look for: "minimum" )
+- State (Harman_Requirement): Approved
+
+54. ID: 3610022
+- Contents: System shall display the label "BRAKE" in the external crown of the negative external scale right after the brake marker.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Brake Label is displayed in the external crown of the negative external scale right after the brake maker.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+55. ID: 3611201
+- Contents: System shall display a Digital Needle while Boosting OR Regenerating
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the Digital needle is displayed while Boosting OR Regenerating.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Boosting, Needle, Regenerating" )
+- State (Harman_Requirement): Obsolete
+
+56. ID: 3611235
+- Contents: System shall dispay the internal scale following the Digital Needle without misalignment.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall display the internal scale in sync with Digital Needle
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, dispay, following, scale, Needle, misalignment" )
+- State (Harman_Requirement): Approved
+
+57. ID: 3957086
+- Contents: System shall extend the external crown following the signal BoostRegen_Actual when BoostRegen_Actual
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, crown, extend, following, BoostRegen" )
+- State (Harman_Requirement): Obsolete
+
+58. ID: 3611206
+- Contents: System shall display a light yellow Digital Needle using the signal HMI_INDICATOR.BoostRegen_Actual when in Boost
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the a Yellow digital needle is displayed by the system when in Boost.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, light yellow, Needle, signal" )
+- State (Harman_Requirement): Obsolete
+
+59. ID: 3611214
+- Contents: The system shall set a minimum value for the Digital Needle equal to 0%. and a  maximum value for the Digital Needle equal to 100%. when in boost.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the digital needle shall display needle equal to Minimum 0% to Maximum 100%
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, value, equal" )
+- State (Harman_Requirement): Obsolete
+
+60. ID: 3611215
+- Contents: System shall display a light green Digital Needle using the signal HMI_INDICATOR.BoostRegen_Actual. when in Regen.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the a light green Digital Needle is displayed when in Regen for Automatic Mode.
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, green, Needle, signal" )
+- State (Harman_Requirement): Obsolete
+
+61. ID: 3611217
+- Contents: The system shall set a minimum value for the Digital Needle equal to -100%. and  a maximum value for the Digital Needle equal to 0%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Digital Needle displays Minimum value -100% to Maximum 0% when in  Regen.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, value, equal" )
+- State (Harman_Requirement): Approved
+
+62. ID: 3640004
+- Contents: System shall display an internal scale following the Digital Needle without misalignment
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall manage an internal scale following the Digital Needle without misalignment.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, following, scale, Needle, misalignment" )
+- State (Harman_Requirement): Obsolete
+
+63. ID: 3611221
+- Contents: If the signal BoostRegen_Actual < Regen_MinAvail, system shall change the brightness of the Digital Needle from the brake marker value to the value of the signal BoostRegen_Analog.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the brightness of the brake maker in the central dial is brightened when BoostRegen_Analog is Lessthan Regen_MinAvail following the signal.
+
+CAN-Signal:
+HMI_INDICATOR.BoostRegen_Analog
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, change, is, brightness, maker" )
+- State (Harman_Requirement): Approved
+
+64. ID: 3611315
+- Contents: The system shall display the Emotional index Performance Launch mode visualization when Status PerformanceLaunchMode is Active
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:  STATUS_C_NCA_NCR.PerformanceLaunchMode == Active
+
+
+Verify that the  Emotional Index performance Launch mode is displayed Status performance mode is active.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, is, visualization, PerformanceLaunchMode, Active" )
+- State (Harman_Requirement): Approved
+
+65. ID: 3611317
+- Contents: System shall move the Analog Needle and display the value from Minimum 0% to Maximum +110% through HMI_INDICATOR.BoostRegen_Actual as per Ferrari design
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Analog needle displays the Minimum -100% to Maximum +100% as per Ferrari design
+
+CAN-Signal: STATUS_C_NCA_NCR.PerformanceLaunchMode == Active
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, move, display, Needle, value, HMI" ) 
+Unclear term
+ (Look for: "Minimum, Maximum" )
+- State (Harman_Requirement): Approved
+
+66. ID: 3611318
+- Contents: System shall lightup the positive external scale (Boost) with Light red numbers using the signal HMI_BOOST.Boost_MaxAvail.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display the positive external scale Boost with red light numbers.
+
+CAN-Signal:  HMI_BOOST.Boost_MaxAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+67. ID: 3927608
+- Contents: System shall limit the positive external scale highlighting to 100% when BatteryPrecondProgress Lessthan 100%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, limit, highlighting, scale, Lessthan" )
+- State (Harman_Requirement): Obsolete
+
+68. ID: 3927609
+- Contents: System shall allow the positive external scale highlighting to 110% when BatteryPrecondProgress == 100%,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, highlighting, scale, BatteryPrecondProgress" )
+- State (Harman_Requirement): Obsolete
+
+69. ID: 3927612
+- Contents: System shall display the Battery Preconditioning for Launch Control Bar to manage the battery preconditioning for launch control BatPrecondVis is Active (0x1),
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Battery Pre-conditioning for Launch Control using the can signal when BatPrecond is set to Active.
+
+
+CAN-Signal:
+ HMI_BOOST.BatPrecondVis
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+70. ID: 3927616
+- Contents: System shall set a minimum value equal to 0%and maximum value equal to 100% for the Battery Preconditioning for Launch Control Bar.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, Battery Preconditioning, Bar" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Obsolete
+
+71. ID: 3927619
+- Contents: System shall light up a red label “LAUNCH” in the number position equal to 110% of the external scale.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+72. ID: 3927620
+- Contents: System shall display the negative external scale (Regen) emotional index range with grey number.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the Negative external scale (Regen) emotional index range with grey numbers.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, scale" )
+- State (Harman_Requirement): Approved
+
+73. ID: 3611329
+- Contents: System shall set a minimum value for the Boost area external crown equal to 0% and a maximum value equal to 100%
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the Minimum value 0% and a Maximum value 100% for Boost in External Crown area.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, equal" )
+- State (Harman_Requirement): Approved
+
+74. ID: 3611336
+- Contents: System shall set a minimum value as -100% and maximum value as 0%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the Minimum value -100% and a Maximum value 0% for Regen in External Crown area.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value" ) 
+Unclear term
+ (Look for: "minimum, maximum" )
+- State (Harman_Requirement): Approved
+
+75. ID: 3611337
+- Contents: The system shall set the brake marker following the signal HMI_REG.Regen_MinAvail
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display the Brake Maker using the CAN Signal.
+
+CAN-Signal: HMI_REG.Regen_MinAvail
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+76. ID: 3611338
+- Contents: The system shall visualize the label "BRAKE" in the external crown of the negative scale right after the brake marker
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Brake label is displayed in the external crown of the negative scale right after the brake maker.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+77. ID: 3935773
+- Contents: System shall restore the Manual Mode/Automatic Mode following the signal ShiftModeSts, when Performance LaunchSts has a transition from Activate to Not Active. IDC-456612.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, LaunchSts, restore, following, has, Mode, ShiftModeSts, transition, Activate, Not Active" )
+- State (Harman_Requirement): Obsolete
+
+78. ID: 3611340
+- Contents: When in Boost, the system shall display a red external crown  following the signal HMI_BOOST.Boost
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display a Red  External Crown following CAN Signal.
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvailMan
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, crown, display, following, Boost, signal" )
+- State (Harman_Requirement): Approved
+
+79. ID: 3611861
+- Contents: The system shall set a minimum value for the Boost area external crown equal to 0% and a maximum value for the Boost area external crown equal to 110%
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Minimum Value 0% and Maximum value 110% is displayed in External Crown for Boost area.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, value, equal" )
+- State (Harman_Requirement): Approved
+
+80. ID: 3611868
+- Contents: System shall display a red Digital Needle using the signal HMI_INDICATOR.BoostRegen_Actual  when in Boost
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the a red Digital needle is displayed when in Boost.
+
+CAN-Signal:  HMI_INDICATOR.BoostRegen_Actual
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, Needle, signal" )
+- State (Harman_Requirement): Approved
+
+81. ID: 3612067
+- Contents: The System shall set a minimum value for the Digital Needle equal to 0% and a maximum value for the Digital Needle equal to 110%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the A minimum value 0 % and a maximum value of 110% is displayed  when in Boost using the CAN signal.
+
+CAN-Signal: HMI_INDICATOR.BoostRegen_Actual
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, equal" )
+- State (Harman_Requirement): Approved
+
+82. ID: 3612070
+- Contents: System shall synchronize the Physical Needle and Digital Needle position
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall display the needle position in Sync with Digital and physical position.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, synchronize, Needle, position" )
+- State (Harman_Requirement): Approved
+
+83. ID: 3612075
+- Contents: System shall manage the internal scale following the Digital Needle without misalignment When in Performance Launch mode,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the internal scale following the digital needle without mis-alignment when in performance launch mode.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, following, scale, Needle, misalignment, mode" )
+- State (Harman_Requirement): Approved
+
+84. ID: 3927625
+- Contents: System shall light up with light red the external crown following the signal BoostRegen_Analog.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system Light'sup with light 
+red external crown following the signal
+BoostRegenAnalog.
+
+CAN-Signal:
+HMI_INDICATOR.BoostRegen_Analog
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+85. ID: 3927654
+- Contents: System shall set a Minimum value as 0% and Maximum value to 110% for External crown.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Minimum of 0% and Maximum of 110% is set by the system for External crown.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, value, crown" )
+- State (Harman_Requirement): Approved
+
+86. ID: 3927671
+- Contents: System shall limit the Digital Needle at 100% when BatteryPrecondProgress Lessthan 100%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+87. ID: 3927678
+- Contents: System shall allow the Digital Needle to reach the 110%  when  BatteryPrecondProgress  is 100%
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, BatteryPrecondProgress, allow, to reach, is, Needle" )
+- State (Harman_Requirement): Obsolete
+
+88. ID: 3612109
+- Contents: System shall manage a battery preconfitioning bar following the signal TBD
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+89. ID: 3612111
+- Contents: When in Preconditioning, the system shall display a dark red external crown  following the signal HMI_BOOST.Boost_MaxAvailMan.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the dark red external red crown is displayed  using the CAN signal.
+
+CAN-Signal: HMI_BOOST.Boost_MaxAvailMan
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, crown, display, following, Preconditioning, dark, signal" )
+- State (Harman_Requirement): Obsolete
+
+90. ID: 3612112
+- Contents: The IDC shall set a minimum value for the Boost area external crown equal to 0%.and set a maximum value for the Boost area external crown equal to 100%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Minimum value of 0% and Maximum 100% for boost in external crown area.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, value, equal" )
+- State (Harman_Requirement): Obsolete
+
+91. ID: 3612113
+- Contents: When preconditioning phase is complete, the system shall consider the new maximum value as part of the external scale.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall consider the new maximum value as part of the external scale. When preconditioning phase is complete.
+- Grooming Status: Approved
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "phase, system, preconditioning, is complete, consider, value, scale" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Obsolete
+
+92. ID: 3612114
+- Contents: When preconditioning phase is complete, the system  shall allow the external crown to reach the new maximum external scale value
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the  system  shall allow the external crown to reach the new maximum external scale value When preconditioning phase is complete.
+- Grooming Status: Approved
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "phase, system, preconditioning, is complete, allow, to reach, crown, value" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Obsolete
+
+93. ID: 3612116
+- Contents: Warning-22 TBD , D04 Visualisation cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requiement In-Complete. (TBD)
+- RQA Score: 0
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+94. ID: 3612117
+- Contents: System shall display warning 30  with buzzer 2B when High Voltage System Charge Warning is in 4(Long _Parking_Enabled)
+Warning 30 shall perform D04 behaviour with priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+HighVoltageSystemChargeWarning == 4 "Long_Parking_Enabled"
+
+Verify that the warning 30 is triggered with buzzer 2B when High Voltage system charge warning is in Long_Parking_Enabled 
+
+CAN-Signal:HVB_HMI_STS.HighVoltageSystemChargeWarning
+- Grooming Status: Blocked
+- Grooming Comments: Pop-up not available in the HMI.POP.IND
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, Enabled, Warning, perform, buzzer, Charge, is, behaviour, priority" ) 
+Missing unit 
+ (Look for: "‘30,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+95. ID: 3612118
+- Contents: Warning 31 TBD, D11 visualization behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requiement In-Complete. (TBD)
+- RQA Score: 0
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘31’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+96. ID: 3612119
+- Contents: Warning 32 Specific behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requiement In-Complete. (TBD)
+- RQA Score: 20
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘31’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+97. ID: 3612120
+- Contents: System shall  display Warning 45 with buzzer and telltale when Limphome warning status is 1,3,5,7,8,11,13,15 and mask bit is 0
+Warning 45 shall perform D04 visualisation behaviour with priotity 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: {Pre-Conditions:
+(LimpHomeWarningSts = (1,3,5,7,9,11,13,15) (mask bit 0)):
+
+Verify that the warning 45 is triggered when limphome warning status and mask bit is as per the requirement 
+
+CAN-Signal:PWT_STATUS_1.PWTLimpHomeSts
+- Grooming Status: Blocked
+- Grooming Comments: Pop-up not available in the HMI.POP.IND
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, Warning, perform, 45, buzzer, telltale, bit, visualisation, priotity" ) 
+Missing unit 
+ (Look for: "‘0,45’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+98. ID: 3612121
+- Contents: System shall display Warning 46 with buzzer when Limphome warning status is 2,3,6,7,10,11,14,15) and mask bit is 1
+Warning 46 shall perform D04 visualisation behaviour with priotity 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: {Pre-Conditions:
+(LimpHomeWarningSts = 2,3,6,7,10,11,14,15) and mask bit is 1 
+
+Verify that the warning 46 is triggered when limphome warning status and mask bit is as per the requirement 
+
+CAN-Signal:PWT_STATUS_1.PWTLimpHomeSts
+- Grooming Status: Blocked
+- Grooming Comments: Pop-up not available in the HMI.POP.IND
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, bit, display, is, Warning, perform, 46, buzzer, visualisation, priotity" ) 
+Missing unit 
+ (Look for: "‘46,1,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘, 3’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+99. ID: 3612122
+- Contents: System shall display warning 47 popup and telltale when Limphome warning status is 4,5,6,7,12,13,14,15 and mask bit is 2
+Warning 47 shall perform D04 visualisation behaviour with priotity 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: {Pre-Conditions:
+(LimpHomeWarningSts = 4,5,6,7,12,13,14,15) and mask bit is 2
+
+Verify that the warning 47 is triggered when limphome warning status and mask bit is as per the requirement 
+
+CAN-Signal:PWT_STATUS_1.PWTLimpHomeSts
+- Grooming Status: Blocked
+- Grooming Comments: Pop-up not available in the HMI.POP.IND
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, bit, display, warning, is, Warning, perform, popup, telltale, visualisation, priotity" ) 
+Missing unit 
+ (Look for: "‘2,47,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is 2" )
+- State (Harman_Requirement): Obsolete
+
+100. ID: 3612123
+- Contents: System shall display Warning-48 popup and telltale when Limphome warning status is 8,9,10,11,12,13,14,15 and mask bit is 3
+Warning 48 shall perform D04 visualisation behaviour with priotity 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: {Pre-Conditions:
+(LimpHomeWarningSts =8,9,10,11,12,13,14,15 ) and mask bit is 3
+
+Verify that the warning 47 is triggered when limphome warning status and mask bit is as per the requirement 
+
+CAN-Signal:PWT_STATUS_1.PWTLimpHomeSts
+- Grooming Status: Blocked
+- Grooming Comments: Pop-up not available in the HMI.POP.IND
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, bit, display, is, Warning, perform, popup, telltale, visualisation, priotity" ) 
+Missing unit 
+ (Look for: "‘3,48,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘, 9’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is 3" )
+- State (Harman_Requirement): Obsolete
+
+101. ID: 3612124
+- Contents: Warning 49 shall give buzzer when HVBuzzerReq is active
+Warning 49 shall perform ? Behaviour with Priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions: HVBBuzzerReq == Active
+
+Verify that the Warning 49 is triggered when HVBuzzerReq is active.
+
+CAN-Siganl:HVB_HMI_STS.HVBBuzzerReq
+- Grooming Status: Blocked
+- Grooming Comments: Pop-up not available in the HMI.POP.IND
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "Warning, give, is active, perform, buzzer" ) 
+Missing unit 
+ (Look for: "‘49,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+102. ID: 3612126
+- Contents: Warning 51 TBD
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- RQA Score: 0
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘51’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+103. ID: 3612127
+- Contents: Warning 52 TBD
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- RQA Score: 0
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘52’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+104. ID: 3612128
+- Contents: System shall display Warning 53 as a pop up with buzzer and telltales  send the Warning-53 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when PowerTrainSystem Warning For Display is Traction System Not Available
+(see: image182.png)
+Warning 53 shall perform D04 Behaviour with priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(PWTSystemWarningForDisplay == Traction System Not Available)
+
+Verify that the Warning-53 shall be triggered   with Pop-up Buzzer and Telltale when PowerTrainSystem Warning For Display is Traction System Not Available AND PowerTrainFailStatus OR PropulsionSystemFailure is Fail.
+
+
+Pop-up ID:80323
+Audio Buzzer:Buzzer 2B
+
+Telltale Reference:00430 , 01500
+
+CAN-Signals: PWT_STATUS_1.PWTSystemWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Warning, is, perform, 53, pop up, buzzer, telltales, Display, PowerTrainFailStatus, PropulsionSystemFailure, Fail, priority" ) 
+Negative statement
+ (Look for: "Not" ) 
+Missing unit 
+ (Look for: "‘53,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 warning 53.
+- Visual Elements: image182.png
+
+105. ID: 3612129
+- Contents: System shall display Warning-54 Pop-up with Buzzer and Telltale send the Warning-54 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when below conditions met:
+PWTSystemWarningForDisplay is AWDNot Available OR
+Rear Wheel Drive Not Available OR
+AWD Not Available Lat Fault OR
+AWD Not Available Diag Fault OR
+AWD Not Available One Front OR
+AWD Not Available One Rear OR
+ForcedAWD OR
+ForcedRWD OR
+DisconnectState Unknown AND
+PWTFailSts  is Fail Present
+Note: Warning-54 follows D04 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-54 is triggered with Pop-up , buzzer and Telltale when CAN input conditions are met:
+
+PWTSystemWarningForDisplay == (AWD Not Available OR RWD Not Available OR AWD Not Available Lat Fault OR AWD Not Available Diag Fault OR AWD Not
+Available OneFront OR AWD Not Available OneRear OR ForcedAWD OR ForcedRWD OR DisconnectState Unknown) AND (PWTFailSts =Fail Present))
+
+Pop-up ID: 80324
+Audio Buzzer: Buzzer 2B
+
+Telltale Reference:00430 , 01500
+
+CAN-Signals: PWT_STATUS_1.PWTSystemWarningForDisplay
+
+PWT_STATUS_1.PWTFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, PowerTrainSystemWarningForDisplay, Failure, display, met, is, follows, Pop-up, Buzzer, Telltale, OR, Not, Fault, Present, priority-0" )
+- State (Harman_Requirement): Approved
+
+106. ID: 3612130
+- Contents: Warning 55
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+107. ID: 3612131
+- Contents: Warnign 56 pop up shall be displayed when LowVoltageSystemWarning == 9,10
+Warning 56 shall perform XY behaviour with priority 1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Visualisation behaviour is not clear
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "pop up, LowVoltageSystemWarning, Warning, perform, 9,10, behaviour" ) 
+Missing unit 
+ (Look for: "‘56,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘, 10’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be displayed" )
+- State (Harman_Requirement): Obsolete
+
+108. ID: 3612132
+- Contents: Warning 57
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+109. ID: 3612133
+- Contents: Warning 58
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+110. ID: 3612134
+- Contents: Warning 59
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+111. ID: 3612135
+- Contents: Warning 60
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+112. ID: 3612136
+- Contents: Warning 61
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+113. ID: 3612137
+- Contents: Warning 62
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+114. ID: 3612138
+- Contents: Warning 63
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+115. ID: 3612139
+- Contents: Warning 64
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+116. ID: 3612140
+- Contents: Warning 65
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+117. ID: 3612141
+- Contents: Warning 66
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+118. ID: 3612142
+- Contents: Warning 67
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+119. ID: 3612143
+- Contents: Warning 68
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+120. ID: 3612144
+- Contents: Warning 69
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+121. ID: 3612145
+- Contents: Warning 70
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+122. ID: 3612146
+- Contents: Warning 71
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+123. ID: 3612147
+- Contents: Warning 72
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Requirement in-complete in the Master document.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+124. ID: 3932581
+- Contents: Below signals will add in PI4 and  obsolete in PI5
+F803 Warning 23
+F803 Warning 28
+F803 Warning 29
+F803 Warning 73
+F803 Warning 74
+F803 Warning 75
+F803 Warning 76
+F803 Warning 77
+F803 Warning 78
+F803 Warning 79
+F803 Warning 80
+F803 Warning 81
+F803 Warning 82
+F803 Warning 83
+F803 Warning 84
+F803 Warning 85
+F803 Warning 88
+F803 Warning 89
+F803 Warning 90
+F803 Warning 91
+F803 Warning 92
+F803 Warning 96
+F803 Warning 97
+F803 Warning-99
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signals, 23F803 Warning 28F803 Warning 29F803 Warning 73F803 Warning 74F803 Warning 75F803 Warning 76F803 Warning 77F803 Warning 78F803 Warning 79F803 Warning 80F803 Warning 81F803 Warning 82F803 Warning 83F803 Warning 84F803 Warning 85F803 Warning 88F803 Warning 89F803 Warning 90F803 Warning 91F803 Warning 92F803 Warning 96F803 Warning 97F, will add, obsolete, Warning-99" )
+- State (Harman_Requirement): Obsolete
+
+125. ID: 3927695
+- Contents: System shall display Warning-86 Pop-up send the Warning-86 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when  (PWTLimpHomeSts = PWT Starting
+Note: Warning-86 Follows D05 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(PWTLimpHomeSts == PWT Starting
+
+Verify that the Warning-86 is triggered with Pop-up when PowerTrainLimpHomeStatus is Power Train starting.
+
+Pop-Up ID: 80360
+
+
+CAN-Signal: PWT_STATUS_1.PWTLimpHomeSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Follows, Pop-up, HighVoltageSystemStarting, priority-1" )
+- State (Harman_Requirement): Approved
+
+126. ID: 3927699
+- Contents: System shall display Warning-87 Pop-up with Buzzer and Telltale send the Warning-87 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS. when PWTLimpHomeSts = Limited Performance AND PWTLimpHomeSts = Degraded
+Note:Warning-87 Follows D04 behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(PWTLimpHomeSts == Limited Performance AND PWTLimpHomeSts == Degraded)
+
+Verify that the system shall display Warning-87 Pop-up with Buzzer and Telltale when PWTLimpHomeStatus is 1" Limited Performance AND PWTLimpHomeStatus is Degraded.
+
+Pop-up ID: 80361
+Buzzer: 2B
+
+Telltale Ref:01740
+
+CAN-Signal: PWT_STATUS_1.PWTLimpHomeSts
+- Grooming Status: Approved
+- Grooming Comments: Need to creatre JIra and Confirm the CAN Signal .!
+
+Expected: PWT_Limited_Perfo = Degraded
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, PWTLimpHomeSts, display, is, Follows, Pop-up, Buzzer, Telltale, Performance, Degrade, Priority-0" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+127. ID: 3927703
+- Contents: System shall display Warning-93 Telltale send the Warning-93 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when VCU_EnergyProfileRqt is Eco AND PWT_Limited_Perfo is Degraded.
+Note:Warning-93 Follows D04 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger-Condition:
+VCU_EnergyProfileRqt == Eco AND PWT_Limited_Perfo == Degraded)
+
+Verify that the system displays Warning-93 Telltale when VCU_EnergyProfileRqt is Eco AND PWT_Limited_Perfo is degraded.
+
+
+
+
+Telltale Ref: 01740
+
+CAN-Signal: PWT_STATUS_2.VCU_EnergyProfileRqt
+
+PWT_STATUS_1.PWT_Limited_Perfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, EnergyProfileRqt, display, is, Limited, Follows, Telltale, PWT" ) 
+Passive voice
+ (Look for: "is Degraded" )
+- State (Harman_Requirement): Approved
+
+128. ID: 3927709
+- Contents: System shall display Warning-94 Pop-up with Buzzer3A  and send the Warning-94 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when VCU_EnergyProfileRqt is Low Driver AND PWT_Limited_Perfo is Degraded.
+Note: Warning-94 follows D04 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger-Condition:
+VCU_EnergyProfileRqt == Low Driver AND PWT_Limited_Perfo == Degraded)
+
+Verify that the system displays Warning-94 Telltale when VCU_EnergyProfileRqt is Low Driver AND PWT_Limited_Perfo is degraded.
+
+Pop-Up ID: 8030068
+
+Buzzer:3A
+
+
+CAN-Signal: PWT_STATUS_2.VCU_EnergyProfileRqt
+
+PWT_STATUS_1.PWT_Limited_Perfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, PWTLimpHomeStatus, visualisation, priority-1" ) 
+Missing unit 
+ (Look for: "‘11’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+129. ID: 3927710
+- Contents: System shall display Warning-95 Pop-up with Buzzer2B and  Telltale send the Warning-95 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when VCU_EnergyProfileRqt is Degraded AND PWT_Limited_Perfo is Degraded.
+Note: Warning-95 follows D04 visulaisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger-Condition:
+VCU_EnergyProfileRqt == Degraded AND PWT_Limited_Perfo == Degraded
+
+Verify that the system displays Warning-95 Telltale when VCU_EnergyProfileRqt is Degraded AND PWT_Limited_Perfo is degraded.
+
+
+Pop-Up ID: 08030069
+Buzzer:2B
+
+Telltale Ref: 01740 , 01750
+
+CAN-Signal: PWT_STATUS_2.VCU_EnergyProfileRqt
+
+PWT_STATUS_1.PWT_Limited_Perfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, EnergyProfileRqt, display, is, Degraded, Limited, follows, Pop-up, Telltale, PWT, Priority-0" ) 
+Passive voice
+ (Look for: "is Degraded" )
+- State (Harman_Requirement): Approved
+
+130. ID: 3927711
+- Contents: System shall display Warning-98 Pop-up with Buzzer and Telltale when PWTSystemWarningForDisplay is RegenerativeBraking Fail AND PWT Fail Status is Fail Present.
+Note: Warning-98 follows D04 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+PWTSystemWarningForDisplay == RegenerativeBraking Fail AND (PWTFailSts OR PropulsionSystemFailure == Fail Present
+
+Verify that the Warning-98 Pop-up with Buzzer and Telltale when PWTSystemWarningForDisplay is RegenerativeBreaking Fail AND PWT Fail Status OR PropulsionSystemFailure is Fail Present.
+
+Pop-up ID: 80372
+
+
+Telltale Reference:00430 , 01500
+
+Audio Buzzer: Buzzer 2B
+
+CAN-Signal: PWT_STATUS_1.PropulsionFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, PWTSystemWarningForDisplay, display, is, follows, Pop-up, Buzzer, Telltale, Status, PropulsionSystemFailure, Present, Priority-0" )
+- State (Harman_Requirement): Approved
+
+131. ID: 3957092
+- Contents: System shall display warning-101 pop-up with telltale and buzzer when LVSysWarningForDisplay is LV Secondary Rele Stuck Closed.
+Note: Warning-101 follows D11 visualisation behaviour with Priority-0.  IDC-480433|
+IDC-480437|
+IDC-480436|
+IDC-480435|
+IDC-480434|
+IDC-480438|
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+LVSysWarningForDisplay == LV Secondary Relè Stuck Closed
+
+
+Verify that the Warning-101 is displayed with pop-up , buzzer and telltale when LVSysWarningForDisplay is LV Secondary Relè Stuck Closed
+
+Pop-up ID: 80375
+
+Telltale Code: LVB001
+
+Telltale Reference : 01750
+
+CAN-Signal: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Grooming Comments: CAN Singal is not clear from the data in master doc.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, LVSysWarningForDisplay, display, warning, is, follows, pop-up, telltale, buzzer, Stuck, Priority-0" )
+- State (Harman_Requirement): Obsolete
+
+132. ID: 3957093
+- Contents: System shall display Warning-102 Pop-Up with Telltale and Buzzer send the Warning-102 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when PWTSystemWarningForDisplay is Traction Degraded AND (PWTFailsSts is Fail Present) OR (*).
+Note: Warning-102 follows D04 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system  display's Warning-102 Pop-Up with Telltale and Buzzer when PWTSystemWarningForDisplay is Traction Degraded AND (PWTFailsSts OR PropulsionSystemFailure is Fail Present
+
+Pop-up ID: 80376
+
+Telltale ID:
+"PWT001 
+WRM019"
+
+Telltale Reference: 
+00430 , 01500
+
+
+CAN-Signals:
+PWT_STATUS_1.PWTSystemWarningForDisplay
+PWT_STATUS_1.PWTFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, PWTSystemWarningForDisplay, display, is, Degraded, follows, Pop-Up, Telltale, Buzzer, Traction, PWTFailsSts, PropulsionSystemFailure, Present, Priority-0" )
+- State (Harman_Requirement): Approved
+
+133. ID: 3957094
+- Contents: System shall display Warning-105 Pop-up with Buzzer and Telltale send the Warning-105 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when PWTSystemWarningForDisplay is Low_Auto.
+Note:Warning-105 follows D04 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+PWTSystemWarningForDisplay == Low_Auto
+
+Verify that the system display's Warning-105 Pop-up with Telltale and buzzer  when PWTSystemWarningForDisplay is Low_Auto.
+
+Pop-up ID: 80379
+
+Buzzer:3A
+
+Telltale Reference: 01740
+
+CAN-Signal: PWT_STATUS_1.PWTSystemWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Telltale, PWTSystemWarningForDisplay, priority-1" )
+- State (Harman_Requirement): Approved
+
+134. ID: 4888954
+- Contents: System shall display Warning-106 Pop-up with Buzzer send the Warning-106 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when CoolingWarningForDisplay is Cooling_Fault_Warning
+Note:Warning-106 follows D11 visualisation behaviour with Priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition: CoolingWariningForDisplay=Cooling_Fault_Warning
+
+Verify that the Warning-106 pop-up is  displayed with buzzer when condition is met,
+
+Popup ID: 08030080
+Buzzer: 2B
+ 
+CAN-Signal: PWT_STATUS_1.CoolingWariningForDisplay
+- Grooming Status: Approved
+- Grooming Comments: Need to clarify IVI pop-up.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, CoolingWarningForDisplay, display, send, using, is, Cooling, follows, Pop-up, status, INDICATOR, behaviour, Priority 0" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+135. ID: 4888956
+- Contents: System shall display Warning-107 Pop-up with Buzzer send the Warning-107 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when CoolingWarningForDisplay is Cooling_Fault_Critical
+Note:Warning-10 follows D11 visualisation behaviour with Priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition: CoolingWariningForDisplay=Cooling_Fault_Critical
+
+Verify that the Warning-107 pop-up is  displayed with buzzer when condition is met,
+
+Popup ID: 08030081
+Buzzer: 2B
+ 
+CAN-Signal: PWT_STATUS_1.CoolingWariningForDisplay
+- Grooming Status: Approved
+- Grooming Comments: Need to clarify IVI pop-up.
+
+OM-25/4/25: Need to clarify with HMI Team , What to be displayed in the Central Display regarding the Warning Pop-UP.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, CoolingWarningForDisplay, display, send, using, is, Cooling, Warning, follows, Pop-up, status, INDICATOR, behaviour, Priority 0" ) 
+Missing unit 
+ (Look for: "‘10,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+136. ID: 3935757
+- Contents: physical telltale M-13 ON/OFF shall active diagnosis
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+137. ID: 3935758
+- Contents: in case of physical telltale M-13 fault(internal fault) shall record DTC.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+138. ID: 3935759
+- Contents: DTC shall specify in environmental conditions
+which is the telltale that cause the internal fault.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DTC, specify, is, cause, conditions, telltale, fault" )
+- State (Harman_Requirement): Approved
+
+139. ID: 4892045
+- Contents: System detects a Message Counter or CRC error on HVB_HMI_STS message for more than MC_CRC_error_counter samples THEN system shall show the visualization cycle F803 Warning 102.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Check Message Counter or CRC error on HVB_HMI_STS message is missing for 5 samples and verify that the Warning 102 of F803  is triggered.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, message, system, detects, show, Counter, error, visualization, Warning" ) 
+Missing unit 
+ (Look for: "‘102’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+140. ID: 4892049
+- Contents: System shall provide Diagnostic services for below mentioned parameters:
+MC_CRC_error_counter parameter.
+Analog_Negative_Position parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3591928
+- Contents: System shall display and implement Hybrid System Indications as per the ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Hybrid system indications are displayed as per the Ferrari design.
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, implement, Indications, design" ) 
+Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Review
+
+2. ID: 3611320
+- Contents: 6.2.1.1.2.34.1 F803-Hybrid System Indications-Emotional Index Visual Feedback - Manual Mode
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): In Work
+
+3. ID: 3611322
+- Contents: 6.2.1.1.2.34.2 F803-Hybrid System Indications-Emotional Index Visual Feedback - Automatic Mode
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+4. ID: 3611323
+- Contents: 6.2.1.1.2.34.3 F803-Hybrid System Indications- Emotional Index Visual Feedback - Performance Launch Mode
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): In Work
+
+5. ID: 3612077
+- Contents: 6.2.1.1.2.34.4 F803- Performance Launch Mode battery preconditioning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 40
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3612115
+- Contents: 6.2.1.1.2.34.5 Visualisation Cycles - Warnings
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- State (Harman_Requirement): In Work
+
+7. ID: 3612125
+- Contents: Acoustic signaling is managed by HVB using the HVBBuzzerReq signal
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image181.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image182.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F803 6.2.1.1.2.34  Hybrid System Indications Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

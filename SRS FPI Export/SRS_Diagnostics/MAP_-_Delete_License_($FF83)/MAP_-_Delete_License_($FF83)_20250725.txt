@@ -1,0 +1,140 @@
+# UnknownID 6.2.2.1.4 MAP - Delete License ($FF83) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.4 MAP - Delete License ($FF83)
+
+- ID: 4684295
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Need to check the start condition with the customer.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4684296
+- Contents: The system shall read MAP - Delete License ($FF83) with active Ferrari security access session.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Ferrari Security access session and Protocol service of $31
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+2. ID: 4684303
+- Contents: The system shall support map package ID
+Target ID (see: image18.png, image19.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the target DI from the given table
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Visual Elements: image18.png, image19.png
+
+3. ID: 4684305
+- Contents: The system shall support routine status
+(see: image20.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the routine status from the given table.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Visual Elements: image20.png
+
+4. ID: 4684307
+- Contents: The system shall support Request Results
+(see: image21.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the request result from the given table
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Visual Elements: image21.png
+
+5. ID: 4684308
+- Contents: The system shall delete the map license for the matching map ID & restore initial map management conditions during start service activation.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall delete the map license for the matching map ID & restore initial map management conditions during start service activation.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4684309
+- Contents: [Info] Please refer to MAP-7 for additional information  regarding the map table's composition
+- Artifact Type: Information
+- Responsible Domain: ADAS_Horizon
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image18.png, image19.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image21.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image20.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.1.4 MAP - Delete License ($FF83) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

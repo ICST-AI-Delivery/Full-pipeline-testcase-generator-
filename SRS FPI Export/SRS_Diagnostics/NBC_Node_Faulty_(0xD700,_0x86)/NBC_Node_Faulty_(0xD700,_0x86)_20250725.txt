@@ -1,0 +1,76 @@
+# UnknownID 6.2.1.1.67 NBC Node Faulty (0xD700, 0x86) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.67 NBC Node Faulty (0xD700, 0x86)
+
+- ID: 3876745
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3876746
+- Contents: The System shall detect NBC Node Fault right after key-ON, if the NBC Node Missing at least one (but entire messages shouldn't miss ) message with wrong DLC.
+EXTERNAL_LIGHTS or
+SETUP_NBC or 
+STATUS_RLFSoSe or 
+STATUS_NBC or
+STATUS_NBC_2 or
+STATUS_NBC_3 or
+STATUS_DOORS or
+STATUS_NPG or
+STATUS_B_CAN or 
+STATUS_B_CAN2
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Missing at least one (but not all) message with wrong DLC.
+-Set the Proxi byte 26, bit 0 (“NBC”) = "Present".
+-NBC Node Fault should Immediately detect during Key-ON.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, messages, detect, n't, miss, right, Missing, message, DLC" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+2. ID: 3876748
+- Contents: The System shall clear the NBC Node Fault immediately after receiving the Right DLC.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -The Fault should be clear Immediately.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "immediately" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a de-maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.67 NBC Node Faulty (0xD700, 0x86) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,429 @@
+# FAD-2 6.2.2.3.3  Channel Directionality Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.3 FAD-2 Channel Directionality
+
+- ID: 3826912
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3941689
+- Contents: The system shall set Audio directionality as below:
+(see: image129.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the chime audio is played from the correct loudspeaker.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image129.png
+
+2. ID: 3557650
+- Contents: The system shall  play the Park Assist Audio from "Left", If the reproduction of a Front Parking audio source is required from left side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: During Parking, Verify that the Front Parking Audio source is heard from the left side when the Front Parking Audio source  to be played from the left side
+
+Verify the value of the CAN signal IDC_AudioStreams2.ParkAssistDirectionality =1
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is required" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3557659
+- Contents: The system shall play the Park Assist Audio from "Right", if the reproduction of a Front Parking audio source is required from right side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: During Parking, Verify that the Front Parking Audio source is heard from the right side when the audio to be played from right side. 
+
+Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the value of the CAN signal IDC_AudioStreams2.ParkAssistDirectionality =0x2
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3557677
+- Contents: The system shall play the Park Assist Audio from "Center", if the reproduction of a Front Parking audio source is required from center.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: During Parking, Verify that the Front Parking Audio source is heard from the center when the audio to be played from the Front center.
+
+Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the value of the CAN signal IDC_AudioStreams2.ParkAssistDirectionality =0x3
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3557678
+- Contents: The system shall play the Park Assist Audio from "Left", if the reproduction of a Rear Parking audio source is required from left side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: During Parking, Verify that the Rear Parking Audio source is heard from the left side when the audio to be played from left side. 
+
+Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the value of the CAN signal IDC_AudioStreams2.ParkAssistDirectionality =0x1
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3557683
+- Contents: The system shall play the Park Assist Audio from "Right", if the reproduction of a Rear Parking audio source is required from right side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: During Parking, Verify that the Rear Parking Audio source is heard from the right side when the audio to be played from right side. 
+
+Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the value of the CAN signal IDC_AudioStreams2.ParkAssistDirectionality =0x2
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3557686
+- Contents: The system shall play the Park Assist Audio from "Center", if the reproduction of a Rear Parking audio source is required from Center.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: During Parking, Verify that the Rear Parking Audio source is heard from the  Center when the audio to be played from Center. 
+
+Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the value of the CAN signal IDC_AudioStreams2.ParkAssistDirectionality =0x3
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3557687
+- Contents: The system shall play the BSM warning form "Left" If the reproduction of a Blind Spot audio source is required from left side.
+The system shall play the BSM warning form "Right" If the reproduction of a Blind Spot audio source is required from right side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: During Parking, Verify that the BSM Audio source is heard from the Left when the audio to be played from Left 
+
+Verify the value of the CAN signal BSM_RCTADirectionality =0x1
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3557689
+- Contents: The system shall set the directionality_enum_id to "Right " If the reproduction of a Blind Spot audio source is requested from right.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: During Parking, Verify that the BSM Audio source is heard from the right when the audio to be played from right 
+
+Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+Verify the value of the CAN signal BSM_RCTADirectionality =0x1
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3557702
+- Contents: The system shall set the directionality_enum_id to "Left" If the reproduction of a Rear Cross Traffic Alert audio source is requested from Left.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Set the relevant CAN signal as provided in the below page :
+https://confluence.harman.com/confluence/display/BUDCPLLDA/%5BInternal%5D+non+MTA-Linux+Chime+CAN+signals
+
+During Parking, Verify that the Rear Cross Traffic Alert Audio source is heard from the Left when the audio to be played from Left
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3941696
+- Contents: The system shall set the value of the directionality_enum_id = 10 ("RCTA_R") If the reproduction of a Rear Cross Traffic Alert audio source is requested from right.
+The system shall play the RCTA  warning form "Left" if the reproduction of a Rear Cross Traffic Alert audio source is requested from right. -> OK
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is requested" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3557703
+- Contents: The system shall set the Lane Crossing Directionality interface to play the lane departure warning from "Left" If the reproduction of a Lane Departure Warning audio source is required from left side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Approve it without CAN singal since  it is not clear from DBC
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3557704
+- Contents: The system shall set the Lane Crossing Directionality interface to play the lane departure warning from "Right" If the reproduction of a Lane Departure Warning audio source is required from right side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Lane Departure warning audio is played from right side if Lane Departure is coming from Right Side.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3557705
+- Contents: The system shall set the Lane Crossing Directionality interface to play the lane departure warning from "Center "If the reproduction of a Lane Keeping Assistant audio source is required from left side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Lane  Keeping Assistant audio is played from left side if Lane Departure is coming from Center.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3557706
+- Contents: The system shall set the Lane Crossing Directionality interface to play  Lane departure warning from "Right " If the reproduction of a Lane Keeping Assistant audio source is required from right side.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: No Need to mention can y can signal here, onky need the audio directionlity via payback
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be reproduced" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3557707
+- Contents: The FAD library shall reproduce the audio source from "the front left door speakers and both external speakers", If the reproduction of an Door opening audio or a Door closing audio source is triggered on the FL_POWER_DOOR stream Front Left Door.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the front left and both external speakers play  a Door opening or Closing audio when audio source is triggered on the Front Left Door.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, left, source, speakers" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3557708
+- Contents: The FAD library shall reproduce the audio source from the front left door speakers and front external speakers, If the reproduction of an Door_Antipinch audio source triggered on the FL_POWER_DOOR channel Front Left Door.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the front left and both external speakers play  a Door Anitpinchaudio when audio source is triggered on the Front Left Door.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, left, source, speakers" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3557709
+- Contents: The FAD library shall reproduce the audio source from the front right door speakers and both external speakers If the reproduction of an Door_Opening or a Door_Closing audio source triggered on the FR_POWER_DOOR channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the front right and both external speakers play  a Door opening or Closing audio when audio source is triggered on the FR_POWE_DOOR Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, right, speakers" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3557719
+- Contents: The FAD library shall reproduce the audio source from the front right door speakers and front external speakers If the reproduction of an Door_Antipinch audio source triggered on the FR_POWER_DOOR channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the front right and both external speakers play  a Door Antipinch audio when audio source is triggered on the FR_POWE_DOOR Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, right, speakers" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3557720
+- Contents: The FAD library shall reproduce the audio source from the rear left door speakers and both external speakers If the reproduction of an Door_Opening audio or a Door_Closing audio source triggered on the RL_POWER_DOOR channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear left and both external speakers play  a Door opening or Closing audio when audio source is triggered on the RL_POWE_DOOR Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, left, speakers" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3557721
+- Contents: The FAD library shall reproduce the audio source from the rear left door speakers and the rear external speakers If the reproduction of an Door_Antipinch audio source triggered on the RL_POWER_DOOR channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear left and both external speakers play  a Door Antipinch audio when audio source is triggered on the RL_POWE_DOOR Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, left, speakers" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3557722
+- Contents: The FAD library shall reproduce the audio source from the rear right door speakers and both external speakers If the reproduction of an Door_Opening audio or a Door_Closing audio source triggered on the RR_POWER_DOOR channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear right and both external speakers play  a Door opening or Closing audio when audio source is triggered on the RR_POWE_DOOR Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, right, speakers" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3557723
+- Contents: The FAD library shall reproduce the audio source from the rear right door speakers and the rear external speakers, If the reproduction of an Door_Antipinch audio source triggered on the RR_POWER_DOOR channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear left and both external speakers play  a Door Antipinch audio when audio source is triggered on the RR_POWE_DOOR Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, right, speakers" )
+- State (Harman_Requirement): Approved
+
+24. ID: 3557724
+- Contents: The FAD library shall reproduce the audio source from the rear internal speakers and the external speakers If the reproduction of an audio source triggered on the POWER_LIFTGATE  channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear internal and both external speakers play  audio when audio source is triggered on the POWER_LIFTGATE Channel.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduce, source, speakers" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3557731
+- Contents: The FAD library shall reproduce audio without directionality on triggering the reproduction of an audio source(PARK_ASSIST,
+BSM_RCTA, LANE_CROSSING) if the audio directionality is undefined.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Audio is heard from all the speakers when  no source directionality is defined for the below streams
+
+PARK_ASSIST
+BSM_RCTA
+LANE_CROSSING
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, reproduction, reproduce, triggered, PARK, audio, directionality, source, AND" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3557648
+- Contents: If the reproduction of an audio source is triggered on one of the following channels:
+PARK_ASSIST
+BSM_RCTA
+LANE_CROSSING
+before the IDC-424008 - Source Activation ( IDC-424008 - Source Activation), the IDC shall set the value of the proper source directionality through the FAD_CTRL_setDirectionality(void *fad_ctrl_memory, fad_source_id_e sourceID, int directionality_enum_id, float distance) API according to the following requirements, where:
+sourceID = SOURCE ID of the source
+directionality_enum_id = directionality from which the source shall be perceived
+distance = distance from which the source shall be perceived
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the system accurately detects when audio reproduction is triggered on one of the specified streams(PARK ASSIST, BSM RCTA, LANE CROSSING).
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "reproduction, system, triggered, following, PARK, set, according, source, value, requirements" )
+- State (Harman_Requirement): Review
+
+2. ID: 4002106
+- Contents: The FAD library must tune the playback to be perceived as coming from the rear right of the vehicle.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image129.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-2 6.2.2.3.3  Channel Directionality Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

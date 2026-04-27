@@ -1,0 +1,253 @@
+# PFL-2 6.2.6.3  Profile-Key Pairing Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.3 PFL-2 Profile-Key Pairing
+
+- ID: 3939836
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3970735
+- Contents: IDC shall allow the Profile-key pairing procedure only if at least one profile != Guest.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system allows the profile key pairing procedure only if at least one profile is not a Guest profile.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3970742
+- Contents: IDC shall prohibit the key-pairing operation and provide a dedicated indication to the user KeyHolderPosition != 2 ("Position2").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that user should not be able to pair keys while the HMI is active
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "state, prohibit, provide, is, operation, indication, user" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3970741
+- Contents: IDC shall read the LastKeyFobNumSeen value to perform the pairing procedure when user requests the "Pair key" operation via dedicated interface AND KeyHolderPosition == 2 ("Position2")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system consistently updates and reads the lastKeyFobNumSeen value for pair key operation
+
+KeyHolderPosition == 2 ("Position2")
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Android HMI, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "state, read, to perform, is, value, procedure, ON" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3970740
+- Contents: System shall discard the user pairing and display a pop up when  LastKeyFobNumSeen = 0("FOB_DEFAULT") and user pairing request
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when  LastKeyFobNumSeen = 0 ("FOB_DEFAULT").
+
+RUFHUB2.
+LastKeyFobNumSeen is the signal
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, discard, pairing, display, up, LastKeyFobNumSeen" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3970739
+- Contents: IDC shall display a pop up to the user about successful pairing when pairing procedure should completed.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when successful pairing is completed.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, procedure, display, pairing, completed, pop" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3970738
+- Contents: IDC shall restart the pairing process when the user asks to repeat the pairing procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system must restart the pairing process when the user requests to repeat it.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "restart, asks" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4727599
+- Contents: IDC shall allow to pair more than one Profile to the same FOB_x key.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to pair more than one profile to FOB_x
+
+RFHUB2.LastKeyFobNumSeen
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3970737
+- Contents: IDC shall display a pop up when the FOB_x retrieved by LastKeyFobNumSeen  profile already linked to a key and request for new profile pairing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the pop-up when a profile is already linked and requests a new profile pairing
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, already, display, linked, up, profile, request, pairing" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4727605
+- Contents: IDC shall assign a dedicated incremental Key ID to the value of current LastKeyFobNumSeen in order to provide HMI indication at the end of the profile-key pairing procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the key ID value and HMI indication for profile key pairing process.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4727607
+- Contents: IDC shall use the same ID when the current lLastKeyFobNumSeen value matches the value already associated to a Key ID.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able use same ID when LastKeyFobNumSeen value matches the value already associated to a Key ID.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "value, use, matches, associated, same ID, already, Key ID" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4727609
+- Contents: System shall assign the key ID = Key1 to the current LastKeyFobNumSeen = FOB_X value when Profile_x is the first profile to link to a FOB_X value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify key ID status when LastKeyFobNumSeen = FOB_X
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, x, assign, is, to link, key ID, LastKeyFobNumSeen, value, profile" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4727611
+- Contents: System shall assign the subsequent available Key ID to the current LastKeyFobNumSeen value when Profile_x is not the first profile to link to a key.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set subsequent Key ID when Profile_x is not the first profile to be linked to a key.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, x, assign, is, to link, subsequent, Key ID, value, profile, key" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3970746
+- Contents: IDC shall allow user to insert the key in the allocated slot.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the user able to insert the kay in allocated slot.
+- Grooming Status: Review
+- Grooming Comments: what is the slot?
+
+HMI does'nt have a UX slots for this.
+
+what is the scope of IDC in this req. need to raise a jira
+- Expert Domains: AM_FM_HD, Android HMI, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3970745
+- Contents: IDC shall inform the user the key is already linked to a profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when the key is already linked to a profile.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is already linked" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3970744
+- Contents: IDC shall inform the user key pairing is ongoing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when key pairing is on-going.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3970736
+- Contents: This function allows the user to associate a selected profile to the current key fob.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-2 6.2.6.3  Profile-Key Pairing Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

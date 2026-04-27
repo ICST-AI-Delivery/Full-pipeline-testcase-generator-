@@ -1,0 +1,114 @@
+# UnknownID 6.2.4.3.2.14 Water Temp Threshold  ($20B6) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.14 Water Temp Threshold  ($20B6)
+
+- ID: 3982558
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- Grooming Comments: Not applicable as per MTA. Need to check with Ferrari.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3982573
+- Contents: The System shall have the command manages water temperature thresolds and temperature is in °C.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Temperature units should be in °C.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, temperature, have, manages, is, thresolds" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the water temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3982580
+- Contents: The System shall have RecordDataIdentifier ($20B6) to know the Water Temp Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20B6)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the water temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3982607
+- Contents: (90) Water_temp_red_on
+If the Temperature threshold over that the background of the water temperature indicator, the system shall allow the water temperature indicator virtual (in the lowest size) becomes red.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the water temperature indicator virtual (in the minimum size) becomes red
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "background, system, allow, becomes, threshold, indicator, temperature, virtual" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the water temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3982609
+- Contents: (91) Water_temp_red_off
+If the Temperature threshold below that the background of the water temperature indicator, the System shall allow the water temperature indicator virtual (in the lowest size) becomes yellow (Indicator changes from red to yellow).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the water temperature indicator virtual (in the minimum size) changes to Yellow from Red.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "background, System, allow, becomes, to yellow, threshold, indicator, temperature, virtual, changes" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the water temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3982612
+- Contents: (92) Water_temp_yellow 
+The System shall allow the water temperature indicator virtual (in the lowest size) becomes yellow, when the background of the water temperature indicator have Temperature threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the water temperature indicator virtual (in the minimum size) becomes yellow.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, background, indicator, allow, becomes, have, temperature, virtual, threshold" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the water temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.14 Water Temp Threshold  ($20B6) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

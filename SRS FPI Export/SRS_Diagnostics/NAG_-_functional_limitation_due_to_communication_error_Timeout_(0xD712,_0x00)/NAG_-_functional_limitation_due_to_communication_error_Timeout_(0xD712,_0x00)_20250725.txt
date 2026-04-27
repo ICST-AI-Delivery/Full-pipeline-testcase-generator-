@@ -1,0 +1,75 @@
+# UnknownID 6.2.1.1.87 NAG - functional limitation due to communication error Timeout (0xD712, 0x00) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.87 NAG - functional limitation due to communication error Timeout (0xD712, 0x00)
+
+- ID: 3939857
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- Grooming Comments: F067_Vf12_R3_DriverSeat&MirrorsSettings
+This is a function and it is use for command_NIT_2NAG_NAP
+
+067 driver seat and mirror setting.
+
+
+VHAL is responsible for this feature
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3939858
+- Contents: If the NAG responds late, resulting in a communication timeout and failure to communicate the required configuration (following SFS) within 1 second after Key-ON, the system shall set a Diagnostic Trouble Code (DTC).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Proxi byte 28, bit 2 (NAG) == "Present".
+-Verify ECU communication timeout with NAG should expires.
+-NAG communication error Timeout fault should detect within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, resulting, to communicate, required, following, set, timeout, failure, configuration, SFS, DTC" )
+- TestTeamComment: RWeber_DIAG_241025: okay
+- State (Harman_Requirement): Approved
+
+2. ID: 3939862
+- Contents: The System shall clear the DTC, if ECU communication with the NAG is successfully established within the de-maturation time of 1s.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: -DTC is devalidated within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "established" )
+- TestTeamComment: RWeber_DIAG_241025: okay
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.87 NAG - functional limitation due to communication error Timeout (0xD712, 0x00) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

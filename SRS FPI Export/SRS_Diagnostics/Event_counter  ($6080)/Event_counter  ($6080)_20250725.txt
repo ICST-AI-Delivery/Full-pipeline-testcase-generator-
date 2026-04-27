@@ -1,0 +1,79 @@
+# UnknownID 6.2.4.3.2.26 Event counter  ($6080) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.26 Event counter  ($6080)
+
+- ID: 4008726
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4008731
+- Contents: The System shall have a “virtual” parameter which identifies the event counter for each fault.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Event counter  ($6080) “virtual” parameter.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, parameter, identifies, #8220, event counter, fault" )
+- TestTeamComment: RWeber_DIAG_250212: CS.00052 shows following info " It has not sense if read by service $22 (the ECU can answer nack $31)." Will test to dummy pos. resp. Or a NRC.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The Event Counter  management must be done according to standard TFO 09009.
+
+2. ID: 4008753
+- Contents: The System shall have RecordDataIdentifier ($6080) to know the Event counter.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($6080)
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 6080’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: CS.00052 shows following info " It has not sense if read by service $22 (the ECU can answer nack $31)." Will test to dummy pos. resp. Or a NRC.
+- State (Harman_Requirement): Approved
+
+3. ID: 4008799
+- Contents: The System shall support the following NRC's
+Read NR
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250212: CS.00052 shows following info " It has not sense if read by service $22 (the ECU can answer nack $31)." Will test to dummy pos. resp. Or a NRC.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.26 Event counter  ($6080) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

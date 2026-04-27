@@ -1,0 +1,229 @@
+# DMS-14 6.2.1.15  FUNCTIONAL RDIs Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.15 DMS-14 FUNCTIONAL RDIs
+
+- ID: 3755021
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_IOC, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3755033
+- Contents: The system shall implement the following internal counters accessible through RDI:
+Le_n_WrnNumCount
+Le_Ien_ActKmCount
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Le_n_WrnNumCount (Number of times the DMS warning is activated) and Le_Ien_ActKmCount (Number of km traveled with the DMS functionality active) can be read/write via diagnostics 
+
+DID 0xFE30 (Le_n_WrnNumCount) and  0xFE31 (Le_Ien_ActKmCount)
+- Grooming Status: Approved
+- Grooming Comments: [Saheel, Andul,Sunjay 24.012025] approved
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3755040
+- Contents: The system shall increase 'Le_n_WrnNumCount' by "1" every time when the attention warning is activated with Visual_Acoustic.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the counter Le_n_WrnNumCount is increased by 1 every time when Oe_enu_HMIAttWrn = Visual_Acoustic (the DMS is active and driver is inattentive)
+- Grooming Status: Approved
+- Grooming Comments: Saheel Abdul: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "every" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3756561
+- Contents: The system shall increase Le_Ien_ActKmCount by 1 for each km traveled while DMSSettingSts = ON'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the counter Le_Ien_ActKmCount is increased by 1  for each km travelled every time when the DMS Setting Status is ON
+
+This cannot be tested in the bench, needs to be checked in the vehicle.
+- Grooming Status: Approved
+- Grooming Comments: Saheel Abdul 24.01.2025: Ask Diagnstic team /Ferrari How to set the km travelled in bench?
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3760490
+- Contents: The system shall provide the Left eye position as 3D coordinates (x, y, z) within the vehicle coordinate system with the origin in the center of the front wheel axis.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: activate the debug messages via DID 0xFE50
+
+Verify the Left eye position 'via MSG_DMS_EyePositionL signal'
+as 3D coordinates (x, y, z) within the vehicle coordinate system with the origin in the center of the front wheel axis
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-874
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3760496
+- Contents: The system shall provide the Right eye position as '3D' coordinates(x, y, z) within the vehicle coordinate system with the origin in the center of the front wheel axis.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the debug messages via DID 0xFE50
+
+Verify the Right eye position 'via MSG_DMS_EyePositionR signal'
+as 3D coordinates (x, y, z) within the vehicle coordinate system with the origin in the center of the front wheel axis
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-874
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3761826
+- Contents: The system shall provide the Driver's gaze direction as '3D' co-ordinates(x, y, z) within the vehicle co-ordinate system with the origin in the center of the front wheel axis.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the debug messages via DID 0xFE50
+
+Verify the Driver's eye position 'via MSG_DMS_GazeDirection signal'
+as 3D coordinates (x, y, z) within the vehicle coordinate system with the origin in the center of the front wheel axis
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-874
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3761929
+- Contents: The system shall provide the below debug information via CAN:
+System's current state:
+Head tracking algorithm confidence:
+Eye opening algorithm confidence:
+Eye gaze direction estimation confidence:
+Attention warning time counter.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: activate the debug messages via DID 0xFE50
+
+Verify the debug message with below signals on CAN
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+MSG_DMS_DebugInfo.SG_DMS_HeadTrackQuality
+MSG_DMS_DebugInfo.SG_DMS_EyeClosedQuality
+MSG_DMS_DebugInfo.SG_DMS_EyeGazeQuality
+MSG_DMS_DebugInfo.SG_DMS_AttWrnCount
+
+
+Deactivate the debug message via DID 0xFE50
+Verify that the debug message is not visible.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-874
+
+Ganesh, Abdul: What is the value and number of byte  of the Debug message to set/reset the activation status?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3762329
+- Contents: System shall implement the calibratable parameters defined in Parameters.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3762440
+- Contents: The system shall allow parameter value to be readable and writ-able for tuning through diagnostic command(RDI).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, be readable, tuning, value, diagnostic" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3762446
+- Contents: The system shall allow to read and write the ON/OFF value related to DMS Settings via RDI.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS Setting Status ( ON/OFF) can be read/write via diagnostics (DID 0xFE51) 
+
+Verify the DMS Warning based on DMS  Setting Status .
+Note: Warning should be available if the setting is ON when the warning conditions are met
+- Grooming Status: Approved
+- Grooming Comments: Approved, Saheel, Abdul
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to read, write, value, Settings" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3762483
+- Contents: System shall set a dedicated 'DTC' to signal that DMS Setting is 'OFF' and it is not-giving distraction warnings to the driver when Pause Mode RDI set to 'OFF'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, signal, is, giving, DTC, Setting, warnings, driver, Mode, OFF" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3755022
+- Contents: This function explains the RDI that shall be used for signal accessibility and parameters calibration.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3755023
+- Contents: The system shall send Debug messages over CAN to access internal variables during develpment.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3755024
+- Contents: The system shall implement the following RDIs in addition to the RDIs defined by the standards agreed in Product Card.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-14 6.2.1.15  FUNCTIONAL RDIs Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

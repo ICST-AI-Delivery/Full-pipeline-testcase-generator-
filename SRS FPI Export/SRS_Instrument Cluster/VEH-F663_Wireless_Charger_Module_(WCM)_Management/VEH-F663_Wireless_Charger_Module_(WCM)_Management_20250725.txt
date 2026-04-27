@@ -1,0 +1,467 @@
+# VEH-F663 6.2.1.1.2.32  Wireless Charger Module (WCM) Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.32 VEH-F663 Wireless Charger Module (WCM) Management
+
+- ID: 3408600
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3767093
+- Contents: Wireless Charger Module WCM and WCMR uses LIN 2.2 Communication protocol as per configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Verify that the
+- Grooming Status: Approved
+- Grooming Comments: LIN protocol cannot be checked from the software point of view.
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "uses, using, Module WCM, protocol, bits" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3767094
+- Contents: System shall be LIN network master when WCM or WCMR proxi is present.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the WCM or WCMR proxi is present , then system shall be LIN network Master
+
+PROXI:
+ Byte-122 , Bit-1(WCM) , Bit-4(WCMR)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, is present, be, gateway, Implementing, Master, LIN, Protocol, Code" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3767095
+- Contents: System shall forward the below mentioned CAN Signals to LIN when Proxi WCM or WCMR is present.
+(see: image176.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: 
+WCM or WCMR Proxi should be Present.
+
+Verify that the System shall forward the below mentioned CAN Signals to LIN:
+
+STATUS_B_CAN.KeySts Master_WCM.KeySts
+eySts Master_WCM.
+
+ySts RFHUB1.FOBInt
+enceAvoid Master_WCM.FOBInterfe
+
+nceAvoid STATUS
+M.EngineSpeed Master_W
+
+.EngineSpeed
+
+
+Note: This Input or Output LIN should be verified using LIN interface.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image176.png
+
+4. ID: 3767096
+- Contents: System shall able to forward Constant Value to  LIN:
+(see: image177.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: WCM or WCMR Proxi should be Present.
+
+Verify that the System shall able to forward Constant Value to LIN:
+
+Master_WCM.LVB_SOC SNA(0x7F)
+B_SOC SNA(0x7F).
+
+PROXI: Byte-122 ,Bit-1,4
+
+Note: This Input or Output LIN should be verified using LIN interface.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘7 F’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image177.png
+
+5. ID: 3767097
+- Contents: System shall able to forward the Internal Signals to the LIN:
+(see: image178.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall be able to forward the Internal Signals to the LIN.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image178.png
+
+6. ID: 3767098
+- Contents: System shall be able forward LIN to CAN Signals
+If proxi byte-122, bit-1 = "Present" (WCM)
+(see: image179.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Proxi need to be Enabled.
+Need CANoe Tool.
+
+Verify that the system shall be able to forward LIN to CAN Signals.
+
+Verify the values between the LIN and CAN during the simulation.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signals, forward, proxi, _, CAN, bit-1, Present, Output" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image179.png
+
+7. ID: 3767100
+- Contents: System shall be able to Forward the LIN to CAN Signals:
+If proxi byte-122, bit-4= "Present"( WCMR)
+(see: image180.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Proxi need to be Enabled.
+Need CANoe Tool.
+
+Verify that the system shall be able to forward LIN to CAN Signals.
+
+Verify the values between the LIN and CAN during the simulation.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Signals, forward, proxi, CAN, Present, Output" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image180.png
+
+8. ID: 3767102
+- Contents: System shall set NQS_INFO_C.WCM_Status as Basic Power Profile Charge, and shall forward Converted LIN signals to CAN.
+When Proxi WCM and WCMR is present and WCM or WCMR Status  is not FOB Stand By
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the CAN signal NQS_INFO_C.WCM_Status Converted LIN Signals forwarded to CAN.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signals, absent  THENIDC, convert, forward, set, CAN" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4577752
+- Contents: System shall set NQS_INFO_C.WCM_Status = WCM.WCM_Status When Proxi WCM is present AND WCMR is absent
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Verification Criteria: Verify that the WCM status of NQS_INFO_C.WCM_Status  is set to WCM.WCM_Status when WCM Proxi is enabled.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, WCM, set, is present, is absent, WCMR" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4577756
+- Contents: System shall set NQS_INFO_C.WCM_Status = WCMR.WCMR_Status When Proxi WCMR is present AND WCM is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Verification Criteria: Verify that the WCM status of NQS_INFO_C.WCM_Status  is set to WCMR.WCMR_Status when WCMR Proxi is enabled.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, WCMR, set, is present, is absent, WCM" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3767104
+- Contents: System shall provide the charging status to the user on detecting the device connected to WCM for charging when Proxi is Enabled and WCM_Status is "FOREIGN OBJ DETECT ON CHARGE" or "FOREIGN OBJ DETECT not CHARGE"
+Note:Info-1 is a LIN input with D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-1 Pop-Up when WCM status value is 09 or 0A AND Proxi Byte 122 , Bit 1 is present.
+
+Pop-Up ID: 66301
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, is, is present, Pop-up, status, Bit-1, Info-1, input, Priority-2" ) 
+Missing limits
+ (Look for: "‘0 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3767105
+- Contents: System shall provide the charging status to the user on detecting the device connected to WCMR for charging when Proxi is Enabled and WCMR_Status is "FOREIGN OBJ DETECT ON CHARGE" or "FOREIGN OBJ DETECT not CHARGE"
+Note:Info-2 is a LIN input with D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-2 Pop-up when WCMR status is 09 or 0A AND Proxi Byte 122, Bit 4 is present.
+
+Pop-Up ID: 66304
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, is, Pop-up, status, present, input, Priority-2" ) 
+Missing limits
+ (Look for: "‘0 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3767106
+- Contents: System shall display Fail-1 Pop-up with Buzzer 2B when Wireless Charger Module is present AND below Conditions are met:
+WCM_Status = SYSTEM ERROR or
+IntErr_I2C_CommFault=Error or
+IntErr_CoilDisconnect=Error or
+IntErr_ThmDisconnect=Error
+Note:Fail-1 is a LIN input with D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display Fail-1 Pop-up when Proxi Byte-122, Bit-1 is present AND below Conditions are met:
+
+* WCM_Status = 0xF or
+*IntErr_I2C-CommFault=1 or
+*IntErr_CoilDisconect=1 or
+*IntErr_ThmDisconnect=1
+
+Pop-Up ID: 66302
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, NavSens, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is present, are met, is, Pop-up, Buzzer, Bit-1, Conditions, input, Priority-2" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3767107
+- Contents: System shall display Fail-2 Pop-up with Buzzer 2B when Rear Wireless Charger Module is present AND below Conditions are met:
+WCMR_Status is System Error or
+WCMR_IntErr_I2C_CommFault is Error or
+WCMR_IntErr_CoilDisconnect is Error or
+WCMR_IntErr_ThmDisconnect is Error
+Note:Fail-2 is a LIN input with D01 Visualisation behaviour with Priority 2.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Fail-2 Pop-up with Buzzer 2B when Proxi Byte 122, Bit 4 is present AND below conditions are met:
+
+*WCMR_Status = 0xF or
+*WCMR_IntErr_I2C-CommFault = 1 or
+*WCMR_IntErr_CoilDisconnect = 1 or
+*WCMR_IntErr_ThmDisconnect=1
+- Grooming Status: Approved
+- Grooming Comments: Fail-2 Pop-up data is not avaialble in HMI.POP.IND Document.
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, 4, display, is present, are met, is, Pop-up, Buzzer, Conditions, input, Priority 2" ) 
+Missing unit 
+ (Look for: "‘122,4,1,2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3767108
+- Contents: System shall display Warning-1 Pop-up when IntErr_CoilOverTemp=1(Error) AND Wireless Charger Module is present.
+Note:Warning-1 is a LIN input with D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Warning-1 Pop-up when IntErr_CoilOverTemp=1(Error) AND Proxi Byte-122 , Bit-1 is present.
+
+Pop-Up ID: 06630003
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is present, is, Pop-up, Bit-1, Warning-1, input, Priority-2" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3767109
+- Contents: System shall display Warning-2 Pop-up when WCMR_IntErr_CoilOverTemp=1(Error) AND Rear Wireless Charger Module is present.
+Note:Warning-2 is a LIN input with D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display's Warning-2 Pop-up when WCMR_IntErr_CoilOverTemp=1 AND Proxi Byte-122 , Bit-4 is present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Warning, is, Pop-up, present, input, Priority-2" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3935752
+- Contents: System shall set a DTC and send STATUS_WCM .WCM_Status=0x08(FOB Stand BY) when proxi WCM present and Slave response is absent for a time greater than or equal to tREC3 (tREC3= 90 ms)(3 times the maximum period described in the LDF).
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall set a DTC and send STATUS_WCM.
+
+WCM_Status as 0x08 when proxi WCM present and Slave response is absent for a time greater than or equal to tREC3(3 times the maximum period described in the LDF).
+
+DTC should be verified using CAN Diagnosis Tool.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, send, proxi, is absent, described, STATUS_WCM, present, response, time, period, LDF" ) 
+Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3935753
+- Contents: System shall implement gateway functionalities for diagnosis message/download service as described in norm CS.00051
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall implement gateway functionalities for diagnosis message/download services as described in norm CS.00051.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, implement, described, functionalities, message, service, CS" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3935754
+- Contents: System shall set a DTC AND send STATUS_WCMR.WCMR_Status =0x08 when proxi WCMR present and slave response absent for a time greater than or equal to  tREC3 (tREC3=90ms) (3 times the maximum period described in the LDF)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall set a DTC AND send STATUS_WCMR.WCMR_Status as 0x08 when proxi WCMR present and slave response absent for a time greater than or equal to tREC3(3 times the maximum period described in the LDF).
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, send, proxi, described, STATUS, present, absent, time, period, LDF" ) 
+Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3935755
+- Contents: System shall implement gateway functionalities for diagnosis messages/download services as described in norm CS.00051.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall implement gateway functionalities for diagnosis messages/download services as described in norm CS.00051.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, implement, described, functionalities, messages, services, CS" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3935756
+- Contents: System shall send the messages NQS_INFO_C when Proxi WCM , WCMR is present and WCM_recovery  then NQS_INFO_C.WCM_Status will be WCMR.WCMR_Status
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the NQS_INFO_C.WCM_Status is set WCMR.WCMR_Status when Proxi enabled and Incase of WCM recovery
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "manage, present, absent" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3767091
+- Contents: Sytem shall display the Wireless Charger Module Management as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+2. ID: 3767092
+- Contents: System shall enable Wireless Charger Module Managment when Proxi WCM(Wireless Charger Module) is Present OR WCMR is Present
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system enables Wireless Charger Module Managament when proxi WCM(Wireless Charger Module) is Present OR WCMR is Present.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Module Managment, be enable, is, Module, OR, Present" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image179.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image180.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image178.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image177.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image176.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F663 6.2.1.1.2.32  Wireless Charger Module (WCM) Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

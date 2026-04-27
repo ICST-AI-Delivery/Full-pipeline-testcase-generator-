@@ -1,0 +1,94 @@
+# UnknownID 6.2.4.2.3.25 EOL Calibration Pattern Height - FL ($FE7A) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.3.25 EOL Calibration Pattern Height - FL ($FE7A)
+
+- ID: 3889697
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3889698
+- Contents: The system shall support Read access for Calibration Pattern Height Front left with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify The ECU can able to  Read Calibration Pattern Height-FL with an active Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241121: Only check that the RDBI worked at ExtSession. No applicative check, that the return value is valide, shows the real system state. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+2. ID: 3889699
+- Contents: The system shall support Write access for Calibration Pattern Height Front left with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify The ECU can able to  Write Calibration Pattern Height-FL with an active Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241121: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 2 Byte
+Data type: HEX(mm)
+
+3. ID: 3889700
+- Contents: When requesting data identifier with the Read Data by Identifier “diagnostic session”, the ECU shall return the saved value of the Front left EOL calibration pattern.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned value of the Front Left EOL calibration pattern.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ECU, requesting, return, saved, left, identifier, Data, session, value, pattern" )
+- TestTeamComment: RWeber_DIAG_241121: Only check that the RDBI worked at ExtSession. No applicative check, that the return value is valide, shows the real system state. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+4. ID: 3889701
+- Contents: When requesting data identifier with a specific value via “diagnostic session Write Data by Identifier”, the ECU shall update the height of the Front left EOL calibration pattern to use in the EOL calibration routine and save in Non-Volatile Memory (NVM).
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the saved value of height of Front Left EOL calibration pattern in NVM.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ECU, requesting, update, left, to use, save, identifier, value, Data, height, pattern, routine, NVM" )
+- TestTeamComment: RWeber_DIAG_241121: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.3.25 EOL Calibration Pattern Height - FL ($FE7A) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

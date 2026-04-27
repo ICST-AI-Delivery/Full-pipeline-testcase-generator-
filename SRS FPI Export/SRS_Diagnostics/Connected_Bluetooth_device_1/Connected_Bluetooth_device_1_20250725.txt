@@ -1,0 +1,82 @@
+# UnknownID 6.2.4.3.1.8 Connected Bluetooth device 1 Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.8 Connected Bluetooth device 1
+
+- ID: 3926344
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3926346
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and Dimension: 249 Bytes, Data type: HEX.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241129: RDBI in extended session, no info about, where to find the status info. I'm wonddering, that this will not be tested by space4 platform.
+- State (Harman_Requirement): Approved
+
+2. ID: 3926353
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return details about the currently connected Bluetooth Device as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned details about the currently connected Bluetooth Device.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "currently" )
+- TestTeamComment: RWeber_DIAG_241129: No BT expert to test BT applicative issues or know BT functionality. This REQ need to be tested by an expert.
+- State (Harman_Requirement): Approved
+
+3. ID: 3926432
+- Contents: The System shall populate the Connected Bluetooth device-1 parameter fields as follows.
+Reception field strength (RSSI) - byte offset-0
+Name - byte offset -1
+size = 0-248
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Connected Bluetooth device 1 parameter fields based on the values in Table.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as follows.Reception" )
+- TestTeamComment: RWeber_DIAG_241129: No BT expert to test BT applicative issues or know BT functionality. This REQ need to be tested by an expert.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.8 Connected Bluetooth device 1 Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

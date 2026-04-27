@@ -1,0 +1,69 @@
+# UnknownID 6.2.4.2.1.4 Time & Date Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.4 Time & Date
+
+- ID: 3732025
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3732026
+- Contents: The system shall Read access level for Time & Date function with extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Time & Date function supports only read data By Identifier
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘6’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Unsigned" )
+- TestTeamComment: RWeber_DIAG_250212: Need signal info, how to simulate time and date.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Diagnostic session.
+Dimension: 6 Bytes
+Data type: Unsigned
+
+2. ID: 3732027
+- Contents: The ECU shall return a positive response & the ECU Time & Date value in the format "BCD: 0xhh 0xmm 0xdd 0xMM 0xYYYY" upon sending the Read service request.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Request the Time & Date value with diagnostic service Read data By Identifier
+Verify the ECU returns value in the format BCD: 0xhh 0xmm 0xdd 0xMM 0xYYYY.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "return, requesting, amp, value, BCD:, identifier, Data, Identifier" )
+- TestTeamComment: RWeber_DIAG_250212: Need signal info, how to simulate time and date.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.4 Time & Date Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,279 @@
+# PFL-3 6.2.6.4  Profile Activation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.4 PFL-3 Profile Activation
+
+- ID: 3939837
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- HB_Comment: last
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3970748
+- Contents: System shall set guest profile when
+LastKeyFobNumSeen == 0("FOB_DEFAULT")
+OR
+retrieved key is not linked to any saved profile
+OR
+no User Profile has been created
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set guest profile when no profile linked to the key.
+
+If LastKeyFobNumSeen = 0("FOB_DEFAULT")
+OR
+retrieved key is not linked to any saved profile
+OR
+no User Profile has been created
+Then IDC shall set ActiveProfile = 0 ("Guest_Profile")
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, profile, link, key" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4728579
+- Contents: System shall restore Guest (or default) profile when memory issue that prevent IDC to recover the profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set guest profile when memory issue happen
+- Grooming Status: Blocked
+- Grooming Comments: what is mean by memory issue? how do we evaluate there is a memory issue
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, restore, prevent, to recover, Guest, profile, issue, IDC" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3970762
+- Contents: IDC shall activate the last active profile paired to the retrieved by LastKeyFobNumSeen value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the last active profile has been successfully activated.
+
+If LastKeyFobNumSeen = 0("FOB_DEFAULT")
+OR
+retrieved key is not linked to any saved profile
+OR
+no User Profile has been created
+Then IDC shall set ActiveProfile = 0 ("Guest_Profile")
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3970760
+- Contents: IDC shall set output signal Active Profile according to the activated profile
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the active profile output signal
+
+ NIT_VEHICLE_SETUP_3.ActiveProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, should" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3970758
+- Contents: IDC shall ignore the LastKeyFobNumSeen value if user has performed a manual activation until next sleep, or another manual activation is requested by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to ignore lastkeyfobnumseen value until next sleep or manual activation requested.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Android HMI, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, read, to confirm, update, value, profile, condition" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4728405
+- Contents: System shall auto switch to the last active profile associated to the updated key when manual activation has't occur AND a transition of the LastKeyFobNumSeen value detect by IDC.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set last active profile when no manual activation and last key fob num seen value detect
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activation, auto, switch, associated, updated, has, occur, profile, key, transition, detect" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3970757
+- Contents: IDC shall keep the current profile when retrieved key should linked to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the active profile remains unchanged after retrieving the key.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "key, keep, retrieved, linked, profile" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3970755
+- Contents: IDC shall switch to the last active profile associated to the retrieved key when the retrieved key is not link to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system behaves as expected in switching profiles based on key retrieval.
+- Grooming Status: Review
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "key, switch, associated, retrieved, link, profile" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3970753
+- Contents: IDC shall allow the user to activate all the User existing Profiles except Guest profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to activate user existing profiles except guest profile.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "except" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4728415
+- Contents: If the user selects a Profile_X, IDC shall check if the profile requested is paired to the current LastKeyFobNumSeen FOB_x value receveid.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the profile requested is paired to the current LastKeyFobNumSeen FOB_x value receveid.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is paired" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3970752
+- Contents: System shall recover the settings and parameters values stored for the requested Profile_X.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to recover all settings and parameter values for the requested profile_X.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recover, stored, requested, settings, values, Profile_X" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3970749
+- Contents: IDC shall provide an interface to allow the user to abort the profile activation procedure until IDC sets SeatProfileReq != 2 ("ProfileReq") AND ColumnsProfileReq
+!= 2 ("ProfileReq") AND MirrorProfileReq != 2 ("ProfileReq")].
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to abort the profile activation when SeatProfileReq != 2 ("ProfileReq") AND ColumnsProfileReq
+!= 2 ("ProfileReq") AND MirrorProfileReq != 2 ("ProfileReq")]
+
+ SETUP_NAG_V3.SeatProfileSts
+SETUP_NAG2_V3.ColumnProfileSts
+STATUS_NBC_3.MirrorsProfileSts
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to interrupt, reached, profile, procedure, time, selection" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3970774
+- Contents: IDC shall recover the previously active profile AND set output signal Active Profile when the user requests the profile activation procedure interruption by dedicated interface
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set previous profile when user abort the profile activation
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, prohibit, provide, switch, SpeedProfile, indication" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3970772
+- Contents: IDC shall inform the user the requested profile has been connected.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to inform to the user that the requested profile is connected.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "has been connected" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3970763
+- Contents: This functionality defines the logic for automatic activation of a profile based on the key recognized and the manual activation of a profile based on the user selection.
+- Artifact Type: Information
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Infra, WIFI
+- State (Harman_Requirement): New
+
+2. ID: 4102890
+- Contents: - User shall be able to switch profiles manually only when speed = 0
+- driver position is immediately adjusted and all settings and option recovered
+- The user can stop the adjustment and the activation of profile shortpressing on "Cancel" button that appears on the central display while seat is  moving or actuating directly on the physical switch.
+- The user shall press on the profile area on central display in order to access current profile or change profile set
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-3 6.2.6.4  Profile Activation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

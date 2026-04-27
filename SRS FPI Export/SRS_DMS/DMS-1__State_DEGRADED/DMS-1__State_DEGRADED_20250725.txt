@@ -1,0 +1,82 @@
+# DMS-1 6.2.1.2.6 : State DEGRADED Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.6 DMS-1: State DEGRADED
+
+- ID: 3784410
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538894
+- Contents: The system shall activate DMS but unable to 'work-correctly' due to degradation
+conditions(e.g. partial camera obstruction, driver not present, very low quality levels etc.) in 'DEGRADED-state'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditon:
+DMS In any state.
+
+Block the camera or driver is not present
+Verify that DMS is in Degraded state.
+
+Verify the CAN signal values
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+'DMS_INFO.DMSSystemStatus' according to Settings Management
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, unable, work, DEGRADED, DMS, degradationconditions" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4642802
+- Contents: The system shall send the below CAN signal values in DMS 'DEGRADED' state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = '6' (DEGRADED)
+ActiveDMS_INFO.DMSSystemStatus according to Settings Management
+DMS_INFO.HMICode_DMS according to Failure Management
+DMS_INFO.DMS_Attentiveness = Status_not_available
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+DMS_INFO.Nominal_condition= Status_not_available
+DMS_INFO.DMSSystemFail = degraded
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in 'DEGRADED' state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-1 6.2.1.2.6 : State DEGRADED Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,117 @@
+# UnknownID 6.2.4.2.1.3 Engineering Menu Page-Enable Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.3 Engineering Menu Page-Enable
+
+- ID: 3837673
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Core
+- Grooming Comments: Need to check with Shiva is it coming from S4.
+
+Need to check with customer regarding the use cases.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3837675
+- Contents: The system shall support Read access for Engineering menu with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System validation Test
+- Verification Criteria: Verify the Engineering Menu function supports only Read data By Identifier.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Core
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Unsigned" )
+- TestTeamComment: RWeber_DIAG_250212: Check protocol R-/Write-able and that engineering menu appear.
+- State (Harman_Requirement): Approved
+
+2. ID: 3837779
+- Contents: The system shall support Write access for Engineering menu with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System validation Test
+- Verification Criteria: Verify the Engineering Menu function supports only Write data By Identifier.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Core
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Unsigned" )
+- TestTeamComment: RWeber_DIAG_250212: Check protocol R-/Write-able and that engineering menu appear.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 1 Byte
+Data type: Unsigned
+
+3. ID: 3837679
+- Contents: When requesting data identifier with the Read Data by Identifier “diagnostic session”, the ECU shall return the Engineering menu page visibility as per the below table.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System validation Test
+- Verification Criteria: Verify the engineering page menu
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check protocol R-/Write-able and that engineering menu appear.
+- State (Harman_Requirement): Approved
+
+4. ID: 3837680
+- Contents: When requesting data identifier with the Write Data by Identifier “diagnostic session”, the ECU shall return the Engineering menu page visibility as per the below table.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System validation Test
+- Verification Criteria: Verify the engineering page menu
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check protocol R-/Write-able and that engineering menu appear.
+- State (Harman_Requirement): Approved
+
+5. ID: 3837689
+- Contents: (see: image117.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System validation Test
+- Verification Criteria: Verify the paraeter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, System Core
+- TestTeamComment: RWeber_DIAG_250212: Check protocol R-/Write-able and that engineering menu appear.
+- State (Harman_Requirement): Approved
+- Visual Elements: image117.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image117.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.3 Engineering Menu Page-Enable Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

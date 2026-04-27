@@ -1,0 +1,197 @@
+# RAD-11 6.2.1.1.12  Add to/Remove from favorites Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.12 RAD-11 Add to/Remove from favorites
+
+- ID: 3939607
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3975028
+- Contents: System shall allow user to save station to favourite, pressing on the "star icon" or long pressing on the cover art in player or long pressing on a station item in list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall allow user to save any station to favourite, pressing on the "star icon" or long pressing on the cover art in player or long pressing on a station item in list.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to save, to favourite, pressing, long, station, icon, art, player, item, list" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3975448
+- Contents: System shall display a pop-up to notify to user when the memory limit reaches, but there is no limitation in number of favorite stations.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show a pop-up to notify to the user if the memory limit has been reached, but there is no limitation in numbers of possible favourite station.
+
+Note: Based on Parameter: - MaxRadioFavorites we can set the limit.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to notify, to user, pop-up, reaches" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4684533
+- Contents: System shall display favourite station list and the user has access to only favourite station in list By selecting "Favourites".
+- Artifact Type: SRS Req
+- State (Harman_Requirement): New
+
+4. ID: 3975557
+- Contents: When the tuner tune to a new station system shall evaluate if the new tuned station is in the list of favourite stations based on PI and ECC.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When the tuner tune to a new station system shall evaluate if the new tuned station is in the list of favourite stations based on PI and ECC.(Background )
+
+Information: PI and ECC are unique identification of the radio station based on the radio coding
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "tuner, system, station, tune, evaluate, tuned, is, based, list, stations, PI, ECC" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: PI and ECC are unique identification of the radio station based on the radio coding
+
+5. ID: 3975584
+- Contents: System shall allow user to add individual radio stations/channels for DAB, ensemble cannot be added to favourites.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to add individual radio stations/channels for DAB, ensemble cannot be added to favourites.
+
+Note: For DAB supported regions
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "cannot" ) 
+Passive voice
+ (Look for: "be added" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Ensemble is a group of various services (e.g. channels, radio stations, etc.)
+
+6. ID: 3975593
+- Contents: System shall add the station to the favourite list, when the user request to set via a interface.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall add the station to the favourite list when the user request to set via a dedicated interface(Radio list), if the station is not in favourite list.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, add, request, to set, station, list, interface" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3975597
+- Contents: System shall remove the station to the favourite list upon user request to remove it via HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall remove the station to the favourite list upon user request to remove it via HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3975599
+- Contents: System shall save the latest changes to the favourite list (adding and removing)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall save the adding, removing changes to the favourite list.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, save, removing, changes, adding" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3975612
+- Contents: System shall allow user to Add /Remove from favourites for AM, FM, AM HD Radio, FM HD Radio, DAB+.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to Add /Remove from favourites for AM, FM, AM HD Radio, FM HD Radio, DAB+.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, Add, Remove, favourites, AM, Radio, DAB+" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3975627
+- Contents: System shall display visualization cycle to  inform the user that the item/items of a given source type added/Removed to the Favourite list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display visualization cycle to  inform the user that the item/all items of a given source type has been added/Removed to the favourite list.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, cycle, to  inform, given, added, Removed, visualization, item, items, list" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3975592
+- Contents: Set (sav/store) as favourite
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3975595
+- Contents: Remove from favourites
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3975598
+- Contents: Persistence
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3975611
+- Contents: Applicability
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 3975626
+- Contents: Visualization cycles
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-11 6.2.1.1.12  Add to/Remove from favorites Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

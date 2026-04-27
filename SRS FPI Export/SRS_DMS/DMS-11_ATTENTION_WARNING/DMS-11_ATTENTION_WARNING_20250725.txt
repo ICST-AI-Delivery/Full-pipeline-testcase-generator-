@@ -1,0 +1,395 @@
+# DMS-11 6.2.1.12  ATTENTION WARNING Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.12 DMS-11 ATTENTION WARNING
+
+- ID: 3738751
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Cluster SW
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3716650
+- Contents: The system shall manage the distraction warning based on the below information
+vehicle speed, gear engaged and user setting.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Gear is engaged.
+Enable the DMS Warning from HMI.
+Set the relevant Vehicle speed
+
+Verify that the driver distraction warning is visible on the Central HMI and cluster HMI and verify the audio chime for the driver distraction. 
+
+Note: Warning table is provided in the artifact ID 3729948
+- Grooming Status: Approved
+- Grooming Comments: [19.07.2024, Abdul, Mayank]: Approved
+
+[Mayank]:
+Ok to approve with warning table.
+HMI team to confirm
+
+
+
+[Mayank, Anil 15.07.2024]: Need input from Audio team on Chimes for ADDW.
+
+Need input from domain team for:
+DMS_INFO.DMSSystemStatus
+- Expert Domains: Audio Control, Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, speed, manage, warning, based, engaged, setting, information" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3830444
+- Contents: The system shall set "DMS status" = 'ACTIVE' & set the attention warning as "not-active" if 'the vehicle is in "Reverse gear"  or "driver absence" or "Vehicle speed" is less than "Ce_v_SpeedThDeact" for a duration greater than 'Ce_t_DeactTimeHys'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMSSettingSts = ON 
+ No degradation condition is detected.
+
+Steps:
+
+ Engage the "Reverse" gear'  or
+ 'no driver presence' or '
+Set the Vehicle speed is below Ce_v_SpeedThDeact' for a duration greater than 'Ce_t_DeactTimeHys'.
+
+
+Verify the DMS (Debug status) status to 'ACTIVE' & attention warning (DMS_INFO.HMICode_DMS)
+signal is not_active. and SG_DMS_AttWrnCount is 0
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, vehicle, set, is, status, amp, warning, gear, absence, speed, Ce_v_SpeedThDeact, duration" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3830528
+- Contents: The system shall set DMS status = 'RUNNING' during the following conditions:
+The vehicle speed is greater than or equal to "Ce_v_SpeedThAct1" & Reverse gear is "not-engaged" & Driver is present.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMSSettingSts = ON 
+ No degradation condition is detected.
+"Reverse gear is not engaged
+
+Steps:
+Set the vehicle speed is greater than or equal >= Ce_v_SpeedThAct1 & Driver is present
+
+Verify the DMS (Debug status) status is 'RUNNING'
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, speed, gear, set, following, is, engaged, is present, status, RUNNING, conditions, amp" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3830548
+- Contents: The system shall remain in the current DMS state (ACTIVE state) during one of the below conditions.
+The vehicle speed is lesser than 'Ce_v_SpeedThAct1'
+Reverse gear = engaged
+Driver is  "not present".
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: The system shall remain in the current DMS state (ACTIVE state) during the below conditions.
+
+The vehicle speed is lesser than 'Ce_v_SpeedThAct1' or Engage the Reverse gear or  Driver is  not present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3830554
+- Contents: The system shall go to WARNING state if Le_enu_StatusDMS = RUNNING and Le_enu_CabinDivision = Area_3.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed > 20Km/h
+4. Status DMS = Running
+
+Verify Status DMS = Warning and Cabin division =Area_3 when the user start looking at the Area_3.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, go, follow, following, warning, state, activation" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3830583
+- Contents: The system shall activate a visual acoustic warning signal if system is in warning state and cabin division is Area_3 and Le_bol_NonNomCond = FALSE & Le_t_AttWrnCount >= Ce_t_WrnActTime1(5500 ms) else setvisual acoustic warning signal = not_active.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed > 20Km/h
+4. Status DMS = Running
+5. Non nominal Condition =False
+
+Verify Status DMS = Warning and HMI code = Visual acoustic warning, 
+Cabin division =Area_3 when the user start looking at the Area_3 for greater than or equal to Ce_t_WrnActTime1(5500 ms).
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, visual, signal" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3830596
+- Contents: The system shall activate a visual acoustic warning signal if system is in warning state and cabin division is Area_3 and Le_bol_NonNomCond = TRUE & Le_t_AttWrnCount >= Ce_t_WrnActTim1(5500ms) + Ce_t_WrnActTimeNonNom(1500ms) else setvisual acoustic warning signal = not_active.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed > 20Km/h
+4. Status DMS = Running
+5. Non nominal Condition =True
+
+Verify Status DMS = Warning and HMI code = Visual acoustic warning, 
+Cabin division =Area_3 when the user start looking at the Area_3 for greater than or equal to 7000 ms(Ce_t_WrnActTime1+Ce_t_WrnActTimeNonNom).
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Cluster SW, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3830616
+- Contents: The system shall set attention warning to "not_active" if system is in warning state and cabin division is Area_3 & Ie_v_VehSpeed < Ce_v_SpeedThAct2(50km/h) and Le_bol_NonNomCond =True or false and Le_t_AttWrnCount < Ce_t_WrnActTime(5500ms).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: [Antionio_03.03.2025]Include this rquirement into previous 2 requirements
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, warning, activating, are, fulfilled, signal, not_active, conditions, warnings" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3830687
+- Contents: The system shall activate visual & acoustic warning signal if the following conditions are met :
+Le_bol_NonNomCond = FALSE.
+Le_t_AttWrnCount >= Ce_t_WrnActTime2(3000ms).
+Ie_v_VehSpeed >= Ce_v_SpeedThAct2(50km/h)
+else set visual acoustic warning signal = not_active.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed > 50Km/h
+4. Status DMS = Running
+5. Non nominal Condition = False
+
+Verify Status DMS = Warning and HMI code = Visual acoustic warning, 
+Cabin division =Area_3 when the user start looking at the Area_3 for greater than or equal to 3000ms(Ce_t_WrnActTime2).
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, speed, activate, is, specified, amp, signal" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3830762
+- Contents: The system shall activate a visual and acoustic warning signal if the following conditions are met :
+System is in warning state
+Le_bol_NonNomCond = TRUE
+"Le_t_AttWrnCount >= Ce_t_WrnActTime2(3000ms) + Ce_t_WrnActTimeNonNom"(1500ms).
+Ie_v_VehSpeed >= Ce_v_SpeedThAct2(50km/h)
+else set visual acoustic warning signal = not_active.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed > 50Km/h
+4. Status DMS = Running
+5. Non nominal Condition = True
+
+Verify Status DMS = Warning and HMI code = Visual acoustic warning, 
+Cabin division =Area_3 when the user start looking at the Area_3 for greater than or equal to 4500ms(Ce_t_WrnActTime2 +Ce_t_WrnActTimeNonNom).
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, visual, signal" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3830781
+- Contents: The system shall set the attention warning signal to "not-active"if Ie_v_VehSpeed is greater than or equal to Ce_v_SpeedThAct2 and Le_bol_NonNomCond =True or false and Le_t_AttWrnCount >=
+Ce_t_WrnActTime2.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: [Antionio_03.03.2025]Include this rquirement into previous 2 requirements
+- Expert Domains: System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+12. ID: 4641291
+- Contents: DMS shall move to 'ACTIVE state' & remove all warnings to the driver if 'Le_bol_DMSSettingSts' is set to "OFF" during any 'WARNING state'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed > 20Km/h
+4. Status DMS = Warning
+5. Non nominal Condition = False
+6.Cabin Division = Area_3
+
+Verify on turning OFF DMD settings in HMI will lead to DMS settings = Active. 
+No warnings are displayed
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, move, state, amp, warnings, driver" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3830803
+- Contents: The system shall set Oe_enu_HMIAttWrn = not_active if Le_enu_StatusDMS = USER PRESENCE.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :1. User Present
+2.Gear = Forward
+3.Speed < 18 Km/h
+
+Verify HMI attention warning = Not_active when status DMS is User presence
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3828866
+- Contents: The system shall send the proper signals so that correct HMI feedback is set by other nodes depending on the time of distraction.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3829234
+- Contents: The system shall implement the logics of Attention Warning according to Performance Target setting: 
+IDC-451913 - SFS F531
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+3. ID: 3830019
+- Contents: The system shall alert the driver through a dedicated warning signal('Oe_enu_HMIAttWrn') if warning activation conditions are met.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): New
+
+4. ID: 3830428
+- Contents: The system shall follow the following logic for warning activation or 'de-activation' during below conditions.
+'Le_bol_DMSSettingSts = ON'
+No-faults are detected
+The system is 'correctly-calibrated'
+No degradation condition is detected.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, follow, following, warning, activation, conditions" )
+- State (Harman_Requirement): Review
+
+5. ID: 3830706
+- Contents: The system shall set 'Oe_enu_HMIAttWrn' to 'visual_acoustic' if the above conditions are satisfied.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- RQA Score: 60
+- Issues Found by RQA: Passive voice
+ (Look for: "are satisfied" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): New
+
+6. ID: 3830802
+- Contents: IDC-444321 -
+ELSE Oe_enu_HMIAttWrn = not_active
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3830824
+- Contents: Diagnosis
+Calibration Parameters
+Ce_t_DeactTimeHys
+Ce_v_SpeedThAct1
+Ce_v_SpeedThAct2
+Ce_t_WrnActTime1
+Ce_t_WrnActTime2
+Ce_t_WrnActTimeNonNom
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 3830823
+- Contents: Network interfaces
+Inputs
+Ie_enu_GearEngaged
+Ie_v_VehSpeed
+Outputs
+Oe_enu_HMIAttWrn
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 3830827
+- Contents: Internal interfaces
+Outputs
+Oe_enu_HMIAttWrn
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-11 6.2.1.12  ATTENTION WARNING Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

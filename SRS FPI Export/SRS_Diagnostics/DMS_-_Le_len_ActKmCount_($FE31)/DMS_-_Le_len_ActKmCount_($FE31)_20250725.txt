@@ -1,0 +1,90 @@
+# UnknownID 6.2.4.2.2.30 DMS - Le_len_ActKmCount ($FE31) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.2.30 DMS - Le_len_ActKmCount ($FE31)
+
+- ID: 3792171
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3792172
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Check to NRC if request for read would be in Default Session. Pos. response in ExtSession.
+- State (Harman_Requirement): Approved
+
+2. ID: 3792174
+- Contents: The system shall have the write access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to write the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Check to NRC if request for write would be in Default Session. Pos. response in ExtSession.
+- State (Harman_Requirement): Approved
+
+3. ID: 3792175
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall get back the saved value of DMS active km counter.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS  active Km  counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Only check to pos. response in extended session to read current value, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+4. ID: 3792176
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service write Data By Identifier, the ECU shall get back the saved value of DMS active km counter.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS  active Km  counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Only check to pos. response in extended session to write current value, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.2.30 DMS - Le_len_ActKmCount ($FE31) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

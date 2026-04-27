@@ -1,0 +1,64 @@
+# UnknownID 6.2.1.1.6 Invalid Proxi Audio Level (0xD85205) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.6 Invalid Proxi Audio Level (0xD85205)
+
+- ID: 3888984
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3888985
+- Contents: The system shall be able to detect System Programming Failures of Invalid Proxi Audio Level  immediately during Permanent evaluation & proxi parameter Audio Level == Invalid OR Premium
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Invalid proxi Audio level messages.
+-Or do not send proxi parameter Audio Level == Invalid OR Premium messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, Programming, send, Failures, Level, configuration" )
+- TestTeamComment: RWeber_DIAG_250121: Only test that DTC is supported with 0x1906. No info or spec, how to set this DTC, what are the failure condition. Applicative testable by other Domain (not DIAG)    Yes
+- State (Harman_Requirement): Approved
+
+2. ID: 3888988
+- Contents: The System shall de-validate/clear the External Amplifier Failure  Message   immediately with proxi parameter Audio_Level == Base OR High End.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as immediate.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, to immediate, proxi, face, equal, amp, Audio_Level    Base, End, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250121: Only test that DTC is supported with 0x1906. No info or spec, how to set this DTC, what are the failure condition. Applicative testable by other Domain (not DIAG)    Yes
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.6 Invalid Proxi Audio Level (0xD85205) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

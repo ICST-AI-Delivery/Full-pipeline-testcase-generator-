@@ -1,0 +1,222 @@
+# RAD-23 6.2.1.1.24  HD Radio On/Off Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.24 RAD-23 HD Radio On/Off
+
+- ID: 4034026
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4034035
+- Contents: System shall switch to analog- only signal reception mode when HD Radio technology deactivated.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall operates using analog signals when HD radio is disabled
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, switch, to analog, deactivated, mode" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4035489
+- Contents: System shall remove Logo / PSD / SPS indicator / Album Art, HD Radio-related indicators and features from the HMI when HD Radio deactivated.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall not show HD Radio related information in analog mode.
+
+Related Information such as Logo / PSD / SPS indicator / Album Art
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, remove, deactivated, indicator, indicators, features, HMI, Radio" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4035522
+- Contents: System shall disable the "Artist Experience" feature when HD Radio deactivated.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall not function "Artist experience (Album art)" in analog mode
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, disable, deactivated, feature, Radio" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4035540
+- Contents: System shall display the HD indicator in HD (grey) + live text label (white) for “ballgame mode”,  HD (orange) for digital broadcast, HD (grey) for analog broadcast (due to weak signal, but digital connection present), no-signal - when no digital signal detected.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the HD indicator in HD (grey) + live text label (white) for “ballgame mode”,  HD (orange) for digital broadcast, HD (grey) for analog broadcast (due to weak signal, but digital connection present), no-signal - when no digital signal detected.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, indicator, grey, label white, #8220, mode #8221, orange, broadcast, signal, present" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4035586
+- Contents: System shall display HD icon and subchannel next to radio station in FM.HD and AM.HD lists. (see: image9.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display HD icon and subchannel next to radio station in FM.HD and AM.HD lists
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, radio, icon, next, station, lists" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image9.png
+
+6. ID: 4083796
+- Contents: System shall reverts to analog mode without indication of HD, when HD disable.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Tuner shall reverts to analog mode, with no indication of HD, when HD is disabled.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, reverts, to analog, mode, indication, disable" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4083798
+- Contents: System shall display 8 SPS channels indicators on Player showing now playing subchannel (white colour), other available subchannels (grey colour) and unavailable subchannels shall hide for FM HD radio. (see: image10.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display 8 SPS channels indicators on Player showing currently played subchannel (white coloured), other available subchannels (grey coloured) and not available subchannels will be not displayed for FM HD radio.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall hide" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image10.png
+
+8. ID: 4083799
+- Contents: System shall activate/deactivate the HD Radio depends on following user selection:
+1. System shall activate HD Radio technology when user selects ON
+2. System shall deactivate HD Radio technology when user selects OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall activate/deactivate the HD Radio depends on following user selection:
+1. System shall activate HD Radio technology when user selects ON
+2. System shall deactivate HD Radio technology when user selects OFF
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, deactivate, depends, following, selects, selection, technology, OFF" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4083805
+- Contents: System shall prevent tuning into HD channel, when HD tuner system deactivate.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the selected HD channel shall not be tuned in When the user does not activate HD tuner system.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, deny, tuning, deactivate, channel" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4083819
+- Contents: System shall store HD Radio ON/OFF setting value for persistency
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall store HD Radio ON/OFF setting value
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 4083843
+- Contents: System shall display popup when HD radio is deactivated and selected station is   available in HD Only.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display popup when HD radio is deactivated and the selected station is available in HD.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, deactivate, selected, is available, popup, station, HD" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4083844
+- Contents: System shall display the popup that provides a shortcut to activate the HD Radio to tune-in the selected channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the popup that provides a shortcut to activate the HD Radio to tune-in the selected channel
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, provides, to activate, to tune, selected, popup, shortcut, Radio, channel" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4083845
+- Contents: HD Radio On/Off shall applicable for AM HD Radio,  FM HD Radio.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HD Radio On/Off is applicable for AM HD Radio,  FM HD Radio.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image9.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image10.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-23 6.2.1.1.24  HD Radio On/Off Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

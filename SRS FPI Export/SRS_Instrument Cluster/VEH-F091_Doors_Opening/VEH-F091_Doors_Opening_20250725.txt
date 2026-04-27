@@ -1,0 +1,1011 @@
+# VEH-F091 6.2.1.1.2.6  Doors Opening Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.6 VEH-F091 Doors Opening
+
+- ID: 3406473
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_Autosar, IOC_IOC, IOC_Networking, System Core, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3558632
+- Contents: System shall display Door opening telltale as per the Ferrari design in B20 area
+(see: image79.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the door opening telltales are triggered and displayed as per the Ferrari design.
+Algo:
+(STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”))
+
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image79.png
+
+2. ID: 3712919
+- Contents: System shall display Door antipinch intervened telltale as per the Ferrari design in R1/2/3/4/5 area
+(see: image80.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the door antipinch intervene telltales are triggered and displayed as per the Ferrari design.
+Algo
+(STS_LV_PowerDoorSts = “Antipinch Executed” OR
+STS_RV_PowerDoorSts = “Antipinch Executed”)
+
+
+CAN-Signals:
+
+STATUS_ERL_V2.STS_LV_PowerDoorSts
+STATUS_ERR_V2.STS_RV_PowerDoorSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image80.png
+
+3. ID: 3712962
+- Contents: System shall display Door antipinch failure telltale as per the Ferrari design in R1/2/3/4/5 area
+(see: image81.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the door antipinch fail telltales are triggered and displayed as per the Ferrari design.
+((PROXI “Rear Doors” = "Present" AND PROXI "CinchPowerRearDoors" = (”Cinch Absent and PowerDoors Present” OR ”Cinch Present and PowerDoors Present”))
+AND
+STS_LV_AntipinchFailSts == “Fail_Present” OR
+STS_RV_AntipinchFailSts == “Fail_Present” = “Active”)
+
+CAN-Signals:
+STATUS_ERL_V2.STS
+STATUS_ERR_V2.STS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image81.png
+
+4. ID: 3558636
+- Contents: System shall perform F091 feedback1 Pop-up with Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when door open with
+D04 visualization cycle and
+priority 'door open'
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger any door open. Verify that the feedback 1 is triggered when any of the door is open.
+Verify feedback 1 visualized (D04 cycle) when different combination of door open
+Verify feedback1 priority
+Algo:
+(STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”))
+
+Buzzer: Buzzer2A
+Pop-Up ID: 00910001,2,3,4
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F091 Feedback1
+
+5. ID: 4687042
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image82.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signals, send, following, INDICATOR_STATUS, values" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image82.png
+
+6. ID: 3558652
+- Contents: System shall perform feedback-2 Pop-Up with Buzzer and send the Feedback-2 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when two doors open simultaneously with
+D04 visualization cycle and
+priority 'door open'
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the feedback 2 is triggered when any 2 door is open.
+Verify D04 visualization cycle.
+Verify priority is 'Door Open'
+
+Algo:
+([STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] AND [STS_LV_DoorStatus = (“Open” OR “Ajar” OR
+“SNA”) OR STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)])
+
+Buzzer:2A
+
+Pop-Up ID: 00910005 to 009100014
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F091 Feedback1
+
+7. ID: 4687043
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image83.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+- Visual Elements: image83.png
+
+8. ID: 4687072
+- Contents: System shall display Feedback-3 Pop-Up with buzzer  when below conditions are met:
+(STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)) AND STS_DRS_VPSTrunkSts = (“Open_Unlocked” OR “Open_Locked”))
+Note: Feedback-3 follows D04 behaviour with Priority 0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Feedback-3 is triggered when (STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)) AND STS_DRS_VPSTrunkSts = (“Open_Unlocked” OR “Open_Locked”))
+
+Pop_up ID:00910052,53,54 
+Buzzer:2A
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+STATUS_DOORS.STS_DRS_VPSTrunkSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Unlocked, Locked, follows, Pop-Up, buzzer, conditions, Open #8221; OR  #8220;Ajar #8221; OR  #8220;SNA #8221, STS, behaviour, Priority 0" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4687225
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values:
+(see: image84.png)
+(see: image85.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+- Visual Elements: image84.png, image85.png
+
+10. ID: 4687230
+- Contents: System shall display  Feedback-4 Buzzer when below conditions are met:
+([STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] AND [STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] 
+OR
+[STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]) AND STS_DRS_VPSTrunkSts = (“Open_Unlocked” OR “Open_Locked”))
+Note: Feedback-4 follows D04 visualisation with Specific priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Feedback-4 is displayed when below conditions are met:([STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] AND [STS_LV_DoorStatus = (“Open” OR “Ajar” OR
+“SNA”) OR STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]) AND STS_DRS_VPSTrunkSts = (“Open_Unlocked” OR
+“Open_Locked”))
+
+
+Po-Up ID: 00910055 to 66
+
+Buzzer: 2A
+
+CAN-Signal: CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+STATUS_DOORS.STS_DRS_VPSTrunkSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Unlocked, Locked, follows, Buzzer, conditions, Open #8221; OR  #8220;Ajar #8221; OR  #8220;SNA #8221, STS, priority 0" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3608732
+- Contents: System shall prioritise door open visulaisation as per  IDC_Vehicle_Matrix_States_Events
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the door opening visualisation is prioritised as per the IDC_Vehicle_matrix_States_Events.
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: For more information please refer 
+
+3612205: IDC_Vehicle_Matrix_States_Events_Ed4.0_PI4.xlsx
+
+12. ID: 4702556
+- Contents: System shall display Feedback-5 Buzzer when below conditions are met:
+(STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)) AND RechargeFlapDisplayInfo = "Recharge_Flap_Open")
+Note: Feedback-5 follows D04 visualisation behaviour with specific priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Feedback-5 is displayed when one door is open AND Recharge flap open.
+
+Pop-UpID: 00910068,69
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+STATUS_NBC_2_RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Buzzer, conditions, Open #8221; OR  #8220;Ajar #8221; OR  #8220;SNA #8221, RechargeFlapDisplayInfo, priority-0" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4702557
+- Contents: System shall display Feedback-6 Buzzer when below conditions are met:
+([STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] AND [STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] 
+OR
+[STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]) AND RechargeFlapDisplayInfo = "Recharge_Flap_Open")
+Note: Feedback-6 Follows D04 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that fFeedback-6 is displayee when 2 doors Are open and Recharge Flap open
+
+Pop-Up ID:00910070 to 80
+Buzzer : 2A
+ 
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+STATUS_NBC_2_RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Follows, Buzzer, conditions, Open #8221; OR  #8220;Ajar #8221; OR  #8220;SNA #8221, STS, RechargeFlapDisplayInfo, Priority-0" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4702558
+- Contents: System shall display Feedback-7 Buzzer when below conditions are met:
+(STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) XOR
+STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)) AND STS_DRS_VPSTrunkSts = (“Open_Unlocked” OR “Open_Locked”)) AND RechargeFlapDisplayInfo = "Recharge_Flap_Open")
+Note: Feedback-7 follows D04 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify feedback-7 is displayed when any door is open and Trunk in open and Recharge flap open.
+
+Pop-up id:00910081 to 84
+
+buzzer ; 2A
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+STATUS_NBC_2_RechargeFlapDisplayInfo
+STATUS_DOORS.STS_DRS_VPSTrunkSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Unlocked, Locked, follows, Buzzer, conditions, Open #8221; OR  #8220;Ajar #8221; OR  #8220;SNA #8221, STS, RechargeFlapDisplayInfo, Priority-0" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4702560
+- Contents: System shall display Feedback-8 Buzzer when below conditions are met:
+([STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] AND [STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) OR STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)] 
+OR
+[STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+OR
+[STS_LV_DoorStatus = (“Open” OR “Ajar” OR “SNA”) AND STS_RV_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]) AND RechargeFlapDisplayInfo = "Recharge_Flap_Open"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify Feedback-8 is displayed when Two doors is open and Recharge flap is open.
+
+Pop-Up ID:00910085 to 94
+
+Buzzer:2A
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+STATUS_NBC_2_RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Buzzer, conditions, Open #8221; OR  #8220;Ajar #8221; OR  #8220;SNA #8221, STS, RechargeFlapDisplayInfo" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4702572
+- Contents: System shall display Feedback-9 Buzzer when below conditions are met:
+STS_DRS_VPSTrunkSts = (“Open_Unlocked” OR “Open_Locked”) AND RechargeFlapDisplayInfo = "Recharge_Flap_Open"
+Note:Feedback-9 follows D04 visualisation behaviour with specific priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify feedback-9 is displayed  when Trunk status is open and Recharge flap open.
+
+Pop-Up iD: 00910096
+
+Buzzer : 2A
+
+CAN-Signal:
+STATUS_NBC_2_RechargeFlapDisplayInfo
+STATUS_DOORS.STS_DRS_VPSTrunkSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Unlocked, Locked, follows, Buzzer, conditions, RechargeFlapDisplayInfo, priority-1" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3558653
+- Contents: When proxi Buzzer for driver door open active, System shall trigger buzzer  audio of F091 Warning1 when
+driver door open AND
+Key status greater than or equal to four(4)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:“Buzzer for driver door open” =1 “Enable”
+
+Verify that system shall play 2A buzzer when driver door open.
+
+
+CAN-Signal: 
+STS_LH_DoorStatus = (“Open” OR “Ajar” OR “SNA”)]
+
+STATUS_ELL_V2.STS_LH_DoorStatus
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "proxi Buzzer, System, trigger, active, audio, status" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer Proxi NQS_Configuration_6 for warning enable info 'Buzzer for driver door open' = Active.
+Refer Proxi Car_configuration_1.Side Driver for driver side
+
+18. ID: 3583879
+- Contents: System shall trigger F091 warning3 buzzer when
+door is Open and
+vehicle in motion
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+VehicleSpeedVSOSigFailSts != 1 (Fail present).
+
+Verify that the Warning 3 Buzzer is triggered when vehicle is moving and door open.
+(VehicleSpeedVSOSig . V_Car_Moving AND [
+STS_LH_DoorStatus = (Open OR Ajar OR SNA) OR
+STS_RH_DoorStatus = (Open OR Ajar OR SNA) OR
+STS_LV_DoorStatus = (Open OR Ajar OR SNA) OR
+STS_RV_DoorStatus = (Open OR Ajar OR SNA)])
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_DoorStatus
+STATUS_ELR_V2.STS_RH_DoorStatus STATUS_ERL_V2.STS_LV_DoorStatus
+STATUS_ERR_V2.STS_RV_DoorStatus
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, warning, buzzer, Open" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3583909
+- Contents: System shall trigger warning-4 pop up send the Warning-4 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+(Rear Left Powerdoor open OR
+Rear Right Powerdoor open) AND
+Car moving with configured speed
+Note: System shall have D01 Visualization Behaviour with priority 0 for Warning-4
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger warning 4 using algo.
+Verify F091 Warning 4 performed as per HMI_POP.IND
+Algo
+(
+[STS_LV_PowerDoorSts =(“Opened” OR “Presented” OR “Automatic Opening” OR “Manual Opening”) AND STS_LV_FailSts =“Not_Active” AND VehicleSpeedVSOsig ≥
+V_Car_Moving AND VehicleSpeedVSOSigFailSts = “Fail_not_present”] XOR
+[STS_RV_PowerDoorSts =(“Opened” OR “Presented” OR “Automatic Opening” OR “Manual Opening”) AND STS_RV_FailSts =“Not_Active” AND VehicleSpeedVSOsig ≥
+V_Car_Moving AND VehicleSpeedVSOSigFailSts = “Fail_not_present”])
+
+Buzzer:2A
+
+CAN-Signal:
+STATUS_ERL_V2.STS_LV_PowerDoorSts
+STATUS_ERR_V2.STS_RV_PowerDoorSts
+NFR_SPEED.VehicleSpeedVSOsig
+STATUS_ERR_V2.STS_RV_FailSts
+STATUS_ERL_V2.STS_LV_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Control, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, warning, moving, configured, pop up, Left, open, speed" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3583923
+- Contents: System shall trigger warning-5 visualization send the Warning-5 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+Rear Left Powerdoor open AND
+Rear Right Powerdoor open AND
+Car moving with configured speed
+Note: System shall have D01 Visualization Behaviour with priority 0 for Warning-5
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger warning 5 using algo. Verify warning 5 visualized as per HMI_POP.IND
+
+Algo
+(
+[STS_LV_PowerDoorSts =(“Opened” OR “Presented” OR “Automatic Opening” OR “Manual Opening”) AND STS_LV_FailSts =“Not_Active” AND VehicleSpeedVSOsig ≥
+V_Car_Moving AND VehicleSpeedVSOSigFailSts = “Fail_not_present”] AND
+[STS_RV_PowerDoorSts =(“Opened” OR “Presented” OR “Automatic Opening” OR “Manual Opening”) AND STS_RV_FailSts =“Not_Active” AND VehicleSpeedVSOsig ≥
+V_Car_Moving AND VehicleSpeedVSOSigFailSts = “Fail_not_present”]) 
+
+Pop-Up :00910020
+Buzzer: 2A
+
+CAN-Signal:
+STATUS_ELL_V2.STS_LH_FailSts
+STATUS_ELR_V2.STS_RH_FailSts
+NFR_SPEED.VehicleSpeedVSOsig
+
+STATUS_ERL_V2.STS_LV_PowerDoorSts
+STATUS_ERR_V2.STS_RV_PowerDoorSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, moving, configured, visualization, Left, open, speed" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3712447
+- Contents: System shall trigger warning-6 visualization send the Warning-6 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+Rear Powerdoor open AND
+Car not-moving
+Note: System shall have D11 Visualization Behaviour with priority 0 for Warning-6
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger warning 6 using algo. Verify warning 6 visualized as per HMI_POP.IND
+
+Algo
+([(KeySts>=4 AND Engine_OFF) OR KeySts<4] AND
+[(STS_LV_PowerDoorSts = “OpenWarning” AND STS_ LV_FailSts = “Not_Active”) OR
+(STS_RV_PowerDoorSts = “OpenWarning” AND STS_ RV_FailSts = “Not_Active”)]) [
+
+Buzzer:2A
+Pop-Up:00910023
+
+
+CAN-Signal:
+
+STATUS_ERL_V2.STS_LV_PowerDoorSts
+STATUS_ERR_V2.STS_RV_PowerDoorSts
+NFR_SPEED.VehicleSpeedVSOsig
+STATUS_ERL_V2.STS_LV_FailSts
+STATUS_ERR_V2.STS_RV_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "trigger, moving" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3712451
+- Contents: System shall trigger warning-7 visualization and send the Warning-7 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when  door handle speed fail present
+Note: System shall have D01 Visualization Behaviour with priority 1 for Warning-7
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger warning 7 using algo. Verify warning 7 visualized as per HMI_POP.IND
+
+Algo
+(STS_LH_HandleSpeedFailSts = “Fail” OR
+STS_RH_HandleSpeedFailSts = “Fail” OR
+[(PROXI “Rear Doors” = "Present" AND PROXI "CinchPowerRearDoors" = (”Cinch Absent and PowerDoors Present” OR ”Cinch Present and PowerDoors Present”)) AND
+(STS_LV_HandleSpeedFailSts = “Fail” OR STS_RV_HandleSpeedFailSts = “Fail”)])
+
+
+CAN-Signal: STATUS_ELL_V2.STS_LH_HandleSpeedFailSts 
+STATUS_ELR_V2.STS_RH_HandleSpeedFailSts
+STATUS_ERL_V2.STS_LV_HandleSpeedFailSts
+STATUS_ERR_V2.STS_RV_HandleSpeedFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, speed, trigger, visualization, present" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3712457
+- Contents: System shall trigger warning-8 visualization and send the Warning-8 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenwhen  rear door anti pinch intervention executed.
+Note: System shall have D11 Visualization Behaviour with priority 1 for Warning-8
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger warning 8 using algo. Verify warning 8 visualized as per HMI_POP.IND
+
+Algo
+(STS_LV_PowerDoorSts = “Antipinch Executed” OR
+STS_RV_PowerDoorSts = “Antipinch Executed”)
+
+CAN-Signals:
+STATUS_ERL_V2.STS_LV_PowerDoorSts
+STATUS_ERR_V2.STS_RV_PowerDoorSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, executed, visualization, door, intervention" )
+- State (Harman_Requirement): Approved
+
+24. ID: 3583958
+- Contents: When detecting new antipinch intervention during ongoing Warning-8 visualization cycle, system shall
+continue the visualization cycle AND
+reset popup duration
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger new antipinch intervention during ongoing visualization.
+Verify new door is visualized in 3D model.
+Verify pop-up duaration reset (full cycle visualized from new anti pinch detection).
+
+CAN-Signal: STATUS_ERL_V2.STS_LV_PowerDoorSts
+STATUS_ERR_V2.STS_RV_PowerDoorSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detecting, continue, intervention, visualization, duration" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3584807
+- Contents: System shall trigger warning-10 buzzer when STS_RV_DoorAlert = “Single_Chime”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+26. ID: 3584811
+- Contents: System shall trigger warning 11 buzzer when STS_LV_DoorAlert = “Double_Chime”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+27. ID: 3584819
+- Contents: System shall trigger warning 12 buzzer when STS_RV_DoorAlert = “Double_Chime”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+28. ID: 3584836
+- Contents: System shall trigger Fail 1 Pop-up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when passenger latch failure detected
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail1 by algo. Verify Fail1 visualization as per HMI_POP.IND
+
+Pop_up ID: 00910042,44
+
+
+Buzzer:2B
+
+Algo
+([(proxi Side Driver = “left”) and STS_RH_FailSts = “Active”] OR
+[(proxi Side Driver = “right”) and STS_LH_FailSts = “Active”])
+
+CAN-Signal:
+STATUS_ELL_V2.STS_LH_FailSts
+STATUS_ELL_V2.STS_RH_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, detected, Fail, failure" )
+- State (Harman_Requirement): Approved
+
+29. ID: 3712516
+- Contents: System shall trigger Fail2 visualization send the Fail-2 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenand when detecting driver latch failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail2 by algo. Verify Fail2 visualization as per HMI_POP.IND
+
+Buzzer: 2B
+
+Pop-Up ID: 00910043,45
+
+
+Algo
+([(proxi Side Driver = “left”) and STS_LH_FailSts = “Active”] or
+[(proxi Side Driver = “right”) and STS_RH_FailSts = “Active”])
+
+CAN-Signal:
+STATUS_ELL_V2.STS_LH_FailSts
+STATUS_ELL_V2.STS_RH_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, detecting, visualization, failure" )
+- State (Harman_Requirement): Approved
+
+30. ID: 3712529
+- Contents: System shall trigger Fail3 visualization and send the Fail-3 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenwhen rear left door latch failure detected
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail3 by algo. Verify Fail3 visualization as per HMI_POP.IND
+
+Buzzer:2B
+
+POP-UP ID:00910046
+
+
+Algo
+(STS_LV_FailSts = “Active”)
+
+CAN-Signal:
+STATUS_ERL_V2.STS_LV_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, left, detected, visualization, failure" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3712535
+- Contents: System shall trigger Fail4 visualization send the Fail-4 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when rear right door latch failure detected
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail4 by algo. Verify Fail4 visualization as per HMI_POP.IND
+
+POP UP ID:00910047
+
+Buzzer:2B
+CAN-Signal:STATUS_ERR_V2.STS_RV_FailSts
+
+Algo
+(STS_RV_FailSts = “Active”)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, rear, detected, Fail, visualization, failure" )
+- State (Harman_Requirement): Approved
+
+32. ID: 3712545
+- Contents: System shall trigger Fail5 visualization and send the Fail-5 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when rear powerdoor failure detected
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail5 by algo. Verify Fail5 visualization as per HMI_POP.IND
+
+
+Pop-Up iD: 00910048,49,50
+
+
+Algo
+(STS_ LV_PDFailSts = “Active” OR
+STS_ RV_PDFailSts = “Active”)
+
+CAN-Signal:
+STATUS_ERL_V2.STS_LV_PDFailSts
+STATUS_ERR_V2.STS_RV_PDFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, detected, Fail, visualization, failure" )
+- State (Harman_Requirement): Approved
+
+33. ID: 3712640
+- Contents: On detecting new powerdoor fail during ongoing Fail5 visualization cycle, system shall
+continue the visualization cycle AND
+and send the status to INDICATOR_STATUS and VEH_3dModel_XXX
+reset popup duration
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger new powerdoor fail during ongoing visualization.
+Verify new door is visualized in 3D model.
+Verify pop-up duaration reset (full cycle visualized from new anti pinch detection).
+
+
+CAN-Signal:
+STATUS_ERL_V2.STS_LV_PDFailSts
+STATUS_ERR_V2.STS_RV_PDFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- State (Harman_Requirement): Approved
+
+34. ID: 3712541
+- Contents: System shall trigger Fail6 visualization send the Fail-6 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when rear door antipinch failure detected
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail6 by algo. Verify Fail6 visualization as per HMI_POP.IND
+
+POP-Up ID: 00910048
+,49,50
+
+CAN-SIGNAL: STATUS_ERL_V2_STS_LV_AntipinchFailSts
+STATUS_ERR_V2_STS_RV_AntipinchFailSts
+
+Algo
+((PROXI “Rear Doors” = "Present" AND PROXI "CinchPowerRearDoors" = (”Cinch Absent and PowerDoors Present” OR ”Cinch Present and PowerDoors Present”))
+AND
+STS_LV_AntipinchFailSts == “Fail_Present” OR
+STS_RV_AntipinchFailSts == “Fail_Present” = “Active”)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, detected, Fail, visualization, door, failure" )
+- State (Harman_Requirement): Approved
+
+35. ID: 5033649
+- Contents: If system detects a Message counter or Checksum error on STATUS_ELL_V2 , STATUS_ELR_V2 , STATUS_DOORS  message for more than MC_CRC_error THEN IDC Shall show  the visualization cycle F091 Feedback-4.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the F091 Feedback-4 is displayed when STATUS_ELR_V2 and STATUS_ELL_V2 , STAUS_DOORS message is missing for MC_CRC_error counter(5).
+
+Note: MC_CRC_error counter threshold is Value 5.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "DOORS, message, show, STATUS, visualization" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3712663
+- Contents: IDC_VEH
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+2. ID: 3712729
+- Contents: Diagnosis
+Calibration Parameter - Service for V_Car_Moving calibration.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3712661
+- Contents: 6.2.1.1.2.6.1 VEH-F091 - Telltale
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+4. ID: 3711647
+- Contents: 6.2.1.1.2.6.2 VEH-F091 - Feedback
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): Review
+
+5. ID: 3711650
+- Contents: 6.2.1.1.2.6.3 VEH-F091 - Warning1, Warnig3 to Warning8
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+6. ID: 3711870
+- Contents: 6.2.1.1.2.6.4 VEH-F091 - Warning9To12
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 40
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3712511
+- Contents: 6.2.1.1.2.6.5 VEH-F091 - Fail1 to Fail4
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+8. ID: 3712544
+- Contents: 6.2.1.1.2.6.6 VEH-F091 - Fail5
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+9. ID: 3712540
+- Contents: 6.2.1.1.2.6.7 VEH-F091 - Fail6
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): Review
+
+10. ID: 5033652
+- Contents: System shall use below Mentioned CAN Signals for displaying the various Warning's
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image80.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image84.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image79.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image82.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image85.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image81.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image83.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F091 6.2.1.1.2.6  Doors Opening Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,136 @@
+# UnknownID 6.2.4.3.2.11 Trip Parameters  ($20B0) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.11 Trip Parameters  ($20B0)
+
+- ID: 3970198
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- Grooming Comments: As per MTA it is not applicable for current program. Need to check with Ferrari.
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3970206
+- Contents: The System shall able to configure the Cruising range parameters.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Cruising range parameters configuration.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3970210
+- Contents: The System shall have RecordDataIdentifier ($20B0) to know the Trip Parameters.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20B0)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3970213
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3970219
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Data in Table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3970228
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Trip Parameters and Quantities in Table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3970234
+- Contents: The System shall support the following NRC's
+Read NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3970242
+- Contents: The System shall support the following NRC's
+Write NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the trip param so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.11 Trip Parameters  ($20B0) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

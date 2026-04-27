@@ -1,0 +1,165 @@
+# UnknownID 6.2.2.2.7.2 Driver Position Memory recall Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2.7.2 Driver Position Memory recall
+
+- ID: 4884446
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4884447
+- Contents: System shall set:SeatProfileReq = 1("MemoryReq") AND ColumnProfileReq = 1("MemoryReq") when
+IDC receives a continuous press on the Mn HMI interface
+AND
+ColumnProfileSts != [ 5("Manual_Moving") Or 1("Fail_Present")]
+AND
+SeatProfileSts != [ 5("Manual_Moving") Or 1("Fail_Present")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat and column profile reqs when
+
+IDC receives a continuous press on the Mn HMI interface
+
+AND
+
+ColumnProfileSts != [ 5 ("Manual_Moving") Or 1("Fail_Present")]
+
+AND
+
+SeatProfileSts != [ 5 ("Manual_Moving") Or 1("Fail_Present")].
+
+ SETUP_NAG2_V3.ColumnProfileSts
+SETUP_NAG_V3.SeatProfileSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, receives, ColumnProfileSts, SeatProfileSts, SeatProfileReq   1, ColumnProfileReq   1, press, interface" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4884448
+- Contents: System shall set Seat profile request and column profile request as Not active when the user's recall action.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat and column profile reqs during user recall.
+
+SeatProfileReq = 0 ("Not_Active") AND ColumnProfileReq = 0 ("Not_Active")
+- Grooming Status: Approved
+- Grooming Comments: Jira raised
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, request, column, active, action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4884449
+- Contents: System shall set SeatProfileReq =0"("Not_Active") AND ColumnProfileReq=0" ("Not_Active") when
+SeatProfileSts != 6("NAGInternalFunction")
+OR
+ColumnProfileSts == 6("NAGInternalFunction")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat and column profile reqs when 
+
+SeatProfileSts != 6 ("NAGInternalFunction")
+
+OR
+
+ColumnProfileSts == 6 ("NAGInternalFunction")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, SeatProfileSts, ColumnProfileSts, 0, Not_Active, ColumnProfileReq 0, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4884450
+- Contents: System shall set SeatProfileReq = 0 ("Not_Active") when
+SeatProfileSts == 2("ProfileReached") for NSample
+OR
+SeatProfileSts == 1("Fail_present")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile request (Not active) when
+SeatProfileSts == 2 ("ProfileReached") for NSample
+
+OR
+
+SeatProfileSts == 1 ("Fail_present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, SeatProfileSts, SeatProfileReq, Not_Active" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4884451
+- Contents: System shall set ColumnProfileReq = 0("Not_Active") when
+ColumnProfileSts == 2("ProfileReached") for NSample
+OR
+ColumnProfileSts == 1("Fail_present")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the column profile req (Not active) when
+
+ColumnProfileSts == 2 ("ProfileReached") for NSample
+
+OR
+
+ColumnProfileSts == 1("Fail_present")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, ColumnProfileSts, ColumnProfileReq, Not_Active" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4884452
+- Contents: System shall set output signal SeatProfileReq =0("Not_Active") AND ColumnProfileReq =0("Not_Active") when no Mn configuration select.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signals when no Mn configuration selected.
+
+SeatProfileReq = 0 ("Not_Active") AND ColumnProfileReq = 0 ("Not_Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, signal" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.2.7.2 Driver Position Memory recall Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

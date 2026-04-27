@@ -1,0 +1,300 @@
+# AUS-5 6.2.1.11  Precision Bass Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.11 AUS-5 Precision Bass
+
+- ID: 4033330
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4033353
+- Contents: The system shall make available Precision Bass setting to user if proxi parameter Audio_Level == '3'("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level == '3'("High End").
+
+Verify that the Precision Bass setting is visible and the value  can be changed from HMI.
+
+ Precision Bass setting should not be visible  if proxi parameter Audio_Level != '3'("High End").
+- Grooming Status: Approved
+- Grooming Comments: Question is asked in Engineering Menu
+https://jira.harman.com/jira/browse/FQ-896
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "applicable only" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4033355
+- Contents: The system shall apply the "Precision Bass setting" for the 'ENTERTAINMENT' Audio sources
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Precision Bass settings are visible.
+Verify the Precision Bass settings can be changed for Entertainment Sources.
+
+Note: Entertainment Sources includes 
+ Radio, Android Auto, Apple CarPlay, Traffic Alert
+- Grooming Status: Approved
+- Grooming Comments: Menustructure: Adjustment slider: [0-3 levels, 0*] 
+
+
+To Ferrari:
+IDC-430431 - This function is applicable only if proxi parameter Audio_Level == 3 ("High End").
+IDC-430383 - Precision Bass setting is applicable for the ENTERTAINEMENT channels.
+
+Question: The applicable here means it is grey out or Hide from HMI on the basis of Audio level or Audio sources
+
+2. Is there any  table available, which all sources (e.g. Radio) is applicable
+--------------
+https://jira.harman.com/jira/browse/FQ-879
+- Expert Domains: Android HMI, Media Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4033381
+- Contents: The system shall set the Precision Bass setting value as below to the 'IDC_AudioSettings.PrecisionBassSet' output signal when the user changes the Precision Bass setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Precision Bass setting value   
+
+Verify that the set value is shown on the HMI and in the CAN signal IDC_
+AudioSettings.PrecisionBassSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, output, according, follows, requests, value, change" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4623262
+- Contents: If setting Persistence type is Standard, the system shall persist the Precision Bass settings independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Precision Bass) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4623263
+- Contents: If setting persistent type = standard, the system shall set the Precision Basssetting value to default value if the system can't read the stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Precision Bass settings value.
+
+Create error in memory reading.
+Verify that the Precision Bass settings value is set to default value in HMI..
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, Bass, value, portion" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4623264
+- Contents: If setting Persistence type = Profiled, the system shall store the last Precision Bass setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Precision Bass) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, Precision Bass, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4623265
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Precision Bass) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4623266
+- Contents: If setting Persistence type = Profiled, the system shall set the 'Precision Bass setting' value to default value if the system  can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Precision Bass settings value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, value, portion" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4033413
+- Contents: The system shall set the signal IDC_AudioSettings.PrecisionBassSet = 0("OFF") If proxi parameter Audio_Level != 3 ("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter (Audio_Level) !=3
+
+Verify that the PrecisionBass = 0 (OFF) in HMI and in the CAN signal
+IDC_AudioSettings.PrecisionBassSet
+- Grooming Status: Approved
+- Grooming Comments: Question is asked in Engineering menu 
+https://jira.harman.com/jira/browse/FQ-896
+- Expert Domains: Android HMI, Audio Control, IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4033335
+- Contents: The Precision Bass feature allows the user to enhance the bass quality by enriching specific harmonic frequencies.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4033339
+- Contents: The system shall display the "Precision Bass" interfaces as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 4033351
+- Contents: This feature enhances bass frequencies.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4623260
+- Contents: (see: image8.png)
+(see: image9.png)
+(see: image10.png)
+(see: image11.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image8.png, image9.png, image10.png, image11.png
+
+5. ID: 4033384
+- Contents: The system shall adjust the Precision Bass algorithm operation through the 'FAD_CTRL__setPrecisionBass(void *fad_ctrl_memory, int level_value)' API If the value of PrecisionBassSet changes where:
+level_value = Precision Bass setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Bass, adjust, setting, operation, level" )
+- State (Harman_Requirement): Review
+
+6. ID: 4033406
+- Contents: The system shall apply Persistence logics to Precision Bass setting as defined Audio setting introduction.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+7. ID: 4033420
+- Contents: Diagnosis
+  Calibration Parameters
+PrecisionBassSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4033433
+- Contents: Proxi
+Start Byte 154, Start bit 6 - Audio Level (0 = "Invalid", 1 = "Base", 2 = "Premium", 3 = "High End")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 4033434
+- Contents: Outputs
+   INFO_CAN:
+IDC_AudioSettings.PrecisionBassSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image10.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image9.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image11.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image8.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-5 6.2.1.11  Precision Bass Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

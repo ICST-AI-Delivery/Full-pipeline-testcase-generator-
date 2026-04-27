@@ -1,0 +1,766 @@
+# DMS-13 6.2.1.14  FAILURE MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.14 DMS-13 FAILURE MANAGEMENT
+
+- ID: 3783086
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4552945
+- Contents: The DMS system shall be active when the speed is ≥ 20 'Km/h' ('1st' trial, calibratable parameter).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the SW.
+Set the speed (NFR_SPEED.VehicleSpeedVSOSig) as >= 20 Km/h
+Verify that the DMS is active and working.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, speed, be active, is  #8805, trial, parameter" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Ce_v_SpeedThAct1
+Description: First speed threshold for DMS warning activation
+Value: 20
+Unit: Kilometers per Hour [km/h]
+Range: 0 - 511 km/h
+Resolution: 1 km/h
+
+
+
+Ce_v_SpeedThDeact
+
+2. ID: 4578131
+- Contents: The system shall allow to activate/deactivate "only the DMS warning system" by the HMI setting/ADAS button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to deactivate the DMS warning from HMI setting /ADAS button.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, DMS-OMS
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to activate, deactivate, button" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: For more details refer to “MenuStructure”.
+
+3. ID: 4552978
+- Contents: The system shall "suppress the DMS-warnings" temporarily if the warnings("popup &  sound") activates during high priority "ADAS warning"("FCW/AEB").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Create DMS warnings (popup + sound) 
+
+High priority ADAS warning (FCW/AEB) is active
+
+Verify that the DMS warning is temporarily suppressed (Note: DMS warnings will be suppressed if high priority ADAS warning is active).
+
+Use DMS_INFO CAN message for DMS 
+warning
+
+Note: FCW warning activation can be via
+DASM_HMI.FCWSystemSts
+IDASM_HMI.HMICode_FCW
+- Grooming Status: Approved
+- Grooming Comments: Jira Ticket:
+https://jira.harman.com/jira/browse/FQ-920
+
+Need input CAN signal for FCW/AEB warning activation.
+
+[Antonio, Saheel 28.02.2025] Approve
+- Expert Domains: Cluster SW
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, suppress, activates, DMS-warnings, warnings, amp, priority, warning" ) 
+Unclear term
+ (Look for: "temporarily" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4552980
+- Contents: The system shall reactivate the suppressed DMS warning when the other (currently active) ADAS warning is finished, if the DMS activation conditions are still present.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: DMS warning is suppressed due to another ADAS warning.
+
+Remove the active ADAS warning
+Verify that the suppressed DMS warning (sound+ popup) is reactivated.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh 12.02.2025] Not OK to approve as the CAN signal for testing is not received
+
+https://jira.harman.com/jira/browse/FQ-920
+https://jira.harman.com/jira/browse/FQ-951
+
+[Antonio, Saheel 28.02.2025] Approve
+- Expert Domains: DMS-OMS
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "other, currently" ) 
+Passive voice
+ (Look for: "is finished" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4625219
+- Contents: The system shall provide the DMS warning (visual (pop-up) and acoustic feedback) as per the below priority
+FCW/AEB > DMS > DDAW > ACC proximity (F534 Info 17) > Speed Alert > TSA/TSR > ACC/CC
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the ADAS warnings as per the below priority
+
+FCW/AEB > DMS > DDAW > ACC proximity (F534 Info 17) > Speed Alert > TSA/TSR > ACC/CC.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh 12.02.2025] Not OK to approve as the CAN signal for testing is not received
+
+Need input CAN signal from the vehicle spec
+
+https://jira.harman.com/jira/browse/FQ-951
+https://jira.harman.com/jira/browse/FQ-920
+
+[Antonio, Saheel 28.02.2025] Approve
+- Expert Domains: DMS-OMS
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘17’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is so defined" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: F534 Info 17:
+
+IDC-433990 - (HMICode_ACC = ACC_PROX_WARNING)
+IDC-433995 - Signals: Main_AreaPopUp[F534_Info17] + BuzzerACC_Prox + VEH_Buzzer_ACC_Prox + VEH_INDICATOR_STATUS + INDICATOR_STATUS
+IDC-433994 - F534 Info 17 is a CAN input visualization cycle with:
+IDC-433993 - D01 visualization Behaviour
+IDC-433992 - Priority 0
+
+6. ID: 4625381
+- Contents: The system shall not suppress DMS telltale during another ADAS event (FCW/AEB).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: Software Qualification Test
+- Verification Criteria: Activate the DMS warning.
+Activate Another ADAS event (FCW/AEB)
+
+Verify that  DMS telltale is not suppressed during ADAS event.
+
+Note: DMS popup (sound + visual) will be suppressed during AEB/FCW.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh 12.02.2025] Not OK to approve as the CAN signal for testing is not received
+
+[Pradeep]Ask Ferrari: what is the DMS t
+elltale, what is ADAS event
+https://jira.harman.com/jira/browse/FQ-951
+
+[Antonio, Saheel 28.02.2025] Approve
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "another" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4645315
+- Contents: The system shall show the DMS visual warning (popup) at least for 2000 ms (1st trial, calibratable parameter) after the DMS warning activation trigger is ended
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: :Flash the SW and DMS warning setting is ON.
+Activate the DMS warning (driver is present and Driver is inattentive)
+
+Verify the  visual warning (popup) at least for 2000 ms after the DMS warning activation trigger is ended.
+
+Refer the Popup Id: 05310001
+
+Note:
+
+ The warnings (popup + sound) can be suppressed by the driver, closing the popup 
+
+DMS_INFO.HMICode_DMS according to Attention Warning
+DMS_INFO.DMS_Attentiveness according to Attentiveness Estimation
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Cluster SW, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2000,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is ended" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4727968
+- Contents: The system shall play the DMS warning pop-up sound until the end of the cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the DMS warning (driver is present and Driver is inattentive
+
+Verify the popup Audio is played until the end of the cycle
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4728005
+- Contents: The system shall show the  telltale (provided in the artifact Id 4754695 ) in B8-B9 area of the instrument cluster based on the market until DMS warning activation trigger is present.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the DMS warning
+
+Verify the telltale are shown  in B8-B9 area of the instrument cluster until DMS warning activation trigger is present:
+
+Note: The Telltale is 5310001.
+00050 is for China and 00040 is for Other markets
+- Grooming Status: Approved
+- Expert Domains: DMS-OMS, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘4754695’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4728007
+- Contents: The system shall provide a specific popup & show the "telltale" in "B8-B9 area" when there is a failure in DMS system or an "obscuration" of the camera.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Create a DMS failure
+
+Verify the popup is displayed and telltale is shown in B8-B9 area of the instrument cluster along with the Popup-Audio if DMS failure is present.
+
+
+Note:
+Audio buzzer is 2B,  The Telltale is 5310003, 5310004 and 5310005
+
+Central HMI:
+Popup Id : 5310003 and 5310004
+- Grooming Status: Approved
+- Expert Domains: Android HMI, DMS-OMS, IOC_IOC, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "there" ) 
+Compound requirement
+ (Look for: "system, provide, show, is, amp, telltale, failure, obscuration" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Popup & telltale(provided in the artifact 4754699)
+
+11. ID: 4730726
+- Contents: The system shall display the DMS error telltale and Popup simultaneously on cluster during a DMS error.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Create DMS failure
+Verify that the DMS fail popup and icon are displayed simultaneously.
+- Grooming Status: Approved
+- Grooming Comments: To Ferrari:
+What is popup here and icon here
+
+Is it relevant for Central HMI only?
+https://jira.harman.com/jira/browse/FQ-949
+- Expert Domains: DMS-OMS
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, popup, simultaneously" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4730729
+- Contents: The system shall display Failure telltale even if DMS system is Off during a DMS error.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Create DMS failure  when the DMS system is Off in the HMI settings
+ 
+Verify that the failure icon is displayed on cluster HMI
+- Grooming Status: Approved
+- Grooming Comments: To Ferrari:
+What is failure icon here
+
+Is it relevant for Central HMI only?
+https://jira.harman.com/jira/browse/FQ-949
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, is Off, icon" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4730744
+- Contents: The system shall provide specific popup and show the failure icon simultaneously in "B8-B9" area in case of temporary degraded performance at speed more than '20km/h' for '15s'(1st trial, calibratable parameter).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the popup is displayed and telltale is shown in B8-B9 area of the instrument cluster along with the Popup-Audio if DMS failure is present.
+
+
+Note:
+Audio buzzer is 2B,  The Telltale is 5310003, 5310004 and 5310005
+
+Central HMI:
+Popup Id : 5310003 and 5310004
+- Grooming Status: Approved
+- Grooming Comments: To Ferrari:
+What is failure icon here
+
+Is it relevant for Central HMI only?
+https://jira.harman.com/jira/browse/FQ-949
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, provide, show, popup, icon, area, h, trial, parameter" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4730748
+- Contents: The system shall retain the DMS warning  as long as the failure or defect persists.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Create DMS failure
+
+Restart the HU
+Verify that the DMS warning is still shown
+- Grooming Status: Approved
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, retain, persists, warning, failure" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3783508
+- Contents: The system shall set the DMS Status ('MSG_DMS_DebugInfo.SG_DMS_DebugStatus' & 'DMS_INFO.DMSSystemFail') to 'De-graded' if the driver is 'un-recognized' for a time greater than or equal to 'Ce_t_DrvPresDegTimeTh'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Cover the driver's face and wait for Ce_t_DrvPresDegTimeTh
+
+Verify the status DMS status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus ) and DMSSystem Fail (DMS_INFO.DMSSystemFail) as Degraded
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, graded, recognized, Status, amp, driver, time" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: default value of 'Ce_t_DrvPresDegTimeTh is  500 ms').
+
+16. ID: 4616294
+- Contents: The system shall set the DMS Status & 'DMS_INFO.DMSSystemFail as 'De-graded' if Camera is partially-blinded.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Create Partial Camera Blindness (block the camera vision). 
+
+Verify the status DMS status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus ) and DMSSystem Fail (DMS_INFO.DMSSystemFail) as Degraded
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, graded, recognized, is, blinded, according, amp, Camera, Detection" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4616295
+- Contents: The system shall set the DMS Status & 'DMS_INFO.DMSSystemFail as 'De-graded' if low-confidence of the algorithms according to 'Blindness-Detection.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Create low confidence of the algorithm (for eyeGaze quality, Head track quality, eye closed 
+Refer: 3727244: DMS-9 BLINDNESS DETECTION
+example:
+Le_pct_EyeGazeQuality <
+(50)Ce_pct_EyeGazeQualityDegTh OR Le_pct_HeadTrackQuality < (70)Ce_pct_HeadTrackQualityDegTh OR
+Le_pct_EyeClosedQuality < (70)Ce_pct_EyeClosedQualityDegTh) for a time >= Ce_t_DegTimeTh (8 Seconds))
+
+Verify the status DMS status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus) and DMSSystem Fail (DMS_INFO.DMSSystemFail) as Degraded
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, graded, recognized, is, blinded, according, amp, Camera, Detection" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Le_bol_DMSDriverPresent
+Description: Local variable indicating if DMS detects the presence of the driver in the vehicle cabin or not
+Unit: Boolean
+
+18. ID: 3783780
+- Contents: DMS shall resume 'normal-operation' of the system (DMS Status = ACTIVE)' when the detected de-gradation condition is absent for a time greater than or equal to Ce_t_NoDegTimeTh'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the SW
+Precondition:
+DMS is in degraded state.
+
+remove the degraded condition and wait for 2s.(Check for DID: Ce_t_NoDegTimeTh')
+Verify that the DMS status is changed to Active (MSG_DMS_DebugInfo.SG_DMS_DebugStatus)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, resume, detected, is absent, operation, system, condition, time" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: default value of Ce_t_NoDegTimeTh'. is 2s.
+
+19. ID: 3783966
+- Contents: The system shall set the attention warning ('DMS_INFO.HMICode_DMS') = 'Degraded' if DMS Status remains 'Degraded' for the time greater than "Ce_t_MaxDegToFailTime" & reverse gear is "dis-engaged" & vehicle speed is ">= Ce_v_SpeedThBlind".
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+1. Set the DMS status = degraded
+(MSG_DMS_DebugInfo.SG_DMS_DebugStatus= Degraded)
+
+2. Gear != Reverse
+wait for >15s (Ce_t_MaxDegToFailTime)
+
+3. Set the vehicle speed >= 20 km/h(Ce_v_SpeedThBlind
+
+Verify the attention warning (DMS_INFO.HMICode_DMS) is set as degraded
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, gear, speed, set, Degraded, is, engaged, warning, time, amp" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Ce_t_MaxDegToFailTime
+Description: Maximum time after which a degradation condition becomes a temporary fail
+Value: 15
+Unit: Seconds [s]
+Range: 0 - 255 s
+Resolution: 1 s
+
+Name: Ce_v_SpeedThBlind
+Description: Speed threshold for degradation warning activation
+Value: 20
+Unit: Kilometers per Hour [km/h]
+Range: 0 - 511 km/h
+Resolution: 1 km/h
+
+CAN signal: DMS_INFO.HMICode_DMS
+IDC internal signal: DMS_HMICode_DMS
+
+20. ID: 4886656
+- Contents: The system shall set the attention warning ('DMS_INFO.HMICode_DMS') to 'not_active' if DMS Status is 'Degraded' for time <=  'Ce_t_MaxDegToFailTime'  OR reverse gear is "engaged" OR vehicle speed is < 'Ce_v_SpeedThBlind'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+1. Set the DMS status as  Not degraded
+(MSG_DMS_DebugInfo.SG_DMS_DebugStatus)  or degraded for <=15s (Ce_t_MaxDegToFailTime)
+
+Or 
+Gear = Reverse
+Or
+the vehicle speed < 20 km/h(Ce_v_SpeedThBlind
+
+Verify the attention warning (DMS_INFO.HMICode_DMS) is set as not_active
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Degraded, engaged, is" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3783969
+- Contents: The system shall set the DMS Status to ERROR and DMS fail status to 'temp_fail' if DMS detects a missing message according to Diagnosis and Recovery.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Stop sending the DMS input message.
+
+Verify that the DMS Status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus) is set to error and DMS fail status (DMS_INFO.DMSSystemFail) as temp_fail
+
+Note: the fail set time is as per the diagnostic specification
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+22. ID: 3783973
+- Contents: DMS shall resume normal-operation of the system (DMS Status= 'ACTIVE' OR 'USER PRESENCE') on clearing the detected temporary failure.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Remove the temporary failure (e.g re-start sending the DMS input message.
+
+Verify that the DMS Status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus) is ACTIVE OR USER PRESENCE
+
+Note: the fail re-set time is as per the diagnostic specification
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "normal" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3783979
+- Contents: The system shall set the DMS Status to ERROR and DMS Fail Status to perma_fail if DMS detects a complete blockage of the Camera.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Block the DMS camera..
+
+Verify that the DMS Status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus) is ERROR and DMS fail status (DMS_INFO.DMSSystemFail) as perma_fail
+
+Note: the fail re-set time is as per the diagnostic specification
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+24. ID: 4887154
+- Contents: The system shall set the DMS Status to ERROR and DMS Fail Status to perma_fail if DMS detects an unrecoverable SW or HW failure.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Create an unrecoverable SW or HW fault and unload the camera drivers or unplug the camera.
+
+Verify that the DMS Status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus) is ERROR and DMS fail status (DMS_INFO.DMSSystemFail) as perma_fail
+
+Note: the fail re-set time is as per the diagnostic specification
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, Status, ERROR" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3783985
+- Contents: DMS shall resume normal-operation of the system (DMS Status= 'INIT') & restart a new initialization procedure on clearing the detected permanent failure if the permanent failure detected was camera-blockage.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Remove the detected camera blockage failure
+
+Verify that the DMS Status (MSG_DMS_DebugInfo.SG_DMS_DebugStatus) is set to INIT
+Note: the fail re-set time is as per the diagnostic specification
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "normal" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3783087
+- Contents: The system shall display the Failure Management according to Distraction Monitoring System(DMS).
+IDC-453610 - HMI-LF-4611 - Distraction Monitoring System (DMS) [NORMATIVE NOT YET CONFIRMED]
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer to HMI-LF-4611 - Distraction Monitoring System (DMS).
+
+2. ID: 3783095
+- Contents: The system shall implement the logics of Failure management according to:
+IDC-451907 - SFS F531
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+3. ID: 4625221
+- Contents: The system shall describe priority of ADAS events before is applicable for visual (pop-up) and acoustic feedback.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: Software Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, describe, is applicable, priority, events, pop-up, feedback" )
+- State (Harman_Requirement): New
+
+4. ID: 4625383
+- Contents: If one ADAS has higher priority than another one, the warnings of the higher priority ADAS will be provided, while the others will be suppressed.
+- Artifact Type: Information
+- Verification Criteria: Info?
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer to “NQS Indication”, “Matrix States_Events NQS” and “Finalizzata IDC”.
+
+5. ID: 4625389
+- Contents: LKA/LDW/BSD can be played anytime according to “Finalizzata IDC”.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 4645314
+- Contents: The DMS warning is composed by a popup, a telltale and an acoustic feedback
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 4754695
+- Contents: (see: image8.png)
+Fig: DMS Warning Popup for Non China Market
+(see: image9.png)
+Fig: DMS Warning Popup for China Market
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image8.png, image9.png
+
+8. ID: 4754699
+- Contents: (see: image10.png)
+Fig: DMS Error popup
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image10.png
+
+9. ID: 3783105
+- Contents: The system shall implement error management functionality to detect, classify and recover from SW, HW & functional failure.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, implement, to detect, classify, recover, functionality, SW, amp, failure" )
+- State (Harman_Requirement): New
+
+10. ID: 3783270
+- Contents: The system shall classify Detectable failures in 3 possible kinds:
+Degradation
+Temporary Failure
+Permanent Failure
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system is able to detect the below kind of failures 
+
+Degradation
+Temporary Failure
+Permanent Failure
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+11. ID: 3783276
+- Contents: The system shall define 'Degradation' as a failure of standard-DMS functionality due to conditions that do not permit the successful recognition of driver attention.
+NOTE: Degradation of the DMS camera is related to conditions in which camera is working fine, but
+detection is limited by camera obstruction (partial), cleanliness or by difficulties in detecting face features.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, define, permit, Degradation, failure, functionality, conditions, recognition, attention" )
+- State (Harman_Requirement): New
+
+12. ID: 4552842
+- Contents: Note: Counter for degraded condition shall reset once the vehicle is no longer driving.
+Alternative: use the correct state switch to reset the counter.
+- Artifact Type: Information
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): New
+
+13. ID: 3783967
+- Contents: DMS shall define Temporary failure as a SW or network-error that could recover while system operation.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, define, network, recover, failure, SW, operation" )
+- State (Harman_Requirement): New
+
+14. ID: 4552845
+- Contents: NOTE: A temporary failure is related to network errors or invalid signals. If the failure persists, this will become a permanent failure.
+- Artifact Type: Information
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): New
+
+15. ID: 3783977
+- Contents: The system shall define Permanent failure as a HW or severe SW error that need a new initialization of the DMS as well as total obstruction of the camera according to Blindness Detection.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, define, severe, need, according, failure, HW, error, initialization, DMS, obstruction, Detection" )
+- State (Harman_Requirement): Review
+
+16. ID: 4552855
+- Contents: NOTE: Total/Complete blockage of the camera is related to all HW errors or SW errors that impede DMS camera to properly work.
+- Artifact Type: Information
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): New
+
+17. ID: 3783988
+- Contents: Proxi
+Start Byte 174, Start bit 4 - IDC_Vehicle_Type (0 = invalid, 1 = F244, 15 = other)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+18. ID: 3783989
+- Contents: Diagnosis
+Calibration Parameters
+Ce_t_DrvPresDegTimeTh
+Ce_t_NoDegTimeTh
+Ce_t_MaxDegToFailTime
+Ce_v_SpeedThBlind
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+19. ID: 3784176
+- Contents: Network interfaces
+Inputs
+Ie_enu_GearEngaged
+Ie_v_VehSpeed
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+20. ID: 3784177
+- Contents: Outputs
+Oe_enu_FailStsDMS
+Oe_enu_HMIAttWrn
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+21. ID: 3784179
+- Contents: Internal interfaces
+Outputs
+Oe_enu_FailStsDMS
+Oe_enu_HMIAttWrn
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image10.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image9.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image8.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-13 6.2.1.14  FAILURE MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,305 @@
+# FAD-2 6.2.2.3  Audio Channels Control Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3 FAD-2 Audio Channels Control
+
+- ID: 3408486
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3557334
+- Contents: The system shall update the value of the currently playing main audio source volume in volume database when the user change the volume if none of the alternate audio sources with adjustable volume is playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+The below Alternate Audio sources are not playing
+(Navigation, Parking Front, Parking Rear).
+
+Change the volume and Verify that the volume of the currently playing main Audio source is changed. .
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Sytem, update, playing, change, is, value, source, database, volume, none, Navigation, Front, Rear" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3557335
+- Contents: When the user changes the volume, the system shall update the value of the most recent alternate audio source volume in volume database if any of the following Alternate audio source is playing :
+Navigation
+Parking Front
+Parking Rear
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play any of the following Alternate Audio Source
+Navigation     
+Parking Front
+Parking Rear 
+
+Change the volume and verify that the volume of the most recent alternate audio source is changing.
+
+Note: The behavior is same when a main audio is playing along with Alternate Audio..
+- Grooming Status: Review
+- Grooming Comments: [Abdul, Xiongwei 16.02.2025] To be deleted, Already covered below
+- Expert Domains: Audio Control
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3940741
+- Contents: The system shall update the value of the Alternate source volume in Volume Database If the Alternate source with adjustable is playing concurrently with a Main source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the below alternate sources (Artifact Id 3557336) during a main audio.
+change the volume level  
+verify the same alternate sources are 'playing next time with the set volume level'.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3940746
+- Contents: The system shall update the value of the most recent Alternate source volume in Volume Database If more than one Alternate sources with adjustable volume are playing concurrently.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditions:
+More than one Alternate Audio sources (Artifact Id (Artifact Id 3557336) are playing.
+
+change the volume and verify that the volume of the most recent alternate source is changed.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "most, recent, concurrently" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3594866
+- Contents: The system shall set the value of the proper channel volume CAN signal when a change of volume of an active audio source required.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the volume of an active audio source
+Verify that corresponding  volume CAN signal is being adjusted.
+Verify that the changed volume level is reflected on HMI and audible in the speaker.
+
+Note: The CAN signals are
+IDC_AudioStreams.EntertainmentVolume
+IDC_AudioStreams.TelephonyVoiceVolume 
+IDC_AudioStreams.NavigationVolume 
+IDC_AudioStreams.HMIAndroidVolume 
+IDC_AudioStreams.HMILinuxVolume 
+IDC_AudioStreams2.ParkAssistVolume 
+IDC_StreamVolume.GeneralWarning1Vo
+IDC_StreamVolume.GeneralWarning2Volume
+
+Refer the artifact ID 3557336 for the Audio source groups.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, change, set, required, value, interface, volume, source" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3557337
+- Contents: If the value of a stream volume interface changes, the FAD library shall perform a volume fade between the previous and new volume value on the stream
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio stream (e.g. Entertainment Audio) and change the volume
+and Verify from the speaker, the volume fade between the previous and the new volume value.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3557338
+- Contents: The FAD library shall be able to tune the volume fade duration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Change the volume fade duration via GTT
+
+Verify that FAD library can tune the volume fade duration.
+Verify by using GTT tool.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3557340
+- Contents: The system shall increase the volume of the Audio stream by the requested level on detecting the volume encoder clockwise rotation.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source.
+
+Rotate the volume encoder in clockwise (Set the value of the CAN signal STATUS_NVO.VolumeRotation =1 and 
+STATUS_NVO.VolumeDial to required volume level) 
+
+Verify that the volume of the Audio stream in increased by the requested level
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3557341
+- Contents: The system shall decrease the volume of the Audio stream by the requested level on detecting the volume encoder counter clockwise rotation.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Rotate the volume encoder in counter clockwise (Set the value of the CAN signal STATUS_NVO.VolumeRotation =2 and 
+STATUS_NVO.VolumeDial to required volume level) 
+
+Verify that the volume of the Audio stream in decreased by the requested level
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 3557621
+- Contents: The system shall change the requested volume value on receiving the volume change via NDR physical button.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source.
+Verify that pressing the physical button results in change of volume on the system. 
+
+Verify this for both Volume increase and Volume decrease
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 3557622
+- Contents: Upon transitioning from HMI_ON to HMI_OFF, the system shall store the current Entertainment Volume value as latest session volume value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an entertainment Audio and do a Ignition reset.
+Verify that the current entertainment volume 
+value is same as the last entertainment volume level.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, transitioning, store, value" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3557623
+- Contents: If the latest session volume is greater than maxSwitchOnVolume during transition from HMI_OFF to HMI_ON, the system shall overwrite the Audio source Volume value with MaxSwitchOnVolume stored in volume database.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source with volume greater than the maximum switch on volume.
+
+Do ignition reset and Verify that the Audio source volume is overwritten with the maximum switch on volume.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, overwrite, stored, value, MaxSwitchOnVolume, database" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3557626
+- Contents: During the transition from HMI_OFF to HMI_ON, if the  latest Session Volume is less than or equal to maxSwitchOnVolume, the system shall set the Entertainment Volume value equal to the latest Session Volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source with volume <= the maximum switch on volume.
+
+Do ignition reset and Verify that the Audio source volume is same as the latest session volume
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, transition, value, Volume" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3557332
+- Contents: This function shall describe how the FAD library manages volume adjustments, mute request and dynamic channel directionality.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+2. ID: 3940749
+- Contents: The system shall set the value of updated volume scale through the FAD_CTRL__setVolume(void *fad_ctrl_memory, fad_source_id_e sourceID, float value_volume) API when the user performs a volume change,where:
+volumeID = VOLUME ID of the update volume scale
+ value_volume = the value stored in the Volume Database entry relative to that volume scale
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, updated, performs, volume, stored, change, SOURCE ID, source, value, entry" )
+- State (Harman_Requirement): Review
+
+3. ID: 3557336
+- Contents: The system shall provide the mentioned volume range for the below audio groups independently:
+(see: image126.png)
+(see: image127.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image126.png, image127.png
+
+4. ID: 3557339
+- Contents: The system shall allow the user to change the Audio volume via NVO volume command.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the NVO command is correctly detected by the system.
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+5. ID: 3557342
+- Contents: The system shall allow the user to change the volume via  NDR physical button.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that pressing the physical button results in change of volume on the system.
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image126.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image127.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-2 6.2.2.3  Audio Channels Control Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

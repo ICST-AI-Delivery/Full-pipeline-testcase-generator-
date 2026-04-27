@@ -1,0 +1,120 @@
+# UnknownID 6.1.5.2 Keyboards
+
+
+
+Keyboards Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.5.2 Keyboards
+
+
+
+Keyboards
+
+- ID: 2354871
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354872
+- Contents: 6.1.5.2.1 Since the ECU supports several languages, it shall support also several Keyboard...
+
+
+
+Since the ECU supports several languages, it shall support also several Keyboards and numeric spellers.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if user can access several keyboards and numeric spellers.
+- Grooming Status: Approved
+- Expert Domains: HMI Design
+- State (Harman_Requirement): In Work
+
+2. ID: 2354873
+- Contents: 6.1.5.2.2 Every speller shall have a Next Valid Character (NVC) feature.
+
+
+
+Every speller shall have a Next Valid Character (NVC) feature.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if each speller has NVC feature
+- Grooming Status: Approved
+- Grooming Comments: It is a white label
+
+it is supported from the aosp
+- Expert Domains: HMI Design
+- TestTeamComment: [Hsutter, 2024-01-15]
+JHaerig: 
+10.11.2023: Reminder sent by Ansa S Thottupuram
+26.10.2023: Mail sent to Saranya, Swetha, etc. Status pending
+
+20231026_Hsutter:General requirement. Has nothing to do with SystemTest
+- State (Harman_Requirement): Approved
+
+3. ID: 2354874
+- Contents: 6.1.5.2.3 The Keyboards type shall be consistent with the currently set system language (e...
+
+
+
+The Keyboards type shall be consistent with the currently set system language (e.g., system language is set on “Italian”, the keyboard will be “Latin” by default).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+4. ID: 2354875
+- Contents: 6.1.5.2.4 The ECU shall support at least the following keyboard layout with the related ch...
+
+
+
+The ECU shall support at least the following keyboard layout with the related character set:
+
+ 
+
+Arabic speller and character set
+
+Chinese speller and character set
+
+Cyrillic speller and character set
+
+Japanese speller and character set
+
+Turkish
+
+Latin speller and character set (used for English_UK, English US, Deutsch, Polish, Italiano, Français_FR (France), Français_CA (Canada), Spanish_ES (Spain), Spanish_MX (Mexico)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+5. ID: 2354876
+- Contents: 6.1.5.2.5 The Supplier shall share and agree with Ferrari about spellers and input functio...
+
+
+
+The Supplier shall share and agree with Ferrari about spellers and input functionalities in advance for each language and Ferrari market.
+- Artifact Type: SRS Req
+- Responsible Domain: Development_Process
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.5.2 Keyboards]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

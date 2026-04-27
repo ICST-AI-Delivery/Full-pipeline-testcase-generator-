@@ -1,0 +1,83 @@
+# UnknownID 6.2.1.1.53 NSP Node Absent (0xD718, 0x87)- Parking Sensor Node Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.53 NSP Node Absent (0xD718, 0x87)- Parking Sensor Node
+
+- ID: 3762504
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3762506
+- Contents: The system shall detect NSP Node Absent fault when STATUS_NSP2 is not received with Maturation time "5"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NSP Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: STATUS_NSP2 is not received
+    Maturation Time: 5s
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "received" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NSP does not send a scheduled message 
+Vehicle Configuration: Proxi byte 29, bit 0 (NSP) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3762508
+- Contents: The system shall make the NSP Node Absent Fault inactive as soon as the STATUS_NSP2 is received.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NSP Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: STATUS_NSP2 is received
+    De-Maturation Time: Immediate
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "as soon" ) 
+Passive voice
+ (Look for: "is received" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NSP does not send a scheduled message 
+Vehicle Configuration: Proxi byte 29, bit 0 (NSP) == "Present"
+Fault Detection Conditions: Key-On
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.53 NSP Node Absent (0xD718, 0x87)- Parking Sensor Node Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

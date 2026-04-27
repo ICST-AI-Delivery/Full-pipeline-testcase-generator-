@@ -1,0 +1,187 @@
+# VFI-F164 6.2.2.9  Energy Manettino Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.9 VFI-F164 Energy Manettino
+
+- ID: 3408237
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3674659
+- Contents: System shall display and implement logics as per the Ferrari design.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Energy Manettino is displayed and Logics were performed as per the Ferrari design.
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, implement, logics, design" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3939005
+- Contents: Energy Configurations are manage by E-Manettino Physical Component on Steering Wheel.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Networking
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if Energy Configurations are managed by E-Manettino Physical Component on Steering Wheel.
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3948379
+- Contents: IDC shall display feedback when user changes configuration manually.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the feedback (pop up) when user changes configuration manually.
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, changes, feedback, configuration" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3948382
+- Contents: IDC shall display feedback when the system rejects the configuration selected.
+Note: System will notify the HMI when user physical button failures and rejected by system.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the feedback when the system rejects the configuration selected.
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, display, rejects, selected, feedback, configuration" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3948392
+- Contents: IDC shall display feedback when the system changes the configuration selected.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the feedback when the system changes the configuration selected.
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, display, changes, selected, feedback, configuration" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3948394
+- Contents: The Energy configuration selected shall be always visible by the driver.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to see the energy configuration selected.
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3948398
+- Contents: IDC shall synchronize the indicator values when Energy configuration show in more than one display
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Networking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the synchronization condition
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3674678
+- Contents: IDC shall display HMI indication by retrieve Electric Manettino Status:
+"EDrive_ECO" as Range
+"Standard" as STANDARD (TOUR)
+"Performance" as PERFO
+"Qualifying" as empty
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Energy Manettino HMI Indication 
+
+HMI_CAN:
+PWT_STATUS_2.EmanettinoSts
+PWT_STATUS_2.EManettinoTransitionInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as empty" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3947813
+- Contents: This function allows the visualization of Energy Manettino status on Central and Rear displays.
+Note: ref physical buttons document user can change the all the energy modes through these buttons.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F164 6.2.2.9  Energy Manettino Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

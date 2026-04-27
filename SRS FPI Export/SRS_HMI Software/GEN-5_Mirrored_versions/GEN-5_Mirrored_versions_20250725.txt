@@ -1,0 +1,138 @@
+# GEN-5 6.2.1.5  Mirrored versions Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5 GEN-5 Mirrored versions
+
+- ID: 5073385
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- HB_Comment: 27
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5073388
+- Contents: System shall provide the default HMI graphics in case of proxi parameter Side Driver = 0 ("left").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set default HMI graphics when proxi parameter Side Driver = 0 ("left").
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 5073414
+- Contents: System shall provide mirrored visualization of the HMI for Central and rear display when  proxi parameter Side Driver == 1 ("right").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to provide mirrored visualization when proxi parameter Side Driver == 1 ("right").
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, mirrored, proxi, visualization, display, Driver    1, right" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5073485
+- Contents: vehicle shall be mirrored to match the correct configuration (left-hand traffic) for UK market.
+(see: image2.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify vehicle shall mirror to match the config foe UK market
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be mirrored" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image2.png
+
+4. ID: 5073515
+- Contents: System shall convert Numeric value into Arabic, but the order should not reverse. (see: image3.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to convert numeric value into Arabic
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall convert, should reverse" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image3.png
+
+5. ID: 5073529
+- Contents: System shall reverse the order when numerals show progress in Arabic.
+(see: image4.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to reverse the order in arabic
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, reverse, show, order, numerals, progress" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image4.png
+
+### Informational Items:
+
+1. ID: 5073487
+- Contents: (see: image1.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image1.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image4.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image3.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image1.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image2.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of GEN-5 6.2.1.5  Mirrored versions Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

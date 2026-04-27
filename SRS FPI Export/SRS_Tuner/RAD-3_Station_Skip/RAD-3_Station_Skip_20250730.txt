@@ -1,0 +1,145 @@
+# RAD-3 6.2.1.1.4  Station Skip Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.4 RAD-3 Station Skip
+
+- ID: 3407904
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3583045
+- Contents: System shall change station according to Radio list by skipping up or down on SWC.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check system shall able to change stations by skipping up or down on SWC
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, change, according, skipping up, station, list, SWC" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244-HMI-3475 - Skip/Seek forwards
+command
+
+2. ID: 3536670
+- Contents: System shall tune to previous strong stations when skip up functionality triggers via skip LH soft button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check system shall change to previous strong station by triggering skip up functionality via skip LH soft button.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, tune, to previous, skip up, stations, triggers, button" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3536671
+- Contents: System shall tune to next strong stations when skip-down functionality triggers via skip RH soft button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check system shall change to next strong station by triggering skip down functionality via skip RH soft button.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, tune, to next, stations, triggers, button" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3536681
+- Contents: System shall perform the skip action in the strong station list When "favourite" filter is not active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall skip the station in the strong station list When "favourite" filter is not active.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not active" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3536683
+- Contents: System shall skip station among strong stations stored as favourites when "favourite" filter is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall skip station among strong stations stored as favourites when "favourite" filter is active.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "favourite, filter, IDC, is active, perform, skip, stored, stations, favourites" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3583514
+- Contents: System shall disable station skip functionality (greyedout ) while antenna detached.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall disable station skip functionality (greyedout) when antenna is detached.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, disable, Hidden, detached, station, greyedout" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3673504
+- Contents: System shall allow skip for AM, FM, DAB+,AM HD, FM HD radio frequencies.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall allow skip for AM, FM/DAB, DAB+,AM HD, FM HD radio frequencies based on the regions.
+- Grooming Status: Approved
+- Grooming Comments: [Devi Chandra:01-jul-2024]: Need Clarification regarding the combined FM, DAB stations. Clarification pending from customer
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, skip, FM, DAB+, frequencies" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3583528
+- Contents: This function allows the user to jump to the next/previous radio station on the station list or favorite list via physical and soft buttons.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3583049
+- Contents: Radio List:
+- Skip down: command triggers next station (major frequency) in list.
+- Skip up: command triggers previous station (major frequency) in list
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-3 6.2.1.1.4  Station Skip Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

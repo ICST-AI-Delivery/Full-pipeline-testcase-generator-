@@ -1,0 +1,86 @@
+# UnknownID 6.2.6.1.2 Clock functionality - Physcial Buttons Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.1.2 Clock functionality - Physcial Buttons
+
+- ID: 4884592
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: MCIPC Interface will be used to control the clock physical needles 
+
+Note: MCIPC interfaces are managed by audio team
+- Expert Domains: Audio Control, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4884603
+- Contents: system shall set the target and indicate the value of position and speed of the needles selected by the user through GPIO2_Clk_Bttn2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Needle position is changing when GPIO2_Clk_Bttn2 pressed.
+- Grooming Status: Approved
+- Grooming Comments: MCIPC Interface will be used to control the clock physical needles 
+
+Note: MCIPC interfaces are managed by audio team
+- Expert Domains: Audio Control, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, indicate, selected, target, value, position, speed, needles" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4884604
+- Contents: system shall retrieve the current value of position and speed of the needles selected by the user through GPIO2_Clk_Bttn2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: when the  user pressed GPIO2_Clk_Bttn2 in chrono mode, the lap information will be shown on HMI.
+- Grooming Status: Approved
+- Grooming Comments: MCIPC Interface will be used to control the clock physical needles 
+
+Note: MCIPC interfaces are managed by audio team
+- Expert Domains: Audio Control, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, retrieve, selected, value, position, speed, needles" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4884597
+- Contents: If chrono = paused & GPIO2_Clk_Bttn2 = Long press, then the system shall stop and reset the Chrono time and save the time value as "bestlap" and/or "lastlap"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system stopped and reset the chrono time and saving the time value as best/last lap when chrono is paused and GPIO_Clk_Bttn2 is long pressed.
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "chrono, system, stop, reset, save, amp, press, time, value, bestlap, lastlap" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.6.1.2 Clock functionality - Physcial Buttons Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

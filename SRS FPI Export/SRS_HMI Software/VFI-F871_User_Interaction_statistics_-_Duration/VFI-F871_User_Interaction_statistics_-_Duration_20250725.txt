@@ -1,0 +1,302 @@
+# VFI-F871 6.2.2.6.2  User Interaction statistics - Duration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.6.2 VFI-F871 User Interaction statistics - Duration
+
+- ID: 5026429
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- HB_Comment: 2402
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5026431
+- Contents: System shall keep an internal timer or use an available real time clock for the duration measurement of every requested function state.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to keep internal timer for measurement of each request function state.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, keep, use, requested, timer, time clock, measurement, state" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5026434
+- Contents: IDC shall occupy the following storage sizes for the total duration intervals:
+(see: image34.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the storage sizes
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- State (Harman_Requirement): Approved
+- Visual Elements: image34.png
+
+3. ID: 5026437
+- Contents: System shall restart measurement of duration value from the begin (zero days) when a total duration of a signal state has overflow.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to restart the duration value from 0 when total duration of single state overflow.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, duration, restart, has overflow, measurement, value, state" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5026604
+- Contents: IDC shall recognize the source (previous) state when user changes a value of observed (monitored) feature.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the previous state when user changes the monitored feature
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "recognize, changes, observed, monitored, state, value, feature" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5027797
+- Contents: IDC shall calculate a duration of the previous feature state as the difference between the current timestamp value and the previously saved timestamp when user changes a value of observed (monitored) feature.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the duration of the previous feature when user changes the value.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "calculate, saved, changes, observed, monitored, duration, state, difference, value, timestamp, feature" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5027798
+- Contents: IDC shall update the Latest feature state value and Timestamp columns of correspondent feature by the new/current one when user changes a value of observed (monitored) feature.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to update latest feature value and timestamp columns when user changes the value
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "columns, update, changes, observed, monitored, value, feature" )
+- State (Harman_Requirement): Approved
+
+7. ID: 5027800
+- Contents: System shall continue the duration measurement until the feature status changes.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the duration until the status change
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5027802
+- Contents: System shall pause the duration count for the tracked feature state when user requests for the feature a different value.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to pause the duration count when user request the different value
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, pause, tracked, requests, count, state, value" )
+- State (Harman_Requirement): Approved
+
+9. ID: 5027806
+- Contents: IDC shall continue the duration count from the previous value when user set value again to the feature.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the duration count when user set value again to the feature
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "continue, set, count, value, feature" )
+- State (Harman_Requirement): Approved
+
+10. ID: 5027809
+- Contents: IDC shall monitor user interaction and set an activation/deactivation flag by user request.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to set activation/deactivation flags
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "monitor, set, interaction, activation, flag" )
+- State (Harman_Requirement): Approved
+
+11. ID: 5027810
+- Contents: System shall start the duration count as soon as the output signal value is sent on CAN.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the duration count until CAN output signal sent.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "as soon" ) 
+Passive voice
+ (Look for: "is sent" )
+- State (Harman_Requirement): Approved
+
+12. ID: 5027811
+- Contents: System shall pause the duration count as soon as the output signal value changes to a different value.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to pause the duration count until output signal value changes to different one
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as soon" )
+- State (Harman_Requirement): Approved
+
+13. ID: 5027812
+- Contents: IDC shall discard from duration count the "Init" values.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to discard the init values of duration count
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+14. ID: 5027813
+- Contents: IDC shall restore the relative counter for number of occurrences and duration time accumulation when missing message condition received.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify missing condition.
+restore num.of occurrences and duration time
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, restore, missing, received, counter, number, accumulation, condition" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image34.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F871 6.2.2.6.2  User Interaction statistics - Duration Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

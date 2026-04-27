@@ -1,0 +1,94 @@
+# AUD-4 6.2.1.5.2  : UDS forward over SPI Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.2 AUD-4 : UDS forward over SPI
+
+- ID: 3551581
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, Kernel
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3537240
+- Contents: The system shall forward the UDS packet addressed to the external amplifier through SPI over A2B tunneling When the system receives UDS packet over CAN.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Send a command from the diagnostic tool to the external amplifier.
+
+Verify the functionality is working.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, Kernel
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, receives, forward, addressed, packet, CAN, SPI" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3537140
+- Contents: When the system receives an UDS packet through SPI over A2B tunneling from the external amplifier, the system shall forward the UDS packet on CAN to the diagnosis tester.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Send a command from the diagnostic tool to the external amplifier.
+
+Verify the response received on the diagnostic tool.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, receives, tunneling, forward, SPI, amplifier, packet, CAN, tester" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4596651
+- Contents: The Audio system shall set the the internal interface 'AUD_ConfigurationFailSts' = '1' (Present"), if the signal 'ConfigurationFailSts' == '1' ("Fail_Present")
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Create an External amplifier error.
+Verify the ConfigurationFailSts is set to 1
+
+
+Verify this by using  HMI popup.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3537742
+- Contents: DTCs
+External Amplifier Failure
+External Amplifier Missing Message
+AVAS Failure
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-4 6.2.1.5.2  : UDS forward over SPI Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

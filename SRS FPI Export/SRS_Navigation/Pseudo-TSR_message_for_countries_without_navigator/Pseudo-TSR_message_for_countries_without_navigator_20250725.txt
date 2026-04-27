@@ -1,0 +1,58 @@
+# UnknownID 6.2.1.5.2 Pseudo-TSR message for countries without navigator Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.2 Pseudo-TSR message for countries without navigator
+
+- ID: 3715458
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3715459
+- Contents: System shall send the ADASIS V2 Message containing META-DATA with signal 
+“Country code” = unknown in case of:
+1.Map database absent
+2.Map database present but with a navigation engine fault.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify that ADASIS META-DATA message is published on CAN with CountryCode=unknown for given conditions.
+
+HMI_CAN: ADASIS_V2 with signals ADAS_Meta_*
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, containing, ADASIS, META-DATA, #8220, code #8221, absent, present, fault" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.2 Pseudo-TSR message for countries without navigator Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

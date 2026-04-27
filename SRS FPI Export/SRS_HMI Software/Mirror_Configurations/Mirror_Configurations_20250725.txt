@@ -1,0 +1,148 @@
+# UnknownID 6.2.2.3.1 Mirror Configurations Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.1 Mirror Configurations
+
+- ID: 4886136
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886137
+- Contents: System shall set the following output signals when side driver is left.
+(see: image29.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output when side driver is left.
+It is dependent on proxi .
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, following, is, left, input, signals, driver" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image29.png
+
+2. ID: 4886140
+- Contents: System shall set the following output signals when side driver is right.
+(see: image30.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the input and output when side driver is right.
+
+It is dependent on proxi
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, following, is right, input, signals, driver" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image30.png
+
+3. ID: 4886141
+- Contents: System shall manage a memory slot to save mirror configuration M_last when proxi parameter "Profile" == 0("absent").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mlast(Should retrieve the previous data) for mirror config when
+
+ proxi parameter "Profile" == 0 ("absent").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, to save, proxi, slot, configuration, parameter, Profile" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886142
+- Contents: IDC shall manage 4 mirror configurations M1, M2, M3, M_Last.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 4 mirror configurations.
+
+Mlast will be proxi dependent
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4886143
+- Contents: IDC shall store 3 sets of coordinates for mirror management:
+Driver mirror horizontal position and vertical position
+Passenger horizontal position and vertical position (standard position)
+Passenger mirror autotilt horizontal position and vertical position
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror positions
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "position, store, coordinates, management" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4886146
+- Contents: System shall set following default values when factory reset performed.
+(see: image31.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the default values when factory reset performed. (Default positions in Mlast)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, following, reset, performed, values" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image31.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image29.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image30.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image31.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.1 Mirror Configurations Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

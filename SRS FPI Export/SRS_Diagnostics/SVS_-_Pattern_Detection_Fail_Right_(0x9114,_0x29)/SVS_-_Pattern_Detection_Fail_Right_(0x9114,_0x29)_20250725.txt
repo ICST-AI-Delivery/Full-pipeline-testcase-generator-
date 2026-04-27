@@ -1,0 +1,69 @@
+# UnknownID 6.2.1.5.13 SVS - Pattern Detection Fail Right (0x9114, 0x29) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.13 SVS - Pattern Detection Fail Right (0x9114, 0x29)
+
+- ID: 3871070
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3871071
+- Contents: IF the SV EOL Calibration pattern  undetected or  detected incorrectly by the right camera within 1s, the SVS system shall fail in Pattern Detection by Right camera.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the Calibration Pattern is not detected or wrongly detected by the right camera.
+- Set the Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality") = "Present"
+- Incorrect Pattern Detection by Right camera should be identified within 1s.
+-(0x9114,0x29) DTC should be trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detected, fail, pattern, camera, Detection" )
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. With specified info "not detected or wrongly detected" no info about, how to reach this states. Applicative not possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 3871075
+- Contents: The System shall resolve the Pattern Detection Failure of the Right camera within 1s when the pattern detected properly.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the De-Maturation Time not exceed 1s.
+-DTC should be clear
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. With specified info "not detected or wrongly detected" no info about, how to reach this states. Applicative not possible.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.13 SVS - Pattern Detection Fail Right (0x9114, 0x29) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

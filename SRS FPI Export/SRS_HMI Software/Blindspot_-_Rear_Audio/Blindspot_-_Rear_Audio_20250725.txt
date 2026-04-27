@@ -1,0 +1,74 @@
+# UnknownID 6.2.2.20.1 Blindspot - Rear Audio Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.20.1 Blindspot - Rear Audio
+
+- ID: 3712897
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3712900
+- Contents: IDC shall activate audio feedback when an object presence is detect for following directionality
+1. Left (Rear)
+2.Right (Rear).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if Audio feedback is play from rear vehicle speakers when an object presence is detected
+
+STATUS_LBSS.BSS_RF_CHIME_RQSts
+STATUS_LBSS.BSS_RR_CHIME_RQSts
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "presence, activate, is detect, following, feedback, directionality" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3712905
+- Contents: IDC shall play the requested audio source until the triggering signal is receive  as == 0.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if audio is playing until the triggering signal is received as == 0.
+
+STATUS_LBSS.BSS_LF_CHIME_RQSts
+STATUS_LBSS.BSS_LR_CHIME_RQSts
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.20.1 Blindspot - Rear Audio Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

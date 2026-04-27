@@ -1,0 +1,69 @@
+# UnknownID 6.2.1.1.100 [GPIO2] Dig I/O #2 - Clock Button 2 Over current (0x9062, 0x19) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.100 [GPIO2] Dig I/O #2 - Clock Button 2 Over current (0x9062, 0x19)
+
+- ID: 4627374
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4627377
+- Contents: The System shall detect Over current in GPIO2 within 1s after key-ON, if current >30mA is detect on GPIO2 pin.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify current >30mA is detected on GPIO2 pin
+-Verify vehicle is always configured.
+-Fault should detect within 1s during Key-ON.
+-Verify (0x9062, 0x19) DTC will trigger.
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘30’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250210: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+To set/unset current DTC, external harness or cbale modification needed. If possible to mod, thna we cann also test this DTC to active/passive state. Otherwise only protocol test.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4627379
+- Contents: The System shall clear the Over current fault in GPIO2 within 1s, If the detected current is ≤ 30mA.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the detected current is ≤ 30mA.
+-Verify (0x9062, 0x19) DTC will clear within 1s.
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘30’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250210: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+To set/unset current DTC, external harness or cbale modification needed. If possible to mod, than we can also test this DTC to active/passive state. Otherwise only protocol test.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.100 [GPIO2] Dig I/O 2 - Clock Button 2 Over current (0x9062, 0x19) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

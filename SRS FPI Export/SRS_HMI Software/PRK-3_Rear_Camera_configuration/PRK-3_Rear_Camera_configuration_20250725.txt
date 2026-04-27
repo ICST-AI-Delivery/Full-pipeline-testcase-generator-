@@ -1,0 +1,452 @@
+# PRK-3 6.2.4.4.2  Rear Camera configuration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.4.2 PRK-3 Rear Camera configuration
+
+- ID: 4550235
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Grooming Comments: Sunil 17.01.2024
+Parking is resposnible
+- Expert Domains: Android HMI, Camera, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3979288
+- Contents: The system shall open Sensor view If HMI Camera button is pressed & 'NSPControlSts signal' != 'System_Not_Active' & 'NCR_INFO.FutureSyncGear' != "R"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the signals as below.
+STATUS_NSP2.NSPControlSts != System Not Active (0x3) and NCR_INFO.FutureSyncGear' != "R"
+
+Press the HMI Camera Button
+Verify the Sensor View is opened.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Parking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3979289
+- Contents: The system shall open the Camera System with Sensor view If HMI Camera button is pressed & NSPControlSts signal !=
+"System_Not_Active" & NCR_INFO.FutureSyncGear == "R".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the signals as below.
+STATUS_NSP2.NSPControlSts != System Not Active (0x3) and NCR_INFO.FutureSyncGear' = "R"
+
+Press the HMI Camera Button
+Verify that the Camera System with Sensor View is opened.
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, open, System, view, amp" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3980836
+- Contents: The system shall ignore the HMI Camera button press if  NSPControlSts signal == "System_Not_Active" & NCR_INFO.FutureSyncGear != "R
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the signals as below.
+STATUS_NSP2.NSPControlSts = System Not Active (0x3) and NCR_INFO.FutureSyncGear' != "R"
+
+Press the HMI Camera Button
+Verify that the Camera button press ignored (No Effect in HMI).
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "is pressed" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3980858
+- Contents: The system shall retrieve the parking system "auto-matically" by the following transitions of the "NSPControlSts" signal if the parking system is unavaialble on screen:
+From “Only Front_sensor_are_active” to ”System_Active_Rear_And_Front”.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the reverse gear
+Verify the parking view is launched.
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Dhivakar 21.02,2025] The below part is removed from this SRS as per  the Jira ti8cket
+From “Only Rear_sensor_are_active” to ”System_Active_Rear_And_Front”.
+From “System_Not_Active” to (”System_Active_Rear_And_Front” OR “Only Front_sensor_are_active” OR "Rear_sensor_are_active”).
+
+
+[Sunil, Abdul 04.02.2025] Approved.
+Struck part is not applicable.
+
+https://jira.harman.com/jira/browse/FQ-928
+- Expert Domains: Android HMI, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, retrieve, following, to  #8221, transitions, NSPControlSts, signal, screen" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3980861
+- Contents: The system shall close the Parking system if (NSPControlSts = "System_Not_Active") & NCR_INFO.FutureSyncGear != "R".
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Parking system is active.
+
+Send the signals as below.
+STATUS_NSP2.NSPControlSts = System Not Active (0x3) and NCR_INFO.FutureSyncGear' != "R"
+
+Verify the Parking System is closed.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, close, NSPControlSts, System_Not_Active, amp" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3980971
+- Contents: The radar view shall show the "2D car model without parking area" if the camera system is on screen & ('NSPControlSts == System_Not_Active' or 'NSPFailSts != No_Fail').
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: camera system is visiable on screen & ('NSPControlSts == System_Not_Active' or 'NSPFailSts != No_Fail').
+
+Verify that the radar view shows the 2D car model without parking area.
+- Grooming Status: Approved
+- Grooming Comments: avaloor, Sunil 23.01.2025]
+Approved
+
+avaloor, Sunil 27.11.2024]
+Block it now, This is part of FX9.
+INternal discussion is needed
+
+Radar view means sensor view
+- Expert Domains: Android HMI, Camera, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "view, system, show, is, model, area, amp, System_Not_Active, NSPFailSts" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3981006
+- Contents: The system shall show the below radar view configuration on screen based on the value of the NSPControlSts signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify radar view (parking sensor view) on bird view based on the value of the NSPControlSts signal.
+- Grooming Status: Approved
+- Grooming Comments: [Wei , Abdul 12.03.2025] Approved
+[Sunil 2301.2025] Check with Wei,whether this can be infoirmatin or requirement
+- Expert Domains: Camera, Parking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "possible" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3981025
+- Contents: The system shall display a graphical element in sensor view according to HMI specification based on position and distance of the obstacles around the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, according, based, element, view, specification, position, distance, obstacles, vehicle" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3981056
+- Contents: The system shall manage Graphical elements shape and color with the "LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance" signals.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, shape, color, LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance, signals" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 4550644
+- Contents: The system shall always show the Virtual Walls(2-D walls) in Sensor View according to the value of the NSPControlSts signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the Signal and verify the 2D wall on HMI
+
+Note: The values are provided in the Artifact Id 4000379
+- Grooming Status: Approved
+- Grooming Comments: INternal discussion is needed. FX9
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The values are provided in the Artifact Id
+4000379
+
+11. ID: 4550649
+- Contents: The system shall show Virtual Walls(2-D walls) 'also' in place of the camera view when 'NCR_INFO.FutureSyncGear ! = R'
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Rear View
+Reverse gear is Not engaged and front sensor is enabled with obstacle is detected Verify the 2D wall on HMI on top of the camera view
+- Grooming Status: Approved
+- Grooming Comments: INternal discussion is needed. FX9
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, walls, Walls, view" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4613520
+- Contents: The system shall display 2D walls as shown in the following figure.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+13. ID: 4613562
+- Contents: The system shall visualize total of 14 sectors (7 on the front of the vehicle and 7 on the rear).
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, visualize, total, front, vehicle, rear" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3981071
+- Contents: The color of the graphical element depends on the distance of the obstacle from the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+15. ID: 3981082
+- Contents: Refer to HMI specification for exact shape and color.
+(see: image113.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image113.png
+
+16. ID: 3981109
+- Contents: The system shall show Virtual Walls both in bird view & in Top views.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Virtual Walls in birds View and Camera stream view when the obstacle detected
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: No Bird view for RVC
+
+17. ID: 3981151
+- Contents: The surround view shall display the '2-D' walls in bird view as shown in the following figure.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are displayed" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 4000379
+- Contents: (see: image109.png)
+(see: image110.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image109.png, image110.png
+
+2. ID: 4550317
+- Contents: The System shall display virtual walls to signal obstacle presence to the driver based on signals from parking sensors (NSP).
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 4550324
+- Contents: The system shall use 3 distance ranges, each range's connected to a color: Green, Yellow, Red for Walls color.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, connected, ranges, color, Green, Yellow" )
+- State (Harman_Requirement): Review
+
+4. ID: 3981059
+- Contents: The system shall identify the position and distance of the obstacles with the signals LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance.
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Verification Criteria: Guaranteed By Design
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, identify, position, distance, obstacles, LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4613508
+- Contents: (see: image111.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image111.png
+
+6. ID: 4613525
+- Contents: (NOTE: the images are not representative of the graphics to be implemented, please refer to HMI documents)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+7. ID: 4613527
+- Contents: (see: image112.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image112.png
+
+8. ID: 4613569
+- Contents: Walls 1-3-5-7-8-10-12-14 are based directly on the signals from parking sensors (NSP).
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 30
+- Issues Found by RQA: Passive voice
+ (Look for: "are based" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 4613571
+- Contents: Walls 2-4-6-9-11-13 are an interpolation given by the average value between the two walls next to it (e.g. wall 2 distance value is the average between wall 1 and 3 distance values)
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "are, given, wall, is, value, next, average, values" ) 
+Missing unit 
+ (Look for: "‘2,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 4550782
+- Contents: 6.2.4.4.3 PRK-3: Surround View configuration
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+11. ID: 3981131
+- Contents: Surround view system shall display virtual walls to signal "obstacle presence to the driver" based on signals form parking sensors(NSP).
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Verification Criteria: Simulate the Obstacle information
+Verify that Virtual walls are shown.
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+12. ID: 4550910
+- Contents: The system shall use 3 distance ranges, each range is connected to a color and the distance from the obstacle depend on Green, Yellow, Red walls color.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+- Requirement Rationale: Color of virtual wall is based on obstacle distance.
+
+13. ID: 4550909
+- Contents: The system shall identify the position and distance of the walls corresponding to the obstacles with the following signals:
+LHLateralObstacleDistance
+LHCentralObstacleDistance
+RHLateralObstacleDistance
+RHCentralObstacleDistance
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Verification Criteria: [Abdul]: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, identify, corresponding, following, position, distance, obstacles, signals" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image110.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image112.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image109.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image111.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image113.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-3 6.2.4.4.2  Rear Camera configuration Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

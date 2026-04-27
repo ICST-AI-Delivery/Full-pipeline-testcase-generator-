@@ -1,0 +1,139 @@
+# UnknownID 6.2.4.2.2.31 DMS - Le_n_WrnNumCount ($FE30) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.2.31 DMS - Le_n_WrnNumCount ($FE30)
+
+- ID: 3835470
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3835471
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Check to NRC if request for read would be in Default Session. Pos. response in ExtSession.
+- State (Harman_Requirement): Approved
+
+2. ID: 3835472
+- Contents: The system shall have the Write access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Write the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Check to NRC if request for write would be in Default Session. Pos. response in ExtSession.
+- State (Harman_Requirement): Approved
+
+3. ID: 3835473
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall get back the saved value of the DMS Warning counter.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the saved value of the DMS Warning counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Only check to pos. response in extended session to read current value, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+4. ID: 3835474
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service write Data By Identifier, the ECU shall reset the saved value of the DMS Warning counter.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the saved value of the DMS Warning counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241001: Only check to pos. response in extended session to write current value, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3889279
+- Contents: The Record Data By Identifier shall support Default Diagnostic Session and  Extended Diagnostic Session for Ferrari Security Access.
+
+Front Camera - Serial Number Read Read 
+Read 
+Front Camera - Date of production Read Read 
+ead Read 
+Front Camera - Intrinsics parameters Read Read 
+rs Read Read 
+Front Camera - Internal Temperature Read Read 
+rature Read Read 
+Rear Camera - Serial Number Read Read 
+ial Number Read Read 
+Rear Camera - Date of production Read Read 
+ of production Read Read 
+Rear Camera - Intrinsics parameters Read Read 
+rinsics parameters Read Read 
+Rear Camera - Internal Temperature Read Read 
+- Internal Temperature Read Read 
+eft Camera - Serial Number Read Read 
+ft Camera - Date of production Read Read 
+eft Camera - Intrinsics parameters Read Read 
+Left Camera - Internal Temperature Read Read 
+ead Read 
+Right Camera - Serial Number Read Read 
+ad Read 
+Right Camera - Date of production Read Read 
+ead Read 
+Right Camera - Intrinsics parameters Read Read 
+ers Read Read 
+Right Camera - Internal Temperature Read Read 
+Temperature Read Read 
+3D Car Model Color - Exterior  Read/Write 
+or - Exterior  Read/Write 
+3D Car Model Color - Interior  Read/Write 
+ - Interior  Read/Write 
+EOL Calibration Pattern Height - FL  Read/Write 
+ern Height - FL  Read/Write 
+EOL Calibration Pattern Height - FR  Read/Write 
+Pattern Height - FR  Read/Write 
+EOL Calibration Pattern Height - RL  Read/Write 
+ion Pattern Height - RL  Read/Write 
+EOL Calibration Pattern Height - RR  Read/Write
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.2.31 DMS - Le_n_WrnNumCount ($FE30) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

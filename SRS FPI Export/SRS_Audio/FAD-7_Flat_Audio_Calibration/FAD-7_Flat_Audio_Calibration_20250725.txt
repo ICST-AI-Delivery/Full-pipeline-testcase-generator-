@@ -1,0 +1,136 @@
+# FAD-7 6.2.2.8  Flat Audio Calibration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.8 FAD-7 Flat Audio Calibration
+
+- ID: 3721299
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3721423
+- Contents: System shall send the value of calibration parameter Flat_Audio_Calibration to the FAD library through FAD internal interface FlatAudioCalibration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4007480
+- Contents: The system shall send the value of calibration parameter Flat_Audio_Calibration to the FAD library.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source
+Check if , the parameter is correctly forwarded to FAD library 
+
+Use Audio log for verification.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3721425
+- Contents: The system shall not load the flat audio calibration if the value of the parameter Flat_Audio_Calibration is zero.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Set the "value of the parameter Flat_Audio_Calibration to 0" via Diagnostics 
+
+Play an audio source
+Check if , the parameter is correctly forwarded to FAD library 
+Verify that the flat audio is not loaded.
+
+Use Audio log for verification.
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3721426
+- Contents: The System shall load the flat audio calibration if the value of the parameter Flat_Audio_Calibration is "1"
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Set the value of the parameter "Flat_Audio_Calibration to 1" via Diagnostics 
+
+Play an audio source
+Check if the parameter is correctly forwarded to FAD library.
+Verify the flat audio is loaded.
+Use Audio log for Verification,
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3721457
+- Contents: Internal interfaces
+FlatAudioCalibration
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3721422
+- Contents: [Info] This function defines the FAD_CTRL API that IDC shall use in order to set a flat calibration.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4724506
+- Contents: The IDC shall send to the FAD library the value of calibration parameter Flat_Audio_Calibration
+through the FAD_CTRL__setFlatAudioCalibration(void *fad_ctrl_memory, bool enable) API, where:
+enable = false IF Flat_Audio_Calibration calibration parameter is equal to 0 ("NO")
+enable = true IF Flat_Audio_Calibration calibration parameter is equal to 1 ("YES")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3721471
+- Contents: Calibration Parameters
+Flat_Audio_Calibration
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Expert Domains: System Infra
+- State (Harman_Requirement): Review
+
+4. ID: 3721472
+- Contents: DTCs
+Flat Audio Calibration
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Expert Domains: System Infra
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-7 6.2.2.8  Flat Audio Calibration Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

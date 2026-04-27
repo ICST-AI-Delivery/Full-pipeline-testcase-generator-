@@ -1,0 +1,371 @@
+# AUS-1 6.2.1.8  Balance and Fader Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.8 AUS-1 Balance and Fader
+
+- ID: 4029559
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4031219
+- Contents: The system shall allow the user to adjust the sound distribution between the left & right, front & rear speakers by moving the "dot cursor".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to 
+to adjust the sound distribution between the left & right, front & rear speakers by moving the "dot cursor" on HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Muthuraj, Abdul]: Approved
+[Akhilesh: Add the images from the HMI-LF as information]
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4031233
+- Contents: The system shall reposition the cursor to the center(Balance & Fader values are reset) if the user moves the cursor very near to the center.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Move the cursor very near to the center of the screen
+
+Very that the cursor posiiton is reset to centre.
+Verify that the Balance& Fader values are reset (0 : no audio distribution is applied).
+- Grooming Status: Approved
+- Grooming Comments: [Akhilesh: OK to approve
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, values, reposition, are reset, cursor, amp" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4031012
+- Contents: The system shall apply the 'Balance & Fader settings' for the 'ENTERTAINMENT' Audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Balance and Fader settings are visible.
+Verify the Balance and Fader settings can be changed for Entertainment Sources.
+
+Note: Entertainment Sources includes 
+ Radio, Android Auto, Apple CarPlay, Traffic Alert
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-879
+- Expert Domains: Media Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, Balance, Fader, sources" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4031268
+- Contents: The system shall allow the Fader & Balance settings in combination
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an Entertainment Audio source
+
+Verify that Balance and Fader settings are available in combination
+
+Combination means: Single screen for both Balance and Fader.
+Note: Moving towards the right of the screen will distribute the Audio towards the right of the vehicle
+Moving towards the left of the screen will distribute the Audio towards the left of the vehicle
+
+Moving towards the up direction in the screen will distribute the Audio towards the front of the vehicle
+Moving towards the down direction in the screen will distribute the Audio towards the rear of the vehicle
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4031274
+- Contents: The system shall support the Balance settings in integer values in the interval [-10 : 10] with resolution = '1' where:
+-10 : the audio distribution to left side of the vehicle.
+'0' : no audio distribution is applied.
++10 : the audio distribution to right side of the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Balance settings can be changed in integer values [-10: 10] with resolution =1.
+Verify the sound is distributed in the vehicle on changing the values from HMI.
+-10 : the audio is distributed to left side of the vehicle.
+0 : sounds are equally distributed to all the sides of the vehicle.
++10 : the audio is distributed to right side of the vehicle.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "is applied" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4031277
+- Contents: The system shall set the Balance setting value to the "IDC_AudioSettings.BalanceSet output signal when the user changes the Balance setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Balance setting value.
+
+Verify that the set value is shown on the HMI and in the CAN signal IDC_AudioSettings.BalanceSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, output, request, value, change" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4031295
+- Contents: The system shall support the Fader setting in integer values in the interval [-10 : 10] with resolution = '1' where:
+-10 : the audio distribution to front of the vehicle.
+'0' : no audio distribution applied.
++10 : the audio distribution to rear of the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Fader settings can be changed in integer values [-10: 10] with resolution =1.
+Verify the sound is distributed in the vehicle as below on changing the values from HMI.
+
+-10 : the audio is distributed to front of the vehicle.
+0 : sounds are equally distributed to all the sides of the vehicle.
++10 : the audio is distributed to rear of the vehicle.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Missing unit 
+ (Look for: "‘+10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4031300
+- Contents: The system shall set the Fader setting value to the 'IDC_AudioSettings.FaderSet' output signal when the user changes the Fader setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Fader setting value.
+
+Verify that the set value is shown on the HMI and in the CAN signal DC_AudioSettings.FaderSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, request, signal, change, value" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4615171
+- Contents: If setting Persistence type is Standard, the system shall persist the Balance & Fader settings independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings(Balance & Fader settings) for a user.
+
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4615172
+- Contents: If setting persistent type = standard and the system can't read the stored values from memory, then the system shall set the Balance & Fader setting value to default value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Audio settings (Balance & Fader settings) value.
+
+Create error in memory reading.
+Verify that the Audio settings value is set to default value in HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "can't, system, read, stored, set, setting, default, type   standard, values, amp, value" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4615173
+- Contents: If setting Persistence type = Profiled, the system shall store the last 'Balance & Fader' setting value for the current active user profile, before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (Balance & Fader setting) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]: OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, amp, value, profile, system shutdown" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4615174
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi paranmeter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (Balance & Fader' setting) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2027]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4615175
+- Contents: If setting Persistence type = Profiled and system is unable to read the stored value from the memory, then system shall set the 'Balance & Fader' with default values.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Audio settings (Balance & Fader' setting) value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, is unable, to read, stored, set, value, memory, amp, values" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4030759
+- Contents: Balance and Fader setting is used to define the sound distribution of the entertainment audio content inside the vehicle.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4030772
+- Contents: The Fader allows to adjust the sound distribution from front to rear.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 4030973
+- Contents: The Balance allows to adjust the sound distribution from left to right.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4031210
+- Contents: The system shall allow the user to adjust the sound distribution between the left , right, front & rear speakers through Balance and Fader setting.
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Review
+
+5. ID: 4615164
+- Contents: Figure: Balance and Fader Adjustment by moving the "dot cursor" (see: image5.png)
+(see: image6.png)
+Figure: Cursor is moved to the Center
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): New
+- Visual Elements: image5.png, image6.png
+
+6. ID: 4031289
+- Contents: If the value of Balance setting changes, then the IDC shall properly adjust the sound
+distribution within the vehicle through the FAD_CTRL__setEntertainmentEffect(void *fad_ctrl_memory, int
+effectType, int effect_value) API, where:
+effectType = 1 ("Balance")
+effect_value = Balance setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, adjust, sounddistribution, vehicle, Balance" )
+- State (Harman_Requirement): Review
+
+7. ID: 4031308
+- Contents: The system shall properly adjust the sound distribution within the vehicle through the 'FAD_CTRL__setEntertainmentEffect(void *fad_ctrl_memory, int effectType, int effect_value)' API If the value of Fader setting changes, where:
+effectType = 2 ("Fader")
+effect_value = Fader setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adjust, effect, setting, distribution, vehicle, effectType, Fader" )
+- State (Harman_Requirement): Review
+
+8. ID: 4031332
+- Contents: The system shall apply Persistence logics to Balance and Fader setting as defined in Audio setting introduction Persistence.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, apply, defined, logics, Balance, Fader setting, Persistence" )
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer IDC-430467 - AUS-0 Audio setting
+introduction Persistence.
+
+9. ID: 4551192
+- Contents: The system shall support calibration of FaderSet and Balance Set parameters though Setting control DID.
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Verification Criteria: Cjhange teh oparanmetrs via diagnostics, 
+
+Verify that the values are displayed on HMI.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, DID, calibration, parameters" )
+- State (Harman_Requirement): New
+- Requirement Rationale: 3851334: Setting Control ($0521)
+
+10. ID: 4031339
+- Contents: Outputs
+    INFO_CAN
+IDC_AudioSettings.FaderSet
+IDC_AudioSettings.BalanceSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image6.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image5.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-1 6.2.1.8  Balance and Fader Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

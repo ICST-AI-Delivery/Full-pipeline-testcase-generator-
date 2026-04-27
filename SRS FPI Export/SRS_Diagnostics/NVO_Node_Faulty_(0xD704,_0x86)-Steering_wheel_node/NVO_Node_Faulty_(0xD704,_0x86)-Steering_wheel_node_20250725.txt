@@ -1,0 +1,76 @@
+# UnknownID 6.2.1.1.55 NVO Node Faulty (0xD704, 0x86)-Steering wheel node Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.55 NVO Node Faulty (0xD704, 0x86)-Steering wheel node
+
+- ID: 3841739
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3841740
+- Contents: The system shall detect NVO Node fault upon receiving wrong DLC at the instant.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NVO Node fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: Wrong DLC 
+    Maturation Time: Immediate
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NVO does not send a scheduled message
+Vehicle Configuration: Proxi byte 26, bit 4 (NVO) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3841743
+- Contents: The system shall make the NVO Node Fault inactive upon receiving the right DLC with De-maturation time "1"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NVO Node fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: Right DLC
+    De-Maturation Time: 1s
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NVO does not send a scheduled message
+Vehicle Configuration: Proxi byte 26, bit 4 (NVO) == "Present"
+Fault Detection Conditions: Key-On
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.55 NVO Node Faulty (0xD704, 0x86)-Steering wheel node Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

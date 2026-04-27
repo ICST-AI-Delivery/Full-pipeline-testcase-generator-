@@ -1,0 +1,69 @@
+# UnknownID 6.2.1.1.99 [GPIO3] Dig I/O #3 - Clock Button 1 Over voltage (0x9063, 0x17) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.99 [GPIO3] Dig I/O #3 - Clock Button 1 Over voltage (0x9063, 0x17)
+
+- ID: 4627370
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4627372
+- Contents: The System shall detect Over voltage in GPIO3 within 1s after key-ON, if over voltage is detect on GPIO3 pin.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify V >Ubatt (TBD) is detected on GPIO3 pin.
+-Verify vehicle is always configured.
+-Fault should detect within 1s during Key-ON.
+-Verify (0x9063, 0x17) DTC will trigger.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, voltage, detect, is detect, pin" )
+- TestTeamComment: RWeber_DIAG_250210: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+To set/unset voltage DTC, external harness or cbale modification needed. If possible to mod, thna we cann also test this DTC to active/passive state. Otherwise only protocol test.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4627373
+- Contents: The System shall clear the Over voltage fault in GPIO3 within 1s, If the detected voltage is in the permissible limit.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the detected voltage is V ≤ Ubatt.
+-Verify (0x9063, 0x17) DTC will clear.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, voltage, clear, detected, is, fault, limit" )
+- TestTeamComment: RWeber_DIAG_250210: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+To set/unset voltage DTC, external harness or cbale modification needed. If possible to mod, thna we cann also test this DTC to active/passive state. Otherwise only protocol test.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.99 [GPIO3] Dig I/O 3 - Clock Button 1 Over voltage (0x9063, 0x17) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

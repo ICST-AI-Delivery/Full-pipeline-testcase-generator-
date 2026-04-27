@@ -1,0 +1,176 @@
+# VFI-F200- 6.2.2.27.5 Launch Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.27.5 VFI-F200-Launch Mode
+
+- ID: 4157344
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: 27
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4157345
+- Contents: IDC shall apply the graphic strategies (e.g. red colouring of all graphics) when performance launch mode is active.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to apply graphic strategies (e.g. red colouring of all graphics) when performance launch mode is active.
+
+STATUS_C_NCA_NCR.PerformanceLaunchMode
+- Grooming Status: Review
+- Grooming Comments: this feature is related to lovefrom need to add oem
+need to check HMI specs
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "colouring, apply, is active, strategies, graphics, mode" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4756029
+- Contents: System shall apply the graphic strategies (eg. orange colour) and reconfigure the top bar when LaunchStatsVisual == 1("RealTime_Visual").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the color in top bar when LaunchStatsVisual == 1("RealTime_Visual").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, colour, apply, reconfigure, strategies, bar" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4756035
+- Contents: IDC shall display the following "Real-Time" data:
+DISTANCE
+SPEED
+G-FORCE
+TIME
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the real time data
+
+DISTANCE
+SPEED 
+G-FORCE 
+TIME
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4756037
+- Contents: System shall provide the real-time speed indication and G-meter indication in a dynamic graph on NDR and NDRR displays according to LaunchSpeed value in RealTime_Visual.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify real time speed and G meter indication graphs on NDR and NDRR when
+LaunchSpeed value in RealTime_Visual.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, according, indication, graph, displays, value" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4756055
+- Contents: System shall update the following labels to "Max Results" when  LaunchStatsVisual ==2("Max_Visual"):
+DISTANCE
+MAX SPEED
+MAX G-FORCE
+TIME
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the max results of following when 
+LaunchStatsVisual ==2("Max_Visual"):
+
+DISTANCE
+MAX SPEED
+MAX G-FORCE
+TIME
+
+Launch mode is a physical button
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, update, following, labels, Results, LaunchStatsVisual" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4756472
+- Contents: IDC shall stop the real-time speed indication in the dynamic graph in Max Visual state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the speed indication (stop) in max visual state
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4756475
+- Contents: IDC shall restore default visualization in max visual state when system detect a pressure on clock buttons.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to restore the max visual state when system detect a pressure on clock buttons
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, restore, detect, visualization, state, pressure, buttons" ) 
+Unclear term
+ (Look for: "max" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4756478
+- Contents: IDC shall display the default
+visualization for the central display data and the clock in No Visual state.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the default visualization in No Visual state.
+
+PWT_STATUS_7.LaunchStatsVisual
+- Grooming Status: Approved
+- Grooming Comments: no change in RD and ED
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, defaultvisualization, central, data, clock, state" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F200- 6.2.2.27.5 Launch Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

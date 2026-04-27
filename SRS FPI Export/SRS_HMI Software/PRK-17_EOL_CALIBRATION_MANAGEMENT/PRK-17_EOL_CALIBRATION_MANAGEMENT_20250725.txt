@@ -1,0 +1,164 @@
+# PRK-17 6.2.4.18  EOL CALIBRATION MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.18 PRK-17 EOL CALIBRATION MANAGEMENT
+
+- ID: 3939659
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3975037
+- Contents: The system shall implement a function for the execution of the EOL calibration procedures necessary for the correct operation of the system.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+Vehicle is Parked.
+Patterns are placed.
+
+Initiate end of line calibration using the routine 3101.
+
+Verify that Calibration is successfull.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "necessary" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3975041
+- Contents: The calibration of the system shall be executed through diagnostic command launching a dedicated routine of EOL Calibration.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+Vehicle is Parked.
+Patterns are placed.
+
+Initiate end of line calibration using the routine 3101.
+
+Verify that Calibration is successful.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be executed" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3975044
+- Contents: EOL Calibration shall enable Surround View system to determine the position of each camera to correctly apply the stitching between the images of different cameras in the bird view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the bird view shows the stitching without any overlapping after the calibration is successful.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Calibration, enable, to determine, apply, system, position, camera, stitching, images, cameras, views" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3975030
+- Contents: This function describes the EOL calibration feature for Surround View.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3975032
+- Contents: The system shall display the EOL Calibration Management as reported in: 
+HMI-LF-7928 - Failure and malfunctioning
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, malfunctioning, Management, Failure" )
+- State (Harman_Requirement): Analyzed
+
+3. ID: 3975035
+- Contents: The system shall implement the logics of EOL Calibration Management according to:
+SFS F560 – Surround View Management
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Analyzed
+
+4. ID: 3975049
+- Contents: The system shall implement a DTC of Missing Calibration to signal the condition of missing calibration of the system.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+5. ID: 3975051
+- Contents: The system shall implement dedicated DTCs for EOL Calibration failures:
+SVS - Calibration Fail
+SVS - Intrinsics Parameter Fail
+SVS - Pattern Detection Fail Front
+SVS - Pattern Detection Fail Rear
+SVS - Pattern Detection Fail Left
+SVS - Pattern Detection Fail Right
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+6. ID: 3975058
+- Contents: EOL calibration procedure and dedicated area definition to be agreed and defined between IDC supplier and Ferrari.
+For more information refer to IDC Diagnosis Specification.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+7. ID: 3975060
+- Contents: DTCs
+SVS - Missing Calibration ( IDC-460253 - SVS - Missing Calibration (0x9110, 0x54) )
+SVS - Calibration Fail ( IDC-458898 - SVS - Calibration Fail (0x9110, 0x46) )
+SVS - Intrinsics Parameter Fail ( IDC-458885 - SVS - Intrinsics Parameter Fail (0x9110, 0x91) )
+SVS - Pattern Detection Fail Front ( IDC-458877 - SVS - Pattern Detection Fail Front (0x9111, 0x29) )
+SVS - Pattern Detection Fail Rear ( IDC-458901 - SVS - Pattern Detection Fail Rear (0x9112, 0x29) )
+SVS - Pattern Detection Fail Left ( IDC-458866 - SVS - Pattern Detection Fail Left (0x9113, 0x29) )
+SVS - Pattern Detection Fail Right ( IDC-458888 - SVS - Pattern Detection Fail Right (0x9114, 0x29) )
+Routines
+SVS EOL Calibration ( IDC-458933 - SVS EOL Calibration ($F001) )
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-17 6.2.4.18  EOL CALIBRATION MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

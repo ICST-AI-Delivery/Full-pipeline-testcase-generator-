@@ -1,0 +1,566 @@
+# VEH-F847 6.2.1.1.1.36  Yaw Rate Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.36 VEH-F847 Yaw Rate
+
+- ID: 4011310
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4011384
+- Contents: System shall display G-Meter in the Binnacle right dial  area from Power ON and the visualiastion shall consists of:
+a four scales with linear value representation, two for the lateral acceleration and the other two for the longitudinal acceleration, from 0 to 2 g
+yellow indicators, that shall move along the scales for the rapresentation of the istantaneous accelerations
+a dark yellow marker for the indication of the maximum acceleration in each scale
+four labels displaying the absolute value of the maximum lateral and longitudinal acceleration outside the right dial
+a label "G-Meter" in the upper left-hand corner of the right dial
+(see: image72.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the G-Meter is displayed in the Binnacle Right Dial using the four Scales reprsenting the Later and Longitudinal Accelaration in a range from 0 to 2.
+- Grooming Status: Approved
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualiastion, display, consists, move, along, displaying, G-Meter, area, label, corner, dial, scales, representation, acceleration, rapresentation, accelerations, marker, indication, scale, value" ) 
+Missing unit 
+ (Look for: "‘0,2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image72.png
+
+2. ID: 4011531
+- Contents: System shall display the graph with the following characteristics:
+IDC validates the information received by NYL basing on the following strategy:
+IF YRS_DATA.AXSStat AND YRS_DATA.AYSStat are all valid (= Signal_in_specification_limits)
+THEN IDC shall manage the visualization of the GMeter basing on the values of the received YRS_DATA.LongAcceleration and YRS_DATA.LatAcceleration.
+longitudinal accelerations based on the value of LongAcceleration (y-axis)
+lateral accelerations based on the value of LatAcceleration (x-axis)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+YRS_DATA.AXSStat AND YRS_DATA.AYSStat are all valid (= Signal_in_specification_limits)
+
+
+Verify that the Longitudinal Accelaration and Lateral Accelarations are indicated in the G-Meter using the Y-Axis for Longitudinal Accelaration and X-Axis for Lateral Accelaration.
+
+CAN-Signal:
+YRS_DATA.AYSStat
+YRS_DATA.AXSStat
+YRS_DATA.LongAcceleration
+YRS_DATA.LatAcceleration
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall manage" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4011540
+- Contents: The accelerations shall display using a dynamic animation with a yellow indicator for each scale that represents the instant acceleration value on flat plane:
+Positive acceleration: (e.g. vehicle is accelerating), indicator moves downwards starting from the center (0)
+Negative acceleration (e.g. vehicle is breaking) indicator moves upwards starting from the center (0)
+Lateral acceleration (e.g vehicle is turning left/right) indicator moves to the right/left starting from the center (0)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "accelerations, vehicle, display, using, represents, is, accelerating, moves, starting, breaking, turning, left, animation, indicator, scale, value, acceleration, center, right" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4011574
+- Contents: System shall display a temporary max acceleration animation with a timeout logic.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Blocked
+- Grooming Comments: What is the Timeout logic?
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "temporary" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 4011782
+- Contents: System shall display a marker (max value indicator line) on the scale (one for each scale) when a higher max value is reach.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, higher, display, is reach, max, line, scale, value" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 4012265
+- Contents: System shall display a the numeric value of the maximun acceleration reached outside right dial when a higher max value is reach.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, higher, display, reached, is reach, value, dial" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 4012269
+- Contents: System shall have a 0.01g resolution for the four labels displaying the accelarations
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 4012271
+- Contents: The marker and the value shall remain visualized before reset.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "marker, value, remain, visualized, reset" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 4012276
+- Contents: The G-meter is available from HMI ON
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 4012278
+- Contents: The G-meter dynamic representation is available from Power ON
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+11. ID: 4012425
+- Contents: During Key-Off for the G-Meter visualisation system shall display G-Meter indicator for the G-Meter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+12. ID: 4012435
+- Contents: System shall display the scales without “max value indicator line”.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, scales, line #8221" )
+- State (Harman_Requirement): Obsolete
+
+13. ID: 4012440
+- Contents: System shall display the four max acceleration labels equal to the previously stored values.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "previously" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 4012442
+- Contents: System shall reset the four max acceleration labels and display “0.0” if INFO_GmeterReset = “Active”.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, reset, display, labels, #8220, INFO_GmeterReset    #8220, #8221" )
+- State (Harman_Requirement): Obsolete
+
+15. ID: 4012455
+- Contents: During Key-On and steady state System shall display an empty G-Meter indicator when (LongAccelaration or LatAccelaration) is 0XFFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, LatAccelaration, display, is, empty, indicator, LongAccelaration" )
+- State (Harman_Requirement): Obsolete
+
+16. ID: 4015347
+- Contents: System shall update the graphical visualization of the G-meter with a frequency of 30Hz.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘30 Hz’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+17. ID: 4015357
+- Contents: System shall convert both LongAcceleration and LatAcceleration from m/s2 to g with the following conversion:
+X [g] = X [m/s2] / 9.81
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, convert, to g, following, LongAcceleration, LatAcceleration, m/s2, conversion" ) 
+Missing unit 
+ (Look for: "‘9.81’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+18. ID: 4015493
+- Contents: System shall apply a first order filter on the converted input signals (LongAcceleration and LatAcceleration), to improve the graphical pointer visualization (less sensitive to sudden change in value of the signals) in the G-meter graph as reported below:
+y(t)=y(t-1)*k_Ax + x(t)*(1-k_Ax) for Longitudinal acceleration
+y(t)=y(t-1)*k_Ay + x(t)*(1-k_Ay) for Lateral acceleration (see: image73.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that te First order filter is applied and Accelaration PArameters graphical Pointer is shown as per the logic.
+
+x(t) is a Input CAN Value.
+
+CAN-Signal:
+YRS_DATA.LongAcceleration
+YRS_DATA.LatAcceleration
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, converted, to improve, reported, yt, filter, LongAcceleration, LatAcceleration, visualization, change, value, signals, graph, acceleration" ) 
+Missing unit 
+ (Look for: "‘+1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image73.png
+
+19. ID: 5288815
+- Contents: System shall display instant and Maximum reached accelaration.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Instaneous and Maximum reached accelaration should be displayed as Animation and is displyed in sync with the CAN signals
+
+Maximum Accelaration: 2g
+
+CAN-Signal:
+YRS_DATA.LongAcceleration
+YRS_DATA.LatAcceleration
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, reached, accelaration" ) 
+Unclear term
+ (Look for: "instantaneous, Maximum" )
+- State (Harman_Requirement): Approved
+
+20. ID: 5288824
+- Contents: After Power-ON the system shall show the 1 g maximum scale indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the 1g Maximum scale is displayed after the Power-ON.
+
+CAN-Signal:
+STATUS_B_CAN.KeySTS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+21. ID: 5288831
+- Contents: System shall update the scale with 2g maximum scale indication maintaining the scale length.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: During the Lateral Or Longitudinal Accelaration verify that the Scale Value is replaced with 2 as Maximum and 1 is the Mid Value.
+
+
+CAN-Signal:
+YRS_DATA.LongAcceleration
+YRS_DATA.LatAcceleration
+  
+
+Note; All the CAN-Signals mentioed that will undergo First order and based on that the G-Meter is displayed.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+22. ID: 5288833
+- Contents: System shall maintain the 2g scale until the Maximum value and shall continue to display 2g G-meter if the accelaration is increased.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Veify that the Maximum indication is 2g in the G-Meter even if the Lat/Lonitudinal is Increased more than that.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, maintain, continue, to display, scale, value, G-meter" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is increased" )
+- State (Harman_Requirement): Approved
+
+23. ID: 5288838
+- Contents: System shall colour the scales following the Logic :
+Positive acceleration: (e.g. vehicle is accelerating), indicator moves downwards starting from the center (0)
+Negative acceleration (e.g. vehicle is breaking) indicator moves upwards starting from the center (0)
+Lateral left acceleration (e.g vehicle is turning right) indicator moves to the left starting from the center (0)
+Lateral Right acceleration (e.g vehicle is turning left) indicator moves to the right starting from the center (0)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Veify that the Accelaration indicators are indicated as per the logic.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+24. ID: 5288841
+- Contents: System shall remove the instant lateral and longitudinal acceleration visualizations when VEH_Vindicata[km/h] <= V_car_moving.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the no visualisation is displayed for Longitudinal Accelaration or Lateral Accelarations when Vehicle speed is Lessthan or equal to V_car_moving.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, remove, moving, lateral, visualizations" )
+- State (Harman_Requirement): Approved
+
+25. ID: 5288861
+- Contents: System shall display a marker that moves on the scale until a new maximum is reached by the instant acceleration When a new max value is reached.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the New-Marker is set, for every Maximum Accelaration reached.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, moves, marker, scale, acceleration" ) 
+Escape clause
+ (Look for: "until" ) 
+Unclear term
+ (Look for: "maximum" ) 
+Passive voice
+ (Look for: "is reached" )
+- State (Harman_Requirement): Approved
+
+26. ID: 4015495
+- Contents: System shall approximate the converted and filtered acceleration values applying: the ceiling method if the centesimal part
+is >= 0.05 the floor method if the centesimal part is < 0.05
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, approximate, converted, filtered, applying, values, method, partis" ) 
+Missing unit 
+ (Look for: "‘0.05’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+27. ID: 4015497
+- Contents: Temporary max acceleration values shall reset at each HMI OFF/ON cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Obsolete
+
+28. ID: 4015498
+- Contents: System shall allow to reset the G-meter values (absolute and temporary) via a dedicated gestures on steering wheel or via setting on central display.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, values, allow, to reset, steering, setting, gestures, wheel, display" ) 
+Unclear term
+ (Look for: "temporary" )
+- State (Harman_Requirement): Obsolete
+
+29. ID: 4015499
+- Contents: System shall be able to reset G-meter values only if detect key inside the vehicle in HMI On.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 20
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "It" ) 
+Compound requirement
+ (Look for: "values, is possible, to reset, detect, key, vehicle, On" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+30. ID: 4015505
+- Contents: System shall reset the G-Meter when INFO_GmeterReset is change from Not_Active to Active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, GmeterReset, reset, is change, G-Meter, Not_Active" )
+- State (Harman_Requirement): Obsolete
+
+31. ID: 4015512
+- Contents: system shall reset the G-meter at each Key-On to Key-Off cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+32. ID: 4015702
+- Contents: System shall manage a dedicated scale , when the Perfomance Launch control mode is armed/engaged.
+(see: image74.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Performance Launch control is activated and A dedicated Indication is shown as per the Image mentioned.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.PerformanceLaunchMode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "manage, is" ) 
+Passive voice
+ (Look for: "is armed, engaged" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image74.png
+
+33. ID: 4015703
+- Contents: System shall display a label "G-Meter" in the upper left-hand corner of the Right Dial with a light red color when the Perfomance Launch control mode is armed/engaged
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, label, G-Meter, corner, Dial, color, mode" ) 
+Passive voice
+ (Look for: "is armed, engaged" )
+- State (Harman_Requirement): Obsolete
+
+34. ID: 4015704
+- Contents: System shall manage G-meter for Performance Launch control mode until Launch control mode had a transistion from active to not-active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Performance Launch control transition from Active to Not-Active  and dedicated Indication is Not- shown .
+
+CAN-Signal:
+STATUS_C_NCA_NCR.PerformanceLaunchMode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Passive voice
+ (Look for: "is deactivated" )
+- State (Harman_Requirement): Approved
+
+35. ID: 4015705
+- Contents: System shall show only instant positive acceleration on a dedicated scale, indicator which moves downwards starting from the top (0) with a bright red color.
+(see: image74.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Performance Launch Control Mode is Active.
+
+Verify that the accelaraion is displyed in positive scale in bright red colour.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.PerformanceLaunchMode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image74.png
+
+36. ID: 4015787
+- Contents: System shall update default or previous G-meter with new maximum value and marker when Launch-control-deactivate.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the previous G-Meter indicateions are displayed when launch control is de-activated.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.PerformanceLaunchMode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "update, deactivate" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4011318
+- Contents: System shall display Yaw Rate indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image74.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image73.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image72.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F847 6.2.1.1.1.36  Yaw Rate Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

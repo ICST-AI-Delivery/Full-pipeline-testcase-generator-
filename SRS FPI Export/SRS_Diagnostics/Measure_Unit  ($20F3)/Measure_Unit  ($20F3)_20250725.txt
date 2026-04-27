@@ -1,0 +1,127 @@
+# UnknownID 6.2.4.3.2.19 Measure Unit  ($20F3) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.19 Measure Unit  ($20F3)
+
+- ID: 3998474
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3998475
+- Contents: The System shall have a Parameter to measure the language, distance, pressure and temperature unit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Measure unit for language, distance, pressure and temperature.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, to measure, Parameter, language, distance, unit" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 3998476
+- Contents: The System shall have RecordDataIdentifier ($20F3) to know the Measure Unit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20F3)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20 F’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+3. ID: 3998528
+- Contents: (116) Language
+The System shall have the languages as below.
+0x00 = Italian;
+0x01 = German;
+0x02 = English;
+0x03 = Spanish;
+0x04 = French;
+0x05 = Russian;
+0x06 = American English;
+0x07 = Portuguese;
+0x08 = Chinese
+0x09 = Japanase
+0x0A = Arabic
+0x0B = Turkish
+0x0D = CA French
+0x0E = MX Spanish
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Languages based on the input value.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as below, 0x08   Chinese0x09   Japanase0x0A   Arabic0x0B   Turkish0x0D" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+4. ID: 3998529
+- Contents: The System shall support the following NRC's
+Read NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+5. ID: 3998530
+- Contents: The System shall support the following NRC's
+Write NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.19 Measure Unit  ($20F3) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

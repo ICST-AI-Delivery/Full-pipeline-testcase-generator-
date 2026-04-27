@@ -1,0 +1,243 @@
+# DMS-2 6.2.1.3  PROXI MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3 DMS-2 PROXI MANAGEMENT
+
+- ID: 3727505
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4883495
+- Contents: The system shall turn ON the DMS by default.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the SW
+
+Driver is present in the vehicle.
+
+Verify the DMS setting is enabled.
+
+Verify the value of the CAN signal
+'DMS_INFO.DMSSystemStatus.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3727514
+- Contents: The system shall use the 'Distraction' proxi parameter to 'disable the ADDW functionality & the User presence logic'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ADDW functionality and user presence logic can be enabled/disabled based on the proxi parameter 'Distraction'
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3727553
+- Contents: The system shall use the 'ADA_Type' proxi parameter to configure the setting behavior without memory(as defined by ADDW regulation[DMS_EU_01]) or with memory(possible in the markets where ADDW regulation is not-mandatory).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the ADA_Type Proxi parameter = with memory
+
+Verify the DMS setting is persisted in the next ignition cycle.
+
+Set the ADA_Type Proxi parameter = without memory
+Verify the DMS setting is Not persisted in the next ignition cycle and displays "Le_bol_DMSSettingSts = ON" regardless of previous status.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Abdul 10.02.2025] How to Verify the proxi parameter value is correctly set?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, to configure, parameter, behavior, memory" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3727566
+- Contents: The system shall set the DMS setting (DMSSettingSts) to 'ON'  at each ignition ON state independently of the previous status if 'ADA_Type' is 'without memory'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the ADA_Type Proxi parameter = without memory
+
+Verify the DMS setting DMSSettingSts (DMS_INFO.DMSSystemStatus) is OFF
+
+Do an ignition cycle
+
+Verify the DMS setting DMSSettingSts (DMS_INFO.DMSSystemStatus) is ON
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Abdul 10.02.2025] How to Verify the proxi parameter value is correctly set?
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, DMS, DMSSettingSts, ignition, independently, status" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3727568
+- Contents: The system shall persist the current DMS setting(DMSSettingSts) across different ignition cycle if 'ADA_Type' is 'Withmemory'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the ADA_Type Proxi parameter = memory
+
+Verify the DMS setting DMSSettingSts (DMS_INFO.DMSSystemStatus) is ON/OFF 
+
+Do ignition cycle
+
+Verify the current DMS setting DMS_INFO.DMSSystemStatus (DMSSettingSts) is set in the next ignition cycle should be ON/OFF.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "persist, cycle" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3727572
+- Contents: The system shall use the IDC_Vehicle_Type proxi parameter to adapt the SW behavior to the specific vehicle model.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify different vehicle model can be configured based on the IDC_Vehicle_Type value
+
+Verify the DMS functionality is working if  IDC_Vehicle_Type = 1 (F244)
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Abdul 10.02.2025] How to Verify the proxi parameter value which is correctly set?
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3727582
+- Contents: The system shall use the Side driver proxi parameter to adapt the SW calibration according to the position of the driver(left or right).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the position of the vehicle (left/drive) by using the proxi parameter Side driver.
+
+Verify that DMS is working in both the configuration
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, to adapt, according, parameter, calibration, position, driverleft, right" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3727588
+- Contents: The system shall use the 'Type' proxi parameter to adapt online calibration behavior depending on the type of vehicle:
+coupe: alwayse closed and fixed capote
+spider: retractible or absent capote.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the online calibration behavior based on the proxi parameter 'Type'
+
+The Driver detection & Gaze direction should be working fine
+
+coupe =0
+spider =1
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Abdul 10.02.2025] How to Verify the proxi parameter value which is correctly set?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, to adapt, depending, alwayse, fixed, parameter, calibration, capote" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3727510
+- Contents: This function manages the configuration of the SW based on specific project parameters set at vehicle End of Line.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3727512
+- Contents: The system shall implement the logics of Proxi Management according to Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer to SFS F531 for Proxi management.
+
+3. ID: 4081279
+- Contents: IDC shall implement the logics of Proxi Management according to: 
+IDC-451917 - SFS F531
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the value of the proxi parameter "Distraction" = 1 (Present)
+Verify that the ADA functionality is active
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "be, Present" )
+- State (Harman_Requirement): Review
+
+4. ID: 3727513
+- Contents: The system shall use the following PROXI parameters in order to define the sw behavior depending on the EOL configuration:
+Distraction
+ADA_Type
+IDC_Vehicle_Type
+Side driver
+Type
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Review
+
+5. ID: 3727577
+- Contents: In particular the system calibration shall be adapted to the specific vehicle model according to the IDC_Vehicle_Type values.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be adapted" )
+- State (Harman_Requirement): Review
+
+6. ID: 3727589
+- Contents: Proxi
+Start Byte 174, Start bit 2 - Distraction (0 = absent, 1 = present)
+Start Byte 174, Start bit 3 - ADA_Type (0 = without_memory, 1 = with_memory)
+Start Byte 174, Start bit 4 - IDC_Vehicle_Type (0 = invalid, 1 = F244, 15 = other)
+Start Byte 58, Start Bit 4 - Side driver (0 = left, 1 = right)
+Start Byte 58, Start Bit 1 - Type (0 = coupe, 1 = spider)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-2 6.2.1.3  PROXI MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

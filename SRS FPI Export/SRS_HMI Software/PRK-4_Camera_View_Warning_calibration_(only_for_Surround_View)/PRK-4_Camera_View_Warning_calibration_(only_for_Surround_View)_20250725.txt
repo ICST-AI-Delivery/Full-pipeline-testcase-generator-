@@ -1,0 +1,148 @@
+# PRK-4 6.2.4.5.2  Camera View Warning calibration (only for Surround View) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.5.2 PRK-4 Camera View Warning calibration (only for Surround View)
+
+- ID: 4355555
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4355558
+- Contents: The system shall provide a specific warning if the system was never calibrated before.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: If both online and EOL calibration was never performed then the specific warning has to be displayed.
+
+Verify the warning for the never calibrated HUs.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1072
+13.03.2025 , Wei, Ask Ferrarri: 
+Asper the document .... there are 2 popups related to calibrartion
+Missing_calibration_FRONT
+Rear_not_calibrated
+
+which popup to be shown? 
+MISSING CALIBRATION
+or
+SYSTEM NOT CALIBRATED, GO TO DEALER
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4355570
+- Contents: The system shall provide "specific warning" if the system was previously "calibrated" & subsequently if one or more "camera serial numbers" "have - been" "changed".
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Perform the Calibration
+Bring a calibrated HU
+
+Camera (Front, right, Left, rear)is connected and working with a Calibrated HU
+
+Replace one or more camera.
+
+Verify the warning message for non calibrated camera(s).
+- Grooming Status: Approved
+- Grooming Comments: 13.03.2025, Wei Ask Ferrarri:
+https://jira.harman.com/jira/browse/FQ-1072
+
+which popup to be shown for this requirement (e.g. connecting new camera)?
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, provide, was, calibrated, have, changed, warning, amp, numbers" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4364976
+- Contents: The system shall show the calibration popup in all kinds of view.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Connect a non calibrated camera
+
+Launch the Surround view
+verify the popup for the non calibrated camera in all the Surround view views including the UI views
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4355574
+- Contents: The system shall "not-allow" the user to interact with the "surround view system" when the system "hasn't been" "calibrated".
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Connect a non calibrated camera to the HU.
+
+Verify that , User can not be interacted with the surrond view system
+
+Note:
+HMI-LF-4503 -  the
+stream frame is still visualized during the non calibrated period.
+1. If Reverse gear is engaged the Stream frame shows Rear view.
+2. If First gear or Neutral is engaged the Stream frame shows Front view.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, surround" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HMI-LF-4503 - No interaction is possible during the entire warning calibration period, but the
+stream frame is still visualized:
+If Reverse gear is engaged the Stream frame shows Rear view.
+If First gear or Neutral is engaged the Stream frame shows Front view.
+
+### Informational Items:
+
+1. ID: 5603847
+- Contents: (see: image114.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image114.png
+
+2. ID: 5603851
+- Contents: (see: image115.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image115.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image115.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image114.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-4 6.2.4.5.2  Camera View Warning calibration (only for Surround View) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

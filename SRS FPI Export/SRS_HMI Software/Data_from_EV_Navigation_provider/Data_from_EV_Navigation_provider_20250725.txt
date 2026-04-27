@@ -1,0 +1,81 @@
+# UnknownID 6.2.2.31.2 Data from EV Navigation provider Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.31.2 Data from EV Navigation provider
+
+- ID: 4730483
+- Artifact Type: SRS Feature
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4730486
+- Contents: System shall populate ETA_to_EVSE = WaypointETAX based on the next charging station information retrived by the EV Navigation provider
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the ETA_to_EVSE CAN message 
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4730506
+- Contents: System shall retrive the Total Travel Time from the EV Navigation provider  and displays ETA_to_Dest signal accordingly
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the ETA_to_Dest signal message
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrive, displays, Time, provider, signal" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4730526
+- Contents: IF the EV Navigation Provider information shall  unavailable OR projection/Projection navigation is inactive, then system shall displays the corresponding signal with the value "SNA".
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Ensure the EV navagion is not active and then verify the SNA value with the CAN signal ETA_to_Dest
+
+Precondition is No Active root guidance
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_Networking, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "information, system, unavailable, is inactive, displays, corresponding, projection, navigation, signal, value, SNA" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.31.2 Data from EV Navigation provider Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

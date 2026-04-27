@@ -1,0 +1,160 @@
+# UnknownID 6.2.1.1.1.44 BC001- Virtual Telltale Bulck Check Managment Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.44 BC001- Virtual Telltale Bulck Check Managment
+
+- ID: 4756551
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4756787
+- Contents: During key-on System shall display virtual telltales , when Bulb check is performed, other visualization cycles are triggered and At the end of Bulb Check phase, IDC shall maintain virtual telltales ON if the trigger condition is still valid.
+Wiper failure (WPF001)
+RWS Fail (RWS002)
+Brake system malfunction (BRK001)
+Electronic Power Steering failure/reduced power assistance (EPS001)
+Trasmission Failure (TSM001)
+Drive power limitation (LIM001)
+Propulsion System Failure (WRM001)
+Low battery voltage fail (LVB001)
+High voltage battery failure (HVB001)
+Power Train Electric Motor Failure (PWT001)
+AVAS (AVS001)
+ChildLock (LCK001)
+Lane detected / Hands On LKA002
+Lane assist Fault (requested by normative) (LDW002)
+TSA/TSR fault (requested by normative) (TSR001)
+Drowsiness Detection Alert Fail (requested by normative) (DDA002)
+Driver Monitoring System Fail (requested by normative) (DMS003)
+Stop lamp fail status (LGH003)
+Master light fail (LGH004)
+High Beams Engaged (LGH007)
+Low Beam ON (LGH008)
+Rear fog light On (LGH005)
+Lifter (SSP023)
+Seat belt reminder (BLT001+003)
+Door open (DOR001)
+Electronic Stability Control (ESC) intervention/Fail (ESC001)
+Electronic stability control system "OFF" (ESC002)
+Anti-locking Braking System (ABS) fail (ABS001)
+TPMS (low tyre pressure/tyre puncture/malfunction) (TPM001)
+Predictive brake/FCW fault (requested by normative) (FCW002)
+Air-Bag readiness indicator and failure (ARB001)
+Generic fail (WRM001)
+AVH (WRM014)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Telltale bulb is triggered or checked during the welcome ceremony and will be displayed unti activation conditions are met.
+
+Note:
+Please refer the HMI-LF-8773 document for the list of telltales to be displayed during the  Telltale bulb check phase.
+- Grooming Status: Approved
+- Grooming Comments: SysInfra might be involved for Sending the power mode on the host side to trigger Bulb check.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, check, cycles, display, maintain, telltales, end, phase" ) 
+Unclear term
+ (Look for: "other" ) 
+Passive voice
+ (Look for: "is performed, are triggered" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895636
+- Contents: At key-ON, IDC shall start the virtual telltale check phase(VTTCP) of T_bulb_check_timer(1 Second)  seconds only
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays Virtual Telltale Check Phase Telltale for 1 second only.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing limits
+ (Look for: "‘1 Second’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895637
+- Contents: During the VTTCP IDC shall display the following icon in wireframe area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the all telltales which are mentioned in the REQ iD:4756787 were displayed during the Virtual Telltal Check Phase.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, following, reported, icon, area, Check, amp, documents" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4895638
+- Contents: IDC shall perform Virtual telletale Bulb Check during the Opening Ceremony as when there is a change in Key status from HMI ON and Power OFF to HMI ON and Power ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Welcome ceremony and Telltale bulb check is triggered when there is a change in Power OFF to Power ON.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, reported, Bulb Check, Ceremony, animation HMILF-8758" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4895639
+- Contents: During the Opening Ceremony, Virtual telltale Bulb Check animation shall NOT be speeded up.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Virtual Telltale Bulb Check Animation shall NOT be speeded up during the Opening ceremony.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "NOT" ) 
+Passive voice
+ (Look for: "be speeded" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4756565
+- Contents: System shall display the Virtual Telltale Bulb indications as per the Ferrari Design.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3406474
+- Contents: 6.2.1.1.2 Other
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.1.44 BC001- Virtual Telltale Bulck Check Managment Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

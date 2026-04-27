@@ -1,0 +1,1077 @@
+# VEH-F534 6.2.1.1.2.28  Adaptive Cruise Control Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.28 VEH-F534 Adaptive Cruise Control Management
+
+- ID: 3408593
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5076652
+- Contents: System shall store the last valid value received of INFO_DistanceUnit to use  stored value in case of missing information from IDC_INFO.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify last valid value is used for INFO_DistanceUnit
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 5076653
+- Contents: System shall enable  Adaptive Cruise Control Management when PROXI Adaptive_Cruise_Control == "present" (byte-146, bit-0) AND PROXI DASM == "present" (byte-33, bit-1).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify ACC display icons shown when proxi condition met
+
+Verify ACC display icons not shown when proxi condition not met
+
+Icon details at 3837777
+
+Proxi condition  : PROXI Adaptive_Cruise_Control == "present" (byte-146, bit-0) AND PROXI DASM == "present" (byte-33, bit-1).
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, Management, DASM, present, bit-1" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5076654
+- Contents: System shall display ACC icon based on ACC System status and ACC Display HMI CAN signals as per below table
+(see: image146.png)
+(see: image147.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger ACC icons by different combination of ACCSystemSts and HMIDisplay_ACC.
+Verify icon displayed as per table.
+
+CAN-Signal:
+DASM_HMI.HMIDisplay_ACC
+DASM_HMI.ACCSystemSts_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, based, icon, status, signals, table" ) 
+Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image146.png, image147.png
+
+4. ID: 5076655
+- Contents: System shall display speed value under ACC icon as per figma design based on ACC set speed CAN input
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Modify speed using below CAN signals based on distance unit
+ACC_SetSpeedKPH (if DistanceUnit in the settings is configured like “km”)
+ACC_SetSpeedMPH (if DistanceUnit in the settings is configured like “mi”)
+
+Verify received speed is displayed along with ACC icon
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per figma design" )
+- State (Harman_Requirement): Approved
+- Proxi Details:
+| Use Case | Proxi: Country Market | Proxi: Detail for Extra Market | Proxi: km/mi | INFO_Distance Unit signal | Speed Visualization                     |
+|----------|-----------------------|--------------------------------|--------------|---------------------------|-----------------------------------------|
+| A1       | 2                     | 3                              | Don't care   | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| A2       | 2                     | 3                              | Don't care   | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| B        | 0/1/3                 | -                              | 0            | miles                     | Single Speed [km/h]                     |
+| C        | 0/1/3                 | -                              | 1            | km                        | Single Speed [mph]                      |
+| D        | 2                     | 0/1/2                          | 0            | miles                     | Single Speed [km/h]                     |
+| E        | 2                     | 0/1/2                          | 1            | km                        | Single Speed [mph]                      |
+| F        | 0/1/3                 | -                              | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| G        | 0/1/3                 | -                              | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+| H        | 2                     | 0/1/2                          | 0            | miles                     | Main Speed [mph] Secondary Speed [km/h] |
+| I        | 2                     | 0/1/2                          | 1            | km                        | Main Speed [km/h] Secondary Speed [mph] |
+
+5. ID: 5076656
+- Contents: System shall display ACC speed feedback in left dial with
+coloring speed indicator and speed values when ACC engaged
+coloring speed indicator and speed values and animation (from set speed value to current speed value) when ACC override
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger ACC engaged by ACCSystemSts= "Engaged" 
+Verify left dial display with ACC speed value and indicator colored as per Figma
+
+Trigger ACC override ACCSystemSts=  "Override",
+Verify left dial display with ACC speed value and indicator colored as per Figma
+Verify animation from ACC_SetSpeedKPH (or ACC_SetSpeedMPH if DistanceUnit if the settings is configured like “mi” ) value till current speed
+- Grooming Status: Approved
+- Grooming Comments: IDC-457162 - need confirmation on animation. is it the arrow movement on speeddial within ACC icon
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, coloring, engaged, feedback, dial, indicator, values, animation, value, override" )
+- TestTeamComment: IDC-457162 - need confirmation on animation. is it the arrow movement on speeddial within ACC icon
+- State (Harman_Requirement): Approved
+
+6. ID: 5076657
+- Contents: System shall display ADAS screen on right dial as per Figma design (ADAS One Page visualization) and CAN input. Refer Examples of ADAS Screen  ID3840693: Examples of ADAS Screen
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Verify ADAS screen as per Figma design based on Examples of ADAS Screen table
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Examples, display, input, screen, dial, visualization, Screen" )
+- State (Harman_Requirement): Approved
+
+7. ID: 5076661
+- Contents: System shall display the target vehicle element representing the real-world distances value (in meter or yard units) based on the distance scale shown next to the road element using CAN input
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Modify ACC_TargetDistance and verify display updated. Verify number of highlighted lines  change
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, representing, distances, based, shown, using, input, vehicle, value, meter, units, scale, element" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5076662
+- Contents: System shall update graphical element for DesiredDistancePosition to ACC_DesiredDistance  position when difference between items is greater than calibration value ACCDistanceHysteresis
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify visualization of desired distance position
+abs(DesiredDistancePosition(ti) - ACC_DesiredDistance(ti+1)) = äD smooth animation, otherwise, the desired distance graphic element at time (ti+1) shall not change with respect to
+DesiredDistancePosition(ti).
+if äD > ACCDistanceHysteresis parameter, then the desired distance graphical element position DesiredDistancePosition(ti) shall be updated to the new ACC_DesiredDistance(ti+1)
+position with a smooth animation, otherwise, the desired distance graphic element at time (ti+1) shall not change with respect to DesiredDistancePosition(ti).
+
+Modify ACCDistanceHysteresis by DID 203D in below info
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 5076664
+- Contents: The System shall not display the target vehicle when ACC_TargetDistance
+>=0x97 OR
+Not-used
+Target not-found
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Set ACC_TargetDistance ≥ 0x97 or ACC_TargetDistance = Not_used or ACC_TargetDistance = Target_not_found 
+Verify no display of the target vehicle.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, used, found, vehicle" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3733304
+- Contents: System shall visualize F534 Info1 when ACC unavailable with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info1 by algo
+Verify Info1 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53401 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE):
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3733309
+- Contents: System shall visualize F534 Info2 on receiving 'ACC_UNAVAILABLE_ABOVE_MAX_SPEED' with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info2 by algo
+Verify Info2 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53402 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_ABOVE_MAX_SPEED):
+
+CAN-Signal
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3746117
+- Contents: System shall visualize F534 Info3 when Parking Brake On
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info3 by algo
+Verify Info3 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53403 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_EPB_ACTIVE)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualize, Parking" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3746122
+- Contents: System shall visualize F534 Info4 when HMICode_ACC = ACC_UNAVAILABLE_ESC_EVENT
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info4 by algo
+Verify Info4 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53404 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_ESC_EVENT)
+
+CAN-Signal:
+HMICode_ACC = ACC_UNAVAILABLE_ESC_EVENT
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 3746127
+- Contents: System shall visualize F534 Info5 when ACC Unavailable drive mode Select
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info5 by algo
+Verify Info5 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53405 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_DRIVEMODE)
+
+CAN-Signal:
+HMICode_ACC = ACC_UNAVAILABLE_ESC_EVENT
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualize, Select" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3746130
+- Contents: System shall visualize F534 Info6 when HMICode_ACC = ACC_UNAVAILABLE_ SHIFT_D
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info6 by algo
+Verify Info6 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53406 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_ SHIFT_D)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3746823
+- Contents: System shall visualize F534 Info7 when Seatbelt un-fastened
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info7 by algo
+Verify Info7 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53407 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_ BELT)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3746829
+- Contents: System shall visualize F534 Info8 when Lift On
+with
+D01 visualization behaviour
+Priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info8 by algo
+Verify Info8 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53408 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_ LIFTER_ON)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3746833
+- Contents: System shall visualize F534 Info9 when forward gear un-engaged with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info9 by algo
+Verify Info9 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53409 for popup 
+
+Algo : (HMICode_ACC == ACC_CANCEL_SHIFT_D)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+19. ID: 3788341
+- Contents: System shall visualize F534 Info10 Pop-Up with Buzzer and send the status is send to IVI when HMICode_ACC = ACC_CANCEL_BACKWARD
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info10 by algo
+Verify Info10 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53410 for popup and buzzer3C
+
+Algo : HMICode_ACC = ACC_CANCEL_BACKWARD
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+20. ID: 3788344
+- Contents: System shall visualize F534 Info11 Pop-Up with Buzzer and send the status to IVI when (HMICode_ACC = ACC_CANCEL_ESC_EVENT
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info11 by algo
+Verify Info11 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53411 for popup and buzzer
+
+Buzzer;3C
+
+Algo : HMICode_ACC == ACC_CANCEL_ESC_EVENT):
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+21. ID: 3788349
+- Contents: System shall visualize F534 Info12 Pop-Up and send the status to IVI when HMICode_ACC = ACC_CANCEL_HIGH_RPM)
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info12 by algo
+Verify Info12 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53412 for popup 
+
+Algo : (HMICode_ACC == ACC_CANCEL_HIGH_RPM)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3788355
+- Contents: System shall visualize F534 Info13 Pop-Up with Buzzer and send the status to IVI when HMICode_ACC = ACC_CANCEL_CHIME
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info13 by algo
+Verify Info13 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53413 for popup and chime
+
+Buzzer:3C
+
+Algo : HMICode_ACC == ACC_CANCEL_CHIME
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+23. ID: 3788361
+- Contents: System shall visualize F534 Info14 Pop-Up and send the status to IVI whenHMICode_ACC = ACC_CANCEL_BELT
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info14 by algo
+Verify Info14 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53414 for popup 
+
+Algo : HMICode_ACC == ACC_CANCEL_BELT
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+24. ID: 3788560
+- Contents: System shall visualize F534 Info15 Pop-up and send the status to IVI when  HMICode_ACC = ACC_CANCEL_LIFTER_ONwhen lift on with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info15 by algo
+Verify Info15 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53415 for popup 
+
+Algo : (HMICode_ACC == ACC_CANCEL_LIFTER_ON
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3788574
+- Contents: System shall visualize F534  Info16 Pop-up with Buzzer3C and send the status to IVI when HMICode_ACC = ACC_STOP_GO_RESUME NEEDED
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info16 by algo
+Verify Info16 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53416 for popup and buzzer
+
+Algo : (HMICode_ACC == ACC_STOP_GO_RESUME NEEDED)
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, engaged, to start, resume" )
+- State (Harman_Requirement): Approved
+
+26. ID: 3788607
+- Contents: System shall visualize F534 Info17 Pop-Up with BuzzerACC_Prox and send the status to IVI when HMICode_ACC = ACC_PROX_WARNING
+Safety distance overcome
+driver to brake
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info17 by algo
+Verify Info17 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53417 for popup, telltale, chime and graphic 
+
+Buzzer: BuzzerACC_Prox
+
+Algo : HMICode_ACC == ACC_PROX_WARNING):
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+27. ID: 3917415
+- Contents: System shall visualize F534 Info19 Pop-Up with Buzzer  and send the status to IVI  when HMICode_ACC = ACC_CANC_ROAD_TOO_STEEP
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info19 by algo
+Verify Info19 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53418 for popup and chime
+
+Buzzer:3C
+
+Algo : (HMICode_ACC == ACC_CANC_ROAD_TOO_STEEP) 
+
+CAN-Signal:
+DASM_HMI.HMICode_ACC
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+28. ID: 3917430
+- Contents: System shall visualize F534 Info20 to indicate ACC unavailable since road too steep
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info20 by algo
+Verify Info20 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53419 for popup 
+
+Algo : (HMICode_ACC == ACC_UNAVAILABLE_ROAD_TOO_STEEP)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+29. ID: 3917440
+- Contents: System shall visualize F534 Info21 to indicate ACC speed reduced in eManettino ECO
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info21 by algo
+Verify Info21 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53424 for popup 
+
+Algo : HMICode_ACC == "ACC_MAX_SPEED_ECO_BELOW"
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+30. ID: 3917456
+- Contents: System shall visualize F534 Info22 to indicate "Maximum Speed reached in eManettino ECO"
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info22 by algo
+Verify Info22 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53425 for popup 
+
+Algo : (HMICode_ACC == "ACC_MAX_SPEED_ECO_ABOVE")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" ) 
+Passive voice
+ (Look for: "Speed reached" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3917465
+- Contents: System shall visualize F534 Info23 to indicate ACC speed reduced  in eManettino STANDARD
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info23 by algo
+Verify Info23 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53426 for popup 
+
+Algo : (HMICode_ACC == "ACC_MAX_SPEED_STD_BELOW")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+32. ID: 3918366
+- Contents: System shall visualize F534 Info24 to indicate Maximum ACC speed reached  in eManettino STANDARD
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info24 by algo
+Verify Info24 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53427 for popup 
+
+Algo : (HMICode_ACC == "ACC_MAX_SPEED_STD_ABOVE")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" ) 
+Passive voice
+ (Look for: "speed reached" )
+- State (Harman_Requirement): Approved
+
+33. ID: 3918503
+- Contents: System shall visualize F534 Info25 to indicate ACC speed reduced  in eManettino PERFORMANCE
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info25 by algo
+Verify Info25 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53428 for popup 
+
+Algo : (HMICode_ACC == "ACC_MAX_SPEED_PERF_BELOW")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+34. ID: 3918504
+- Contents: System shall visualize F534 Info26 to indicate Maximum ACC speed reached  in eManettino PERFORMANCE
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Info26 by algo
+Verify Info26 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53429 for popup 
+
+Algo : (HMICode_ACC == "ACC_MAX_SPEED_PERF_ABOVE")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" ) 
+Passive voice
+ (Look for: "speed reached" )
+- State (Harman_Requirement): Approved
+
+35. ID: 3918506
+- Contents: System shall visualize F534 Warning1 to indicate ACC/EPB limited functionality due to unclear windscreen when CameraBlinded_HMI is Fail Present.
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Warning1 by algo
+Verify Warning1 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53420 for popup, graphic, 2B buzzer and telltale (code 00180)
+
+Verify central display top pop up as per HMI.POP_IND
+
+Algo : (CameraBlinded_HMI == Fail Present)
+
+CAN-Signal:
+DASM_HMI.CameraBlinded_HMI
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+36. ID: 3918510
+- Contents: System shall visualize F534 Warning2 to indicate ACC/EPB limited functionality when CameraFailure_HMI = Fail Present
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Warning2 by algo
+Verify Warning2 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53421 for popup, graphic, 2B buzzer and telltale (code 00180)
+Verify central display top pop up as per HMI.POP_IND
+
+
+Algo : (CameraFailure == Fail Present) [
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+37. ID: 3918512
+- Contents: System shall visualize F534 Warning3 to indicate ACC failure
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Warning3 by algo
+Verify Warning3 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53422 for popup, graphic, 2B buzzer and telltale (code 01610)
+Verify central display top pop up as per HMI.POP_IND
+
+
+Algo : (ACCFailSts == Fail_Present)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+38. ID: 3918513
+- Contents: System shall visualize F534 Warning4 to indicate ACC failure due to radar blinded
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI Adaptive_Cruise_Control == "present" (byte 146, bit 0) AND PROXI DASM == "present" (byte 33, bit 1),
+
+Trigger Warning4 by algo
+Verify Warning4 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53423 for popup, graphic, 2B buzzer and telltale (code 01610)
+
+Algo : (ACC_RadarBlinded == Fail_Present)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+39. ID: 3918515
+- Contents: System shall set recovery values in case of CAN failure or input signal non-availability as indicated in below table
+(see: image152.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger CAN failure
+Verify ACCSystemSts = OFF; 
+ACC_DesiredDistance equal to the default value
+ ACC_TargetDistance equal to the default value;
+for StartUp and SteadyState
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, indicated, values, table" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image152.png
+
+40. ID: 4710283
+- Contents: Service for ACCDistanceHysteresis calibration
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3840752
+- Contents: Proxi
+IDC shall check proxi Adaptive_Cruise_Control == Present (proxi byte 146, bit 0).
+IDC shall check proxi DASM (proxi byte 33, bit 1).
+IDC shall check proxi km/mi (proxi byte 68, bit 3).
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall check" ) 
+Missing unit 
+ (Look for: "‘0,33,1,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): New
+
+2. ID: 5076651
+- Contents: 6.2.1.1.2.28.1 F534 Icons
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): New
+
+3. ID: 5076658
+- Contents: System shall display the “desired distance” line representing the real-world distances value (in meter or yard) based on the distance scale shown next to the road element.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, desired, representing, distances, shown, #8220, distance, value, meter, scale, element" ) 
+Passive voice
+ (Look for: "yard based" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5076660
+- Contents: Examples of ADAS Screen
+(see: image148.png)
+(see: image149.png)
+(see: image150.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+- Visual Elements: image148.png, image149.png, image150.png
+
+5. ID: 5076663
+- Contents: Calibration of ACCDistanceHysteresis by DID 203D
+(see: image151.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): New
+- Visual Elements: image151.png
+
+6. ID: 3733303
+- Contents: 6.2.1.1.2.28.2 F534 Info
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+7. ID: 3918364
+- Contents: 6.2.1.1.2.28.3 F534 Warnings
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+8. ID: 3918514
+- Contents: 6.2.1.1.2.28.4 F534 Recovery
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image150.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image152.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image148.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image151.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image146.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image149.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image147.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+Data Element: [Proxi Configuration]
+  - Type: Proxi
+  - Purpose: [Explain the purpose of this Proxi configuration]
+  - Structure: [Analyze the Proxi table structure and explain its significance]
+  - Dependencies: [Identify key data relationships]
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F534 6.2.1.1.2.28  Adaptive Cruise Control Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

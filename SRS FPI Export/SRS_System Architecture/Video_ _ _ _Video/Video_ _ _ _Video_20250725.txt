@@ -1,0 +1,97 @@
+# UnknownID 6.1.2.2 Video       Video Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.2 Video       Video
+
+- ID: 2353875
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353876
+- Contents: 6.1.2.2.1 The ECU shall be equipped with the video interfaces described in the next paragr...       The ECU shall be equipped with the video interfaces described in the next paragraphs.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+2. ID: 2353877
+- Contents: 6.1.2.2.2 The Supplier shall share to Ferrari the following details for each video interfa...       The Supplier shall share to Ferrari the following details for each video interface:       max resolution supported @60fps   max frame rate   serializer/deserializer P/N and version   type of connector (e.g., coax, STP) and pinout
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+3. ID: 2353878
+- Contents: 6.1.2.2.3 The Supplier shall share the overall architecture of video interfaces (interconn...       The Supplier shall share the overall architecture of video interfaces (interconnections and design among SoC and video interfaces).
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+4. ID: 2353879
+- Contents: 6.1.2.2.4 Each video interface shall support at least the following video format: * 4K res...       Each video interface shall support at least the following video format:       4K resolution   60 fps   Full RGB color range
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+5. ID: 2353880
+- Contents: 6.1.2.2.5 The ECU shall be equipped with HEVC (H.265) decoder.       The ECU shall be equipped with HEVC (H.265) decoder.
+- Artifact Type: SRS Req
+- Responsible Domain: Media Core
+
+6. ID: 2353881
+- Contents: 6.1.2.2.6 The ECU shall be equipped with an hardware and/or software compositor for the co...       The ECU shall be equipped with an hardware and/or software compositor for the composing of all video content.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+7. ID: 2353882
+- Contents: 6.1.2.2.7 The video composition functionality shall garantee a latency lower than 16 ms.       The video composition functionality shall garantee a latency lower than 16 ms.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Comments: 27/09/23: David Mathew- This is a KPI requirement  for video/display sub-system and likely does not require custom work specific to Ferrari.
+If so, it can be added as Space 4 requirement and provided for Space4-ICP SRS mapping.
+- Expert Domains: Virtualization
+
+8. ID: 2353883
+- Contents: 6.1.2.2.8 At least the following UI stream format shall be supported: * NAL unit stream *...       At least the following UI stream format shall be supported:       NAL unit stream   SPS and PPS sent at the beginning of the stream   No frame reordering (i.e. no B-frames)   Full range color
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+9. ID: 2353884
+- Contents: 6.1.2.2.9 The Supplier shall share and agree with Ferrari in advance the list of the suppo...       The Supplier shall share and agree with Ferrari in advance the list of the supported UI stream format.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+10. ID: 2353885
+- Contents: 6.1.2.2.10 The architecture of the video interface shall be modular. Ferrari shall have the...       The architecture of the video interface shall be modular. Ferrari shall have the possibility to decrease the number of the video interfaces according to the architecture video requirements.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if every display is working for different vehicle types.
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+11. ID: 2353886
+- Contents: 6.1.2.2.11 The Supplier shall indicate and discuss with Ferrari any deviation from Ferrari’...       The Supplier shall indicate and discuss with Ferrari any deviation from Ferrari’s expectations, proposing alternative solutions.
+- Artifact Type: SRS Req
+- Responsible Domain: Development_Process
+- Expert Domains: PM
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.2 Video       Video Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

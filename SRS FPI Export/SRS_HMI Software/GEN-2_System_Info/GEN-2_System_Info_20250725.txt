@@ -1,0 +1,73 @@
+# GEN-2 6.2.1.2  System Info Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2 GEN-2 System Info
+
+- ID: 3408168
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Expert Domains: AM_FM_HD, Audio Control, BT, Camera, Cluster SW, GNSS_Navigation, Projections, Sensor, Surround_View, System Core, System Infra
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3440901
+- Contents: IDC shall display the below system information.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test
+- Verification Criteria: Check if user able to observe the system information about the car.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Audio Control, BT, Camera, Cluster SW, GNSS_Navigation, Projections, Sensor, Surround_View, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4573004
+- Contents: IDC shall display the currently available license to the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: what kind of license expected to display and please provide the UI references.
+
+This query is depending on the below Jira ticket
+
+https://jira.harman.com/jira/browse/FQ-841
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "currently" )
+- State (Harman_Requirement): In Work
+
+### Informational Items:
+
+1. ID: 3440900
+- Contents: This function allows the user to observe the system information about the car
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of GEN-2 6.2.1.2  System Info Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

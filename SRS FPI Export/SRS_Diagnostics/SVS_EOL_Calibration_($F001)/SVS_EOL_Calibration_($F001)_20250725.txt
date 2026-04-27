@@ -1,0 +1,149 @@
+# UnknownID 6.2.2.4.1 SVS EOL Calibration ($F001) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.4.1 SVS EOL Calibration ($F001)
+
+- ID: 4002947
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4002949
+- Contents: The system shall read SVS EOL Calibration with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the EOL Calibration in diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" )
+- TestTeamComment: RWeber_DIAG_250110: Check NRC in default session
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Protocol service: $31
+
+2. ID: 4002956
+- Contents: The System shall follow the Routine Status as follows (see: image40.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the routine status as per the table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250110: Routine Start Status response byte is not complete testable. No SVS expert to enter error state.
+- State (Harman_Requirement): Approved
+- Visual Elements: image40.png
+
+3. ID: 4002958
+- Contents: The System shall get the Status of pattern as follows (see: image41.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the status pattern as per the table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250110: Routine Status response states are not complete testable. No SVS expert to enter or trigger all listen SVS states.
+- State (Harman_Requirement): Approved
+- Visual Elements: image41.png
+
+4. ID: 4002961
+- Contents: The system shall execute the calibration of the system in the dedicated area with calibration patterns and conditions as defined in EOL document.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration pattern and condition as defined in the EOL document.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, execute, defined, calibration, area, patterns, conditions, document" )
+- TestTeamComment: RWeber_DIAG_250114: Should tested by an SVS expert (Saheel team). No Diag protocol issue.
+- State (Harman_Requirement): Approved
+
+5. ID: 4002975
+- Contents: The System shall use the patterns height information provided via dedicate RDI Engineering Parameters if patterns height information is distinct from default values defined for each project.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall use the patterns height information provided via dedicate RDI Engineering Parameters if patterns height information is distinct from default values defined for each project.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, use, provided, dedicate, patterns, information, Parameters" )
+- TestTeamComment: RWeber_DIAG_250114: Should tested by an SVS expert (Saheel team). No Diag protocol issue.
+- State (Harman_Requirement): Approved
+
+6. ID: 4002983
+- Contents: The system shall respond with the calibration result as defined above, considered with binary logic.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration result.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, respond, defined, result, logic" )
+- TestTeamComment: RWeber_DIAG_250114: Should tested by an SVS expert (Saheel team). No Diag protocol issue.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: e.g. result is 0x09means that both 0x01and 0x08are true
+
+7. ID: 4002987
+- Contents: If calibration failed (result different from 0x00) system shall save the images from the cameras and make the images available for download.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the save and download image
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, save, make, images, cameras, download" )
+- TestTeamComment: RWeber_DIAG_250114: Should tested by an SVS expert (Saheel team). No Diag protocol issue.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image40.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image41.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.4.1 SVS EOL Calibration ($F001) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

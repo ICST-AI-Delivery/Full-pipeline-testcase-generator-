@@ -1,0 +1,1539 @@
+# FAD-0 6.2.2.1.5 : Audio Source Definition & Channel Allocation: Audio Streams Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.5 FAD-0: Audio Source Definition & Channel Allocation: Audio Streams
+
+- ID: 3873922
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Cluster SW, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3646144
+- Contents: The system shall send the following audio sources to the "ENTERTAINMENT" channel and set the below CAN signals
+IDC_AudioStreams.EntertainmentStreamActivation.
+IDC_AudioStreams.EntertainmentSourceID.
+IDC_AudioStreams.EntertainmentVolume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the main Audio sources mentioned in the artifact Id 3725907.
+Verify the audio of each playback is heard as per the priority.
+
+Verify the CAN signal value for the active audio source.
+IDC_AudioStreams.EntertainmentStreamActivation.=1
+
+IDC_AudioStreams.EntertainmentSourceID is asper the below table.
+
+IDC_AudioStreams.EntertainmentVolume.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be directed" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3646147
+- Contents: The system shall send the following audio sources to the "RINGTONE" channel and
+and set the below CAN signals
+IDC_AudioStreams.TelephonyVoiceStreamActivation.
+IDC_AudioStreams.TelephonyVoiceSourceID
+IDC_AudioStreams.TelephonyVoiceVolume
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the main Audio sources mentioned in the artifact Id 3725909.
+Verify the audio of each playback is heard as per the priority.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4655693
+- Contents: The system shall send the following audio sources to the "PHONE" channel:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play the main Audio sources mentioned in the artifact Id 4002217.
+
+Verify the audio of each playback is heard as per the priority with Carplay phone, Embedded phone and BT phone.
+- Grooming Status: Approved
+- Grooming Comments: ok to approve
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4655694
+- Contents: The system shall send the following audio sources to the "VOICE_ASSISTANT" channel:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play any voice assistant audio.
+
+Verify the audio of the playback is heard.
+- Grooming Status: Approved
+- Grooming Comments: ok to approve
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3646631
+- Contents: The system shall send the following audio sources to the "NAVIGATION" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the Navigation Audio source mentioned in the artifact Id 3725969.
+Verify the audio of the playback is heard
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3646634
+- Contents: The system shall send the following audio sources to the "HMI_ANDROID" stream. - IDC-424326
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play the Android Audio source mentioned in the artifact Id 3725969.
+Verify that the audio of the playback is heard
+
+Verify the Volume Level is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3945837
+- Contents: The system shall send the following audio sources to the "HMI_ANDROID" channel:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play the Android Audio source.
+
+Verify that the audio of the playback is heard.
+
+Verify the value of CAN signal IDC_AudioStreams.HMIAndroidStreamActivation
+
+IDC_AudioStreams.HMIAndroidSourceID.
+
+Verify the Volume Level is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Grooming Comments: ok to approve
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4596653
+- Contents: The system shall send the following audio sources to the "HMI_ANDROID" channel and set the below CAN signals.
+"IDC_AudioStreams.HMIAndroidStreamActivation"
+"IDC_AudioStreams.HMIAndroidSourceID"
+"IDC_AudioStreams.HMIAndroidVolume"
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an Android audio source.
+
+Verify that the audio is heard.
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Xiongwei 31.12.2024] No need of this SRS, Club with above SRS
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, following, set, sources, signals" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4596659
+- Contents: The system shall send following audio sources to the "HMI_ANDROID" channel & set the below CAN signals
+"IDC_AudioStreams.HMIAndroidStreamActivation"
+"IDC_AudioStreams.HMIAndroidSourceID"
+"IDC_AudioStreams.HMIAndroidVolume"
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an Android audio source.
+
+Verify that the audio is heard.
+- Grooming Status: Approved
+- Grooming Comments: 3945837: The system shall send the following audio sources to the "HMI_ANDROID" channel:
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 4002222
+- Contents: The system shall take 2 "MEASUREMENT" channels from the A2B Network 2 in Measurement Configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Domain Test
+- Verification Criteria: Set the Measurement configuration
+Capture Audio data from A2B Network 2
+Capture Audio data from FAD Android
+
+Verify that both the data are same
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4002223
+- Contents: The system shall send the following audio sources to the "MEASUREMENT" channel & set the below CAN signals.
+"IDC_AudioStreams.EntertainmentStreamActivation".
+"IDC_AudioStreams.EntertainmentSourceID".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio source.
+Verify that the audio is heard
+
+Put the system in measurement mode via the diagnostic 
+ 
+add the measurement mode device to the A2B network, in between the IDC and Ext Amplifier
+ 
+Turn on the system.
+
+send an audio signal via the measurement tool.
+ 
+Verify the value of the CAN signals
+IDC_AudioStreams.EntertainmentStreamActivation.
+IDC_AudioStreams.EntertainmentSourceID
+
+.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+12. ID: 4002226
+- Contents: The system shall take '4' "A2B_MICROPHONES" channels from the 'A2B Network1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Verify that microphone is functional
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 3646644
+- Contents: The system shall send the following audio sources to the "HMI_Linux" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Domain Test
+- Verification Criteria: Use the tool (example: Aplay Command tool)for verification to verify this requirement
+
+Add separate 2 SRS for CAN signal:
+Verfify the value of the CAN signals
+IDC-424335 - The "HMI_LINUX" channel activation CAN signal is IDC_AudioStreams.HMILinuxStreamActivation.
+IDC-424329 - The "HMI_LINUX" content identification CAN signal is IDC_AudioStreams.HMILinuxSourceID.
+IDC-424330 - The "HMI_LINUX" channel volume CAN signal is IDC_AudioStreams.HMILinuxVolume.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 3945853
+- Contents: The system shall set IDC_AudioStreams2.ParkAssistVolume CAN signal equal to "Park_Volume -1" when Park Assist Volume is active
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Generate park assistance volume
+Verify the CAN signal value
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3646646
+- Contents: The system shall send the following audio sources to the "PARK_ASSIST" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the Alternate Audio sources mentioned in the artifact Id 3725912
+
+Verify the audio of the playback is heard.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+16. ID: 3646651
+- Contents: The system shall send the following audio sources to the "BSM_RCTA" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Generate the Alternate Audio sources mentioned in the artifact Id 3725916.
+Verify the audio of the playback is heard
+
+Verify that the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+17. ID: 3646655
+- Contents: The system shall send the following audio sources to the "LANE_CROSSING" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Generate the Alternate Audio sources mentioned in the artifact Id 3725920.
+Verify that the audio of the playback is heard
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+18. ID: 3646657
+- Contents: The system shall direct the following audio sources to the "LANE_KEEPING" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Alternate Audio sources mentioned in the artifact Id 3725947.
+Verify that the audio of the playback is heard
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+19. ID: 3646669
+- Contents: The system shall allow to adjust the volume of the adjustable "GENERAL_WARNING_1" audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to adjust the Volume of the Adjustable General Warning #1 audio sources.
+- Grooming Status: Approved
+- Grooming Comments: [Xiongwei, 25.07.2024] OK to approve
+
+[Ahmed, Xiongwei, Abdul 22.07.2024] Need clarification on the volume adjustable or not (and on the CAN signal)
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+20. ID: 3945861
+- Contents: The system shall set IDC_AudioStreams.GeneralWarning1Volume CAN signal equal to 'General_Warning_Volume minus 1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Generate General warning 
+Verify the volume level in CAN signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3769094
+- Contents: The system shall not allow to adjust the volume of the Not adjustable "GENERAL_WARNING_1" audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is not possible to adjust the Volume of the Not Adjustable General Warning _1 audio sources.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3646674
+- Contents: The system shall set the volume to be used to "8" if the volume of 'GENERAL_WARNING_1' audio source is non-adjustable.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the volume of the "Not Adjustable General warning_1 Audio sources" are 8 
+
+Note: Not adjustable General Warning  sources are provided in the CRS document in DNG: "3494432: HMI_LF_Specifications_Sounds"
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ensure, GeneralWarning, Volume, equals, value" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3646675
+- Contents: The system shall send the following audio sources to the "GENERAL_WARNING_1" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Alternate Audio sources mentioned in the artifact Id 3725955.
+Verify the audio of the playback is heard
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+24. ID: 3769193
+- Contents: The system shall allow to adjust the volume of the adjustable "GENERAL_WARNING_2" audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to adjust the Volume of the Adjustable General Warning #2 audio sources.
+
+Note: Adjustable General Warning sources are provided in the CRS document in DNG: "3494432: HMI_LF_Specifications_Sounds"
+- Grooming Status: Approved
+- Grooming Comments: OK to approve
+
+[Ahmed, Xiongwei, Abdul 22.07.2024] Need clarification on the volume adjustable or not (and on the CAN signal)
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+25. ID: 3769195
+- Contents: The system shall not allow to adjust the volume of the Not adjustable "GENERAL_WARNING_2" audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is not possible to Adjust the Volume of the Not Adjustable General Warning #2 audio sources.
+
+Note: Not Adjustable General Warning sources are provided in the CRS document in DNG: "3494432: HMI_LF_Specifications_Sounds"
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+26. ID: 3646698
+- Contents: The system shall set the GeneralWarning2Volume" to the value of "8" if the volume of GENERAL_WARNING_2 is non-adjustable.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the volume of the "Not Adjustable General warning # 2 Audio sources" are 8 
+
+Note: Volume Not adjustable General Warning sources are provided in the document CRS DNG: 3494432: HMI_LF_Specifications_Sounds
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ensure, GeneralWarning, equals, Volume, value" )
+- State (Harman_Requirement): Approved
+
+27. ID: 3646713
+- Contents: The system shall send the following audio sources to the "GENERAL_WARNING_2" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725962
+.
+Verify the audio of the playback is heard
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+28. ID: 3945868
+- Contents: The system shall set IDC_AudioStreams.GeneralWarning2Volume CAN signal equal to General_Warning_Volume minus 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Change the volume of the general warning and Verify the value on CAN signals(0 to 7)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+29. ID: 4596672
+- Contents: The system shall send following audio sources to the "SEATBELTS" channel:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify the chime sound for the seatbelts on the loudspeakers by unfastening and Refastening seatbelts.
+
+Set the signal SBR1RowDriverSeatSts = 1 to make the chime play.
+
+Set the signal SBR1RowDriverSeatSts = 0 to make the chime stop .
+
+Set the SBR1RowPsngrSeatSts = 3 to make the chime play.
+
+Set the signal SBR1RowPsngrSeatSts = 2 to make the chime stop.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+30. ID: 3646715
+- Contents: The system shall direct the following audio sources to the "TURN_INDICATORS" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725965
+.
+Verify the audio of the playback is heard
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+31. ID: 3646731
+- Contents: The system shall send the following audio sources to the "FL_POWER_DOOR" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725966
+.
+Verify the audio of the playback is heard
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+32. ID: 3646761
+- Contents: The system shall send the following audio sources to the "FR_POWER_DOOR" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725967
+.
+Verify the audio of the playback is heard.
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+33. ID: 3646765
+- Contents: The system shall send the following audio sources to the "RL_POWER_DOOR" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725973
+.
+Verify the audio of the playback is heard.
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+34. ID: 3646768
+- Contents: The system shall send the following audio sources to the "RR_POWER_DOOR" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725974
+.
+Verify the audio of the playback is heard.
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+35. ID: 3646777
+- Contents: The system shall direct the following audio sources to the "POWER_LIFTGATE" channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Audio sources mentioned in the artifact Id 3725977
+.
+Verify the audio of the playback is heard.
+
+Verify the Volume Level of each audio source is 31 and can not be changed by the user.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+36. ID: 3646778
+- Contents: The system shall take the 7 "ESE_BEV" channels from the output of ESE BEV library.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the ESE BEV Audio.
+Verify that the ESE BEV audio is heard from the loud speakers.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+37. ID: 3647052
+- Contents: The system shall take 2 "AVAS" channels from the output of AVAS Halosonic module.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Activate the AVAS Audio
+Verify that the AVAS audio is heard from the loud speakers.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+38. ID: 3647058
+- Contents: The system shall send the below "ANDROID_TO_DSP2" channel from FAD Android instance to FAD DSP#2 instance.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play Entertainment/telephony audio and verify that the Audio is heard from the below mentioned speakers (Artifact ID 3725987
+)
+
+The audio should be heard only on the speakers used in the configuration as per the proxi parameter Audio_Level,
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+39. ID: 3647894
+- Contents: The system shall send the below "LINUX_TO_DSP2" channel from FAD Linux Instance to FAD DSP#2 Instance.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate any of the Chime.
+Verify the Chime audio is heard from the below mentioned speakers (Artifact ID 3725990)
+
+The audio should be heard only on the speakers used in the configuration as per the proxi parameter Audio_Level,
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, take, transmit, channels, output, Instance, instance" )
+- State (Harman_Requirement): Approved
+
+40. ID: 4002229
+- Contents: The system shall take "DSP0_TO_DSP2" channels from the output of 'FAD DSP#0' instance & direct to 'FAD DSP#2' instance.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Guaranteed By Design
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+41. ID: 3648937
+- Contents: The system shall send the below " INTERNAL_OUTPUT_CHANNELS " channels from the output of FAD DSP instance and send to the internal amplifier.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio source
+Verify the Audio is heard from  the mentioned speakers.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, take, CHANNELS, transmit, channels, output, instance, amplifier" )
+- State (Harman_Requirement): Approved
+
+42. ID: 3648938
+- Contents: The "INTERNAL_OUTPUT_CHANNELS" includes the following channels:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+43. ID: 3648947
+- Contents: The "EXTERNAL_OUTPUT_CHANNELS" channel includes the following channels:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+44. ID: 3648959
+- Contents: The system shall take  "REFERENCE_CHANNELS" channels from the output of DSP#2 FAD instance.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Guaranteed By Design
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+45. ID: 4684548
+- Contents: The "REFERENCE_CHANNELS" shall  include the following channels:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that there are no Echos or no noise coming from loudspeakers
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3646138
+- Contents: For each Audio channel, the following requirement groups defines:
+The set of monitoring CAN signals to use for that stream.
+A table which lists all the audio content for that stream.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, table, define, following, lists, groups, stream, interfaces, source" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3646143
+- Contents: For each channel, the table defines the following information:
+SOURCE: The name of the audio source
+SOURCE ID: The value of fad_source_id_e enum of the source (refer to FAD_CTRL_API.h header file)
+CLASS: The class of the audio source, either Main or Alternate
+PRIORITY (only for Main sources): The priority of the Main source
+VOLUME: The volume entry in the Volume Database to use for that channel
+AUDIO FILE ID (only for Chimes): The value of fad_audio_files_e enum of the audio file (refer to FAD_CTRL_API.h header file)
+CAN SIGNAL VALUE: The value to which the content identification CAN signal shall be set when the IDC reproduce that content.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall set" )
+- State (Harman_Requirement): Review
+
+3. ID: 3646145
+- Contents: "ENTERTAINMENT" channel:
+The "ENTERTAINMENT" channel activation CAN signal is IDC_AudioStreams.EntertainmentStreamActivation.
+The "ENTERTAINMENT" content identification CAN signal is
+ IDC_AudioStreams.EntertainmentSourceID.
+The "ENTERTAINMENT" channel volume CAN signal is IDC_AudioStreams.EntertainmentVolume.
+The "ENTERTAINMENT" source mute interface is "EntertainmentMute". - IDC-424272
+The "ENTERTAINMENT" source directionality interface is not applicable. - IDC-424271
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+4. ID: 3725907
+- Contents: (see: image87.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image87.png
+
+5. ID: 3646146
+- Contents: The "TELEPHONY_VOICE" source directionality interface is not applicable.- IDC-424281
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+6. ID: 3725909
+- Contents: (see: image88.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image88.png
+
+7. ID: 4002215
+- Contents: "PHONE" Channel
+The "PHONE" channel activation CAN signal is IDC_AudioStreams.TelephonyVoiceStreamActivation.
+The "PHONE" content identification CAN signal is IDC_AudioStreams.TelephonyVoiceSourceID.
+The "PHONE" channel volume CAN signal is IDC_AudioStreams.TelephonyVoiceVolume.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4002217
+- Contents: (see: image89.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image89.png
+
+9. ID: 4002218
+- Contents: "VOICE_ASSISTANT" Channel
+The "VOICE_ASSISTANT" channel activation CAN signal is IDC_AudioStreams.TelephonyVoiceStreamActivation.
+The "VOICE_ASSISTANT" content identification CAN signal is IDC_AudioStreams.TelephonyVoiceSourceID.
+The "VOICE_ASSISTANT" channel volume CAN signal is IDC_AudioStreams.TelephonyVoiceVolume.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 4002220
+- Contents: (see: image90.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image90.png
+
+11. ID: 3646148
+- Contents: The "NAVIGATION" source directionality interface is not applicable-IDC-424284
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+12. ID: 3725969
+- Contents: (see: image91.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image91.png
+
+13. ID: 3646633
+- Contents: "ANDROID_ALARM" Channel:
+The "ANDROID_ALARM" channel activation CAN signal is
+ IDC_AudioStreams.HMIAndroidStreamActivation.
+The "ANDROID_ALARM" content identification CAN signal is
+ IDC_AudioStreams.HMIAndroidSourceID.
+The "ANDROID_ALARM" channel volume CAN signal is IDC_AudioStreams.HMIAndroidVolume.
+The "HMI_ANDROID" source mute interface is not applicable- IDC-424328
+The "HMI_ANDROID" source directionality interface is not applicable- IDC-424327
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 40
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "applicable" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+14. ID: 3725910
+- Contents: (see: image92.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image92.png
+
+15. ID: 3945845
+- Contents: (see: image93.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image93.png
+
+16. ID: 4596652
+- Contents: "ANDROID_NOTIFY" Channel
+The "ANDROID_NOTIFY" channel activation CAN signal is IDC_AudioStreams.HMIAndroidStreamActivation.
+The "ANDROID_NOTIFY" content identification CAN signal is IDC_AudioStreams.HMIAndroidSourceID.
+The "ANDROID_NOTIFY" channel volume CAN signal is IDC_AudioStreams.HMIAndroidVolume.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+17. ID: 4596655
+- Contents: (see: image94.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image94.png
+
+18. ID: 4596657
+- Contents: "ANDROID_SYS_SOUND" Channel
+The "ANDROID_SYS_SOUND" channel activation CAN signal is IDC_AudioStreams.HMIAndroidStreamActivation.
+The "ANDROID_SYS_SOUND" content identification CAN signal is IDC_AudioStreams.HMIAndroidSourceID.
+The "ANDROID_SYS_SOUND" channel volume CAN signal is IDC_AudioStreams.HMIAndroidVolume.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+19. ID: 5074473
+- Contents: (see: image95.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image95.png
+
+20. ID: 4002221
+- Contents: "MEASUREMENT" Channel
+The "MEASUREMENT" channel activation CAN signal is IDC_AudioStreams.EntertainmentStreamActivation.
+The "MEASUREMENT" content identification CAN signal is IDC_AudioStreams.EntertainmentSourceID.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+21. ID: 4002225
+- Contents: (see: image96.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image96.png
+
+22. ID: 4153721
+- Contents: Depending on the proxi parameter Audio_Level, unused channels are zeroed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+23. ID: 3646637
+- Contents: "HMI_LINUX" channel:
+The "HMI_LINUX" channel activation CAN signal is IDC_AudioStreams.HMILinuxStreamActivation.
+The "HMI_LINUX" content identification CAN signal is IDC_AudioStreams.HMILinuxSourceID.
+The "HMI_LINUX" channel volume CAN signal is IDC_AudioStreams.HMILinuxVolume.
+The "HMI_LINUX" source mute interface is not applicable. - IDC-424331
+The "HMI_LINUX" source directionality interface is not applicable. - IDC-424332
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 40
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "applicable" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+24. ID: 3725911
+- Contents: (see: image97.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image97.png
+
+25. ID: 3646645
+- Contents: "PARK_ASSIST" channel:
+The "PARK_ASSIST" channel activation CAN signal is IDC_AudioStreams2.ParkAssistStreamActivation
+IDC-424094 - The "PARK_ASSIST" content identification CAN signal is IDC_AudioStreams2.ParkAssistSourceID.
+IDC-424286 - The "PARK_ASSIST" channel volume CAN signal is IDC_AudioStreams2.ParkAssistVolume.
+The "PARK_ASSIST" source mute interface is not applicable. - IDC-424288
+The "PARK_ASSIST" source directionality interface is "ParkAssistDirectionality". - IDC-424287
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+26. ID: 3725912
+- Contents: (see: image98.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image98.png
+
+27. ID: 3646647
+- Contents: "BSM_RCTA" channel:
+The "BSM_RCTA" channel activation CAN signal is IDC_AudioStreams2.BSM_RCTAStreamActivation.
+The "BSM_RCTA" content identification CAN signal is IDC_AudioStreams2.BSM_RCTASourceID.
+The "BSM_RCTA" source volume interface is "BSM_RCTAVolume". - IDC-424290
+The "BSM_RCTA" source mute interface is not applicable. - IDC-424294
+The "BSM_RCTA" source directionality interface is "BSM_RCTADirectionality". - IDC-424293
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 60
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+28. ID: 3725916
+- Contents: (see: image99.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image99.png
+
+29. ID: 3646654
+- Contents: "LANE_CROSSING" channel:
+The "LANE_CROSSING" channel activation CAN signal is IDC_AudioStreams2.LaneCrossingStreamActivation.
+The "LANE_CROSSING" content identification CAN signal is IDC_AudioStreams2.LaneCrossingSourceID.
+The "LANE_CROSSING" source volume interface is "LaneCrossingVolume". - IDC-424297
+The "LANE_CROSSING" source mute interface is not applicable. - IDC-424296
+The "LANE_CROSSING" source directionality interface is "LaneCrossingDirectionality". - IDC-424295
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+30. ID: 3725920
+- Contents: (see: image100.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image100.png
+
+31. ID: 3646656
+- Contents: "LANE_KEEPING" Channel:
+The "PARK_ASSIST" channel activation CAN signal is IDC_AudioStreams2.LaneKeepingStreamActivation.
+The "PARK_ASSIST" content identification CAN signal is IDC_AudioStreams2.LaneKeepingSourceID.
+The "LANE_KEEPING" source volume interface is "LaneKeepingVolume". - IDC-424289
+The "LANE_KEEPING" source mute interface is not applicable. - IDC-424291
+The "LANE_KEEPING" source directionality interface is not applicable. - IDC-424292
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+32. ID: 3725947
+- Contents: (see: image100.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image100.png
+
+33. ID: 3646668
+- Contents: "GENERAL_WARNING_1" channel:
+The "GENERAL_WARNING_1" channel activation CAN signal is IDC_AudioStreams.GeneralWarning1StreamActivation.
+The "GENERAL_WARNING_1" content identification CAN signal is IDC_AudioStreams.GeneralWarning1SourceID.
+The "GENERAL_WARNING_1" channel volume CAN signal is IDC_AudioStreams.GeneralWarning1Volume.
+The "GENERAL_WARNING#1" source mute interface is not applicable. - IDC-424300
+The "GENERAL_WARNING#1" source directionality interface is not applicable. - IDC-424299
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+34. ID: 3646670
+- Contents: The system shall ensure that the volume to be used equals the value of "General_Warning_Volume" entry of the Volume Database if the volume of the GENERAL_WARNING_1 audio source is adjustable.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ensure, GeneralWarning, equals, Volume" )
+- State (Harman_Requirement): Review
+
+35. ID: 3725955
+- Contents: (see: image101.png)
+(see: image102.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image101.png, image102.png
+
+36. ID: 3646683
+- Contents: "GENERAL_WARNING_2" channel:
+The "GENERAL_WARNING_2" channel activation CAN signal is IDC_AudioStreams.GeneralWarning2StreamActivation.
+The "GENERAL_WARNING_2" content identification CAN signal is IDC_AudioStreams.GeneralWarning2SourceID.
+The "GENERAL_WARNING_2" channel volume CAN signal is IDC_AudioStreams.GeneralWarning2Volume.
+The "GENERAL_WARNING#2" source mute interface is not applicable.
+The "GENERAL_WARNING#2" source directionality interface is not applicable
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+37. ID: 3646697
+- Contents: If the volume of the GENERAL_WARNING_2 is adjustable, then GeneralWarning2Volume = General_Warning_Volume
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+38. ID: 3725962
+- Contents: (see: image103.png)
+(see: image104.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image103.png, image104.png
+
+39. ID: 4596670
+- Contents: "SEATBELTS" Channel
+The "SEATBELTS" channel shall not implement any Monitoring CAN Signal.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Review
+
+40. ID: 4596676
+- Contents: (see: image105.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image105.png
+
+41. ID: 3646714
+- Contents: "TURN_INDICATORS" channel:
+The "TURN_INDICATORS" channel activation CAN signal is IDC_AudioStreams2.TurnIndicatorsStreamActivation.
+The "TURN_INDICATORS" content identification CAN signal is IDC_AudioStreams2.TurnIndicatorsSourceID.
+The "TURN_INDICATORS" source volume interface is "TurnIndicatorsVolume".
+The "TURN_INDICATORS" source mute interface is not applicable.
+The "TURN_INDICATORS" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Review
+
+42. ID: 3725965
+- Contents: (see: image106.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image106.png
+
+43. ID: 3922782
+- Contents: "FL_POWER_DOOR" channel:
+[Info] The FR_POWER_DOOR channel is not used in F244 application.
+- Artifact Type: Information
+- State (Harman_Requirement): Approved
+
+44. ID: 3646727
+- Contents: The "FL_POWER_DOOR" channel activation CAN signal is
+ IDC_AudioStreams2.FLDoorStreamActivation.
+The "FL_POWER_DOOR" content identification CAN signal is IDC_AudioStreams2.FLDoorSourceID.
+The "FL_POWER_DOOR" source volume interface is "FLDoorVolume".
+The "FL_POWER_DOOR" source mute interface is not applicable.
+The "FL_POWER_DOOR" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+45. ID: 3725966
+- Contents: (see: image107.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image107.png
+
+46. ID: 3646737
+- Contents: "FR_POWER_DOOR" Channel:
+[Info] The FR_POWER_DOOR stream is not used in F244 application.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+47. ID: 3646742
+- Contents: The "FR_POWER_DOOR" channel activation CAN signal is IDC_AudioStreams2.FRDoorStreamActivation.
+The "FR_POWER_DOOR" content identification CAN signal is IDC_AudioStreams2.FRDoorSourceID.
+The "FR_POWER_DOOR" source volume interface is "FRDoorVolume".
+The "FR_POWER_DOOR" source mute interface is not applicable.
+The "FR_POWER_DOOR" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+48. ID: 3725967
+- Contents: (see: image108.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image108.png
+
+49. ID: 3646762
+- Contents: "RL_POWER_DOOR" channel:
+The "RL_POWER_DOOR" channel activation CAN signal is IDC_AudioStreams2.RLDoorStreamActivation.
+The "RL_POWER_DOOR" content identification CAN signal is IDC_AudioStreams2.RLDoorSourceID.
+The "RL_POWER_DOOR" source volume interface is "RLDoorVolume".
+The "RL_POWER_DOOR" source mute interface is not applicable.
+The "RL_POWER_DOOR" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+50. ID: 3725973
+- Contents: (see: image109.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image109.png
+
+51. ID: 3646767
+- Contents: "RR_POWER_DOOR" channel:
+The "RR_POWER_DOOR" channel activation CAN signal is
+ IDC_AudioStreams2.RRDoorStreamActivation.
+The "RR_POWER_DOOR" content identification CAN signal is
+ IDC_AudioStreams2.RRDoorSourceID.
+The "RR_POWER_DOOR" source volume interface is "RRDoorVolume".
+The "RR_POWER_DOOR" source mute interface is not applicable.
+The "RR_POWER_DOOR" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+52. ID: 3725974
+- Contents: (see: image110.png)
+(see: image111.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image110.png, image111.png
+
+53. ID: 3646769
+- Contents: "POWER_LIFTGATE" channel:
+The "POWER_LIFTGATE" channel activation CAN signal is IDC_AudioStreams2.PLGStreamActivation.
+The "POWER_LIFTGATE" content identification CAN signal is IDC_AudioStreams2.PLGSourceID.
+The "POWER_LIFTGATE" source volume interface is "PLGVolume".
+The "POWER_LIFTGATE" source mute interface is not applicable.
+The "POWER_LIFTGATE" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+54. ID: 3725977
+- Contents: (see: image112.png)
+(see: image113.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image112.png, image113.png
+
+55. ID: 3647051
+- Contents: "ESE_BEV" Stream:
+The "ESE_BEV" stream activation interface is not applicable.
+The "ESE_BEV" source identification interface is not applicable.
+The "ESE_BEV" source volume interface is not applicable.
+The "ESE_BEV" source mute interface is not applicable.
+The "ESE_BEV" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+56. ID: 3647053
+- Contents: "AVAS" Channel:
+The "AVAS" stream activation interface is not applicable.
+The "AVAS" source identification interface is not applicable.
+The "AVAS" source volume interface is not applicable.
+The "AVAS" source mute interface is not applicable.
+The "AVAS" source directionality interface is not applicable.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+57. ID: 3725987
+- Contents: (see: image114.png)
+(see: image115.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image114.png, image115.png
+
+58. ID: 3674834
+- Contents: Depending on the proxi parameter Audio_Level, unused channels are zeroed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+59. ID: 3725990
+- Contents: (see: image116.png)
+(see: image117.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image116.png, image117.png
+
+60. ID: 3674836
+- Contents: Depending on the proxi parameter Audio_Level, unused channels are zeroed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+61. ID: 4002228
+- Contents: "DSP0_TO_DSP2" Channel
+The "DSP0_TO_DSP2" channel includes the following channels:
+(see: image118.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image118.png
+
+62. ID: 3725992
+- Contents: (see: image119.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image119.png
+
+63. ID: 3674837
+- Contents: Depending on the proxi parameter Audio_Level, unused channels are zeroed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+64. ID: 3648946
+- Contents: System shall take  "EXTERNAL_OUTPUT_CHANNELS" channels from the output of DSP FAD Instance and transmit through A2B to the external amplifier.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio source (e.g. AVAS, ESE)
+Verify the Audio is heard from mentioned speakers.
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, take, transmit, channels, output, amplifier" )
+- State (Harman_Requirement): Review
+
+65. ID: 3725993
+- Contents: (see: image120.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image120.png
+
+66. ID: 3674840
+- Contents: Depending on the proxi parameter Audio_Level, unused channels are zeroed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+67. ID: 3674842
+- Contents: Depending on the proxi parameter Audio_Level, unused channels are zeroed.
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+68. ID: 4158900
+- Contents: (see: image121.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image121.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image104.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image108.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image95.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image110.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image88.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image92.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image112.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image89.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image107.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image87.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image106.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image91.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image100.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image117.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image96.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image99.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image94.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image114.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image101.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image121.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image119.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image116.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image103.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image120.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image109.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image102.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image93.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image118.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image98.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image105.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image90.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image115.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image111.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image97.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image113.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-0 6.2.2.1.5 : Audio Source Definition & Channel Allocation: Audio Streams Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

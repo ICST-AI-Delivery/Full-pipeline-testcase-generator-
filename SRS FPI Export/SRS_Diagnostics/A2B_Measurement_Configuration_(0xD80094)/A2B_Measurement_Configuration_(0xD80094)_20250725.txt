@@ -1,0 +1,64 @@
+# UnknownID 6.2.1.1.2 A2B Measurement Configuration (0xD80094) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2 A2B Measurement Configuration (0xD80094)
+
+- ID: 3885266
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3885267
+- Contents: The system shall be able to detect unexpected operation of A2B Measurement configuration immediately during permanent evaluation & Calibration parameter A2B_Network_2_Config == 1 ("Measurement_Configuration")
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set A2B measurement configuration message messages.
+-Or do not send Calibration parameter A2B_Network_2_Config == 1 ("Measurement_Configuration") messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250121: Only test that DTC is supported with 0x1906. No info or spec, how to set this DTC, what are the failure condition. Applicative testable by other Domain (not DIAG)
+- State (Harman_Requirement): Approved
+
+2. ID: 3885270
+- Contents: The System shall de-validate/clear the A2B measurement configuration   immediately with A2B_Network_2_Config == 0 ("Standard_Configuration").
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send wrong Calibration parameter A2B_Network_2_Config == 1 ("Measurement_Configuration")
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, to immediate, face, equal, amp, Calibration, Configuration, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250121: Only test that DTC is supported with 0x1906. No info or spec, how to set this DTC, what are the failure condition. Applicative testable by other Domain (not DIAG)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.2 A2B Measurement Configuration (0xD80094) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

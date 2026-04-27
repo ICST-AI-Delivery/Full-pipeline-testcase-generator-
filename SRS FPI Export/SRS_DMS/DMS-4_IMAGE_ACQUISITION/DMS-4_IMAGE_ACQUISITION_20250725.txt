@@ -1,0 +1,133 @@
+# DMS-4 6.2.1.5  IMAGE ACQUISITION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5 DMS-4 IMAGE ACQUISITION
+
+- ID: 3408501
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538197
+- Contents: The DMS camera shall acquire images of the driver and/or the vehicle cabin if the DMS state is one of the below:
+USER PRESENCE
+ACTIVE
+RUNNING
+WARNING
+DEGRADED
+ERROR
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS camera accurately captures images when the DMS is in any of the below states
+"USER PRESENCE/ACTIVE/RUNNING/ WARNING/DEGRADED/ "ERROR."
+
+Note: 
+In Error state, the images will be captured if the fault permits it.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, acquire, images, driver, cabin" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: 
+In Error state, the images will be captured if the fault permits it.
+
+2. ID: 3538198
+- Contents: The DMS camera shall acquire images in infrared spectrum & send to system for processing.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify that the images that are captured is in infrared spectrum 
+Verify that the images are successfully transmitted to the processing system.
+
+Verify that the frames are being received.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, capture, send, to system, images, spectrum, processing" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3538207
+- Contents: The DMS shall not keep the acquired images in memory once the processing of the image itself is completed.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Integration Test
+- Verification Criteria: Check if  the acquired images are immediately deleted from the memory of the system once the processing of the image itself is completed.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "is completed" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3538777
+- Contents: The DMS camera shall acquire the images with a resolution greater than "1" Megapixel(1280 x 800 pixels).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Integration Test, Software Qualification Test
+- Verification Criteria: Verify that the captured image has a resolution of 1.5 megapixel..
+- Grooming Status: Approved
+- Grooming Comments: [Mayank, Sanjay, Abdul 30.07.2024]
+In Ferrari IDC, The camera resolution used is 1.5 Mpx.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, acquire, images, equal, Megapixel" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3538779
+- Contents: The DMS shall acquire images with a frame rate greater than or equal to Ce_fps_CamImgFps.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS camera image frame is rate >= Ce_fps_CamImgFps.
+
+Note: The default  value of the Ce_fps_CamImgFps is 30 fps.
+The value of the Ce_fps_CamImgFps.can be configured via diagnostics 
+(DID 0xFE38)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, acquire, images, rate" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: The default  value of the Ce_fps_CamImgFps is 30 fps.
+
+The value of the Ce_fps_CamImgFps.can be configured via diagnostics 
+(DID 0xFE38)
+
+### Informational Items:
+
+1. ID: 3538780
+- Contents: Calibration Parameters
+Ce_fps_CamImgFps
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-4 6.2.1.5  IMAGE ACQUISITION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

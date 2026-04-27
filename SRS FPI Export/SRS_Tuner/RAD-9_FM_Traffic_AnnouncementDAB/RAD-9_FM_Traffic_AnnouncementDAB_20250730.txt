@@ -1,0 +1,231 @@
+# RAD-9 6.2.1.1.10  FM Traffic Announcement/DAB Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.10 RAD-9 FM Traffic Announcement/DAB
+
+- ID: 3742636
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3742638
+- Contents: System shall play station and display a pop-up when a traffic program or an announcements transmission is detected
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall play station and display a pop-up when a traffic program or an announcements transmission(Broadcast) is detected
+- Grooming Status: Approved
+- Grooming Comments: clarification from customer: Popup of traffic announcement is a top popup, so shown only on top bar, so we can have the TA popup in every screen also in case of the projection (carplay and andorid)
+
+1. Pop up information needed from HMI
+2. TA pop up need to show on other sources (CP,AA,BT, etc.,) as well? - Need confirmation from customer.
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, display, detects, station, pop-up, program" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4003663
+- Contents: System shall dismiss the pop-up and restore previous station/audio source when user selects decline for TA.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall dismiss the pop-up and restore previous station/audio source when user selects decline the TA.
+
+Note: Refer this ID HMI-LF-11121 for POP Up Information.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, dismiss, restore, selects, pop-up, station, source, decline" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3792967
+- Contents: System shall display Icon on player when Traffic Announcement is enabled. (see: image5.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Icon on player when Traffic Announcement get active for FM/DAB
+
+AM - ECE/Row Markets
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, enable" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: AM, only ECE/ROW
+markets
+- Visual Elements: image5.png
+
+4. ID: 3792973
+- Contents: System shall display Icon on player during FM-DAB announcements (see: image6.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Icon on player during FM-DAB announcements
+
+
+FM-DAB, only ECE (Eastern central europe) /ROW (Rest of the world)
+markets
+- Grooming Status: Approved
+- Grooming Comments: Android HMI- Redlabel implementation
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: FM-DAB, only ECE (Eastern central europe) /ROW (Rest of the world)
+markets
+- Visual Elements: image6.png
+
+5. ID: 4703863
+- Contents: System shall play the announcement till end or dismissal when the radio set to OFF condition, In case of Traffic or DAB Announcement occurrs while the radio set to OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system will playTA /DAB ,when the radio is in OFF state (audio will be muted HMI visible) .
+User will check decline and regular scenerio.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, set, OFF, occurrs, end, dismissal, condition" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3793010
+- Contents: System shall support FM Traffic Announcement/DAB functionality for AM,FM, DAB+
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall support FM Traffic Announcement/DAB functionality for AM,FM, DAB
+- Grooming Status: Approved
+- Expert Domains: Android HMI, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, functionality, AM, FM, DAB+" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4004463
+- Contents: System shall save the last tune frequency, when the TA Announcement started in order to recover it after TA ends or user declines the popup.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall tune to last tune frequency, when the TA Announcement started in order to recover it after TA ends or user declines the popup.
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, save, starts, ends, declines, frequency, popup" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3793001
+- Contents: System shall tune to the identified alternative frequency provided by the EON  information, When a TA message is absent on the current tuned frequency.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall tune to the identified alternative frequency, When a TA message is absent on the current tuned frequency.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, message, tune, identified, provided, is absent, tuned, frequency, information" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: EON (Enhanced-other-network)
+
+9. ID: 3793004
+- Contents: System shall tune back to the last broadcast station after the Traffic Announcement message closing.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall tune back to the last broadcast station after the Traffic Announcement message closing.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, DAB_Cross Dev
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 4008356
+- Contents: Tuner Application shall carry traffic announcements but none are being broadcast at present and may also carry EON information about other traffic announcements.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Tuner Application shall carry traffic announcements but none are being broadcast at present and may also carry EON information about other traffic announcements when TP code 0 & TA code 1
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 4005688
+- Contents: Tuner Application shall not carry traffic announcements nor does it refer, via EON
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Tuner Application shall not carry traffic announcements nor does it refer, via EON when TP code - 0 & TA code- 0
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Negative statement
+ (Look for: "not, nor" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3793003
+- Contents: System shall display to the user the source change to the Traffic Announcement once the Traffic Announcement is present.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display to the user the source change to the Traffic Announcement once the Traffic Announcement is present.
+- Grooming Status: Approved
+- Grooming Comments: Need clarification regarding AM announcements
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "once" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4002590
+- Contents: System shall play the Traffic Announcement on the Entertainment Channel using currently set volume for it
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: To Play TA, TA will follow the entertainment channel volume
+
+Note: TA will not effect the current volume.
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image6.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image5.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-9 6.2.1.1.10  FM Traffic Announcement/DAB Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

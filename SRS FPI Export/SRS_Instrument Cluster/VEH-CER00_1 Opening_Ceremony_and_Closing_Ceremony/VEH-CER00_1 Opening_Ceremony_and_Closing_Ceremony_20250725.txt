@@ -1,0 +1,124 @@
+# VEH-CER00 6.2.1.1.2.45 1 Opening Ceremony and Closing Ceremony Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.45 VEH-CER001 Opening Ceremony and Closing Ceremony
+
+- ID: 4886134
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4889523
+- Contents: System shall perform Opening Ceremony animation and Closing Ceremony animation During Key On and Key OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Opening Ceremony and Closing Ceremony animation is displayed During Key-On and Key Off.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4895640
+- Contents: System shall perform Welcome ceremony if IDC receive a transition from KeySts<4 to KeySts=>4 (from HMI ON and POWER OFF to HMI ON and POWER ON)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Welcome ceremony is Displayed when there is a Transition of KeyStatus From KeySts<4 to KeySts>=4
+
+Note:
+HMI ON and Power Off to HMI ON and Power ON.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895641
+- Contents: System shall perform Closure ceremony ifI DC receive a transition from KeySts>= 4 to KeySts < 4 (from HMI ON and POWER ON to HMI ON and POWER OFF)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Welcome ceremony is Displayed when there is a Transition of KeyStatus From  KeySts>=4 to KeySts<4
+
+Note:
+HMI ON and Power ON to HMI ON and Power OFF.
+
+CAN-Signal: 
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, perform, receive, ceremony, transition, KeySts, from, ON, POWER, OFF" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4895642
+- Contents: During Opening Ceremony IDC reads a transition of ActualGearForDisplay from "P" to != "P", then IDC shall perform the animation with higher speed , Virtual telltale Bulb Check animation shall NOT be speeded up.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Welcome Ceremony Animation is speeden up when there is a change in ActualGearForDisplay From P(Park) to other than Parking(Drive , Reverse). and also verify the Telltale Bulb Check animation is not be speeded up.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall perform" ) 
+Negative statement
+ (Look for: "NOT" ) 
+Passive voice
+ (Look for: "be speeded" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4895644
+- Contents: IDC shall send to IDC_INFO VEH_CeremonySts signal to inform IDC_INFO on the status of Binnacle Ceremony: (see: image212.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Check if Ceremony status is sent to IVI.
+
+Internal Interface:
+VEH_CeremonySts
+- Grooming Status: Approved
+- Grooming Comments: Need information from System Infra , to how to check the Ceremony Status.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image212.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image212.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-CER00 6.2.1.1.2.45 1 Opening Ceremony and Closing Ceremony Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

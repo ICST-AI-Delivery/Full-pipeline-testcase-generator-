@@ -1,0 +1,374 @@
+# VEH-F042 6.2.1.1.1.10  Low Beam Lights Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.10 VEH-F042 Low Beam Lights
+
+- ID: 3406470
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3439447
+- Contents: System shall display Fail-1 pop-up with buzzer and telltale in B11 Wireframe area and send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS. when below conditions met
+Right Low Beam Fail status is Fail present (OR)
+Left  Low Beam Fail status is Fail present
+Note: Fail-1 Shall follow D11 visualisation behaviour with priority-2
+(see: image22.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:proxi (byte 156, bits 0-1=Absent or Town
+
+Right_LB_FailSts= Fail present or Left_LB_FailSts= Fail present
+
+Verify that the Fail is displayed with buzzer when Right OR Left Low Beam Fail status is present.
+
+CAN-Signal: STATUS_C_LCU.Right_LB_Fail Sts
+ STATUS_C_LCULeft_LB_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, dispaly, met, is, follow, pop-up, buzzer, telltale, OR, present" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image22.png
+
+2. ID: 4686257
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image23.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signals, send, following, input, INDICATOR_STATUS, values, Proxi, INDICATOR, Controls, interfaces 0   Not_Active, Indication ID Quick Controls, Right, Left, RHRearFogLightFailSts" ) 
+Missing unit 
+ (Look for: "‘0,1,00420001,00420002,00420003’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image23.png
+
+3. ID: 3439449
+- Contents: System shall display Fail-2 pop-up with buzzer and telltalein B11 wireframe area send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+Right Low Beam Fail status is Fail present (OR)
+Left  Low Beam Fail status is Fail present (OR)
+Front Wind Shield Wiper Motor Error Status is Fail present.
+Note: Fail-2 Shall follow D11 visualisation behaviour with priority-2
+(see: image22.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:proxi (byte 156, bits 0-1=Absent or Town
+
+Right_LB_FailSts= Fail present or Left_LB_FailSts= Fail present OR FrontWindshieldWiperMotErrorSts == Fail Present
+
+Verify that the Fail is displayed with buzzer when Right OR Left Low Beam  OR Front wind shield wiper motor error  status is Fail present.
+
+CAN-Signal: STATUS_C_LCU.Right_LB_Fail Sts
+ STATUS_C_LCULeft_LB_FailSts
+
+EXTERNAL_LIGHTS.FrontWindshieldWiperMotErrSts
+- Grooming Status: Approved
+- Grooming Comments: What is the Significance of HB_ChangeStatus
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, Status, dispaly, met, is, follow, pop-up, buzzer, telltale, OR, present" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image22.png
+
+4. ID: 4686258
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image24.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+- Visual Elements: image24.png
+
+5. ID: 3439451
+- Contents: System shall display Fail-3 pop-up with buzzer and telltale and send the Fail-3 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when LCU Fail status is Fail_Present in the R1/R2/R3/R4/R5 wireframe area.
+Note: Fail-3 Shall follow  D01 visualisation behaviour with priority-2
+(see: image25.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: LCUFailSts== Fail_Present
+
+Verify that the Fail 3 is triggered when LCU Fail status is Fail present.
+
+CAN-Signal:STATUS_C_LCU.LCUFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, LCU, status, display, is, follow, pop-up, buzzer, telltale, area" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image25.png
+
+6. ID: 3621488
+- Contents: System shall display telltale until the malfunction is solved.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: LCUFailSts== Fail_Present
+
+Verify that the telltale is displayed until malfunction is solved.
+
+CAN-Signal:STATUS_C_LCU.LCUFailSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Passive voice
+ (Look for: "is solved" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+
+7. ID: 3621491
+- Contents: System shall display Fail-4 pop-up with buzzer and  send the Fail-4 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when LVL Fail status is Fail_Present in the R1/R2/R3/R4/R5 wireframe area.
+Note: Fail-4 Shall follow  D01 visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: LVL_FailSts== Fail_Present
+
+Verify that the Fail 4 is triggered when LCU Fail status is Fail present.
+
+CAN-Signal: STATUS_C_LCU.LVL_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, follow, pop-up, buzzer, telltale, area" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+
+8. ID: 3621500
+- Contents: System shall display Feedback-1 pop-up send the Feedback status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when TrafficChangeFeedback is  Active_LeftNoSTD in  R1/R2/R3/R4/R5 wireframe area.
+Note: Feedback-1 Shall follow D04 visualisation behaviour with priority-1
+(see: image26.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: TrafficChangeFbk == Active_LeftNoSTD
+
+Verify that the Feedback-1 is triggered when traffic change feedback is active. right no std.
+
+CAN-Signal: STATUS_C_LCU.TrafficChangeFbk
+- Grooming Status: Approved
+- Grooming Comments: Why VehIndicator Status?, Since there is No Feedback-1 in Central Display , What should be displayed in IVI?
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TrafficChangeFeedback, display, is, follow, pop-up, buzzer, telltale, area, priority-1" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image26.png
+
+9. ID: 3621508
+- Contents: System shall display Feedback-2 pop-up and send the Feedback status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when TrafficChangeFeedbackk is  Active_RightNoSTD in  R1/R2/R3/R4/R5 wireframe area.
+Note: Feedback-2 Shall follow D04 visualisation behaviour with priority-1
+(see: image27.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: TrafficChangeFbk == Active_LeftNoSTD
+
+Verify that the Feedback-1 is triggered when traffic change feedback is active.right no std
+
+CAN-Signal: STATUS_C_LCU.TrafficChangeFbk
+- Grooming Status: Approved
+- Grooming Comments: Why VehIndicator Status?, Since there is No Feedback-1 in Central Display , What should be displayed in IVI?
+- Expert Domains: ADVNet, Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TrafficChangeFeedbackk, display, is, follow, pop-up, buzzer, telltale, area, priority-1" )
+- TestTeamComment: anbadea:No buzzer
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image27.png
+
+10. ID: 3621510
+- Contents: System shall display Feedback-3 pop-up and send the Feedback status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when TrafficChangeFeedback has a transmission from Active_LeftNoSTD to Active_LeftSTD in  R1/R2/R3/R4/R5 wireframe area.
+Note: Feedback-3 Shall follow D04 visualisation behaviour with priority-1
+(see: image26.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: TrafficChangeFbk has a transition from Active_LeftNoSTD to Active_LeftSTD
+
+Verify that the Feedback-1 is triggered when traffic change feedback has a transmission from active Left no std to active left std.
+
+CAN-Signal: STATUS_C_LCU.TrafficChangeFbk
+- Grooming Status: Approved
+- Grooming Comments: No Feedback-3 Data available in HMI.POP.IND doc for Custer or In Central
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TrafficChangeFeedback, display, has, follow, pop-up, buzzer, telltale, transmission, area, priority-1" )
+- TestTeamComment: anbadea:No feedback 3
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image26.png
+
+11. ID: 3621515
+- Contents: System shall display Feedback-4 pop-up with buzzer and telltale in  R1/R2/R3/R4/R5 wireframe area send the Feedback status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS. when TrafficChangeFeedback has a transmission from Active_RightNoSTD to Active_RightSTD
+Note: Feedback-4 Shall follow D04 visualisation behaviour with priority-1
+(see: image27.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: TrafficChangeFbk has a transition from Active_RightNoSTD to Active_RightSTD
+
+Verify that the Feedback-1 is triggered when traffic change feedback transmission from active right NoStd to active rightstd.
+
+CAN-Signal: STATUS_C_LCU.TrafficChangeFbk
+- Grooming Status: Approved
+- Grooming Comments: No Feedback-4 Data available in HMI.POP.IND doc for Custer or In Central
+- Expert Domains: ADVNet, Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TrafficChangeFeedback, display, has, follow, pop-up, buzzer, telltale, area, transmission, priority-1" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_DRAFT_PI_S4_240603 for pop-up and telltales
+- Visual Elements: image27.png
+
+12. ID: 4686259
+- Contents: IF IDC detects a Message Counter or Checksum error on STATUS_C_LCU message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F042 Fail 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system displays F042 Fail-1 when  STATUS_C_LCU is missing for MC_CRC_error 5 Times.
+
+Note: MC_CRC_error_counter threshold is 5 times.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, error, STATUS_C_LCU message, visualization" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3621810
+- Contents: System  shall display Low Beam Lights as per the Ferrari design
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Low beam lights are displayed as per the Ferrari design.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3439439
+- Contents: System shall indicate low beam telltale ON when low beam lights ON in the B14 wireframe area.
+(see: image21.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn low beam lights on.
+Verify low beam telltale ON
+
+Turn low beam lights off
+Verify low beam telltale OFF
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00800
+- Visual Elements: image21.png
+
+3. ID: 3930077
+- Contents: System shall use the mentioned CAN signals to display Low Beam Lights as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image22.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image24.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image23.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image21.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image27.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image25.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image26.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F042 6.2.1.1.1.10  Low Beam Lights Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

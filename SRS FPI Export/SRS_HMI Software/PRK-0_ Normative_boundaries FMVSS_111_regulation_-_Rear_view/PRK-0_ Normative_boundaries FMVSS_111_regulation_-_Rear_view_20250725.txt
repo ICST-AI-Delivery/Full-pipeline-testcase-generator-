@@ -1,0 +1,109 @@
+# PRK-0 6.2.4.1.5 : Normative boundaries: FMVSS 111 regulation - Rear view Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.5 PRK-0: Normative boundaries: FMVSS 111 regulation - Rear view
+
+- ID: 3604114
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3604115
+- Contents: The system shall show the rear camera stream frame during the backing event
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Backing event
+Verify that the Camera stream frame is visible on HMI
+- Grooming Status: Approved
+- Grooming Comments: [Ferrari 20.03.2025]: Parking view shall be closed on disengaging the reverse gear.
+[Sunil, Abdul]: OK to approve, Ending of backing event is related to another SRS
+
+Jira Ticket:
+https://jira.harman.com/jira/browse/FQ-426
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "stream" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: BACKING EVENT means an amount of time which starts when the vehicle’s direction selector is placed in reverse, and ends at the manufacture’s choosing (Parking view shall be closed on disengaging the reverse gear).
+
+This is applicable for SVC and RVC.
+
+2. ID: 3624402
+- Contents: The system shall stop the ongoing "rear camera stream frame" when the driver modifies the view or on disengaging the reverse gear.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Backing event
+Verify that the Camera stream frame is visible on HMI until "the driver close the view manually or the reverse gear is disengaged".
+- Grooming Status: Approved
+- Grooming Comments: [avaloor: 23.09.2024 https://jira.harman.com/jira/browse/FQ-426
+As per the discucssion with the team, quesrtion was only on backing event cancellation, Nothing on "or on changing the view"
+
+Reason:
+Need to get a clarity on Backing event
+
+Question:
+Is this like as per the tp-111-v01-final_tag.pdf (nhtsa.gov)
+
+or it is stopping when "reverse gear is disenaged" or on changing the view ?
+- Expert Domains: Android HMI, Camera, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, stop, modifies, disengaging, camera stream frame, view, gear" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3604116
+- Contents: The system shall have the camera field size "10x20 ft" behind the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Backing event.
+Verify the camera filed size behind the vehicle is "10*20 ft"
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘20 ft’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3604117
+- Contents: All parking system under this regulation must have a rear camera.
+- Artifact Type: Information
+- RQA Score: 60
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" ) 
+Unclear term
+ (Look for: "All" )
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.5 : Normative boundaries: FMVSS 111 regulation - Rear view Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

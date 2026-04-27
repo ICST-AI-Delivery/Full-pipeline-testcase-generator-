@@ -1,0 +1,129 @@
+# UnknownID 6.2.2.2.2  Driver positions Memories (M1, M2, M3) profiled Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2.2  Driver positions Memories (M1, M2, M3) profiled
+
+- ID: 4763867
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4763868
+- Contents: IDC shall provide Three driver position profiles exclude default profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 3 driver position profiles
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4763876
+- Contents: IDC shall allow user to save the current position (seat, steering wheel, mirrors and mirrors auto-tilt) & memory slot by pressing "SAVE" button through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to save the current position (seat, steering wheel and mirrors) & memory slot by pressing "SAVE" button through HMI.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to save, steering, mirrors, pressing, SAVE, seat, wheel, amp, slot, button, HMI" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4763939
+- Contents: IDC shall allow user to select memory type to save new position after pressed the save button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to select memory type(m1,m2,m3) to save new position after pressed the save button.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4763941
+- Contents: IDC shall allow user to press save button again if user doesn't select memory type within calibrated time (5sec).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to press save button again if user does't select memory type with in calibrated time (5sec).
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4763943
+- Contents: IDC shall allow user to press continuously on Memory button (e.g. M1) until the position has been fully restored.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to press continuously on Memory button (e.g. M1) until the position has been fully restored.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Passive voice
+ (Look for: "has been fully restored" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4763955
+- Contents: IDC shall trigger memories even if the car is moving.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the memories are triggered if car is in motion.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "trigger, is" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4763956
+- Contents: IDC shall provide visual feedback when Memory press is complete.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to get visual feedback when Memory press has been completed.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "provide, is" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.2.2  Driver positions Memories (M1, M2, M3) profiled Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,70 @@
+# VEH-F855 6.2.1.1.1.39  CARB-EOBD Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.39 VEH-F855 CARB-EOBD
+
+- ID: 4008785
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4008827
+- Contents: System shall display Info-1 Pop-up with buzzer  send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when  BatteryDisconnectionWarning is Active.
+Note: Info-1 Pop-up follows D05  Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+BatteryDisconnectionWarning == Active
+
+Verify that the Info-1 Pop-up with buzzer is displayed when BatteryDisconnectionWarning is Active.
+
+Pop-Up ID:08550001
+
+Audio Buzzer: Buzzer 2B
+
+CAN-Signal:PWT_STATUS_2.BatteryDisconnectionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, buzzer, Active" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4008805
+- Contents: System shall display the "CARB-EOBD" indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F855 6.2.1.1.1.39  CARB-EOBD Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

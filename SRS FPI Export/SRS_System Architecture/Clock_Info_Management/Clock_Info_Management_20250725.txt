@@ -1,0 +1,137 @@
+# UnknownID 6.2.6.1.3  Clock Info Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.1.3  Clock Info Management
+
+- ID: 4884609
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Audio Control, GNSS_Navigation, IOC_IOC, Security, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4884610
+- Contents: system shall communicate with the Clock Module via I2C communication bus.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system communicate with the clock using he I2C communication bus.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, communicate, Module, bus" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4884612
+- Contents: system shall retrieve time information from the GPS module to synchronize the Clock Module after wake up.
+- Artifact Type: SRS Req
+- Responsible Domain: Security
+- Test Stage: System Qualification Test
+- Verification Criteria: verify is clock module synchroniozing with GPS module for time information after the system wakeup
+- Grooming Status: Approved
+- Grooming Comments: [AR 09.05.2025]: Moved to red label team, S4 doesn`t have the GPS module as time sources.
+
+[25.03.2025 Jens Grosshans] I have set this req.  to a pure white label activity, as S4 is responsible for the secure time. GPS is one time source for the secure time.
+- Expert Domains: GNSS_Navigation, IOC_IOC, Security, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4884613
+- Contents: System shall translate the hour, minute and second information in set of data for each individual needle.
+Angular Position (0.0° - 359.9°)
+Angular Speed (-200 °/s - 200 °/s)
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Needles should set as per user selection with respect to modes.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC, Security, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, translate, hour, information, data, needle, Position 0.0 #176; - 359.9 #176, Speed -200  #176;/s - 200  #176" ) 
+Missing unit 
+ (Look for: "‘0.0,359.9,200’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4884614
+- Contents: system shall set the position and speed of the hours hand through "M1_TARGET_ALL" command in the registers.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the hours needle position when GPS is available on Clock.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, NavSens, Security, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, position, speed, through, registers" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4884618
+- Contents: system shall set the position and speed of the minutes hand through "M2_TARGET_ALL" command in the registers.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the minutes needle position when GPS is available on Clock.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, NavSens, Security, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, position, speed, through, registers" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4884619
+- Contents: system shall set the position and speed of the seconds hand through "M3_TARGET_ALL" command in the registers.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the seconds needle position when GPS is available on Clock.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, NavSens, Security, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, position, speed, through, registers" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4884611
+- Contents: If system is in sleep mode then clock module shall update its time information by itself.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the clock modules are updated when the system is in sleep mode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "its" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.6.1.3  Clock Info Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

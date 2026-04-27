@@ -1,0 +1,202 @@
+# UnknownID 6.1.2.1 System on Chip (SoC)       System on Chip (SoC) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.1 System on Chip (SoC)       System on Chip (SoC)
+
+- ID: 2353845
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353846
+- Contents: 6.1.2.1.1 The Supplier shall provide the most advanced SoC whose roadmap is compatible wit...       The Supplier shall provide the most advanced SoC whose roadmap is compatible with ECU milestones.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+2. ID: 2353847
+- Contents: 6.1.2.1.2 The Supplier shall use only automotive certified SoC.       The Supplier shall use only automotive certified SoC.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+3. ID: 2353848
+- Contents: 6.1.2.1.3 The Supplier should show and ensure further upgradability of the So? (pin to pin...       The Supplier should show and ensure further upgradability of the So? (pin to pin compatible) without any modification of the PCB.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+4. ID: 2353849
+- Contents: 6.1.2.1.4 The Supplier shall provide: * SoC name and version; * SoC Supplier; * roadmap; *...       The Supplier shall provide:       SoC name and version;   SoC Supplier;   roadmap;   DMIPS supported;   TFLOPS supported;   TOPS supported;   processing units and number of cores;   video input/output ports.
+- Artifact Type: SRS Req
+- Responsible Domain: Development_Process
+
+5. ID: 2353850
+- Contents: 6.1.2.1.5 The SoC should be ASIL-B compliant.       The SoC should be ASIL-B compliant.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+6. ID: 2353851
+- Contents: 6.1.2.1.6 The SoC shall support at least 200k DMIPS.       The SoC shall support at least 200k DMIPS.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+7. ID: 2353852
+- Contents: 6.1.2.1.7 Performance of SoC shall ensure at least 40% headroom for further implementation...       Performance of SoC shall ensure at least 40% headroom for further implementations.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+8. ID: 2353853
+- Contents: 6.1.2.1.8 The SoC shall execute in parallel all the several tasks related to functions and...       The SoC shall execute in parallel all the several tasks related to functions and services implemented according to Ferrari requirements e.g., using multi-cores architecture.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+9. ID: 2353854
+- Contents: 6.1.2.1.9 The SoC shall be equipped with at least 4 cores (Quad-core).       The SoC shall be equipped with at least 4 cores (Quad-core).
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+10. ID: 2353855
+- Contents: 6.1.2.1.10 The SoC shall be equipped with a core for real-time applications (RTOS).       The SoC shall be equipped with a core for real-time applications (RTOS).
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+11. ID: 2353856
+- Contents: 6.1.2.1.11 The Soc shall support a rapid and complete boot (all functionalities ready to ru...       The Soc shall support a rapid and complete boot (all functionalities ready to run) as a consequence of an external trigger (e.g., network wake-up request).
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+- Grooming Comments: [Pritam]: What are the Network wakeup requests?
+We also need Power Mode Spec
+
+12. ID: 2353857
+- Contents: 6.1.2.1.12 The Soc shall read/write from/to high-speed memories.       The Soc shall read/write from/to high-speed memories.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+13. ID: 2353858
+- Contents: 6.1.2.1.13 The SoC shall support Type-1 Hypervisor.       The SoC shall support Type-1 Hypervisor.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+14. ID: 2353859
+- Contents: 6.1.2.1.14 The ECU shall simultaneously manage different automotive communication buses suc...       The ECU shall simultaneously manage different automotive communication buses such as CAN, USB, Ethernet, etc.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+15. ID: 2353860
+- Contents: 6.1.2.1.15 The SoC shall be equipped with Graphic Processor Unit (GPU) in order to suppleme...       The SoC shall be equipped with Graphic Processor Unit (GPU) in order to supplement functions of the primary processors as 2D/3D graphics and video management (or others).
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+16. ID: 2353861
+- Contents: 6.1.2.1.16 The SoC GPU shall support at least 1 TFLOPS.       The SoC GPU shall support at least 1 TFLOPS.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+17. ID: 2353862
+- Contents: 6.1.2.1.17 The SoC shall support at least 6 displays (physically or remotely connected to t...       The SoC shall support at least 6 displays (physically or remotely connected to the ECU).
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Architecture related.
+
+18. ID: 2353863
+- Contents: 6.1.2.1.18 The SoC shall support concurrently at least 4 displays with resolution of 4K at...       The SoC shall support concurrently at least 4 displays with resolution of 4K at 60fps.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Offered restrictions-. Agreed by Ferrari.
+
+19. ID: 2353864
+- Contents: 6.1.2.1.19 The SoC shall be able to address at least 50 Mpix.       The SoC shall be able to address at least 50 Mpix.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+
+20. ID: 2353865
+- Contents: 6.1.2.1.20 The ECU shall be equipped with hardware-accelerated graphics architecture suppor...       The ECU shall be equipped with hardware-accelerated graphics architecture supporting OpenGL ES 3.0 or higher.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+21. ID: 2353866
+- Contents: 6.1.2.1.21 The SoC shall be equipped with Neural Processing Unit (NPU) to provide hardware...       The SoC shall be equipped with Neural Processing Unit (NPU) to provide hardware acceleration for Artificial Intelligence (AI) / Machine Learning (ML)/ Deep Learning (DL) workloads and vision functions.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+22. ID: 2353867
+- Contents: 6.1.2.1.22 The SoC optionally shall be equipped with Image Signal Processor (ISP) to provid...       The SoC optionally shall be equipped with Image Signal Processor (ISP) to provide hardware acceleration for video quality improvement (rearview camera, surround view, etc).
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+- Test Stage: Software Qualification Test
+- Verification Criteria: Disable ISP and check the video quality.
+Enable ISP and check the video quality.
+- Grooming Status: Approved
+- Grooming Comments: Offered with assumptions.
+
+HARMAN provides the camera feeds with video quality.
+
+Check with Mohamed Sayed for VC.
+- State (Harman_Requirement): Approved
+
+23. ID: 2353868
+- Contents: 6.1.2.1.23 The SoC shall be equipped with a Digital Signal Processor (DSP) optimized for au...       The SoC shall be equipped with a Digital Signal Processor (DSP) optimized for audio processing.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+24. ID: 2353869
+- Contents: 6.1.2.1.24 The SoC shall route any audio channel through the DSP with low latency       The SoC shall route any audio channel through the DSP with low latency
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: This is not a requirement.
+
+25. ID: 2353870
+- Contents: 6.1.2.1.25 Any A2B audio channel shall be configured as ALSA device readable and writable b...       Any A2B audio channel shall be configured as ALSA device readable and writable by any of the ARM cortex core available on the SoC
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+26. ID: 2353871
+- Contents: 6.1.2.1.26 One ARM core shall be dedicated to audio processing.       One ARM core shall be dedicated to audio processing.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+27. ID: 2353872
+- Contents: 6.1.2.1.27 The SoC shall be able to communicate with the A2B transceivers through a full-du...       The SoC shall be able to communicate with the A2B transceivers through a full-duplex SPI, with a bit rate of 10Mbps or less.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+28. ID: 2353873
+- Contents: 6.1.2.1.28 The SOC shall give the option to implement multiple audio paths through the DSP,...       The SOC shall give the option to implement multiple audio paths through the DSP, from a digital input to a digital output, with reduced latency for all applications that need low latency audio path, as example but not limited to, Active Noise Cancellation, In Car Communication, Audio Bubble Zone. The delay shall be lower than 100uS for a pass-through configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: Features are part of current PRD so confirming its whitelabel
+
+29. ID: 2353874
+- Contents: 6.1.2.1.29 The Supplier shall provide also details and number of the Power Microprocessor (...       The Supplier shall provide also details and number of the Power Microprocessor (PMIC) used.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.1 System on Chip (SoC)       System on Chip (SoC) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

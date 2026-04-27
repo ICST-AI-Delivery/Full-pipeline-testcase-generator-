@@ -1,0 +1,94 @@
+# CER-1 6.2.7.2  Clock Ceremony Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.7.2 CER-1 Clock Ceremony
+
+- ID: 4754769
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4763493
+- Contents: System shall trigger the Clock Welcome ceremony after receiving VEH_CeremonySts == Completed, i.e. Binnacle has performed the Welcome ceremony.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the clock ceremony after completion of binnacle cermony aniomation
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, has, trigger, receiving, Completed, performed, ceremony" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4763494
+- Contents: When the Clock Welcome animation finishes, system shall perform the signal "CeremonySts_IDC" transition from "Active" to "Completed".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the CeremonySts_IDC signal transistion changed from active to completed after clock welcome ceremony finishes
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "animation finishes, system, transition, perform, Completed, signal" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4763495
+- Contents: System shall trigger the Clock Closure ceremony when transitions from HMI POWER ON to HMI ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the clock closure ceremony is triggered when the IDC switches from HMI power ON to HMI ON
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, ceremony, transitions, POWER" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4763496
+- Contents: [Info] The Clock Ceremony and Closure Ceremony consist of clock hand animation, a 360° clockwise or counterclockwise respectively, starting from the current needle position
+- Artifact Type: Information
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- Issues Found by RQA: Compound requirement
+ (Look for: "clockwise, starting, consist, animation, position" ) 
+Missing unit 
+ (Look for: "‘360’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of CER-1 6.2.7.2  Clock Ceremony Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

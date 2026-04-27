@@ -1,0 +1,67 @@
+# UnknownID 6.2.1.1.81 HMI CAN Missing Message (0xD001, 0x87) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.81 HMI CAN Missing Message (0xD001, 0x87)
+
+- ID: 3930871
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3930873
+- Contents: The System shall detect HMI CAN Missing Message fault right after key-ON, if the IDC Node Mute on HMI CAN and during Error Passive Driver Condition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Mute the IDC node on HMI CAN.
+-Set the system in Error Passive Driver Condition (from 128 to 255 errors).
+-HMI CAN Missing Message should Immediately detect during Key-ON
+-Vehicle Configuration: Always
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Missing, right, Mute, CAN, Condition" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+2. ID: 3930876
+- Contents: If the Error Passive Driver Condition is absent, then Immediately the System shall clear the HMI CAN Missing Message Fault.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -The Fault should be clear Immediately.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Immediately" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a de-maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.81 HMI CAN Missing Message (0xD001, 0x87) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

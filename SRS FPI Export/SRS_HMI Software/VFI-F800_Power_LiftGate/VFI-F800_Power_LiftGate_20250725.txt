@@ -1,0 +1,98 @@
+# VFI-F800 6.2.2.5  Power LiftGate Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.5 VFI-F800 Power LiftGate
+
+- ID: 5022554
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- HB_Comment: 03
+- TestTeamComment: Need to cross check with suma
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5022555
+- Contents: System shall trigger the Audio SOURCE "PLG" activation sending the audio file"PLG_Opening" when PLGAlert == 1("Single_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "PLG_Opening" when
+PLGAlert == 1("Single_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, sending, Single, SOURCE, activation, file, PLG_Opening" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5022583
+- Contents: System shall trigger the Audio SOURCE "PLG" activation sending the audio file "PLG_Antipinch" when PLGAlert == 2("Double_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "PLG_Antipinch" when
+PLGAlert == 2("Double_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, sending, SOURCE, activation, file, PLG_Antipinch" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5022582
+- Contents: System shall trigger the Audio SOURCE "PLG" activation sending the audio file"PLG_Garage" when PLGAlert == 3("Garage_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "PLG_Garage" when
+PLGAlert == 3("Garage_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, sending, SOURCE, activation, file, PLG_Garage" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5075712
+- Contents: the external sound shall be emitted synchronized with the internal sound.
+Power Liftgate Sounds are not Adjustable.
+The PLG automatic opening and closing sounds are excludible.
+The PLG Anti-pinch sound is not excludible.
+The PLG Garage position memorization sound is not excludible.
+The PLG Open with car moving sound is not excludible.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F800 6.2.2.5  Power LiftGate Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,68 @@
+# UnknownID 6.2.1.1.32 Navi - Not aligned (0x901C, 0x78) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.32 Navi - Not aligned (0x901C, 0x78)
+
+- ID: 4684551
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Sadiq will check and get back by 2nd April
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4684552
+- Contents: The system shall send Navi - Not aligned message in 5sec during key-on & Active Navigation Database is not aligned.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system Sends Navi-Not aligned message in 5 seconds during Key-On , Active Navigation Database is not aligned.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "aligned" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. applicative test to set DTC to state active/passive should be tested by NAVI domain or experts. N info about how to align the feature.
+- State (Harman_Requirement): Approved
+
+2. ID: 4684553
+- Contents: The System shall clear the Navi - Not aligned with in 2sec.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system clears the Navi- Not aligned with in 2 seconds.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "aligned" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. applicative test to set DTC to state active/passive should be tested by NAVI domain or experts. N info about how to align the feature.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.32 Navi - Not aligned (0x901C, 0x78) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

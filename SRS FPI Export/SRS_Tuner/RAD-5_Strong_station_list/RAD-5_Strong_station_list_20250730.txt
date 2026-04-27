@@ -1,0 +1,116 @@
+# RAD-5 6.2.1.1.6  Strong station list Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.6 RAD-5 Strong station list
+
+- ID: 3407907
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538193
+- Contents: System shall display the strong station list depends on the signal strength and allow user to scroll list of stations available on the active radio, when the user press a button on the player, and station shall tune upon user selection.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to scroll and select the station from the available strong station list. Station shall tune based on user selection.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, station, display, depends, allow, scroll, press, tune, strength, list, stations, radio, button, player, selection" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3538789
+- Contents: When the configuration for SDARS / DAB is absent then player/list/sources/menu text, items shall apply only to FM.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the  player/list/sources/menu text, items shall apply only to FM when the settings for SDARS/DAB is absent.
+- Grooming Status: Approved
+- Grooming Comments: Proxi architectural discussion is in Progress (Azmat, Shiva)
+- Expert Domains: AM_FM_HD, Android HMI, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "proxi, is absent, apply, SDARS, DAB, list, sources, FM" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+- Requirement Rationale: All DAB related functions shall not applicable
+
+3. ID: 3604102
+- Contents: System shall display strong station list for AM, FM, DAB+ radio frequencies.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display strong station list for AM, FM, DAB+ radio frequencies.
+- Grooming Status: Approved
+- Grooming Comments: FM/DAB services are combined in one station/service list
+
+[Devi Chandra: 04-jul-2024]: Need Clarification regarding the combined FM, DAB stations. Clarification pending from customer
+- Expert Domains: Android HMI, DAB_Cross Dev
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Applicability
+
+4. ID: 3538796
+- Contents: IDC shall disable the functionality when the antenna is detached
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall disable the strong list functionality when antena is detached.
+
+In Now playing Screen, No Station available will be didplayed.
+
+Reconnect the antenna will solve it of the active scan of available station.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is detached" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3583653
+- Contents: This function allows user to get the list of stations with strong signal
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4549205
+- Contents: (see: image4.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image4.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image4.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-5 6.2.1.1.6  Strong station list Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

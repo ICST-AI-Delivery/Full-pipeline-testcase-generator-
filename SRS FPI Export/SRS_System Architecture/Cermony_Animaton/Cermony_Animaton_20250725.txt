@@ -1,0 +1,106 @@
+# UnknownID 6.2.7.1.1 Cermony Animaton Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.7.1.1 Cermony Animaton
+
+- ID: 4763466
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4763467
+- Contents: system shall manage & reproduce Ceremony animation for a Ttime
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify are the cermony  animation is playing
+- Grooming Status: Approved
+- Grooming Comments: Need to get the Timeout value from Ferrari based on their requirement.
+How Much time they want to play animantion on HMI?
+Do Ferrari needs HMI Animation to continue after ceremony?
+- Expert Domains: Android HMI, Cluster SW, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, reproduce, flow, amp, animation, Ttime" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4763468
+- Contents: Ceremony animation shall trigger at Power On when user presses the key in the key holder.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: On ignitation, cermony animation should play.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "animation, trigger, presses, On, key, holder" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5037969
+- Contents: Ceremony animation shall trigger at Power On even user unplaced the key in key holder
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Cermony animation is playing when user pressed on start button wityhout inserting the key in keyholder.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4763469
+- Contents: User changes the gear from Parking to another position then the animation shall speed up the visualizing content.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Wakeup the system and animation should be playing then change the gear from parking to drive verify the animation speed should be faster.
+- Grooming Status: Approved
+- Grooming Comments: what will be the speed of animation should be played when the gear changes from parking to drive mode?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "another" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4763470
+- Contents: When user changes the gear from Parking, telltale-bulb-check and disclaimer animation shall run with regular speed.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: when gear changes from Parking, telltale bulb check and disclaimer animation should not be speeded up.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "changes, run, gear, Parking, animation, speed" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.7.1.1 Cermony Animaton Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

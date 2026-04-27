@@ -1,0 +1,97 @@
+# RAD-28 6.2.1.1.29  HD Radio Service lost Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.29 RAD-28 HD Radio Service lost
+
+- ID: 4083962
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4084121
+- Contents: System shall stay on the last tune frequency and Player shows frequency value instead of station name,  In case of weak of radio signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall stay on the last tune frequency and Player shows frequency value instead of station name,  In case of weak of radio signal.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stay, shows, frequency, value instead of station name" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4084193
+- Contents: System shall show “No stations available” label is shown on Player In case of absence of radio signal and/or station was previously unavailable, in this case on the player the seek/skip buttons, and frequency bar pointer are grayed out.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show “No stations available” label is shown on Player In case of absence of radio signal and/or station was previously unavailable.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, label, show, is, shown, stations, #8221, Player" )
+- TestTeamComment: No stations available can be tested when signals are not available.
+
+Antenna detacthment implementation is in progress.
+- State (Harman_Requirement): Approved
+
+3. ID: 4084194
+- Contents: System shall display “Signal lost” label on player, while HD Radio contents are greyed-out, when signal lost.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display “Signal lost” label on player, while HD Radio contents are greyed-out, when signal lost.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, lost" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4084195
+- Contents: HD Radio service lost shall applicable for AM HD, FM HD sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4084119
+- Contents: [Info]This function provides to the user indication regarding signal lost for HD Radio
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-28 6.2.1.1.29  HD Radio Service lost Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

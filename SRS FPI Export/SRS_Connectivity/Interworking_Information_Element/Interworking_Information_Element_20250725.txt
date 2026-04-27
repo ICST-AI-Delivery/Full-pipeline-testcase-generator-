@@ -1,0 +1,156 @@
+# UnknownID 6.1.2.3.13 Interworking Information Element
+
+
+
+Interworking Information Element Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.13 Interworking Information Element
+
+
+
+Interworking Information Element
+
+- ID: 2353458
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Approved
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353459
+- Contents: 6.1.2.3.13.1 The AP shall broadcast the Interworking Information Element (IE) in beacon, asso...
+
+
+
+The AP shall broadcast the Interworking Information Element (IE) in beacon, associations, and probe response management frames according to IEEE 802.11-2012 to indicate to stations that an Internet connection via this Access Point is available.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+2. ID: 2353460
+- Contents: 6.1.2.3.13.2 The Interworking IE shall always be included, no matter whether routing is enabl...
+
+
+
+The Interworking IE shall always be included, no matter whether routing is enabled and the System can access the internet or not.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+3. ID: 2353461
+- Contents: 6.1.2.3.13.3 The "Access Network Options" (ANO) octet shall indicate the availability of an I...
+
+
+
+The "Access Network Options" (ANO) octet shall indicate the availability of an Internet connection via the System, according to chapter 8.4.2.94 of IEEE 802.11-2012 [12].
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+4. ID: 2353462
+- Contents: 6.1.2.3.13.4 Within the ANO octet, the "Network Type" bits of the Interworking IE shall be se...
+
+
+
+Within the ANO octet, the "Network Type" bits of the Interworking IE shall be set to "private".
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+5. ID: 2353463
+- Contents: 6.1.2.3.13.5 Within the ANO octet, the "Internet" bit of the Interworking IE shall be set to...
+
+
+
+Within the ANO octet, the "Internet" bit of the Interworking IE shall be set to "1" if routing is enabled on the System.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+6. ID: 2353464
+- Contents: 6.1.2.3.13.6 Within the ANO octet, the "ASRA" (additional authentication step required) bit o...
+
+
+
+Within the ANO octet, the "ASRA" (additional authentication step required) bit of the Interworking IE shall be set to "0".
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+7. ID: 2353465
+- Contents: 6.1.2.3.13.7 Within the ANO octet, the "ESR" (emergency services reachable) bit of the Interw...
+
+
+
+Within the ANO octet, the "ESR" (emergency services reachable) bit of the Interworking IE shall be set to "0".
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+8. ID: 2353466
+- Contents: 6.1.2.3.13.8 Within the ANO octet, the "UESA" (unauthenticated emergency services accessible)...
+
+
+
+Within the ANO octet, the "UESA" (unauthenticated emergency services accessible) bit of the Interworking IE shall be set to "0".
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+9. ID: 2353467
+- Contents: 6.1.2.3.13.9 Within the "Venue Info" field, the venue group code shall be set to 10 (vehicula...
+
+
+
+Within the "Venue Info" field, the venue group code shall be set to 10 (vehicular), according to table 8.52 in IEEE 802.11-2012.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+10. ID: 2353468
+- Contents: 6.1.2.3.13.10 Within the "Venue Info" field, the venue type code shall be set to 1 (automobile...
+
+
+
+Within the "Venue Info" field, the venue type code shall be set to 1 (automobile or truck), according to table 8.53 in IEEE 802.11-2012.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: Unit Verification
+- Verification Criteria: Verify whether the "Venue Info" field is set to 1.
+- Grooming Status: Approved
+- Grooming Comments: Red label. Request Ferrari for the Inter working IE configuration settings.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.13 Interworking Information Element]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

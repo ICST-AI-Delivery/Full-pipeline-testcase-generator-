@@ -1,0 +1,129 @@
+# UnknownID 6.2.2.1.5 Check Maps Integrity (0xFF9B) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.5 Check Maps Integrity (0xFF9B)
+
+- ID: 4136877
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Need to check the start condition with the customer.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4136879
+- Contents: The system shall read Check Maps Integrity with an active Ferrari Security access session.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Ferrari Security access session and Protocol service of $31
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Protocol service of $31
+
+2. ID: 4136883
+- Contents: Check Maps integrity results (see: image22.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Check Maps integrity results from the given table.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Visual Elements: image22.png
+
+3. ID: 4136887
+- Contents: The system shall check the map package integrity.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the MAP package integrity
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+4. ID: 4136892
+- Contents: If the routine is complete  & Developer mode is in exited state, Then system shall set the parameter Check Maps Integrity = 0x00 ("Done")
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that parameter Check Maps Integrity = 0x00 ("Done")
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, is complete, is, exited, set, amp, mode, state, Integrity, Done" )
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+5. ID: 4136893
+- Contents: If the routine is in progress, Then system shall set the parameter Check Maps Integrity = 0x01 ("Ongoing")
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify  parameter Check Maps Integrity = 0x01 ("Ongoing") if the routine is in progress.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+6. ID: 4136894
+- Contents: If the routine fails for any reason, Then system shall set the parameter Check Maps Integrity = 0x0F ("Failed")
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify parameter Check Maps Integrity = 0x0F ("Failed") if routine fails
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘0 F’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image22.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.1.5 Check Maps Integrity (0xFF9B) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,142 @@
+# UnknownID 6.2.2.32.2 Long parking visualizations Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32.2 Long parking visualizations
+
+- ID: 4895546
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895547
+- Contents: If "proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+if "LongParkingSts == 1" ("Active")
+Then
+IDC shall provide an indication for the "Storage Mode Active" state
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If "proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+if "LongParkingSts == 1" ("Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ThenIDC, LongParking, provide, Parking ON / Menu OFF, Parking ON / Menu ON, LongParkingSts, indication, Mode Active, state" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5029313
+- Contents: If "proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+if "LongParkingSts == 1" ("Active")
+Then
+IDC shall set internal interface "INFO_ChargeLabel = 9" ("Storage_mode")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If "proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+if "LongParkingSts == 1" ("Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ThenIDC, LongParking, set, Parking ON / Menu OFF, Parking ON / Menu ON, LongParkingSts, interface" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895548
+- Contents: If
+"proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+"LongParkingSts == 1" ("Active") 
+Then
+IDC shall provide "Power discharge during storage mode" indication
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If
+"proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+"LongParkingSts == 1" ("Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ThenIDC, LongParking, provide, Parking ON / Menu OFF, Parking ON / Menu ON, LongParkingSts, discharge, mode, indication" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5029529
+- Contents: If
+"proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+"LongParkingSts == 1" ("Active") 
+AND
+HVB_ActiveDischargePower == 0x7F
+Then
+IDC shall provide the visualization as "No" for the "Power discharge during storage mode" indication
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If
+"proxi parameter LongParking == 2"  ("Long Parking ON / Menu OFF")
+OR
+"proxi parameter LongParking == 3" ("Long Parking ON / Menu ON")
+AND
+"LongParkingSts == 1" ("Active") 
+AND
+HVB_ActiveDischargePower == 0x7F
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ActiveDischargePower    0x7FThenIDC, LongParking, provide, Parking ON / Menu OFF, Parking ON / Menu ON, LongParkingSts, visualization, discharge, mode, indication" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.32.2 Long parking visualizations Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

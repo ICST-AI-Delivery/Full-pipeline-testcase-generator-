@@ -1,0 +1,106 @@
+# RAD-24 6.2.1.1.25  HD Radio Blending Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.25 RAD-24 HD Radio Blending
+
+- ID: 4034032
+- Artifact Type: SRS Feature
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4083861
+- Contents: System shall implement a seamless blending process between digital and analog versions of the same broadcast of HD Radio technology.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, implement, process, versions, broadcast, technology" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4083926
+- Contents: System shall introduce a delay to the analog audio stream to ensure time alignment with the digital audio stream.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4083928
+- Contents: System shall delay Analog Audio to the analog signal within the range of >=6 to <=10 seconds to ensure synchronization with the digital stream.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘6’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4083929
+- Contents: System Audio level of both digital and analog streams shall be aligned.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be aligned" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4083931
+- Contents: HD Radio functionality shall applicable to both AM HD, FM HD radio technologies.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4083927
+- Contents: [info] Signal process introduces  delays in the digital audio path that needs to be compensated in order to prevent undesired hopping from digital to analog mode.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4083930
+- Contents: [Info] For further description of the audio/time level alignment please refer to the provider website information.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-24 6.2.1.1.25  HD Radio Blending Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

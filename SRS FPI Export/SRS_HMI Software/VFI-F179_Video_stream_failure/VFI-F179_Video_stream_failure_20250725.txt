@@ -1,0 +1,97 @@
+# VFI-F179 6.2.2.13  Video stream failure Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.13 VFI-F179 Video stream failure
+
+- ID: 4136851
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4136937
+- Contents: IDC shall set the status as “Fail_Present” when one
+of the following events occurs:
+NDR Serializer unlock.
+IDC fail in the parking video stream chain
+IDC shall raise a dedicated DTC according to IDC Diagnosis Specification
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the fail present conditions.
+
+ internal signal INFO_IDC_ RVCS_FailSts
+
+Diagnosis
+DTCs
+NDR Serializer Error
+Control Unit - Comunication error timeout
+Control Unit - Low temperature
+Control Unit - High temperature
+- Grooming Status: Approved
+- Grooming Comments: what happens SVS application IVI side when a fault is detected, and output signal is set.
+
+error reaction matrix for SVS android and Linux applications.
+examples:
+if one of the camara fails then blue screen
+- Expert Domains: Android HMI, Camera, IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "fail, set, following, occurs, unlock, raise, according, INFO, chain, DTC, Specification" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4136938
+- Contents: System shall deactivate the related DTC when no fails are detected.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to deactivate the DTC when no fails are detected.
+
+internal interface INFO_IDC_ RVCS_FailSts ="Fail_Not_Present"
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, fails, set, deactivate, are detect, INFO, DTC" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4136939
+- Contents: This function allows the detection of causes that may lead to a failure of the video stream on the parking system, so as to show an indication to the user.
+(see: image37.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image37.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image37.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F179 6.2.2.13  Video stream failure Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

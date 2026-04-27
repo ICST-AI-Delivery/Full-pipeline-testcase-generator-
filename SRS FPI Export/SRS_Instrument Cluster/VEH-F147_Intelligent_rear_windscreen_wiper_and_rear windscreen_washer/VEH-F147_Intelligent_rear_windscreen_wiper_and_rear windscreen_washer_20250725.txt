@@ -1,0 +1,74 @@
+# VEH-F147 6.2.1.1.1.20  Intelligent rear windscreen wiper and rear windscreen washer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.20 VEH-F147 Intelligent rear windscreen wiper and rear windscreen washer
+
+- ID: 3939895
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3997695
+- Contents: System shall display Fail-1 Pop-up with Buzzer when RearWindowWiperMotorErrorStatus is Active.
+Note: Fail-1 follows D01 Visualisation behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: 
+RearWindowWiperMotorErrorSts = Active
+
+Verify that the Fail-1 Pop-up with Buzzer is displayed when RearWindowWiperMotorErrorStatus is Active.
+
+POP-UP ID: 14701
+
+Buzzer Audio: Buzzer 2B
+
+CAN-Signal: EXTERNAL_LIGHTS.RearWindowWiperMotorErrorSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Buzzer, RearWindowWiperMotorErrorStatus, Active, Priority-2" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3997689
+- Contents: System shall display the Intelligent rear windscreen wiper and rear windscreen washer indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, rear, wiper, windscreen, indications, design" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F147 6.2.1.1.1.20  Intelligent rear windscreen wiper and rear windscreen washer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

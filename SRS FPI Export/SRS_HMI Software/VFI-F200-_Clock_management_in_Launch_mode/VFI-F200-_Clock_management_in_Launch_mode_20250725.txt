@@ -1,0 +1,96 @@
+# VFI-F200- 6.2.2.27.6 Clock management in Launch mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.27.6 VFI-F200-Clock management in Launch mode
+
+- ID: 4756479
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core, System Infra
+- HB_Comment: 27
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4756480
+- Contents: IDC shall update the clock graphics in Real Time Visual state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the clock graphics in real time visual state
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4756481
+- Contents: IDC shall set for 3 clock needles the Angular Position = 0.0° in Real Time Visual state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 3 clock needles angular position (0) in real time visual state
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3,0.0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4756482
+- Contents: System shall start the needle
+movement setting angular speed equal to 72°/s when LaunchTime != 0.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the needle angular speed (72d/s) when LaunchTime != 0
+
+ PWT_STATUS_7.LaunchTime
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘72,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4756483
+- Contents: System shall stop the movement of the needles and keep the current position when LaunchTime = 2("Max_Visual")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the needles positions when LaunchTime = 2("Max_Visual")
+
+ PWT_STATUS_7.LaunchTime
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, keep, movement, needles, position, LaunchTime" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F200- 6.2.2.27.6 Clock management in Launch mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

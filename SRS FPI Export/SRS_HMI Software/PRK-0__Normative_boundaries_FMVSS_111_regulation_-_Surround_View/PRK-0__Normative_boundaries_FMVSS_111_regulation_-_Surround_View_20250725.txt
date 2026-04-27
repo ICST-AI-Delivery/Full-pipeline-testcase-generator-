@@ -1,0 +1,153 @@
+# PRK-0 6.2.4.1.6 : Normative boundaries: FMVSS 111 regulation - Surround View Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.6 PRK-0: Normative boundaries: FMVSS 111 regulation - Surround View
+
+- ID: 3604118
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [Wei 25.12.2024] OK to approve
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3624404
+- Contents: The system shall show the "Rear view" in the stream frame if an obstacle's detected on under "Top view" threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Rear View is active (reverse gear is engaged).
+
+Set the top view threshold
+<=42cm for (Rear Left / Rear Right Lateral Sensor)
+
+Verify that rear top view is not activated and Verify the Rear view in the stream frame is shown)
+
+Note:
+The activation/deactivation of the view is related to the gear engaged & obstacle detection threshold.  .
+- Grooming Status: Approved
+- Grooming Comments: [Abdul,sunil 03.02.2024] PI6 Approved
+
+[Wei 31.12.2024]: Approved
+https://jira.harman.com/jira/browse/FQ-581
+
+# 1
+
+HMI-LF-4333 - If an obstacle is detected on under Top view threshold the system will not display
+the Rear Top view. It will show the Rear view in the stream frame with the red 3D walls
+correspondents to the obstacle.
+
+Q: 1. Here ,If an obstacle is detected means is this from Rear sensors
+--------------------------
+
+2. What is top view threshold?
+[Abdul, Sunil]: This is available in the document.
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The activation/deactivation of the view is related to the gear engaged & obstacle detection threshold.
+
+2. ID: 3604120
+- Contents: The system shall activate the “Rear wide view” if “Wide View” is activated during First gear/Neutral & vice versa.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: First gear or Neutral is engaged.
+Activate the Wide view function from HMI Front camera view.
+
+Engage the Reverse Gear
+Verify that the Rea Wide view screen is visible
+
+Disengage the Reverse Gear .
+Verify that the Wide view is visible again.
+
+Note:
+The activation/deactivation of the view is related to the gear engaged & obstacle detection threshold. .
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "if  #8220" ) 
+Passive voice
+ (Look for: "is activated" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The activation/deactivation of the view is related to the gear engaged & obstacle detection threshold.
+
+3. ID: 3604121
+- Contents: Surround View shall show the fixed view with no-Reverse gear engagement & Rear wide view with Reverse gear engagement when wide view is activated.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Reverse gear is not engaged
+Activate Wide view from HMI.
+Verify that the SV shows the fixed view.
+
+Engage the Reverse gear
+Verify that the SV shows the rear wide view.
+
+
+Note:
+The activation/deactivation of the view is related to the gear engaged & obstacle detection threshold.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "is activated" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The activation/deactivation of the view is related to the gear engaged & obstacle detection threshold.
+
+4. ID: 3604122
+- Contents: The system shall "not" activate the auto button due to the shift between "no_Reverse gear" & Reverse gear.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Auto button is off
+
+Select gear (front/rear)
+Verify the Auto activation button is still Off
+- Grooming Status: Approved
+- Grooming Comments: [Dhivakar, Abdul 18.03.2025] Approved
+
+Sunil 29.01.2024 : need clarity in this requirement, Ask ferrari.
+https://jira.harman.com/jira/browse/FQ-957
+
+Wei: This is information and can be mapped above SRS
+- Expert Domains: Android HMI, Camera
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, view, shift, gear, amp" ) 
+Negative statement
+ (Look for: "not, no_" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Auto Button: This button is used to selected the default view in surround view (rear view/front view)
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.6 : Normative boundaries: FMVSS 111 regulation - Surround View Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

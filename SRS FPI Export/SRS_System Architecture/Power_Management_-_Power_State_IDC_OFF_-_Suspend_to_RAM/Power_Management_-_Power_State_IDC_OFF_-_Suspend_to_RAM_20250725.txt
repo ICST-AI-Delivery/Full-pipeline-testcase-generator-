@@ -1,0 +1,55 @@
+# UnknownID 6.2.2.1.1.1 Power Management - Power State IDC OFF - Suspend to RAM Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.1.1 Power Management - Power State IDC OFF - Suspend to RAM
+
+- ID: 3452745
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_IOC
+- Grooming Status: Approved
+- Grooming Comments: This needs further discussion as complete IDC OFF will be white label and will come from Space4.
+- Expert Domains: System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3452755
+- Contents: IDC shall transition to Ignition Off Awake Mode if the Key status is STOP/PARK.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the transition of the IDC to ignition off awake mode under specified condition (Stop/Park).
+
+Set Igniton signal to off( KeySts="STOP" OR KeySts="PARK") HW igntion signal shall be not acitve: HW +15. Simulate requesting the network by Master sending WAKE_C_NBC.MainWakeSts = 1 ("Active"). Check if IDC send Wake_C_IDC message with WakeReq_NIT = 0(Not Active)
+
+input signal KeySts="STOP" OR KeySts="PARK" OR HW +15 signal
+- Grooming Status: Approved
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.1.1.1 Power Management - Power State IDC OFF - Suspend to RAM Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

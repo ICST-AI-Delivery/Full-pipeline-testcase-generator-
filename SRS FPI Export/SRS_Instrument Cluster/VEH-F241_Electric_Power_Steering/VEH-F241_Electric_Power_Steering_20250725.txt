@@ -1,0 +1,175 @@
+# VEH-F241 6.2.1.1.2.18  Electric Power Steering Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.18 VEH-F241 Electric Power Steering
+
+- ID: 3408584
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3898433
+- Contents: Proxi Byte-26 , bit-2 (NGE absent / present ) shall decide Electric Power steering function  enable or disable.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Electric Power Steering Function Enable or Disabled by Proxi Byte-26 , Bit-2.
+- Grooming Status: Approved
+- Grooming Comments: Need Proxi related information
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "present, decide, steering, enable, disable, function" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3713062
+- Contents: System shall display Warning-1 pop-up with buzzer when NGE Display Info= Derating
+Note: Warning-1 Follows D01 visualisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-1 is displayed when NGE_Display_Info=Derating.
+
+Pop-Up ID: 24103
+Telltale ID: WRM028
+Buzzer:2B
+
+CAN-Signal: STATUS_C_NGE.NGE_Display_Info
+- Grooming Status: Approved
+- Grooming Comments: What NGE stands for?
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Display, Follows, pop-up, buzzer, Derating, Priority-1" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3713063
+- Contents: System shall display Fail-1 Pop-up with buzzer and virtual telltale when Electric Steering FailStatus is  Fail_Present.
+Note: Fail-1 follows D01 visualisation behaviour with priority-0
+Virtual telltale follows S26 behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 is displayed when Electric Steering FailStatus is Fail_Present.
+
+POP-UP ID:24101
+
+
+CAN - Signal: STATUS_C_NGE.ElectricSteeringFailSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, buzzer, telltale, FailStatus, priority-0" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3713068
+- Contents: System shall display Fail-2 Pop-up with buzzer when Electric Steering Lamp Fail Status is “OFF Fail present”.
+Note: Fail-2 follows D01 visualisation behaviour with Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-2 is displayed when Electric Steering Lamp Fail Status is OFF Fail Present.
+
+Pop-up ID:24102
+
+
+CAN-Signal : STATUS_C_NGE.ElectricSteeringFailSts
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Steering Lamp Fail Status, display, is  #8220, present, follows, Pop-up, buzzer, Priority-0" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3713070
+- Contents: System shall set Electric Steering Lamp Fail Status is OFF_Fail_present and store a DTC when In case of power steering telltale fault
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DTC is stored and set Electric Steering Lamp Fail Status is "OFF Fail present"
+- Grooming Status: Blocked
+- Grooming Comments: What is the DTC code ?
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, is, store, steering, Lamp, Status, DTC, fault" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 4705666
+- Contents: IF System detects an Message Counter or CRC error on STATUS_C_NGE message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F241 Fail 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the F241 Fail-1 is displayed is the STATUS_C_NGE is not received for more than MC_CRC_error_Counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, error, message, visualization" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+7. ID: 5557500
+- Contents: Active diagnosis service for telltale turn ON/OFF , DTC in case of virtual telltale fault detedtion(internal fault).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713061
+- Contents: System shall display the Electric power steering indications , perform the logics as per the Ferrari design
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+2. ID: 3911937
+- Contents: System shall use the mentioned CAN signals to display Vehicle Access Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F241 6.2.1.1.2.18  Electric Power Steering Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

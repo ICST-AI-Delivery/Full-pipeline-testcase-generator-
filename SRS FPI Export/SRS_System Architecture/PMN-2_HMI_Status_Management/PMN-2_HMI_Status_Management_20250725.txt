@@ -1,0 +1,526 @@
+# PMN-2 6.2.2.2  HMI Status Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2 PMN-2 HMI Status Management
+
+- ID: 3408203
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Android HMI, Audio Processing, BT, Cluster SW, IOC_IOC, Media Core, Projections, System Core, System Infra, USB
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3408204
+- Contents: IDC shall maintain sub states HMI ON, HMI OFF & HMI Power ON in IDC ON state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Verification Criteria: Check if the mentioned sub states are supported
+it's kind of a headline. check the 3 states.
+
+Input
+HMI_CAN:
+RFHUB1.HMIPowerOnReq
+STATUS_NBC_3.UserPresence
+PWT_STATUS_1.Recharge_PlugSts
+PWT_STATUS_2.VCU_EnergyProfileRqt
+RFHUB1.FobSearchStatus
+RFHUB1.FOBsearchInterior
+
+Output
+HMI_CAN:
+HMI_INFO.HMISts =0 (HMI OFF)
+HMI_INFO.HMISts =1 (HMI ON)
+HMI_INFO.HMISts =2 (HMI POWER ON)
+
+HMI_INFO.CabineModeSts
+IDC_Display.Display_ON_IDC_To_NDR
+IDC_Display.Display_ON_IDC_To_NDRR
+IDC_Display.Display_ON_IDC_To_NQS
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Android HMI, Audio Processing, BT, Cluster SW, IOC_IOC, Media Core, Projections, System Core, System Infra, USB
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3460990
+- Contents: System shall set by default, Audio and Screens to OFF in HMI OFF state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the audio and screens should be OFF in HMI OFF state.
+
+HMI_INFO.HMISts =0 (HMI OFF)
+
+
+IDC_Display.Display_ON_IDC_To_NDR=0
+IDC_Display.Display_ON_IDC_To_NDRR=0
+IDC_Display.Display_ON_IDC_To_NQS=0
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, Cluster SW, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, to OFF, Screens, state" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3460991
+- Contents: System shall set Audio and Screens to ON in HMI ON and HMI Power ON state
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the audio and screen should be ON in HMI ON and power ON state.
+
+4 displays should be on and audio should be heard the speakers.
+
+HMI_INFO.HMISts =1 (HMI ON)
+
+
+IDC_Display.Display_ON_IDC_To_NDR=1
+IDC_Display.Display_ON_IDC_To_NDRR=1
+IDC_Display.Display_ON_IDC_To_NQS=1
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, Cluster SW, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, Screens, state" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3460992
+- Contents: IDC shall transition from HMI OFF state to HMI ON state when the below condition is satisfied
+UserPresence to 2 ("Present") AND
+ [VPSDoorsSts !=0 ("Locked_External") OR 
+    (VPSDoorsSts == 0 ("Locked_External") AND Interior_Lock == 1 ("Active")]
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the transition from HMI OFF to HMI ON state based on user inputs.
+
+input signal UserPresence == 2 ("Present") AND
+VPSDoorsSts !=
+0 ("Locked_External") OR (VPSDoorsSts == 0 ("Locked_External") AND
+
+STATUS_DOOR.Interior_Lock==1
+
+HMI_INFO.HMISts=1
+
+(HMI INFO status changes to 0 to 1)
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "transition, input, set, state, signal, Present" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3460993
+- Contents: System shall remain in HMI ON State if:
+    
+    HMIPowerONReq == 0 ("Not_Active")
+    AND
+    [(UserPresence == 2 ("Present")  OR  timeout TShutOff since transition of input signal UserPresence from 1 ("Present") to 0 ("NotPresent) has NOT expired)
+    OR
+    (VPSDoorSts != 0 ("Locked_External") AND CabineModeSts ==1("Enabled"))]
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the cabin mode status and HMI power ON condition when HMI ON condition.
+
+HMIPowerONReq == 0 ("Not_Active")
+UserPresence == 2 ("Present") 
+VPSDoorSts != 0 ("Locked_External") AND CabineModeSts ==1("Enabled"))
+
+Calibration parameter
+TShutOff  IDC-437943 - T_POWER_MANAGEMENT ($0503)
+
+expect HMISTS CAN signal=1
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, remain, to enabled, to notactive, set, to present, State" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3460994
+- Contents: IDC shall transition from HMI ON state to HMI OFF state when the below condition is satisfied
+User presence signal should set to Not Present AND
+timeout TShutOff since transition of input signal UserPresence from 1 ("Present") to 0 ("NotPresent) has expired] OR
+[VPSDoorSts == 0 ("Locked_External") AND timeout TShutOff since transition of input signal VPSDoorSts from !=0 to 0 ("Locked_External") has expired].
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the HMI ON to HMI OFF conditions below.
+
+verify that the signal should be in Not present state.
+
+
+verify cabin mode status (Not enabled).
+
+verify the time out counter (expired).
+
+input signal UserPresence == 0 ("NotPresent")
+  AND
+output signal CabineModeSts == 0 ("Not_Enabled")
+  AND
+timeout TShutOff has expired
+OR
+    (VPSDoorSts != 0 ("Locked_External") AND CabineModeSts ==1("Enabled"))]
+
+Calibration parameter
+TShutOff  IDC-437943 - T_POWER_MANAGEMENT ($0503)
+
+expect HMISTS CAN signal=0
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signal, status, counter, transition, are, set, expire, state, conditions, Present, Not Enable" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3460995
+- Contents: System shall transition from HMI ON state to HMI Power ON state when HMI Power On request changes from Not Active to Active
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the transition from HMI ON to HMI power ON state based on the change in the HMI power ON request.
+
+input signal HMIPowerONReq =1
+HMIsts=2
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, transition, state, Power, changes, Not Active, Active" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3460996
+- Contents: System shall transition from HMI Power ON state to HMI ON state when HMI Power On request changes from Active to Not Active.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the transition from HMI power ON to HMI ON state based on the change in the HMI power ON request.
+
+input
+HMIPowerONReq =0
+
+Output
+HMIsts=1
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, transition, state, Power, changes, Active" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3460997
+- Contents: IDC shall display Charging Screen if recharge plug signal received in HMI ON state
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the charging screen is displayed correctly when recharge plug is in HMI ON state.
+
+charging screen displayed on Central display
+
+input signal Recharge_PlugSts != 0
+("Not_Connected")
+
+Output
+HMIsts=1
+- Grooming Status: Approved
+- Grooming Comments: Please refer to VEH-F813 and VFI-F813 for the details regarding the logics driving the Charging indications
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, received, Screen, signal, state" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3460998
+- Contents: System shall manage key contents and function availability base on
+Key Presence in Vehicle
+Availability based on HMI states
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the IDC manages key contents and function availability based on key presence and HMI states.
+
+
+Verify the availability of the Vehicle parameters acording to table 5.4.2.1 Vehicle Setup Parameters F244-98946 from:   https://workplace.harman.com/apps/PLOEM/55/OEM288/_layouts/15/WopiFrame.aspx?sourcedoc={5EEBA490-8C6C-4DFD-A5B1-B15952373BC5}&file=F230_Vf32_R10_VehicleSetup.pdf&action=default and the requirment mentioned CAN signals.
+has context menu.
+
+please refer
+IDC-420919 - PMN-2 HMI Status Management
+
+please ref HMI status management
+
+(both in HMI ON AND in HMI Power On status) OR Only in Power ON]
+[FobSearchStatus == 2 ("Complete") AND FOBsearchInterior == 1 ("FOB_in_zone")]
+OR
+HMIPowerOnReq == 1 ("Active")
+
+HMI On AND only if key is inside cabin
+FobSearchStatus == 2 ("Complete") AND FOBsearchInterior == 1
+
+Only if Key is inside vehicle
+FobSearchStatus == 2 ("Complete") AND FOBSearchInterior == 0
+("No_FOB_in_zone")
+AND
+HMIPowerOnReq == 0 ("Not_Active")
+("FOB_in_zone")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, based, contents, availability base, states" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4627346
+- Contents: IDC shall remain in "HMI Power-ON" state if the input signal HMIPowerONReq is Active.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system is in HMI power On if input signal is active.
+
+HMIPowerONReq=1
+
+output
+HMIsts=2
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3460999
+- Contents: IDC shall inhibit USB Ports and apply energy reduction strategy as per HMI specifications when energy profile signal should receive.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the IDC inhibits USB ports and implements the energy reduction strategy in accordance with HMI specifications.
+
+ input signal VCU_EnergyProfileRqt != 0 ("Normal")
+- Grooming Status: Approved
+- Grooming Comments: kantesh will check with muthu and confirm 
+
+[Muthu 12/Dec ] : HMI can control the UI availability based on the HMI status. USB ports and other engery reduction signal should be handled in System.
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra, USB
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signal, inhibit, apply, receive, Ports, strategy, specifications" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4600205
+- Contents: System shall set NQS Display on request and provide charging visualization when Recharge plug status set to notconnect in HMI OFF state.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify charging screen visualization when Recharge plug status set to not connected in HMI OFF state.
+
+this screen displayed for charging visualization in NQS (HMI-LF-10197)
+
+ PWT_STATUS_1.Recharge_PlugSts
+Display_ON_IDC_To_NQS = 1
+
+HMIsts=0
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, provide, charging, to notconnect, Display, request, visualization, state" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4600218
+- Contents: System shall set NQS display on request and provide telltale indication in HMI OFF state if:
+VEH_Main_AreaPopup != 0("No_PopUp")
+OR
+(VEH_Virtual_Telltale_LGH001 == ON AND VEH_Virtual_Telltale_LGH002 == ON)
+OR
+VEH_Virtual_Telltale_ESC002== 1("ON")
+OR
+VEH_Virtual _Telltale_ESC001== 1("ON")
+OR
+"VEH_Virtual_Telltale_BRK001"== 1("ON")
+OR
+VEH_Virtual_Telltale_EPB001 == 1("ON")
+OR
+VEH_Virtual_Telltale_WRM019 == 1("ON")
+OR
+VEH_Virtual_Telltale_ARB001 == 1("ON")
+OR
+VEH_Virtual_Telltale_LGH006  == 1("ON")
+OR
+VEH_Virtual_Telltale_SSP019 == 1("ON")
+OR
+VEH_Virtual_Telltale_SSP023 == 1("ON")
+OR
+VEH_Virtual_Telltale_HOL001 == 1("ON")
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the telltale indications in HMI OFF state.
+NQS Screen goes on when one of the condition triggers.
+
+VEH_Main_AreaPopup != 0 ("No_PopUp")
+OR
+(VEH_Virtual_Telltale_LGH001 == ON AND VEH_Virtual_Telltale_LGH002 == ON)
+OR
+VEH_Virtual_Telltale_ESC002== 1 ("ON")
+OR
+VEH_Virtual _Telltale_ESC001== 1 ("ON")
+OR
+VEH_Virtual_Telltale_BRK001== 1 ("ON")
+OR
+VEH_Virtual_Telltale_EPB001 == 1 ("ON")
+OR
+VEH_Virtual_Telltale_WRM019 == 1 ("ON")
+OR
+VEH_Virtual_Telltale_ARB001 == 1 ("ON")
+OR
+VEH_Virtual_Telltale_LGH006  == 1 ("ON")
+OR
+VEH_Virtual_Telltale_SSP019 == 1 ("ON")
+OR
+VEH_Virtual_Telltale_SSP023 == 1 ("ON")
+OR
+VEH_Virtual_Telltale_HOL001 == 1 ("ON")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, display, provide, NQS, request, indication, state" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4600230
+- Contents: System shall set NQS display off request unless charging visualization is requested.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set display off request unless charging visualization is requested.
+
+after 4600218 NQS display should be switched off
+
+Display_ON_IDC_To_NQS = 0
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "unless" ) 
+Passive voice
+ (Look for: "is requested" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4600243
+- Contents: System shall enable Audio for reproduction of Early Sounds on TURN_INDICATORS channel when VEH_Virtual_Telltale_LGH001 and VEH_Virtual_Telltale_LGH002 are in active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Head unit should be running ON. Can communication be ON.
+
+(VEH_Virtual_Telltale_LGH001 == ON AND VEH_Virtual_Telltale_LGH002 == ON)
+
+Verify the sound audio for reproduction of early sound on turn indicators.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, channel, are in active, reproduction, Sounds" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4600249
+- Contents: IDC shall enable Audio for reproduction of Early Sounds on Power Lift Gate (PLG) channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio for reproduction of early sounds on PLG.
+
+Input:
+
+STATUS_PLG.PLGAlert
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4600254
+- Contents: System shall enable Audio for reproduction of Early Sounds on RL_POWER_DOOR OR RR_POWER_DOOR channel when Rear Left OR Rear Right POWER_DOOR alert trigger.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the rear left or rear right POWER DOOR alerts.
+
+
+ STATUS_ERR_V2.STS_RV_DoorAlert
+STATUS_ERL_V2.STS_LV_DoorAlert
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, reproduction, Sounds, Left, POWER_DOOR, trigger" )
+- State (Harman_Requirement): Approved
+
+19. ID: 4600563
+- Contents: Turn Indicators Sounds shall be perceived from all directions
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the turn indicator sounds in all directions
+
+VEH_Virtual_Telltale_LGH001 == ON AND VEH_Virtual_Telltale_LGH002 == ON)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "all" ) 
+Passive voice
+ (Look for: "be perceived" )
+- State (Harman_Requirement): Approved
+
+20. ID: 4600565
+- Contents: system shall makeTurn Indicators Sounds "not "adjustable and notexcludible.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the turn Indicators Sounds are not Adjustable.
+
+Sound would be constant, and volume is not adjustable
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4600236
+- Contents: IDC shall enable Audio directing the active source on Early Sound dedicated channel when one of the trigger conditions occurs.
+- Artifact Type: Information
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PMN-2 6.2.2.2  HMI Status Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

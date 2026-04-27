@@ -1,0 +1,152 @@
+# VFI-F914- 6.2.2.30.1 Calendar Settings availability Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.1 VFI-F914-Calendar Settings availability
+
+- ID: 4098780
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4098781
+- Contents: System shall make available the Calendar interfaces when HMIPowerOnReq == 1("Active") OR [ FOBSearchInterior == 1 ("Fob_in_zone") AND
+FobSearchStatus == 2 ("Complete")].
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the calender availability when 
+HMIPowerOnReq == 1("Active") OR [ FOBSearchInterior == 1 ("Fob_in_zone") AND
+FobSearchStatus == 2 ("Complete")].
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4098784
+- Contents: System shall inhibit the Calendar interfaces when HMIPowerOnReq ==0("Not_Active") AND FOBSearchInterior==0("No_Fob_in_zone") AND
+FobSearchStatus == 2("Complete").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the inhibit condition of calender when 
+HMIPowerOnReq ==0("Not_Active") AND FOBSearchInterior==0("No_Fob_in_zone") AND
+
+FobSearchStatus == 2("Complete").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inhibit, interfaces, Not_Active, FOBSearchInterior, Complete" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4758240
+- Contents: System shall gray out calendar settings when calendar charging availability "not available".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to gray out the calendar when calendarCharging.availability == 0 ("Not Available")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, gray out, charging, settings, unavailable" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4758242
+- Contents: System shall provide a label for unavailability due to active storage mode when Availability == 0("Not Available") AND Storage Mode is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the label due to active storage mode
+ Availability == 0("Not Available") AND Storage Mode is active.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, to active, is active, label, unavailability, mode, Availability, Mode" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4758246
+- Contents: System shall provide a label for unavailability due to AC charging  inactive status when Availability == 0("Not Available") AND OBC_PlugType != 1("AC_Plug").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the label for unavailability due to AC charging inactive status when Availability == 0("Not Available") AND OBC_PlugType != 1("AC_Plug").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, charging, label, unavailability, status" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4758249
+- Contents: System shall make the correspondent setting available for user interaction when Availability == 1(" Available").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user iteraction on setting when
+calendarCharging.availability == 1 (" Available")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, make, setting available, correspondent, interaction" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4098783
+- Contents: Calendar settings shall not be available for user interaction when IDC receives charge plug type as "Plug_DC".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: OBC_ChargePlugType==2("Plug_DC").
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "be, receives" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 4098782
+- Contents: Calendar settings shall not be available when IDC receives Charge Plug Type as"Plug_Not_Present" and charge Location as"No_Location".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: OBC_ChargePlugType==0("Plug_Not_Present") AND calendarCharging.chargeLocation==1("No_Location").
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "settings, be available, receives, calendarCharging.chargeLocation, No_Location" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914- 6.2.2.30.1 Calendar Settings availability Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

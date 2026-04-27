@@ -1,0 +1,103 @@
+# SET-0 6.2.3.1  Setting functionalities introduction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1 SET-0 Setting functionalities introduction
+
+- ID: 3408281
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: HMI Design by Ferrai
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3840389
+- Contents: IDC shall manage availability of the Vehicle setup menu items for the following conditions:
+"AVAILABLE AT SPEED > 0"
+"AVAILABILITY on HMISts"
+Key Presence in vehicle
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the vehicle setup options.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3841011
+- Contents: IDC shall set the setting available when HMISts available
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the setting available when HMI status available.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3841029
+- Contents: IDC shall enable the settings when the following conditions met:
+HMISts = 1("HMI_ON")
+HMISts != 0("HMI_OFF")
+HMISts = 2("HMI_PowerON")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the HMI status options.
+
+these are the generic requirements.
+
+HMI_CAN:
+
+HMI_INFO
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3841017
+- Contents: IDC shall restrict the specific setting if the availability conditions are never meet.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that in HMI status off settings are unavailable.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-0 6.2.3.1  Setting functionalities introduction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

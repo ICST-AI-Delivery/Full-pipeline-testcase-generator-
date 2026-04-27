@@ -1,0 +1,139 @@
+# CLK-3 6.2.6.3  Chrono Button management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.3 CLK-3 Chrono Button management
+
+- ID: 4886190
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Security, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886198
+- Contents: system shall implement the logics and interface of Chrono physical hand on a scale of 60sec.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the HMI is showing second hands on a scale of 60sec in the main dail for chrono mode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, logics, interface, hand, scale" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886199
+- Contents: system shall receive the physical input GPIO2_Clk_Bttn2 transition from LOW to HIGH, then system shall switch to chrono layout from clock or compass layout.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system switch to chrono directly from clock/compass when receive the physical input GPIO2_Clk_Bttn2 transition from LOW to HIGH.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall receive, shall switch" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886200
+- Contents: system shall start the chronometer in case of received input signal GPIO2_Clk_Bttn2 = HIGH for t < TlongpressClk AND the chronometer is not active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the chronometer is started after short pressing the GPIO2_Clk_Bttn2 button .
+- Grooming Status: Approved
+- Expert Domains: Security, System Core
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not active" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886202
+- Contents: system shall pause the chrono count in case of received input signal GPIO2_Clk_Bttn2 from LOW to HIGH(GPIO2_Clk_Bttn2= HIGH for t < TlongpressClk) AND Chronometer is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the chronometer count is paused after short press on GPIO2_Clk_Bttn2.
+- Grooming Status: Approved
+- Expert Domains: System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4886204
+- Contents: system shall stop and reset the count, when GPIO2_Clk_Bttn2  = HIGH for t >= TlongpressClk.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the chronometer count is stop and reset after long press on GPIO2_Clk_Bttn2.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "stop, reset" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4886205
+- Contents: system shall set the visualization to "chrono" if unvisualized when GPIO2_Clk_Bttn2  = HIGH for t >= TlongpressClk.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system switch to chrono after long press on GPIO2_clk_Bttn2
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "unvisualized" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4886207
+- Contents: System shall store the last count value and overwrite on previous stored value for each stop and pause and provide the value as per HMI indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Chrono count is updated in d2.1 area for each stop and pause.
+- Grooming Status: Approved
+- Expert Domains: Security, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, overwrite, stored, pause, provide, value, stop, indication" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4886197
+- Contents: [Info] This function manages the chronometer
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Core
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of CLK-3 6.2.6.3  Chrono Button management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

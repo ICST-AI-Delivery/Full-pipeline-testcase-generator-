@@ -1,0 +1,114 @@
+# UnknownID 6.2.2.3.7 Driver Positions Memories Saving logic Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.7 Driver Positions Memories Saving logic
+
+- ID: 4886167
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886168
+- Contents: IDC shall save the configuration by pressing save button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the system able to save the configurations by pressing save button.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886170
+- Contents: System shall consider the request expired and not update the Mn data when no user interaction on Mn within a T_save time after pressing the save button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify Mn data (unchanged) when no user interaction within T_save time.
+
+T_save (5sec)
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, consider, expired, update, save, pressing, request, data, interaction, button" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886171
+- Contents: If user press the Mn within the T_save time System shall read values receive in Mirrors Configuration input signals
+and store for the selected Mn configuration slot, where n ={1,2,3} when
+user interaction on Mn
+AND
+MirrorProfileSts != [5("ManualMoving") OR 4("ProfileOrMemoryMoving")].
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to store the values in Mn when 
+user interaction on Mn 
+
+AND 
+
+MirrorProfileSts != [5 ("ManualMoving") OR 4
+("ProfileOrMemoryMoving")].
+T_save (5sec)
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, read, receive, selected, MirrorProfileSts, values, store, configuration slot, ProfileOrMemoryMoving" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886172
+- Contents: If incase all the M1, M2, M3 are occupied then System shall overwrite the stored parameters value with the values received in "Mirrors Configuration input signals" for the selected Mn slot, where  n ={1,2,3} when the user requests a new memorization on a Mn configuration slot.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to overwrite the stored values when user request for new memorization.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, overwrite, stored, value, received, selected, requests, parameters, values, signals, slot, memorization" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4886169
+- Contents: IDC shall consider as user's request for the memorization of configuration when the combination of the Save interface interaction (e.g. short press) AND the Mn interface interaction (e.g. short press).
+- Artifact Type: Information
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.7 Driver Positions Memories Saving logic Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

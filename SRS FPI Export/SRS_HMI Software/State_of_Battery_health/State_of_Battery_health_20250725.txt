@@ -1,0 +1,67 @@
+# UnknownID 6.2.2.22.2 State of Battery health Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.22.2 State of Battery health
+
+- ID: 3912287
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3912306
+- Contents: IDC shall read HVB_SOH_HMI value in order to provide it as the battery state of health dedicated HMI indication value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check the battery state of health through HMI when HVB_SOH_HMI indicates the value.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3912297
+- Contents: IDC shall display the distance from the last SOH update on HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to see the distance from the last SOH update through HMI
+
+xEV_CHRG_HMI_2.DistTrav_since_Last_SOH_Upd_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.22.2 State of Battery health Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

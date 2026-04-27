@@ -1,0 +1,103 @@
+# UnknownID 6.2.3.1.16 RWS TimeOut   ($2034) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.16 RWS TimeOut   ($2034)
+
+- ID: 3976654
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: As per MTA it is not applicable for current program. Need to be checked with ferrari.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976655
+- Contents: The system shall evaluate the RWS response after user request (activation / deactivation snow chain mode) with waiting time of NQS
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system check the RWS response after user requests the ( activation / deactivation )  with waiting time of NQS.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, evaluate, waiting, response, activation, snow, mode, time" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 3977189
+- Contents: The System shall have RecordDataIdentifier ($2034) to know the RWS TimeOu.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify RecordDataIdentifier ($2034)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2034’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+3. ID: 3977190
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+4. ID: 3977191
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+5. ID: 3977192
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the data record from the given table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.16 RWS TimeOut   ($2034) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

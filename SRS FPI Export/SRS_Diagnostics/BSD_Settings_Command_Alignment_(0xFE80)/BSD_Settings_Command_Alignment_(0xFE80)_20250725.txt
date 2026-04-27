@@ -1,0 +1,101 @@
+# UnknownID 6.2.4.2.1.8 BSD Settings Command Alignment (0xFE80) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.8 BSD Settings Command Alignment (0xFE80)
+
+- ID: 4615406
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4615407
+- Contents: The system shall read/write BSD Settings Command Alignment ($TBD) with an active extended diagnostic session
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Engineering Menu function supports Read/ write data By Identifier.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, read, write, session" )
+- TestTeamComment: RWeber_DIAG_250228: Only check that the RDBI worked at ExtSession. No applicative check, that the return value is valide, shows the real system state. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 1byte
+Data type: Unsigned
+
+2. ID: 4615408
+- Contents: Whenever the user requesting data identifier with the diagnostic service Read Data By Identifier the ECU shall get beck the Blindspot setting status value.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the BSD Settings Command Alignment ($TBD)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250228: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+3. ID: 4615409
+- Contents: Upon requesting data identifier along with a specific value with via diagnostic service Write Data By Identifier , the IDC shall update the Blindspot setting value according to user request.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the BSD Settings Command Alignment ($TBD)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "requesting, update, according, identifier, value, Data, Identifier, request" )
+- TestTeamComment: RWeber_DIAG_250228: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+4. ID: 4615410
+- Contents: The parameter value association for both reading and writing shall be the following
+00-> NIT_ADAS_SETUP.BSDEnable=Not_Enable
+01-> NIT_ADAS_SETUP.BSDEnable=Enable_LED
+02-> NIT_ADAS_SETUP.BSDEnable=Enable_LED_Chime
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the reading and writing parameter are as follows:
+00-> NIT_ADAS_SETUP.BSDEnable=Not_Enable
+01-> NIT_ADAS_SETUP.BSDEnable=Enable_LED
+02-> NIT_ADAS_SETUP.BSDEnable=Enable_LED_Chime
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "parameter, writing, be, following, LED, association, reading" )
+- TestTeamComment: RWeber_DIAG_250228: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.8 BSD Settings Command Alignment (0xFE80) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

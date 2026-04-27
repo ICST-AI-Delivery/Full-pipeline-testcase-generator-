@@ -1,0 +1,181 @@
+# PRK-0 6.2.4.1  PARKING MANAGEMENT INTRODUCTION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1 PRK-0 PARKING MANAGEMENT INTRODUCTION
+
+- ID: 3411914
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3551808
+- Contents: The parking system shall allow to select the Rear camera Parking configurations via the following Proxi parameters & values:
+Proxi parameter Rear View Camera disable/enable = enabled
+Proxi parameter IDC_SurroundViewFunctionality = Not Present
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the HMI is visible for rear camera  configuration when rear camera configuration is selected
+- Grooming Status: Approved
+- Grooming Comments: [Wei 27.12.2024]Dual Camera configuration  is not applicable currently
+https://jira.harman.com/jira/browse/FQ-597
+- Expert Domains: Android HMI, Camera, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: It is possible to have different parking versions based on vehicle configuration:
+ 
+Rear and Front sensors, plus Rear camera.
+Surround view.
+
+2. ID: 3551812
+- Contents: The Parking system shall allow to select the Sourround Camera configuration via the following proxi parameters & Values.
+Proxi parameter Rear View Camera disable/enable = disabled
+Proxi parameter IDC_SurroundViewFunctionality = Present
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the surround view parking configuration by using the Proxi parameters.
+
+Verify that HMI is visible for Surround view
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "disabled" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: IDC_SurroundViewFunctionality (0 = "Not Present", 1 = "Present")
+
+3. ID: 3539384
+- Contents: The system shall enable/disable the Parking feauture based on Proxi parameter IDCVehicle_Type
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to enable/disableate the  parking feature by using proxi parameter IDC_Vehicle_Type
+
+
+Verify that the HMI won't allow to access the parking feature when IDC_Vehicle_Type is invalid
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "systel, enable, disable, based, feauture, parameter" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: It is possible to have different parking versions based on vehicle configuration:
+ 
+Rear and Front sensors, plus Rear camera.
+Surround view.
+
+4. ID: 5075390
+- Contents: The system shall show the mirrored Parking layout visualization based on Proxi parameter 'Side driver'.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the Proxi Parameter Side driver = Left/right
+
+Verify the Parking Visualization is visible on HMI
+
+Change the value of Proxi Parameter Side driver 
+Verify the mirrored visualization of the parking screen.
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: Mirrored parking layout is not offered from Space4, hence, need to be handled completely in the Ferrari project as red label requirement.
+
+
+[28.02.2025, Wei, Saheel, Abdul, Sunil] Approved
+
+[Sunil 25.02.2025] In which position it is mirrored?
+- Expert Domains: Android HMI, Camera, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3604207
+- Contents: The system shall follow the PROXI parameter Parking_Deactivation in order to perform the different norms strategies.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that different Norms to follow is activated based on the PROXI parameter Parking_Deactivation 
+
+
+Note: Norms includes UNECE FMVSS, KMVSS..etc.
+
+Note: 
+In rear camera configuration for the markets where rear camera display is mandatory in reverse, the parameter will be set as 1 = never_deactivable and the system shall not give the possibility to close rear view visualization while in reverse. With the other values it is possible to close it even in reverse.
+- Grooming Status: Approved
+- Grooming Comments: [Wei 31.12.2024]: Ok to approve
+
+https://jira.harman.com/jira/browse/FQ-585
+
+# 9
+
+Ask Ferrari: what is the expected behavior for each of these values. 
+
+Note:From Proxi table
+0 = always_deactivable 
+1 = never_deactivable 
+2 = partially_deactivable 
+3 = not_used 
+.
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: For further details see the “IDC Finalized Document"
+
+From Ferrari:
+this is applicable in rear camera configuration where in the markets where rear camera display is mandatory in reverse, the parameter will be set as 1 = never_deactivable and the system shall not give the possibility to close rear view visualization while in reverse. With the other values it is possible to close it even in reverse. 
+
+The fact that there are multiple values and also other proxi parameters with similar use (e.g. compliance norm) is just because they come from legacy sysems that had more configurations.
+
+### Informational Items:
+
+1. ID: 3729731
+- Contents: 1) It is possible to have different parking versions based on vehicle configuration:
+Rear and Front sensors, plus Rear camera.
+Surround view.
+2) Parking appears in the B area of the Central Display
+(see: image67.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image67.png
+
+2. ID: 3539334
+- Contents: IDC-444912 - IDC shall implement Parking Management according to:
+IDC-445383 - SFS F802 – Front and Rear Parking Camera Management 
+IDC-451222 - SFS F560 – Surround View Management 
+IDC-445386 - SFS F179 - Obstacle Proximity Signalling
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image67.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1  PARKING MANAGEMENT INTRODUCTION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

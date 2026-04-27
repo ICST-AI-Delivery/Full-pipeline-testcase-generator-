@@ -1,0 +1,164 @@
+# RAD-12 6.2.1.1.13  Favourites list Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.13 RAD-12 Favourites list
+
+- ID: 3939612
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_IOC, SXM, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3975803
+- Contents: System shall display favourite list when user short press on favourite filter key.
+1.The user has access to favourite station list by selecting "Favourites" 
+2.System update the list, when user removes the station from Favourites.
+3.If none of the station added to favourite list, then “No Favourite” label display in favourite list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the favourite list when the user short press on the favourite filter
+1. By selecting "Favourites", the user has access to only favourite station in list
+2. If an item removes from Favourites list, system shall update list.
+3. In case the Favourite list is empty becouse no station is marked as favourite, the “No Favourite” label is visualized in the list
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, favourite, short, has, to favourite, selecting, update, removes, added, list, press, filter, access, Favourites, station, Favourite #8221" ) 
+Negative statement
+ (Look for: "none, No" ) 
+Unclear term
+ (Look for: "favourite" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3976133
+- Contents: The max number of favourite Radio stations defined by calibration parameter
+'MaxRadioFavorites'
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Based on Parameter value favorite radio stations list has to be updated.
+
+The max number of favorite Radio stations defined by calibration parameter
+'MaxRadioFavorites',
+
+Parameter: - MaxRadioFavorites
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: 'MaxRadioFavorites',defined in RDI Parameters of AD-10
+
+3. ID: 3976081
+- Contents: System shall display strong stations from the favourite list with help of filtering flag.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall display strong stations from the favourite list with help of filtering flag. (When user select star Icon station list shall show only favourite stations, if un selected, all the stations shall display).
+
+Info:  "Filtering Flag" means that the favourite station is retrieved by the strong list filtered by favourite stations stored in the IDC
+- Grooming Status: Approved
+- Grooming Comments: [Devi C 04/10] CRS status changed from Not offered to offered.
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, filtering, stations, list, help, flag" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: "Filtering Flag" means that the favourite station is retrieved by the strong list filtered by favourite stations stored in the IDC
+
+4. ID: 3976117
+- Contents: System shall persist the status of the filtering flag selected by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall persist the status of the filtering flag selected by the user.
+
+Applicable for S2r, Screen change, source change
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3976128
+- Contents: System shall display favourites list for AM, FM, DAB+, AM HD, FM HD, SXM
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display favourites list for AM, FM, DAB+, AM HD, FM HD
+- Grooming Status: Approved
+- Grooming Comments: SXM - Still discussion is going on
+- Expert Domains: AM_FM_HD, SXM
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, favourites, list, AM, FM, DAB+, SXM" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3976130
+- Contents: System shall display indication when stations unavailable due to antenna detachment/empty list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall provide indication if no station is available due to antenna detachment/empty list.
+
+No Station Available screen to be shown on HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, indication, stations, detachment, list" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3976132
+- Contents: System shall inform the user the Favourite list of a given source type is full.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall inform the user the Favourite list of a given source type is full.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3976129
+- Contents: Recovery
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3976131
+- Contents: Visalization cycles
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-12 6.2.1.1.13  Favourites list Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

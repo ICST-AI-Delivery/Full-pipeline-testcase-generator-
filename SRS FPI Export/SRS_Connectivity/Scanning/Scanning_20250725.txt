@@ -1,0 +1,270 @@
+# UnknownID 6.1.2.3.5 Scanning
+
+
+
+Scanning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.5 Scanning
+
+
+
+Scanning
+
+- ID: 2353374
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353375
+- Contents: 6.1.2.3.5.1 The System shall always scan for WLAN networks to detect all available WLAN netw...
+
+
+
+The System shall always scan for WLAN networks to detect all available WLAN networks in range.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353376
+- Contents: 6.1.2.3.5.2 The System shall not negatively influence existing Bluetooth connections' stabil...
+
+
+
+The System shall not negatively influence existing Bluetooth connections' stability or data throughput performing scanning and association activity.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+3. ID: 2353377
+- Contents: 6.1.2.3.5.3 Especially it is to be made sure that existing Bluetooth audio connections are n...
+
+
+
+Especially it is to be made sure that existing Bluetooth audio connections are not affected by WLAN scanning activities.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+4. ID: 2353378
+- Contents: 6.1.2.3.5.4 The System shall finish within 3 seconds the scanning of the WLAN networks on al...
+
+
+
+The System shall finish within 3 seconds the scanning of the WLAN networks on all allowed in the configured regulatory domain channels.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Move to Red label.
+Check KPI on space4.
+To be discussed with Ferrari on max scan time.
+To confirm DFS is required from Ferrari. In Space4 its mentioned Not offered.
+
+5. ID: 2353379
+- Contents: 6.1.2.3.5.5 The User shall have scan results as quickly as possible.
+
+
+
+The User shall have scan results as quickly as possible.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: Whitelabel requirement
+
+6. ID: 2353380
+- Contents: 6.1.2.3.5.6 The User shall not wait until all relevant channels' whole WLAN scanning procedu...
+
+
+
+The User shall not wait until all relevant channels' whole WLAN scanning procedure is finished but inspect intermediate results.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+7. ID: 2353381
+- Contents: 6.1.2.3.5.7 The User shall be able to start the scanning procedure manually.
+
+
+
+The User shall be able to start the scanning procedure manually.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+8. ID: 2353382
+- Contents: 6.1.2.3.5.8 The System shall stop the automatic background scanning once it connects to the...
+
+
+
+The System shall stop the automatic background scanning once it connects to the WLAN network in STA mode.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+9. ID: 2353383
+- Contents: 6.1.2.3.5.9 The User shall be able to initiate WLAN scanning at any time.
+
+
+
+The User shall be able to initiate WLAN scanning at any time.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: White label.
+Turn on Wi-Fi--->Scan starts
+
+10. ID: 2353384
+- Contents: 6.1.2.3.5.10 The System shall scan for WLAN networks in parallel for both 2.4 and 5 GHz bands...
+
+
+
+The System shall scan for WLAN networks in parallel for both 2.4 and 5 GHz bands if triggered by the User, and the 5 GHz is allowed.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: To be discussed with Ferrari. 
+Current solution (AOSP+HW) supports sequential scanning but does not support parallel scanning of 2.4GHz and 5GHz.
+
+11. ID: 2353385
+- Contents: 6.1.2.3.5.11 The System shall not scan in 5 GHz if the band is disabled in diagnosis.
+
+
+
+The System shall not scan in 5 GHz if the band is disabled in diagnosis.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Redlabel.Do we need to control band operation via diagnosis for both AP and Station?
+AOSP do not support band configuration for station.
+
+12. ID: 2353386
+- Contents: 6.1.2.3.5.12 The System shall continuously scan for WLAN networks with 30 seconds pause betwe...
+
+
+
+The System shall continuously scan for WLAN networks with 30 seconds pause between two complete scan cycles for the first 180 seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Red label. Inform Ferrari on AOSP implementation. Wi-Fi team to check the current implementation.
+whether the Scan is happening in foreground or background?
+
+13. ID: 2353387
+- Contents: 6.1.2.3.5.13 If WLAN is switched on and not connected to any WLAN network (either in the 2.4...
+
+
+
+If WLAN is switched on and not connected to any WLAN network (either in the 2.4 or 5 GHz).
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+14. ID: 2353388
+- Contents: 6.1.2.3.5.14 The System shall extend the pause between two complete scans cycles to 60 second...
+
+
+
+The System shall extend the pause between two complete scans cycles to 60 seconds after 180 seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Red label. Inform Ferrari on AOSP implementation. Wi-Fi team to check the current implementation.
+whether the Scan is happening in foreground or background?
+- TestTeamComment: Hsutter [2024-04-16]  Send mail to  Divakar Ravupalli  -> Information in Verification Criteria is missing
+
+15. ID: 2353389
+- Contents: 6.1.2.3.5.15 The System shall present the known networks on top of the scan results list.
+
+
+
+The System shall present the known networks on top of the scan results list.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+16. ID: 2353390
+- Contents: 6.1.2.3.5.16 The System shall sort the unknown networks by the received signal strength indic...
+
+
+
+The System shall sort the unknown networks by the received signal strength indication (RSSI) value, starting with the strongest signal.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: As per Grooming session this requirement to be moved to White label.
+
+17. ID: 2353391
+- Contents: 6.1.2.3.5.17 The System shall present unsupported networks at the bottom of the list.
+
+
+
+The System shall present unsupported networks at the bottom of the list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+
+18. ID: 2353392
+- Contents: 6.1.2.3.5.18 The System shall display why the network is not supported for all unsupported ne...
+
+
+
+The System shall display why the network is not supported for all unsupported networks.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+
+19. ID: 2353393
+- Contents: 6.1.2.3.5.19 The System shall display only one list item for ESSIDs (networks with more than...
+
+
+
+The System shall display only one list item for ESSIDs  (networks with more than one AP, all broadcasting the same SSID).
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+20. ID: 2353394
+- Contents: 6.1.2.3.5.20 The System shall display only one item for ESSIDs spread across 2.4 and 5 GHz.
+
+
+
+The System shall display only one item for ESSIDs spread across 2.4 and 5 GHz.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+21. ID: 2353395
+- Contents: 6.1.2.3.5.21 The System shall not allow connecting in STA mode to itself in AP mode.
+
+
+
+The System shall not allow connecting in STA mode to itself in AP mode.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+22. ID: 2353396
+- Contents: 6.1.2.3.5.22 The System shall not add its SSID to the list of available networks.
+
+
+
+The System shall not add its SSID to the list of available networks.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.5 Scanning]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

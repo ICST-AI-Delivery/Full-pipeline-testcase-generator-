@@ -1,0 +1,178 @@
+# VEH-F248 6.2.1.1.2.20  Auto EPB Command Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.20 VEH-F248 Auto EPB Command
+
+- ID: 3408586
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3714647
+- Contents: System shall Feedback-1 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Auto Electric Parking  Disable.
+Note:Feedback-1 follows D04 visualisation with priority-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+AutoEPBEnable = Disabled
+
+Verify that the Pop-Up is displayed and Send to IVI when Trigger Condition is met.
+
+POP-UP ID: 02480001
+
+CAN-Signal:
+NFR_INFO.AutoEPBEnable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Feedback, follows, Pop-up, Enable, visualisation, priority-3" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3714692
+- Contents: System shall Feedback-2 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Auto Electric Parking  Enable.
+Note:Feedback-2 follows D04 visualisation with priority-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+AutoEPBEnable = Enabled
+
+Verify that the Pop-Up is displayed and Send to IVI when Trigger Condition is met.
+
+POP-UP ID: 02480002
+
+CAN-Signal:
+NFR_INFO.AutoEPBEnable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Feedback, follows, Disable, visualisation, priority-3" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3714693
+- Contents: By default, the parking brake is active (PARK ON) and in the mode Feedback-2 must be un-visualized and Feedback-2 will perform starting from PARK OFF condition
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Feedback-2 is not displayed in Gear Status is PARK and shall be displayed in other than Gear Status is PARK.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "must be, will perform" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3968251
+- Contents: System shall display Feedback-3 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when proxi Plock_Limiter Enable and Auto EPB Enable is  Disbled_Denied.
+Note: Feedback-3 Follows D04 visualisation with Priority-3
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Proxi Plock_Limiter is Enabled
+Trigger Condition:
+AutoEPBEnable is Disabled_Denied
+
+Verify that the Feedback-3 Pop-up is displayed when Proxi Plock_Limiter is Enabled AND AutoEPBEnable is Disabled_Denied
+
+Pop-up ID: 02480003
+
+CAN-Signal: NFR_INFO.AutoEPBEnable
+- Grooming Status: Approved
+- Grooming Comments: POP.IND doc does not contain Feedback-3 Information.
+
+10/03/2025: OM- Clear
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Enable, display, Denied, Follows, Pop-up, visualisation, Priority-3" ) 
+Passive voice
+ (Look for: "is DISABLED" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3968299
+- Contents: System shall display Feedback-4 Pop-up when send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS proxi Plock_Limiter enable and Auto EPB Enable is Automatic_Enabled.
+Note: Feedback-4 Follows D04 visualisation with Priority-3
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Proxi Plock_Limiter is Enabled
+Trigger Condition:
+AutoEPBEnable is Automatic_Enabled.
+
+Verify that the Feedback-4 Pop-up is displayed when Proxi Plock_Limiter is Enabled AND AutoEPBEnable is Automatic_Enabled.
+
+Pop-up ID:24804
+
+CAN-Signal: NFR_INFO.AutoEPBEnable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, enable, Follows, Pop-up, EPB Enable, visualisation, Priority-3" ) 
+Passive voice
+ (Look for: "Enabled" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3714604
+- Contents: System shall display Auto Electric Parking Command indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+2. ID: 3911939
+- Contents: System shall use the mentioned CAN signals to display Auto EPB as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F248 6.2.1.1.2.20  Auto EPB Command Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,111 @@
+# UnknownID 6.2.2.32.5 Charge Rate Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32.5 Charge Rate
+
+- ID: 4895676
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895678
+- Contents: IDC retrieves "HVB_ChargeRate_HMI" value in order to provide Charge Rate indication.
+
+If
+"HVB_ChargeRate_Unit_HMI == 0" ("Km/h")
+AND
+according to user setting (see SET-6) distance unit is set to "km"
+Then
+IDC shall provide Charge Rate indication in "km/hour"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge rate status when
+If
+"HVB_ChargeRate_Unit_HMI == 0" ("Km/h")
+AND
+according to user setting (see SET-6) distance unit is set to "km
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895679
+- Contents: IDC retrieves "HVB_ChargeRate_HMI" value in order to provide Charge Rate indication
+If
+according to user setting (see SET-6) distance unit is set to "miles"
+AND
+"HVB_ChargeRate_Unit_HMI == 0" ("Km/h")
+Then
+IDC shall provide Charge Rate indication converting the retrieved value in "miles/hour"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge rate status when
+If
+according to user setting (see SET-6) distance unit is set to "miles"
+AND
+"HVB_ChargeRate_Unit_HMI == 0" ("Km/h")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895691
+- Contents: IDC shall retrieves the value "HVB_ChargeRate_HMI" in order to provide Charge Rate indication
+
+If
+"HVB_ChargeRate_Unit_HMI == 1" ("Km/min")
+Then
+IDC shall visualize the unit of measure for Charge Rate (driven by HVB_ChargeRate_HMI) in "km/min" or "mi/min" according to distance unit selected by the user
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge rate status when
+If
+"HVB_ChargeRate_Unit_HMI == 1" ("Km/min")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall retrieves, shall visualize" ) 
+Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.32.5 Charge Rate Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

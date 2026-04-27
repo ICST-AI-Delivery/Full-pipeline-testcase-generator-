@@ -1,0 +1,204 @@
+# VEH-F800 6.2.1.1.2.33  Power Lift Gate Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.33 VEH-F800 Power Lift Gate
+
+- ID: 3408601
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3886513
+- Contents: Byte-27, bit-1 (NVB-PLG absent/present). System shall display  F800 only if proxi NVB-PLG = present , Byte-186, bit-0 (DC Buzzer PLG absent/present).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the F800 is displayed when Proxi NVB-PLG is Present , Byte-186 , Bit-0 is present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, absent, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3713313
+- Contents: System shall display warning-1 Pop-up and send the Warning-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when Power Lift Gate Info for Display is Obstacle  Detection.
+Note: Warning-1 follows D04 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+PLGInfoForDisplay = Obstacle_Detection
+
+Verify that the system displays Warning-1 Pop-up when Power Lift Gate Info for Display is Obstacle Detection.
+
+POP-Up ID:08000001
+
+CAN-Signal: STATUS_PLG.PLGInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Power Lift Gate Info, display, warning, send, using, is, follows, Pop-up, status, INDICATOR, Display, Detection, priority-1" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3713317
+- Contents: System shall display warning-2 pop-up and send the Warning-2 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Power Lift Gate Info For Display is Power Lift Gate Open_Reminder.
+Note: Warning-2 follows D04 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+PLGInfoForDisplay = PLG_Open_Reminder
+
+Verify that the system displays Warning-2 Pop-up when Power Lift Gate Info for Display is Power Lift Gate Open_Reminder
+
+POP-Up ID:08000002
+
+Buzzer: 2B
+
+CAN-Signal: STATUS_PLG.PLGInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, follows, pop-up, Info, Display, Lift, Open, priority-1" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3713522
+- Contents: System shall set Warning-3 Buzzer_2B and VEH_Buzzer_2B signals when PLG Alert is "Single Chime" if IDCBuzzerPLG = "Present"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: PLGAlert = "Single_Chime"
+
+System shall set warning-3 audio buzzer when proxi IDC buzzer Power Lift Gate is single chime.
+
+CAN-Signal: STATUS_PLG.PLGAlert
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, warning, proxi, is, buzzer, Gate, Chime" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3713523
+- Contents: System shall set Warning-4 Buzzer_2B and VEH_Buzzer_2B signals when PLG Alert is "Double Chime" if IDCBuzzerPLG = "Present"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: PLGAlert = "double_Chime"
+
+System shall display warning-4 audio buzzer when proxi IDC buzzer Power Lift Gate is double chime.
+
+Buzzer : 2B
+
+CAN-Signal: STATUS_PLG.PLGAlert
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, warning, proxi, is, buzzer, Gate, Chime" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3713525
+- Contents: System shall set Warning-5 Buzzer_2B and VEH_Buzzer_2B signals when PLG Alert is "Garage Chime" if IDCBuzzerPLG = "Present"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: PLGAlert = "garage_Chime"
+
+System shall display warning-5 audio buzzer when proxi IDC buzzer Power Lift Gate is garage chime.
+
+CAN-Signal: STATUS_PLG.PLGAlert
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, warning, proxi, is, buzzer, Gate, Chime" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3713535
+- Contents: System shall display Fail-1 Pop-up with buzzer  and send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when :
+Power Lift Gate Info For Display is System Malfunction OR
+Power Lift Gate Fail Status is Fail.
+Note: Fail-1 follows D01 visualisation with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Fail-1 Pop-up with Buzzer when 
+* Power Lift Gate Info For Display is System Malfunction OR
+* Power Lift Gate Fail Status is Fail.
+
+Pop-Up ID: 08000003
+Audio Buuzer: Buzzer 2B 
+
+CAN-Signal:
+STATUS_PLG.PLGFailSts
+STATUS_PLG.PLGInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Fail, is, follows, Pop-up, buzzer, Info, Display, Malfunction, Status, priority-1" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3713536
+- Contents: System shall display Fail-2 Pop-up with buzzer and send the Fail-2 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS. when Power Lift Gate Info For Display is Manual Close Required
+Note: Fail-2 follows D01 visualisation with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Fail-2 Pop-Up with buzzer when Power Lift Gate Info for Display is Manual Close Required.
+
+Pop-up ID: 08000004
+Audio Buzzer : Buzzer 2B
+
+CAN-Sinal: STATUS_PLG.PLGInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Fail, is, follows, Pop-up, buzzer, Info, Display, Close, priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713276
+- Contents: System shall display Power Lift Gate visualisation as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F800 6.2.1.1.2.33  Power Lift Gate Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

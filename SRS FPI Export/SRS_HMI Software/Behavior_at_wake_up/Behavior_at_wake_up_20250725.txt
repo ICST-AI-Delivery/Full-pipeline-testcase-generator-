@@ -1,0 +1,116 @@
+# UnknownID 6.2.2.3.3 Behavior at wake up Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.3 Behavior at wake up
+
+- ID: 4886150
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886151
+- Contents: IDC shall set MirrorsProfileReq = 0("Not_Active") at wake up.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror profile req at wake up.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886152
+- Contents: System shall recover the last active mirror position configuration for the retrieved profile when Profile == 1 ("present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the system able to recover the mirror config when Profile == 1 ("present").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recover, retrieved, configuration, profile, Profile, present" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886154
+- Contents: IDC shall set MirrorProfileReq = 2("ProfileReq") when
+[IDC performs a transition to HMI_PowerON state
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+OR
+IDC is in HMI_PowerOn state and detects the transition from STS_DRS_DriverDoorSts != 1("Closed") to
+STS_DRS_DriverDoorSts == 1("Closed")]
+AND
+MirrorProfileSts != (5("ManualMoving") OR 1("Fail_Present")).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror profile req 
+when 
+[IDC performs a transition to HMI_PowerON state
+AND
+STS_DRS_DriverDoorSts == 1 ("Closed")
+OR
+IDC is in HMI_PowerOn state and detects the transition from STS_DRS_DriverDoorSts != 1 ("Closed") to
+STS_DRS_DriverDoorSts == 1 ("Closed")]
+AND
+MirrorProfileSts != (5 ("ManualMoving") OR 1 ("Fail_Present")).
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ORIDC, set, performs, Closed, is, detects, ANDMirrorProfileSts, ProfileReq, transition, state, STS" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886155
+- Contents: System shall set MirrorProfileReq= 0("Not_Active") when
+MirrorProfileSts == [5("ManualMoving") OR 1("Fail_Present") OR (2("ProfileReached") for Nsample of
+LIN_MIRROR_FEEDBACK message)]
+OR
+a transition of from MirrorProfileSts != 6("NBCInternalFunction") to MirrorProfileSts == 6("NBCInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror profile req when
+
+MirrorProfileSts == [5 ("ManualMoving") OR 1 ("Fail_Present") OR (2 ("ProfileReached") for Nsample of
+LIN_MIRROR_FEEDBACK message)]
+OR
+a transition of from MirrorProfileSts != 6 ("NBCInternalFunction") to MirrorProfileSts == 6 ("NBCInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, MirrorProfileSts, Not_Active, transition, NBCInternalFunction" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.3 Behavior at wake up Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

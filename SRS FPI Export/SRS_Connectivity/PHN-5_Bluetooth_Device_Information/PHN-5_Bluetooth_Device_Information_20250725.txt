@@ -1,0 +1,125 @@
+# PHN-5 6.2.1.5  Bluetooth Device Information Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5 PHN-5 Bluetooth Device Information
+
+- ID: 3407128
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3430897
+- Contents: IDC shall display the BT Device name information of the paired phone in paired device list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC display the BT device information of the paired phone in the paired list.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3481700
+- Contents: BT device can be connected as Primary phone and Secondary phone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify BT device can be connected as Primary or secondary phone.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3481701
+- Contents: Primary phone is the device connected and managed only as Car play/Android auto.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the connected primary phone is carplay/Android auto.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3481702
+- Contents: Secondary Phone is connected and managed only showing a Call pop-up (incoming, outcoming, active call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the secondary connected phone is managed for call popup.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+5. ID: 3481713
+- Contents: If a phone is connected as Apple CarPlay or Android auto then the relative icon will be shown on the device button
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the displayed icon when the apple CarPlay or Android auto is connected.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+6. ID: 3481714
+- Contents: If a phone is not connected as Apple CarPlay or Android auto then the Bluetooth icon will be shown on the device button
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the displayed icon when Apple carplay or android auto is not connected.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+7. ID: 4566975
+- Contents: System shall recover the paired devices' projection type in order to display the information to the user via a dedicated interface
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall recover the paired devices' projection type (ACP or AA enabled) in order to display the information to the user via AA/ACP Icons
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-5 6.2.1.5  Bluetooth Device Information Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

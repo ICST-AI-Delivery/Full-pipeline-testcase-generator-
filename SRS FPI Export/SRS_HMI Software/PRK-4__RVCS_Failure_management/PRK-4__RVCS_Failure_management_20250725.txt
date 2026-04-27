@@ -1,0 +1,184 @@
+# PRK-4 6.2.4.5.4 : RVCS Failure management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.5.4 PRK-4: RVCS Failure management
+
+- ID: 3877300
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Grooming Comments: [Wei_29-05-2025] will be Blocked till customer clarifies the query.
+- Expert Domains: Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3877302
+- Contents: The system  shall display "CAMERA_FAIL" indication if Proxi Parameter "RVCSFail_popup_inhibition" == "Popup_present" & "NDR_info.NDR_RCVSFailSts" == "Fail_Present" & "ParkingSysFilter" timer expired.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi signal;
+Send the CAN signal;
+Remove the Rear camera.
+
+Verify the indication on HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Sunil Wei :18.2.2025]: What is the exact popup and
+if SV is active not active: where it should be displayed ?
+
+
+[Sunil, Abdul 04.11.2024]
+Ask Ferrari
+1)
+Assume that currenly system is in IDC screen. During this time, NDR_info.NDR_RCVSFailSts == "Fail_Present"
+is received. In this case, who is going to display the camera_fail indication.
+[Wei 14.02.2025] HMI/Camera. 
+
+2)
+Assume that currenly system is in IDC screen. During this time, NDR_info.NDR_RCVSFailSts == "Fail_Present"
+is received. If the reverse gear is engaged, what should happen?
+ 
+3)
+Assume that NDR_info.NDR_RCVSFailSts == "Fail_Present" is received.  After some time, front/real obstacles are detected, but still NDR_info.NDR_RCVSFailSts == "Fail_Present". In this case, what should happen?
+ 
+
+
+https://jira.harman.com/jira/browse/FQ-593
+
+# 11
+
+Question to customer:
+1. How it needs to be shown (CAMERA_FAIL) and how long it should show.
+
+2. ParkingSysFilter timer : what is the functi0onality of this and what is the value.
+
+[Muthu 01-07-2025] HMI just show the popup, the logic is handled by Systems.
+- Expert Domains: Camera
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to "IDC Finalized Document"
+
+2. ID: 3877384
+- Contents: The system shall display “CAMERA_FAIL” indication if IDC detects an internal fail set under the following detect conditions:
+In 'Ignition_On' OR 'Ignition_On_PowerUnit_On' Proxi parameter.
+RVCSFail_popup_inhibition = Popup_Present
+Related DTC
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi signal;
+Send the CAN signal;
+Remove the Rear camera.
+
+Verify the indication on HMI.
+- Grooming Status: Approved
+- Grooming Comments: 22.03.2025:https://jira.harman.com/jira/browse/FQ-593
+Only the issue with the behavior & popup during internal failure
+
+https://jira.harman.com/jira/browse/FQ-595
+
+Art: Ask customer, if DTC is not there in DTC spec.
+
+[Sunil]: What is internal failure here.
+DTC: check the DTC spec
+
+If it is available in the document, need to confirm with domains internally.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, set, following, detect, #8220, CAMERA_FAIL #8221, indication, conditions, parameter" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (Refer to "IDC Finalized Document").
+
+3. ID: 5678879
+- Contents: The system shall not display “CAMERA_FAIL” indication in below conditions:
+IDC doesn’t detect any internal fail
+heal DTC
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi signal;
+Send the CAN signal;
+Remove the Rear camera.
+
+Verify the indication on HMI.
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+4. ID: 3604125
+- Contents: The system shall allow No-interactions or functions to leave the Rear view visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: [Abdul , Sunil 11.03.2025] Not needed, Already covered in SRS 
+3784182: The system shall not allow to leave the Rear view visualization if Reverse gear is engaged.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, leave, No-interactions, functions, visualization" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3604127
+- Contents: The system shall show a black screen in the Camera stream frame when the visualization of Rear view content is impossible.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Not needed
+
+Already covered in 
+3624426: The system shall show a black screen in the Camera stream frame if it is impossible to visualize the content of Rear view.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, stream, is impossible, screen, frame, visualization, content" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3604126
+- Contents: The system shall disable the rear camera view close button
+The Close button is disabled.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: 3784191: The system shall disable the Rear view close button during the reverse view visualization with reverse gear engaged.
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is disabled" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3554302
+- Contents: (see: image116.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image116.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image116.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-4 6.2.4.5.4 : RVCS Failure management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

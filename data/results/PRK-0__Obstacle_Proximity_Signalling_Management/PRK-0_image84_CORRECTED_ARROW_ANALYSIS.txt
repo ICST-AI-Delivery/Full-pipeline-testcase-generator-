@@ -1,0 +1,275 @@
+=== CORRECTED ARROW DIRECTION ANALYSIS - PRK-0 image84.png ===
+
+IMAGE: Pre-FineTuneLearning Model/SRS FPI export/SRS_HMI Software/PRK-0__Obstacle_Proximity_Signalling_Management/image84.png
+├─ Analysis Method: v5.0 Arrow Direction Focused Analysis
+├─ Focus: Systematic arrow identification, direction mapping, and transition counting
+├─ Validation: Cross-referenced with visual evidence and conservation rules
+├─ Quality: High precision arrow head detection and connection point mapping
+
+=== SYSTEMATIC ARROW INVENTORY ===
+
+**PHASE 1: COMPLETE ARROW IDENTIFICATION**
+
+**ARROW A1: STATUS 0 → Stop_GoEnable Decision**
+├─ Arrow Head Direction: Downward (pointing into decision diamond)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Straight vertical line, ~40px length
+├─ Source Connection Point: Bottom edge of STATUS 0 oval
+├─ Destination Connection Point: Top vertex of Stop_GoEnable diamond
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: "Key_On"
+├─ Condition Label Position: Right side of arrow
+└─ Visual Clarity: Excellent
+
+**ARROW A2: Stop_GoEnable Decision → RearDelay Process (TRUE path)**
+├─ Arrow Head Direction: Rightward (pointing into process box)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Straight horizontal line, ~80px length
+├─ Source Connection Point: Right vertex of Stop_GoEnable diamond
+├─ Destination Connection Point: Left edge of RearDelay process box
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: "TRUE"
+├─ Condition Label Position: Above arrow
+└─ Visual Clarity: Excellent
+
+**ARROW A3: Stop_GoEnable Decision → STATUS 1 (FALSE path)**
+├─ Arrow Head Direction: Downward-left (pointing into STATUS 1)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Curved path, vertical then leftward curve, ~60px total
+├─ Source Connection Point: Bottom vertex of Stop_GoEnable diamond
+├─ Destination Connection Point: Top-right edge of STATUS 1 oval
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: "FALSE"
+├─ Condition Label Position: Left side of curved arrow
+└─ Visual Clarity: Excellent
+
+**ARROW A4: RearDelay Process → STATUS 1**
+├─ Arrow Head Direction: Leftward-downward (pointing into STATUS 1)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Curved path, horizontal then downward curve, ~100px total
+├─ Source Connection Point: Bottom edge of RearDelay process box
+├─ Destination Connection Point: Top edge of STATUS 1 oval
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: "VehicleSpeed ≤ 10 km/h"
+├─ Condition Label Position: Below curved arrow path
+└─ Visual Clarity: Good
+
+**ARROW A5: STATUS 1 → STATUS 2**
+├─ Arrow Head Direction: Downward-left (pointing into STATUS 2)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Curved path, leftward then downward, ~80px total
+├─ Source Connection Point: Left edge of STATUS 1 oval
+├─ Destination Connection Point: Top-right edge of STATUS 2 oval
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: "ReverseGearRCSSts = 'Inserted'"
+├─ Condition Label Position: Left side of curved arrow
+└─ Visual Clarity: Excellent
+
+**ARROW A6: STATUS 2 → STATUS 1**
+├─ Arrow Head Direction: Upward-right (pointing into STATUS 1)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Curved path, upward then rightward, ~80px total
+├─ Source Connection Point: Top-right edge of STATUS 2 oval
+├─ Destination Connection Point: Left edge of STATUS 1 oval (below A5)
+├─ Bidirectional Status: No (single direction only, forms bidirectional pair with A5)
+├─ Condition Label: "ReverseGearRCSSts = 'Not_Inserted'"
+├─ Condition Label Position: Right side of curved arrow
+└─ Visual Clarity: Excellent
+
+**ARROW A7: STATUS 2 → STATUS 3**
+├─ Arrow Head Direction: Rightward (pointing into STATUS 3)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Straight horizontal line, ~60px length
+├─ Source Connection Point: Right edge of STATUS 2 oval
+├─ Destination Connection Point: Left edge of STATUS 3 oval
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: "NPS_FrontButtonSts == 'Pressed'"
+├─ Condition Label Position: Above arrow
+└─ Visual Clarity: Good
+
+**ARROW A8: STATUS 3 → STATUS 2**
+├─ Arrow Head Direction: Leftward (pointing into STATUS 2)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Straight horizontal line, ~60px length
+├─ Source Connection Point: Left edge of STATUS 3 oval
+├─ Destination Connection Point: Right edge of STATUS 2 oval (below A7)
+├─ Bidirectional Status: No (single direction only, forms bidirectional pair with A7)
+├─ Condition Label: "ReverseGearRCSSts = 'Inserted'"
+├─ Condition Label Position: Below arrow
+└─ Visual Clarity: Good
+
+**ARROW A9: STATUS 1 → STATUS 4**
+├─ Arrow Head Direction: Rightward (pointing into STATUS 4)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Straight horizontal line, ~120px length
+├─ Source Connection Point: Right edge of STATUS 1 oval
+├─ Destination Connection Point: Left edge of STATUS 4 oval
+├─ Bidirectional Status: No (single direction only)
+├─ Condition Label: Complex multi-line condition (6 lines with OR logic)
+├─ Condition Label Position: Above and below arrow (multi-line text)
+└─ Visual Clarity: Excellent (condition text requires zoom analysis)
+
+**ARROW A10: STATUS 4 → STATUS 1**
+├─ Arrow Head Direction: Leftward (pointing into STATUS 1)
+├─ Arrow Head Shape: Clear triangular arrowhead, medium size
+├─ Arrow Shaft Type: Straight horizontal line, ~120px length
+├─ Source Connection Point: Left edge of STATUS 4 oval
+├─ Destination Connection Point: Right edge of STATUS 1 oval (below A9)
+├─ Bidirectional Status: No (single direction only, forms bidirectional pair with A9)
+├─ Condition Label: "ReverseGearRCSSts = 'Not_Inserted'"
+├─ Condition Label Position: Below arrow
+└─ Visual Clarity: Excellent
+
+**TOTAL ARROWS IDENTIFIED: 10**
+
+=== CORRECTED STATE TRANSITION MATRIX ===
+
+**STATE TRANSITION VERIFICATION MATRIX:**
+
+| State/Element | Incoming Arrows | Outgoing Arrows | Arrow IDs In | Arrow IDs Out | Bidirectional Pairs |
+|---------------|-----------------|-----------------|--------------|---------------|-------------------|
+| STATUS 0      | 0               | 1               | None         | A1            | None              |
+| STATUS 1      | 4               | 2               | A3,A4,A6,A10 | A5,A9         | A5↔A6, A9↔A10     |
+| STATUS 2      | 2               | 2               | A5,A8        | A6,A7         | A5↔A6, A7↔A8      |
+| STATUS 3      | 1               | 1               | A7           | A8            | A7↔A8             |
+| STATUS 4      | 1               | 1               | A9           | A10           | A9↔A10            |
+| Stop_GoEnable | 1               | 2               | A1           | A2,A3         | None              |
+| RearDelay     | 1               | 1               | A2           | A4            | None              |
+
+**CORRECTED TRANSITION COUNTS:**
+
+**STATUS 0:**
+├─ Incoming: 0 (entry point)
+├─ Outgoing: 1 (A1 to decision)
+└─ Total Connections: 1
+
+**STATUS 1:** 
+├─ Incoming: 4 (A3 from decision FALSE, A4 from RearDelay, A6 from STATUS 2, A10 from STATUS 4)
+├─ Outgoing: 2 (A5 to STATUS 2, A9 to STATUS 4)
+└─ Total Connections: 6 (major hub)
+
+**STATUS 2:**
+├─ Incoming: 2 (A5 from STATUS 1, A8 from STATUS 3)
+├─ Outgoing: 2 (A6 to STATUS 1, A7 to STATUS 3)
+└─ Total Connections: 4
+
+**STATUS 3:**
+├─ Incoming: 1 (A7 from STATUS 2)
+├─ Outgoing: 1 (A8 to STATUS 2)
+└─ Total Connections: 2
+
+**STATUS 4:**
+├─ Incoming: 1 (A9 from STATUS 1)
+├─ Outgoing: 1 (A10 to STATUS 1)
+└─ Total Connections: 2
+
+**Stop_GoEnable Decision:**
+├─ Incoming: 1 (A1 from STATUS 0)
+├─ Outgoing: 2 (A2 TRUE path, A3 FALSE path)
+└─ Total Connections: 3
+
+**RearDelay Process:**
+├─ Incoming: 1 (A2 from decision)
+├─ Outgoing: 1 (A4 to STATUS 1)
+└─ Total Connections: 2
+
+=== BIDIRECTIONAL FLOW ANALYSIS ===
+
+**BIDIRECTIONAL PAIR 1: STATUS 1 ↔ STATUS 2**
+├─ Forward Arrow: A5 (STATUS 1 → STATUS 2)
+├─ Reverse Arrow: A6 (STATUS 2 → STATUS 1)
+├─ Connection Type: Separate unidirectional arrows (not single bidirectional arrow)
+├─ Visual Separation: Clear separation between arrow paths
+├─ Condition Relationship: Mutually exclusive gear conditions
+└─ Flow Pattern: Gear-based mode switching
+
+**BIDIRECTIONAL PAIR 2: STATUS 2 ↔ STATUS 3**
+├─ Forward Arrow: A7 (STATUS 2 → STATUS 3)
+├─ Reverse Arrow: A8 (STATUS 3 → STATUS 2)
+├─ Connection Type: Separate unidirectional arrows (not single bidirectional arrow)
+├─ Visual Separation: Clear separation between arrow paths
+├─ Condition Relationship: Button press vs. gear maintenance
+└─ Flow Pattern: User-controlled sensor configuration
+
+**BIDIRECTIONAL PAIR 3: STATUS 1 ↔ STATUS 4**
+├─ Forward Arrow: A9 (STATUS 1 → STATUS 4)
+├─ Reverse Arrow: A10 (STATUS 4 → STATUS 1)
+├─ Connection Type: Separate unidirectional arrows (not single bidirectional arrow)
+├─ Visual Separation: Clear separation between arrow paths
+├─ Condition Relationship: Complex OR logic vs. simple gear condition
+└─ Flow Pattern: Enhanced mode activation with controlled return
+
+=== ARROW DIRECTION VALIDATION ===
+
+**CONSERVATION RULE CHECK:**
+├─ Total Outgoing Arrows: 10 (A1,A2,A3,A4,A5,A6,A7,A8,A9,A10)
+├─ Total Incoming Arrows: 10 (same arrows, different perspective)
+├─ Entry Points: 1 (STATUS 0 has no incoming)
+├─ Exit Points: 0 (no explicit exit states shown)
+└─ Conservation Status: ✓ VALIDATED
+
+**DECISION LOGIC CHECK:**
+├─ Stop_GoEnable Decision: 1 incoming (A1), 2 outgoing (A2,A3)
+├─ TRUE Path: A2 → RearDelay Process
+├─ FALSE Path: A3 → STATUS 1
+└─ Decision Logic Status: ✓ VALIDATED
+
+**PROCESS FLOW CHECK:**
+├─ RearDelay Process: 1 incoming (A2), 1 outgoing (A4)
+├─ Flow Continuity: TRUE path → Process → STATUS 1
+└─ Process Flow Status: ✓ VALIDATED
+
+**STATE CONSISTENCY CHECK:**
+├─ STATUS 0: Entry point (0 incoming, 1 outgoing) ✓
+├─ STATUS 1: Hub state (4 incoming, 2 outgoing) ✓
+├─ STATUS 2: Intermediate state (2 incoming, 2 outgoing) ✓
+├─ STATUS 3: Leaf state (1 incoming, 1 outgoing) ✓
+├─ STATUS 4: Leaf state (1 incoming, 1 outgoing) ✓
+└─ State Consistency Status: ✓ VALIDATED
+
+=== ZOOM ANALYSIS RESULTS ===
+
+**COMPLEX ARROW REGION 1: STATUS 1 Hub Area**
+├─ Arrows Converging: A3, A4, A6, A10 (4 incoming)
+├─ Arrows Diverging: A5, A9 (2 outgoing)
+├─ Visual Clarity: Excellent - all arrows clearly separated
+├─ Connection Points: Precisely mapped to different oval edges
+└─ Zoom Enhancement: Confirmed accurate arrow counting
+
+**COMPLEX ARROW REGION 2: STATUS 1 ↔ STATUS 4 Horizontal Flow**
+├─ Forward Arrow A9: Clear rightward arrowhead
+├─ Reverse Arrow A10: Clear leftward arrowhead
+├─ Vertical Separation: ~10px between arrow paths
+├─ Condition Labels: Well-separated above/below arrows
+└─ Zoom Enhancement: Confirmed bidirectional pair structure
+
+**COMPLEX ARROW REGION 3: STATUS 2 ↔ STATUS 3 Horizontal Flow**
+├─ Forward Arrow A7: Clear rightward arrowhead
+├─ Reverse Arrow A8: Clear leftward arrowhead
+├─ Vertical Separation: ~8px between arrow paths
+├─ Condition Labels: Above/below positioning prevents overlap
+└─ Zoom Enhancement: Confirmed separate unidirectional arrows
+
+=== CORRECTED ANALYSIS SUMMARY ===
+
+**KEY CORRECTIONS FROM PREVIOUS ANALYSIS:**
+
+1. **STATUS 1 Incoming Count**: CORRECTED from 3 to 4
+   - Previous: Missed A10 from STATUS 4
+   - Corrected: A3, A4, A6, A10 (4 total)
+
+2. **Bidirectional Flow Classification**: CORRECTED
+   - Previous: Claimed single bidirectional arrows
+   - Corrected: All are separate unidirectional arrow pairs
+
+3. **Arrow Direction Accuracy**: SIGNIFICANTLY IMPROVED
+   - Previous: General direction descriptions
+   - Corrected: Precise arrowhead direction mapping
+
+4. **Connection Point Mapping**: ENHANCED
+   - Previous: Approximate connection descriptions
+   - Corrected: Specific edge locations for each arrow
+
+5. **Transition Matrix Validation**: IMPLEMENTED
+   - Previous: No systematic validation
+   - Corrected: Complete conservation rule verification

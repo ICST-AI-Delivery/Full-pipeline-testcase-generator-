@@ -1,0 +1,132 @@
+# UnknownID 6.2.3.4.5.1 Rear Dome Control on NDRR Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.4.5.1 Rear Dome Control on NDRR
+
+- ID: 3979359
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3979343
+- Contents: System shall set IDC_Spot_LH_Button_Rear = IDC_Spot_RH_Button_Rear to the default value when proxi parameters RSL = 1("present") OR RSR = 1("present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition of RSL = 1("present") OR RSR = 1("present")
+
+Start Byte 36, Start bit 1 - RSL (0 = "absent", 1 = "present")
+Start Byte 36, Start bit 2 - RSR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, proxi, value, parameters RSL   1, present, RSR" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 3979346
+- Contents: System shall set IDC_Spot_LH_Button_Rear = 0("Not_Active") when [RearCeilingLightsSts = 2("Left_On") OR 1("All_On")] AND [RearButton_BH_1 ==1("Pressed Up") OR 2("Pressed Down")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+ RSL = 0 ("absent") AND RSR = 0 ("absent")
+
+Start Byte 36, Start bit 1 - RSL (0 = "absent", 1 = "present")
+Start Byte 36, Start bit 2 - RSR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, Pressed, Not_Active, RearCeilingLightsSts, Left, RearButton, Up" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+3. ID: 3979342
+- Contents: System shall set IDC_Spot_LH_Button_Rear = 1("Active") when [RearCeilingLightsSts = 0("All_Off") OR 3("Right_On)] AND [RearButton_BH_1 ==1("Pressed Up") OR 2("Pressed Down")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+ RSL = 0 ("absent") AND RSR = 0 ("absent")
+
+
+
+Start Byte 36, Start bit 1 - RSL (0 = "absent", 1 = "present")
+Start Byte 36, Start bit 2 - RSR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, Pressed, RearCeilingLightsSts, Up" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+4. ID: 3979341
+- Contents: System shall set IDC_Spot_RH_Button_Rear = 0("Not_Active") when [RearCeilingLightsSts = 3("Right_On) OR 1("All_On")] AND [RearButton_BH_5 ==1("Pressed Up") OR 2("Pressed Down")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+ RSL = 0 ("absent") AND RSR = 0 ("absent")
+
+
+Start Byte 36, Start bit 1 - RSL (0 = "absent", 1 = "present")
+Start Byte 36, Start bit 2 - RSR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, Pressed, Not_Active, RearCeilingLightsSts, Right_On OR 1, RearButton, Up" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+5. ID: 3979339
+- Contents: System shall set IDC_Spot_RH_Button_Rear = 1("Active") when [RearCeilingLightsSts = 0("All_Off") OR 2("Left_On")] AND [RearButton_BH_5 ==1("Pressed Up") OR 2("Pressed Down")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+ RSL = 0 ("absent") AND RSR = 0 ("absent")
+
+
+
+Start Byte 36, Start bit 1 - RSL (0 = "absent", 1 = "present")
+Start Byte 36, Start bit 2 - RSR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, Pressed, RearCeilingLightsSts, Left, RearButton, Up" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.4.5.1 Rear Dome Control on NDRR Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

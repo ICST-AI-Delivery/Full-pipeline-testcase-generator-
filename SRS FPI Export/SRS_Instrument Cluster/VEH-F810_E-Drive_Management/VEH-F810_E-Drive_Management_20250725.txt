@@ -1,0 +1,140 @@
+# VEH-F810 6.2.1.1.2.37  E-Drive Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.37 VEH-F810 E-Drive Management
+
+- ID: 3408605
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3665749
+- Contents: System shall display the Ready Indication in A-3 Wireframe area according to the value of signal PowertrainSts and EdriveSts=E_Drive following the table below:
+(see: image187.png)
+(see: image188.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: PowertrainSts and EdriveSts=E_Drive is ON
+
+
+
+Verify that the READY Indication is displayed as per the logic in the table.
+
+CAN-Signal: PWT_STATUS_2.PowertrainSts
+PWT_STATUS_2.EDriveSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, according, following, Indication, area, value, PowertrainSts, EdriveSts" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image187.png, image188.png
+
+2. ID: 3665750
+- Contents: System shall display Ready telltale if electric engines in use for China market.
+(see: image188.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Country Market is CHINA
+
+Verify that the Ready telltale is displayed if Electric engines are in use for China Market.
+
+CAN-Signal: PWT_STATUS_2.PowertrainSts
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, telltale, engines, use, market" )
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image188.png
+
+3. ID: 3665752
+- Contents: System shall continue to display the READY telltale (RDY001) if electric engines are in use and ReadyIndicationForDisplay = Active received by the system.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the READY telltale RDY001 is displayed when ReadyIndicationForDisplay is Active.
+
+CAN-Signal:
+PWT_STATUS_4.ReadyIndicationForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, speed, turn off, Configured, is, moving, will turn, configure, Telltale" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3672931
+- Contents: System shall remove the READY Telltale (RDY001) when ReadyIndicationForDisplay is other than Active
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the CAN signal  ReadyIndicationForDisplay to Other than Active and verify that the READY telltale is removed.
+
+CAN-Signal:
+PWT_STATUS_4.ReadyIndicationForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3665748
+- Contents: System shall display E-Drive visualisation and implement logics as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the E-Drive Visualisation and Logics were implemented as per the Ferrari design.
+- State (Harman_Requirement): In Work
+
+2. ID: 3888924
+- Contents: System shall display E-Drive Management Indications by Proxi if bit (byte 59, bits 4-5) “Country Market", 
+bit (byte 59, bits 6-7) “Detail for Extra market"
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image187.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image188.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F810 6.2.1.1.2.37  E-Drive Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

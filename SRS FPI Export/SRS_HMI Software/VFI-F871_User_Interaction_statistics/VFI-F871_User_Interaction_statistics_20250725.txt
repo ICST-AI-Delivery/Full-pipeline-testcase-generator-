@@ -1,0 +1,101 @@
+# VFI-F871 6.2.2.6  User Interaction statistics Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.6 VFI-F871 User Interaction statistics
+
+- ID: 5026380
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- HB_Comment: 2402
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5026381
+- Contents: IDC shall provide via dedicated diagnostic RDI the User Interaction Statistics table with the following characteristics:
+State/Value of features to be tracked on table's rows.
+Number of occurrences at speed =0
+Number of occurrences at speed >0
+Duration
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user interaction statistics via diagnostics.
+
+State/Value of features to be tracked on table's rows.
+Number of occurrences at speed =0
+Number of occurrences at speed >0
+Duration
+
+0xFE04
+
+User statistics DB (IDC-483284 - User statistics DB IDC-483284 - User statistics DB )
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "to be tracked" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5026400
+- Contents: System shall keep an internal table with current states and timestamps of latest changes of monitored feature.
+(see: image33.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to keep internal table with current states and time stamps.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, keep, monitored, table, states, timestamps, changes, feature" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image33.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image33.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F871 6.2.2.6  User Interaction statistics Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

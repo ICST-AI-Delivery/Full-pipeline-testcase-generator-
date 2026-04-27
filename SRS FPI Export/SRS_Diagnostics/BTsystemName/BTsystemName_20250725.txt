@@ -1,0 +1,68 @@
+# UnknownID 6.2.4.3.1.11 BTsystemName Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.11 BTsystemName
+
+- ID: 3929223
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3929228
+- Contents: The system shall have the write access to Extended diagnostic session and Security access.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the user can able to Write the data in Extended diagnostic session and have Security access and  Dimension: 120 Bytes
+ Data type: ASCII.
+Verify Default (Physical): "Project name" (e.g. F244)
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, have, access, session" )
+- TestTeamComment: RWeber_DIAG_241129: RDBI in extended session, no info about, where to find the status info. I'm wonddering, that this will not be tested by space4 platform.
+- State (Harman_Requirement): Approved
+
+2. ID: 3929238
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Write Data By Identifier and specifying an expected value, the ECU shall update the bluetooth system name according to the value indicated.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the bluetooth system name as per value indicated.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "specifying, expected, update, according, indicated, Data, Identifier, value, name" )
+- TestTeamComment: RWeber_DIAG_241129: No BT expert to test BT applicative issues or know BT functionality. This REQ need to be tested by an expert.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.11 BTsystemName Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

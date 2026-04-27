@@ -1,0 +1,89 @@
+# FAD-2 6.2.2.3.1  Audio Channels Control - Min Switch-On Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.1 FAD-2 Audio Channels Control - Min Switch-On Volume
+
+- ID: 5539531
+- Artifact Type: SRS Feature
+- Responsible Domain: Media Core
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5528042
+- Contents: The system shall store the Entertainment_Volume value in the latestSessionVolume variable at the transition from HMI_ON to HMI_OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Media Core
+- Verification Criteria: Play an entertainment Audio and do a Ignition reset.
+Verify that the current entertainment volume 
+value is same as the last entertainment volume level.
+- Grooming Status: Approved
+- Grooming Comments: [2025-04-24, DStachowicz]
+Clarified via mail, HMI will save  EntertainmentVolume = latestSessionVolume after every volume change. So at the transition nothing new to store. 
+
+[Dennis, Xiongwei, Muthu_15-04-2025] .Not clear who is responsible for storing the value
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 5528043
+- Contents: The system shall overwrite the Entertainment_Volume value with the minSwitchOnVolume value set in the volume DB if latestSessionVolume < minSwitchOnVolume at the transition from HMI_OFF to HMI_ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Media Core
+- Verification Criteria: Play an audio source with volume lower than the minimum switch on volume.
+
+Do ignition reset and Verify that the Audio source volume is overwritten with the minimum switch on volume.
+- Grooming Status: Approved
+- Expert Domains: Media Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, overwrite, set, Entertainment, value, DB, transition" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5528046
+- Contents: The system shall apply the Entertainment_Volume value == latestSessionVolume if latestSessionVolume >= minSwitchOnVolume at the transition from HMI_OFF to HMI_ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Media Core
+- Verification Criteria: Play an audio source with volume => the minimum switch on volume. Do ignition reset and Verify that the Audio source volume is same as the latest session volume
+- Grooming Status: Approved
+- Expert Domains: Media Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5528050
+- Contents: The system shall configure the value of the minSwitchOnVolume calibratable parameters via Diagnosis.
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Expert Domains: Media Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-2 6.2.2.3.1  Audio Channels Control - Min Switch-On Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

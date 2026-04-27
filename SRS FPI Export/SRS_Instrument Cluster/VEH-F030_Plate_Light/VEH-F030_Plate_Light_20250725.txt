@@ -1,0 +1,95 @@
+# VEH-F030 6.2.1.1.2.2  Plate Light Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.2 VEH-F030 Plate Light
+
+- ID: 3406468
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3428714
+- Contents: System shall display Plate Light indicator on number plate lamp failure with F030 Fail1
+D01 visualization
+Priority2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger number plate lamp failure by PlateLightFailSts = Fail_Present
+
+Verify F030 fail1 displayed as per HMI_POP.IND id 03001 with 2B buzzer, telltale (00740), graphic and pop-up.
+
+Verify D01 behaviour with priority 2 for F030 Fail 1
+
+CAN Signal : EXTERNAL_LIGHTS.PlateLightFailSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘1 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00270
+
+2. ID: 3439421
+- Contents: System shall display failure pop-up send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when on detecting Plate Light failure.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger number plate lamp failure by PlateLightFailSts = Fail_Present
+
+Verify F030 fail1 displayed as per HMI_POP.IND id 03001 with 2B buzzer, telltale (00740), graphic and pop-up.
+
+CAN Signal : EXTERNAL_LIGHTS.PlateLightFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Warning text not found in F244_HMI_POP.IND_PI3_S2_240202.xlsx
+
+3. ID: 3428716
+- Contents: System shall play Numberplate Lights Check Management buzzer on active Plate Light
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger number plate lamp failure by PlateLightFailSts = Fail_Present
+
+Verify F030 fail1 displayed as per HMI_POP.IND id 03001 with 2B buzzer, telltale (00740), graphic and pop-up.
+
+CAN Signal : EXTERNAL_LIGHTS.PlateLightFailSts
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F051)
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F030 6.2.1.1.2.2  Plate Light Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

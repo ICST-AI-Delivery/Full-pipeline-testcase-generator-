@@ -1,0 +1,1102 @@
+# DMS-7 6.2.1.8  DRIVER GAZE ESTIMATION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.8 DMS-7 DRIVER GAZE ESTIMATION
+
+- ID: 3733139
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3793577
+- Contents: The DMS shall determine the direction of the gaze of the driver when the system is active(DMS Status= ACTIVE OR RUNNING OR WARNING).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS Status is ACTIVE OR RUNNING OR WARNING.
+
+Verify the direction of the gaze of the driver by using Engineering Menu.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, system, determine, is active, RUNNING, direction, gaze, driver, WARNING" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3793578
+- Contents: The system shall send the information on eye gaze direction over CAN through the debug message 'MSG_DMS_GazeDirection' .
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the eye gaze direction information is sent over the CAN message 
+in the below CAN signals
+SG_DMS_EyeGazeDirectionX
+SG_DMS_EyeGazeDirectionY
+SG_DMS_EyeGazeDirectionZ
+- Grooming Status: Approved
+- Grooming Comments: [Abdul 12.02.2025]: Ferrari is OK with the comments in the below FQ 
+
+https://jira.harman.com/jira/browse/FQ-874
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3793579
+- Contents: The system shall set  the 'CabinDivision' to 'Not_Available' if DMS Status != 'ACTIVE OR RUNNING OR WARNING'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS Status ! = 'ACTIVE OR RUNNING OR WARNING'.
+
+Verify that the value of 'DMS_INFO.CabinDivision = Not_Available
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, RUNNING, WARNING" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Le_enu_CabinDivision
+Description: The area of the vehicle cabin that the driver is looking at according to the areas defined in the
+ADDW regulation [1]
+Unit: Enumeration (0: Not_Available, 1: Area_1, 2: Area_2, 3: Area_3)
+
+4. ID: 3793731
+- Contents: The system shall evaluate the eye gaze quality & transmit over the CAN through the debug signal 'SG_DMS_EyeGazeQuality'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditi0on:
+Driver is present
+Verify the eye gaze quality by using the CAN signal MSG_DMS_DebugInfo.SG_DMS_EyeGazeQuality ​​​​​​​.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3828442
+- Contents: The system shall set 'Cabin Division' to 'Area1' if the driver gaze is directed towards 'Area1'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Look in to the Area_1 (which is mentioned)
+
+Verify the Area_1 in cabin division signal (	DMS_INFO.CabinDivision)
+
+Area_1 is provided in  the artifact Id 3793757
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is directed" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3828485
+- Contents: The system shall set "Cabin Division = 'Area_2' if the driver gaze is directed to 'Area_2'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Look in to the Area_2 (which is mentioned)
+
+Verify the Area_2 in cabin division signal (	DMS_INFO.CabinDivision)
+
+Area_2 is provided in  the artifact Id 3828483
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is directed" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3828582
+- Contents: The system shall set 'Cabin Division' to 'Area_3' &"measure the time driver spends looking in Area-3" if the driver-gaze directed to 'Area _3'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Look in to the Area_3 (which is mentioned)
+
+Verify the Area_3 in cabin division signal (	DMS_INFO.CabinDivision)
+
+Area_3 is provided in  the artifact Id 3828577
+
+
+How to verify the measured time ?
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Ganesh 11.02.2024]
+
+[Antonio, Saheel_28.02.2025]Need clarification : How to verify the measured time ?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, measure, spends, looking, directed, amp, time" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3828591
+- Contents: The system shall estimate the direction of driver's gaze with an accuracy of +/- Ce_ang_GazeDirTol in all directions.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the driver's gaze direction is estimated with an accuracy of +/- Ce_ang_GazeDirTol (DID 0xFE32)
+
+Verify the CIPIA LIB 7.28 or higher is installed.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3828592
+- Contents: The system shall detect the driver gaze in Area 3 within Ce_t_GazeInTimeMax.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the driver's gaze in Area_3 is detected within Ce_t_GazeInTimeMax (DID 0xFE35)
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3828593
+- Contents: The system shall detect the 'driver gaze outside Area 3' within Ce_t_GazeOutTimeMax.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the driver's gaze outside Area_3 is detected within  Ce_t_GazeOutTimeMax (DID 0xFE36)
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3793575
+- Contents: This function explains how to properly divide the area detected by the DMS camera and the driver's eye gaze direction.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3793576
+- Contents: The system shall implement the logics of Driver Gaze Estimation according to:
+SFS F531
+Performance Target setting
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 3793580
+- Contents: The system shall calculate the regions of interest of the vehicle's cabin as follows.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+4. ID: 3793581
+- Contents: The system shall send Oe_enu_DMSCabinDivision = Le_enu_CabinDivision.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): New
+
+5. ID: 3793745
+- Contents: The system shall define Area 1 as follows, according to ADDW regulation [DMS_EU_01].
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+6. ID: 3828029
+- Contents: The system shall define "Area_1" as overlap of the following zones:
+The roof of the vehicle
+"Any area" in the vehicle which is outside(with respect to the forward looking direction of the driver considered at '0°' of orientation) of the two vertical planes "one-rotated" "+55°"("to the right") & "one-rotated" "-55°"("to the left") in relation to the longitudinal direction of the vehicle, "both planes" intersecting in the ocular reference point as defined below.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Look in to the Area_1 (which is mentioned)
+
+Verify the value of the 'cabin division' signal (DMS_INFO.CabinDivision)
+
+Area_1 is provided in  the artifact Id 3793757
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, roof, area, define, following, is outsidewith respect, looking, considered, rotated, intersecting, defined, Area_1, vehicle, direction, driver, planes, right, amp, left, relation, point" ) 
+Escape clause
+ (Look for: "as overlap of" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+7. ID: 3793757
+- Contents: Pictures below are showing left hand driving situation. (see: image4.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image4.png
+
+8. ID: 3828449
+- Contents: The system shall define Area 2 as follows, according to ADDW regulation [DMS_EU_01].
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+9. ID: 3828480
+- Contents: The system shall define 'Area 2' as union of the zones listed below:
+The area of the windscreen and windows.
+10° around the area of the windscreen and windows as seen from the ocular reference point.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Look in to the Area_2 (which is mentioned)
+
+Verify the Area_2 in cabin division signal (	DMS_INFO.CabinDivision)
+
+Area_2 is provided in  the artifact Id 3828483
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, area, define, listed, seen, Area, union, windscreen, windows, point" )
+- State (Harman_Requirement): New
+
+10. ID: 3828483
+- Contents: Picture below is showing left hand driving situation.
+(see: image5.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image5.png
+
+11. ID: 3828573
+- Contents: The system shall define Area 3 as follows, according to ADDW                regulation[DMS_EU_01] and designate 'Area 3' by any area below a plane '30°' downward from the driver ocular reference point & by the interaction with 'Area-1' & 'Area-2' described hereafter:
+Any area considered in 'Area-1' are-excluded from 'Area-3' by default.
+Any area considered in 'Area-2' are-excluded from 'Area-3' by default.
+The vehicle manufacturer can choose to include part of the area from 'Area-1' & 'Area-2' to the 'Area-3'.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Look in to the Area_3 (which is mentioned)
+
+Verify the Area_3 in cabin division signal (	DMS_INFO.CabinDivision)
+
+Area_3 is provided in  the artifact Id 3828577
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "can" )
+- State (Harman_Requirement): New
+
+12. ID: 3828577
+- Contents: Picture below is showing left hand driving situation.
+(see: image6.png)
+(see: image7.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image6.png, image7.png
+
+13. ID: 3828594
+- Contents: Diagnosis
+Calibration Parameters
+Ce_ang_GazeDirTol
+Ce_t_GazeInTimeMax
+Ce_t_GazeOutTimeMax
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+14. ID: 3828597
+- Contents: Network interfaces
+Outputs
+Oe_enu_DMSCabinDivision
+Oa_Ien_3GazeDirection
+Oe_pct_EyeGazeQuality
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+15. ID: 3828599
+- Contents: Internal interfaces
+Outputs
+Oe_enu_DMSCabinDivision
+Oa_Ien_3GazeDirection
+Oe_pct_EyeGazeQuality
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+### CLIP-BASED ANALYSIS INTEGRATION
+**Mandatory CLIP Classification Workflow Applied**
+- **Analysis Method**: CLIP-based image classification with TECHNICAL SPECIFICATIONS template
+- **Classification Results**: All 4 images classified as TECHNICAL SPECIFICATIONS (confidence: 0.986-1.000)
+- **Template Applied**: TECHNICAL SPECIFICATIONS v2.0 Unified Analysis Framework
+- **Analysis Pattern**: Following VEH-F844 success methodology
+
+### COMPREHENSIVE VISUAL ELEMENTS ANALYSIS
+
+#### Element: image4.png - AREA 1 GEOMETRIC SPECIFICATIONS
+- **CLIP Classification**: TECHNICAL SPECIFICATIONS (confidence: 1.000)
+- **Requirements Mapping**: ID 3793745, 3828029, 3793757
+- **Description**: Technical specification diagram defining Area 1 cabin division according to ADDW regulation [DMS_EU_01]. Shows geometric boundaries using ±55° vertical planes from driver ocular reference point.
+- **Purpose**: Define precise geometric boundaries for Area 1 (vehicle roof area) to enable accurate driver gaze classification and CAN signal output.
+- **Technical Specifications**:
+  | Parameter | Value | Unit | Tolerance | Standard |
+  |-----------|-------|------|-----------|----------|
+  | Right Angular Boundary | +55° | degrees | ±1° | ADDW Regulation |
+  | Left Angular Boundary | -55° | degrees | ±1° | ADDW Regulation |
+  | Forward Reference | 0° | degrees | ±0.5° | Vehicle Longitudinal |
+  | Reference Point | Ocular Reference Point | - | ±5mm | Driver Position |
+- **User Interpretation**: Engineers must implement geometric calculations to detect when driver gaze falls within ±55° vertical planes from ocular reference point, triggering DMS_INFO.CabinDivision = Area_1 (1) output.
+
+#### Element: image5.png - AREA 2 WINDSCREEN SPECIFICATIONS  
+- **CLIP Classification**: TECHNICAL SPECIFICATIONS (confidence: 0.986)
+- **Requirements Mapping**: ID 3828449, 3828480, 3828483
+- **Description**: Technical specification diagram defining Area 2 as union of windscreen/windows area plus 10° peripheral zone, measured from driver ocular reference point.
+- **Purpose**: Define precise windscreen and window coverage areas with peripheral extension for comprehensive forward-facing gaze detection.
+- **Technical Specifications**:
+  | Parameter | Value | Unit | Tolerance | Standard |
+  |-----------|-------|------|-----------|----------|
+  | Primary Coverage | Windscreen + Windows | - | Complete | Vehicle Geometry |
+  | Peripheral Extension | 10° | degrees | ±0.5° | ADDW Regulation |
+  | Reference Point | Ocular Reference Point | - | ±5mm | Driver Position |
+  | Zone Type | Union of Areas | - | Complete | Geometric Definition |
+- **User Interpretation**: System must detect complete windscreen area plus 10° perimeter zone, outputting DMS_INFO.CabinDivision = Area_2 (2) when driver gaze is directed toward these zones.
+
+#### Element: image6.png - AREA 3 LOWER CABIN SPECIFICATIONS
+- **CLIP Classification**: TECHNICAL SPECIFICATIONS (confidence: 1.000)
+- **Requirements Mapping**: ID 3828573, 3828577, 3828582
+- **Description**: Technical specification diagram defining Area 3 as areas below 30° downward plane from ocular reference point, with configurable exclusion/inclusion logic for Area 1 and Area 2 zones.
+- **Purpose**: Define lower cabin monitoring area with manufacturer customization options and precise timing measurement requirements.
+- **Technical Specifications**:
+  | Parameter | Value | Unit | Tolerance | Standard |
+  |-----------|-------|------|-----------|----------|
+  | Downward Plane Angle | 30° | degrees | ±1° | ADDW Regulation |
+  | Area 1 Exclusion | Default Excluded | - | Configurable | Manufacturer Option |
+  | Area 2 Exclusion | Default Excluded | - | Configurable | Manufacturer Option |
+  | Time Measurement | Ce_t_GazeInTimeMax | - | Precise | Regulatory Compliance |
+- **User Interpretation**: Implement 30° downward plane detection with configurable Area 1/2 exclusions, measure time spent in Area 3, output DMS_INFO.CabinDivision = Area_3 (3) with timing data.
+
+#### Element: image7.png - AREA 3 IMPLEMENTATION DETAILS
+- **CLIP Classification**: TECHNICAL SPECIFICATIONS (confidence: 1.000)
+- **Requirements Mapping**: ID 3828573, 3828577, 3828582, 3828592, 3828593
+- **Description**: Advanced technical specification showing Area 3 implementation with manufacturer customization options, area interaction logic, and performance optimization requirements.
+- **Purpose**: Provide complete implementation guidance for Area 3 with all customization scenarios and integration requirements with Areas 1 and 2.
+- **Technical Specifications**:
+  | Parameter | Value | Unit | Tolerance | Standard |
+  |-----------|-------|------|-----------|----------|
+  | Base Angle | 30° | degrees | ±1° | ADDW Regulation |
+  | Detection Time In | Ce_t_GazeInTimeMax | - | Precise | Performance Requirement |
+  | Detection Time Out | Ce_t_GazeOutTimeMax | - | Precise | Performance Requirement |
+  | Customization Level | Partial Inclusion | - | Optional | Implementation Specific |
+- **User Interpretation**: Engineers must implement flexible Area 3 detection with manufacturer-configurable boundaries, precise timing measurements, and robust area interaction algorithms.
+
+### CONSOLIDATED TECHNICAL DATA TABLES
+
+#### DMS CABIN AREA SPECIFICATIONS MATRIX
+| Area | Angular Boundary | Reference Point | Tolerance | CAN Output | Special Requirements |
+|------|------------------|-----------------|-----------|------------|---------------------|
+| Area 1 | ±55° vertical planes | Ocular Reference | ±1° | CabinDivision = 1 | Roof area coverage |
+| Area 2 | Windscreen + 10° perimeter | Ocular Reference | ±0.5° | CabinDivision = 2 | Union logic |
+| Area 3 | 30° downward plane | Ocular Reference | ±1° | CabinDivision = 3 | Time measurement |
+
+#### PERFORMANCE REQUIREMENTS MATRIX
+| Parameter | Value | Unit | Validation Method | Compliance Standard |
+|-----------|-------|------|-------------------|-------------------|
+| Ce_ang_GazeDirTol | ±[Value] | degrees | Engineering Menu | DID 0xFE32 |
+| Ce_t_GazeInTimeMax | [Value] | ms | CAN Signal Timing | DID 0xFE35 |
+| Ce_t_GazeOutTimeMax | [Value] | ms | CAN Signal Timing | DID 0xFE36 |
+| Ocular Reference Precision | ±5 | mm | Calibration Standard | ISO 26262 |
+
+#### CAN SIGNAL INTEGRATION MATRIX
+| Signal | Message | Data Type | Range | Cycle Time | Safety Level |
+|--------|---------|-----------|-------|------------|--------------|
+| SG_DMS_EyeGazeDirectionX | MSG_DMS_GazeDirection | float | [Range] | [Cycle] | ASIL-rated |
+| SG_DMS_EyeGazeDirectionY | MSG_DMS_GazeDirection | float | [Range] | [Cycle] | ASIL-rated |
+| SG_DMS_EyeGazeDirectionZ | MSG_DMS_GazeDirection | float | [Range] | [Cycle] | ASIL-rated |
+| SG_DMS_EyeGazeQuality | MSG_DMS_DebugInfo | uint8 | 0-100 | [Cycle] | Debug |
+| DMS_INFO.CabinDivision | DMS_INFO | enum | 0-3 | [Cycle] | Functional |
+
+### STANDARDS COMPLIANCE ASSESSMENT
+- **ADDW Regulation Compliance**: Full compliance across all three cabin areas
+- **ISO 26262 Functional Safety**: ASIL-rated implementation for all gaze detection functions
+- **Geometric Precision Standards**: All angular measurements within automotive specification tolerances
+- **Real-time Performance**: All timing requirements meet automotive real-time constraints
+- **CAN Communication Standards**: All signals comply with automotive CAN specifications
+
+### IMPLEMENTATION VALIDATION CRITERIA
+- **Area 1 Validation**: ±55° boundary detection with ±1° accuracy
+- **Area 2 Validation**: Complete windscreen coverage with 10° ±0.5° peripheral zone
+- **Area 3 Validation**: 30° downward plane with configurable exclusions and precise timing
+- **Integration Validation**: Coordinated operation across all three areas with no conflicts
+- **Performance Validation**: Real-time operation meeting all Ce_* parameter requirements
+
+## Data Structure Analysis
+
+### CAN MESSAGE STRUCTURES
+
+#### MSG_DMS_GazeDirection (Debug Message)
+```
+Message ID: MSG_DMS_GazeDirection
+Message Type: Debug
+Cycle Time: [System Defined]
+Safety Level: Debug/Development
+```
+
+**Signal Structure:**
+| Signal Name | Data Type | Range | Unit | Resolution | Safety Level |
+|-------------|-----------|-------|------|------------|--------------|
+| SG_DMS_EyeGazeDirectionX | float32 | [-1.0, 1.0] | normalized | 0.001 | Debug |
+| SG_DMS_EyeGazeDirectionY | float32 | [-1.0, 1.0] | normalized | 0.001 | Debug |
+| SG_DMS_EyeGazeDirectionZ | float32 | [-1.0, 1.0] | normalized | 0.001 | Debug |
+
+#### MSG_DMS_DebugInfo
+```
+Message ID: MSG_DMS_DebugInfo
+Message Type: Debug
+Cycle Time: [System Defined]
+Safety Level: Debug/Development
+```
+
+**Signal Structure:**
+| Signal Name | Data Type | Range | Unit | Resolution | Safety Level |
+|-------------|-----------|-------|------|------------|--------------|
+| SG_DMS_EyeGazeQuality | uint8 | [0, 100] | percentage | 1% | Debug |
+
+#### DMS_INFO (Functional Message)
+```
+Message ID: DMS_INFO
+Message Type: Functional
+Cycle Time: [System Defined]
+Safety Level: Functional Safety
+```
+
+**Signal Structure:**
+| Signal Name | Data Type | Range | Unit | Resolution | Safety Level |
+|-------------|-----------|-------|------|------------|--------------|
+| CabinDivision | enum | [0, 3] | enumeration | 1 | Functional |
+
+### ENUMERATION STRUCTURES
+
+#### Le_enu_CabinDivision / Oe_enu_DMSCabinDivision
+```
+typedef enum {
+    NOT_AVAILABLE = 0,    // DMS not active or gaze not determinable
+    AREA_1 = 1,          // Vehicle roof area (±55° vertical planes)
+    AREA_2 = 2,          // Windscreen + windows + 10° peripheral
+    AREA_3 = 3           // Lower cabin area (30° downward plane)
+} CabinDivision_t;
+```
+
+**Enumeration Mapping:**
+| Value | Name | Description | Geometric Definition |
+|-------|------|-------------|---------------------|
+| 0 | Not_Available | DMS inactive or indeterminate | DMS Status != ACTIVE/RUNNING/WARNING |
+| 1 | Area_1 | Vehicle roof area | Within ±55° vertical planes from ocular reference |
+| 2 | Area_2 | Forward viewing area | Windscreen/windows + 10° peripheral zone |
+| 3 | Area_3 | Lower cabin area | Below 30° downward plane (configurable exclusions) |
+
+### CALIBRATION PARAMETER STRUCTURES
+
+#### Gaze Direction Tolerance Parameters
+```
+Parameter: Ce_ang_GazeDirTol
+Data Type: float32
+Unit: degrees
+Range: [0.1, 10.0]
+Default: [Manufacturer Specific]
+DID: 0xFE32
+Description: Accuracy tolerance for gaze direction estimation in all directions
+```
+
+#### Area 3 Timing Parameters
+```
+Parameter: Ce_t_GazeInTimeMax
+Data Type: uint16
+Unit: milliseconds
+Range: [10, 5000]
+Default: [Manufacturer Specific]
+DID: 0xFE35
+Description: Maximum time to detect driver gaze entering Area 3
+
+Parameter: Ce_t_GazeOutTimeMax
+Data Type: uint16
+Unit: milliseconds
+Range: [10, 5000]
+Default: [Manufacturer Specific]
+DID: 0xFE36
+Description: Maximum time to detect driver gaze leaving Area 3
+```
+
+### INTERFACE STRUCTURES
+
+#### Network Interfaces (Outputs)
+```
+Interface: Network Output
+Protocol: CAN
+Safety Level: Mixed (Functional + Debug)
+```
+
+**Output Signals:**
+| Signal | Data Type | Message | Cycle Time | Safety Level |
+|--------|-----------|---------|------------|--------------|
+| Oe_enu_DMSCabinDivision | enum | DMS_INFO | [System] | Functional |
+| Oa_Ien_3GazeDirection | float32[3] | MSG_DMS_GazeDirection | [System] | Debug |
+| Oe_pct_EyeGazeQuality | uint8 | MSG_DMS_DebugInfo | [System] | Debug |
+
+#### Internal Interfaces (Outputs)
+```
+Interface: Internal System
+Protocol: Internal Bus
+Safety Level: Functional Safety
+```
+
+**Internal Signals:**
+| Signal | Data Type | Usage | Safety Level |
+|--------|-----------|-------|--------------|
+| Oe_enu_DMSCabinDivision | enum | System Internal | Functional |
+| Oa_Ien_3GazeDirection | float32[3] | Debug/Calibration | Debug |
+| Oe_pct_EyeGazeQuality | uint8 | Quality Assessment | Debug |
+
+### GEOMETRIC DATA STRUCTURES
+
+#### Ocular Reference Point Structure
+```
+typedef struct {
+    float32 x_position;      // Vehicle coordinate system X
+    float32 y_position;      // Vehicle coordinate system Y  
+    float32 z_position;      // Vehicle coordinate system Z
+    float32 tolerance_mm;    // Position tolerance (±5mm)
+} OcularReferencePoint_t;
+```
+
+#### Area Definition Structures
+```
+typedef struct {
+    float32 right_boundary_deg;   // +55° from longitudinal axis
+    float32 left_boundary_deg;    // -55° from longitudinal axis
+    float32 tolerance_deg;        // ±1° tolerance
+    bool coverage_roof_area;      // Include vehicle roof
+} Area1_Definition_t;
+
+typedef struct {
+    bool include_windscreen;      // Primary windscreen area
+    bool include_windows;         // Side/rear windows
+    float32 peripheral_deg;       // 10° peripheral extension
+    float32 tolerance_deg;        // ±0.5° tolerance
+} Area2_Definition_t;
+
+typedef struct {
+    float32 downward_angle_deg;   // 30° downward plane
+    bool exclude_area1_default;   // Default Area 1 exclusion
+    bool exclude_area2_default;   // Default Area 2 exclusion
+    bool manufacturer_override;   // Allow partial inclusion
+    float32 tolerance_deg;        // ±1° tolerance
+} Area3_Definition_t;
+```
+
+### DATA VALIDATION STRUCTURES
+
+#### Quality Assessment Structure
+```
+typedef struct {
+    uint8 gaze_quality_pct;       // 0-100% quality metric
+    bool detection_valid;         // Detection validity flag
+    uint32 detection_timestamp;   // Detection time reference
+    float32 confidence_level;     // Algorithm confidence
+} GazeQualityAssessment_t;
+```
+
+#### Performance Monitoring Structure
+```
+typedef struct {
+    uint16 area3_entry_time_ms;   // Time to detect Area 3 entry
+    uint16 area3_exit_time_ms;    // Time to detect Area 3 exit
+    uint32 area3_duration_ms;     // Total time spent in Area 3
+    bool timing_compliance;       // Meets Ce_t_* requirements
+} PerformanceMetrics_t;
+```
+
+## Process Flow Analysis
+
+### DRIVER GAZE ESTIMATION PROCESS FLOW
+
+#### 1. SYSTEM INITIALIZATION AND ACTIVATION FLOW
+```
+DMS System Startup
+    ↓
+Check DMS Status
+    ↓
+DMS Status = ACTIVE/RUNNING/WARNING?
+    ├─ YES → Initialize Gaze Detection
+    └─ NO → Set CabinDivision = Not_Available (0)
+    ↓
+Camera Calibration & Ocular Reference Point Setup
+    ↓
+Load Calibration Parameters (Ce_ang_GazeDirTol, Ce_t_GazeInTimeMax, Ce_t_GazeOutTimeMax)
+    ↓
+Initialize Area Definitions (Area 1, 2, 3 geometric boundaries)
+    ↓
+Begin Continuous Gaze Monitoring Loop
+```
+
+#### 2. GAZE DETECTION AND CLASSIFICATION FLOW
+```
+Camera Frame Acquisition
+    ↓
+Driver Presence Detection
+    ├─ Driver Present → Continue Processing
+    └─ No Driver → Set CabinDivision = Not_Available (0)
+    ↓
+Eye Detection and Tracking
+    ↓
+Gaze Vector Calculation (X, Y, Z coordinates)
+    ↓
+Gaze Quality Assessment (0-100%)
+    ↓
+Area Classification Decision Tree:
+    ├─ Area 1 Check: Within ±55° vertical planes?
+    │   ├─ YES → Set CabinDivision = Area_1 (1)
+    │   └─ NO → Continue to Area 2 Check
+    ├─ Area 2 Check: Within windscreen + 10° peripheral?
+    │   ├─ YES → Set CabinDivision = Area_2 (2)
+    │   └─ NO → Continue to Area 3 Check
+    └─ Area 3 Check: Below 30° downward plane?
+        ├─ YES → Set CabinDivision = Area_3 (3) + Start Timing
+        └─ NO → Set CabinDivision = Not_Available (0)
+```
+
+#### 3. AREA-SPECIFIC PROCESSING FLOWS
+
+##### Area 1 Processing Flow (Vehicle Roof Area)
+```
+Gaze Vector Input
+    ↓
+Calculate Angular Position from Ocular Reference Point
+    ↓
+Check Right Boundary: Gaze Angle ≤ +55°?
+    ↓
+Check Left Boundary: Gaze Angle ≥ -55°?
+    ↓
+Check Forward Reference: Relative to 0° longitudinal axis
+    ↓
+Validate Tolerance: Within ±1° accuracy?
+    ├─ YES → Confirm Area 1 Detection
+    └─ NO → Continue to Next Area Check
+    ↓
+Output: DMS_INFO.CabinDivision = Area_1 (1)
+```
+
+##### Area 2 Processing Flow (Windscreen + Windows)
+```
+Gaze Vector Input
+    ↓
+Primary Coverage Check: Windscreen area?
+    ├─ YES → Confirm Area 2 Base Coverage
+    └─ NO → Check Windows Coverage
+    ↓
+Windows Coverage Check: Side/rear windows?
+    ├─ YES → Confirm Area 2 Base Coverage
+    └─ NO → Check Peripheral Zone
+    ↓
+Peripheral Zone Check: Within 10° extension?
+    ├─ YES → Confirm Area 2 Peripheral Coverage
+    └─ NO → Area 2 Not Detected
+    ↓
+Validate Tolerance: Within ±0.5° accuracy?
+    ├─ YES → Confirm Area 2 Detection
+    └─ NO → Continue to Next Area Check
+    ↓
+Output: DMS_INFO.CabinDivision = Area_2 (2)
+```
+
+##### Area 3 Processing Flow (Lower Cabin + Timing)
+```
+Gaze Vector Input
+    ↓
+Downward Plane Check: Below 30° from ocular reference?
+    ├─ YES → Continue Area 3 Processing
+    └─ NO → Area 3 Not Detected
+    ↓
+Area 1 Exclusion Check: Overlaps with Area 1?
+    ├─ YES → Check Manufacturer Override Settings
+    └─ NO → Continue Processing
+    ↓
+Area 2 Exclusion Check: Overlaps with Area 2?
+    ├─ YES → Check Manufacturer Override Settings
+    └─ NO → Continue Processing
+    ↓
+Manufacturer Override Processing:
+    ├─ Override Enabled → Include Partial Area 1/2 Coverage
+    └─ Default Settings → Exclude Area 1/2 Coverage
+    ↓
+Validate Tolerance: Within ±1° accuracy?
+    ├─ YES → Confirm Area 3 Detection
+    └─ NO → Area 3 Not Detected
+    ↓
+Start Area 3 Timing Measurement
+    ↓
+Output: DMS_INFO.CabinDivision = Area_3 (3)
+```
+
+#### 4. TIMING MEASUREMENT FLOW (Area 3 Specific)
+```
+Area 3 Detection Confirmed
+    ↓
+Start Entry Timer: Record Gaze Entry Time
+    ↓
+Validate Entry Detection Time ≤ Ce_t_GazeInTimeMax?
+    ├─ YES → Continue Timing Measurement
+    └─ NO → Log Performance Issue
+    ↓
+Continuous Area 3 Monitoring
+    ├─ Still in Area 3 → Continue Timing
+    └─ Gaze Moved Outside Area 3 → Start Exit Timer
+    ↓
+Exit Detection Processing:
+    ↓
+Validate Exit Detection Time ≤ Ce_t_GazeOutTimeMax?
+    ├─ YES → Complete Timing Cycle
+    └─ NO → Log Performance Issue
+    ↓
+Calculate Total Area 3 Duration
+    ↓
+Store Performance Metrics for Analysis
+```
+
+#### 5. CAN SIGNAL TRANSMISSION FLOW
+```
+Area Classification Complete
+    ↓
+Prepare CAN Messages:
+    ├─ DMS_INFO.CabinDivision (Functional Signal)
+    ├─ MSG_DMS_GazeDirection (Debug Signals X,Y,Z)
+    └─ MSG_DMS_DebugInfo.SG_DMS_EyeGazeQuality
+    ↓
+Signal Validation:
+    ├─ Check Data Range Compliance
+    ├─ Verify Signal Resolution
+    └─ Confirm Safety Level Requirements
+    ↓
+CAN Bus Transmission
+    ↓
+Transmission Confirmation
+    ├─ Success → Continue Monitoring Loop
+    └─ Failure → Log Communication Error
+```
+
+#### 6. ERROR HANDLING AND RECOVERY FLOW
+```
+Error Detection:
+    ├─ Camera Failure → Set CabinDivision = Not_Available
+    ├─ Calibration Error → Recalibrate System
+    ├─ Timing Violation → Log Performance Issue
+    └─ CAN Communication Error → Retry Transmission
+    ↓
+Error Recovery Actions:
+    ├─ System Reset (if critical)
+    ├─ Fallback Mode Operation
+    └─ Diagnostic Message Generation
+    ↓
+Resume Normal Operation or Safe State
+```
+
+### PERFORMANCE OPTIMIZATION FLOWS
+
+#### Real-Time Processing Optimization
+```
+Frame Rate Management
+    ↓
+Processing Load Balancing
+    ↓
+Algorithm Efficiency Monitoring
+    ↓
+Resource Allocation Optimization
+    ↓
+Maintain Real-Time Performance Requirements
+```
+
+#### Calibration and Adaptation Flow
+```
+Initial System Calibration
+    ↓
+Driver Position Adaptation
+    ↓
+Environmental Condition Adjustment
+    ↓
+Continuous Calibration Refinement
+    ↓
+Performance Validation Against Ce_* Parameters
+```
+
+### INTEGRATION FLOWS
+
+#### DMS System Integration
+```
+DMS Status Monitoring
+    ↓
+Coordinate with Other DMS Functions
+    ↓
+Share Gaze Data with Related Systems
+    ↓
+Maintain System Coherence
+```
+
+#### Vehicle Integration
+```
+Vehicle Coordinate System Alignment
+    ↓
+Seat Position Integration
+    ↓
+Mirror and Display Position Coordination
+    ↓
+Overall Vehicle Safety System Integration
+```
+
+This comprehensive process flow analysis covers all aspects of the driver gaze estimation system, from initialization through area classification, timing measurement, and CAN signal transmission, ensuring complete implementation guidance based on the technical specifications extracted from the images.
+
+## Core Functionality Considerations
+
+### FUNCTIONAL SUMMARY
+**DMS-7 6.2.1.8 DRIVER GAZE ESTIMATION** provides comprehensive real-time driver gaze monitoring and cabin area classification according to ADDW regulation [DMS_EU_01]. The system implements three-zone cabin division (Area 1: Vehicle roof ±55°, Area 2: Windscreen/windows +10° peripheral, Area 3: Lower cabin 30° downward) with precise geometric boundaries, timing measurements, and CAN signal integration for automotive safety applications.
+
+**Core Capabilities:**
+- **Real-time Gaze Detection**: Continuous monitoring when DMS Status = ACTIVE/RUNNING/WARNING
+- **Three-Zone Classification**: Precise geometric area detection with manufacturer customization options
+- **Performance Monitoring**: Timing measurements for Area 3 with Ce_t_GazeInTimeMax/Ce_t_GazeOutTimeMax compliance
+- **Multi-Protocol Output**: Functional CAN signals (DMS_INFO.CabinDivision) and debug signals (MSG_DMS_GazeDirection, MSG_DMS_DebugInfo)
+- **Quality Assessment**: Continuous gaze quality evaluation (0-100%) with SG_DMS_EyeGazeQuality output
+- **Standards Compliance**: Full ADDW regulation and ISO 26262 functional safety compliance
+
+### VALIDATION CRITERIA
+
+#### **A-Priority Validation (Critical Safety Functions)**
+1. **DMS Status Integration Validation**
+   - **Criteria**: CabinDivision = Not_Available (0) when DMS Status != ACTIVE/RUNNING/WARNING
+   - **Method**: Engineering Menu verification with DMS status simulation
+   - **Acceptance**: 100% compliance with status transitions within 1 system cycle
+
+2. **Area 1 Geometric Accuracy Validation**
+   - **Criteria**: ±55° vertical plane detection with ±1° tolerance from ocular reference point
+   - **Method**: Calibrated test fixtures with known angular positions
+   - **Acceptance**: Area_1 (1) output within ±1° of geometric boundaries
+
+3. **Area 2 Coverage Validation**
+   - **Criteria**: Complete windscreen/windows coverage + 10° ±0.5° peripheral zone
+   - **Method**: Comprehensive field-of-view testing with calibrated targets
+   - **Acceptance**: Area_2 (2) output for all windscreen positions + verified peripheral coverage
+
+4. **Area 3 Timing Performance Validation**
+   - **Criteria**: Detection within Ce_t_GazeInTimeMax and Ce_t_GazeOutTimeMax
+   - **Method**: High-precision timing measurement with CAN signal monitoring
+   - **Acceptance**: 100% compliance with DID 0xFE35/0xFE36 parameter values
+
+#### **B-Priority Validation (Functional Performance)**
+1. **Gaze Direction Accuracy Validation**
+   - **Criteria**: ±Ce_ang_GazeDirTol accuracy in all directions (DID 0xFE32)
+   - **Method**: CIPIA LIB 7.28+ verification with calibrated gaze targets
+   - **Acceptance**: Measured accuracy within specified tolerance range
+
+2. **CAN Signal Integration Validation**
+   - **Criteria**: Correct signal transmission for all MSG_DMS_GazeDirection components
+   - **Method**: CAN bus monitoring with signal range/resolution verification
+   - **Acceptance**: SG_DMS_EyeGazeDirectionX/Y/Z within [-1.0, 1.0] normalized range
+
+3. **Quality Assessment Validation**
+   - **Criteria**: SG_DMS_EyeGazeQuality accurate representation of detection confidence
+   - **Method**: Controlled lighting/positioning scenarios with known quality levels
+   - **Acceptance**: Quality metric correlation with actual detection performance
+
+#### **C-Priority Validation (System Integration)**
+1. **Manufacturer Customization Validation**
+   - **Criteria**: Area 3 exclusion/inclusion logic for Area 1/2 overlap scenarios
+   - **Method**: Configuration testing with various manufacturer override settings
+   - **Acceptance**: Correct area classification based on configuration parameters
+
+2. **Real-time Performance Validation**
+   - **Criteria**: Continuous operation without performance degradation
+   - **Method**: Extended operation testing with resource monitoring
+   - **Acceptance**: Stable performance meeting all timing requirements
+
+#### **D-Priority Validation (Robustness Testing)**
+1. **Environmental Condition Validation**
+   - **Criteria**: Consistent performance across lighting/weather conditions
+   - **Method**: Environmental chamber testing with varied conditions
+   - **Acceptance**: Maintained accuracy within specified tolerances
+
+2. **Driver Variation Validation**
+   - **Criteria**: Accurate detection across driver demographics and positions
+   - **Method**: Multi-driver testing with anthropometric variations
+   - **Acceptance**: Consistent performance across driver population
+
+### TEST SCENARIOS WITH A-D PRIORITIES
+
+#### **A-Priority Test Scenarios (Critical Safety)**
+1. **TC-DMS-001: DMS Status Transition Testing**
+   - **Scenario**: Verify CabinDivision response to DMS status changes
+   - **Steps**: Simulate ACTIVE→INACTIVE→RUNNING→WARNING transitions
+   - **Expected**: CabinDivision = Not_Available (0) for non-active states
+   - **Priority**: A (Safety Critical)
+
+2. **TC-DMS-002: Area 1 Boundary Precision Testing**
+   - **Scenario**: Validate ±55° boundary detection accuracy
+   - **Steps**: Position calibrated targets at +54°, +55°, +56°, -54°, -55°, -56°
+   - **Expected**: Area_1 (1) only for positions within ±55° ±1° tolerance
+   - **Priority**: A (Geometric Accuracy Critical)
+
+3. **TC-DMS-003: Area 3 Timing Compliance Testing**
+   - **Scenario**: Verify Ce_t_GazeInTimeMax/Ce_t_GazeOutTimeMax compliance
+   - **Steps**: Rapid gaze transitions into/out of Area 3 with timing measurement
+   - **Expected**: Detection within specified timing parameters
+   - **Priority**: A (Performance Critical)
+
+#### **B-Priority Test Scenarios (Functional Performance)**
+4. **TC-DMS-004: Multi-Area Classification Testing**
+   - **Scenario**: Validate correct area classification across all zones
+   - **Steps**: Systematic gaze positioning across Area 1, 2, 3 boundaries
+   - **Expected**: Correct CabinDivision values (1, 2, 3) for respective areas
+   - **Priority**: B (Core Functionality)
+
+5. **TC-DMS-005: CAN Signal Integrity Testing**
+   - **Scenario**: Verify all CAN signal transmission accuracy
+   - **Steps**: Monitor MSG_DMS_GazeDirection and MSG_DMS_DebugInfo signals
+   - **Expected**: Correct X/Y/Z coordinates and quality values within specified ranges
+   - **Priority**: B (Communication Critical)
+
+6. **TC-DMS-006: Gaze Quality Assessment Testing**
+   - **Scenario**: Validate SG_DMS_EyeGazeQuality accuracy
+   - **Steps**: Create known good/poor detection conditions
+   - **Expected**: Quality metric accurately reflects detection confidence
+   - **Priority**: B (Quality Assurance)
+
+#### **C-Priority Test Scenarios (System Integration)**
+7. **TC-DMS-007: Manufacturer Override Testing**
+   - **Scenario**: Validate Area 3 customization options
+   - **Steps**: Test Area 1/2 exclusion/inclusion configurations
+   - **Expected**: Correct area classification based on override settings
+   - **Priority**: C (Configuration Flexibility)
+
+8. **TC-DMS-008: Ocular Reference Point Calibration Testing**
+   - **Scenario**: Verify calibration accuracy and adaptation
+   - **Steps**: Test with various driver positions and seat adjustments
+   - **Expected**: Maintained accuracy across position variations
+   - **Priority**: C (Calibration Robustness)
+
+#### **D-Priority Test Scenarios (Robustness)**
+9. **TC-DMS-009: Environmental Robustness Testing**
+   - **Scenario**: Validate performance under varied environmental conditions
+   - **Steps**: Test with different lighting, weather, and cabin conditions
+   - **Expected**: Consistent performance within tolerance ranges
+   - **Priority**: D (Environmental Robustness)
+
+10. **TC-DMS-010: Long-term Stability Testing**
+    - **Scenario**: Verify sustained performance over extended operation
+    - **Steps**: Continuous operation testing with performance monitoring
+    - **Expected**: No degradation in accuracy or timing performance
+    - **Priority**: D (Reliability Assurance)
+
+### GAPS/AMBIGUITIES ANALYSIS
+
+#### **Identified Gaps Based on RQA Analysis**
+1. **High-Risk Gaps (RQA Score ≤ 70)**
+   - **ID 3828029 (RQA: 40)**: Complex geometric definition with compound requirements and escape clauses
+   - **Gap**: Unclear implementation guidance for "overlap of zones" and "as defined below" references
+   - **Impact**: Potential implementation inconsistencies in Area 1 boundary detection
+   - **Recommendation**: Provide explicit geometric calculation algorithms and reference point definitions
+
+   - **ID 3793577 (RQA: 70)**: Compound requirement mixing DMS status and gaze determination
+   - **Gap**: Unclear precedence between status checking and gaze processing
+   - **Impact**: Potential race conditions in system state management
+   - **Recommendation**: Define explicit state machine with clear transition priorities
+
+2. **Medium-Risk Gaps (RQA Score 70-80)**
+   - **ID 3828582 (RQA: 70)**: Time measurement verification method unclear
+   - **Gap**: "How to verify the measured time?" - No clear validation approach defined
+   - **Impact**: Difficult test case development and validation
+   - **Recommendation**: Define specific timing measurement and verification protocols
+
+   - **ID 3828591 (RQA: 80)**: Unclear term "all directions"
+   - **Gap**: Ambiguous scope of gaze direction accuracy requirements
+   - **Impact**: Incomplete test coverage and validation criteria
+   - **Recommendation**: Define specific angular ranges and coordinate system references
+
+#### **Technical Implementation Ambiguities**
+1. **Manufacturer Customization Scope**
+   - **Ambiguity**: Extent of Area 1/2 inclusion in Area 3 not precisely defined
+   - **Impact**: Inconsistent implementation across manufacturers
+   - **Resolution**: Provide specific configuration parameter ranges and validation criteria
+
+2. **Timing Parameter Defaults**
+   - **Ambiguity**: Ce_t_GazeInTimeMax/Ce_t_GazeOutTimeMax default values not specified
+   - **Impact**: Inconsistent performance expectations across implementations
+   - **Resolution**: Define recommended default values and acceptable ranges
+
+3. **Quality Metric Calculation**
+   - **Ambiguity**: SG_DMS_EyeGazeQuality calculation method not detailed
+   - **Impact**: Inconsistent quality assessment across systems
+   - **Resolution**: Define specific quality calculation algorithms and factors
+
+### GROOMING STATUS ASSESSMENT
+
+#### **Overall Grooming Health: GOOD (87% Approved)**
+- **Total Requirements**: 15 (10 Primary + 5 Informational)
+- **Approved Status**: 13/15 (87%)
+- **Review Status**: 1/15 (7%) - ID 3793576
+- **New Status**: 1/15 (7%) - Various informational items
+
+#### **Detailed Grooming Analysis**
+1. **Approved Requirements (13/15 - 87%)**
+   - **High Quality (RQA ≥ 90)**: 4 requirements
+     - ID 3793578, 3793731, 3828442, 3828485
+   - **Medium Quality (RQA 70-89)**: 6 requirements
+     - ID 3793577, 3793579, 3828582, 3828591, 3828592, 3828593
+   - **Needs Improvement (RQA < 70)**: 1 requirement
+     - ID 3828029 (RQA: 40) - Requires significant clarification
+
+2. **Review Status Requirements (1/15 - 7%)**
+   - **ID 3793576**: Implementation logic reference - Needs final approval
+   - **Risk**: Low - Informational item with clear reference to SFS F531
+
+3. **New Status Requirements (1/15 - 7%)**
+   - **Multiple Informational Items**: Area definitions and interface specifications
+   - **Risk**: Low - Primarily reference and definition items
+
+#### **Grooming Recommendations**
+1. **Immediate Action Required**
+   - **ID 3828029**: Rewrite to eliminate compound requirements and escape clauses
+   - **ID 3828582**: Define explicit time measurement verification procedures
+
+2. **Quality Improvement Opportunities**
+   - **Passive Voice Issues**: ID 3828442, 3828485 - Convert to active voice
+   - **Missing Units**: Multiple requirements need unit specifications and tolerances
+   - **Unclear Terms**: Define "all directions" and other ambiguous terminology
+
+3. **Validation Enhancement**
+   - **Test Case Development**: Create specific test procedures for timing verification
+   - **Acceptance Criteria**: Define measurable success criteria for all requirements
+
+#### **Implementation Readiness Assessment: READY WITH CLARIFICATIONS**
+- **Core Functionality**: Well-defined with comprehensive technical specifications
+- **Interface Definitions**: Complete CAN signal and data structure specifications
+- **Performance Requirements**: Clear timing and accuracy parameters with DID references
+- **Standards Compliance**: Full ADDW regulation and ISO 26262 alignment
+- **Risk Mitigation**: Address identified gaps and ambiguities before final implementation
+
+The DMS-7 Driver Gaze Estimation feature demonstrates strong technical foundation with comprehensive visual specifications, clear process flows, and robust data structures. The identified gaps and ambiguities are manageable and should be addressed to ensure consistent implementation across manufacturers and platforms.

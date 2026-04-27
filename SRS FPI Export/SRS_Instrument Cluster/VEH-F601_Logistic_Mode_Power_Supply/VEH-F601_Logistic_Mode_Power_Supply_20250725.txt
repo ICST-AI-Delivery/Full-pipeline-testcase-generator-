@@ -1,0 +1,139 @@
+# VEH-F601 6.2.1.1.1.29  Logistic Mode Power Supply Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.29 VEH-F601 Logistic Mode Power Supply
+
+- ID: 3939905
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976594
+- Contents: System shall reduces performance to prevent battery discharge , when Logistic mode is ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system performance is reduced when Logistic Mode is ON in order to prevent battery discharge. 
+
+Input CAN SIgnals: STATUS_B_CAN.PowerModeSts 
+PWT_STATUS_2.RechargeSts 
+PWT_STATUS_2.EDriveSts
+
+OutPut Signals:COMMAND_HMI_TO_VEHICLE.PowerModeSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, mode, reduces, to prevent, is, performance, discharge" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3976597
+- Contents: System shall display LVB lamp behaviour Management as per the table:
+(see: image62.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system performance is reduced when Logistic Mode is ON in order to prevent battery discharge. 
+
+Telltale Reference: 01750
+TellTale ID:LVB001
+
+
+Input CAN SIgnals: STATUS_B_CAN.PowerModeSts 
+PWT_STATUS_2.RechargeSts 
+PWT_STATUS_2.EDriveSts
+
+OutPut Signals:COMMAND_HMI_TO_VEHICLE.PowerModeSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image62.png
+
+3. ID: 3976624
+- Contents: System shall display Info-1 Telltale when PowerModeSts is Logistic Mode ON
+(see: image63.png)
+Note: Info-1 follows S07 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+PowerModeSts = Logistic Mode ON
+
+Verify that the Info-1 telltale is displayed when   PowerModeSatus is Logistic Mode ON. 
+
+Telltale ID:LVB001
+
+Telltale Reference ID: 01750 
+
+CAN-Signal: STATUS_B_CAN.PowerModeSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, PowerModeSts, display, is, follows, Telltale, Mode, Info-1" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image63.png
+
+4. ID: 3976634
+- Contents: If logistic mode is activate  then system shall transmit the signal COMMAND_HMI_TO_VEHICLE.PowerModeStatus set to Logistic Mode ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Logistic Mode ON by chaning the signal COMMAND_HMI_TO_VEHICLE.PowerModeStatus when logistic mode is activated.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, is activate, transmit, set, COMMAND, Mode" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3976504
+- Contents: System shall display the Logistic Mode Power Supply as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image62.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image63.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F601 6.2.1.1.1.29  Logistic Mode Power Supply Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

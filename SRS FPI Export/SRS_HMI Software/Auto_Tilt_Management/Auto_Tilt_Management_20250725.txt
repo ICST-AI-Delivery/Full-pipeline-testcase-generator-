@@ -1,0 +1,155 @@
+# UnknownID 6.2.2.3.9 Auto Tilt Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.9 Auto Tilt Management
+
+- ID: 4886178
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886179
+- Contents: System shall populate output signals and  set MirrorProfileReq = 1("MemoryOrAutoTiltReq") when
+autotilt setting enable
+AND
+IDC is in HMI_PowerOn Condition
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+ AND MirrorProfileSts != [5("ManualMoving") OR != 1("Fail_Present ")]
+AND
+IDC detects a transition of ReverseGearBCSts from 0("Not_Inserted") to 1("Inserted").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal and mirror profile request when 
+
+autotilt setting is enabled 
+
+AND
+IDC is in HMI_PowerOn Condition
+AND
+STS_DRS_DriverDoorSts == 1 ("Closed")
+ AND MirrorProfileSts != [5 ("ManualMoving") OR != 1 ("Fail_Present ")]
+AND
+IDC detects a transition of ReverseGearBCSts from 0 ("Not_Inserted") to 1 ("Inserted").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, populate, set, autotilt, setting enable, is, Closed, MirrorProfileSts, detects, Inserted, signals, transition, ReverseGearBCSts" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886180
+- Contents: System shall set default values when user not set the position for passenger mirror autotilt.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set default values when user not set the position for passenger mirror autotilt.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, values, position, autotilt" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886181
+- Contents: System shall set  MirrorProfileReq = 0("Not_Active") when
+MirrorProfileSts == [(2("ProfileReached") for Nsample of
+LIN_MIRROR_FEEDBACK) OR 6("NBCInternalFunction") OR 1("Fail_Present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror profile request when
+
+MirrorProfileSts == [(2 ("ProfileReached") for Nsample of
+LIN_MIRROR_FEEDBACK) OR 6 ("NBCInternalFunction") OR 1 ("Fail_Present").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, MirrorProfileSts, Not_Active, NBCInternalFunction" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886182
+- Contents: System shall set MirrorProfileReq = 2("ProfileReq") when
+AutoTilt setting enable
+AND
+IDC is in HMI Power On Condition
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+AND
+MirrorProfileSts != [5("ManualMoving") OR 1("Fail_Present")]
+AND
+IDC detects a transition of ReverseGearBCSts from 1("Inserted") to 0("Not_Inserted").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify mirror profile request when 
+
+AutoTilt setting is enabled
+AND
+IDC is in HMI Power On Condition
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+AND
+MirrorProfileSts != [5 ("ManualMoving") OR 1("Fail_Present")]
+AND
+IDC detects a transition of ReverseGearBCSts from 1 ("Inserted") to 0 ("Not_Inserted").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, setting, is, Closed, ANDMirrorProfileSts, detects, Inserted, ProfileReq, Power, transition, ReverseGearBCSts" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4886183
+- Contents: System shall set MirrorProfileReq= 0("Not_Active") when
+MirrorProfileSts == [5("ManualMoving") OR 1("Fail_Present") OR (2("ProfileReached") for Nsample of
+LIN_MIRROR_FEEDBACK)]
+OR
+a transition of from MirrorProfileSts != 6 "NBCInternalFunction") to MirrorProfileSts == 6("NBCInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror profile request when 
+
+MirrorProfileSts == [5 ("ManualMoving") OR 1 ("Fail_Present") OR (2 ("ProfileReached") for Nsample of
+LIN_MIRROR_FEEDBACK)]
+OR
+a transition of from MirrorProfileSts != 6 ("NBCInternalFunction") to MirrorProfileSts == 6
+("NBCInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, MirrorProfileSts, Not_Active, transition, NBCInternalFunction" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.9 Auto Tilt Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

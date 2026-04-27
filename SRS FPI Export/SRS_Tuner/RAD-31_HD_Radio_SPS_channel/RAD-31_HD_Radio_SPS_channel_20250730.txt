@@ -1,0 +1,131 @@
+# RAD-31 6.2.1.1.32  HD Radio SPS channel Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.32 RAD-31 HD Radio SPS channel
+
+- ID: 4083966
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4085037
+- Contents: System shall display indication of SPS channel, when SPS channel is available.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display indication of SPS channel, when SPS channel is available.
+
+SPS (Satellite positioning system) channel
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, channel, retrieve, is present, provide, indications" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4085039
+- Contents: System shall provide detailed information about the SPS channel in a dedicated information, when an SPS channel is now playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display detailed information about the SPS channel in a dedicated information, when an SPS channel is currently playing.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, channel, provide, is, playing, information" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4094165
+- Contents: System shall provide SPS HMI interface as per HD radio requirements (NAR Markets) and HD Radio technology.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall provide SPS HMI interfaces for HD Radio requiements and HD radio technology
+
+Refer SRS ID's 4035540,4035586,4083796,4083798, 4035522, 4034035, 4035489
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, interface, requirements, Markets, technology" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4094200
+- Contents: System shall display Maximum 8 possible number of SPS channels for each station.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Maximum 8 possible number of SPS channels for each station.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘8’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4094203
+- Contents: System shall stop transmittting the HD Radio active source ,if loss of SPS audio occurs in play due to poor signal reciever.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall stop sending the HD Radio source on entertainment stream when there is a loss of SPS audio in play due to poor signal reception condition (e.g. driving outside of the coverage areas)
+
+Note: SPS will not be removed from the service list just due to short loss of Audio.
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "stop, Radio" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4094214
+- Contents: HD Radio SPS channel shall applicable to FM HD Radio
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HD Radio SPS channel shall applicable to FM HD Radio
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4684534
+- Contents: System shall allow the user to select the SPS channel from the list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall allow user for  selecting the SPS channel from list.
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-31 6.2.1.1.32  HD Radio SPS channel Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

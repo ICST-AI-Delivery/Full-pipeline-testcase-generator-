@@ -1,0 +1,390 @@
+# UnknownID 6.2.3.1.2 Display test selective ($5036) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.2 Display test selective ($5036)
+
+- ID: 4029153
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4029155
+- Contents: The system shall read Display test selective with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall read display test selective in extended diagnostic session
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+2. ID: 4029193
+- Contents: The System shall support the timer value as follows
+(see: image56.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the timer value.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image56.png
+
+3. ID: 4031299
+- Contents: The System shall support the bit control values  as follows
+(see: image57.png)
+(see: image58.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control value.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image57.png, image58.png
+
+4. ID: 4031305
+- Contents: The System shall support the image source  as follows
+Image source
+(see: image21.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the image source.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image21.png
+
+5. ID: 4031310
+- Contents: The System shall support the image destination values  as follows
+
+Where:
+Display1 = NDR
+Display2 = Binnacle
+Display3 = NDRR (see: image59.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the image destination.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image59.png
+
+6. ID: 4031325
+- Contents: If the Control service is correctly activated, IDC shall store the current visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: if control service is activated, IDC shall visualization
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "correctly" ) 
+Passive voice
+ (Look for: "activated" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+7. ID: 4031356
+- Contents: The system shall retrieve the value of parameter Image destination aiming to evaluate which screens are involve in the test
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, retrieve, aiming, to evaluate, are involve, value, screens, test" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+8. ID: 4031353
+- Contents: The system shall continue to show or return to the current native screen on the under test screens if the parameter Control Value == 0x00 ("No control")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, continue, to show, return, screen, screens, control" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+9. ID: 4031355
+- Contents: If the parameter Control Value == 0x01 ("Standard"), the IDC shall colour each one of the under test screens on pale white.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x01 ("Standard"), the IDC shall colour each one of the under test screens on pale white.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "colour, screens" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+10. ID: 4031350
+- Contents: If the parameter Control Value == 0x02("Red"), the IDC shall colour each one of pixels of the under test screens on red (RGB: 255-0-0)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x02("Red"), the IDC shall colour each one of pixels of the under test screens on red (RGB: 255-0-0)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+11. ID: 4031804
+- Contents: If the parameter Control Value == 0x03 ("Green"), the IDC shall colour each one of pixels of the under test screens on green (R-G-B:0-255-0)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x03 ("Green"), the IDC shall colour each one of pixels of the under test screens on green (R-G-B:0-255-0)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+12. ID: 4031807
+- Contents: If the parameter Control Value == 0x04 ("Blue") , the IDC shall colour each one of pixels of the under test screens on blue (R-G-B: 0-0-255)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x04 ("Blue") , the IDC shall colour each one of pixels of the under test screens on blue (R-G-B: 0-0-255)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+13. ID: 4031809
+- Contents: If the parameter Control Value == 0x05 ("White"), the IDC shall colour each one of pixels of the under test screens on white (R-G-B: 255-255-255)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x05 ("White"), the IDC shall colour each one of pixels of the under test screens on white (R-G-B: 255-255-255)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+14. ID: 4031810
+- Contents: If the parameter Control Value == 0x06 ("Black"), the IDC shall colour each one of pixels of the under test screens on black (R-G-B: 0-0-0)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x06 ("Black"), the IDC shall colour each one of pixels of the under test screens on black (R-G-B: 0-0-0)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+15. ID: 4031811
+- Contents: If the parameter Control Value == 0x07("Overlapping"), the IDC shall show the following image (RGB overlapping circles) stored in internal memory or USB slot (see: image60.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x07("Overlapping"), the IDC shall show the following image (RGB overlapping circles) stored in internal memory or USB slot
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "show, following, overlapping, stored, RGB, circles, memory, slot" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image60.png
+
+16. ID: 4031814
+- Contents: If the parameter Control Value == 0x08 ("Colored Boxes") Then IDC shall show the
+following image (RGB small boxes) stored in internal memory or USB slot (see: image61.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Control Value == 0x08 ("Colored Boxes") Then IDC shall show the following image (RGB small boxes) stored in internal memory or USB slot
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, thefollowing, stored, boxes, memory, slot" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image61.png
+
+17. ID: 4031817
+- Contents: If the parameter Image source == 0x00 ("Internal") then the images are retrieve from NIT internal memory
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Image source == 0x00 ("Internal") then the images are retrieve from NIT internal memory
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+18. ID: 4031819
+- Contents: If the parameter Image source == 0x01 ("USB1") , the image shall retrieve from
+USB1 slot
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Image source == 0x01 ("USB1") , the image shall retrieve from
+USB1 slot.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+19. ID: 4031820
+- Contents: If the parameter Image source == 0x02 ("USB2") ,  the image shall retrieved from
+USB2 slot
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Image source == 0x02 ("USB2") ,  the image shall retrieved from USB2 slot
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+20. ID: 4031822
+- Contents: If the parameter Timer value != 0xFF, IDC shall starts a timeout of Timer value seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Timer value != 0xFF, IDC shall starts a timeout of Timer value seconds.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, starts, value, timeout, seconds" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+21. ID: 4031823
+- Contents: If the parameter Timer value other than !=0xFF, the IDC shall unable to start a timeout.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Timer value other than !=0xFF, the IDC shall unable to start a timeout.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "other" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+22. ID: 4031824
+- Contents: Whenever the timeout is lapse, the System shall recover the previous stored visualization and shown on screen.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Whenever the timeout is lapse, the System shall recover the previous stored visualization
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recover, shown, visualization, screen" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified routine control param worked. NO applicative test to system behavior or dependencies. No Display expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image21.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image57.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image58.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image56.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image60.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image61.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image59.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.2 Display test selective ($5036) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

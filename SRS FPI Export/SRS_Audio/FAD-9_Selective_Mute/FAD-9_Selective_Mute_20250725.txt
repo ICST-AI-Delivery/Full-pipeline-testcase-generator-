@@ -1,0 +1,125 @@
+# FAD-9 6.2.2.10  Selective Mute Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.10 FAD-9 Selective Mute
+
+- ID: 3408491
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3593575
+- Contents: The system shall selectively mute/unmute the output audio channels through the FAD.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source.
+Send the diagnostic command to mute/unmute the audio on selected speakers (Note: Speaker channels are mentioned in the artifact ID 3611548)
+
+Verify that the audio is muted/unmuted on the selected speakers.
+
+Note: The output channel should be unmuted 
+If the channel bit = 0
+The output channel should be muted 
+If the channel bit = 1
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "selectively" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3593577
+- Contents: If the channel bit is 0, the FAD shall unmute that channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precoindition:
+The Audio channel is Muted via diagnostocs
+
+Send the diagnostic command to unmute the audio on selected speakers (Note: Speaker channels are mentioned in the artifact ID 3611548)
+
+Verify that the audio is unmuted on the selected speakers.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3593579
+- Contents: If the channel bit is 1, the FAD shall mute that channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source.
+
+Send the diagnostic command to mute the audio on selected speakers (Note: Speaker channels are mentioned in the artifact ID 3611548)
+
+Verify that the audio is muted on the selected speakers.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4097065
+- Contents: [Info] This function defines the FAD_CTRL API that IDC shall use in order to selectively mute audio channels.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3611548
+- Contents: The parameter mask is a binary mask, shall be defined as follows:
+(see: image138.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image138.png
+
+3. ID: 4704110
+- Contents: The IDC can selectively mute output audio channels through the FAD_CTRL__selectiveMute(void
+*fad_ctrl_memory, int mask) API, where:
+mask = binary mask defined by the following requirements.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+4. ID: 3622610
+- Contents: Input/Output Controls
+Selective Mute
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image138.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-9 6.2.2.10  Selective Mute Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,167 @@
+# UnknownID 6.2.7.1.3 Events of cermony Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.7.1.3 Events of cermony Management
+
+- ID: 4763476
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4763477
+- Contents: System shall manage two Ceremony events as follows: 
+1.Welcome ceremony 
+2.Closure ceremony
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Welcome ceremony and Closure Ceremony are performed when necessary conditions are met.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4763483
+- Contents: System shall trigger Welcome ceremony at the transition from HMI ON to POWER ON, then animation shall stream on Central display, Binnacle and Rear display simultaneously.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Welcome Ceremony is performed by the system when transition is HMI ON to POWER ON, and animation is displayed in Binnacle , Central and Rear displays.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall trigger, shall stream" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4763484
+- Contents: System shall trigger Closure ceremony at the transition from HMI POWER ON to HMI ON
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Closure Ceremony is displayed performed when there is a transition from HMI POWER ON to HMI ON.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4763486
+- Contents: The Welcome Ceremony shall be interrupted when the VehicleSpeedVSOSignal > 0
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Welcome cermony will be interupted when vehicle start moving or vehicle speed > 0 (NFR_Speed > 0)
+- Grooming Status: Approved
+- Grooming Comments: If HMI is not Up when the welcome ceremony interputted whwt will be the expected behaviour?
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be interrupted" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4763487
+- Contents: Systems shall interrupt the Welcome Ceremony when the Key-Off event occurs.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Welcome animation should stop when Keyoff event(ignition off) occurs
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "interrupt, occurs" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4763488
+- Contents: System shall populate the CeremonySts_IDC signal and follows the below logic: (see: image12.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the CAN(HMI_INFO.CeremonySts_IDC) signals values and animation status on display.
+
+Note: Vehicle speed up the welcome ceremony is interuptted
+- Grooming Status: Approved
+- Grooming Comments: which component will update the Cermony animation status ==2 ?
+- Expert Domains: Cluster SW, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, populate, follows, CeremonySts, signal, logic" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image12.png
+
+7. ID: 4763490
+- Contents: system shall consider the Ceremony on Binnacle as completed after receiving VEH_CeremonySts transition from Active to Completed
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the Cermony animation is completed on binacle
+- Grooming Status: Approved
+- Grooming Comments: which component will update the Cermony animation completion status
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4763491
+- Contents: When CeremonySts_IDC ==2 , system shall not reproduce the Welcome Ceremony between one Key cycle to another, if sleep mode does unoccurs.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: There is no welcome ceremony animation for warm boot(second transistion onwards from HMI_ON to Power_ON without sleep)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, reproduce, Ceremony, Key cycle" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4763492
+- Contents: System shall restart ceremony animation after a new Key-Off to Key-On transition.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: For Every Key Off to Key ON(S2R & Cold boot), welcome ceremony will show to user
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image12.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.7.1.3 Events of cermony Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

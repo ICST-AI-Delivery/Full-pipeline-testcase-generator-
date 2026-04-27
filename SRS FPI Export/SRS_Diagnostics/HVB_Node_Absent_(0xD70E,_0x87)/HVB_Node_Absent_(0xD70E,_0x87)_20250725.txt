@@ -1,0 +1,93 @@
+# UnknownID 6.2.1.1.72 HVB Node Absent (0xD70E, 0x87) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.72 HVB Node Absent (0xD70E, 0x87)
+
+- ID: 3881497
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3881504
+- Contents: The System shall detect HVB node absent fault during key OFF to Key ON transition and HVB steady state if configur.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Proxi byte 27, bit 6 (“NIM-HVB”) = "Present".
+-Set HVB Node Absent or disconnected messages.
+-Or do not send HVB_HMI_STS message to trigger the fault.
+-Verify the DTC (0xD70E, 0x87) will trigger.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Key, fault, key OFF, transition, state, configur" )
+- TestTeamComment: RWeber_DIAG_241213: No info about real CAN msg ID. We need this info to get a valid overview or msg dependency. IMO, also we need a maturation time or threshold, otherwise we will get maybe some error state toggling (pass/fail).
+- State (Harman_Requirement): Approved
+
+2. ID: 3881505
+- Contents: The System shall trigger the HVB node absent fault at tCKD during key OFF to Key ON transition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered with in tCKD during key OFF to Key ON transition.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241213: No info about real CAN msg ID. We need this info to get a valid overview or msg dependency. IMO, also we need a maturation time or threshold, otherwise we will get maybe some error state toggling (pass/fail).
+- State (Harman_Requirement): Approved
+
+3. ID: 3881506
+- Contents: The System shall trigger the HVB node absent fault at tREC2 during HVB steady state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered with in tREC2 during HVB steady state.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241213: No info about real CAN msg ID. We need this info to get a valid overview or msg dependency. IMO, also we need a maturation time or threshold, otherwise we will get maybe some error state toggling (pass/fail).
+- State (Harman_Requirement): Approved
+
+4. ID: 3881507
+- Contents: The System shall immediately clear the fault, if the HVB messages are received.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send HVB_HMI_STS message and verify the DTC (0xD70E, 0x87) will clear.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "immediately" ) 
+Passive voice
+ (Look for: "are received" )
+- TestTeamComment: RWeber_DIAG_241213: No info about real CAN msg ID. We need this info to get a valid overview or msg dependency. IMO, also we need a maturation time or threshold, otherwise we will get maybe some error state toggling (pass/fail).
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.72 HVB Node Absent (0xD70E, 0x87) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,72 @@
+# PRK-0 6.2.4.1.19 : Obstacle Proximity Signalling Indication Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.19 PRK-0: Obstacle Proximity Signalling Indication Management
+
+- ID: 3877149
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3877151
+- Contents: The system shall close 'NSP' visualization if 'STATUS_NSP2' is not-received for '5' consecutive times.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the NSP visualization is closed the Status NSP message is not received.
+
+Note: NSP visualization is obstacle proximity visualization (e.g. 2D wall, 3D wall, Obstacle distance..etc).
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "-received" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: the CAN message
+STATUS_NSP2 is Multimessage
+
+2. ID: 3877288
+- Contents: The system shall indicate that "parking aid system" is un-available(without any reference to the failed sensor) during the failure in the "NSP" system.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: STATUS_NSP2.NSPFailSts  = 0x1,0x2,0x3.
+
+Verify the Parking aid system unavailability indication on HMI if any one of the parking sensor is failed
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-592
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, indicate, is, un-available, failure, NSP" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.19 : Obstacle Proximity Signalling Indication Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,99 @@
+# UnknownID 6.2.4.3.1  Smartphone Projection Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1  Smartphone Projection
+
+- ID: 4094017
+- Artifact Type: SRS Feature
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Projections
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4094018
+- Contents: During the configuration of the attached device the following requirements should meet:
+The IDC has recognized the device as a smartphone.
+The IDC has verified that the device supports OTG.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the configuration conditions.
+
+verify that the system recognizes the smartphone.
+
+verify that the system support OTG.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "requirements, IDC, attached, following, meet, has recognized, has verified, supports, configuration, device, smartphone" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4094031
+- Contents: IDC shall send a command to the Smart USB C to require the role swap.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the command to role swap.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4094032
+- Contents: The IDC and the Smart USB C shall disconnect from the actual communication channel and shall re-connect with inverted roles (the Smart USB C is the host and the IDC is the device).
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system and smart USB can disconnect and reconnect with inverted roles
+
+USB team will provide command.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "USB C, C, IDC, disconnect, re-connect, inverted, is, channel, roles, host, device" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4094033
+- Contents: When the Smart USB C shall connect to the communication channel as host and changes its ID.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the smart USB changes its ID when connecting to the communication channel as a host.
+- Grooming Status: Approved
+- Grooming Comments: Please confirm which VID/PID(ID) should be assigned to IDC during Apple projection. -> it will be provided after the certification of USB IF
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "connect, changes" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1  Smartphone Projection Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

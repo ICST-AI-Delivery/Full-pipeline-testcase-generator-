@@ -1,0 +1,65 @@
+# UnknownID 6.2.4.1.1.31 SVS - Missing Calibration (0x9110, 0x54) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.1.31 SVS - Missing Calibration (0x9110, 0x54)
+
+- ID: 3958050
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3958051
+- Contents: If Surround View system has not been calibrated , the system shall send RWS SVS - Missing Calibration message with Proxi byte Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality")  = "Present" in Vehicle configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RWS SVS-missing calibration message
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Absent, message, byte, bit 6  #8220, RWS, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_250122: Only test at protocol level, if DTC can be read out. No SVS export to set init or execute a calibration. Applicative not possible at DIAG.
+- State (Harman_Requirement): Approved
+
+2. ID: 3958055
+- Contents: If the De-Maturation time 1 &  No fault is detected,the system shall face with De-Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as immediate.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "message, system, received, face, time, amp, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250122: Only test at protocol level, if DTC can be read out. No SVS export to set init or execute a calibration. Applicative not possible at DIAG.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.1.1.31 SVS - Missing Calibration (0x9110, 0x54) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

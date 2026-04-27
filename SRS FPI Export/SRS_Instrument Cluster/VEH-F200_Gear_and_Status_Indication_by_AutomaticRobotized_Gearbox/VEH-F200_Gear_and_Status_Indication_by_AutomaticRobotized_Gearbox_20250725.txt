@@ -1,0 +1,1524 @@
+# VEH-F200 6.2.1.1.1.14  Gear and Status Indication by Automatic/Robotized Gearbox Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.14 VEH-F200 Gear and Status Indication by Automatic/Robotized Gearbox
+
+- ID: 3408582
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: HMI Specification has to be clarified.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3490840
+- Contents: System shall display letter ‘N’ on the instrument cluster when the ActualGearForDisplay corresponds to Neutral.
+(see: image42.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the gear box into neutral and verify that the Letter "N" is displayed on instrument cluster.
+
+CAN-Signal:STATUS_C-_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, corresponds, letter  #8216;N #8217, cluster, Neutral" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image42.png
+
+2. ID: 3919823
+- Contents: System shall display torque index on binnacle central dial. when actual Gear is Drive in Manual Drive
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays the torque index on Binnacle central dial when User sets the Gear status other than Neutral/Park/Reverse.
+
+CAN-Signal: STATUS_C_NCA_NCR.ActualGearForDispla
+
+STATUS_C_NCA_NCR.ShiftModeSts
+- Grooming Status: Approved
+- Grooming Comments: Need to confirm whether this should be displayed in the IVI??
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Gear, display, is Drive, index, dial, Drive" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3491828
+- Contents: If Actual Gear Signal reception after key off is less than 3 seconds , System shall display the gear status for a time of 3 Seconds starting from the Key-Off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Cluster will be displaying the gear status even after key-off event is happened for 3 seconds.
+
+CAN-Signal:
+
+STATUS_C-_NCA_NCR.ActualGearForDisplay
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, starting, status, time, Key-Off" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3492758
+- Contents: If Actual Gear Signal reception after key off greater than 3 seconds, System shall display gear status in sync with  Actual Gear Signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Cluster will be displayed for 3 seconds from the key-off event is happened.
+
+CAN-Signal:
+
+STATUS_C-_NCA_NCR.ActualGearForDisplay
+
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3911910
+- Contents: System shall display Empty in the gear area when gear signal Actual Gear For Display is Not Coded or Not Used.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Empty is displayed in Gear Area , when ActualGearForDisplay = (Not_coded or Not_used.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ActualGearForDisplay, display, is, Used, Empty, area, Not" ) 
+Negative statement
+ (Look for: "Not" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4763825
+- Contents: Automatic degraded signalling is displayed in a small triangle at every KEY-ON upon the VCU request through AutomaticRoboticXmsnDegradedMode signal When 
+AutomaticRoboticXmsnDegradedMode=Active is received.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Automatic Degraded signalling is displayed in a small triangle at key-ON following the Signal AutomaticRoboticXmsnDegradedMode when AutomaticRoboticXmsnDegradedMode is Active.
+- Grooming Status: Blocked
+- Grooming Comments: Where should this small triangle displayed?
+
+JIRA-update:
+FQ-136:
+This signal will be always not-active and is not applicable for F244.
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "signalling, degraded, signal, triangle, KEY-ON, through, Active" ) 
+Unclear term
+ (Look for: "every" ) 
+Passive voice
+ (Look for: "is displayed, is received" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3532664
+- Contents: System shall continuously display automatic degraded mode(Small triangle in HMI specified area)  from the Key ON event.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-conditions:
+Key-ON 
+
+Verify that the Degraded signal warning is displayed as Triangle in the HMI specifed area.
+
+CAN Signal:
+AutomaticRoboticDegradeMode=Active
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Review
+- Grooming Comments: FQ-136 Obsolete
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3532689
+- Contents: If launch mode is active system shall display in text as "launch" or "ps" with in the area specifed in the HMI by PerformanceLaunchMode
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+PerformanceLaunchMode=Active
+PROXI : proxi bit (Byte 69, bit 3) TRUE
+
+Verify that the launch or ps text is displayed in HMI specified areas.
+- Grooming Status: Review
+- Grooming Comments: HMI Specification has to be clarified. - ticket
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, specifed, text, ps, area, HMI" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3491912
+- Contents: when Edrive status =E_drive System shall display N (Electric neutral) as Neutral
+(see: image43.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the gear box into neutral and verify that the Letter "N" is displayed on instrument cluster.
+
+CAN-Signal:ActualGearForDisplay = N
+
+STATUS_C-_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image43.png
+
+10. ID: 3491913
+- Contents: System shall display  eD (Electric drive) as Electric Drive
+(see: image44.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the gear box into Drive and verify that the Letter "D" is displayed on instrument cluster.
+
+CAN-Signal: STATUS_C-_NCA_NCR.ActualGearForDisplay
+
+ActualGearForDisplay = D
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image44.png
+
+11. ID: 3491914
+- Contents: System shall display R (Electric reverse) as Electric Reverse
+(see: image45.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the gear box into Reverse and verify that the Letter "R" is displayed on instrument cluster.
+
+CAN-Signal: STATUS_C-_NCA_NCR.ActualGearForDisplay
+
+ActualGearForDisplay = R
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image45.png
+
+12. ID: 3491916
+- Contents: System shall display P (Parking lock active) as Parked
+(see: image46.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the gear box into Park and verify that the Letter "P" is displayed on instrument cluster.
+
+CAN-Signal: STATUS_C-_NCA_NCR.ActualGearForDisplay
+
+ActualGearForDisplay = P
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image46.png
+
+13. ID: 3921854
+- Contents: System shall display AUTO Ferrari Logo in E area for Automatic transmission
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the AUTO ferrari logo is displayed in E area when shift mode is automatic.
+
+CAN-Signal: STATUS_C_NCA_NCR.ShiftModeSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 3532746
+- Contents: System shall display eD when (ActualGearForDisplay signal = 1, 2, 3, 4, 5, 6, 7, 8)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions: Transmission mode has to be in Manual mode
+
+Verify that the gear box displays various speed gears from 1 to 8 in instrument cluster.
+
+
+CAN-Signal:
+CAN-Signal: STATUS_C-_NCA_NCR.ActualGearForDisplay
+
+ActualGearForDisplay signal = 1, 2, 3, 4, 5, 6, 7, 8
+- Grooming Status: Review
+- Grooming Comments: FQ-324 - Requirement obsolete
+
+HMI Specification has to be clarified. We are not sure about Binnacle area to be displayed.
+
+Checked the information from Primary Dial.
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, eD, signal" ) 
+Missing unit 
+ (Look for: "‘4,8’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+15. ID: 3533464
+- Contents: System shall display text as READY   in A1 Specified area when vehicle speed is less than 2KM per hour,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+
+1.VehicleSpeedVSOSig <= V_car moving(2KMPH)
+2.VehicleSpeedVSOSigFailSts = Present
+
+Verify that the text READY is displayed with in the HMI specified Areas.
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, speed, display, Specified, is, text, READY, area" )
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3926832
+- Contents: If Manual transmission active, system shall display
+The virtual telltale GER005 in the Gear repetition area (G Area) on Binnacle;
+The MANUAL Torque Index information in the area E (primary dial) according to ActualGearForDisplay
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Shift to manual transmission using CAN ShiftModeSts == Manual,
+Verify virtual telltale GER005 displayed in Garea
+Verify manual torque index displayed as per gear selection ActualGearForDisplay = 1st, 2nd, 3rd, 4th
+
+CAN
+STATUS_C_NCA_NCR.ShiftModeSts
+STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, telltale GER005, display, according, active, area G Area, Binnacle, information, dial, ActualGearForDisplay" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4706646
+- Contents: If ActualGearForDisplay=P, N, R, then system  shall visualize the Ferrari logo within the primary dial (area E).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Ferrari Logo is displayes with in the Primart Dial Area E . when ActualGearFor Display is P,N,R.
+
+CAN-Signal: STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, visualize, P, N, R, logo, area E" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3927083
+- Contents: If PerformanceLaunchMode == Active, system shall display:
+The D indiaction virtual telltale (GER006) in the Gear repetition area (G Area) on Binnacle;
+The LAUNCH Ferrari logo within the primary dial (area E).
+“LAUNCH” or “PS” label in the area specified in depending on the dedicated proxi bit (Byte 69, bit 3).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set Performance launch mode active by CAN
+Verify Virtual telltale in G Area
+Verify LAUNCH Ferrari logo in E area
+Verify LAUNCH/PS display basrd on proxi Byte 69, bit 3
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, specified, depending, TBD, area G Area, Binnacle, logo, area E, PS, label, area, Specifications, bit Byte 69" ) 
+Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+19. ID: 4706674
+- Contents: If ActualGearForDisplay is not available, then system shall trigger the GER007 virtual telltale.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the GER007 Virtual Telltale is displayed when ActualGearForDisplay is not Available.
+
+CAN-Signal: STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3533465
+- Contents: System shall not display READY text in A1 Specified area when vehicle configured speed is greater than or equal to vehicle speed  .
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+
+1.VehicleSpeedVSOSig ≥ V_car moving
+2.VehicleSpeedVSOSigFailSts = Fail
+
+Verify that the text READY is not displayed with in the HMI specified Areas.
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, vehicle, speed, display, Specified, configured, is, text, area" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3533467
+- Contents: System shall display text as AUTO in HMI specified areas if the Shift Mode Status is is Automatic
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+ShiftModeSts = Automatic
+
+Verify that the AUTO text is displayed in the HMIspecified area when Shiftmodestatus is in Automatic.
+- Grooming Comments: HMI Specification has to be clarified. We are not sure about Binnacle area to be displayed.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, specified, text, AUTO, HMI, areas" )
+- State (Harman_Requirement): Obsolete
+
+22. ID: 3533468
+- Contents: System shall display text as MANUAL in HMI specified areas if the Shift Mode Status is is Manual
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+ShiftModeSts = Manual
+
+Verify that the MANUAl text is displayed in the HMI specified areas when Shiftmodestatus is in Manual.
+- Grooming Comments: HMI Specification has to be clarified. We are not sure about Binnacle area to be displayed.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, specified, text, MANUAL, HMI, areas" )
+- State (Harman_Requirement): Obsolete
+
+23. ID: 3911911
+- Contents: System shall display SIL signalling during Key-ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the SIL signalling is performed during KEY-ON.
+- Grooming Status: Blocked
+- Grooming Comments: As per the clarification from the customer the Requiement has been Chnaged to Not Applicable.
+
+Please refer :
+FQ-1057 Jira Ticket.
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be displayed" )
+- State (Harman_Requirement): Obsolete
+
+24. ID: 3956861
+- Contents: System shall show the torque index informations from Power ON.
+(see: image47.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall display the Torque index informations during Power ON.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.ActualGearForDisplay
+STATUS_C_NCA_NCR.ShiftModeSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image47.png
+
+25. ID: 3956893
+- Contents: System shall display the drive status information in the Gear repetition area (G Area) on Binnacle according to the value of ActualGearForDisplay signal receive when Shift Mode Status  set to  Automatic.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Shift Mode is Automatic.
+
+Verify that the Drive status is displayed in the G-Binnacle area folowing the CAN-Signal.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.ActualGearForDisplay
+STATUS_C_NCA_NCR.ShiftModeSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, according, receive, information, area, Area, value, Mode Status  set, Automatic" )
+- State (Harman_Requirement): Approved
+
+26. ID: 3911912
+- Contents: System shall continue to display the  Gear Indication for 3 seconds after Key-OFF  or  till the VCU communication is active the transmission Information shall always maintained in any operating condition.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system continues to display Gear status indications for 3-Sec after 
+KEY-OFF or until the VCU communication is active.
+
+CAN-Signal:
+STATUS_C_NCA_NCR.ActualGearForDisplay
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, continue, to display, till, is active, Indication, Key-OFF, communication" )
+- State (Harman_Requirement): Approved
+
+27. ID: 4706680
+- Contents: System shall manage the engaged gear color within the primary dial following the emotional index external crowns color.
+(see: image48.png)
+(see: image49.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the engaged gear color within the primary dial following the emotional index external crowns color.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image48.png, image49.png
+
+28. ID: 3532421
+- Contents: The system shall display Warning-4 when FrontWiperServicePositionSts = Active
+Note: Warning shall perform D11 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+FrontWiperServicePositionSts = Active
+
+Set FrontWiperServicwePointsStatus is Active.
+
+CAN-Signal: EXTERNAL_LIGHTS.FrontWiperServicePositionSts.
+- Grooming Status: Approved
+- Grooming Comments: Grooming Blocked
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, request, give, met, is, steering, allowed, act, Warning, perform, Tip, warning, higher, paddle, gear, mode, change" )
+- State (Harman_Requirement): Obsolete
+
+29. ID: 3532426
+- Contents: System shall display Tip-not-available warning when below conditions met.
+When the system is in limp-home and the user act an UP request (by steering-wheel paddle) higher than the max gear allowed in limp-home mode. (or)
+When the user act a gear change (by steering-wheel paddle) and the request are-not-allowed
+Note: Warning shall perform D11 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Tip not available warning is triggered when the vehicle is in limp-home mode and gear change is not accepted 
+
+and 
+
+when high level gear is requested by the driver.
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning == Tip not available warning
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, request, display, met, is, act, steering, allowed, Warning, perform, warning, paddle, gear, mode, change" )
+- State (Harman_Requirement): Obsolete
+
+30. ID: 3532427
+- Contents: System shall display Warning-6 Pop-up and send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when
+RoboticTransmissionWarning is manual mode not available.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+GearEngaged =! N OR PlockSts =! Not_Engaged
+
+Verify that the Insert N warning is triggered when 
+1. Car wash request present
+2.Gear status not in Neutral
+3.Parking lock is not engaged.
+
+Pop-Up ID: 02000006
+
+
+CAN-signal:
+STATUS_C_NCA_NCR.RoboticTransmissionWarning == insert N warning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, whenRoboticTransmissionWarning, display, send, using, is, available, Pop-up, status, IVI, INDICATOR, mode" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3532428
+- Contents: System shall display Warning-7 send the Warning-7 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = wrong eManettino position manual
+Note: Warning shall perform D11 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = wrong eManettino position manual
+
+verify that the Warning-7 is displayed when RoboticTransmissionWarning = wrong eManettino position manual
+
+Pop-Up iD:02000007
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+32. ID: 3532751
+- Contents: The system shall display Warning-8 Pop-up and send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when RoboticTransmissionWarning is insert N warning.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(RoboticTransmissionWarning = insert N warning)
+
+Verify that the Warning-8 is triggered when RoboticTransmissionWarning is insert N warning.
+
+Pop-Up ID: 02000008
+
+
+CAN-Signals:
+STATUS_C_NCA_NCR.RoboticTransmissionWarning.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, RoboticTransmissionWarning, display, send, using, is insert, Pop-up, status, IVI, INDICATOR_STATUS, warning" )
+- State (Harman_Requirement): Approved
+
+33. ID: 3532434
+- Contents: System shall display Warning-9 send the Warning-9 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+(RoboticTransmissionWarning = Automatic mode not avail warning.
+Note: Warning shall perform D11 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Automatic mode not avail warning
+
+Verify that the Warning-9 is displayed when trigger condition is met.
+
+Pop-Up ID:02000009
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Grooming Comments: Grooming Blocked
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, met, Warning, perform, shifts, conditions, behaviour" )
+- State (Harman_Requirement): Approved
+
+34. ID: 3532435
+- Contents: System shall give Manual mode-not-available warning when below conditions met.
+When manual mode is-not-available due to a steering-wheel paddle fault or
+If the manual lever or the shift paddle pressed while hybrid manettino in Edrive
+Note:   warming shall perform D11 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Manual mode not available warning is triggered When 
+1.Manual mode is not available due to a steering-wheel paddle fault or 
+2.If the manual lever or the shift paddle is pressed while hybrid manettino is in Edrive
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning == Manual mode not available warning
+- Grooming Status: Approved
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "give, met, is, warming, perform" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+35. ID: 3532438
+- Contents: System shall give Automatic mode-not-available warning When the Automatic mode-not-enabled-by VCU.
+Note: Warning shall perform D11 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Automatic mode not available warning is triggered When the Automatic mode is disabled by VCU.
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning == Automatic mode not available warning
+- Grooming Status: Blocked
+- Grooming Comments: Grooming Blocked
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, give, enabled, Warning, perform, mode, warning, VCU, behaviour" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+36. ID: 3935765
+- Contents: System shall display the Icon in the specific wireframe area is TBD, IDC-458368
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is TBD" )
+- State (Harman_Requirement): Obsolete
+
+37. ID: 3532496
+- Contents: System shall display Warning-12 send the Warning-12 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+RoboticTransmissionWarning = Press brake pedal and repeat man
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Press brake pedal and repeat man
+
+Verify that the Warning-12 is displayed when trigger condition is met.
+
+Pop-Up ID:02000012
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+
+CAN-Signal Value:A
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, engaged, met, perform, warning, conditions, behaviour" )
+- State (Harman_Requirement): Approved
+
+38. ID: 3532498
+- Contents: System shall display Carwash mode activation warning and send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when
+RoboticTransmissionWarning = Parking lock-not-inserted
+Note:warning shall perform D11 behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Parking lock not inserted
+
+Verify that the Warning-13 is displayed when trigger condition is met.
+
+Pop-Up ID:02000012
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, RoboticTransmissionWarning, inserted, warning, perform, mode, status, IVI, INDICATOR, behaviour" )
+- State (Harman_Requirement): Approved
+
+39. ID: 3532502
+- Contents: System shall display Disengage parklock request when below conditions met.
+Disengage park lock request
+Note: warning shall perform D11 behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Disengage park lock request is triggered when park lock disengage requested by the driver.
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning== Disengage parklock request
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, Disengage, warning, perform, request, conditions, behaviour" )
+- State (Harman_Requirement): Obsolete
+
+40. ID: 3532508
+- Contents: The system shall display Creeping deactivation warning when Robotic Transmission Warning set to Creeping deactivation
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+GearEngaged = 1st OR R
+
+Verify that the creeping deactivation warning is triggered when
+
+1.)When the system detects the slope area , if it is in First or Reverse gear condition and the car is moved for a speed of 6KM per hour.
+2.) Two seconds before the deactivation , the telltale or warning is to be triggered to the driver on Instrument Cluster.
+ Warning shall perform D11 behaviour.
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning == Creeping deactivation
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, Creeping, warning, set, deactivation" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: When the IDC detects the slope area , if it is in First or Reverse gear condition and the car is moved for a speed of 6KM per hour.
+
+41. ID: 3532530
+- Contents: System shall display Warning-16 Buzzer 3A when
+(RoboticTransmissionWarning = Insert_P_Warning)
+Note: Warning shall perform D11 behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Insert_P_Warning
+
+Verify that the Warning-16 is triggered when necessary conditions are met.
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning == Insert_P_Warning
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to engage, Warning, perform, Insert _P_Warning, Request, Position, behaviour" )
+- State (Harman_Requirement): Approved
+
+42. ID: 3935766
+- Contents: Acoustic signalling is played by the VCU using the BuzzerReqSts signal.
+Buzzer features change depending on the BuzzerReqSts signal value.  IDC-437811
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Passive voice
+ (Look for: "is played" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+43. ID: 3532571
+- Contents: System shall display Warning-17 and send the Warning-17 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when (RoboticTransmissionWarning = GearLever_Fail AND ActualGearForDisplay = Not coded
+(see: image50.png)
+Note: Warning shall perform D11 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = GearLever_Fail AND ActualGearForDisplay = Not coded
+
+Verify that the Warning-17 is displayed when trigger condition is met.
+
+Pop-Up ID:02000012
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to alert, Warning, perform, warning, Popup, driver, fail, behaviour" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image50.png
+
+44. ID: 3532594
+- Contents: System shall display Warning-18 and send the Warning-18 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+RoboticTransmissionWarning = LaunchLever_Fail
+(see: image51.png)
+Note: warning shall perform D11 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = LaunchLever_Fail
+
+Verify that the Warning-18 is displayed when trigger condition is met.
+
+Pop-Up ID:02000018
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to alert, warning, perform, Popup, driver, fail, lever, behaviour" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image51.png
+
+45. ID: 3532596
+- Contents: System shall display Warning-19 send the Warning-19 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when (RoboticTransmissionWarning = GearLever_Fail)
+(see: image52.png)
+Note: Warning shall perform D11 behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(RoboticTransmissionWarning = GearLever_Fail) OR (*)
+
+Verify that the Warning-19 is displayed when trigger condition is met.
+
+Pop-Up ID:02000012
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall perform" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image52.png
+
+46. ID: 3927115
+- Contents: System shall indicate warning to exit carwash mode when carwash mode active with powertrain status off and gear change from N ->  other than N with
+D11 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger warning 20 by algo.
+Verify Warning 20 visualized as per HMI_POP.IND (code : 20020) with 3A buzzer, popup with D11 visualization , priority 0
+
+Algo : (RoboticTransmissionWarning == Carwash_mode_activation AND PowertrainSts == OFF AND ActualGearForDisplay == "N" -> != "N")
+
+CAN Signals :
+STATUS_C_NCA_NCR.ActualGearForDisplay
+STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, warning, to exit, carwash, mode, mode active, status, change, N" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Obsolete
+
+47. ID: 3927127
+- Contents: System shall indicate warning-21 and send the Warning-21 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+RoboticTransmissionWarning = Torque_Disabled_Disengage_EPB AND GasPedalPosition > Thresh18
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Torque_Disabled_Disengage_EPB AND GasPedalPosition > Thresh18
+
+Verify that the Warning-21 is displayed when trigger condition is met.
+
+Pop-Up ID:02000020
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, warning, to release, inhibit, EPB" )
+- State (Harman_Requirement): Approved
+
+48. ID: 3927138
+- Contents: System shall play warning-22 audio buzzer 3C with Priority-0 on buzzer request from other case.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+BuzzerReqSts = Other Case
+
+Verify that the Warning-22 is displayed when trigger condition is met.
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.BuzzerReqSts
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+49. ID: 4706698
+- Contents: System shall play warning-23 by buzzer 3A with Priority-0 on buzzer request is Reverse_gear_sound_ON OR ParkLock_not_Inserted.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+BuzzerReqSts = (Reverse_gear_sound_ON OR ParkLock_not_Inserted
+
+Verify that the Warning-23 is displayed when trigger condition is met.
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.BuzzerReqSts
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+50. ID: 4706701
+- Contents: System shall play warning-25 by buzzer 3C with Priority-0 on buzzer send the Warning-25 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = (Press_brake_pedal_for_Launch OR Vehicle_Not_Standstill)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = (Press_brake_pedal_for_Launch OR Vehicle_Not_Standstill
+
+Verify that the Warning-25 is displayed when trigger condition is met.
+
+Pop-Up ID:02000025
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+51. ID: 4706707
+- Contents: System shall display warning-26 send the Warning-26 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+RoboticTransmissionWarning = (Low_SOC_for_Launch)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Low_SOC_for_Launch
+
+Verify that the Warning-26 is displayed when trigger condition is met.
+
+Pop-Up ID:02000026
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+52. ID: 4706736
+- Contents: System shall play warning-27 by Pop-Up send the Warning-27 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = (Warm_Up_Needed_for_Launch)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Warm_Up_Needed_for_Launch
+
+Verify that the Warning-27 is displayed when trigger condition is met.
+
+Pop-Up ID:02000027
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+53. ID: 4706743
+- Contents: System shall play warning-28 by Pop-Up send the Warning-28 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = (Road_Slope_Too_High_for_Launch) .
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Road_Slope_Too_High_for_Launch
+
+
+Verify that the Warning-28 is displayed when trigger condition is met.
+
+Pop-Up ID:02000028
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+54. ID: 4707349
+- Contents: System shall play warning-29 by Pop-Up send the Warning-29 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = (Lifter_ON_Warning) with Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(RoboticTransmissionWarning = Lifter_ON_Warning
+
+Verify that the Warning-29 is displayed when trigger condition is met.
+
+Pop-Up ID:02000029
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+55. ID: 4707360
+- Contents: System shall play warning-30 by Pop-Up send the Warning-30 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = (Seatbelts_Unfastened) with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Seatbelts_Unfastened
+
+Verify that the Warning-30 is displayed when trigger condition is met.
+
+Pop-Up ID:02000030
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘-30’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+56. ID: 4707370
+- Contents: System shall play warning-31 by Pop-Up send the Warning-31 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ RoboticTransmissionWarning = (Wrong EManettino Position Launch) with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning = Wrong EManettino Position Launch
+
+Verify that the Warning-31 is displayed when trigger condition is met.
+
+Pop-Up ID:02000031
+
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+57. ID: 4707383
+- Contents: System shall play warning-33 by Pop-Up send the Warning-33 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+(PerformanceLaunchIndication = Press_And_Hold_Gas_Pedal) with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+PerformanceLaunchIndication = Press_And_Hold_Gas_Pedal
+
+
+Verify that the Warning-33 is displayed when trigger condition is met.
+
+Pop-Up ID:02000033
+
+
+
+CAN-Signal: STATUS_C_NCA_NCR.PerformanceLaunchIndication
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+58. ID: 4707392
+- Contents: System shall play warning-34 by Pop-Up send the Warning-34 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when(PerformanceLaunchIndication = Release_Brake_Pedal) with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+PerformanceLaunchIndication = Release_Brake_Pedal
+
+
+Verify that the Warning-34 is displayed when trigger condition is met.
+
+Pop-Up ID:02000035
+
+
+CAN-Signal:
+STATUS_C_NCA_NCR.PerformanceLaunchIndication
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+59. ID: 4758960
+- Contents: System shall display Warning 19 when System detects a Message Counter or Checksum error on STATUS_C_NCA_NCR message for more than MC_CRC_error_counter samples
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Warning-19 is displayed when a Message Counter or Checksum error on STATUS_C_NCA_NCR message is missing more than MC_CRC_Error.
+
+Note: MC_CRC_Error value is 5
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Warning, detects, 19, Counter, error, message, samples" ) 
+Missing unit 
+ (Look for: "‘19’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+60. ID: 3525453
+- Contents: System shall display Warning-2 Pop-up send the Warning-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when RoboticTransmissionWarning has a transition from Carwash mode to No Warning
+Note: Warning shall perform D11 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RoboticTransmissionWarning has a transition from Carwash mode to No Warning
+
+Verify that the Warning-2 is displayed when RoboticTransmissionWarning has a transition from Carwash mode to No Warning.
+
+Pop-UP ID: 02000002
+
+CAN-Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Grooming Comments: Grooming Blocked
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, gear, display, warning, is, to movePaddle, Warning, perform, Park, Neutral, tries, vehicle" )
+- State (Harman_Requirement): Approved
+
+61. ID: 3525452
+- Contents: System shall display Warning-1 Pop-up send the Warning-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when RoboticTransmissionWarning is Carwashmode activation
+Note: Warning shall perform  D11 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: (RoboticTransmissionWarning = Carwash mode activation)
+
+Verify that the warning-1 Pop-Up  is Displayed when RoboticTransmissionWarning = Carwash mode activation.
+
+Pop-Up ID: 02000001
+
+
+CAN Signal: STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "other" ) 
+Passive voice
+ (Look for: "is" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3490831
+- Contents: System shall display the gear and status by Automatic and robotized gear box as per Ferrari design
+(see: image41.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the displayed gear matches the actual gear engaged by the gearbox.
+
+CAN-Signal: STATUS_C-_NCA_NCR.ActualGearForDisplay
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, robotized, gear, status, box, design" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image41.png
+
+2. ID: 3491903
+- Contents: 6.2.1.1.1.14.1 System shall display gear indicators information as follows
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 100
+- State (Harman_Requirement): Approved
+
+3. ID: 3536992
+- Contents: 6.2.1.1.1.14.2 SIL Signalling
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+4. ID: 3536993
+- Contents: 6.2.1.1.1.14.3 Auto Park Signalling
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+5. ID: 3532047
+- Contents: 6.2.1.1.1.14.4 Warning-4 Tip not available warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+6. ID: 3532056
+- Contents: 6.2.1.1.1.14.5 Warning-5 Tip not available warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3532057
+- Contents: 6.2.1.1.1.14.6 Warning-6 insert N warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+8. ID: 3532058
+- Contents: 6.2.1.1.1.14.7 Warning-7 Delayed startup warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 40
+- State (Harman_Requirement): Approved
+
+9. ID: 3532059
+- Contents: 6.2.1.1.1.14.8 Warning-8 Manoeuvre not allowed warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 30
+- State (Harman_Requirement): Approved
+
+10. ID: 3532060
+- Contents: 6.2.1.1.1.14.9 Warning-9 Lower gear shifts warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 40
+- State (Harman_Requirement): In Work
+
+11. ID: 3532061
+- Contents: 6.2.1.1.1.14.10 Warning-10 Manual mode not available warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3532062
+- Contents: 6.2.1.1.1.14.11 Warning-11 Automatic mode not available warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3532063
+- Contents: 6.2.1.1.1.14.12 Warning-12 Parking lock not engaged
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 20
+- State (Harman_Requirement): Approved
+
+14. ID: 3532064
+- Contents: 6.2.1.1.1.14.13 Warning-13 Carwash mode activation
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+15. ID: 3532065
+- Contents: 6.2.1.1.1.14.14 Warning-14 Disengage parklock request
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 40
+- State (Harman_Requirement): Approved
+
+16. ID: 3532066
+- Contents: 6.2.1.1.1.14.15 Warning-15 Creeping deactivation
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 40
+- State (Harman_Requirement): Approved
+
+17. ID: 3532067
+- Contents: 6.2.1.1.1.14.16 Warning-16 Insert_P_Warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+18. ID: 3532068
+- Contents: 6.2.1.1.1.14.17 Warning-17 GearLever_Fail
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+19. ID: 3532069
+- Contents: 6.2.1.1.1.14.18 Warning-18 LaunchLever_Fail
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+20. ID: 3532070
+- Contents: 6.2.1.1.1.14.19 Warning-19 Comunication Error
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+21. ID: 3927114
+- Contents: 6.2.1.1.1.14.20 Warning-20 Carwash mode Exit
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+22. ID: 3927126
+- Contents: 6.2.1.1.1.14.21 Warning-21 Gear inhibited, release EPB
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+23. ID: 3927137
+- Contents: 6.2.1.1.1.14.22 Warning-22 Buzzer Request
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+24. ID: 3525448
+- Contents: 6.2.1.1.1.15 Warnings
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+25. ID: 3525450
+- Contents: 6.2.1.1.1.15.1 Warning-1 Press brake pedal warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+26. ID: 3525451
+- Contents: 6.2.1.1.1.15.2 Warning-2 Press brake pedal repeat manoeuvre warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image46.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image42.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image48.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image47.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image50.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image51.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image52.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image45.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image41.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image44.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image43.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image49.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F200 6.2.1.1.1.14  Gear and Status Indication by Automatic/Robotized Gearbox Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

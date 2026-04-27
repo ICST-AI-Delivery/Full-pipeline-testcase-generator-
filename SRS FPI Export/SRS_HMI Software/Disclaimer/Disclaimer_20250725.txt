@@ -1,0 +1,142 @@
+# UnknownID 6.1.5.1 Disclaimer
+
+
+
+Disclaimer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.5.1 Disclaimer
+
+
+
+Disclaimer
+
+- ID: 2354861
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354862
+- Contents: 6.1.5.1.1 The ECU shall show the disclaimer on full screen after the splash screen animation ceremony at each system start-up after a bus sleep.   Note: Displaying the Disclaimer is from white label.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: At each system start-up after a bus sleep (Ignition Off-> ON), Verify that the disclaimer is displayed on IVI full screen after splash screen animation ceremony.
+- Grooming Status: Approved
+- Grooming Comments: displaying the Disclaimer is from white label.
+
+2. ID: 2354863
+- Contents: 6.1.5.1.2 The disclaimer shall be either automatically confirmed after a timeout (i.e., 6 s) or manually by selecting the “Confirm” command by touchscreen or other command foreseen in the vehicle.   Note: Time out configuration is from Red label.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if disclaimer is either automatically confirmed after timed out or user can manually click confirm command on the screen.
+- Grooming Status: Blocked
+- Grooming Comments: [Pritam, avaloor 18.08.2023] Partially from redlabel.
+time out configuration is from Red label.
+
+02/08/23: Resp domain should be systems
+
+3. ID: 2354864
+- Contents: 6.1.5.1.3 Disclaimer is interrupted by parking camera view, if user activate it (e.g., reverse gear) in meanwhile. Camera has priority. When camera is then disengaged, Disclaimer is presented again as mandatory.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Verification Criteria: Verify that Disclaimer is interrupted by parking camera view if parking is activated while Disclaimer is showing in the screen.
+
+Verify that the Disclaimer is presented again if parking is deactivated.
+- Grooming Status: Blocked
+
+4. ID: 2354865
+- Contents: 6.1.5.1.4 After the disclaimer, the last state screen is visualized.
+
+
+
+After the disclaimer, the last state screen is visualized.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: This shall be handled in Display Domain. It explains how text shall be rendered depending on the states of vehicle functions (like gear change and camera view transition etc)
+
+need system team inputs for this req
+- Expert Domains: Software Architecture
+
+5. ID: 2354866
+- Contents: 6.1.5.1.5 The ECU shall interrupt the visualization of the disclaimer when the park system is activated by the user (e.g., insert reverse gear). As soon as the parking system is disabled, the ECU shall continue to visualize the disclaimer.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+
+6. ID: 2354867
+- Contents: 6.1.5.1.6 The disclaimer shall be translated into all available system languages.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test
+- Verification Criteria: Verify if disclaimer can be translated to all available system languages.
+- Grooming Status: Approved
+- Grooming Comments: Muthuraj: This is HMI SW
+
+02/08/23: Resp domain should be systems
+- State (Harman_Requirement): Approved
+
+7. ID: 2354868
+- Contents: 6.1.5.1.7 The Supplier shall share and agree with Ferrari about disclaimer text in advance...
+
+
+
+The Supplier shall share and agree with Ferrari about disclaimer text in advance for each language and Ferrari market.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+- Test Stage: Inspection / Review
+- Grooming Status: Approved
+- Grooming Comments: [Azamat]: Process related
+- Expert Domains: Software Architecture
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "share, agree" )
+
+8. ID: 2354869
+- Contents: 6.1.5.1.8 Those texts shall also be shared with Ferrari Legal department because they are...
+
+
+
+Those texts shall also be shared with Ferrari Legal department because they are related to country law regulations and could have a legal impact.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+- Test Stage: Inspection / Review
+- Grooming Status: Approved
+- Grooming Comments: [Azamat]: Process related.
+- Expert Domains: Software Architecture
+
+### Informational Items:
+
+1. ID: 2354870
+- Contents: 6.1.5.1.9 All translation and graphical activities to fit display size and Ferrari needs will be in charge to the Supplier.
+- Artifact Type: Information
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if all translation and graphics fits to Ferrari display.
+- Grooming Status: Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.5.1 Disclaimer]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

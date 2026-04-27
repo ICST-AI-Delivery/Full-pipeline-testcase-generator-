@@ -1,0 +1,90 @@
+# UnknownID 6.2.2.31.1 SOME/IP Services for EV Navigation via projection Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.31.1 SOME/IP Services for EV Navigation via projection
+
+- ID: 4730399
+- Artifact Type: SRS Feature
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Security, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4730401
+- Contents: System shall provide the SOME/IP service S16.notifyEVNaviInfo as defined in SFS F904
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify S16.NotifyEVinfo traces in PCAP logs.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Security, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4730404
+- Contents: System shall publish the event group evn_eg on Upload Data VLAN
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify evn_eg traces in PCAP logs.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4730422
+- Contents: system  shall populate  the EV Navigation Information with the following parameters:
+Car Identifier
+DisplayName
+Vehicle Color
+BluetoothIdentifier
+iAP2Identifier
+Consumption_model_ID, according to the RDI Consumption_model_ID
+Charging_model_ID according to the RDI Charging_model_ID
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify following parameters in PCAP logs.
+Car Identifier
+DisplayName
+Vehicle Color
+BluetoothIdentifier
+iAP2Identifier
+- Grooming Status: Approved
+- Grooming Comments: Consumption_model_ID, according to the RDI Consumption_model_ID
+Charging_model_ID according to the RDI Charging_model_ID
+
+Moved to S17 in the Ferrari spec update.
+- Expert Domains: ADVNet, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.31.1 SOME/IP Services for EV Navigation via projection Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

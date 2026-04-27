@@ -1,0 +1,620 @@
+# UnknownID 6.2.2.32.1 Charging visualization condition Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32.1 Charging visualization condition
+
+- ID: 4889514
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4889539
+- Contents: If
+"RechargePlugSTS != Not_Connected"
+AND
+"OBCStatus==1" ("Communication in progress")
+then IDC shall provide indication as "Plugged" state.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify charge label indication (Plugged) when  
+RechargePlugSts != Not_Connected
+AND
+OBCStatus== 1 (OBC_STATUS.OBC_Status)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, Connected, provide, Plugged, OBCStatus, Communication, progress, indication, state" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5024968
+- Contents: If
+"RechargePlugSTS != Not_Connected"
+AND
+"OBCStatus==1" ("Communication in progress")
+Then 
+IDC shall set internal interface "INFO_ChargeLabel = 1" ("Plugged")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status 
+when "RechargePlugSTS != Not_Connected"
+AND
+"OBCStatus==1" ("Communication in progress")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, Connected, set, Plugged, OBCStatus, Communication, progress, interface" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4889549
+- Contents: If
+"RechargePlugSts != Not_Connected"
+AND
+IDC reads "OBCStatus" transition "idle=0"
+OR
+"Communication in progress=1"
+To 
+"ConnectedReady=2"
+AND
+Schedule settings (Charging & Departure) are "Not Active"
+AND
+"HVB_ChargeCompleted==0" ("Not Active")
+Then 
+IDC shall provide indication as "Starting to Charge" state
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify charge label status when "RechargePlugSts != Not_Connected"
+AND
+IDC reads "OBCStatus" transition "idle=0"
+OR
+"Communication in progress=1"
+To 
+"ConnectedReady=2"
+AND
+Schedule settings (Charging & Departure) are "Not Active"
+AND
+"HVB_ChargeCompleted==0" ("Not Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Departure, Then IDC, Connected, reads, Charging, are, provide, Starting, OBCStatus, transition, idle, OR, Communication, progress, ConnectedReady, settings, amp, indication, Charge, state" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5026275
+- Contents: If
+"RechargePlugSts != Not_Connected"
+AND
+IDC reads "OBCStatus" transition "idle=0"
+OR
+"Communication in progress=1"
+To 
+"ConnectedReady=2"
+AND
+Schedule settings (Charging & Departure) are "Not Active"
+AND
+"HVB_ChargeCompleted==0" ("Not Active")
+Then
+IDC shall set internal interface "INFO_ChargeLabel = 2" ("Starting_to_Charge")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when 
+"RechargePlugSts != Not_Connected"
+AND
+IDC reads "OBCStatus" transition "idle=0"
+OR
+"Communication in progress=1"
+To 
+"ConnectedReady=2"
+AND
+Schedule settings (Charging & Departure) are "Not Active"
+AND
+"HVB_ChargeCompleted==0" ("Not Active")
+
+
+OBC_STATUS.OBC_Status
+HVB_CHRG_CNTR.HVB_ChargeCompleted
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Departure, ThenIDC, Connected, reads, Charging, are, set, Starting, OBCStatus, transition, idle, OR, Communication, progress, ConnectedReady, settings, amp, interface, INFO_ChargeLabel   2" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4892070
+- Contents: If
+"RechargePlugSts != Not_Connected"
+AND
+"OBCStatus == 3" ("AC_Power_Flow_Active")
+OR
+"OBCStatus == 4" ("DC_Power_Flow_Active"),
+then IDC shall provide indication for the "Charging" state
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+"RechargePlugSts != Not_Connected"
+AND
+"OBCStatus == 3" ("AC_Power_Flow_Active")
+OR
+"OBCStatus == 4" ("DC_Power_Flow_Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, Connected, provide, OBCStatus, indication, Charging, state" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5026276
+- Contents: If
+"RechargePlugSts != Not_Connected"
+AND
+"OBCStatus == 3" ("AC_Power_Flow_Active")
+OR
+"OBCStatus == 4" ("DC_Power_Flow_Active"),
+then IDC shall set internal interface INFO_ChargeLabel = 3 ("Charging")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+"RechargePlugSts != Not_Connected"
+AND
+"OBCStatus == 3" ("AC_Power_Flow_Active")
+OR
+"OBCStatus == 4" ("DC_Power_Flow_Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, Connected, set, OBCStatus, INFO_ChargeLabel   3, Charging" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4892071
+- Contents: If
+RechargePlugSts != Not_Connected 
+AND
+IDC reads "HVB_ChargeCompleted==1" ("Active")
+Then
+IDC shall provide indication for the "Charging Finished" state
+Untill
+IDC receives "HVB_ChargeCompleted==0" ("Not_Active")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+IDC reads "HVB_ChargeCompleted==1" ("Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 5029049
+- Contents: If
+RechargePlugSts != Not_Connected 
+AND
+IDC reads "HVB_ChargeCompleted==1" ("Active")
+Then
+IDC shall set internal interface "INFO_ChargeLabel = 4" ("Charging_Finished")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+IDC reads "HVB_ChargeCompleted==1" ("Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 4892094
+- Contents: If 
+RechargePlugSts != Not_Connected 
+AND
+IDC reads a  transition of "OBCStatus" from "AC_Power_Flow_Active=3"
+OR
+"OBCStatus" from "DC_Power_Flow_Active=4"
+To
+"OBCStatus" to "Connected ready=2"
+AND
+"HVB_ChargeCompleted==0" ("Not_Active")  for "T_StopCharge"
+AND
+Calendar settings (Charging AND Departure) are "Not Active"
+OR
+Current time >= EndTime 
+Then
+IDC shall provide the indication for the "Charging Stopped" state for "T_StopIndication".
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+IDC reads a  transition of "OBCStatus" from "AC_Power_Flow_Active=3"
+OR
+"OBCStatus" from "DC_Power_Flow_Active=4"
+To
+"OBCStatus" to "Connected ready=2"
+AND
+"HVB_ChargeCompleted==0" ("Not_Active")  for "T_StopCharge"
+AND
+Calendar settings (Charging AND Departure) are "Not Active"
+OR
+Current time >= EndTime
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "EndTime ThenIDC, Connected, reads, are, provide, Charging, Stopped, transition, OBCStatus, ready, Not_Active, settings, Departure, Active, indication, state" )
+- State (Harman_Requirement): Approved
+
+10. ID: 5029061
+- Contents: If 
+RechargePlugSts != Not_Connected 
+AND
+IDC reads a  transition of "OBCStatus" from "AC_Power_Flow_Active=3"
+OR
+"OBCStatus" from "DC_Power_Flow_Active=4"
+To
+"OBCStatus" to "Connected ready=2"
+AND
+"HVB_ChargeCompleted==0" ("Not_Active")  for "T_StopCharge"
+AND
+Calendar settings (Charging AND Departure) are "Not Active"
+OR
+Current time >= EndTime 
+Then 
+IDC shall set internal interface "INFO_ChargeLabel = 5" ("Charging_Stopped")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+IDC reads a  transition of "OBCStatus" from "AC_Power_Flow_Active=3"
+OR
+"OBCStatus" from "DC_Power_Flow_Active=4"
+To
+"OBCStatus" to "Connected ready=2"
+AND
+"HVB_ChargeCompleted==0" ("Not_Active")  for "T_StopCharge"
+AND
+Calendar settings (Charging AND Departure) are "Not Active"
+OR
+Current time >= EndTime
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "EndTime Then IDC, Connected, reads, are, set, Charging, Stopped, transition, OBCStatus, ready, Not_Active, settings, Departure, Active, interface, INFO_ChargeLabel   5" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4892095
+- Contents: If
+RechargePlugSts != Not_Connected 
+AND
+If IDC receives "HVBChargeWarningForDisplay == 1" ("OBC Fail_Communication") 
+OR
+" HVBChargeWarningForDisplay == 2" ("PlugLock_Fail")
+OR
+" HVBChargeWarningForDisplay == 3" ("OBC_Fail_Power_Conversion")
+OR
+" HVBChargeWarningForDisplay == 4" ("BOOSTER_Fail")
+OR
+" HVBChargeWarningForDisplay == 5" ("HVB_Recharge_Fail_ChargingBus") 
+OR
+" HVBChargeWarningForDisplay == 6" ("EVSE_Fail")
+Then
+IDC shall provide the indication for "Charging Error"
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+If IDC receives "HVBChargeWarningForDisplay == 1" ("OBC Fail_Communication") 
+OR
+" HVBChargeWarningForDisplay == 2" ("PlugLock_Fail")
+OR
+" HVBChargeWarningForDisplay == 3" ("OBC_Fail_Power_Conversion")
+OR
+" HVBChargeWarningForDisplay == 4" ("BOOSTER_Fail")
+OR
+" HVBChargeWarningForDisplay == 5" ("HVB_Recharge_Fail_ChargingBus") 
+OR
+" HVBChargeWarningForDisplay == 6" ("EVSE_Fail")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+12. ID: 5029143
+- Contents: If
+RechargePlugSts != Not_Connected 
+AND
+If IDC receives "HVBChargeWarningForDisplay == 1" ("OBC Fail_Communication") 
+OR
+" HVBChargeWarningForDisplay == 2" ("PlugLock_Fail")
+OR
+" HVBChargeWarningForDisplay == 3" ("OBC_Fail_Power_Conversion")
+OR
+" HVBChargeWarningForDisplay == 4" ("BOOSTER_Fail")
+OR
+" HVBChargeWarningForDisplay == 5" ("HVB_Recharge_Fail_ChargingBus") 
+OR
+" HVBChargeWarningForDisplay == 6" ("EVSE_Fail")
+Then
+IDC shall set internal interface "INFO_ChargeLabel = 9" ("Charging_Error")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+If IDC receives "HVBChargeWarningForDisplay == 1" ("OBC Fail_Communication") 
+OR
+" HVBChargeWarningForDisplay == 2" ("PlugLock_Fail")
+OR
+" HVBChargeWarningForDisplay == 3" ("OBC_Fail_Power_Conversion")
+OR
+" HVBChargeWarningForDisplay == 4" ("BOOSTER_Fail")
+OR
+" HVBChargeWarningForDisplay == 5" ("HVB_Recharge_Fail_ChargingBus") 
+OR
+" HVBChargeWarningForDisplay == 6" ("EVSE_Fail")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 4892096
+- Contents: If 
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType ==1" ("AC_Plug")
+AND
+"Departure setting is ON"
+AND
+"OBC_Status ==2" ("ConnectedReady")
+AND
+"HVBChargeWarningForDisplay != 1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay != 2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay != 3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay != 4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay != 5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay != 6" ("EVSE_Fail")
+Then
+IDC shall provides indication for the Departure state (label & time)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType ==1" ("AC_Plug")
+AND
+"Departure setting is ON"
+AND
+"OBC_Status ==2" ("ConnectedReady")
+AND
+"HVBChargeWarningForDisplay != 1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay != 2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay != 3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay != 4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay != 5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay != 6" ("EVSE_Fail")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "setting, ThenIDC, Connected, is, provides, AND, Fail_Communication, PlugLock_Fail, BOOSTER_Fail, indication, label  amp" )
+- State (Harman_Requirement): Approved
+
+14. ID: 5029146
+- Contents: If 
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType ==1" ("AC_Plug")
+AND
+"Departure setting is ON"
+AND
+"OBC_Status ==2" ("ConnectedReady")
+AND
+"HVBChargeWarningForDisplay != 1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay != 2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay != 3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay != 4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay != 5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay != 6" ("EVSE_Fail")
+Then
+IDC shall set internal interface "INFO_ChargeLabel =6" ("Departure")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType ==1" ("AC_Plug")
+AND
+"Departure setting is ON"
+AND
+"OBC_Status ==2" ("ConnectedReady")
+AND
+"HVBChargeWarningForDisplay != 1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay != 2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay != 3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay != 4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay != 5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay != 6" ("EVSE_Fail")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "setting, ThenIDC, Connected, is, set, AND, Fail_Communication, PlugLock_Fail, BOOSTER_Fail, interface" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4895545
+- Contents: If 
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType == 1" ("AC_Plug")
+AND
+"Schedule Charge setting is ON"
+AND
+"OBC_Status == 2" ("ConnectedReady") 
+AND
+"HVBChargeWarningForDisplay !=1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay !=2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay !=3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay !=4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay !=5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay !=6" ("EVSE_Fail")
+Then
+IDC shall provide indication for the "Scheduled Charge" state
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType == 1" ("AC_Plug")
+AND
+"Schedule Charge setting is ON"
+AND
+"OBC_Status == 2" ("ConnectedReady") 
+AND
+"HVBChargeWarningForDisplay !=1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay !=2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay !=3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay !=4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay !=5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay !=6" ("EVSE_Fail")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "setting, ThenIDC, Connected, is, provide, AND, Fail_Communication, PlugLock_Fail, BOOSTER_Fail, indication, Charge, state" )
+- State (Harman_Requirement): Approved
+
+16. ID: 5029238
+- Contents: If 
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType == 1" ("AC_Plug")
+AND
+"Schedule Charge setting is ON"
+AND
+"OBC_Status == 2" ("ConnectedReady") 
+AND
+"HVBChargeWarningForDisplay !=1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay !=2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay !=3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay !=4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay !=5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay !=6" ("EVSE_Fail")
+Then
+IDC shall set internal interface "INFO_ChargeLabel = 7" ("Scheduled_charge")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+RechargePlugSts != Not_Connected 
+AND
+If "OBC_PlugType == 1" ("AC_Plug")
+AND
+"Schedule Charge setting is ON"
+AND
+"OBC_Status == 2" ("ConnectedReady") 
+AND
+"HVBChargeWarningForDisplay !=1" ("OBC Fail_Communication")
+AND
+"HVBChargeWarningForDisplay !=2" ("PlugLock_Fail")
+AND
+"HVBChargeWarningForDisplay !=3" ("OBC_Fail_Power_Conversion")
+AND
+"HVBChargeWarningForDisplay !=4" ("BOOSTER_Fail")
+AND
+"HVBChargeWarningForDisplay !=5" ("HVB_Recharge_Fail_ChargingBus")
+AND
+"HVBChargeWarningForDisplay !=6" ("EVSE_Fail")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "setting, ThenIDC, Connected, is, set, Scheduled, AND, Fail_Communication, PlugLock_Fail, BOOSTER_Fail, interface, INFO_ChargeLabel   7" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.32.1 Charging visualization condition Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

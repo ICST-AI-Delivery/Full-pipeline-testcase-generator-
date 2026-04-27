@@ -1,0 +1,450 @@
+# FAD-1 6.2.2.2  Audio Channels Interaction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2 FAD-1 Audio Channels Interaction
+
+- ID: 3408485
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3569279
+- Contents: On triggering the reproduction of a new source, the system shall:
+Set the value of the proper channel activation CAN signal to 1 ("Active").
+Set the value of the proper content identification CAN signal according to the value indicated in the table for the source which is activating.
+Set the value of the proper channel volume CAN signal according to the value of the Volume Database entry indicated in the table for the source which is activating.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the volume level for a volume group via Hardkey/Soft key
+verify the volume level via HMI
+
+Verify the volume level, channel activation  and content identification of the audio  source via the below CAN signals
+
+Note:
+The Volume level CAN signals are added in the artifact Id
+
+IDC_AudioStreams.EntertainmentVolume.
+
+
+Note: The volume groups are mentioned in the artifact IDC-423483
+- Grooming Status: Approved
+- Grooming Comments: 03.01.2024, Xiongwei: No expert domain
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "reproduction, system, triggered, Set, is activating, source, value, interface, Active, identification interface" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3940654
+- Contents: For Alternate sources (excluding Navigation), the system shall set the proper audio file id via linux interface.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an alternate Audio source other than navigation (e.g chime)
+
+Verify the Audio file Id and FAD source Id from the logcat log.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "proper" ) 
+Passive voice
+ (Look for: "being reproduced" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3571280
+- Contents: The FAD library shall apply a volume fade-in according to the volume indicated in the proper stream volume interface
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play the Projection audio.
+
+Verify that volume fade-in is applied (No distortion, no noise, no glitch) according to the volume indicated in the proper stream volume interface.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3571514
+- Contents: The system shall set the appropriate stream activation CAN signal to 0 ("Not_Active") & Proper content identification CAN signal to 0("Stream_Not_Active") upon completion of source reproduction.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the proper stream activation CAN signal is set to 0 ("Not Active") and the proper source identificationCAN signal is set to 0("Stream_Not_Active"). 
+
+Check that the audio is muted on the speakers If the stream activation interface value is 0 and Audio is playing on the speakers if stream activation interface is set to 1.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3609135
+- Contents: The system shall stop the transmission of audio source to the FAD stream upon completion of source reproduction.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Pause/Stop the ongoing audio and Verify that the audio is stopped on the speakers.
+- Grooming Status: Approved
+- Grooming Comments: red and white, add comemnt in crs also
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3571604
+- Contents: The FAD library shall apply a volume fade-out upon stream deactivation.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Pause/Stop the ongoing projection audio and Verify that the audio is stopped on the speakers.
+
+Verify that volume fade-out is applied (No audio signal is available to FAD stream).
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3607343
+- Contents: The system shall execute source deactivation of the outgoing audio when transitioning between two different audio belonging to the same main audio source (radio station change, track skip, track fast-forward or play/pause) & perform source Activation of the incoming audio.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play main audio source and Perform radio station change, track skip, track fast-forward or play/pause.
+
+Verify that previously played audio is stopped and newly played audio is heard.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, execute, transitioning, belonging, track, play, perform, Deactivation, audio, change, skip, pause, Activation" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3607871
+- Contents: The system shall initiate source deactivation of outgoing main source & then execute source Activation for the incoming main source during a transition between two different main audio sources(e.g. Media to Radio, Radio to Ringtone).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play another main audio source while one audio source is playing(e.g. Media to Radio, Radio to Ringtone, Media to Traffic Alert) and verify that newly played audio is heard on the speakers.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, initiate, execute, Deactivation, source  amp, Activation, source, transition, sources, media, amp, versa" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3635715
+- Contents: System shall initiate source deactivation for outgoing main source & then execute source activation for the incoming main source during a transition between two different main audio sources (Radio to Ringtone).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play another main audio source while one audio source is playing(Radio to Ringtone) and verify that newly played audio is heard on the speakers.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, initiate, execute, Radio, Deactivation, source  amp, Activation, source, transition, sources, Ringtone" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3607877
+- Contents: The system shall initiate source activation of the incoming alternate source when an Early source or an Alternate source reproducing concurrently with a main source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the main audio while an alternate audio (e.g. Early Audio) is playing and vice versa.
+
+Verify that main audio is mixed with alternate audio without any attenuation.
+- Grooming Status: Approved
+- Grooming Comments: Xiongwei 08.01.2025: Red + white, Add in CRS also.
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, initiate, reproduced, Enabled, activation, source, source  amp, Attenuation" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3607879
+- Contents: The system shall apply a "volume attenuation" on the current playing main source based on  "Volume_Attenuation_Level" if the calibration parameter relative to the triggered "Alternate source" = 1("Enabled").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Enable the Volume Attenuation for an Alternate Audio source via diagnostics.
+
+Play the main audio while an alternate audio is playing and vice versa.
+
+Verify that main audio source is attenuated with the defined value (as per the calibration parameter Volume_Attenuation_Level)
+
+Volume Attenuation Enable ($052F) and Volume Attenuation Levels ($0526)
+
+Note:
+Volume attenuation Calibration parameters for different alternate sources are provided in the artifact 4157639
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, calibration, apply, based, Volume, parameter, triggered, Enabled, attenuation, source" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3940709
+- Contents: The system shall set the Main source volume if a volume attenuation was applied & reproduction of the Alternate source is over.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Main Audio is attenuated due to the alternate Audio playback
+
+Verify that the main audio is playing with the original volume after the completion of the alternate audio source playback.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, is over, volume, stored, source, API, reproduction, SOURCE ID, value, entry" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3607894
+- Contents: The system shall "not-apply" volume attenuation on present playing main source when incoming alternate signal is on mute or volume value = '0'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that volume attenuation is not applies to the present playing main source when the incoming alternate signal is on mute or has a volume value of zero.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, signal, apply, playing, incoming, is, attenuation, source, value" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3607906
+- Contents: The system shall support multiple transition strategies at a time according to audio sources currently in reproduction.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Concurrently play two or more alternate audio and one main audio.
+
+Verify that the main audio source is being attenuated as per the defined logic.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "currently" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3571279
+- Contents: [Info] This function describes how the IDC shall interact with FAD_CTRL in case of source activation, deactivation and concurrent reproduction.
+- Artifact Type: Information
+- State (Harman_Requirement): Approved
+
+2. ID: 3940657
+- Contents: The system shall set the source volume scale value  through the 'FAD_CTRL__setVolume(void *fad_ctrl_memory,fad_source_id_e sourceID, float value_volume)' API, where:
+volumeID = VOLUME ID of the Volume Database entry to be updated
+value_volume = the value stored in the Volume Database entry relative to that source
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Set, reproduced, volume, stored, source, SOURCE ID, value, entry" )
+- State (Harman_Requirement): Review
+
+3. ID: 3940664
+- Contents: The system shall unmute the proper channel through the FAD_CTRL__setMute(void *fad_ctrl_memory, fad_source_id_e sourceID, bool enable) API, where:
+sourceID = SOURCE ID of the source being reproduced
+enable = false
+map IDC-482250
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "proper" ) 
+Passive voice
+ (Look for: "being reproduced" )
+- State (Harman_Requirement): Review
+
+4. ID: 3571278
+- Contents: The system shall playback audio source into the correct audio stream if the reproduction of a new source is triggered.
+map to IDC-437320 and keep here as information
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the correct audio source is identified.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is triggered" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3940666
+- Contents: The system shall skip steps 5 and 6 if the activated source is an Early source.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘5,6’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+6. ID: 3940704
+- Contents: The system shall mute the proper channel through the FAD_CTRL__setMute(void *fad_ctrl_memory, fad_source_id_e sourceID, bool enable) API, where:
+sourceID = SOURCE ID of the source being deactivated
+enable = true
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "proper" ) 
+Passive voice
+ (Look for: "being deactivated" )
+- State (Harman_Requirement): Review
+
+7. ID: 3940706
+- Contents: The system shall skip step 3 If the deactivated source is an Early source.
+Change to info in CRS also
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+8. ID: 3607352
+- Contents: (see: image122.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image122.png
+
+9. ID: 3607872
+- Contents: (see: image123.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image123.png
+
+10. ID: 3607878
+- Contents: (see: image124.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image124.png
+
+11. ID: 3607885
+- Contents: (see: image125.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image125.png
+
+12. ID: 3607886
+- Contents: The system shall set the Main source volume through the FAD_CTRL__setVolume(void *fad_ctrl_memory, fad_source_id_e sourceID, float value_volume) API When a volume attenuation shall be applied, if the Main source volume > Volume_Attenuation_Level (calibration parameter), where:
+volumeID = VOLUME ID of the Main source's volume
+ value_volume = Volume_Attenuation_Level
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that,
+1.The main audio source attenuation level is set by the proxi parameter value if the main source volume is greater than the volume attenuation level.
+
+2.The main audio volume source is unchnaged if the main source volume is less than the proxi parameter value(Volume_Attenuation_Level).
+
+3.The main audio source is unchanged if the proxi parameter(Volume_Attenuation_Level) value is equals to the main audio source volume.
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+13. ID: 4700530
+- Contents: If a volume attenuation was applied, when the reproduction of the Alternate source is over, the IDC shall set the Main source volume through the FAD_CTRL__setVolume(void*fad_ctrl_memory, fad_source_id_e sourceID, float value_volume) API, where:
+volumeID = VOLUME ID of the Main source's volume
+value_volume = the value stored in the Volume Database entry relative to that volume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+14. ID: 3620316
+- Contents: INFO_CAN
+IDC_AudioStreams.EntertainmentStreamActivation
+IDC_AudioStreams.TelephonyVoiceStreamActivation
+IDC_AudioStreams.NavigationStreamActivation
+IDC_AudioStreams.HMIAndroidStreamActivation
+IDC_AudioStreams.HMILinuxStreamActivation
+IDC_AudioStreams.ParkAssistStreamActivation
+IDC_AudioStreams.BSM_RCTAStreamActivation
+IDC_AudioStreams.LaneCrossingStreamActivation
+IDC_AudioStreams.LaneKeepingStreamActivation
+IDC_AudioStreams.GeneralWarning1StreamActivation
+IDC_AudioStreams.GeneralWarning2StreamActivation
+IDC_AudioStreams.TurnIndicatorsStreamActivation
+IDC_AudioStreams.FLDoorStreamActivation
+IDC_AudioStreams.FRDoorStreamActivation
+IDC_AudioStreams.RLDoorStreamActivation
+IDC_AudioStreams.RRDoorStreamActivation
+IDC_AudioStreams.PLGStreamActivation
+IDC_AudioStreams.EntertainmentSourceID
+IDC_AudioStreams.TelephonyVoiceSourceID
+IDC_AudioStreams.NavigationSourceID
+IDC_AudioStreams.HMIAndroidSourceID
+IDC_AudioStreams.HMILinuxSourceID
+IDC_AudioStreams.ParkAssistSourceID
+IDC_AudioStreams.BSM_RCTASourceID
+IDC_AudioStreams.LaneCrossingSourceID
+IDC_AudioStreams.LaneKeepingSourceID
+IDC_AudioStreams.GeneralWarning1SourceID
+IDC_AudioStreams.GeneralWarning2SourceID
+IDC_AudioStreams.TurnIndicatorsSourceID
+IDC_AudioStreams.FLDoorSourceID
+IDC_AudioStreams.FRDoorSourceID
+IDC_AudioStreams.RLDoorSourceID
+IDC_AudioStreams.RRDoorSourceID
+IDC_AudioStreams.PLGSourceID
+- Artifact Type: Information
+- Grooming Status: Blocked
+- Expert Domains: IOC_Autosar
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image124.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image125.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image122.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image123.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-1 6.2.2.2  Audio Channels Interaction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

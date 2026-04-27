@@ -1,0 +1,134 @@
+# UnknownID 6.2.1.13.1 Call handling-Usecases Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.13.1 Call handling-Usecases
+
+- ID: 3713958
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713957
+- Contents: System shall display an option to decline of an incoming call while active call in progress, ensure that the active call remains unaffected when user declines the incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall provide an option to decline the incoming when there is an active call.
+- Grooming Status: Approved
+- Expert Domains: BT, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to decline, ensure, remains unaffected, declines, option, call, progress" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This requirement is applicable when one or two phone connected.
+
+2. ID: 3713977
+- Contents: System shall display End, Accept and decline option on HMI when a new incoming call receives on secondary phone during active call on Primary phone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall display "decline" functionality for the secondary phone incoming call, and an "end call on primary and accept call on Primary call.
+
+Scenario: Active call from a primary phone and Incoming call from secondary phone.
+- Grooming Status: Approved
+- Expert Domains: BT, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, decline, incoming, receives, End, Accept, option, HMI, call, phone" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer 3620050 for End, Accept and Decline interface.
+
+3. ID: 3713978
+- Contents: System shall display End, Accept and decline option on HMI when a new incoming call receives on secondary phone during active call on secondary phone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display "decline" functionality for the incoming call, and an "end active call and accept incoming call" functionality during  incoming call from a secondary phone while another call is active from secondary phone.
+
+Scenario: An Active call from secondary phone, and another incoming from secondary phone.
+- Grooming Status: Approved
+- Expert Domains: BT, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, decline, incoming, receives, End, Accept, option, HMI, call, phone" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer 3620050 for End, Accept and Decline interface.
+
+4. ID: 4571464
+- Contents: System shall keep previously active call on hold while new accepted call is ongoing from secondary device.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall keep previously active call on hold while new accepted call is ongoing.
+
+Scenario: One or two phones connected with an active incoming call and new incoming call on the secondary phone.
+event: User shall Accept the new incoming call from the secondary phone
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, call, keep, accepted, is ongoing, device" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4571469
+- Contents: System shall un-hold the on hold call while the call from secondary device become hold.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall un-hold the On hold call while the other one become hold.
+
+Scenario: One or two phones connected with an active call and an on hold call on the secondary phone.
+Event: user shall selects the on hold call
+
+Refer: HMI-LF-9892
+- Grooming Status: Approved
+- Grooming Comments: [Devi C]: 10/Dec/2024
+The "active" was supposed to be “on hold”. This usecase is applied only to secondary device; the correspondent HMI requirement is HMI-LF-9892
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, un-hold, become, call" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4571472
+- Contents: System shall allow the user to hang-up or mute/unmute the outgoing call from a secondary phone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow the user to hang-up or mute/unmute the outgoing call from a secondary phone.
+
+Scenario: secondary phone connected
+Event: user starts an outgoing call from secondary phone
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, hang-up, unmute, call, phone" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.13.1 Call handling-Usecases Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,397 @@
+# AUS-3 6.2.1.9  User-Defined EQ Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.9 AUS-3 User-Defined EQ
+
+- ID: 4031381
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4031385
+- Contents: The system shall apply the 'User-Defined Equalizer setting' for the 'ENTERTAINMENT' Audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the "User-Defined Equalizer settings' are visible.
+
+Verify the "User-Defined Equalizer settings' can be changed for Entertainment Sources.
+
+Note: Entertainment Sources includes 
+ Radio, Android Auto, Apple CarPlay, Traffic Alert
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-879
+- Expert Domains: Media Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall be applicable" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4555100
+- Contents: The system shall provide with a feedback in <=3sec (calibratable parameter), when user interacts with bass, middle & treble sliders.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Adjust the Bass, Mid and Treble by using Equalizer
+
+Verify that the changed values are shown on the screen as feedback for 3 seconds by default.
+
+Verify the feedback time is changing as per the configured value.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu, Abdul 13.12.2024]
+Approved
+
+[Muthu, Abdul 06.12.2024]
+What is this calibration parameter ?
+
+https://jira.harman.com/jira/browse/FQ-858
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "provide, interacts" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This is a parameter for how long the feedback is displayed on the UI after the setting is updated, to be handled by the LF HMI layer.
+
+3. ID: 4555103
+- Contents: The system shall consider the last interaction, if more interactions are actuated during the feedback of bass, middle & treble sliders interaction
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+bass, middle, treble feedback is being shown on HMI on changing the values from HMI.
+
+Change the value during the feedback and verify that the feedback is shown for the last changed value.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are actuated" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4031396
+- Contents: The system shall allow the Bass, Mid and Treble settings in combination
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an Entertainment Audio source
+
+Verify that Bass, Mid and Treble settings are available in combination
+
+Combination means: Single screen for Bass, Mid and Treble
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, Bass, Mid, settings, combination" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4031399
+- Contents: The system shall support the "Bass settings" in the range of -10 to +10 in steps of '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Bass settings range [-10 : 10] and the values can be changed in resolution of 1.
+Verify that the mentioned behavior is correct.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: '-10' : the maximum bass-attenuation applied.
+
+'0' : no bass-attenuation or amplification applied.
+
+'10' : the maximum bass-amplification applied.
+
+6. ID: 4031408
+- Contents: The system shall set the Bass setting value to the 'IDC_AudioSettings.BassSet' output signal when user changes the Bass setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Bass setting value.
+
+Verify that the set value is shown on the HMI and in the CAN signal 'IDC_AudioSettings.BassSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, changes, value, signal" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4031500
+- Contents: The system shall support the Mid settings in in the range of -10 to +10 in steps of '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Mid settings range  [-10: 10]
+Verify it is possible to change the values in a resolution of 1.
+
+Verify that the mentioned behavior is correct.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: '-10' : the maximum mid attenuation applied.
+
+'0' : no mid attenuation or amplification applied.
+
+'10' : the maximum mid amplification applied.
+
+8. ID: 4031507
+- Contents: The system shall set the Mid setting value to the 'IDC_AudioSettings.MidSet'' output signal when user changes the Mid setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Mid setting value.
+
+Verify that the set value is shown on the HMI and in the CAN signal IDC_AudioSettings.MidSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, requests, value, change" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4031513
+- Contents: The system shall support the "Treble attenuation settings" in the range of -10 to +10 in steps of '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Treble settings are displayed in integer values in  the range [10 : 10]
+Verify it is possible to change the values between -10 and + 10 with  a step of 1.
+
+Verify that the below behavior on changing the Treble to the values.
+
+-10' : the maximum treble attenuation applied.
+'0' : no bass attenuation or amplification applied.
+'+10' : the maximum treble amplification applied.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: '-10' : the maximum treble attenuation applied.
+
+'0' : no bass attenuation or amplification applied.
+
+'+10' : the maximum treble amplification applied.
+
+10. ID: 4031516
+- Contents: The system shall set the Treble setting value to the 'IDC_AudioSettings.TrebleSet '' output signal when user user changes the Treble setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Treble setting value.
+
+Verify that the set value is shown on the HMI and in the CAN signal 'IDC_AudioSettings.TrebleSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, output, request, value, change" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4572884
+- Contents: If setting Persistence type is Standard, the system shall persist the Bass, Mid & treble settings independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Bass, Mid and treble settings) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4572885
+- Contents: The system shall set to default for the bass, mid & treble settings, if persistent type = standard, and unable to read the values from memory.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Audio settings (Bass, Mid & treble settings) value.
+
+Create error in memory reading.
+Verify that the Audio settings (Bass, Mid & treble) value is set to default value in HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, to default, to read, bass, amp, settings, type   standard, values, memory" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4572886
+- Contents: If Persistence type = Profiled, the system shall store the last settings (Bass, Mid & treble) value for the current active user profile, before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Bass, Mid & treble) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, reboot, settings, amp, value, profile, system shutdown" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4572887
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi paranmeter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (Bass, Mid & treble) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]:: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4572888
+- Contents: If setting Persistence type = Profiled, the system shall set the Bass, Mid & treble settings value to default value if unable read stored values from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Audio settings (Bass, Mid & treble) value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, set, value, default, stored, Bass, amp, settings, values, portion" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4031382
+- Contents: User-Defined Equalizer allows to attenuate or magnify the Treble, Mid and Bass components of sound in specific frequency bands.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4031388
+- Contents: The system shall allow user to adjust bass, middle and treble equalization through Equalizer setting. Please refer to menustructure
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 4613772
+- Contents: Equalizer
+(see: image7.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image7.png
+
+4. ID: 4031417
+- Contents: The system shall properly adjust bass frequency band attenuation or amplification through the 'FAD_CTRL__setEntertainmentEffect(void *fad_ctrl_memory, int effectType, int effect_value)' API If the value of Bass setting changes, where:
+effectType = 3 ("Bass")
+effect_value = Bass setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adjust, effect, setting, attenuation, amplification, effectType, Bass" )
+- State (Harman_Requirement): Review
+
+5. ID: 4031508
+- Contents: The system shall properly adjust mid frequency band attenuation or amplification through the FAD_CTRL__setEntertainmentEffect(void *fad_ctrl_memory, int effectType, int effect_value) API If the value of Mid setting changes, where:
+effectType = 4 ("Mid")
+effect_value = Mid setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adjust, effect, setting, attenuation, amplification, effectType, Mid" )
+- State (Harman_Requirement): Review
+
+6. ID: 4031521
+- Contents: The Audio Director library shall properly adjust treble frequency band attenuation or amplification through the FAD_CTRL__setEntertainmentEffect(void*fad_ctrl_memory, int effectType, int effect_value) API If the value of TrebleSet changes, where:
+effectType = 5 ("Treble")
+effect_value = Treble setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "library, adjust, effect, attenuation, amplification, effectType, Treble" )
+- State (Harman_Requirement): Review
+
+7. ID: 4031530
+- Contents: The system shall apply Persistence logics to Bass,Mid & Treble setting as defined in Audio setting introduction Persistence.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer IDC-430467 - AUS-0 Audio setting
+introduction Persistence.
+
+8. ID: 4031531
+- Contents: Diagnosis
+  Calibration Parameters
+BassSet
+MidSet
+TrebleSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 4031536
+- Contents: Outputs
+   INFO_CAN
+IDC_AudioSettings.BassSet
+IDC_AudioSettings.MidSet
+IDC_AudioSettings.TrebleSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image7.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-3 6.2.1.9  User-Defined EQ Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

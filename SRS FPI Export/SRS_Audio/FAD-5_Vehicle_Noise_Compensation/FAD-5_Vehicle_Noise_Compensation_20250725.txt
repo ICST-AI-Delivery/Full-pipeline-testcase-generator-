@@ -1,0 +1,510 @@
+# FAD-5 6.2.2.6  Vehicle Noise Compensation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.6 FAD-5 Vehicle Noise Compensation
+
+- ID: 3408489
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3609734
+- Contents: The FAD shall optimize the tuning of the audio source reproduction according to the dynamic vehicle conditions when the proxi parameter Audio_Level is "3" ("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the CAN signal  with different vehicle conditions (e.g. Vehicle speed, Door status,)
+Verify that the audio is heard clearly in adverse conditions (e.g when driving at higher speed) for the different vehicle conditions, when the Audio Level set to "3" ("High End").
+Use logcat log for verification.
+- Grooming Status: Review
+- Grooming Comments: [09-01-2025 A.Elhamouly, X.Wang, Abdul]
+Not in Harman scope.
+- Expert Domains: Audio Control
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3609736
+- Contents: The system shall send to the FAD library the microphone signals coming from A2B.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Guaranteed By Design
+- Grooming Status: Approved
+- Grooming Comments: [Ahmed, Abdul 25.10.2024]: microphone signals to be sent to FAD regardless of the proxi parameter Value.
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3837692
+- Contents: The system shall send the below signals about the current vehicle condition to FAD library on changing the value of the signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Send the applicable vehicle condition to HU via relevant CAN signal
+
+Verify the vehicle conditions are sent to FAD on changing the value of the signal.
+ Use logcat log for verification.
+- Grooming Status: Approved
+- Grooming Comments: [Xioangwei, Abdul 14.01.2025] Approved:
+
+[Ahmed, Abdul 25.10.2024]: CAN signal information to be sent to FAD regardless of the proxi parameter Audio_Level Value.
+- Expert Domains: Audio Control, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "periodically" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3612182
+- Contents: System shall send information about the vehicle speed to the FAD library through the internal interface VehicleSpeed, that shall have the same mapping of the CAN message NFR_SPEED.VehicleSpeedVSOSig (VehicleSpeed = NFR_SPEED.VehicleSpeedVSOSig).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3612183
+- Contents: When proxi parameter NCP == "Present", System shall send information about the capote status to the FAD library through the internal interface "CapoteSts", that shall have the same mapping of the CAN messagge STATUS_NCP.CapoteSts (CapoteSts= STATUS_NCP.CapoteSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3612188
+- Contents: System shall send information about the driver door status to the FAD library through the internal interface DriverDoorSts, that shall have the same mapping of the CAN messagge STATUS_DOORS.STS_DRS_DriverDoorSts (DriverDoorSts = STATUS_DOORS.STS_DRS_DriverDoorSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3612200
+- Contents: System shall send information about the passenger door status to the FAD library through the internal interface PsngrDoorSts, that shall have the same mapping of the CAN messagge STATUS_DOORS.STS_DRS_PsngrDoorSts (PsngrDoorSts = STATUS_DOORS.STS_DRS_PsngrDoorSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3612189
+- Contents: When proxi parameter Rear_Doors == "Present", System shall send information about the rear left door status to the FAD library through the internal interface RearLeftDoorSts, that shall have the same mapping of the CAN messagge STATUS_DOORS.STS_DRS_RearLeftDoorSts (RearLeftDoorSts = STATUS_DOORS.STS_DRS_RearLeftDoorSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3612204
+- Contents: When proxi parameter Rear_Doors == "Present", System shall send information about the rear right door status to the FAD library through the internal interface RearRightDoorSts, that shall have the same mapping of the CAN message STATUS_DOORS.STS_DRS_RearRightDoorSts (RearRightDoorSts = STATUS_DOORS.STS_DRS_RearRightDoorSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3612215
+- Contents: System shall send  information about the trunk status to the FAD library through the internal interface VPSTrunkSts, that shall have the same mapping of the CAN messagge STATUS_DOORS.STS_DRS_VPSTrunkSts (VPSTrunkSts = STATUS_DOORS.STS_DRS_VPSTrunkSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3612220
+- Contents: System shall send information about the driver window to the FAD library position through the internal interface DriverWindowPosition, that shall have the same mapping of the CAN messagge WLMLtoNBCFeedback.Position_Fbk_WLML (DriverWindowPosition = WLMLtoNBCFeedback.Position_Fbk_WLML).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3612221
+- Contents: System shall send information about the passenger window position to the FAD library through the internal interface PassengerWindowPosition, that shall have the same mapping of the CAN message WLMRtoNBCFeedback.Position_Fbk_WLMR (PassengerWindowPosition = WLMRtoNBCFeedback.Position_Fbk_WLMR).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3612264
+- Contents: When proxi parameter RearWindows == "Present", System shall send information about the rear left window position to the FAD library through the internal interface RearLeftWindowPosition, that shall have the same mapping of the CAN messagge WMRLtoNBCFeedback.Position_FbkWMRL (RearLeftWindowPosition = WMRLtoNBCFeedback.Position_FbkWMRL).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3612266
+- Contents: When proxi parameter RearWindows == "Present", System shall send information about the rear right window position to the FAD library through the internal interface "RearRightWindowPosition", that shall have the same mapping of the CAN message WMRRtoNBCFeedback.Position_FbkWMRR (RearRightWindowPosition =
+WMRRtoNBCFeedback.Position_FbkWMRR).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+15. ID: 3612267
+- Contents: System shall send information about the A/C compressor status to the FAD library through the internal interface CompressorStatus, that shall have the same mapping of the CAN messagge SETUP_NCL.AirConditionCompressor (CompressorStatus = SETUP_NCL.AirConditionCompressor).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3612268
+- Contents: System shall send  information about the rear A/C compressor status to the FAD library through the internal interface RearCompressorStatus, that shall have the same mapping of the CAN message SETUP_NCL.RearAirConditionCompressor (RearCompressorStatus = SETUP_NCL.RearAirConditionCompressor).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+17. ID: 3612269
+- Contents: System shall send information about the driver seat fans to the FAD library through the internal interface DriverFans, that shall have the same mapping of the CAN message SETUP_NAG2.DriverFans (DriverFans = SETUP_NAG2.DriverFans).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+18. ID: 3612270
+- Contents: System shall send information about the passenger seat fans to the FAD library through the internal interface PasssengerFans, that shall have the same mapping of the CAN message SETUP_NAP2.PasssengerFans (PasssengerFans = SETUP_NAP2.PasssengerFans).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+19. ID: 3612495
+- Contents: System shall send information about the rear left seat fans to the FAD library through the internal interface RSLFans, that shall have the same mapping of the CAN message SETUP_RSL.RSLFans (RSLFans = SETUP_RSL.RSLFans).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+20. ID: 3612496
+- Contents: System shall send information about the rear right seat fans to the FAD library through the internal interface RSRFans, that shall have the same mapping of the CAN message SETUP_RSR.RSRFans (RSRFans = SETUP_RSR.RSRFans).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3612498
+- Contents: System shall send information about the driver seat backrest position to the FAD library through the internal interface DriverSeatBackRestPos, that shall have the same mapping of the CAN messagge SETUP_NAG_V2.DriverSeatBackRestPos (DriverSeatBackRestPos = SETUP_NAG_V2.DriverSeatBackRestPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+22. ID: 3612511
+- Contents: System shall send information about the driver seat lift position to the FAD library through the internal interface DriverSeatLiftPos, that shall have the same mapping of the CAN message SETUP_NAG_V2.DriverSeatLiftPos (DriverSeatLiftPos = SETUP_NAG_V2.DriverSeatLiftPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+23. ID: 3612513
+- Contents: System shall send information about the driver seat longitudinal position to the FAD library through the internal interface DriverSeatLongitudinalPos, that shall have the same mapping of the CAN message SETUP_NAG_V2.DriverSeatLongitudinalPos (DriverSeatLongitudinalPos = SETUP_NAG_V2.DriverSeatLongitudinalPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+24. ID: 3612514
+- Contents: System shall send information about the driver seat tilt position to the FAD library through the internal interface DriverSeatTiltRestPos, that shall have the same mapping of the CAN messagge SETUP_NAG_V2.DriverSeatTiltPos (DriverSeatTiltRestPos = SETUP_NAG_V2.DriverSeatTiltPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+25. ID: 3612516
+- Contents: System shall send information about the passenger seat backrest position to the FAD library through the internal interface PsngrSeatBackRestPos, that shall have the same mapping of the CAN message SETUP_NAP_V2.PsngrSeatBackRestPos (PsngrSeatBackRestPos = SETUP_NAP_V2.PsngrSeatBackRestPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+26. ID: 3612518
+- Contents: System shall send information about the passenger seat lift to the FAD library position through the internal interface PsngrSeatLiftPos, that shall have the same mapping of the CAN messagge SETUP_NAP_V2.PsngrSeatLiftPos (PsngrSeatLiftPos = SETUP_NAP_V2.PsngrSeatLiftPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+27. ID: 3612519
+- Contents: System shall send information about the passenger seat longitudinal position to the FAD library through the internal interface PsngrSeatLongitudinalPos, that shall have the same mapping of the CAN message SETUP_NAP_V2.PsngrSeatLongitudinalPos (PsngrSeatLongitudinalPos =
+SETUP_NAP_V2.PsngrSeatLongitudinalPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+28. ID: 3612520
+- Contents: System shall send information about the passenger seat tilt position to the FAD library through the internal interface PsngrSeatTiltPos, that shall have the same mapping of the CAN message SETUP_NAP_V2.PsngrSeatTiltPos (PsngrSeatTiltPos = SETUP_NAP_V2.PsngrSeatTiltPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+29. ID: 3612523
+- Contents: When proxi parameter RSL set to "Present", System shall send information about the rear left seat backrest position to the FAD library
+through the internal interface RearLSeatBackRestPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatLeftBackRestPos (RearLSeatBackRestPos = SETUP_RSL_V2.RearSeatLeftBackRestPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+30. ID: 3612524
+- Contents: When proxi parameter RSL set to "Present", System shall send information about the rear left seat lift position to the FAD library through the internal interface RearLSeatLiftPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatLeftLiftPos (RearLSeatLiftPos = SETUP_RSL_V2.RearSeatLeftLiftPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+31. ID: 3612525
+- Contents: When proxi parameter RSL set to "Present", System shall send information about the rear left seat longitudinal position to the FAD library through the internal interface RearLSeatLongitudinalPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatLeftLongitudinalPos (RearLSeatLongitudinalPos = SETUP_RSL_V2.RearSeatLeftLongitudinalPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+32. ID: 3612526
+- Contents: When proxi parameter RSL set to "Present", System shall send information about the rear left seat tilt position to the FAD library through the internal interface RearLSeatTiltPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatLeftTiltPos (RearLSeatTiltPos = SETUP_RSL_V2.RearSeatLeftTiltPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+33. ID: 3612542
+- Contents: When proxi parameter RSR set to "Present", System shall send information about the rear right seat backrest position to the FAD library through the internal interface RearRSeatBackRestPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatRightBackRestPos (RearRSeatBackRestPos = SETUP_RSL_V2.RearSeatRightBackRestPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+34. ID: 3612544
+- Contents: When proxi parameter RSR set to "Present", System shall send  information about the rear right seat lift position to the FAD library through the
+internal interface RearRSeatLiftPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatRightLiftPos (RearRSeatLiftPos = SETUP_RSL_V2.RearSeatRightLiftPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+35. ID: 3612545
+- Contents: When proxi parameter RSR set to "Present", System shall send information about the rear right seat longitudinal position to the FAD library through the internal interface RearRSeatLongitudinalPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatRightLongitudinalPos (RearLSeatLongitudinalPos = SETUP_RSL_V2.RearSeatRightLongitudinalPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+36. ID: 3612547
+- Contents: When proxi parameter RSR set to "Present", System shall send information about the rear right seat tilt position to the FAD library through the internal interface RearRSeatTiltPos, that shall have the same mapping of the CAN message SETUP_RSL_V2.RearSeatRightTiltPos (RearRSeatTiltPos = SETUP_RSL_V2.RearSeatRightTiltPos).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+37. ID: 3612564
+- Contents: System shall set the relative internal interface to its CAN signal initial value If one of the vehicle information signals is missing or invalid.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Stop sending the Vehilce information CAN signal
+Verify that the FAD set the default value of the signal.
+send an Invalid value in the Vehicle information CAN signal
+Verify that the FAD set the default value of the signal.
+Use logcat log for verification.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 50
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3609721
+- Contents: This function describes how the FAD library optimize the tuning of the audio sources reproduction according to the dynamic vehicle conditions.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3609722
+- Contents: The system shall activate Vehicle noise compensation when the Proxi Parameter Audio_Level is set to "3" ("High End").
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Test Stage: Software Integration Test
+- Verification Criteria: Verify that the vehicle noise compensation is activated (e.g. optimize tuning of the Audio sources) when the Proxi parameter "Audio level" =3
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, noise, compensation, Audio_Level" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3609733
+- Contents: The system shall implements the Dynamic equalization adjustment logics
+defined in SFS F180.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" )
+- State (Harman_Requirement): Review
+
+4. ID: 4468716
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- State (Harman_Requirement): New
+
+5. ID: 4354948
+- Contents: The following API is used for sending the CAN signal to FAD.
+FAD_CTRL__recvCAN(void *fad_ctr_memory, int *indexes, float *values, int
+tot_signals_received) API  where:
+indexes = array of CAN Control Signals identifiers sent by IDC to FAD_CTRL
+values = array of CAN Control Signals values sent by IDC to FAD_CTRL
+tot_signals_received = number of CAN Control Signals sent by IDC to FAD_CTRL
+The FAD_CTRL__recvCAN method shall be called every time the value of at least one of the can signals gets modified.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3622591
+- Contents: Proxi
+Start Byte 154, Start bit 6 - Audio Level (0 = "Invalid", 1 = "Base", 2 = "Premium", 3 = "High End")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 3622594
+- Contents: Inputs
+HMI_CAN
+STATUS_NCP.CapoteSts
+NFR_SPEED.VehicleSpeedVSOSig
+MOT1.EngineSpeed
+STATUS_DOORS.STS_DRS_DriverDoorSts
+STATUS_DOORS.STS_DRS_PsngrDoorSts
+STATUS_DOORS.STS_DRS_RearLeftDoorSts
+STATUS_DOORS.STS_DRS_RearRightDoorSts
+STATUS_DOORS.STS_DRS_VPSTrunkSts
+STATUS_DOORS.STS_DRS_DriverWindowSts
+STATUS_DOORS.STS_DRS_PsngrWindowSts
+STATUS_DOORS.STS_DRS_RearLeftWindowSts
+STATUS_DOORS.STS_DRS_RearRightWindowSts
+VEHSTAT_V2.Position_Fbk_WLML
+VEHSTAT_V2.Position_Fbk_WLMR
+VEHSTAT_V2.Position_FbkWMRL
+VEHSTAT_V2.Position_FbkWMRR
+SETUP_NCL.AirConditionCompressor
+SETUP_NCL_REAR.RearAirConditionCompressor
+SETUP_NAG2.DriverFans
+SETUP_NAP2.PassengerFans
+SETUP_RSL.RSLFans
+SETUP_RSR.RSRFans
+SETUP_NAG_V2.DriverSeatBackRestPos
+SETUP_NAG_V2.DriverSeatLiftPos
+SETUP_NAG_V2.DriverSeatLongitudinalPos
+SETUP_NAG_V2.DriverSeatTiltPos
+SETUP_NAP_V2.PsngrSeatBackRestPos
+SETUP_NAP_V2.PsngrSeatLiftPos
+SETUP_NAP_V2.PsngrSeatLongitudinalPos
+SETUP_NAP_V2.PsngrSeatTiltPos
+SETUP_RSL_V2.RearSeatLeftBackRestPos
+SETUP_RSL_V2.RearSeatLeftLiftPos
+SETUP_RSL_V2.RearSeatLeftLongitudinalPos
+SETUP_RSL_V2.RearSeatLeftTiltPos
+SETUP_RSR_V2.RearSeatRightBackRestPos
+SETUP_RSR_V2.RearSeatRightLiftPos
+SETUP_RSR_V2.RearSeatRightLongitudinalPos
+SETUP_RSR_V2.RearSeatRightTiltPos
+NCL_TO_AUDIO_MSG1.BlwrPWM
+NCL_TO_AUDIO_MSG1.BlwrPWMRr
+NCL_TO_AUDIO_MSG1.LateralVentLft
+NCL_TO_AUDIO_MSG1.LateralVentRgt
+NCL_TO_AUDIO_MSG1.CentralVentLft
+NCL_TO_AUDIO_MSG1.CentralVentRgt
+NCL_TO_AUDIO_MSG2.FloorLft
+NCL_TO_AUDIO_MSG2.FloorRgt
+NCL_TO_AUDIO_MSG2.TunnelDistrib
+NCL_TO_AUDIO_MSG2.RHVACDistrib
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-5 6.2.2.6  Vehicle Noise Compensation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

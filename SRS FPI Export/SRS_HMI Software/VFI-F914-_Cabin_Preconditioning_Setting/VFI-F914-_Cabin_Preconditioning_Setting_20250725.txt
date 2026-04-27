@@ -1,0 +1,167 @@
+# VFI-F914- 6.2.2.30.6 Cabin Preconditioning Setting Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.6 VFI-F914-Cabin Preconditioning Setting
+
+- ID: 4119259
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4119260
+- Contents: System shall manage Cabin Preconditioning setting feature only if proxi parameter "Preconditioning" == 1 ("present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify cabin preconditioning when proxi parameter "Preconditioning" == 1 ("present").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, Preconditioning, feature, parameter, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4119261
+- Contents: System shall make available the  Cabin Preconditioning Setting only in Departure context.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify cabin preconditioning available only in departure
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4119264
+- Contents: System shall set the cabin preconditioning setting to ON when  precondType ==3("Cabin_Battery")OR1("Cabin")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify cabin preconditioning ON when 
+
+precondType ==3("Cabin_Battery")OR1("Cabin")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, preconditioning, setting, state" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4119263
+- Contents: System shall set the cabin preconditioning setting to OFF when  precondType ==0("Not_Active")OR2("Battery").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify cabin preconditioning OFF when  precondType ==0("Not_Active")OR2("Battery").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, preconditioning, setting, state" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4119265
+- Contents: System shall allow the Cabin Preconditioning interaction when the calendar row settingType=3("Departure") the Status==1("Active")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify cabin preconditioning access when calendar row settingType=3("Departure") the Status==1("Active")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 4119266
+- Contents: IDC shall set precondType=1("Cabin") when the user enables Cabin Preconditioning through HMI AND current read precondType==0("Not Active").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify precondtype status (1) when the user enables Cabin Preconditioning through HMI AND current read precondType==0("Not Active").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, enables, Cabin, HMI, read" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4119267
+- Contents: IDC shall set precondType=3("Cabin_Battery") when the user enables Cabin Preconditioning through HMI AND current read precondType==2("Battery").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify precondtype status (3) when the user enables Cabin Preconditioning through HMI AND current read precondType==2("Battery").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, enables, HMI, read, Battery" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4119268
+- Contents: System shall set precondType=0("Not Active") when the user disables Cabin Preconditioning AND current read precondType==1("Cabin").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify precondtype status (0) when the user disables Cabin Preconditioning AND current read precondType==1("Cabin").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, disables, Not Active, Cabin" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4119269
+- Contents: IDC shall set precondType=2("Battery") when the user disables Cabin Preconditioning AND current read precondType ==3("Cabin_Battery").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: veify precondtype status (2) when the user disables Cabin Preconditioning AND current read precondType ==3("Cabin_Battery").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, disables, Preconditioning, read" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4119262
+- Contents: IDC shall display the Cabin Preconditioning setting state according to the precondType value retrieved in the  CalendarCharging.
+- Artifact Type: Information
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914- 6.2.2.30.6 Cabin Preconditioning Setting Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,84 @@
+# UnknownID 6.2.1.3.28 A2B Network 2 - Sub 0 to Sub 1 - Wires shorted together(0xD8241A) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3.28 A2B Network 2 - Sub 0 to Sub 1 - Wires shorted together(0xD8241A)
+
+- ID: 3891860
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4096929
+- Contents: If A2B Network2 - Sub-0 to Sub-1 - Wires shorted together, then the System shall resist the circuit below threshold with in 5sec & A2B has wires shorted together in a Permanent Evaluation condition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify At least one wire (or both) is Reverse wires or wrong port and A2B has wire reversed should be in Permanent Evaluation condition.
+-Circuit short to ground fault should be detect within 5s.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, shorted, resist, together, circuit below threshold" )
+- TestTeamComment: RWeber_DIAG_250127: Testable
+- State (Harman_Requirement): Approved
+
+2. ID: 4096932
+- Contents: The System shall clear the fault within 3s, if fault is no more detected.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the fault is no more detected.
+- Fault should be clear within 3s.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "more detected" )
+- TestTeamComment: RWeber_DIAG_250127: Testable
+- State (Harman_Requirement): Approved
+
+3. ID: 4098077
+- Contents: If calibration parameter A2B_2_Configuration == 0 ("Standard"), the system shall set the signal IDC_AudioStreams.ESEFailSts=1("Fail_Present") to recover the system.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify  IDC_AudioStreams.ESEFailSts=1("Fail_Present" if  A2B_2_Configuration == 0 ("Standard")
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "calibration, system, parameter, set, to recover, Standard, IDC_AudioStreams.ESEFailSts" )
+- TestTeamComment: RWeber_DIAG_250127: No info, at whcih bus the signal should be set (A2B, CAN..). This should be tested by A2B expert.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.3.28 A2B Network 2 - Sub 0 to Sub 1 - Wires shorted together(0xD8241A) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

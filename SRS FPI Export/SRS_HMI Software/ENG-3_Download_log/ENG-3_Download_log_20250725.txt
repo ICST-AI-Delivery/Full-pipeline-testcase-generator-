@@ -1,0 +1,203 @@
+# ENG-3 6.2.5.2  Download log Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.5.2 ENG-3 Download log
+
+- ID: 3409680
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core, USB
+- HB_Comment: last
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3547467
+- Contents: IDC shall evaluate if an USB device should detect when user confirms to download the current log via a dedicated HMI interface
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if user able to download current log through HMI.
+
+Input
+USB
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "evaluate, confirms" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3547473
+- Contents: System shall abort the procedure if no USB device is detect and display a pop up.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if system able to abort the procedure if no USB device detected.
+we need to check the pop up
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, abort, display, procedure, pop up" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3549437
+- Contents: System shall access the detected USB device and upload the stored logs.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if system able to detect USB and able to upload currently stored logs.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, access, detected, upload, stored, device, logs" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3549439
+- Contents: IDC shall display the download progress via a dedicated HMI interface
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the download progress through HMI
+- Grooming Status: Approved
+- Grooming Comments: it shows the download information not a progress
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3549440
+- Contents: During log download, System shall allow user to access the other items in the engineering menu.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check user able to access the other items in EM During log download.
+- Grooming Status: Approved
+- Grooming Comments: This is the background process and user will access the items.
+need to raise Jira
+
+Muthuramalingam, Sivaprakasam added a comment 
+
+We would like to have the option of allowing the user to access the menu as it should not affect the download of logs. Please confirm whether you can modify the specification.
+
+Novelli, Lucia (Ferrari) added a comment 
+yes, ok. we will update the spec accordingly. you will receive the updated spec with PI6 package
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3549441
+- Contents: If the download procedure has been correctly completed, IDC shall ask the user to delete the currently stored logs through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to get an indication through HMI when download completed.(popup)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "correctly, proper" ) 
+Passive voice
+ (Look for: "has been, completed" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3549442
+- Contents: IDC shall clear its current stored logs from its internal memory when user confirms.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to clear current logs from internal memory after download.
+- Grooming Status: Approved
+- Grooming Comments: need to check with siva
+
+to clear the logs using an option instead of clearing after download.
+
+Muthuramalingam, Sivaprakasam added a comment 
+
+ We would not want to clear the logs automatically after download instead have an option in the menu for the user to clear them. Please confirm whether you can modify the specification.
+
+Novelli, Lucia (Ferrari) added a comment
+
+yes, ok. we will update the spec accordingly. you will receive the updated spec with PI6 package
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "its" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5300306
+- Contents: IDC shall allow the user to define the downloadable log’s level of detail via dedicated interface.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to define the downloadable log’s level of detail.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3549443
+- Contents: After confirmation of a correct download indication, IDC shall perform a reboot
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if system able to reboot after download
+- Grooming Status: Review
+- Grooming Comments: what is the intention of reboot?
+how to exit from the EM?
+
+Novelli, Lucia (Ferrari) added a comment
+
+we have cancelled this requirement according to the discussed ticket: FQ-15 ENG-3 Download Log, reboot requirements - HARMAN Jira 
+
+need to delete
+- Expert Domains: Android HMI, IOC_IOC, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3549444
+- Contents: if the download procedure has not been correctly complete, IDC shall inform the user through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to get indication(pop up) when download not completed
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not been" ) 
+Unclear term
+ (Look for: "correctly, proper" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of ENG-3 6.2.5.2  Download log Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

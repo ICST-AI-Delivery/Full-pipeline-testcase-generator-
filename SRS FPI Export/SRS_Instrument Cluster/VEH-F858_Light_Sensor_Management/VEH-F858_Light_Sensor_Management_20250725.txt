@@ -1,0 +1,95 @@
+# VEH-F858 6.2.1.1.2.41  Light Sensor Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.41 VEH-F858 Light Sensor Management
+
+- ID: 3408610
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3665754
+- Contents: System shall display Twilight Sensor fail telltale as per the Ferrari design.
+(see: image196.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Twilight Sensor fail telltale  as per the Ferrari Design.
+Wireframe : R1/2/3/4/5
+Algo:
+STATUS_NBC_2.Night_E_DaySensorFailSts == "Fail_Present" THEN IDC shall show the relative pop up "Auto light fail display
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design.
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image196.png
+
+2. ID: 3666909
+- Contents: System shall visualize F858 Fail1 pop-up with Buzzer2B and send the status to send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Night_E_DaySensorFailSts = Fail present
+D01 visualization
+Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger twilight sensor fail.
+Verify F858 Fail1 visualized as per HMI_POP.IND with D01 visualization and priority 2
+
+Algo:
+Night&DaySensorFailSts == Fail present
+
+
+CAN-Signal: STATUS_NBC_2.Night_E_DaySensorFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualize, detect" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3888919
+- Contents: System shall check PROXI Rain-Twilight == Present (PROXI Start Byte 59, bit 0)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image196.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F858 6.2.1.1.2.41  Light Sensor Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

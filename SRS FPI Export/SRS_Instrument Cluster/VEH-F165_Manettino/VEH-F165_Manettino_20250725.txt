@@ -1,0 +1,1284 @@
+# VEH-F165 6.2.1.1.2.43  Manettino Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.43 VEH-F165 Manettino
+
+- ID: 3408580
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: missing HMI design, missing info
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3541925
+- Contents: If Proxi Active Suspension Functionality is Active, system shall display vehicle Manettino status , suspension status and Indexes screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+
+ ProxiActive Suspension Functionality = "Active"
+
+Verify that the system displays Manettino Status and Suspension status is indicated.
+
+Proxi:
+
+Active Suspension Functionality (byte 130, bit 0) Active/Not Active
+- Grooming Status: Approved
+- Grooming Comments: Missing HMI spec
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, Manettino, status" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3500929
+- Contents: System shall give suspension status indications as follows:
+(see: image198.png)
+Note: Display shall follow D04 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Status of the Car changes based on the Position of the SuspensionSetupSts inputs.
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall give, shall follow" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image198.png
+
+3. ID: 3558175
+- Contents: System shall display Vehicle Manettino Status indications as saved during the Key-Off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system  displays Vehicle Manettino Status indications as saved during the Key-Off.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, indications" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3558141
+- Contents: System shall display F1-Trac: using 5 notches by setting the values according to the positions 1-2-3-4-5.
+(see: image199.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the F1-Trac is displayed by using the 5 notches.
+
+CAN-Signal:
+NVO_INFO_V2.ManettinoSts
+- Grooming Status: Approved
+- Grooming Comments: How to simulate and check the notches indications?
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image199.png
+
+5. ID: 5286615
+- Contents: System shall display Comfort: 3 notches. It has a specific colour according to the Suspension mode selected
+ IF SuspensionSetupSts = Position_1, then IDC shall display comfort indicator with an active notch 
+ IF SuspensionSetupSts = Position_2, then IDC shall display comfort indicator with two active notches
+ IF SuspensionSetupSts = Position_3, then IDC shall display comfort indicator with three active notches
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Comfort status is displayed by the system using 3 notches.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 30
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "It" ) 
+Compound requirement
+ (Look for: "shall display" ) 
+Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3558182
+- Contents: The number of active notches depends on the SuspensionSetupSts signal For ASC-C indicator.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3558183
+- Contents: System shall display Comfort  indicator(Soft) with one active notch if Suspension status is in position 1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-ConditionIF SuspensionSetupSts = Position_1,:
+
+
+Verify that the ASC-C and position of suspension status are in sync with the Notch displayed in the VDA
+
+CAN-Signal:SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3558185
+- Contents: System shall display Comfort indicator(Medium) with two active notches if Suspension status is in position 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: IF SuspensionSetupSts = Position_2,
+
+Verify that the ASC-C and position of suspension status are in sync with the Notch displayed in the VDA
+
+CAN-Signal:SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3558188
+- Contents: System shall display Comfort indicator(Hard) with three active notches if Suspension status is in position 3
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: SuspensionSetupSts = Position_3,
+
+Verify that the ASC-C and position of suspension status are in sync with the Notch displayed in the VDA
+
+CAN-Signal:SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3501080
+- Contents: System shall continue to display within the specified area to display the vehicle manettino selected in any condition active/failure.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the selected manettino is continued to display when the activation condition is active or in fail state.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3541059
+- Contents: System shall display Vehicle Manettino driving mode as below when Manettino position-1 select.
+(see: image200.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:ManettinoSts = "Position_1"
+
+Verify that telltale ICE is displayed when Manettino is set to Position 1
+
+
+CAN-signal: PWT_STATUS_2.EManettinoSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, driving, mode, position-1 select" ) 
+Escape clause
+ (Look for: "as below" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 3
+- Visual Elements: image200.png
+
+12. ID: 3541061
+- Contents: System shall display Vehicle Manettino driving mode as below when position-2 select.
+(see: image201.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:ManettinoSts = "Position_2"
+
+Verification that telltale WET is displayed when Manettino is set to Position 2
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, position 2, display, driving, mode" ) 
+Escape clause
+ (Look for: "as below" ) 
+Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is selected" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 4
+- Visual Elements: image201.png
+
+13. ID: 3541064
+- Contents: System shall display Vehicle Manettino driving mode as below when Manettino position-3 select.
+(see: image202.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:ManettinoSts = "Position_3"
+
+Verification that telltale ICE is displayed when Manettino is set to Position 3
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, driving, mode, position-3 select" ) 
+Escape clause
+ (Look for: "as below" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 5
+- Visual Elements: image202.png
+
+14. ID: 3541067
+- Contents: System shall display Vehicle Manettino driving mode as below when Manettino position 4 is selected.
+(see: image203.png)
+Note: ManettinoSts="Position4" and ESC OFF Lamp Request  is not requested to HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verification that ICS graphic element SPORT is displayed when Manettino is set to Position 4
+
+Parameter: ManettinoSts = "Position_4"
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, position 4, OFF Lamp Request, display, driving, mode, ManettinoSts, HMI" ) 
+Negative statement
+ (Look for: "not" ) 
+Escape clause
+ (Look for: "as below" ) 
+Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is selected, requested" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 6
+- Visual Elements: image203.png
+
+15. ID: 3541069
+- Contents: System shall display Vehicle Manettino driving mode as below when Manettino position4 selected.
+(see: image204.png)
+Note: ManettinoSts="Position4" and ESC OFF Lamp Request is Fail Lamp On.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verification that ICS graphic element ESC OFF is displayed when Manettino is set to Position 4
+
+Parameter: ManettinoSts = "Position_4"
+
+CAN-Signal: NFR_HMI.ESCOFFLampRequest
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, OFF Lamp Request, display, driving, is, mode, position, ManettinoSts, Lamp" ) 
+Escape clause
+ (Look for: "as below" ) 
+Passive voice
+ (Look for: "selected" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image204.png
+
+16. ID: 3523690
+- Contents: System shall display the persisted Manettino and Suspension status for
+2.5 Seconds when Key turn on.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the previous position of the Manettino and Suspension is displayed for 2.5 seconds when key is turned on which is saved at previous key-off event.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, persisted, Manettino, status, turn" ) 
+Missing limits
+ (Look for: "‘2.5 Seconds’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3523717
+- Contents: System shall display Manettino status as empty until recovery becomes active ,when system stop's receiving  the Manettino status.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display blank when the current manettino status and the previous status saved at key off event are same.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is same, saved, event" )
+- State (Harman_Requirement): Obsolete
+
+18. ID: 3551774
+- Contents: System shall continue to display manettino status till R19 recovery happens when Manettino status is not-received
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall continue to display the Manettino position when the status is not received from the Manettino  till the Recovery R19 Happens.
+- Grooming Status: Approved
+- Grooming Comments: R19 Recovery information is not available
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, continue, to display, happens, status" ) 
+Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "-received" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3551790
+- Contents: System shall continue to display the current vehicle Manettino repetition When active suspension functionality is Active and if suspension setup status signal  not-received.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:Active Suspension Functionality = "Active"
+
+Verify that the current vehicle manettino is displayed even system does not receive the SuspensionStatusSignal
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "continue, is" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3558681
+- Contents: System shall continue to display the current vehicle suspension status  till recovery becomes active.When Proxi NCS is present and suspension setup status signal stops  receiving.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions: NCS = "Present
+
+Verify that the current suspension status is displayed even when there is  no reception of signal from suspension setup status signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, NCS, continue, to display, becomes, is present, receiving, vehicle, status, stops" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3523726
+- Contents: System shall give feedback as bumpy road when Suspension status position is in Smooth with in T_sup time from ??
+(see: image205.png)
+Specific Behaviour:
+SuspensionSetupSts= Status_already_selected -> Position_1, within T_susp time (or)
+SuspensionSetupSts = Status_already_selected -> Follow_Manettino_Sts -> Position_1, within T_susp time
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: proxi NCS ="present"
+
+Verify that the Bumpy road Visualisation is displayed when the Suspension status is in smooth and ensure that visualisation is displayed with in the specified T_Sup time.
+
+CAN-Signal: Vehicle Manettino status visualization
+- Grooming Status: Approved
+- Grooming Comments: Requirements Incomplete
+- Expert Domains: IOC_IOC
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, position, give feedback, is, selected" ) 
+Escape clause
+ (Look for: "as bumpy road" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 1
+- Visual Elements: image205.png
+
+22. ID: 3523734
+- Contents: when proxi NCS is present ,
+If user select comfort mode again while the user already select comfort mode ,
+System shall display warning text as per F165 Feedback-2
+Specific Behaviour:SuspensionModeSts = Position_1 -> Status_already_select, within T_susp time
+OR
+SuspensionModeSts = Position_1 -> Follow_Manettino_Sts -> Status_already_select, within T_susp time
+Note:
+Feedback shall perform D04 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-condition:proxi NCS ="present" 
+
+Verify that the Feedback 2 is triggered to the user , if the user tries to select comfort mode which is already selected.
+
+CAN-Signal: SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Grooming Comments: How to select comfort mode when it is already selected.!
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is, display, Note, perform" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3544766
+- Contents: Feedback-8
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Need more information , Ferrari information is In-complete.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+24. ID: 3544767
+- Contents: Feedback-9
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Need more information , Ferrari information is In-complete.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+25. ID: 3544901
+- Contents: Feedback-10
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Need more information , Ferrari information is In-complete.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+26. ID: 3544918
+- Contents: Feedback-11
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Need more information , Ferrari information is In-complete.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+27. ID: 3545297
+- Contents: Feedback-12
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Need more information , Ferrari information is In-complete.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+28. ID: 3523755
+- Contents: System shall display suspension status as Smooth
+if proxi NCS is present and until it change by the user or switching the Manettino positions.
+proxi NCS has to be in Active state.
+Feedback-13 shall follow D04 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Manettino status is displayed as Smooth when it is set to position1 and shall be till further changed by the driver.
+
+Parameters:
+
+SuspensionSetupSts = "Position_1"
+
+proxi NCS ="present"
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "shall display, shall follow" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+29. ID: 3523780
+- Contents: System shall continue to display the current position of the Suspension status( Feedback-14) when Suspension setup status is in position-1 , Not-used or Follow manettino status.
+Note:Feedback-14 shall follow D04 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Manettino status is displayed by the system when the suspension status is set to be in Position1 , not used by the suspension and Manettino status is failed.
+- Grooming Status: Approved
+- Grooming Comments: IDC-445736 - The specific icon shall remain in the area specified in the document “HMI Specifications” until until the activation conditions are met.
+
+Does this mean continue to display previous position?
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, continue, to display, is, used, follow, position" )
+- State (Harman_Requirement): Approved
+
+30. ID: 3523757
+- Contents: System shall display the Feedback-16 and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when proxi Active Suspension Functionality = "Active". and (SupensionSetupSts = "Position_3").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+proxi Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SupensionSetupSts = "Position_3"
+
+Verify that the Feedback-16 is triggered when necessary conditions are met.
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Grooming Comments: IDC-445740 - The specific icon shall remain in the area specified in the document “HMI Specifications” until the activation conditions are met   
+
+
+Does this mean continue to display previous position?
+- Expert Domains: ADVNet, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, continue, to display, is, use, follow, position" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3523828
+- Contents: System shall display the Feedback-16 and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when proxi Active Suspension Functionality = "Active". and (SupensionSetupSts = "Position_3").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+proxi Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SupensionSetupSts = "Position_3"
+
+Verify that the Feedback-16 is triggered when necessary conditions are met.
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Grooming Comments: Requiement Incomplete
+- Expert Domains: ADVNet, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, continue, to display, is, used, follow, position" )
+- State (Harman_Requirement): Approved
+
+32. ID: 3523837
+- Contents: System shall display Suspension status as Smooth in the cluster and display suspension telltale when suspension functionality activated.
+(see: image206.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+
+SuspensionSetupInfoForDisplay = "Position_1" 
+
+proxi Active Suspension Functionality = "Active"
+
+
+
+Verify that the Telltale is displayed as Small "S" when the suspension status functionality is activated.
+
+Suspenison stiffness
+
+Telltale Code:00940
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, activated, status, Smooth, cluster, telltale, functionality" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 17
+- Visual Elements: image206.png
+
+33. ID: 3523861
+- Contents: System shall display Suspension status as Medium in the cluster and display suspension telltale when suspension functionality  activated.
+(see: image207.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+
+SuspensionSetupInfoForDisplay = "Position_2" 
+
+proxi Active Suspension Functionality = "Active"
+
+
+
+Verify that the Telltale is displayed as Medium "M" when the suspension status functionality is activated.
+
+Suspenison stiffness
+
+Telltale Code:00930
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, activated, status, Medium, cluster, telltale, functionality" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 18
+- Visual Elements: image207.png
+
+34. ID: 3523878
+- Contents: System shall display Suspension status as Hard in the cluster and display suspension telltale when suspension functionality  activated.
+(see: image208.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:
+
+SuspensionSetupInfoForDisplay = "Position_1" 
+
+proxi Active Suspension Functionality = "Active"
+
+
+
+Verify that the Telltale is displayed as Hard "H" when the suspension status functionality is activated.
+
+Suspenison stiffness
+
+Telltale Code:00920
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, activated, status, Hard, cluster, telltale, functionality" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Feedback 19
+- Visual Elements: image208.png
+
+35. ID: 3558702
+- Contents: System shall give Function unavailable with the manettino position when Active Suspenison Functionality is active and suspension setup info for display is in status already select.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions: SuspensionSetupInfoForDisplay = "Status Already Selected"
+
+Active Suspension Functionality = "Active"
+
+
+Verify that the Function not available with in this manettino position feedback is given when Active Suspenison Functionality is active and suspension setup info for display is in status already selected.
+
+CAN-Signal: SUSPENSION_INFO.SuspensionSetupInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, give, is active, suspension, display, is, select, Function unavailable, position, Functionality, info" )
+- State (Harman_Requirement): Approved
+
+36. ID: 3551827
+- Contents: If during the visualization cycle of the one of the F165 Feedback-3, Feedback-4, Feedback-5, Feedback-6, Feedback-7, Feedback-17, Feedback-18 or Feedback-19 another visualization cycle of the F165 Feedback-3, Feedback-4, Feedback-5, Feedback-6, Feedback-7, Feedback-17, Feedback-18 or Feedback-19 require, the content of the new visualization cycle shall display without to perform a new warning pop-up animation
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Information Incomplete
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "cycle, require, display, to perform, visualization, content, animation" ) 
+Unclear term
+ (Look for: "another" )
+- State (Harman_Requirement): Obsolete
+
+37. ID: 3523693
+- Contents: System shall display Fail-1 Pop-up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when ManettinoFailSts = "Fail present"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:ManettinoFailSts = "Fail present"
+
+Verify that the Fail-1 Pop-up is displayed as per the condition. 
+
+POP-UP ID: 01650001
+
+Buzzer:2B
+
+CAN-Signal:PWT_STATUS_2.EManettinoFailSts
+
+Refer D01 visualization behaviour.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Manettino, trigger, fails, to indicate, telltale" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Fail 1
+
+38. ID: 3523694
+- Contents: System shall display Fail-2 Pop-up with a buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  SuspensionSystemInfoForDisplay != ("No_Info" OR "Not_used") AND proxi NCS ="present".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: SuspensionSystemInfoForDisplay != ("No_Info" OR "Not_used")
+
+Verify that the buzzer is triggered and pop up is displayed when trigger condition is met.
+
+POP-UP ID:01650002
+Buzzer:2B
+
+
+CAN-Signal: 
+ 
+SUSPENSION_INFO.SuspensionSetupInfoForDisplay
+
+Refer D01 Visualisation behavior.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, trigger, fails, to indicate, does, follow, buzzer, telltale" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F165  Document Fail 2
+
+39. ID: 5286544
+- Contents: System shall display Feedback-1 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Proxi NCS is present AND SuspensionSetupSts = 0x01..
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+PRoxi NCS=Present
+
+Trigger Condition:
+(SuspensionSetupSts = 0x01)
+
+
+Verify that the Feedback-1 is displayed when Proxi is set to present and SuspensionSetupSts is 0x01.
+
+Proxi: Byte-29, bit-3
+
+Pop-Up ID:01650003
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, NCS, display, send, using, is present, Pop-up, status, IVI, INDICATOR_STATUS, SuspensionSetupSts" )
+- State (Harman_Requirement): Approved
+
+40. ID: 5286564
+- Contents: System shall stop displaying Feedback-1 when :
+SuspensionSetupSts has a transition from Status_already_selected to  Position_1, within T_susp(1,1s)  time OR
+SuspensionSetupSts =has a transition from Status_already_selected to  Follow_Manettino_Sts and then to Position_1, within T_susp time.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Feedback-1 warning is stopped when necessary conditions are met.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, SuspensionSetupSts, stop, displaying, has, selected, Follow, Feedback-1, transition" )
+- State (Harman_Requirement): Approved
+
+41. ID: 5286569
+- Contents: System shall display Feedback-2 Pop-up  send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Proxi NCS is Present and SuspensionSetupSts = "Status Already Selected".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+PRoxi NCS=Present
+
+Trigger Condition:
+(SuspensionSetupSts = Status Already Selected.)
+
+
+Verify that the Feedback-2 is displayed when Proxi is set to present and SuspensionSetupSts is Status Already Selected.
+
+Proxi: Byte-29, bit-3
+
+Pop-Up ID:01650004
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Infra, System Qualification
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, NCS, Status, display, send, using, is Present, Pop-up, status, IVI, INDICATOR_STATUS, SuspensionSetupSts" )
+- State (Harman_Requirement): Approved
+
+42. ID: 5286571
+- Contents: System shall stop displaying Feedback-2 when :
+SuspensionSetupSts has a transition from Status_already_selected to  Position_1, within T_susp(1,1s)  time OR
+SuspensionSetupSts =has a transition from Status_already_selected to  Follow_Manettino_Sts and then to Position_1, within T_susp time.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Feedback-2 warning is stopped as per the conditions.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, SuspensionSetupSts, stop, displaying, has, selected, Follow, Feedback-2, transition" )
+- State (Harman_Requirement): Approved
+
+43. ID: 5286582
+- Contents: After a Key-OFF/Key-ON transition, IDC shall handle the SuspensionSetupSts signal after 1 s from Key-ON event for (Feedback1, 2,13)  within 1 second from Key-ON for the suspensions warnings (F165 Feedback 1, Feedback 2, Feedback 13), IDC must not considering the SuspensionSetupSts
+signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System shall display suspension status After 1 second from the KeyOff to KeyOn event , but shall not display suspension status before one second.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall handle, must must" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+44. ID: 5286591
+- Contents: System shall display Feedback-14 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupSts = "Position_1" or "Not_Used" or "Follow_Manettino_Sts".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupSts = "Position_1" or "Not_Used" or "Follow_Manettino_Sts"
+
+Verify that the Feedback-14 Telltales are displayed in B18 wireframe Areas when necessary conditions are met.
+
+Pop-Up ID:01650015
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Follow, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupSts, Position_1, Not_Used" )
+- State (Harman_Requirement): Approved
+
+45. ID: 5286593
+- Contents: System shall display Feedback-15 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupSts = "Position_2"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupSts = "Position_2"
+
+Verify that the Feedback-15   Telltales are displayed in B18 wireframe Areas when necessary conditions are met.
+
+Pop-Up ID:01650016
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupSts, Position_2" )
+- State (Harman_Requirement): Approved
+
+46. ID: 5286594
+- Contents: System shall display Feedback-16 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupSts = "Position_3"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupSts = "Position_3"
+
+Verify that the Feedback-16 Telltales are displayed in B18 wireframe areas when necessary conditions are met.
+
+Pop-Up ID:01650017
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Feedback-16, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupSts, Position_3" )
+- State (Harman_Requirement): Approved
+
+47. ID: 5286595
+- Contents: System shall display Feedback-17 Pop-Up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupInfoForDisplay = "Position_1"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupInfoForDisplay = "Position_1"
+
+Verify that the Feedback-17 Pop-up is displayed when necessary conditions are met.
+
+Pop-Up ID:01650018
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Pop-Up, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupInfoForDisplay, Position_1" )
+- State (Harman_Requirement): Approved
+
+48. ID: 5286596
+- Contents: System shall display Feedback-18 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupInfoForDisplay = "Position_2"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupInfoForDisplay = "Position_2"
+
+Verify that the Feedback-18 Pop-up is displayed when necessary conditions are met.
+
+Pop-Up ID:01650019
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Pop-up, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupInfoForDisplay, Position_2" )
+- State (Harman_Requirement): Approved
+
+49. ID: 5286597
+- Contents: System shall display Feedback-19 Pop-Up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupInfoForDisplay = "Position_3"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupInfoForDisplay = "Position_3"
+
+Verify that the Feedback-19 Pop-up is displayed when necessary conditions are met.
+
+Pop-Up ID:01650020
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Pop-Up, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupInfoForDisplay, Position_3" )
+- State (Harman_Requirement): Approved
+
+50. ID: 5286602
+- Contents: System shall display Feedback-20 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Active Suspension Functionality = "Active" AND SuspensionSetupInfoForDisplay = "Status Already Selected".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Active Suspension Functionality = "Active".
+
+Trigger Condition:
+SuspensionSetupInfoForDisplay = "Status Already Selected"
+
+Verify that the Feedback-20 Pop-up is displayed when necessary conditions are met.
+
+Pop-Up ID:01650021
+
+CAN-Signal:
+SUSPENSION_INFO.SuspensionSetupInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Feedback-20, status, IVI, INDICATOR_STATUS, Functionality, SuspensionSetupInfoForDisplay" )
+- State (Harman_Requirement): Approved
+
+51. ID: 4706483
+- Contents: If System does not receive the ManettinoSts, System shall continue to display the current Vehicle Manettino visualization until the recovery becomes active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system continue to display the current vehicle manettino visualization until the recovery becomes active.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, continue, to display, becomes, Vehicle, visualization, active" ) 
+Negative statement
+ (Look for: "not" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3500864
+- Contents: System shall display the Vehicle Manettino , VDA Screen and suspension indicators in the HMI  as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Manettino , VDA Screen and suspension status is displayed in the specified areas of the cluster.
+- Grooming Status: Blocked
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Manettino, Screen, indicators, HMI, design" ) 
+Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Review
+
+2. ID: 3500910
+- Contents: User can switch into  various driving modes by using Vehicle Manettino.
+(see: image197.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+- Visual Elements: image197.png
+
+3. ID: 3551751
+- Contents: Stable positions of the System /vehicle corresponds to various positions of the Manettino.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that there are multiple Stable 
+ Manettino positions are available and system allows to switch in between the Manettino positions.
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+4. ID: 3551752
+- Contents: System shall have Un-stable position as ESC OFF , ESC OFF corresponds to ESCLampRequest is set to One
+NOTE: ESC OFF can only selected when Manettino is in highest available position
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ESC OFF position is allowed if the stable is in highest position available.
+
+Parameter: ESCOFFLampRequest=1
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+5. ID: 3558177
+- Contents: System shall display vehicle suspension status indication using Feedback 17, 18 and 19
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, using, indication, Feedback 17" ) 
+Missing unit 
+ (Look for: "‘18,19’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+6. ID: 3558192
+- Contents: 6.2.1.1.2.43.1 VEH-F165 Manettino- Notches
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Review
+
+7. ID: 3558139
+- Contents: System shall display VDA indications by notches
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the notches are displayed in the VDA as per the Selected position
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+8. ID: 3558148
+- Contents: System shall display e4WD: 5 notches , by setting  values according to the positions 1-2-3-4-5
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TMC is displayed as 5 notches in the VDA
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+9. ID: 3558151
+- Contents: System shall set F.A.S.T.: 5 notches, by setting the  values according to the positions 1-2-3-4-5
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the F1-DC is displayed as 2 notches in the VDA
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+10. ID: 3558152
+- Contents: System shall display ESC: 5 notches, by setting values according to the positions 1-2-3-4-ESCOFF
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ESC is displayed as 4 notches in the VDA
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+11. ID: 3558154
+- Contents: System shall display 4WS: 2 notches, values according to the positions 1-2-2-2-2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ASC-H is displayed as 5 notches in the VDA
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+12. ID: 3558162
+- Contents: System shall display ABS: 2 notches, values according to the positions 1-1-1-2-2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ABS is displayed as 3 notches in the VDA
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+13. ID: 3558193
+- Contents: 6.2.1.1.2.43.2 VEH-F165 Manettino-Positions
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+14. ID: 3558206
+- Contents: 6.2.1.1.2.43.3 VEH- F165 Manettino-Key On Behaviour
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+15. ID: 3558225
+- Contents: 6.2.1.1.2.43.4 VEH-F165 Manettino- Visualisation cycle
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+16. ID: 3558481
+- Contents: 6.2.1.1.2.43.4.1 VEH-F165 Manettino - NCS Proxi
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+17. ID: 3558483
+- Contents: 6.2.1.1.2.43.4.2 VEH-F165 Manettino Active suspension Functionality
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+18. ID: 3558479
+- Contents: 6.2.1.1.2.43.4.3 VEF-F165 Fail Visualisation cycle
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image207.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image208.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image200.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image206.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image202.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image204.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image205.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image203.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image197.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image198.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image199.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image201.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F165 6.2.1.1.2.43  Manettino Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

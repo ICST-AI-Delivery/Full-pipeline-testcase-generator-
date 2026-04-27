@@ -1,0 +1,201 @@
+# FAD-4 6.2.2.5  Vehicle Equalization Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.5 FAD-4 Vehicle Equalization
+
+- ID: 3408488
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3577395
+- Contents: The system shall optimize the tuning of audio sources reproduction based on the current vehicle proxi configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source on the loud speakers.
+
+Use Audacity tool for verification.
+
+Verify that the audio gain in source and sink are same.
+
+Verify this for different loudspeker configurations(e.g. Base, High end)
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3578207
+- Contents: System shall send the information regarding the proxi parameter Audio_Level to the FAD library through the internal interface Audio Level, that shall have the same mapping of the proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio source on the loud speakers.
+Use Audacity tool for verification.
+Verify that the audio gain in source and sink are same.
+Verify this for different loudspeker configurations(e.g.,Base, High end)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3941707
+- Contents: The system shall send information regarding the configuration of the below proxi parameters to the FAD library.
+AudioLevel = Audio_Level proxi parameter
+SideDriver = Side Driver proxi parameter
+RoofType = Roof Type proxi parameter
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the below proxi parameters
+
+AudioLevel
+SideDriver 
+RoofType 
+
+Verify that the configured values of the proxi parameters are received in the FAD library.
+
+Use logcat tool for verification.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3578232
+- Contents: System shall send the information regarding the proxi parameter Side driver to the FAD library through the internal interface Side Driver, that shall have the same mapping of the proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio source on the loud speakers.
+Use Audacity tool for verification.
+Verify that the audio gain in source and sink are same.
+Verify for different Driver Side configuration(Left and Right)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3578235
+- Contents: System shall send the information regarding the proxi parameter ESE_Functionality to the FAD library through the internal interface ESE functionality, that shall have the same mapping of the proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: This requirement is removed from PI5 document.Hence, it is not valid.
+(Not valid for FAD library)
+- Expert Domains: System Infra
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3578254
+- Contents: The system shall send the information regarding the proxi parameter AVAS_Enable to the FAD library through the internal interface AVASEnable, that shall have the same mapping of the proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: This requirement is removed from PI5 document.Hence, it is not valid.
+(Not valid for FAD library)
+- Expert Domains: System Infra
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3578258
+- Contents: The system shall send the information regarding the proxi parameter Roof Type to the FAD library through the internal interface Roof type, that shall have the same mapping of the proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an audio source on the loud speakers.
+Use Audacity tool for verification.
+Verify that the audio gain in source and sink are same.
+Verify for different Roof Type configuration(Vehicle default roof and Panoramic roof)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3608028
+- Contents: FAD shall disable all the output channels if the proxi parameter  Audio_Level is Invalid OR  Premium.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the Loudspeaker configuration as Invalid or Premium.
+
+Verify that played audio is not heard on the loudspeakers.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3622586
+- Contents: Internal interfaces
+AudioLevel
+SideDriver
+ESEfunctionality
+AVASEnable
+RoofType
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3622585
+- Contents: [Info] This function describes the car configuration the IDC shall send to the FAD library in order to adjust the tuning of the audio source reproduction accordingly.
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+2. ID: 3622584
+- Contents: Proxi
+Start Byte 154, Start bit 6 - Audio_Level (0 = "Invalid", 1 = "Base", 2 = "Premium", 3 = "High End");
+Start Byte 58, Start bit 4 - Side driver (0 = "left", 1 = "right");
+Start Byte 169, Start bit 7 - ESE_Functionality (0 = "absent", 1 = "present");
+Start Byte 124, Start Bit 0, AVAS_Enable (0 = "Off", 1 = "On")
+Start Byte 59, Start bit 1 - Roof Type (0 = "vehicle default roof", 1 = "panoramic roof");
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3674410
+- Contents: 6.2.2.5.1 FAD-4 Diagnostics
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: New
+- State (Harman_Requirement): Review
+
+4. ID: 3622587
+- Contents: DTCs
+Invalid Proxi Audio Level
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: New
+- Expert Domains: IOC_Diag
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-4 6.2.2.5  Vehicle Equalization Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

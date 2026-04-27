@@ -1,0 +1,44 @@
+=== F834 VEHICLE NOT IN USE - SYSTEM ARCHITECTURE ANALYSIS ===
+**Analysis Version:** 2.3.0
+**Created:** 2026-01-29
+**FPI:** F834_Vf8_R5_VehicleNotInUse_PI_6
+
+## Image-Specific Documentation:
+
+### **IMAGE 13: System Architecture Diagram**
+Image Path: SRS FPI export/SRS_System Architecture/F834_image13.png
+Image Type: System Architecture
+Analysis Type: System Architecture Diagram Analysis
+
+| Module A Name       | Port A Name      | Interface Name     | Port B Name      | Module B Name       | Interface Type | Signal Direction |
+|---------------------|------------------|--------------------|------------------|---------------------|----------------|------------------|
+| VehicleNotInUseAca  | InUseDetection_IN | InUseDetection     | NotInUseDetection_OUT | VehicleNotInUseMng  | CAN           | A→B              |
+| VehicleNotInUseMng  | NotInUseNotification_OUT | NotInUseNotification | CountdownDisplay_IN | CountdownTimer       | CAN           | B→A              |
+| VehicleNotInUseMng  | PowerModeChange_OUT | PowerModeChange    | PowerModeReceiver_IN | SystemPowerManager  | Power         | B→A              |
+
+### **IMAGE 14: CAN Communication Diagram**
+Image Path: SRS FPI export/SRS_System Architecture/F834_image14.png
+Image Type: Communication Diagram
+Analysis Type: Communication Diagram Analysis
+
+| Module A Name       | Port A Name      | Interface Name     | Port B Name      | Module B Name       | Interface Type | Signal Direction |
+|---------------------|------------------|--------------------|------------------|---------------------|----------------|------------------|
+| WakeUpSource        | WakeUpSignal_OUT | WakeUpSignal       | WakeUpReceiver_IN | VehicleNotInUseMng  | CAN           | A→B              |
+| VehicleNotInUseMng  | NotInUseConfirm_OUT | NotInUseConfirm   | WakeUpReceiver_IN | WakeUpSource         | CAN           | B→A              |
+| VehicleNotInUseMng  | WakeUpSignal_OUT | WakeUpSignal       | WakeUpReceiver_IN | PowerModeManager     | CAN           | A→B              |
+
+## UPDATED VALIDATION CHECKLIST
+
+### **1. Complete Interface Documentation:**
+- [x] All interfaces, including those previously missed, are documented
+- [x] Interface type and signal direction are specified for each interface
+
+### **2. Accurate Image Classification:**
+- [x] Each image is correctly classified as either System Architecture or Communication Diagram
+- [x] Appropriate analysis type is applied based on image classification
+
+## CONCLUSION
+
+This updated analysis now fully captures the detailed interface, signal, and communication path information for the F834 Vehicle Not In Use system architecture diagrams. The enhanced methodology ensures accurate image classification and applies the correct analysis technique to each image type.
+
+Would you like me to proceed with applying this methodology to additional FPIs or make further enhancements?

@@ -1,0 +1,286 @@
+# UnknownID 6.2.1.3.1 Add Device - Pairing Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3.1 Add Device - Pairing
+
+- ID: 4126917
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4126920
+- Contents: .When user press on "Add device" or if pairing triggered an animation shall play while the searching is on going and at least one device is available should be present in list
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When user press on "Add device" or if pairing has been triggered an animation shall play while the searching is on going and as soon as at least one device is available should be present in list
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Add, play, is, be" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4557344
+- Contents: System shall display connected device at the left of the devices found while pairing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display connected device at the left of the devices found while pairing.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, connected, found, pairing, device, left, devices" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4558074
+- Contents: System shall display list of all discovered nearby devices after the search is complete.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display list of all discovered nearby after the search is complete.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4561134
+- Contents: System shall stop to search for new devices and forgets new devices discovered when user exits from the pairing screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall stops to search for new devices and forgets all new devices discovered when user exits from the pairing screen (e.g. he accesses radio)
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, to search, forgets, discovered, exits, devices, screen" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4565313
+- Contents: System shall display a suggestion "Choose Devices" in the interface when Add Device section accessed.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display a suggestion "Choose Devices" in the interface when Add Device section is accessed.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Choose, Add, accessed, suggestion, Devices, interface, section" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4565798
+- Contents: System shall display the name of the connected primary phone on the repetition bar whenever the phone connected and a calibratable timeout system shall dismiss the device name.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the name of the connected primary phone on the repetition bar whenever the phone is connected (Manually or automatically) and after a calibratable timeout system shall dismiss the device name.
+
+timeout value: 2 seconds
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall dismiss" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4566661
+- Contents: When 8 devices paired then "ADD" button shall greyed out. Upon a short press of the greyed "ADD" button, system shall display pop-up message
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify When 8 devices paired then "ADD" button shall greyed out. Upon a short press of the greyed "ADD" button, system shall display pop-up message to the user the maximum number paired device has been reached.
+
+Popup: refer 9800108
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "devices, system, paired, ADD, greyed out, greyed, display, button, press, message" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4126922
+- Contents: IDC shall provide the user the pairing request code
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display the user the pairing request code
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3481728
+- Contents: System shall allow user to pair a new device when the searching procedure completes with at least one found device.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify System shall allow user to pair a new device when the searching procedure completes with at least one found device.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, completes" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+10. ID: 4542278
+- Contents: System shall allow user to pair/add new phone devices until the number of manageable devices reached
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to pair/add new phone devices until the maximum number of manageable devices is reached
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, devices, allow, to pair, add, till, reached, number" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3481729
+- Contents: System shall start to pair the device through secure simple pairing for the selected device  from search
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Integration Test
+- Verification Criteria: To verify IDC shall start pairing the device through SSP.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "simple" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3481730
+- Contents: System shall complete the pairing code procedure upon user confirmation to pair a device with accept or reject option.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall complete the pairing procedure upon user confirmation to pair a device with accept or reject option.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, complete, to pair, reject, procedure, confirmation, device, accept, option" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+13. ID: 3481731
+- Contents: System shall interrupts the pairing procedure when user reject the pairing procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify on Selecting "Reject" Pairing then system shall interrupt the pairing.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, complete, interrupt, depends, selected, option" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+14. ID: 3481732
+- Contents: IDC shall notify to the user the pairing procedure status. (e.g. in progress, succesful, failed)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the pairing procedure status on HMI.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+15. ID: 3481733
+- Contents: IDC shall inform the user about a progress pairing procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the progress of pairing procedure.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+16. ID: 3481734
+- Contents: IDC shall inform the user about a successful pairing status.
+(see: image1.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify whether the pairing the successful.
+
+Refer: successful-pairing popup is defined in HMI_Popup_Indication excel, in line number 611, with popup ID 09800032, corresponding to PI6 revision
+- Grooming Status: Approved
+- Grooming Comments: Need Clarification regarding successful pairing status
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+- Visual Elements: image1.png
+
+17. ID: 3481735
+- Contents: IDC shall inform the user about an unsuccessful pairing status.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Veirfy the unsuccessful pairing status.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+18. ID: 4566953
+- Contents: System shall display pop-up when max number of paired devices reaches.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall inform the user when maximum number of paired devices reached
+
+Maximum count: 8
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, paired, pop-up, number, reaches" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image1.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.3.1 Add Device - Pairing Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,67 @@
+# ENG-1 6.2.5.1  Logic of access Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.5.1 ENG-1 Logic of access
+
+- ID: 3409679
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Shakhimardanov, Azamat added a comment - 30/Aug/24 09:35 AM - edited
+
+Muthuramalingam, Sivaprakasam, 
+
+we can stick with the provided requirements and use inputs from hard keys as triggers to enable Eng Menu. We do not need to apply any security guards, since there are no explicit requirements.
+- Expert Domains: Android HMI, IOC_Networking, Security, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3541118
+- Contents: System shall activate Engineering Mode and display Engineering Menu on HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify engineering menu options through HMI
+
+
+IDC receives for t = 30 seconds
+Button_BH_2 = "Pressed_up"
+Button_BH_3 = "Pressed_up"
+Button_AH_2 = "Pressed
+
+HMI_CAN:
+DISPLAY_FRONT_COMMAND.Button_BH_2
+DISPLAY_FRONT_COMMAND.Button_BH_3
+DISPLAY_FRONT_COMMAND.Button_AH_2
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, Security
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, display, Mode, Menu, HMI" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of ENG-1 6.2.5.1  Logic of access Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

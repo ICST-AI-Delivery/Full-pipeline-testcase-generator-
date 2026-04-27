@@ -1,0 +1,102 @@
+# UnknownID 6.1.1.1.1.1 SW update & Diagnosis Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.1.1.1.1.1 Model description
+
+- ID: 2356793
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2356794
+- Contents: 6.1.1.1.1.1.1.1 Each compute partition shall have Diagnosis and SW Update implementation as the master functionality for this partition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+
+2. ID: 2356795
+- Contents: 6.1.1.1.1.1.1.2 Diagnosis and SW Update implementation shall communicate by defined system interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+
+3. ID: 2356796
+- Contents: 6.1.1.1.1.1.1.3 Diagnosis and SW Updates implementation shall communicate with end-user applications to provide the following diagnosis functionality:
+
+ 
+
+failure detection management
+
+setting and configuration management (for particular IDC functionality)
+
+measurement and routing execution management to provide a diagnosis of the System (for each system function)
+
+component update to provide partially update, e.g., update of Navi DB, update of codec set, update of HMI elements
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+
+4. ID: 2356797
+- Contents: 6.1.1.1.1.1.1.4 Diagnosis and SW Updates implementation shall communicate with external services and devices to provide the following functionality:
+
+ 
+
+OTA updates from cloud servers via "OTA SWP" and Communication vehicle device
+
+local updates from media storage(s) via USB connection
+
+CAN & Ethernet diagnosis interaction with connected OBD device
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+
+5. ID: 2356798
+- Contents: 6.1.1.1.1.1.1.5 Diagnosis and SW Updates implementation shall communicate with the platform component to provide the following functionality:
+
+ 
+
+correct Power Management sequences during active operation, e.g., preventing sleep mode during SW update
+
+correct firmware image flashing according to the A/B partitions rule and file system operation
+
+communication via CAN and Ethernet channels according to UDS and DoIP protocols
+
+cybersecurity management in the scope of key management and authentication (encrypt, decrypt, and signature services)
+
+access to failure artifacts according to Heath management and Logging rules
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+
+6. ID: 2356799
+- Contents: 6.1.1.1.1.1.1.6 Diagnosis and SW Updates servers shall communicate with the recovery software package to ensure that recovery bootloaders and services are up to date and valid.
+- Artifact Type: SRS Req
+- Responsible Domain: SW Update
+- Grooming Status: Blocked
+- Expert Domains: Security
+
+### Informational Items:
+
+1. ID: 2356800
+- Contents: 6.1.2 Core Functionalities
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.1.1.1.1 SW update & Diagnosis Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

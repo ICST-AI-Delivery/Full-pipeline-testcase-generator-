@@ -1,0 +1,184 @@
+# UnknownID 6.2.3.1.23 Yaw rate sensor parameters  ($2033) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.23 Yaw rate sensor parameters  ($2033)
+
+- ID: 3998489
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Need to be confirmed from MTA.
+- RQA Score: 20
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3998490
+- Contents: The system shall manages yaw rate sensor parameters
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the yaw rate sensor parameters.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 3998491
+- Contents: The System shall have RecordDataIdentifier ($2025) to know the Yaw rate sensor parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the identifier RecordDataIdentifier ($2025)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2025’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+3. ID: 3998492
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+4. ID: 3998549
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+5. ID: 3998493
+- Contents: The System shall follow the below conversions
+DataRecord (zz) (see: image102.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the data record from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+- Visual Elements: image102.png
+
+6. ID: 3998494
+- Contents: gBallPlotMaxg
+The System Shall representable the Max modulus of acceleration of Range: [0x00..0x32].
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Max modulus of acceleration of Range: [0x00..0x32]
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+7. ID: 3998495
+- Contents: gEnvelopeMaxNum
+The System shall have simultaneously highlighted Max number of max value indicator line of Range: [0x00..0x08].
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Highlighted Maximum number of Max value is 0x00 to 0x08
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+8. ID: 3998496
+- Contents: K_Ax
+The System shall have the Coefficient value of the exponential filter of order 1°  for the visualization of the longitudinal acceleration of Range: [0x00..0x64]
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Longitudinal acceleration range is 0x00 to 0x64 for the exponential filter of order 1
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+9. ID: 3998497
+- Contents: K_Ay
+The System shall have the Coefficient value of the exponential filter of order 1°  for the visualization of the lateral acceleration of Range: [0x00..0x64]
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Lateral acceleration range is 0x00 to 0x64 for the exponential filter of order 1
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+10. ID: 3998578
+- Contents: gEnvelopeLifeTime
+The System shall have the Persistency time of the highlighted max value indicator line of Range: [0x00..0xFA].
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the max value indicator value for persistency range is 0x00 to 0xFA
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image102.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.23 Yaw rate sensor parameters  ($2033) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

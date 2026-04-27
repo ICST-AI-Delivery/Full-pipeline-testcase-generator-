@@ -1,0 +1,100 @@
+# UnknownID 6.2.2.30.7 Long parking (Storage Mode) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.7 Long parking (Storage Mode)
+
+- ID: 4119270
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4119272
+- Contents: IDC shall manage the Long Park setting only if proxi parameter LongParking == 3 ("Long Parking ON / Menu ON").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4119273
+- Contents: IDC shall update the calendar row when user enable the long park.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: settingType = 4 ("LongPark") by setting the field "status" = 1 ("Active") and by setting remaing settingType calendar rows Status = 0 ("Not_Active")
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "update, setting, remaing, rows, enable, row, field, status, Not_Active, park" ) 
+Missing unit 
+ (Look for: "‘4,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4119274
+- Contents: IDC shall update the calendar row settingType = 4 ("LongPark") by setting the field "status" = 0("Not_Active") when the user disables the Long Parking setting.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "update, setting, disables, row, field, status, Not_Active" ) 
+Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4119275
+- Contents: IDC shall apply a dedicated HMI strategy for the state of charge indication in the range [40%, 70%] when LongParkingSts == 1 ("Active").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 0
+- Issues Found by RQA: Compound requirement
+ (Look for: "apply, strategy, state, indication, range" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘40 %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.30.7 Long parking (Storage Mode) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

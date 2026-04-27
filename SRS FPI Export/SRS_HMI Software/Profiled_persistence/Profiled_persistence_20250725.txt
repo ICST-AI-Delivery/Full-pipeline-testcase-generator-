@@ -1,0 +1,92 @@
+# UnknownID 6.2.3.1.4.2 Profiled persistence Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.4.2 Profiled persistence
+
+- ID: 3841649
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3841653
+- Contents: IDC shall apply the Standard Persistence regardless the current profile proxi parameter Profile is "absent".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+ Profile == 0 ("absent")
+
+Start Byte 167, Start bit 5 - Profile (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting.
+- State (Harman_Requirement): Approved
+
+2. ID: 3841671
+- Contents: IDC shall store the last setting value for the active profile when proxi parameter Profile is "present".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+ Profile == 1( "present")
+
+
+Start Byte 167, Start bit 5 - Profile (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Profile, store, setting, proxi, is, last, value, profile, present" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting.
+- State (Harman_Requirement): Approved
+
+3. ID: 3841684
+- Contents: System shall set the following logic when proxi parameter Profile in "present":
+IDC shall recover the stored value for each profile setting to active profile.
+IDC shall send the setting related output signal populate with the recover value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition in profile in present conditions.
+
+Start Byte 167, Start bit 5 - Profile (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, following, recover, stored, setting, send, populate, logic, Profile, value, profile" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.4.2 Profiled persistence Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

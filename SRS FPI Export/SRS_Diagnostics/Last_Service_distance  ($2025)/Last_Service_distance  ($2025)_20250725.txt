@@ -1,0 +1,170 @@
+# UnknownID 6.2.3.1.22 Last Service distance  ($2025) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.22 Last Service distance  ($2025)
+
+- ID: 3997504
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3997505
+- Contents: The Last Service distance function shall allow to read the odometer value present on the dashboard memory when the Service did the last Service information reset with the command IOLI 61h.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the odometer value.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "function, allow, to read, present, did, odometer, memory, Service, information reset, IOLI" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 3997506
+- Contents: The System shall have RecordDataIdentifier ($2025) to know the Last service distance.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify identifier RecordDataIdentifier($2025)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2025’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+3. ID: 3997507
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+4. ID: 3997508
+- Contents: The System shall follow the below conversions
+DataRecord (zz) (see: image100.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the data record from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+- Visual Elements: image100.png
+
+5. ID: 3997509
+- Contents: Last Service distance high byte
+The System shall have a command allows to read the current odometer value and the value of the odometer is consists of 3-parts (bytes): Highbyte - Middlebyte - Lowbyte.
+Odometer = hex2dec( Highbyte Middlebyte Lowbyte )
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the odometer value
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, allows, to read, is, consists, value, bytes, Lowbyte" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+6. ID: 3997511
+- Contents: Last Service distance middle byte
+The System shall have a command allows to read the current odometer value and the value of the odometer is consists of 3-parts (bytes): Highbyte - Middlebyte - Lowbyte.
+Odometer = hex2dec( Highbyte Middlebyte Lowbyte )
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the odometer value
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, allows, to read, is, consists, value, bytes, Lowbyte" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+7. ID: 3997512
+- Contents: Last Service distance low byte
+The System shall have a command allows to read the current odometer value and the value of the odometer is consists of 3-parts (bytes): Highbyte - Middlebyte - Lowbyte.
+Odometer = hex2dec( Highbyte Middlebyte Lowbyte )
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the odometer value
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, allows, to read, is, consists, value, bytes, Lowbyte" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+8. ID: 3997513
+- Contents: The System shall support the following NRC's
+Read NR (see: image101.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NRC read NR from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250212: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Approved
+- Visual Elements: image101.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image100.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image101.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.22 Last Service distance  ($2025) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,69 @@
+# UnknownID 6.2.1.1.29 NDR Serializer Error (0x9085, 0x04) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.29 NDR Serializer Error (0x9085, 0x04)
+
+- ID: 3912332
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Kernel, Security, System Infra
+- Grooming Comments: Need to confirm who is responsible for NDR.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3912334
+- Contents: If Serializer (Central 1-2, Central 1-1), FPD-Link IV Serializer not locked and FPD-Link IV Serializer internal fault (HW), the system shall face NDR Serializer Error.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the locking status of Serializer, FPD-Link IV Serializer and internal fault(HW) of FPD-Link IV Serializer.
+- Grooming Status: Approved
+- Expert Domains: Kernel, Security, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "locked" )
+- TestTeamComment: RWeber_DIAG_241213: Only protocol test for this DTC (check to pos. response). We have no HW to modify video signal or trigger this DTC to active/passive
+- State (Harman_Requirement): Approved
+
+2. ID: 3912339
+- Contents: The system shall have the Vehicle Configuration as Proxi byte 31, bit 1  ("NDR") == 1 "present".
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify  ("NDR") == 1 "present" with Proxi byte 31, bit 1.
+- Grooming Status: Approved
+- Expert Domains: Kernel, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘31,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241213: Only protocol test for this DTC (check to pos. response). We have no HW to modify video signal or trigger this DTC to active/passive
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.29 NDR Serializer Error (0x9085, 0x04) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

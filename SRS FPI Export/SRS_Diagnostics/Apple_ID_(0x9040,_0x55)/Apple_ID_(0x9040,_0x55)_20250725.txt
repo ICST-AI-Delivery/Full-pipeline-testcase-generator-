@@ -1,0 +1,93 @@
+# UnknownID 6.2.1.1.36 Apple ID (0x9040, 0x55) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.36 Apple ID (0x9040, 0x55)
+
+- ID: 3919919
+- Artifact Type: SRS Feature
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3919920
+- Contents: If Apple authentication has failed , the system shall send  Apple ID  message with Permanent evaulation in Vehicle configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system is sending the Apple ID message with permanent evaluation when apple authentication has failed.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit, WLMR, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Approved
+
+2. ID: 3919921
+- Contents: The system shall detect the Fault Conditions if key is on.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Pre condition Key-ON.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Approved
+
+3. ID: 3919922
+- Contents: If the Maturation time is 1sec  &  Communication with the MFI Chip has failed for some reason, the system shall come into contact with Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Maturation time as 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Approved
+
+4. ID: 3919923
+- Contents: If the De-Maturation is 1sec  &  DTC is devalidated as soon as communication with the MFI Chip is re-established, the system shall face with De-Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_241213: With specified info only protocol test can executed or tested. Restrictions, to test the failure state, we need a HW mod to interrupt the MFI chip communication or some callback. without this info, not really testable.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.36 Apple ID (0x9040, 0x55) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

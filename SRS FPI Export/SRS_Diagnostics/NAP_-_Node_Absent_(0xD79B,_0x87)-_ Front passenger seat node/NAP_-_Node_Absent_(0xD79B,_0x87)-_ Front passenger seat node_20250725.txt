@@ -1,0 +1,83 @@
+# UnknownID 6.2.1.1.51 NAP - Node Absent (0xD79B, 0x87)-  Front passenger seat node Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.51 NAP - Node Absent (0xD79B, 0x87)-  Front passenger seat node
+
+- ID: 3762320
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3762321
+- Contents: The system shall detect NAP Node Absent fault when the periodic messages expected from the ECU are missing with Maturation time "9"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NAP Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: DTC is set if a periodic message  expected from the ECU are missing:
+
+STATUS_NAP
+
+STATUS_NAP_V3
+
+STATUS_NAP2_V3
+    Maturation Time: 9s
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "detect, expected, missing" )
+- TestTeamComment: RWeber_DIAG_241111: Missing CAN msg ID. Hopefully I will find them.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Proxi byte 28, bit 7 (NAP) == "Present"
+	       Fault Detection Conditions: Two contitions:
+               1. at transition from Key-Off to Key-On
+               2. at steady state
+
+2. ID: 3762323
+- Contents: The system shall make the NAP Node Absent Fault inactive upon DTC devalidation when the periodic messages expected from the ECU is present on CAN (with DLC compliant with message map) with De-maturation time "2"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NAP Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: DTC is devalidated as soon as all periodic messages expected from the ECU is present on CAN (with DLC compliant with message map)
+    De-Maturation Time: 2s
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, make, expected, is present, devalidation, messages, ECU, compliant, map, time" )
+- TestTeamComment: RWeber_DIAG_241111: Missing CAN msg ID. Hopefully I will find them.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Proxi byte 28, bit 7 (NAP) == "Present"
+	       Fault Detection Conditions: Two contitions:
+               1. at transition from Key-Off to Key-On
+               2. at steady state
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.51 NAP - Node Absent (0xD79B, 0x87)-  Front passenger seat node Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,111 @@
+# UnknownID 6.2.4.3.1.15 Control unit internal temperature sensor 2 Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.15 Control unit internal temperature sensor 2
+
+- ID: 3943733
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3943734
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and Dimension: 3 Bytes, Data type: HEX
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte.
+- State (Harman_Requirement): Approved
+
+2. ID: 3943736
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return details about the Temperature of the processor board as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned details about the internal Temperature of the processor board in Table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse temperature.
+- State (Harman_Requirement): Approved
+
+3. ID: 3943766
+- Contents: The Control unit internal temperature parameter fields shall populate based on the Current Temperature, Minimum Temperature and Maximum Temperature shown in the below tables.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Control unit internal temperature parameter fields shall populate based on the Current Temperature, Minimum Temperature and Maximum Temperature shown in the below tables.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "fields, populate, based, shown, Temperature, tables" )
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse temperature.
+- State (Harman_Requirement): Approved
+
+4. ID: 3943768
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Current Temperature values in table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse temperature.
+- State (Harman_Requirement): Approved
+
+5. ID: 3943781
+- Contents: The System shall support the Minimum Temperature values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Minimum Temperature values in table.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Minimum" )
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse temperature.
+- State (Harman_Requirement): Approved
+
+6. ID: 3943793
+- Contents: The System shall support the Maximum Temperature values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Maximum Temperature values in table.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" )
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse temperature.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.15 Control unit internal temperature sensor 2 Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

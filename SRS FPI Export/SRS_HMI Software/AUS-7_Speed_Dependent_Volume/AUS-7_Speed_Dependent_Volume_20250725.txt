@@ -1,0 +1,344 @@
+# AUS-7 6.2.1.13  Speed Dependent Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.13 AUS-7 Speed Dependent Volume
+
+- ID: 4033334
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4631745
+- Contents: The system shall adjust the volume 'auto-matically' intending to compensate the noise due to the vehicle speed if speed dependent volume = 'On'.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Precondition: Speed dependent volume setting is ON.
+
+Use Logcat log to verify the "speed dependent volume change API call" with proper settings.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adjust, intending, to compensate, volume, noise, vehicle" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4037321
+- Contents: The system shall show "Speed dependent volume” item only for low end car configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that "Speed dependent volume” setting  is seen on HMI if Proxi value Audio_Level =1 (base)
+
+"Speed dependent volume” setting should be hided  if Proxi value Audio_Level != 1 (base)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: low end car means Proxi value Audio_Level =1 (base)
+
+3. ID: 4037378
+- Contents: The system shall manage the Speed Dependent Volume functionality only if proxi parameter Audio_Level == 1("Base").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that  user can change the "Speed dependent volume” setting  On/Off
+from HMI only if Proxi value Audio_Level =1 (base)
+
+Note:
+Speed dependent volume” setting is visible only Proxi value Audio_Level =1 (base)
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-894
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4037380
+- Contents: The system shall apply the 'Speed Dependent Volume' setting for the 'ENTERTAINMENT' Audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the speed dependent volume settings are visible.
+Verify the speed dependent volume settings can be changed for Entertainment Sources.
+
+Note: 
+Entertainment Audio source includes Radio, Android Auto, Apple CarPlay, Traffic Alert.
+- Grooming Status: Approved
+- Grooming Comments: [20.12.2024, Ahmed, Abdul] OK to approve  [27.01.2025 Muthuraj, Abdul] Approved
+
+https://jira.harman.com/jira/browse/FQ-879
+- Expert Domains: Android HMI, Media Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4037384
+- Contents: The system shall allow the user to 'enable/ disable' the Speed Dependent Volume setting from HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Verify that the speed dependent volume setting can be enabled/disabled from HMI
+
+Verify the speed dependent API is called with relevant values
+Use logcat log for verification.
+- Grooming Status: Approved
+- Grooming Comments: [20.12.2024, Ahmed, Abdul] Approved
+Ahmed to confirm on the domains.
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, enable, disable, Volume, HMI" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The speed dependent Volume setting shall assume the following values:
+
+0: Speed Dependent Volume is not active
+1: Speed Dependent Volume is active
+
+6. ID: 4037389
+- Contents: The system shall set the 'IDC_AudioSettings.SpeedDependentVolumeSet'' output signal as follows when the user changes the Speed Dependent Volume setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Speed Dependent Volume setting value (on/off) from HMI or via diagnostics.
+
+Verify that the values are reflected (as per the below artifact ID 4573636) in the HMI and in the CAN signal
+'IDC_AudioSettings.SpeedDependentVolumeSet
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, follows, change, IDC_AudioSettings, Volume, value" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HMI_Value will be stored in the calibration parameter
+
+7. ID: 4758741
+- Contents: If setting Persistence type is Standard, the system shall persist the 'Speed Dependent Volume' setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Speed Dependent Volume) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4758742
+- Contents: If setting persistent type = standard, the system shall set the 'Speed Dependent Volume' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Speed Dependent Volume setting value.
+
+Create error in memory reading.
+Verify that the Speed Dependent Volume setting value is set to default value in HMI..
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4758743
+- Contents: If setting Persistence type = Profiled, the system shall store the last 'Speed Dependent Volume' setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Speed Dependent Volume) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, Volume, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4758744
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Speed Dependent Volume setting) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4758745
+- Contents: If setting Persistence type = Profiled, the system shall set the 'Speed Dependent Volume' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Speed Dependent Volume setting value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4037422
+- Contents: The system shall set the signal "IDC_AudioSettings.SpeedDependentVolumeSet = 0" ("OFF") if proxi parameter Audio_Level != 1 ("Base").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level != 1 ("Base").
+
+Verify the value of the signal IDC_AudioSettings.SpeedDependentVolumeSet = 0 ("OFF") 
+
+Verify the setting is OFF in HMI.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4037296
+- Contents: Speed Dependent Volume allows to adjust the volume gain based on the vehicle's speed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4037301
+- Contents: The system shall display the "Speed Dependent Volume" interfaces as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 4037319
+- Contents: If On the volume is automatically adjusted in order to compensate the noise due to the vehicle speed.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4573636
+- Contents: (see: image24.png)
+(see: image25.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image24.png, image25.png
+
+5. ID: 4037406
+- Contents: The system shall adapt the volume gain adjustment based on the vehicle speed through the 'FAD_CTRL__setSpeedDepVolume(void *fad_ctrl_memory,
+int intensity)' API If the value of SpeedDependentVolumeSet changes, where:
+intensity = Speed Dependant Volume setting HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adapt, based, setting, volume, adjustment, vehicle, intensity, Volume" )
+- State (Harman_Requirement): Review
+
+6. ID: 4037408
+- Contents: The FAD recevives the vehicle speed signal through FAD_CTRL__recvCAN() API.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer IDC-417999 - FAD-5 Vehicle Noise Compensation.
+
+7. ID: 4037418
+- Contents: The system shall apply Persistence logics to Speed Dependent Volume setting as defined in Audio setting introduction.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+8. ID: 4037425
+- Contents: Diagnosis
+  Calibration Parameters
+SpeedDependentVolumeSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 4037428
+- Contents: Proxi
+Start Byte 154, Start bit 6 - Audio Level (0 = "Invalid", 1 = "Base", 2 = "Premium", 3 = "High End")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 4037432
+- Contents: Inputs
+  HMI_CAN:
+NFR_SPEED.VehicleSpeedVSOSig
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+11. ID: 4037434
+- Contents: Outputs
+INFO_CAN:
+IDC_AudioSettings.SpeedDependentVolumeSet
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image25.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image24.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-7 6.2.1.13  Speed Dependent Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

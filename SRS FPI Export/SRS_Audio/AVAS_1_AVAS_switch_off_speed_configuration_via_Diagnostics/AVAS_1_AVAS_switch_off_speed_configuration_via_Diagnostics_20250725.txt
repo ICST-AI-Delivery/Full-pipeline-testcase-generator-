@@ -1,0 +1,82 @@
+# UnknownID 6.2.4.1.2 AVAS 1: AVAS switch off speed configuration via Diagnostics Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.2 AVAS 1: AVAS switch off speed configuration via Diagnostics
+
+- ID: 3622160
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3526718
+- Contents: The system shall configure the "AVAS switch Off speed in EU region" via Diagnostics.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the AVAS switch Off speed (vehicle speed <= this value, the AVAS sound will be switched On) in EU region can correctly configured via Diagnostics.
+
+Use DID 0x052A for read and write operation.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3619391
+- Contents: The system configure the "AVAS switch off speed for NAFTA region" via Diagnostics.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to configure the vehicle speed (Vehicle speed <= this speed, the AVAS sound will be switched On) in NAFTA region via diagnostics.
+
+Use DID 0x052A for read and write operation.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3932587
+- Contents: The IDC shall send the signal IDC_AudioStreams.AvasAlertSound also the FAD library as internal interface AvasAlertSound.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3696363
+- Contents: Internal interfaces
+AvasAlertSound
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.1.2 AVAS 1: AVAS switch off speed configuration via Diagnostics Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,88 @@
+# VFI-F663 6.2.2.29  Wireless Charger Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.29 VFI-F663 Wireless Charger
+
+- ID: 4888051
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4888054
+- Contents: System shall Enable Wiresless charger module functionality when Proxi WirelessChargerModule is Present OR RearWirelessChargerModule is Present
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Wireless charger Module Functionality is Enabled when Proxi WirelessChargerModule is Present OR RearWirelessChargerModule is Present.
+- Grooming Status: Approved
+- Grooming Comments: Refer to HMI-LF-10382 - Wireless charger repetition
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, WirelessChargerModule, Enable, is Present, is, functionality, RearWirelessChargerModule, Present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4888345
+- Contents: System  shall display the approriate wireless charger indication  as IF STATUS_WCM.WCM_Status== "0" (READY_TO_CHARGE) OR "1" (BASIC_POWER_PROFILE_CHARGE) OR "2" (EXTENDEND_POWER_PROFILE_CHARGE) OR "3" (SAMSUNG_FAST_CHARGE) OR "4" (APPLE_FAST_CHARGE)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays the Front WCM indication as Ready to charge when STATUS_WCM.WCM_Status is set to 0. and rest as per the condition.
+- Grooming Status: Approved
+- Grooming Comments: Refer to HMI-LF-10382 - Wireless charger repetition
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4888346
+- Contents: System shall display the appropriate wireless charger indication as IF STATUS_WCMR.WCMR_Status== "0" (READY_TO_CHARGE) OR "1" (BASIC_POWER_PROFILE_CHARGE) OR "2" (EXTENDEND_POWER_PROFILE_CHARGE) OR "3" (SAMSUNG_FAST_CHARGE) OR "4" (APPLE_FAST_CHARGE)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays the Front WCM indication as Ready to charge when STATUS_WCMR.WCMR_Status is set to 0. and rest as per the condition.
+- Grooming Status: Approved
+- Grooming Comments: Refer to HMI-LF-10382 - Wireless charger repetition
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "appropriate" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4888053
+- Contents: [Info] This function manage the wireless charger module status visualizatio
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F663 6.2.2.29  Wireless Charger Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

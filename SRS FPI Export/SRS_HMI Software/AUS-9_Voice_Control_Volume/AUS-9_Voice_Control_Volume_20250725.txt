@@ -1,0 +1,247 @@
+# AUS-9 6.2.1.15  Voice Control Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.15 AUS-9 Voice Control Volume
+
+- ID: 3408184
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3539554
+- Contents: The system shall display the "Voice Control Volume" interface on HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Voice control volume interface is visible in HMI Audio Setting
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3539556
+- Contents: The system shall play a dedicated audio preview (which the volume is calibratable in order to be significant) as feedback while adjusting Voice control volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Audio preview is played on changing the Voice Control volume.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, play, prompt, adjusting, volume" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: A dedicated prompt audio (“Navigation system to destination is not active”) is provided as feedback
+while volume is being adjusted
+
+3. ID: 3535055
+- Contents: The system shall allow the Voice control volume adjustment within the allowed range.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Voice control volume level can be adjusted (0 to 100% )
+Verify that the changed value is reflected on HMI
+Note:
+Volume can be changed via HMI, Hardkey, Diagnostics
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (refer to IDC-417329 - FAD-0 Ferrari Audio Director Introduction )
+
+4. ID: 3525065
+- Contents: The system shall play "a dedicated" sound preview on the "VOICE_ASSISTANT" channel at the selected volume level when a volume is "selected" for Voice control volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify a dedicated sound preview is played at the selected volume level for the voice control volume.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, volume, play, dedicated, sound, selected, is, preview, VOICE_ASSISTANT, level" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Info] Refer to HMI specification for details about Voice Control Volume sound preview
+
+5. ID: 3524964
+- Contents: The system shall allow the user to change the Voice Control Volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that user can change the Voice Control Volume.
+
+Verify that the changed value is reflected on HMI
+- Grooming Status: Review
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3535096
+- Contents: The system shall always align HMI indication of Voice control volume setting to the volume stored in Voice_Volume (i.e. if volume is updated from other interface than the setting, system shall update setting value HMI indication)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Capture as part of of above
+
+Verify the selected Voice control volume level is displayed on HMI
+- Grooming Status: Review
+- Grooming Comments: [Abdul 01.08.2024] : Removed from PI4 Obsolete
+
+What is other interface? Jira is needed.
+
+The system shall display the selected volume level on HMI
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, align, setting, stored, update, indication, control, volume, value" ) 
+Unclear term
+ (Look for: "other" ) 
+Passive voice
+ (Look for: "is updated" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 4576214
+- Contents: The system shall align HMI indication of Voice Control volume to the updated volume level on updating the volume from different interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Voice Control volume from HMI, Hardkey, Diagnostics.
+
+Verify that the updated Voice Control volume level is reflected on HMI
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Different interfaces include HMI. Hardkey, Diagnostics
+
+8. ID: 4881532
+- Contents: If setting Persistence type is Standard, the system shall persist the 'Voice Control Volume"' setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Voice Control Volume") for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4881533
+- Contents: If setting persistent type = standard, the system shall set the "Voice Control Volume setting" value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Speed Dependent Volume setting value.
+
+Create error in memory reading.
+Verify that the Voice Control Volume setting value is set to default value in HMI..
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4881534
+- Contents: If setting Persistence type = Profiled, the system shall store the last 'Voice Control Volume"' setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (Voice Control Volume") value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, Volume, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4881535
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Voice Control Volume setting) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4881536
+- Contents: If setting Persistence type = Profiled, the system shall set the "Voice Control Volume" setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Voice Control Volume setting value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3524939
+- Contents: This setting allows the user to adjust the External Voice Assistant volume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4539932
+- Contents: [Info] The ceil function rounds the result to the nearest integer greater than or equal to the result.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-9 6.2.1.15  Voice Control Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

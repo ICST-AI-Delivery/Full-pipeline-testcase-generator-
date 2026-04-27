@@ -1,0 +1,380 @@
+# VEH-F134 6.2.1.1.2.8  ESC Lamp Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.8 VEH-F134 ESC Lamp Management
+
+- ID: 3406512
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3619403
+- Contents: System shall display ESC(Electronic Stability Control) Lamp Management as per the Ferrari Design
+(see: image86.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Electronic Stability Control Lamp is displayed as per the Ferrari design
+
+Algo:
+(VDCDisplayInfo= 3 OR TCSDisplayInfo=3)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image86.png
+
+2. ID: 3619405
+- Contents: System shall deactivate ASR and ESC  simultaneously.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall deactivate ASR and ESC simultaneously and also verify that the it is not possible to deactivate only a single one at time.
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design.
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note:it must not be possible to deactivate only a single one at a time.
+
+3. ID: 3619407
+- Contents: System shall activate ASR/ESC at Key-On event without message display.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Deactivate ASR/ESC. Trigger Key Off, Key ON
+Verify that the ASR/ESC is active,d but no message is displayed at every new key-on Event.
+
+CAN-Signal: STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, ASR/ESC, event, message display" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3619409
+- Contents: System shall blink ESC telltale with 4Hz Frequency (DC-50%) when ASR/ESC intervention is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Telltale is blinking with 4Hz frequency , when ASR/ESC intervention is active.
+
+(VDCDisplayInfo=2 OR TCSDisplayInfo=2)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, blink, is active, telltale, intervention" ) 
+Missing limits
+ (Look for: "‘4 Hz %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3619410
+- Contents: System shall display the specific visualization cycle in case of ASR/ESC activation/deactivation during the check-phase at Key-ON,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: 18Jul24 : OPL resolved. Requirement obsolete. Will be removed in PI6
+FQ-419
+Visualisation cycle is not clear. No feedback cycle ins mentioned , Check change with activation status
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3619411
+- Contents: If a fault of one of the above mentioned telltales is present (VDCLampFailSts = Fail present) a DTC must be memorized.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the Specified DTC code is stored.
+
+CAN-Signal:
+Input:
+NFR_HMI.VDCDisplayInfo
+PWT_STATUS_5.TCSDisplayInfo
+Output:
+STATUS_NQS.VDCLamp_FailSts
+- Grooming Status: Approved
+- Grooming Comments: How can DTC codes verified?
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Passive voice
+ (Look for: "be memorized" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3619435
+- Contents: System shall give Fail1 warning with Pop-up , Buzzer and Telltale and send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when VDCDisplayInfo is three OR TCS Display is three.
+Note: Fail1 Shall follow D01 Visualisation behaviour with priority1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: VDCDisplayInfo= 3 OR TCSDisplayInfo=3
+
+Verify that the Fail 1 warning is visualized as per  as per HMI.POP.IND
+CAN-Signal:
+NFR_HMI.VDCDisplayInfo
+WT_STATUS_5.TCSDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, VDCDisplayInfo, give, is, follow, warning, Pop-up, Buzzer, Telltale, Display" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3619884
+- Contents: System shall visualize F134 Fail2 warning send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when TCS Display Info is one with
+D01 Visualisation behaviour.
+priority1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: TCSDisplayInfo=1
+
+
+Verify that the Fail2 visualized as per HMI.POP.IND
+
+
+CAN-Signal: PWT_STATUS_5.TCSDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TCS, visualize, Display, is, warning, Info" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3893787
+- Contents: System shall visualize F134 Fail3 warning  and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUSto indicate ABS system failure with
+D01 Visualisation behaviour.
+priority1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: ABSDisplayInfo=Fail_Lamp_ON):
+
+
+Verify that the Fail3 visualized as per HMI.POP.IND ID 13408 with telltale, buzzer, graphic and popup
+
+
+CAN-Signal: NFR_HMI.ABSDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 3893788
+- Contents: System shall visualize F134 Fail4 warning in accordance to country market to indicate EBD system failure send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS with
+D01 Visualisation behaviour.
+priority1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: EBDDisplayInfo=Fail_Lamp_ON
+
+
+Verify that the Fail4 visualized as per HMI.POP.IND ID 13409 with telltale, buzzer, graphic and popup
+
+Verify graphic displayed as per country market proxi
+BRAKE in red circle for USA
+(!) for EU
+
+CAN-Signal:- NFR_HMI.EBDDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 3619633
+- Contents: System shall visualize F134 feedback-1 when ESCOFFLamprequest changes from on to off send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS with
+D04 Visualisation Behaviou
+Specific priority: ESC ON/OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: ESCOFFLampRequest=1->0
+
+Verify that the system shall visualize feedback 1  as per HMI.POP.IND
+
+CAN-Signal: NFR_HMI.ESCOFFLampRequest
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, changes, to off, priority" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3619752
+- Contents: System shall give feedback-2 when ESCOFFLamprequest is ON AND Manettino not in position four and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS with
+D04 Visualisation Behaviour
+Specific priority: ESC ON/OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger :  ESCOFFLampRequest = 1 and ManettinoSts ≠ 0x04
+
+Verify that the system shall give feedback 2 as per HMI.POP.IND4
+
+CAN-Signal: NFR_HMI.ESCOFFLampRequest
+
+PWT_STATUS_2.EManettinoSts
+- Grooming Status: Approved
+- Grooming Comments: t.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ESCOFFLamprequest, AND, give, is, send, using, position, status, IVI, INDICATOR, priority" ) 
+Negative statement
+ (Look for: "Manettino not" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3619888
+- Contents: System shall display F134 Feedback3  when ESCOFFLampRequest ON send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS with
+D04 Visualisation behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger : ESCOFFLampRequest=1
+
+Verify that the Feedback 3 visualized as per HPI_POP.IND
+
+CAN-Signal: NFR_HMI.ESCOFFLampRequest
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3619894
+- Contents: System shall display F134  info1 and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUSwhen NFR status is RollBenchModel (value four)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: NFRSts=4)
+
+Verify that the info 1 shall be displayed as per HMI_POP.IND
+
+CAN-Signal: NFR_HMI.NFRSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, value" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3619899
+- Contents: System shall display F134 info-2 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when VDCDisplayInfo is two OR TCSDisplayInfo is two
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger: VDCDisplayInfo= 2 OR TCSDisplayInfo
+
+Verify that the Info-2 tellale is displayed as per HMI_POP.IND
+
+CAN-Signal: NFR_HMI.VDCDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, VDCDisplayInfo, TCSDisplayInfo" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3939413
+- Contents: Active diagnosis for virtual telltales turning ON/OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Please refer FQ-1067
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3619747
+- Contents: If a visualization cycles of the F165 Feedback 3, 4, 5, 6 is shown (see F165 function), system shall intefrate F134 Feedback 1 in F165 Feedback 3, 4, 5, 6 and
+F134 Feedback 1 visualization cycle must not performed
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+- Requirement Rationale: 3408580: VEH-F165 Manettino
+
+2. ID: 3619760
+- Contents: If the visualization cycles of the F165 Feedback 7 is active(see F165 function), system shall not visualize F134 Feedback-2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 40
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Missing unit 
+ (Look for: "‘7’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3619895
+- Contents: CAN input dedicated Virtual telltale ESC FAILURE with S06 Behaviour and Virtual telltale ABS FAILURE +Virtual telltale EPB FAILURE with S25 Behaviour
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+4. ID: 3619905
+- Contents: CAN input dedicated Vitrual Telltale ESC FAILURE [Telltale code ref. 00910] with S06 Behaviour
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image86.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F134 6.2.1.1.2.8  ESC Lamp Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

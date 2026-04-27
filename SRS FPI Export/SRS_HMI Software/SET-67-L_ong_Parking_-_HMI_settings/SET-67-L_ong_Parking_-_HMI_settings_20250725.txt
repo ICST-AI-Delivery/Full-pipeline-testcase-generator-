@@ -1,0 +1,237 @@
+# SET-67-L 6.2.3.6.7.1 ong Parking - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.7.1 SET-67-Long Parking - HMI settings
+
+- ID: 3603610
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core, System Infra
+- HB_Comment: 28
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4753744
+- Contents: System shall manage the "Long Parking" function only if proxi parameter "LongParking" == 3("Long Parking ON / Menu ON").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the long parking function when proxi parameter "LongParking" == 3("Long Parking ON / Menu ON").
+
+Start Byte 122, Start bit 5 - LongParking (0 = "Long Parking OFF/ Menu OFF", 1 = "not used",
+2 = "Long Parking ON / Menu OFF", 3 = "Long Parking ON / Menu ON")
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, Parking, function, parameter" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3603612
+- Contents: IDC shall allow user to enable /disable the long parking setting through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to enable /disable the long parking setting through HMI.
+
+HMI-CAN:
+NIT_VEHICLE_SETUP_2.LongParkingSetting
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to enable, disable, setting, parking, HMI" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4753747
+- Contents: System shall inhibit the Storage Mode setting interaction when OBC_ChargePlugType != 1("Plug_AC").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to inhibit the storage mode interaction when OBC_ChargePlugType != 1("Plug_AC").
+
+ OBC_STATUS.OBC_ChargePlugType
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inhibit, setting, Mode, interaction" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4753750
+- Contents: System shall make Storage Mode setting available for user interaction when OBC_ChargePlugType == 1("Plug_AC").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to inhibit the storage mode interaction when OBC_ChargePlugType == 1("Plug_AC").
+
+ OBC_STATUS.OBC_ChargePlugType
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, make, setting available, Mode, interaction" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4753751
+- Contents: IDC shall set LongParkingSetting = 3 ("init") when HMI ON.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify long parking setting status when HMI ON.
+
+LongParkingSetting = 3 ("init")
+
+NIT_VEHICLE_SETUP_2.LongParkingSetting
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4753752
+- Contents: System shall inhibit the
+setting for user interaction when LongParkingSetting =3("init").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user not able to access long parking when LongParkingSetting =3("init").
+
+NIT_VEHICLE_SETUP_2.LongParkingSetting
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inhibit, thesetting, interaction, 3, init" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4753753
+- Contents: System shall read the value of the input signal to display setting value through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the input signal value through HMI 
+ HVB_HMI_STS.LongParkingSts
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4753764
+- Contents: If the user performs a request for a new value of Storage Mode setting, then IDC shall inhibit the HMI setting for user interaction until the signal LongParkingSts receive OR t timeout expire.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user not able to access long parking until LongParkingSts receive OR t timeout expires.
+
+HVB_HMI_STS.LongParkingSts
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4753775
+- Contents: System shall keep the value if the signal long parking status corresponds to the value set by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the value which is set by the user, and it should be valid
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, keep, set, is valid, parking" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4753787
+- Contents: System shall restore the previous value when no signal receives with in the t timeout time.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to restore the previous value when no signal receives within t time out
+
+T_timeout = 1 sec
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, restore, receives, value, time" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4753792
+- Contents: IDC shall display a pop up for setting activation when the user selects the "ON" interface for Storage Mode
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up for setting activation when user selects "ON"
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, setting, selects, pop up, activation, interface, Mode" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4753796
+- Contents: If the user confirms the setting activation then:
+IDC shall set the output signal
+ according to user request.
+else IDC shall keep the setting to the previous status.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user setting confirmations below
+
+verify output signal
+
+NIT_VEHICLE_SETUP_2.LongParkingSetting
+
+verify system able to set the previous status.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, set, according, keep, setting, signal, request, status" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4753762
+- Contents: The only case in which the output signal is not aligned to the input signal is when the user requests a setting value update.
+- Artifact Type: Information
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "align, requests" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-67-L 6.2.3.6.7.1 ong Parking - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

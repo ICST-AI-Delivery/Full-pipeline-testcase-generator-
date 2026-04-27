@@ -1,0 +1,66 @@
+# UnknownID 6.2.1.1.83 Control Unit - Low temperature (0x920C, 0x4B) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.83 Control Unit - Low temperature (0x920C, 0x4B)
+
+- ID: 3938777
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3938778
+- Contents: The System shall detect Low temperature Fault in control unit within 5s after key-ON, if the Functional limitation is present in Control Unit due to Low temperature protection and Average read IDC temperature is =< -40°C.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Functional limitation due to Low temperature protection. 
+-Low temperature Fault in control unit should be detect within 5s after key-ON.
+-Verify Average read IDC temperature is =< -40°C.
+-Verify (0x920C, 0x4B) DTC will trigger.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, read, temperature Fault, unit within, protection, temperature is    -40 #176" )
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. Restrictions: We have no climate chamber or mod DUT to get this temperatures.
+- State (Harman_Requirement): Approved
+
+2. ID: 3938779
+- Contents: The System shall clear the Low temperature Fault in control unit within 2s, if the Average read IDC temperature is > -40°C.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -The Average read IDC temperature is > -40°C.
+-Verify (0x920C, 0x4B) DTC will clear within 2s.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. Restrictions: We have no climate chamber or mod DUT to get this temperatures.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.83 Control Unit - Low temperature (0x920C, 0x4B) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

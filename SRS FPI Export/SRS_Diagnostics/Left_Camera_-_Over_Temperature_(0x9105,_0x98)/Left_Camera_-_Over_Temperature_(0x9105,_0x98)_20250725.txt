@@ -1,0 +1,83 @@
+# UnknownID 6.2.1.5.7 Left Camera - Over Temperature (0x9105, 0x98) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.7 Left Camera - Over Temperature (0x9105, 0x98)
+
+- ID: 3754366
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3754369
+- Contents: The System shall detect Left camera when temperature is over or under threshold and Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Left camera Over Temperature with the below conditions: 
+
+Fault Detection Conditions: Key-On
+
+Maturation Failure Threshold
+ The temperature is detected over or under threshold (
+-40~125℃)
+
+Maturation Time: 5 s
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, temperature, detect, is, camera, threshold, time" )
+- TestTeamComment: RWeber_DIAG_241107: No info about, how to measure the temperature at DUT. For feature, I need a original camera and a climatic champer. Nearly impossible to set error state.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality")  = "Present"
+
+2. ID: 3754418
+- Contents: The system shall unable to detect Left Camera fault when voltage is within threshold limits and De-maturation Time.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Left camera Over Temperature with the below conditions: 
+
+Fault Detection Conditions: Key-On
+
+De-Maturation Failure Threshold: 
+No fault is detected.
+
+De-Maturation Time: 5 s
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, voltage, unable, to detect, is, Left, limits, Time" )
+- TestTeamComment: RWeber_DIAG_241107: No info about, how to measure the temperature at DUT. For feature, I need a original camera and a climatic champer. Nearly impossible to set error state.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality")  = "Present"
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.7 Left Camera - Over Temperature (0x9105, 0x98) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

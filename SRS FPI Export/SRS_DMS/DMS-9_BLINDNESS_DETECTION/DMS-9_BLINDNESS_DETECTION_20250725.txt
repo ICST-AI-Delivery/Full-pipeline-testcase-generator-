@@ -1,0 +1,290 @@
+# DMS-9 6.2.1.10  BLINDNESS DETECTION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.10 DMS-9 BLINDNESS DETECTION
+
+- ID: 3727244
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3727359
+- Contents: The system shall switch to 'DEGRADED' state if the camera quality is poor that limit the driver's detection.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Prevent the driver detection by using the below conditions.
+
+Le_pct_EyeGazeQuality <
+(50)Ce_pct_EyeGazeQualityDegTh OR Le_pct_HeadTrackQuality < (70)Ce_pct_HeadTrackQualityDegTh OR
+Le_pct_EyeClosedQuality < (70)Ce_pct_EyeClosedQualityDegTh) for a time >= Ce_t_DegTimeTh (8 Seconds)
+
+Verify that DMS is switched to Degraded State.
+
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus is Degraded.
+
+
+-------------------
+
+IDC shall transmit DMSSystemStatus == “On”
+
+DMS_INFO.DMSSystemFail = degraded
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "partially" ) 
+Passive voice
+ (Look for: "covered" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Name: Ce_pct_EyeGazeQualityDegTh
+Description: Threshold for degradation condition due to low eye gaze direction quality
+Value: 50
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+--
+Name: Ce_pct_HeadTrackQualityDegTh
+Description: Threshold for degradation condition due to low head tracking quality
+Value: 70
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+---
+Name: Ce_pct_EyeClosedQualityDegTh
+Description: Threshold for degradation condition due to low eye closed detection quality
+Value: 70
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+2. ID: 4552935
+- Contents: The system shall switch to degraded state due to the below condition
+Le_pct_EyeGazeQuality < (50)Ce_pct_EyeGazeQualityDegTh
+Le_pct_HeadTrackQuality < (70) Ce_pct_HeadTrackQualityDegTh
+Le_pct_EyeClosedQuality < (70)Ce_pct_EyeClosedQualityDegTh) for a time >= Ce_t_DegTimeTh(8 seconds).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Prevent the driver detection by using the below conditions.
+
+Le_pct_EyeGazeQuality <
+(50)Ce_pct_EyeGazeQualityDegTh OR Le_pct_HeadTrackQuality < (70)Ce_pct_HeadTrackQualityDegTh OR
+Le_pct_EyeClosedQuality < (70)Ce_pct_EyeClosedQualityDegTh) for a time >= Ce_t_DegTimeTh (8 Seconds)
+
+Verify that DMS is switched to Degraded State.
+
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus is Degraded.
+
+
+
+IDC shall transmit DMSSystemStatus == “On”
+
+DMS_INFO.DMSSystemFail = degraded
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘70’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3727360
+- Contents: The system shall switch to DMS ERROR state if the quality of the camera is good but the camera receives no light or camera receives direct light(Camera glaring).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+Le_pct_EyeGazeQuality >=(50)Ce_pct_EyeGazeQualityDegTh OR
+Le_pct_HeadTrackQuality >= (70) Ce_pct_HeadTrackQualityDegTh  OR
+Le_pct_EyeClosedQuality >= (70)Ce_pct_EyeClosedQualityDegTh) for a time >= Ce_t_DegTimeTh(8 seconds).
+
+Step #1 : camera receives no light or camera receives direct light(Camera glaring).
+
+Verify the value of the below CAN signals.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+DMS_INFO.DMSSystemStatus= Error
+DMS_INFO.HMICode_DMS = not_active
+
+DMS_INFO.DMSSystemFail = temp_fail OR perma_fail according to Failure Management
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Le_enu_StatusDMS = ERROR) and set Oe_enu_FailStsDMS = perma_fail 
+---------------------------------------------
+Name: Le_enu_StatusDMS
+Description: Current status of DMS according to the system state machine
+Unit: Enumeration (0: INIT, 2: USER PRESENCE, 3: ACTIVE, 4: RUNNING, 5: WARNING, 6: DEGRADED, 7:
+ERROR)
+
+Name: Oe_enu_FailStsDMS
+CAN signal: DMS_INFO.DMSSystemFail
+
+4. ID: 3727361
+- Contents: The system shall continue to work normally if the quality of the camera is good and the camera receives light properly and camera receives no direct light(No camera glaring).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Qualification Test
+- Verification Criteria: Precondition :
+Le_pct_EyeGazeQuality >=(50)Ce_pct_EyeGazeQualityDegTh OR
+Le_pct_HeadTrackQuality >= (70) Ce_pct_HeadTrackQualityDegTh  OR
+Le_pct_EyeClosedQuality >= (70)Ce_pct_EyeClosedQualityDegTh) for a time >= Ce_t_DegTimeTh(8 seconds).
+
+Step #1 : camera receives light properly and camera receives no direct light(No Camera glaring).
+
+Verify the value of the below CAN signals.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+DMS_INFO.DMSSystemStatus= Error
+DMS_INFO.HMICode_DMS = not_active
+
+DMS_INFO.DMSSystemFail = temp_fail OR perma_fail according to Failure Management
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-846
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "normally" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3727362
+- Contents: The system shall return to 'normal-operation' from DMS Error due 'no light reception/ direct light reception (Camera glaring)' or degraded state due to poor camera quality if the camera is not degraded or blocked anymore for a time greater than or equal to Ce_t_NoDegTimeTh(2 seconds).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in Error state or in degraded state.
+
+remove the camera degradation or blockage
+
+Verify that the DMS is returned to normal operation within Ce_t_NoDegTimeTh(2 seconds).
+
+Verify the value of the below CAN signals in DMS Active state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+DMS_INFO.DMSSystemStatus = On
+
+DMS_INFO.DMSSystemFail = not_fail
+- Grooming Status: Approved
+- Grooming Comments: [Abdul 27.02.2025]: OK to approve, Need confirmation
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "normal" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: time >= Ce_t_NoDegTimeTh
+Name: Ce_t_NoDegTimeTh
+Description: Timing threshold to go from degradation state to normal operation after degradation condition is not
+detected anymore
+Value: TBD
+Unit: Milliseconds [ms]
+Range: 0 - 65535
+
+### Informational Items:
+
+1. ID: 3727245
+- Contents: This function explains the DMS degradation in case of camera obstruction and driver's attentiveness proper evaluation impedement.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3727250
+- Contents: System shall implement the logics of Blindness Detection according to:
+IDC-451990 - SFS F531
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer SFS F531.
+
+3. ID: 3727342
+- Contents: The system shall detect a performance degradation of the system due to disturbance of optical path of the camera where CAM != OFF according to DMS Activation States Management.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Verification Criteria: Precondition:
+DMS Camera is ON
+
+Create disturbance in camera optical path.
+(e.g. Cover the Camera Partially )
+
+Verify the Blindness. 
+
+
+Oe_enu_DMSSysSts according to Settings Management
+Oe_enu_HMIAttWrn according to Failure Management
+Oe_enu_DrvrAttentive = Status_not_available
+Oe_enu_DrvrPresent according to Face Landmark Location
+Oe_enu_DMSNomCond = Status_not_available
+Oe_enu_FailStsDMS = degraded
+
+Verify the DMS state as Degraded
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus is 0
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, detect, according, degradation, system, disturbance, path, camera, CAM, Management" )
+- State (Harman_Requirement): New
+- Requirement Rationale: to Degraded.
+FailStsDMS
+DebugStsDMS
+
+4. ID: 3727355
+- Contents: The System shall implement a camera blockage taking into account the performance degradation of the system in order to detect camera obstruction.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): New
+
+5. ID: 3727366
+- Contents: Proxi
+Start Byte 174, Start bit 4 - IDC_Vehicle_Type (0 = invalid, 1 = F244, 15 = other)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3727368
+- Contents: Diagnosis
+Calibration Parameters
+Ce_pct_EyeGazeQualityDegTh
+Ce_pct_HeadTrackQualityDegTh
+Ce_pct_EyeClosedQualityDegTh
+Ce_t_DegTimeTh
+Ce_t_NoDegTimeTh
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 3727370
+- Contents: Network interfaces
+  Outputs
+     Oe_enu_FailStsDMS
+Internal interfaces
+  Outputs
+      Oe_enu_FailStsDMS
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-9 6.2.1.10  BLINDNESS DETECTION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,2971 @@
+{
+  "timestamp": "2026-04-16T14:41:40.636865",
+  "main_fpi": "2xA2B_Audio_Layout",
+  "methodology": "Antisymmetric Matrix with Upstream/Downstream Differentiation",
+  "total_features_analyzed": 1426,
+  "non_zero_dependencies": 196,
+  "antisymmetric_matrix": {
+    "AUD-2_A2B_Network_2_configuration_via_diagnostics": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Audio/AUD-2_A2B_Network_2_configuration_via_diagnostics/"
+    },
+    "AUD-2_A2B_Network_Management": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Audio/AUD-2_A2B_Network_Management/"
+    },
+    "AUD-2_IOC_A2B_Network_Management": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Audio/AUD-2_IOC_A2B_Network_Management/"
+    },
+    "AUD-7_CAN_Control_Signals": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/AUD-7_CAN_Control_Signals/"
+    },
+    "Audio_&_Sound_processing": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "General audio layout context"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Audio_&_Sound_processing testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Audio/Audio_&_Sound_processing/"
+    },
+    "AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics/"
+    },
+    "Diagnostics_Test_Tone_Generator": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/Diagnostics_Test_Tone_Generator/"
+    },
+    "Echo,_Noise_Cancellation_and_barge-in_function": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/Echo,_Noise_Cancellation_and_barge-in_function/"
+    },
+    "ESE-1_ESE_BEV_Management_Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/ESE-1_ESE_BEV_Management_Diagnostics/"
+    },
+    "FAD-1_Audio_Channels_Interaction": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "FAD-1_Audio_Channels_Interaction testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-1_Audio_Channels_Interaction/"
+    },
+    "FAD-2_Audio_Channels_Control": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "FAD-2_Audio_Channels_Control testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-2_Audio_Channels_Control/"
+    },
+    "FAD-2_Audio_Channels_Control_-_Min_Switch-On_Volume": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Volume control behavior and limits"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "FAD-2_Audio_Channels_Control_-_Min_Switch-On_Volume testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-2_Audio_Channels_Control_-_Min_Switch-On_Volume/"
+    },
+    "FAD-2_Channel_Directionality": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "FAD-2_Channel_Directionality testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-2_Channel_Directionality/"
+    },
+    "FAD-2 Channel_Directionality": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "FAD-2 Channel_Directionality testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-2 Channel_Directionality/"
+    },
+    "Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Audio/Volume/"
+    },
+    "Bluetooth_Link_Control": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/Bluetooth_Link_Control/"
+    },
+    "Call_handling": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/Call_handling/"
+    },
+    "Call_handling-Usecases": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/Call_handling-Usecases/"
+    },
+    "PHN-10_Decline_Call": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/PHN-10_Decline_Call/"
+    },
+    "PHN-13_Call_handling": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/PHN-13_Call_handling/"
+    },
+    "Power_Management": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Power_Management/"
+    },
+    "Scanning": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/Scanning/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD81111)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD81111)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD81112)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD81112)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD81013)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD81013)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD81011)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD81011)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD81012)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD81012)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD81001)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD81001)/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8101A)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8101A)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1-_Positive_wire_shorted_to_ground_(0xD81411)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1-_Positive_wire_shorted_to_ground_(0xD81411)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1-_Reverse_wires_or_wrong_port_(0xD81401)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1-_Reverse_wires_or_wrong_port_(0xD81401)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD81511)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD81511)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD81512)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD81512)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD81413)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD81413)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD81412)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD81412)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1_-_Wires_shorted_together_(0xD8141A)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1_-_Wires_shorted_together_(0xD8141A)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD82111)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD82111)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD82112)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD82112)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD82013)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD82013)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD82011)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD82011)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD82012)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD82012)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD82001)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD82001)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8201A)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8201A)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD82511)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD82511)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD82512)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD82512)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD82413)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD82413)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_ground_(0xD82411)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_ground_(0xD82411)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD82412)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD82412)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Reverse_wires_or_wrong_port_(0xD82401)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Reverse_wires_or_wrong_port_(0xD82401)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Wires_shorted_together(0xD8241A)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Wires_shorted_together(0xD8241A)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_ground_(0xD82911)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_ground_(0xD82911)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_VBATT_(0xD82912)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_VBATT_(0xD82912)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Open_wires_or_wrong_port_(0xD82813)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Open_wires_or_wrong_port_(0xD82813)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_ground_(0xD82811)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_ground_(0xD82811)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_VBATT_(0xD82812)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_VBATT_(0xD82812)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Reverse_wires_or_wrong_port_(0xD82801)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Reverse_wires_or_wrong_port_(0xD82801)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Wires_shorted_together_(0xD8281A)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Wires_shorted_together_(0xD8281A)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_ground_(0xD82D11)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_ground_(0xD82D11)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_VBATT_(0xD82D12)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_VBATT_(0xD82D12)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Open_wires_or_wrong_port_(0xD82C13)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Open_wires_or_wrong_port_(0xD82C13)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_ground_(0xD82C11)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_ground_(0xD82C11)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_VBATT_(0xD82C12)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_VBATT_(0xD82C12)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Reverse_wires_or_wrong_port_(0xD82C01)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Reverse_wires_or_wrong_port_(0xD82C01)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Wires_shorted_together_(0xD82C1A)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Wires_shorted_together_(0xD82C1A)/"
+    },
+    "A2B_Network_2_Configuration_($0528)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "A2B network configuration and topology"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_Configuration_($0528)/"
+    },
+    "Authenticated_Diagnostics_-_Active_Roles": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Authenticated_Diagnostics_-_Active_Roles/"
+    },
+    "Authenticated_Diagnostics_-_Disallowed_Certificate_List": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Authenticated_Diagnostics_-_Disallowed_Certificate_List/"
+    },
+    "Authenticated_Diagnostics_-_Previous_Access": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Authenticated_Diagnostics_-_Previous_Access/"
+    },
+    "Cancel_Maps_at_EOL_(0xFF85)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Cancel_Maps_at_EOL_(0xFF85)/"
+    },
+    "Channel_1_Loudspeaker_Output_-_Circuit_open_(0x940013)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_1_Loudspeaker_Output_-_Circuit_open_(0x940013) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_1_Loudspeaker_Output_-_Circuit_open_(0x940013)/"
+    },
+    "Channel_1_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94001A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_1_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94001A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_1_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94001A)/"
+    },
+    "Channel_1_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940012)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_1_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940012) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_1_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940012)/"
+    },
+    "Channel_1_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940011)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_1_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940011) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_1_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940011)/"
+    },
+    "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)/"
+    },
+    "Channel_2_Loudspeaker_Output_-_Circuit_open_(0x940113)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_2_Loudspeaker_Output_-_Circuit_open_(0x940113) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_2_Loudspeaker_Output_-_Circuit_open_(0x940113)/"
+    },
+    "Channel_2_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94011A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_2_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94011A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_2_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94011A)/"
+    },
+    "Channel_2_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940112)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_2_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940112) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_2_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940112)/"
+    },
+    "Channel_2_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940111)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_2_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940111) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_2_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940111)/"
+    },
+    "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)/"
+    },
+    "Channel_3_Loudspeaker_Output_-_Circuit_open_(0x940213)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_3_Loudspeaker_Output_-_Circuit_open_(0x940213) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_3_Loudspeaker_Output_-_Circuit_open_(0x940213)/"
+    },
+    "Channel_3_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94021A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_3_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94021A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_3_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94021A)/"
+    },
+    "Channel_3_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940212)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_3_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940212) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_3_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940212)/"
+    },
+    "Channel_3_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940211)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_3_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940211) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_3_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940211)/"
+    },
+    "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)/"
+    },
+    "Channel_4_Loudspeaker_Output_-_Circuit_open_(0x940313)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_4_Loudspeaker_Output_-_Circuit_open_(0x940313) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_4_Loudspeaker_Output_-_Circuit_open_(0x940313)/"
+    },
+    "Channel_4_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94031A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_4_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94031A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_4_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94031A)/"
+    },
+    "Channel_4_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940312)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_4_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940312) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_4_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940312)/"
+    },
+    "Channel_4_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940311)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_4_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940311) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_4_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940311)/"
+    },
+    "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)/"
+    },
+    "Channel_5_Loudspeaker_Output_-_Circuit_open_(0x940413)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_5_Loudspeaker_Output_-_Circuit_open_(0x940413) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_5_Loudspeaker_Output_-_Circuit_open_(0x940413)/"
+    },
+    "Channel_5_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94041A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_5_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94041A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_5_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94041A)/"
+    },
+    "Channel_5_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940412)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_5_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940412) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_5_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940412)/"
+    },
+    "Channel_5_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940411)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_5_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940411) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_5_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940411)/"
+    },
+    "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)/"
+    },
+    "Channel_6_Loudspeaker_Output_-_Circuit_open_(0x940513)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_6_Loudspeaker_Output_-_Circuit_open_(0x940513) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_6_Loudspeaker_Output_-_Circuit_open_(0x940513)/"
+    },
+    "Channel_6_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94051A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_6_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94051A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_6_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94051A)/"
+    },
+    "Channel_6_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940512)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_6_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940512) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_6_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940512)/"
+    },
+    "Channel_6_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940511)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_6_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940511) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_6_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940511)/"
+    },
+    "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)/"
+    },
+    "Channel_7_Loudspeaker_Output_-_Circuit_open_(0x940613)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_7_Loudspeaker_Output_-_Circuit_open_(0x940613) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_7_Loudspeaker_Output_-_Circuit_open_(0x940613)/"
+    },
+    "Channel_7_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94061A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_7_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94061A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_7_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94061A)/"
+    },
+    "Channel_7_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940612)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_7_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940612) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_7_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940612)/"
+    },
+    "Channel_7_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940611)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_7_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940611) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_7_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940611)/"
+    },
+    "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)/"
+    },
+    "Channel_8_Loudspeaker_Output_-_Circuit_open_(0x940713)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_8_Loudspeaker_Output_-_Circuit_open_(0x940713) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_8_Loudspeaker_Output_-_Circuit_open_(0x940713)/"
+    },
+    "Channel_8_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94071A)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_8_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94071A) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_8_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94071A)/"
+    },
+    "Channel_8_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940712)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_8_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940712) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_8_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940712)/"
+    },
+    "Channel_8_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940711)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_8_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940711) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_8_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940711)/"
+    },
+    "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration",
+        "Speaker output mapping and parameters"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792) testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)/"
+    },
+    "Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Diagnostics/"
+    },
+    "DMS_-_BLINDNESS_(0xD90031)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_BLINDNESS_(0xD90031)/"
+    },
+    "DMS_-_Ce_t_DebounceTimeDTC_($FE48)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_t_DebounceTimeDTC_($FE48)/"
+    },
+    "DTCFailureType  ($6082)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DTCFailureType  ($6082)/"
+    },
+    "ECU_Time_first_DTC_detection_(EEPROM)  ($200B)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/ECU_Time_first_DTC_detection_(EEPROM)  ($200B)/"
+    },
+    "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for 2xA2B_Audio_Layout testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)/"
+    },
+    "Front_Camera_- Blinded_(0x9103,_0x86)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Front_Camera_- Blinded_(0x9103,_0x86)/"
+    },
+    "HMI_CAN_Bus-off_(0xD001,_0x88)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/HMI_CAN_Bus-off_(0xD001,_0x88)/"
+    },
+    "HMI_CAN_Missing_Message_(0xD001,_0x87)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/HMI_CAN_Missing_Message_(0xD001,_0x87)/"
+    },
+    "Left_Camera_- Blinded_(0x9105,_0x86)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Left_Camera_- Blinded_(0x9105,_0x86)/"
+    },
+    "Max_Switch-On_Volume ($0527)": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Max_Switch-On_Volume ($0527) testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Max_Switch-On_Volume ($0527)/"
+    },
+    "Min_Switch-On_Volume ($XXXX)": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Min_Switch-On_Volume ($XXXX) testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Min_Switch-On_Volume ($XXXX)/"
+    },
+    "PROFILING_MANAGEMENT_($052B)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/PROFILING_MANAGEMENT_($052B)/"
+    },
+    "Rear_Camera_- Blinded_(0x9104,_0x86)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Rear_Camera_- Blinded_(0x9104,_0x86)/"
+    },
+    "Right_Camera_-_Blinded_(0x9106,_0x86)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Right_Camera_-_Blinded_(0x9106,_0x86)/"
+    },
+    "Speed_Dependent_Volume_($0525)": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Speed_Dependent_Volume_($0525) testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Speed_Dependent_Volume_($0525)/"
+    },
+    "SVS_- Trajectory_Lines_Corruption_(0x911A,_0x00)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/SVS_- Trajectory_Lines_Corruption_(0x911A,_0x00)/"
+    },
+    "T_POWER_MANAGEMENT_($0503)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/T_POWER_MANAGEMENT_($0503)/"
+    },
+    "Video_Output_1_FPD_Fault_-_Link_not_locked_(0x905A,_0x93)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Video_Output_1_FPD_Fault_-_Link_not_locked_(0x905A,_0x93)/"
+    },
+    "Video_Output_2_FPD_Fault_-_Link_not_locked_(0x905B,_0x93)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Video_Output_2_FPD_Fault_-_Link_not_locked_(0x905B,_0x93)/"
+    },
+    "Video_Output_3_FPD_Fault_-_Link_not_locked_(0x905D,_0x93)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Video_Output_3_FPD_Fault_-_Link_not_locked_(0x905D,_0x93)/"
+    },
+    "Volume_Attenuation_Enable_($052F)": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Volume_Attenuation_Enable_($052F) testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Volume_Attenuation_Enable_($052F)/"
+    },
+    "Volume_Attenuation_Levels_($0526)": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Volume_Attenuation_Levels_($0526) testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Volume_Attenuation_Levels_($0526)/"
+    },
+    "Volume_Control_($0520)": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Volume_Control_($0520) testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Volume_Control_($0520)/"
+    },
+    "DMS-9_BLINDNESS_DETECTION": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-9_BLINDNESS_DETECTION/"
+    },
+    "AUS-0_Audio_Settings_Persistence": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0_Audio_Settings_Persistence/"
+    },
+    "AUS-0_Audio_settings_via_Diagnostics": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0_Audio_settings_via_Diagnostics/"
+    },
+    "AUS-0_Audio_setting_introduction": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0_Audio_setting_introduction/"
+    },
+    "AUS-0__Audio_settings_via_Diagnostics": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0__Audio_settings_via_Diagnostics/"
+    },
+    "AUS-0 Audio_Settings_Persistence": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0 Audio_Settings_Persistence/"
+    },
+    "AUS-11_Ringtone_Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-11_Ringtone_Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-11_Ringtone_Volume/"
+    },
+    "AUS-12_General_Warning_Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-12_General_Warning_Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-12_General_Warning_Volume/"
+    },
+    "AUS-13_Parking_Sensor_Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-13_Parking_Sensor_Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-13_Parking_Sensor_Volume/"
+    },
+    "AUS-4_Audio_Presets": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "General audio layout context"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-4_Audio_Presets testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-4_Audio_Presets/"
+    },
+    "AUS-7_Speed_Dependent_Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-7_Speed_Dependent_Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-7_Speed_Dependent_Volume/"
+    },
+    "AUS-8_Navigation_Voice_Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-8_Navigation_Voice_Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-8_Navigation_Voice_Volume/"
+    },
+    "AUS-9_Voice_Control_Volume": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "AUS-9_Voice_Control_Volume testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-9_Voice_Control_Volume/"
+    },
+    "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)/"
+    },
+    "Blindspot_-_Front_Audio": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Blindspot_-_Front_Audio/"
+    },
+    "Blindspot_-_Rear_Audio": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Audio system configuration parameters"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Blindspot_-_Rear_Audio/"
+    },
+    "Blind_Spot_Detection Enabled_-_HMI_Settings": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Blind_Spot_Detection Enabled_-_HMI_Settings/"
+    },
+    "ECallERAGLONASS_Calling": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/ECallERAGLONASS_Calling/"
+    },
+    "PFL-0_Profiling_Introduction": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PFL-0_Profiling_Introduction/"
+    },
+    "PRK-0_Obstacle_Proximity_Signalling_Command_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0_Obstacle_Proximity_Signalling_Command_Management/"
+    },
+    "PRK-0_Obstacle_Proximity_Signalling_Indication_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0_Obstacle_Proximity_Signalling_Indication_Management/"
+    },
+    "PRK-0_Obstacle_Proximity_Signalling_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0_Obstacle_Proximity_Signalling_Management/"
+    },
+    "PRK-0_Obstacle_Proximity_Signalling_Visualization_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0_Obstacle_Proximity_Signalling_Visualization_Management/"
+    },
+    "PRK-0__Obstacle_Proximity_Signalling_Command_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0__Obstacle_Proximity_Signalling_Command_Management/"
+    },
+    "PRK-0__Obstacle_Proximity_Signalling_Indication_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0__Obstacle_Proximity_Signalling_Indication_Management/"
+    },
+    "PRK-0__Obstacle_Proximity_Signalling_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0__Obstacle_Proximity_Signalling_Management/"
+    },
+    "PRK-0__Obstacle_Proximity_Signalling_Visualization_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0__Obstacle_Proximity_Signalling_Visualization_Management/"
+    },
+    "PRK-16_BLINDNESS_DETECTION": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-16_BLINDNESS_DETECTION/"
+    },
+    "PRK-18_ONLINE_CALIBRATION": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-18_ONLINE_CALIBRATION/"
+    },
+    "PRK-2_Flagging_lines": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-2_Flagging_lines/"
+    },
+    "PRK-2_Parking_Lines": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-2_Parking_Lines/"
+    },
+    "PRK6_Obstacle_Proximity_Signalling_Buzzer_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK6_Obstacle_Proximity_Signalling_Buzzer_Management/"
+    },
+    "SET-42_Blindspot_setting": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-42_Blindspot_setting/"
+    },
+    "VFI-F200_Dependence_on_vehicle_state_conditions": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/VFI-F200_Dependence_on_vehicle_state_conditions/"
+    },
+    "VFI-F559_Blindspot_and_Rear_Cross_Traffic_Alert": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/VFI-F559_Blindspot_and_Rear_Cross_Traffic_Alert/"
+    },
+    "Volume_Bar": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Volume_Bar testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Volume_Bar/"
+    },
+    "VEH-F140_Unfastened_Seat_Belts_Signalling": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F140_Unfastened_Seat_Belts_Signalling/"
+    },
+    "VEH-F141_Signalling_of_Speed_Limit_Exceeded": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F141_Signalling_of_Speed_Limit_Exceeded/"
+    },
+    "VEH-F179_Obstacles_Proximity_Signalling": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F179_Obstacles_Proximity_Signalling/"
+    },
+    "VEH-F559_Blind_Spot_Monitoring": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F559_Blind_Spot_Monitoring/"
+    },
+    "Cancel_Maps_at_EOL": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Navigation/Cancel_Maps_at_EOL/"
+    },
+    "Displays_Physical_Commands_for_Central_Display_-_VolumeMute_Command": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Volume control behavior and limits"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Displays_Physical_Commands_for_Central_Display_-_VolumeMute_Command testcase enhanced by 2xA2B_Audio_Layout context",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Displays_Physical_Commands_for_Central_Display_-_VolumeMute_Command/"
+    },
+    "F244_NOS_C_CAN_02102024_PI_6": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/F244_NOS_C_CAN_02102024_PI_6/"
+    },
+    "F244_NOS_GLOBAL_CAN_PI_6": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/F244_NOS_GLOBAL_CAN_PI_6/"
+    },
+    "F244_R5_NOS_ETHERNET_PI_6": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/F244_R5_NOS_ETHERNET_PI_6/"
+    },
+    "PMN-1_IDC_Power_Management": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/PMN-1_IDC_Power_Management/"
+    },
+    "Power_Management_-_Power_State_IDC_OFF": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_OFF/"
+    },
+    "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_Off_-_Full_Sleep/"
+    },
+    "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM/"
+    },
+    "Power_Management_-_Power_State_IDC_ON": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for 2xA2B_Audio_Layout testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_ON/"
+    },
+    "RAD-16_DAB_Service_Follow_(linking)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-16_DAB_Service_Follow_(linking)/"
+    },
+    "RAD-31_HD_Radio_SPS_channel": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "RAD-31_HD_Radio_SPS_channel testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-31_HD_Radio_SPS_channel/"
+    },
+    "RAD-36_HD_Radio_Scan": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-36_HD_Radio_Scan/"
+    },
+    "RAD-40_SXM_Channel_Search": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "RAD-40_SXM_Channel_Search testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-40_SXM_Channel_Search/"
+    },
+    "RAD-42_SXM_Channel_info": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "RAD-42_SXM_Channel_info testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-42_SXM_Channel_info/"
+    },
+    "RAD-43_SXM_Favourite_channel": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Audio channel routing and configuration"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "RAD-43_SXM_Favourite_channel testcase requires 2xA2B_Audio_Layout context for verification",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-43_SXM_Favourite_channel/"
+    },
+    "RAD-6_Scan_Strong_Station": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for 2xA2B_Audio_Layout testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-6_Scan_Strong_Station/"
+    }
+  },
+  "mathematical_properties": {
+    "antisymmetric": true,
+    "zero_diagonal": true,
+    "score_range": [
+      -3,
+      3
+    ],
+    "upstream_downstream_differentiation": true
+  }
+}

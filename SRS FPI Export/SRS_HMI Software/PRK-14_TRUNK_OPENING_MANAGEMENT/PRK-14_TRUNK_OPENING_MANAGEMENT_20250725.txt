@@ -1,0 +1,158 @@
+# PRK-14 6.2.4.15  TRUNK OPENING MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.15 PRK-14 TRUNK OPENING MANAGEMENT
+
+- ID: 3939656
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5325589
+- Contents: The system shall display warning message in the centre of the stream view when the Rear stream view is obscured.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precodniion:
+rear view stream is not proper
+
+Verify the warning message is displayed in the centrei of IVI HMI
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1095
+
+[Abdul, Wei 12.03.2025] Ask ferarri:
+What is the alert to be shown?
+- Expert Domains: Android HMI
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, warning, message, center, view" ) 
+Passive voice
+ (Look for: "is obscured" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3970149
+- Contents: The system shall disable the "video-streaming" from "rear-camera" when trunk is open & rear view camera is displaced from nominal position when rear camera mounted on the rear trunk.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open the trunk.
+
+Check that the camera view is disabled or greyed out in the bird view.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, displaced, mounted, situations, amp, camera, position, trunk" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: ('Proxi parameter Rear_Camera_Position == Trunk')
+
+3. ID: 3970155
+- Contents: The system shall "disable" the "video-streaming" from "rear-camera" in the view that "makes use of it".
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: [Saheel, Sunil_05.03.2025] Merge with above requirement and map above
+- Expert Domains: System Infra
+- RQA Score: 50
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "system, make, view, use" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3970179
+- Contents: The system shall grey out the video stream coming from the rear view camera and alert the driver If STATUS_NBC.RhatchSts != “closed”.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Vehicle testing : Open the trunk door.
+
+Bench testing : STATUS_NBC.RhatchSts != “closed”. 
+
+Verify that the alert message is shown on HMI.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1095
+[Abdul, Wei 12.03.2025] Ask ferarri:
+What is the alert to be shown?
+
+[Saheel_05.03.2025] What is the alert to be shown?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, grey out, coming, alert, closed, stream, camera, driver" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3970136
+- Contents: This function describes Rear view behavior when the camera is displaced due to trunk opening.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3970141
+- Contents: The system shall display the Trunk Opening Management as per Ferrari design.
+HMI-LF-7927 - Surround View occluded view.
+HMI-LF-7926 - Parking System: Trunk open/not correctly closed.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+3. ID: 3970146
+- Contents: The system shall implement the logics of Trunk Opening Management according to:
+SFS F802 – Front and Rear Parking Camera Management.
+SFS F560 – Surround View Management.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, according, logics, Management, SFS, Management.SFS" )
+- State (Harman_Requirement): New
+
+4. ID: 5325587
+- Contents: These requirements are applied if the rear camera is installed on the trunk.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 3970181
+- Contents: Proxi
+Start Byte 150, Start bit 5- Rear_Camera_Position ( 0 = "Bumper", 1 = "Trunk")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3970184
+- Contents: Inputs
+Ie_bol_RHatchSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-14 6.2.4.15  TRUNK OPENING MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

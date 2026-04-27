@@ -1,0 +1,175 @@
+# VEH-F057 6.2.1.1.2.4  Rear L/R Stop Lights and Third Stop Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.4 VEH-F057 Rear L/R Stop Lights and Third Stop Management
+
+- ID: 3406472
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3439455
+- Contents: System shall indicate stop lamp failure telltale on  and send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+detecting stop lamp failure for F057 Fail1 with
+D01 visualization
+Priority2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger stop lamp failure by CAN.
+Verify F057 Fail1 displayed as per HMI_POP.IND id 05701 to 05706 with telltale, buzzer , graphic and popup.
+
+Buzzer:2B
+
+Verify priority 2 and D01 visualization behaviour
+
+Algo : 
+LHStopLightFailSts OR RHStopLightFailSts = "Fail_Present" OR NFR_HMI.ThirdLightFaultSts = "Fault_Present")
+
+CAN
+NFR_HMI.ThirdLightFaultSts
+VEHSTAT_V2.LHStopLightFailSts
+VEHSTAT_V2.RHStopLightFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00730
+
+2. ID: 3439456
+- Contents: System shall play stop lamp failure buzzer on detecting stop lamp failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger stop lamp failure by CAN.
+Verify F057 Fail1 displayed as per HMI_POP.IND id 05701 to 05706 with telltale, buzzer , graphic and popup.
+
+Buzzer:2B
+
+Verify priority 2 and D01 visualization behaviour
+
+Algo : 
+LHStopLightFailSts OR RHStopLightFailSts = "Fail_Present" OR NFR_HMI.ThirdLightFaultSts = "Fault_Present")
+
+CAN
+NFR_HMI.ThirdLightFaultSts
+VEHSTAT_V2.LHStopLightFailSts
+VEHSTAT_V2.RHStopLightFailSts
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F057)
+
+3. ID: 3977615
+- Contents: On detecting additional stop lamp failure during F057 Fail1 visualization, system shall
+update 2D/3D graphical representation to show failed lights
+reset pop-up duration
+repeat 2B buzzer
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger LH stop lamp fail. Verify F057 visualization start.
+Trigger RH stop lamp fail by CAN.
+Verify 2D/3D model updated to show both fail status.
+Verify pop duration from RH lamp failure
+verify 2B buzzer repeated
+Algo : 
+LHStopLightFailSts OR RHStopLightFailSts = "Fail_Present" OR NFR_HMI.ThirdLightFaultSts = "Fault_Present")
+
+CAN
+NFR_HMI.ThirdLightFaultSts
+VEHSTAT_V2.LHStopLightFailSts
+VEHSTAT_V2.RHStopLightFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3977630
+- Contents: System shall display stop light failure indication on detecting CAN failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger MC or CRC errors on EXTERNAL_LIGHT message for n_EXT_LIGHT, (default 5)
+
+Verify F057 failure indication displayed
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4687041
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values:
+(see: image78.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Set the condition and Proxi  of the stop light status from the table and verify that the Pop-up's were displayed according to the HMI.POP.IND document
+
+Pop up ID's :00570001 to 07
+
+CAN-Signal: 
+VEHSTAT_V2.LHStopLightFailSts
+VEHSTAT_V2.RHStopLightFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signals, send, following, INDICATOR_STATUS, values" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image78.png
+
+### Informational Items:
+
+1. ID: 3977188
+- Contents: System shall use the mentioned CAN signals to display Rear L/R Stop Lights and Third Stop Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image78.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F057 6.2.1.1.2.4  Rear L/R Stop Lights and Third Stop Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

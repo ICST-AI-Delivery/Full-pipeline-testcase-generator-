@@ -1,0 +1,199 @@
+# VEH-F559 6.2.1.1.2.30  Blind Spot Monitoring Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.30 VEH-F559 Blind Spot Monitoring
+
+- ID: 3408598
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713122
+- Contents: System shall enable the Blind Spot Monitoring function when proxi LBSS and RBSS present.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Blind Spot Monitoring Function is Enabled when Proxi is Present.
+
+PROXI:
+PROXI "LBSS" = "Present" (byte 32, bit 7)
+PROXI "RBSS" = "Present" (byte 33, bit 0)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, proxi, function, LBSS, present" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer LBSS and RBSS in CAN_Configuration from 3712871: Proxi_NextGen_240419_rev463.xls
+
+2. ID: 3922096
+- Contents: System shall display the Blind Spot Detection in the External rear left angle in the Right Dial - ADAS One Page area when BSS_LRLChime_RQSts is Left_rear_chime_on_req.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RQSts, display, left, is, Detection, area, Left" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3925412
+- Contents: System shall display the Blind Spot Detection in the External front left angle in the Right Dial - ADAS One Page area when BSS_LF_Chime_RQSts is Left_front_chime_on_req.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RQSts, display, left, is, Detection, area, Left" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3925413
+- Contents: System shall display the Blind Spot Detection in the External front left angle in the Right Dial - ADAS One Page area when BSS_RR_Chime_RQSts is Right_Rear_chime_on_req.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RQSts, display, left, is, Detection, area" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3925414
+- Contents: System shall display the Blind Spot Detection in the External front left angle in the Right Dial - ADAS One Page area when BSS_RF_Chime_RQSts is Right_Font_chime_on_req.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RQSts, display, left, is, Detection, area" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3925415
+- Contents: All the visualization of the Blindspot Detection shall activate simultaneously
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "All" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3713137
+- Contents: System shall display Fail-1 pop-up with buzzer and send the status to IVI when:
+Blind Spot Sensor RT SRV RQ Status is equal to Service request OR
+Blind Spot Sensor LT_SRV_RQSts is equal to Service request
+Note: Fail-1 follows D01 visualisation behaviour with prioriy-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+BSS_RT_SRV_RQSts = Service Request OR BSS_LT_SRV_RQSts = Service Request
+
+Verify that the Fail-1 is trigerred when necessary conditions are met.
+
+Buzzer:2B
+
+CAN-Signals:
+STATUS_LBSS.BSS_LT_SRV_RQSTs
+STATUS_RBSS.BSS_RT_SRV_RQSTs
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RQSts, display, is, follows, pop-up, Status, request, prioriy-0" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3713149
+- Contents: System shall display Fail-2 pop-up with Buzzer2B and send the Status to IVI when:
+Blind Spot Sensor RT OPR RQ Status is OperationalFail_SysUnavailable OR
+Blind Spot Sensor LT OPR RQ Status isOperationalFail_SysUnavailable
+Note: Fail-2 follows D01 visualisation behaviour with prioriy-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+BSS_RT_OPR_STATSts = OperationalFail_SysUnavailable OR BSS_LT_OPR_STATSts = OperationalFail_SysUnavailable
+
+Verify that the Fail-2 Pop-up is displayed when necessary conditions are met.
+
+Buzzer:2B
+
+CAN-Signal:
+STATUS_LBSS.BSS_LT_OPR_StatSts
+STATUS_RBSS.BSS_RT_OPR_StatSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, pop-up, Status, prioriy-0" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3713158
+- Contents: System shall dispaly Warning-1 pop-up with Buzzer 2B and send the Status to IVI when :
+BSS_LT_Blind_RQSts is equal to  Sensor_Blocked_Request OR
+BSS_RT_Blind_RQSts is equal to  Sensor_Blocked_Request
+Note: Warning-1 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger-Condition:
+BSS_LT_Blind_RQSts = Sensor_Blocked_Request OR BSS_RT_Blind_RQSts = Sensor_Blocked_Request
+
+Verify that the Warning-1 is displayed when Necessary conditions are met.
+
+Audio Buzzer: 2B
+
+CAN-Signal:
+STATUS_LBSS.BSS_LT_Blind_RQSTs
+STATUS_RBSS.BSS_RT_Blind_RQSTs
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RQSts, dispaly, is, Blocked, follows, pop-up, priority-0" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713118
+- Contents: System shall display Blind spot Monitoring as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F559 6.2.1.1.2.30  Blind Spot Monitoring Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,219 @@
+# AUS-12 6.2.1.17  General Warning Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.17 AUS-12 General Warning Volume
+
+- ID: 3408181
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3535354
+- Contents: The system shall display the "General Warning Volume" interface on HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the General Warning volume interface is visible in HMI Audio Setting
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3871900
+- Contents: The system shall allow the user to change the "General Warning Volume".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that User can change the General Warning Volume. 
+
+Verify that the changed value is reflected on HMI.
+- Grooming Status: Review
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3535367
+- Contents: The system shall allow the user to change the General Warning Volume within the allowed range.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the General Warning volume level can be adjusted (0 to 100% ) .
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to IDC-417329 - FAD-0 Ferrari Audio Director Introduction
+
+4. ID: 3851558
+- Contents: The system shall provide the preview of chime sound as feed-back while adjusting general warning volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the volume for chime sound
+
+While volume is being adjusted, Verify that the preview of chime sound is played at the selected volume level
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, provide, adjusting, preview, sound, volume" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4576241
+- Contents: The system shall play a dedicated sound preview on the 'GENERAL_WANING_1' channel at the selected volume level when a volume level is "selected".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify a dedicated sound preview is played at the selected volume level when a volume level is selected for Ringtone volume.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, level, play, WANING, selected, is, preview" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4576249
+- Contents: The system shall align HMI indication of General_Warning_Volume to the updated volume level on updating the volume from different interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the General Warning Volume from HMI, Hardkey, Diagnostics.
+
+Verify that the updated General Warning volume level is reflected on HMI
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4881537
+- Contents: If setting Persistence type is Standard, the system shall persist the General Warning
+Volume setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the General Warning
+Volume setting from HMI for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4881538
+- Contents: If setting persistent type = standard, the system shall set the "General Warning Volume" setting value to default value if  the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the "General Warning Volume" setting value.
+
+Create error in memory reading.
+Verify that the "General Warning Volume" setting value is set to default value in HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4881539
+- Contents: If setting Persistence type = Profiled, the system shall store the last "General Warning Volume" setting value for the current active user profile, before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last "General Warning Volume" settings value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]: OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, reboot, last, Volume, value, profile, system shutdown" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4881540
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings ( "General Warning Volume settings) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2027]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4881541
+- Contents: If setting Persistence type = Profiled, the system shall set the "General Warning Volume" setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency.
+Change the Audio settings value.
+
+create error in memory reading.
+Verify the "General Warning Volume" setting value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3535231
+- Contents: This function allows to adjust the volume of a set of chimes
+- Artifact Type: Information
+- State (Harman_Requirement): Approved
+
+2. ID: 4539275
+- Contents: [Info] The ceil function rounds the result to the nearest integer greater than or equal to the result.
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-12 6.2.1.17  General Warning Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

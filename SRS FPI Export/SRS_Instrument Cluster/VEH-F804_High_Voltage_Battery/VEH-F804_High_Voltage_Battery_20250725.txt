@@ -1,0 +1,1194 @@
+# VEH-F804 6.2.1.1.2.35  High Voltage Battery Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.35 VEH-F804 High Voltage Battery
+
+- ID: 3408603
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3646899
+- Contents: System shall show SOC(State of Charge) battery HVB indications  in the area specified in HMI Specifications
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall display State of Charge  battery High Voltage Battery indications in the area specified in HMI specifications.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3646900
+- Contents: System shall display a visual indicator graphically the state of charge.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the State of charge is displayed under the C2 wireframe area.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "graphically" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HMI-LF-4662 - BATTERY SOC, HMI-LF-4441 - Boost/Charge and SOC dial (D/E)
+
+3. ID: 3957096
+- Contents: System shall indicate SOC level and the Charge Bar appear after Ceremony (Power On action).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the State Of Charge Bar indicates the SOC level and it appears after Ceremony (Power On action).
+
+CAN-Signal: HVB_HMI_STS.HVBSOC_Status_HMI
+HVB_HMI_STS.HVBSOC_Status_China_HM
+xEV_STS_HMI.HVB_SOC_HMI
+xEV_STS_HMI.HVB_SOC_Colour_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "State Of Charge Bar, indicate, appear, level, Power On action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3957097
+- Contents: The SOC bar shall empties continuous following the SOC level.When the SOC value is low the filling indicate with dedicated feedback.
+SOC threshold 1 (e.g 21%-100%): colour 1 (e.g Green)
+SOC threshold 2 (e.g 11% - 20%): colour 2 (e.g Yellow)
+SOC threshold 3 (e.g 0% - 10%): colour 3 (e.g Red)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the SOC bar empties continuously following the SOC level When the SOC value is low the filling is indicated with dedicated feeadback.
+
+CAN-Signal: HVB_HMI_STS.HVBSOC_Status_HMI
+HVB_HMI_STS.HVBSOC_Status_China_HM
+xEV_STS_HMI.HVB_SOC_HMI
+xEV_STS_HMI.HVB_SOC_Colour_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "bar, value, empties continuous, following, is low, filling, indicate, level, feeadback" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3957098
+- Contents: State of Charge will be visualised in primary dial as per the following conditions:
+System displays the SOC  indicator value following the signal HVB_SOC_HMI.
+If proxi China_Specific_Indication_NQS is absent, System shall visualise the SOC indicator colour following the signal HVB_SOC_Colour_HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays the SOC indicator following the CAN-Signal(xEV_STS_HMI.HVB_SOC_HMI)
+
+AND 
+
+If proxi China_Specific_Indication_NQS is absent then system shall display th colur of SOC based on CAN-Signal(xEV_STS_HMI.HVB_SOC_Colour_HMI)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, following, displays, visualise, dial, conditions, value, HVB, colour" ) 
+Escape clause
+ (Look for: "as per" ) 
+Passive voice
+ (Look for: "be visualised" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5113160
+- Contents: System shall display two tunable parameters for SOC indicator. SOCIndicatorS1 , SOCIndicatorS2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Grooming Comments: How diagnostic Parameters involved in SOC visualisation?
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3957100
+- Contents: If proxi China_Specific_Indication_NQS = absent, the system shall show the standard battery icon following the signal HVB_SOC_Colour_HMI as Green colour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Green colour standard battery icon is displayed in Green colour using the signal HVB_SOC_Colour_HMI when China_Specific_Indication_NQS is absent.
+
+Proxi: Bit-123 , Byte-7
+
+SOC threshold 1 (e.g 21%-100%): colour 1 (e.g Green)
+
+CAN-Signal:HVB_SOC_Colour_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, HVB" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3975025
+- Contents: The Icon displayed in the Specific Binnacle area shall be white when Proxi China_Specific_Indication_NQS is present at Key-On, before (T_delay(2-seconds) + T_indicator_startup(5-seconds)) from the Key-ON event.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Icon displayed is White in Colour when Proxi China_Specific_Indication_NQS is present at Key-ON and it should display before 7-seconds(T_delay+T_indicator_startup) from the Key-On event.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Icon, NQS, displayed, be white, is present, delay, seconds, TBD, event" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3647064
+- Contents: If proxi China_Specific_Indication_NQS = absent then the icon displayed in the C8 area shall be white.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Icon HVB shall be displayed in White when China Specific Indication NQS is absent.
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3648955
+- Contents: If proxi China_Specific_Indication_NQS = present, after (T_delay + T_indicator_startup) seconds from the Key-ON event, the icon displayed in the C8 area shall change
+color according to:
+if SOC_Indicator_Bars ≥ 2 then System shall display the white battery icon.
+if SOC_Indicator_Bars ≤ 1 then System shall display the amber battery icon;
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the chabge in Battery Icon colour as per the Ferrai HVB conditions when proxi China_Specific_Indication_NQS is Present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, displayed, changecolor, according, Bars, display, icon, battery, amber" ) 
+Missing unit 
+ (Look for: "‘2,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3957101
+- Contents: If HVB_SOC_HMI lessthan or equal to China_SOC_Threshold the IDC shall show the China market battery icon  in orange(SOC002 / SOC003).
+(see: image184.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Byte 123, bit 7 ("China_Specific_Indication_NQS":Present)
+
+Trigger Condition:
+HVB_SOC_HMI<=China_SOC_Threshold
+
+And verify that the ICON SOC is displayed in Orange Colour based on the signal HVB_SOC_HMI and China_SOC_Threshold.
+
+CAN-Signal:
+xEV_STS_HMI.HVB_SOC_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "lessthan, show, battery, TBD, orange" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image184.png
+
+12. ID: 3957102
+- Contents: If HVB_SOC_Colour_HMI greater than China_SOC_Threshold the system shall show the China market battery icon in white(SOC001).
+(see: image184.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Byte 123, bit 7 ("China_Specific_Indication_NQS":Present)
+
+Trigger Condition:
+HVB_SOC_Colour_HMI>China_SOC_Threshold
+
+And verify that the ICON SOC is displayed in White Colour based on the signal HVB_SOC_HMI and China_SOC_Threshold.
+
+CAN-Signal:
+xEV_STS_HMI.HVB_SOC_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image184.png
+
+13. ID: 3648958
+- Contents: If MaximumCellsTemperature <0°C (32°F) the indicator number shall disappear and the System shall send HVB_Temperature_Indicator=127.IDC-438158
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verfy that the System shall send HVB Temperature Indicator as 127 and Indicator number shall disappear when  Maximum Cells Temperature Lessthan zero degree  celsius.
+- Grooming Status: Blocked
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, disappear, send, MaximumCellsTemperature  0 #176;C, number" ) 
+Missing unit 
+ (Look for: "‘0,32,127’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3656382
+- Contents: System shall stop displaying the HVB indications during Key-Off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verfy that the System shall stop displaying the HVB indications during Key-Off
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3656511
+- Contents: At Key-On event First T_delay seconds System shall send:
+The IDC shall send HVB_Temperature_Indicator=0
+SOC_Indicator_Value=0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verfy that the System shall send: 
+
+1.The IDC shall send HVB_Temperature_Indicator=0
+
+2.SOC_Indicator_Value=0
+
+at Key-On event.
+- Grooming Status: Blocked
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall send" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3657452
+- Contents: At Key-On event After T_delay seconds, the System shall send:
+HVB_Temperature_Indicator=TBD.
+the SOC level received from CAN(HVB_SOC) through the SOC_Indicator_Bars and SOC_Indicator_Value signals and the indicator shall linearly reach the position
+ corresponding to level value received, as displayed in the graphic below:
+IDC-438113 |
+IDC-438115 |
+IDC-438117 |
+(see: image185.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall send" ) 
+Unclear term
+ (Look for: "linearly" )
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image185.png
+
+17. ID: 3657453
+- Contents: System shall send HVB_Temperature_Indicator=MaximumCellsTemperature.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verfy that the System shall send HVB Temperature Indicator is Maximum Cells Temperature.
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+18. ID: 3658130
+- Contents: System shall give warning-5 telltale when High Voltage Battery temperature yellow less than High Voltage Battery Temperature Indicator less than High Voltage Battery temperature red on.
+Note: Warning-5 shall follow D01 visualisation behaviour with rolling with other icons priority.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo:
+
+Verify that the  warning-5 telltale is displayedwhen High Voltage Battery temperature yellow less than High Voltage Battery Temperature Indicator less than High Voltage Battery temperature red on.
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, give, yellow, follow, rolling, telltale, temperature, Temperature Indicator, priority" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Obsolete
+
+19. ID: 3658376
+- Contents: Warning-5 shall be displayed in R1/R2/R3/R4/R5 wireframe areas.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-1 is displayed in the R1/R2/R3/R4/R5 wireframe areas
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Passive voice
+ (Look for: "be displayed" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+20. ID: 3658284
+- Contents: Warning-5 is triggered if High Voltage Battery_temp_yellow Lessthanor equal to  HVB_Temperature_Indicator lessthan or equal to HVB_temp_red_off when Warning is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-5 is triggered when  High Voltage Battery_temp_yellow Lessthanor equal to  HVB_Temperature_Indicator lessthan or equal to HVB_temp_red_off when Warning is active.
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Passive voice
+ (Look for: "is triggered, is active" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3658375
+- Contents: System shall give warning-6 when High Voltage Temperature Indicator Greater than  High Voltage Battery temperature red on.
+Note:  Warning-6 shall follow D01 visualisation behaviour with rolling with other icons priority.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning-6 is triggered when High Voltage Temperature Indicator Greater than  High Voltage Battery temperature red on.
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, give, warning, follow, rolling, Indicator, temperature, visualisation, priority" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Obsolete
+
+22. ID: 3658132
+- Contents: Warning-6 shall be displayed in R1/R2/R3/R4/R5 wireframe areas.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-2 is displayed in the R1/R2/R3/R4/R5 wireframe areas
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Passive voice
+ (Look for: "be displayed" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+23. ID: 3658377
+- Contents: Warning 6 is turned off when the temperature threshold is equal or below to the value of the parameter High Voltage Battery temperature red off
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning-6 is turned off when  the temperature threshold is equal or below to the value of the parameter High Voltage Battery temperature red off
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "6, threshold, Warning, is equal, value, temperature, off" ) 
+Missing unit 
+ (Look for: "‘6’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is turned off" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+24. ID: 4889051
+- Contents: System shall indicate battery temperature using the signal Battery_TempForDisplay  in the Binnacle right dial.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+set the Battery Dial in the Right Dial.
+
+Verify that the system indicates temperature of a battery using the Signal.
+
+CAN-Signal:
+PWT_STATUS_7.Battery_TempForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+25. ID: 4889059
+- Contents: System shall display three tunable parameters BattTempS1, BattTempS2 ,BattTempS3 , BattTempS4 as mentioned below:
+If Battery_TempForDisplay <= BattTempS1, then system shall color the battery temperature indication with the color  (starting point, minimum of the scale).
+If  BattTempS1 < Battery_TempForDisplay < BattTempS2, then the system shall color the battery temperature indication with the color  (light blue linear area).
+If BattTempS2 <= Battery_TempForDisplay < BattTempS3, then the system shall color the battery temperature indication with the color (white linear area).
+If BattTempS3 <=Battery_TempForDisplay < BattTempS4, then system shall color the battery temperature indication with the color  (red linear area).
+If Battery_TempForDisplay >= BattTempS4, then system shall color the battery temperature indication with the color  (ending point, maximum of the scale).
+(see: image186.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the BattTempStatus is displayed as per the table.
+
+Note:
+These are the Hard-coded parameters.
+- Grooming Status: Approved
+- Grooming Comments: Need to know how to set this Battery parameters.
+- Expert Domains: IOC_Diag
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, display, mentioned, color, starting, ending, parameters, indication, point, area" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image186.png
+
+26. ID: 5497188
+- Contents: System shall display Power available indication using the Battery_PwrAvailForDisplay in the right dial.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the power available indication is displayed by the System using the Signal Battery_PwrAvailForDisplay in the right dial.
+
+CAN-Signal:
+ PWT_STATUS_7.Battery_PwrAvailForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+27. ID: 4889088
+- Contents: System shall display Power available indication using the Battery_PwrPAvailForDisplay signal on the Binnacle right dial.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify tha the system displays the Power Available Indication using the CAN-Signal.
+
+CAN-Signal:
+PWT_STATUS_7.Battery_PwrAvailForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+28. ID: 4889090
+- Contents: System shall display the zero power value (starting point) in the Binnacle right dial when Battery_PwrAvailForDisplay less than 0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify tha the system displays the starting point Indication using the CAN-Signal.
+
+CAN-Signal:
+PWT_STATUS_7.Battery_PwrAvailForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, starting, PwrAvailForDisplay, value, point, dial" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+29. ID: 4889093
+- Contents: System shall use Battery_InfoForDisplay to display info for display label(Eg: WARMUP, PRECONDITIONING OVER) and shall change the colur of the label depending on the siganl.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that system dispplays the Label of the  Battery Following the CAN-signal.
+
+CAN-Signal:
+PWT_STATUS_7.Battery_InfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall use, shall change" )
+- State (Harman_Requirement): Approved
+
+30. ID: 4889094
+- Contents: System  shall rescale the power available indication when Battery_InfoForDisplay= PRECONDITIONING OR Battery_PwrAvailForDisplay > 100,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the power available indication is rescaled based on the Input CAN signal.
+
+CAN-Signal:
+PWT_STATUS_7.Battery_PwrAvailForDisplay
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall, PRECONDITIONING" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3975127
+- Contents: System shall display Warning-18 Pop-up send the Warning-18 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when High Voltage System Warning For Display is MSD_Open.
+Note: Warning-18 follows D11 visualisation behaviour with Priorirty -1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVSysWarningForDisplay == MSD_Open
+
+Verify that the system displays Warning-18 Pop-up when High Voltage System Warning is MSD_Open
+
+Pop-Up ID: 08040013
+
+
+CAN-Signal:HVB_HMI_STS.HVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Display, follows, Pop-up, Warning, MSD_Open, Priorirty -1" )
+- State (Harman_Requirement): Approved
+
+32. ID: 3975223
+- Contents: System shall display Warning-31 Pop-up with buzzer send the Warning-31 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS and Main Area Pop-Up.when Proxi Thermal_Runaway_Indication is present AND High Voltage Battery is Thermal Run Away.
+Note: Warning-31 follows Specific Priority Thermal Runaway.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+PROXI (Thermal_Runaway_Indication == "present"),
+
+Trigger Condition:
+HVBWarningForDisplay == HVB_Thermal_runaway)
+
+
+Verify that the system displays Warning-31 when Proxi Thermal_Runaway_Indication is present AND High Voltage Battery is Thermal Run Away. 
+
+Verify specific priority Thermal Run-away by setting the CAN message  to Other than Thermal Run-away.
+
+Pop-up ID:80408
+Audio Buzzer: Buzzer 2A
+
+CAN-Signal: HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Indication, display, is present, is, Warning, follows, Pop-up, buzzer, Battery, Away, Runaway" ) 
+Missing unit 
+ (Look for: "‘31’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: Initial proxi values to be used.
+- State (Harman_Requirement): Approved
+
+33. ID: 3975436
+- Contents: Thermal Runaway priority stop any other visualisation cycle to overlap or rolling with F804 Warning-31.
+Specific Behaviour:
+Once the activation condition is verified, even if HVBWarningForDisplay signal becomes different from "HVB_Thermal_Runaway" or HVB_HMI_STS message is missing on the network , IDC shall continue to perform F804 Warning 31 visualization cycle (visual and acoustic warning) until display off event (see Example 1 below).
+At the next key cycle (after a sleep phase and a display off event), if the activation condition reported above is not verified, the IDC shall not perform F804 Warning 31.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+PROXI (Thermal_Runaway_Indication == "present"),
+
+Trigger Condition:
+HVBWarningForDisplay == HVB_Thermal_runaway)
+
+
+Verify that the system displays Warning-31 when Proxi Thermal_Runaway_Indication is present AND High Voltage Battery is Thermal Run Away.
+
+Pop-up ID:80408
+Audio Buzzer: Buzzer 2A
+
+CAN-Signal: HVB_HMI_STS.HVBWarningForDisplay is set to Different or Anything.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "signal, message, condition, stop, to overlap, rolling, becomes different, is missing, continue, to perform, display, see, perform, visualisation cycle, Warning-31, network, Warning, visual, warning, key cycle, phase, event" ) 
+Negative statement
+ (Look for: "not" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘31,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is verified, reported, verified" )
+- State (Harman_Requirement): Approved
+
+34. ID: 3976113
+- Contents: System shall display Warning-59 Pop-up with Buzzer and Telltales send the Warning-59 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when below conditions met:
+High Voltage Battery Status is Critical AND
+High Voltage Battery Warning For Display  is High Voltage Battery_Fault_Critical OR HVB_Electrical_Fault_Critical OR HVB_HW_Fault_Critical OR Communication_Fault_Critical OR(*).
+Note: Warning-59 follows D04 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(HVBStatus == Critical AND (HVBWarningForDisplay == HVB_Electrical_Fault_Critical OR HVB_HW_Fault_Critical OR Communication_Fault_Critical))
+
+Verify that the system displays Warning-59 with buzzer when necessary conditions are met.
+
+Pop-Up ID:80401
+
+Audio Buzzer: 
+
+Telltale ID:HVB001 WRM019
+
+
+CAN-Signal:HVB_HMI_STS.HVBStatus
+
+HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, is, follows, Pop-up, Buzzer, Telltales, Status, AND, Warning, Display, Battery, priority-0" )
+- State (Harman_Requirement): Approved
+
+35. ID: 3976139
+- Contents: System Shall display Warning-59 Telltale(HVB001) in C5 area , Virtual Telltale(WRM019) in R1/R2/R3/R4/R5 area
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning- 59 telltale(HVB001) C5 wireframe areas in telltale(WRM019) in R1/R2/R3/R4/R5 wireframe areas
+
+Note: For CAN-signals please refer above requirement.
+
+Req ID-3976113.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "TelltaleHVB001 in C5 area" )
+- State (Harman_Requirement): Obsolete
+
+36. ID: 3976144
+- Contents: System shall display Warning-60 Pop-up with Buzzer and Telltale send the Warning-60 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+HVBStatus is Degraded AND HVBWarning For Display is HVB_Electrical_Fault_Critical OR
+HVB_HW_Fault_Critical OR
+Communication_Fault_Critical OR
+Crash_Warning OR
+HVB_SOH_Warning.
+Note:Warning-60 follows D04 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVBStatus == Degraded AND (HVBWarningForDisplay == HVB_Electrical_Fault_Critical OR HVB_HW_Fault_Critical OR Communication_Fault_Critical
+OR Crash_Warning OR HVB_SOH_warning
+
+Verify that the warning-60 displays Pop-up with Buzzer and telltale when necessary conditions are met.
+
+Pop-up ID:80402
+
+Telltale ID: HVB002
+
+Audio Buzzer: Buzzer2B
+
+Telltale Reference: 01730
+
+
+CAN-Signals: HVB_HMI_STS.HVBStatus
+
+HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBStatus, display, met, is, Degraded, HVBWarning, Display, Warning, follows, Pop-up, Buzzer, Telltale, HVB, OR, priority-0" ) 
+Missing unit 
+ (Look for: "‘60’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: Buzzer is not available yet
+- State (Harman_Requirement): Approved
+
+37. ID: 3976146
+- Contents: System Shall display Warning-60 Telltale(HVB002) in C5 area , Virtual Telltale(WRM019) in R1/R2/R3/R4/R5 area
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning- 60 telltale(HVB002) C5 wireframe areas in telltale(WRM019) in R1/R2/R3/R4/R5 wireframe areas
+
+Note: For CAN-signals please refer above requirement.
+
+Req ID: 3976144
+- Grooming Status: Blocked
+- Grooming Comments: Only HVB002 telltale is present in POP.IND doc.
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "TelltaleHVB002 in C5 area" )
+- State (Harman_Requirement): Obsolete
+
+38. ID: 3976147
+- Contents: System shall display warning65 Pop-up with Telltale in C8 wire-frame area send the Warning-65 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when below conditions met:
+HVBWarning For Display is HVB_SOC_high AND
+HVBSOC_Status_HMI is Degraded OR
+HVBSOC_Status_China_HMI Degrade.
+Note: Warning65 Follows D04 visualisation behaviour with priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(HVBWarningForDisplay == HVB_SOC_high AND (HVBSOC_Status_HMI == Degraded OR HVBSOC_Status_China_HMI == Degraded
+
+Verify that the Warning-65 displays pop-up with buzzer and telltale when necessary conditions are met.
+
+Pop-up ID:80403
+
+Telltale ID:S0C002 , S0C005
+- Grooming Status: Approved
+- Grooming Comments: Only SOC002 is present in SOC002
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HMI, display, warning, met, HVBWarning, Display, is, Degraded, Warning, Follows, Pop-up, Telltale, area, HVB, OR, Degrade, priority-0" ) 
+Missing unit 
+ (Look for: "‘65’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+39. ID: 3976149
+- Contents: System shall display warning-66 Pop-up with Buzzer and Telltale in C8 wire-frame area send the Warning-66 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when below conditions met:
+HVBWarning For Display is HVB_SOC_mid AND
+HVBSOC_Status_HMI is Degraded OR
+HVBSOC_Status_China_HMI Degrade.
+Note: Warning-66 follows D04 visualisation behaviour with priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(HVBWarningForDisplay == HVB_SOC_mid AND (HVBSOC_Status_HMI == Degraded OR HVBSOC_Status_China_HMI == Degraded.
+
+
+Verify that the system displays Warning-66 Pop-up with Buzzer and Telltale when necessary conditions are met.
+
+Pop-Up ID: 80404
+
+Telltale ID:SoC002
+
+Telltale Reference ID:01750
+
+CAN-Signals: HVB_HMI_STS.HVBWarningForDisplay
+
+HVB_HMI_STS.HVBSOC_Status_HMI
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HMI, display, warning, met, HVBWarning, Display, is, Degraded, follows, Pop-up, Buzzer, Telltale, area, HVB, OR, Degrade, priority-0" )
+- State (Harman_Requirement): Approved
+
+40. ID: 3976150
+- Contents: System shall display warning-67 Pop-up with Buzzer and Telltale in C8 wire-frame area send the Warning-67 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when below conditions met:
+HVBWarning For Display is HVB_SOC_low AND
+HVBSOC_Status_HMI is Degraded OR
+HVBSOC_Status_China_HMI is Degrade.
+Note: Warning-67 follows D04 visualisation behaviour with Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: 
+HVBWarningForDisplay == HVB_SOC_low AND (HVBSOC_Status_HMI == Degraded OR HVBSOC_Status_China_HMI == Degraded
+
+Verify that the system displays Warning-67 Pop-up with Buzzer and Telltale in C8 wireframe area when necessary conditions are met.
+
+Pop-up ID:80405
+
+Telltale ID:SOC003
+
+Telltale Reference: 01750
+
+CAN-Signals: HVB_HMI_STS.HVBWarningForDisplay
+
+HVB_HMI_STS.HVBSOC_Status_HMI
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HMI, display, warning, met, HVBWarning, Display, is, Degraded, follows, Pop-up, Buzzer, Telltale, area, HVB, OR, Degrade, Priority-0" )
+- State (Harman_Requirement): Approved
+
+41. ID: 3976152
+- Contents: System shall display Warning-68 Pop-up with buzzer and telltale in R1/R2/R3/R4/R5 Wire-Frame send the Warning-68 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBWarningForDisplay is HVB Temperature Warning
+Note: Warning-68 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVBWarningForDisplay == HVB Temperature Warning
+
+Verify that the system displays warning-68 Pop-up with buzzer and telltale in specific wireframe area when HVB Warning for Display is HVB Temperature Warning.
+
+Pop-up ID: 80406
+
+
+Telltale Reference:00570
+
+CAN-Signals: HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBWarningForDisplay, display, is, follows, Pop-up, buzzer, telltale, Warning, priority-0" )
+- State (Harman_Requirement): Approved
+
+42. ID: 3976158
+- Contents: System shall display Warning-69 Pop-up with buzzer and telltale in R1/R2/R3/R4/R5 Wire-Frame send the Warning-69 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBWarningForDisplay is HVB Temperature critical.
+Note: Warning-69 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVBWarningForDisplay == HVB Temperature Critical
+
+Verify that the system displays warning-69 Pop-up with buzzer and telltale in specific wireframe area when HVB Warning for Display is HVB Temperature Critical
+
+Pop-up ID: 80407
+
+Telltale ID: "WRM034
+WRM019"
+
+Telltale Reference: 00580 , 00430
+
+CAN-Signals: HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBWarningForDisplay, display, is, follows, Pop-up, buzzer, telltale, critical, priority-0" )
+- State (Harman_Requirement): Approved
+
+43. ID: 3976159
+- Contents: System shall display Warning-76 Pop-up send the Warning-76 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBWarningForDisplay is HVB Charge needed less than 1 day
+Note: Warning-76 follows D11 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVBWarningForDisplay == HVB Charge needed less than 1 day
+
+Verify that the warning-76 Pop-up is displayed when HVBWarningForDisplay is HVB Charge needed less than 1 day.
+
+Pop-up ID: 80409
+
+CAN-Signal: HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBWarningForDisplay, display, is, needed, follows, Pop-up, Charge, priority-0" )
+- State (Harman_Requirement): Approved
+
+44. ID: 3976145
+- Contents: System shall display Warning-77 Pop-up send the Warning-77 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBWarningForDisplay is HVB Charge needed less than X days.
+Note: Warning-77 follows D11 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVBWarningForDisplay == HVB Charge needed less than X days.
+
+Verify that the Warning-77 Pop-up is displayed when HVBWarningForDisplay is HVB Charge needed less than X days.
+
+Pop-up ID: 80410
+
+CAN-Signal: HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Grooming Comments: What is the X no of Days need to know the number!?
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBWarningForDisplay, display, is, needed, follows, Pop-up, Charge, priority-0" )
+- State (Harman_Requirement): Approved
+
+45. ID: 3976160
+- Contents: System shall display Warning-84 Pop-up and Telltale send the Warning-84 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBStatus is Critical AND HVSysWarningForDisplay is HVIL_Open OR HV_Insulation_Critical.
+Note: Warning-84 follows D04 visualisation behaviour with priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: 
+HVBStatus == Critical AND (HVSysWarningForDisplay == HVIL_Open OR HV_Insulation_Critical
+
+Verify that the system displays Warning-84 Pop-up and Telltale when HVBStatus is Critcal AND HVSysWarninForDisplay is HVIL_OPEN oR HV_Insulation_Critical. 
+
+Pop-up ID: 80411
+
+Telltale ID: HVB001 , WRM019
+
+Telltale Ref:  01720 , 00430
+
+CAN-Signal:
+HVB_HMI_STS.HVBStatus
+HVB_HMI_STS.HVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBStatus, display, is, follows, Pop-up, Telltale, HVSysWarningForDisplay, priority-1" )
+- State (Harman_Requirement): Approved
+
+46. ID: 3976161
+- Contents: System shall display Warning-85 Pop-Up Telltale send the Warning-85 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenHVBStatus is Degraded AND HVSysWarningForDisplay is HV_Insulation_Warning.
+Note: Warning-85 follows D04 visualisation behaviour with priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: 
+HVBStatus == Degraded AND HVSysWarningForDisplay == HV_Insulation_Warning
+
+Verify that the system displays Warning-85 Pop-up and Telltale when HVBStatus is Degraded AND HVSysWarninForDisplay is HV_Insulation_Warning. 
+
+Pop-up ID: 80412
+
+Telltale ID: HVB002.
+
+Telltale Ref:  01730
+
+CAN-Signal:
+HVB_HMI_STS.HVBStatus
+HVB_HMI_STS.HVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+47. ID: 3976162
+- Contents: System shall display Warning-105 Pop-up with Buzzer and Telltale send the Warning-105 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBStatus is Degraded AND HVSysWarningForDisplay is HV_Energizing_Error_Critical.
+Note: Warning-105 follows D04 visualisation behaviour with priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(HVBStatus == Degraded AND HVSysWarningForDisplay == HV_Energizing_Error_Critical
+
+Verify that the system displays Warning-105 when HVBStatus is Degraded AND HVSysWarningForDisplay is HV_Energizing_Error_Critical.
+
+Pop-Up ID:80414
+
+Audio Buzzer: Buzzer 2B
+
+Telltale ID:HVB002 , WRM019
+
+Telltale Reference: 01730 , 00430(China Market)
+
+CAN-Signal:
+HVB_HMI_STS.HVBStatus
+HVB_HMI_STS.HVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, HVBStatus, display, is, Degraded, follows, Pop-up, Buzzer, Telltale, HVSysWarningForDisplay, priority-1" )
+- State (Harman_Requirement): Approved
+
+48. ID: 3976163
+- Contents: System Shall display Warning-105 Telltale(HVB002) in C5 area , Virtual Telltale(WRM019) in R1/R2/R3/R4/R5 area
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-105 is Telltale(HVB002) is displayed in C5 wire-frame area and WRM019 in R1/R2/R3/R4/R5 wireframe Area.
+- Grooming Status: Approved
+- Grooming Comments: POP.IND is still left, We will receive the final in PI6.
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "TelltaleHVB002 in C5 area" )
+- State (Harman_Requirement): Obsolete
+
+49. ID: 3976164
+- Contents: System shall display Warning-106 Pop-up , Buzzer and Telltale send the Warning-106 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVBStatus is Degraded AND HVSysWarningForDisplay is HV_Energizing_Error_Warning.
+Note: Warning-106 follows D04 visualisation behaviour with priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(HVBStatus == Degraded AND HVSysWarningForDisplay == HV_Energizing_Error_Warning
+
+Verify that the system displays Warning-106 Pop-up , Buzzer and Telletale when HVBStatus is Degraded AND HVSysWarningForDisplay is HV_Energizing_Error_Warningl.
+
+Pop-Up ID:80415
+
+Audio Buzzer: Buzzer 2B
+
+
+Telltale Reference: 01730 , 00430(China Market)
+
+CAN-Signal:
+HVB_HMI_STS.HVBStatus
+HVB_HMI_STS.HVSysWarningForDisplay
+- Grooming Status: Approved
+- Grooming Comments: POP.IND is still left, We will receive the final in PI6.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+50. ID: 3976165
+- Contents: System Shall display Warning-106 Telltale(HVB002) in C5 area , Virtual Telltale(WRM019) in R1/R2/R3/R4/R5 area
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-106 is Telltale(HVB002) is displayed in C5 wire-frame area and WRM019 in R1/R2/R3/R4/R5 wireframe Area.
+- Grooming Status: Approved
+- Grooming Comments: POP.IND is still left, We will receive the final in PI6.
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "TelltaleHVB002 in C5 area" )
+- State (Harman_Requirement): Obsolete
+
+51. ID: 3976167
+- Contents: System shall display Warning-107 Pop-up and Telltale send the Warning-107 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when HVB_TemperatureFailStatus is Degrade.
+Note:Warning-107 follows D01 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Tirgger Condition:
+HVB_TemperatureFailSts == Degraded
+
+Verify that the Warning-107 Pop-up and telltale is displayed when HVB_TemperatureFailStatus is Degraded.
+
+Pop-up ID:80416
+
+
+Telltale Reference:00570
+
+CAN-Signals:HVB_HMI_STS.HVB_TemperatureFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, Telltale" )
+- State (Harman_Requirement): Approved
+
+52. ID: 3979441
+- Contents: System shall display Warning-108 Telltale send the Warning-108 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when
+ HVB_TemepratureFailStatus is Critical.
+Note:Warning-108 follows D01 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVB_TemperatureFailSts == Critical
+
+Verify that the Warning-108 displays Telltale when HVB_TemperatureFailStatus is Critical.
+
+
+Telltale Reference: 00580 , 00430
+
+CAN-Signal: HVB_HMI_STS.HVB_TemperatureFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TemepratureFailStatus, display, is, follows, Telltale" )
+- State (Harman_Requirement): Approved
+
+53. ID: 3935760
+- Contents: System shall provide Diagnostic Services for:
+MC_CRC_error_counter parameter adjustment
+China_SOC_Threshold parameter adjustment
+SOCIndicatorS1 parameter adjustment
+SOCIndicatorS2 parameter adjustment
+BattTempS1 parameter adjustment
+BattTempS2 parameter adjustment
+BattTempS3 parameter adjustment
+BattTempS4 parameter adjustment
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Actual Parameters with tunable parameters with respect to Diagnostic Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+54. ID: 4892064
+- Contents: If System detects a Message Counter or CRC error on HVB_HMI_STS message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F804 Warning 59.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the F821 Warning-1 is displayed is the EXTERNAL_LIGHTS is not received for more than MC_CRC_error_Counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "message, IDC, show, error, visualization, Warning" ) 
+Missing unit 
+ (Look for: "‘59’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3646879
+- Contents: System shall display High Voltage Battery indication as per the Ferrari Design
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the High Voltage Battery Indications are displayed as per the Ferrari Design.
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3646898
+- Contents: Signals Involved :
+HVB_SOC
+SOC_Indicator_Value
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3646901
+- Contents: SOC value vs Bar colour:
+SOC threshold 1 (e.g 21%-100%): colour 1 (e.g Green)
+SOC threshold 2 (e.g 11% - 20%): colour 2 (e.g Yellow)
+SOC threshold 3 (e.g 0% - 10%): colour 3 (e.g Red)
+(see: image183.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer. to HMI-LF-7422
+- Visual Elements: image183.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image183.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image185.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image184.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image186.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F804 6.2.1.1.2.35  High Voltage Battery Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

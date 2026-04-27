@@ -1,0 +1,159 @@
+# UnknownID 6.2.1.7.3 License activation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7.3 License activation
+
+- ID: 4895684
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895685
+- Contents: IDC shall connect USB mass storage containing the license file in license activation procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to connect USB with license file.
+
+- Copy License Into USB  IDC-438613 - MAP - Copy License into USB ($FF88)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895687
+- Contents: IDC shall execute the license activation procedure when InitCarDate != 20FF FF FF, default value.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to activate the license activation procedure
+
+Map data base - active  IDC-486985 - MAP - Map data base - active ($TBD)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895688
+- Contents: System shall auto detect the presence of the map/license package on the connected USB drive.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to auto detect the Map/license package presence.
+
+Data table inside IDC  IDC-452366 - Data table inside IDC
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, auto detect, connected, presence, package, drive" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4895690
+- Contents: IDC shall auto download the license data from the USB drive to the IDC flash memory.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify that system able to auto download license data from USB.
+
+Copy License Into USB  IDC-438613 - MAP - Copy License into USB ($FF88)
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4895692
+- Contents: System shall delete unnecessary data (Emilia Romagna map package and license).
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify that the system able to delete the Unnecessary data
+
+Delete Licenses  IDC-438565 - MAP - Delete Licenses ($FF83)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, delete, license, data, package" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4895693
+- Contents: IDC shall display a pop up to the dealer when license activation procedure completed.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up that license activation completed.
+
+Map data base - active  IDC-486985 - MAP - Map data base - active ($TBD)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, completed, pop, dealer" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4895700
+- Contents: IDC shall display a pop up to the dealer as "the license activation procedure cannot commence" when InitCarDate = 20FF FF FF.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up that license activation cannot commence when Init car date= 20FF FF FF.
+
+Map data base - active  IDC-486985 - MAP - Map data base - active ($TBD)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, commence, InitCarDate, pop, dealer, FF" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4895701
+- Contents: IDC shall display a pop up when License invalid.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up when license invalid
+
+Map data base - active  IDC-486985 - MAP - Map data base - active ($TBD)
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 4895702
+- Contents: IDC shall display a pop up when VIN failure.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up when VIN failure
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.7.3 License activation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

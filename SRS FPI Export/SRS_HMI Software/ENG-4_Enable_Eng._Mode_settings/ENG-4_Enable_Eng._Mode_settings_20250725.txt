@@ -1,0 +1,83 @@
+# ENG-4 6.2.5.5  Enable Eng. Mode settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.5.5 ENG-4 Enable Eng. Mode settings
+
+- ID: 4015295
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: need to add sys core and sys infra ioc
+- Expert Domains: IOC_Networking, System Core, System Infra
+- HB_Comment: 04
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4015309
+- Contents: IDC shall allow the user to enable the group of settings identified as available only in Engineering Mode
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the user able to access the engineering menu settings.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as available only" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4015311
+- Contents: System shall provide the UI and manage group of settings in ON condition.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the settings in On condition.
+
+HMI settings can be acceble  through eng menu
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, manage, UI, group, settings, condition" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4015310
+- Contents: IDC shall hide the group of settings in OFF condition.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to hide the settings in OFF condition.
+
+HMI settings can be hide through eng menu
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of ENG-4 6.2.5.5  Enable Eng. Mode settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

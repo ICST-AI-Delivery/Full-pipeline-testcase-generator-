@@ -1,0 +1,99 @@
+# UnknownID 6.2.4.3.1.14 Fan Status Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.14 Fan Status
+
+- ID: 3940329
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3940331
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and Dimension: 3 Bytes, Data type: HEX
+.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte.
+- State (Harman_Requirement): Approved
+
+2. ID: 3940349
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return details about the internal Fan status as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned details about the internal Fan status in Table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte.
+- State (Harman_Requirement): Approved
+
+3. ID: 3940353
+- Contents: The Fan status parameter fields shall populate based on the Fan level and Fan Speed shown in the below tables.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Fan status parameter fields shall populate based on the Fan level
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "parameter fields, populate, based, shown, level, tables" )
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+4. ID: 3940355
+- Contents: The System shall support the Fan level values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Refer Fan Level table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+5. ID: 3940367
+- Contents: The System shall support the Fan Speed values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Refer Fan Speed Table.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 3 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.14 Fan Status Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

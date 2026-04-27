@@ -1,0 +1,158 @@
+# DMS-12 6.2.1.13  DIAGNOSIS AND RECOVERY Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.13 DMS-12 DIAGNOSIS AND RECOVERY
+
+- ID: 3733235
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3741227
+- Contents: System shall compliant DMS diagnostic functionalities to international & FCA standards agreed in the Product Card.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, compliant, to international, agreed, functionalities, standards, Card" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3741240
+- Contents: The system shall filter the failure related to missing messages from "ECU's"(not raising DTC's) for a time "Ce_t_DebounceTimeDTC" ('maximum' wake-up time for other ECUs)
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Stop sending the relevant messages.
+Start the Head Unit.
+Verify that No DTC is raised for a time 'Ce_t_DebounceTimeDTC'.
+
+Note: Ce_t_DebounceTimeDTC: equal to the 'maximum' time that "other" ECU's take to be operational at "wake-up".
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Abdul, Sanjay, 13,02.2025]
+To test this which CAN message need to monitor and what would be the expected result/failure
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "maximum, other" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Ce_t_DebounceTimeDTC: equal to the 'max-imum' time that "other" ECU's take to be operational at "wake-up".
+
+### Informational Items:
+
+1. ID: 3741204
+- Contents: This functions states the basic requirements for DMS Diagnosis and Recovery management
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3741205
+- Contents: The system shall implement the logics of Diagnosis and Recovery according to:
+SFS F531
+IDC Diagnosis specification
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, implement, according, logics, Diagnosis, Recovery, SFS" )
+- State (Harman_Requirement): Review
+
+3. ID: 3741209
+- Contents: DMS shall detect internal failure that would impact the correct functioning of the system.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall detect, would impact" )
+- State (Harman_Requirement): Review
+
+4. ID: 3741230
+- Contents: Diagnosis funtionalities shall detect HW and SW failures according to Failure Management.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "funtionalities, detect, according, failures, Management" )
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer SFS F531 for HW and SW failures.
+
+5. ID: 3741233
+- Contents: The system shall set the related DTC for each detected failure.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+6. ID: 3741238
+- Contents: The system shall send the error signals for each detected failure according to Failure Management.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer to SFS F531
+
+7. ID: 3741239
+- Contents: The system shall implement the recovery strategy for each detected failure according to Failure Management.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer to SFS F531
+
+8. ID: 3741242
+- Contents: Diagnosis
+Calibration Parameters
+Ce_t_DebounceTimeDTC
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 3741243
+- Contents: DTCs
+F244-33240 DTC group (VF531)
+IDC-460389 DTC group (IDC Diagnosis specification)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-12 6.2.1.13  DIAGNOSIS AND RECOVERY Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

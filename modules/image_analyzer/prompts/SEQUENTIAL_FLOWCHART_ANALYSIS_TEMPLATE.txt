@@ -1,0 +1,308 @@
+=== SEQUENTIAL FLOWCHART ANALYSIS TEMPLATE ===
+**Template Version:** 1.0.0
+**Created:** 2026-01-29
+**Author:** Picture Analyze Agent Development Team
+**Template Type:** Specialized Sequential Flow Diagram Analysis
+**Status:** Production Ready
+**Compatibility:** Application v4.0.0+
+**Based on:** VEH-Suspend HMI States analysis methodology
+
+## TEMPLATE INFORMATION
+- **Purpose**: Specialized analysis for sequential flowchart diagrams with decision points and cyclic patterns
+- **Use Case**: Automotive FPIs containing sequential flow processes, state machines, and decision trees
+- **Processing Time**: Variable based on complexity (5-10 minutes per block)
+- **Output Format**: Structured analysis with complete flow documentation
+
+## METHODOLOGY OVERVIEW
+
+This template is specifically designed for analyzing sequential flowchart diagrams commonly found in automotive FPIs, particularly those showing:
+- System initialization sequences
+- HMI state management flows
+- Decision-based process flows
+- Cyclic operational patterns
+- Error handling sequences
+
+## EXECUTION METHODOLOGY
+
+### Step 1: Diagram Classification and Assessment
+
+#### **Initial Analysis**
+```
+1. Identify diagram type indicators:
+   - Start terminator (oval): "START", "BEGIN", system name
+   - End terminator (oval): "END", "TERMINATE", final state
+   - Process blocks (rectangles): Action descriptions
+   - Decision points (diamonds): Question/condition statements
+   - Flow arrows: Direction indicators
+
+2. Assess complexity:
+   - Count total blocks (simple: <5, moderate: 5-10, complex: >10)
+   - Count decision points (affects processing time)
+   - Identify cycles (blocks referencing earlier blocks)
+   - Check for parallel paths or error handling
+```
+
+#### **Diagram Type Confirmation**
+```
+CONFIRM: Sequential Flow Diagram if:
+✓ Clear start and end terminators
+✓ Sequential block progression  
+✓ Decision points with branching paths
+✓ Logical flow from top-to-bottom or left-to-right
+
+ALTERNATIVE: Hybrid analysis required if:
+× Mixed flow and matrix elements
+× Multiple entry/exit points
+× Complex state machine patterns
+```
+
+### Step 2: Block-by-Block Analysis
+
+#### **Systematic Block Processing**
+```
+FOR each block in sequential order:
+
+BLOCK N: [Block Label/Description]
+├─ Shape: [Terminator/Process/Decision/Delay/Connector]
+├─ Preconditions: [What must be true before this block]
+├─ Action/Question: [What this block does/asks]
+├─ Conditions Checked: [Logic evaluated, if applicable]  
+├─ Output/Result: [State after block execution]
+├─ Next Block(s): [Where flow continues]
+└─ Special Notes: [Timing, CAN signals, error handling]
+
+EXAMPLE:
+BLOCK 2: IDC in HMI
+├─ Shape: Process (Rectangle)
+├─ Preconditions: INFO CAN.WAKE C NBC.Mainwakests BEM =1
+├─ Action/Question: Wait 1 Min
+├─ Conditions Checked: Interior_Lock=Inactive AND VPSDoorSts≠Unlocked OR UserPresence=Present
+├─ Output/Result: Decision point reached
+├─ Next Block(s): Block 3 (if conditions met)
+└─ Special Notes: Two-path logic with OR condition
+```
+
+#### **Decision Point Documentation**
+```
+FOR each decision diamond:
+
+DECISION POINT N: [Decision Description]
+├─ Condition Logic: [Boolean expression]
+├─ Path A (YES/TRUE): [Condition set → Next block]
+├─ Path B (NO/FALSE): [Alternative condition → Next block]  
+├─ Logic Type: [AND/OR/NOT combinations]
+├─ Error Handling: [What happens if conditions fail]
+└─ CAN Signals: [Automotive signals involved]
+
+EXAMPLE:
+DECISION POINT 7: User Interface Ready
+├─ Condition Logic: All subsystems ready AND No critical errors
+├─ Path A (YES): System ready → Block 8 (HMI Fully Active)
+├─ Path B (NO): System not ready → Error handling/retry
+├─ Logic Type: AND condition (both must be true)
+├─ Error Handling: Return to initialization or diagnostic mode
+└─ CAN Signals: System status signals, error flags
+```
+
+### Step 3: Flow Path Mapping
+
+#### **Complete Flow Documentation**
+```
+PRIMARY FLOW PATH:
+Block 1 → Block 2 → Block 3 → ... → Block N → Terminator
+
+ALTERNATIVE PATHS:
+├─ Error Path: Block X → Error Handler → Block Y/Terminator
+├─ Bypass Path: Block A → Block C (skipping Block B)
+└─ Retry Path: Block N → Block M (retry sequence)
+
+CYCLIC PATTERNS:
+├─ Cycle Entry: Block N (where cycle begins)
+├─ Cycle Logic: [Conditions for continuation vs. exit]
+├─ Return Point: Block M (where cycle returns to)
+└─ Exit Conditions: [When cycle terminates]
+```
+
+#### **Path Validation**
+```
+VALIDATION CHECKLIST:
+□ All blocks have at least one input path
+□ All blocks have at least one output path  
+□ Decision diamonds have exactly two output paths
+□ All paths eventually lead to terminator or cycle
+□ No orphaned blocks (disconnected from flow)
+□ Error paths properly documented
+```
+
+### Step 4: State Matrix Construction
+
+#### **Sequential Flow State Matrix**
+```
+| Block | Preconditions | Action | Conditions Checked | Output State | Next Block | Timing |
+|-------|---------------|--------|--------------------|--------------|------------|--------|
+| 1     | [Initial state requirements] | [Start action] | N/A | [Resulting state] | Block 2 | [If applicable] |
+| 2     | [Block 1 completion] | [Process action] | [Decision logic] | [New state] | Block 3/Error | [Wait time] |
+| N     | [Previous state] | [Final action] | [Termination check] | [Final state] | Terminator | N/A |
+```
+
+#### **Input/Output Parameter Mapping**
+```
+SYSTEM INPUTS:
+├─ Initial Conditions: [Starting state requirements]
+├─ CAN Signals: [Automotive bus signals]
+├─ User Interactions: [Physical inputs, presence detection]
+├─ System States: [Power, connectivity, error conditions]
+└─ Timing Inputs: [Delays, timeouts, scheduling]
+
+SYSTEM OUTPUTS:
+├─ State Changes: [System mode transitions]
+├─ CAN Responses: [Outgoing bus signals]
+├─ User Feedback: [HMI displays, status indicators]
+├─ System Control: [Enable/disable functions]
+└─ Error Signals: [Fault conditions, warnings]
+```
+
+### Step 5: Quality Assessment and Validation
+
+#### **Complexity Metrics**
+```
+FLOW COMPLEXITY CALCULATION:
+├─ Base Complexity = Number of Blocks
+├─ Decision Penalty = Decision Points × 2
+├─ Cycle Penalty = Cycles × 3
+├─ Error Handling Bonus = Error Paths × 1
+└─ Total Complexity = Base + Decision + Cycle + Error
+
+PROCESSING TIME ESTIMATION:
+├─ Base Time = Blocks × 5 minutes
+├─ Decision Time = Decision Points × 2 minutes
+├─ Cycle Time = Cycles × 5 minutes  
+├─ Validation Time = 10 minutes (constant)
+└─ Total Time = Base + Decision + Cycle + Validation
+```
+
+#### **Validation Checklist**
+```
+FLOW LOGIC VALIDATION:
+□ Complete sequential flow from start to terminator
+□ All decision points properly documented with logic
+□ Cyclic patterns identified and documented
+□ Error handling paths traced and validated
+□ Precondition dependencies verified
+
+AUTOMOTIVE COMPLIANCE:
+□ CAN signals properly interpreted and documented
+□ Signal hierarchies correctly mapped (DOMAIN.SIGNAL.PARAMETER)
+□ Timing requirements documented where applicable
+□ State persistence requirements identified
+□ Error recovery mechanisms documented
+```
+
+## OUTPUT STRUCTURE
+
+### Analysis Report Format
+```
+=== SEQUENTIAL FLOWCHART ANALYSIS ===
+**FPI:** [FPI Identifier]
+**Diagram:** [Image filename]
+**Analysis Date:** [Date]
+**Complexity:** [Low/Medium/High] ([Complexity Score])
+
+## FLOWCHART OVERVIEW
+├─ Diagram Type: Sequential Flow
+├─ Total Blocks: [N]
+├─ Decision Points: [N] 
+├─ Cycles Identified: [N]
+├─ Primary Flow Length: [N blocks]
+└─ Processing Time: [N minutes]
+
+## BLOCK-BY-BLOCK ANALYSIS
+[Detailed analysis for each block]
+
+## DECISION POINT DOCUMENTATION  
+[Logic analysis for each decision]
+
+## COMPLETE FLOW STATE MATRIX
+[Tabular representation of entire flow]
+
+## INPUT/OUTPUT PARAMETERS
+[Signal mapping and definitions]
+
+## VALIDATION RESULTS
+[Quality checks and compliance verification]
+
+## PROCESSING SUMMARY
+[Metrics, timing, and recommendations]
+```
+
+## AUTOMOTIVE-SPECIFIC CONSIDERATIONS
+
+### CAN Signal Processing
+```
+SIGNAL INTERPRETATION:
+- Format: DOMAIN.SIGNAL_NAME.Parameter
+- Values: Binary (0/1, ON/OFF, Active/Inactive)
+- Timing: Consider signal propagation delays
+- Dependencies: Map signal hierarchies and relationships
+
+EXAMPLE MAPPINGS:
+├─ HMI_CAN.STATUS_DOORS.Interior_Lock → Door lock status input
+├─ INFO CAN.WAKE C NBC.Mainwakests BEM → System wake signal
+└─ HMI CAN.KFHUB1.HMiPoweronkeg → Power control output
+```
+
+### State Persistence and Power Management
+```
+STATE CATEGORIES:
+├─ Volatile States: Lost on power cycle (RAM-based)
+├─ Persistent States: Maintained across power cycles (EEPROM)
+├─ Initialize States: Set on system startup
+└─ Recovery States: Used after error conditions
+
+DOCUMENTATION REQUIREMENTS:
+- Identify which states persist across power cycles
+- Document initialization requirements
+- Map power-dependent vs. independent operations
+- Define graceful shutdown sequences
+```
+
+### Error Handling Patterns
+```
+COMMON AUTOMOTIVE ERROR PATTERNS:
+├─ Sensor Fault: Decision → Error Handler → Degraded Mode
+├─ Communication Loss: Timeout → Retry → Fallback
+├─ System Overload: Monitor → Throttle → Recovery
+└─ Critical Error: Detect → Safe State → Shutdown
+
+ERROR DOCUMENTATION:
+- Document all error detection points
+- Map error recovery strategies  
+- Define safe states and fallback modes
+- Specify error reporting mechanisms
+```
+
+## INTEGRATION WITH EXISTING TEMPLATES
+
+This template integrates with:
+- **ENHANCED_ANALYSIS_METHODOLOGY_SCRIPT.txt** (overall methodology)
+- **FLOWCHART_SYMBOL_REFERENCE_GUIDE.txt** (symbol interpretation)
+- **PICTURE_CENTRIC_FPI_ANALYSIS_PROMPT_TEMPLATE.txt** (main analysis framework)
+
+## EXAMPLE USE CASES
+
+Successfully validated on:
+- **VEH-Suspend HMI States**: 10-block sequential flow with 4 decision points and 1 cycle
+- **System initialization sequences**: Power-up and shutdown flows
+- **Error handling procedures**: Fault detection and recovery processes
+- **User interaction flows**: Input processing and response generation
+
+## FUTURE ENHANCEMENTS
+
+### Planned Improvements:
+1. **Automated Flow Path Validation**: Tool to verify all paths lead to valid terminators
+2. **CAN Signal Database Integration**: Reference library for signal interpretation
+3. **Timing Analysis Module**: Calculate end-to-end flow execution times
+4. **Error Path Optimization**: Suggestions for improved error handling
+5. **Flow Complexity Metrics**: Enhanced algorithms for complexity assessment
+
+=== END OF SEQUENTIAL FLOWCHART ANALYSIS TEMPLATE ===

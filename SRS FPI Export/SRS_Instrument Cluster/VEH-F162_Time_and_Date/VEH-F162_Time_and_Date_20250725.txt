@@ -1,0 +1,193 @@
+# VEH-F162 6.2.1.1.1.21  Time and Date Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.21 VEH-F162 Time and Date
+
+- ID: 3939897
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Security, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3997753
+- Contents: System shall store the last valid value received of INFO_HourMode and INFO_ShowOnDisplay_Time_Temperature
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System stores the Last values Recived from INFO_HourMode and INFO_ShowOnDisplay_Time_Temperature.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, received, last, value" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3997760
+- Contents: System shall use these stored values in case of missing information from IDC INFO
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System stored in case of missing information from IDC INFO.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "these" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3997771
+- Contents: When INFO_TimeDateUpdateRqt=Update_Request is received , system shall update the signal in the Frames as:
+INFO_TIME&DATE (applicable only to Hour, Minute, Day, Month, Year)
+INFO_TIME&DATE_2 (applicable to Hour, Minute, Seconds, Day, Month, Year)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Date and Time are udpdated as per the Provided frames.
+
+Internal Interface:
+INFO_HourMode
+INFO_Year1 
+INFO_Year2 
+INFO_Year3 
+INFO_Year4 
+INFO_Month1 
+INFO_Month2 
+INFO_Day1 
+INFO_Day2 
+INFO_Hour1 
+INFO_Hour2 
+INFO_Minute1
+INFO_Minute2
+- Grooming Status: Blocked
+- Grooming Comments: Trigger event is not clear. Where it is coming  from.
+
+INFO_TimeDateUpdateRqt
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 0
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "clear" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3997789
+- Contents: System shall display hour indication in "hh:mm" format in area
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System Displays IN hh:mm format
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3997835
+- Contents: System shall set the time format using the specific setting received via INFO_HourMode signal. Then time format be available in:
+"24-hours" (e.g. 17:45)
+"12-hours" (e.g. 5:45 PM)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system displays time format based on  the user setting using INFO_HourModeSignal.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Security, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘12’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5032040
+- Contents: System shall display the AM or PM , When the "12h" mode activate
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify system displays time format based on  the user setting using INFO_HourModeSignal.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, activate, AM, PM" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3998026
+- Contents: System shall stop displaying the Time information in Binnacle area ,the area shall remain empty when ShowOnDisplay_Time_Temperature is OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System stops displaying the Time information in Binnacle area ,the area shall remain empty when ShowOnDisplay_Time_Temperature is OFF
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, area, stop, displaying, remain, is OFF, information, empty" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3998072
+- Contents: System shall show time using the following signals:
+INFO_Hour1
+INFO_Hour2
+INFO_Minute1
+INFO_Minute2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the cluster time information is shown according received signal values.
+
+Internal Signals:
+INFO_Hour1 
+INFO_Hour2 
+INFO_Minute1
+INFO_Minute2
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, Security, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3997743
+- Contents: System shall display the Time and Date indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Time, indications, design" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F162 6.2.1.1.1.21  Time and Date Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

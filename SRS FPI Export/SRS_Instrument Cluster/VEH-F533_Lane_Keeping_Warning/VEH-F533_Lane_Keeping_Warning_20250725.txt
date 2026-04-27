@@ -1,0 +1,908 @@
+# VEH-F533 6.2.1.1.2.27  Lane Keeping Warning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.27 VEH-F533 Lane Keeping Warning
+
+- ID: 3408592
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3891633
+- Contents: If proxi LDW OR LKA is present
+then LDW or LKA information in the ADAS screen shall be visible
+independent of status of the Proxi ACC and FCW functionalities.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the LDW and LKA Adas Screen is visible independent of the ACC and FCW fucntionalities.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, information, screen, status, functionalities" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3884899
+- Contents: System shall enable F533 Lane Keep Assist functionality when proxi (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Absent) and [(proxi (Lane_Keep_Assist = Absent)
+
+Verify telltale 01650 not displayed.
+Trigger by DisplaySts == LKA_UNAVAILABLE):
+Verify display that no ACC related icons shown
+CAN : HAPTIC1.DisplaySts
+
+Verification of proxi present scenarios in upcoming requirements
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, Keep, functionality, Present" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+3. ID: 3732550
+- Contents: System shall display below lane assist telltales after virtual telltale check phase if input conditions are met
+LDW/LKA OFF” icon or
+“Steering Wheel Status"
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : proxi (Lane_Keep_Assist = Present),
+
+Trigger LDW/LKA OFF” icon or “Steering Wheel Status" during VTTCP.
+Verify display of Lane assist fail continue during checkphase.
+Verify relevant telltale display in C3 area as per input condition after check phase completed.
+Algo
+LDW off
+
+LKA off/LDWOff
+StatusLKA == OFF
+
+Steering status
+StatusLKA == LKA_ON AND HandsOnSts == “NO_HANDS_ON_STR_WHEEL_LKA_YELLOW”):
+
+CAN
+HAPTIC1.HandsOnSts
+HAPTIC1.StatusLKA
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, lane, telltales, phase" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3732566
+- Contents: Precondition : {(proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present) and StatusLKA=LDW_ON]},
+System shall display Lane departure warning based on display status and ACC presence as per below table in C3 area.
+(see: image139.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : {(proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present) and StatusLKA=LDW_ON]},
+
+For ACC off, modify Displaysts value over CAN and verify Lane Departure Warning icon in C4 area as per table.
+For ACC on, modify Displaysts value over CAN and verify Lane Departure Warning  icon in C4 area as per table.
+
+CAN: HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Warning, display, warning, based, Present, Lane, status, presence" ) 
+Escape clause
+ (Look for: "as per below table" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image139.png
+
+5. ID: 3732570
+- Contents: At key-on, system shall display 'LDW Off/LKA Off' icon in C3 area if
+display status is lane sense off AND
+LKA status is not Init
+(see: image140.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: At key on, trigger algo Displaysts=LaneSense_OFF) AND (StatusLKA != "Init") 
+Verify LKA Off icon displayed in C3 area
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, is, Off/LKA Off, icon, Init" ) 
+Negative statement
+ (Look for: "not" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image140.png
+
+6. ID: 3732575
+- Contents: Precondition : proxi LKA present
+System shall display Lane keep assist status based on display status and ACC presence as per below table in C3 area
+(see: image141.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : Proxi LKA present
+
+For ACC off, modify Displaysts value over CAN and verify Lane Assist icon in C4 area as per table.
+For ACC on, modify Displaysts value over CAN and verify Lane Assist icon in C4 area as per table.
+
+CAN : HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, proxi, display, based, present, status, on, presence" ) 
+Escape clause
+ (Look for: "as per below table" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image141.png
+
+7. ID: 3733013
+- Contents: System shall display steering wheel icon in display area based on hands on status as per below table in C3 area
+(see: image142.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Modify HAPTIC1.HandsOnSts over CAN
+Verify corresponding icons as per requirement displayed in C3 area
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image142.png
+
+8. ID: 3733165
+- Contents: System shall prioritize C3 area display as
+PRIORITY 01:  LDW/LKA OFF icon
+PRIORITY 02: Steering Wheel Status icon
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger both LDW off and steering wheel status
+
+Verify LDW off is displayed in C3 area
+
+Trigger CAN :
+HAPTIC1.HandsOnSts = Red
+HAPTIC1.StatusLKA = OFF
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, prioritize, display, Steering, icon, Status icon" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+9. ID: 3891635
+- Contents: IF {(proxi LDW) OR [(proxi LKA) AND StatusLKA=LDW_ON]} ，
+then the following table describes the logics for the LDW system without considering ACC and FCW.
+The elements to take in consideration shall contain: the position of the car bonnet (own vehicle) the left and right lane color.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Lane Departure Warning Feature is Available , 
+
+PROXI: Byte:146, Bit:5(LDW)
+Byte:153 , Bit:5(LKA)
+
+PLease Refer: 3891636 for Logic table.
+- Grooming Status: Approved
+- Grooming Comments: Need to Raise a JIRA, Asking the Customers to update the Latest Graphics.
+
+HMI spec rght dial is clear, but the Veh master spec is not updated/ inconsistent.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "table, elements, following, describes, considering, to take in consideration, contain, proxi LKA, logics, system, position, vehicle, left, color" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3891636
+- Contents: Sytsem shall display the LDW Graphic screen as per the following table describes the logics for the LDW system without considering ACC and FCW.
+The elements to take in consideration are: the position of the car bonnet (own vehicle) the left and right lane color. (see: image143.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify display contnent based on the Signal and Logic.
+
+CAN-Signal:
+HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- Grooming Comments: Need to Raise a JIRA, Asking the Customers to update the Latest Graphics.
+
+HMI spec rght dial is clear, but the Veh master spec is not updated/ inconsistent.
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "Sytsem, elements, display, following, describes, considering, to take in consideration, screen, logics, system, position, vehicle, left, color" ) 
+Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image143.png
+
+11. ID: 3891637
+- Contents: IF [(proxi LKA) AND StatusLKA=LKA_ON] ，
+then the following table describes the logics for the LKA system without considering ACC and FCW.
+The elements to take in consideration shall contain: the position of the car bonnet (own vehicle) the left and right lane color
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the LKA feature is Available when Proxi is set to LKA_On.
+
+Proxi:
+Byte 153, bit 5
+
+Please Refer: 3891640 for the Logic Table.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "table, elements, following, describes, considering, to take in consideration, contain, logics, system, position, vehicle, left, color" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3891640
+- Contents: System shall display the LKA ADAS screen following  table describes the logics for the LKA system without considering ACC and FCW.
+The elements to take in consideration are: the position of the car bonnet (own vehicle) the left and right lane color.
+(see: image144.png)
+(see: image145.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify display contnent based on the Signal and Logic.
+
+CAN-Signal:
+HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, elements, display, following, describes, considering, to take in consideration, screen, logics, system, position, vehicle, left, color" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image144.png, image145.png
+
+13. ID: 3726940
+- Contents: System shall visualize F533 Warning1 Pop-Up with Buzzer2B and send the status to IVI when
+Display status is sensor blind AND
+(Lane Departure Warning configured for vehicle OR
+Lane Keep Assist status is Lane Departure Warning ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning1 by algo
+Verify Warning1 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53301 for telltale 01700, audio buzzer 2B, popup and graphic
+
+Algo : (((If proxi LDW) AND Displaysts == Sensor_Blinded) OR (StatusLKA == LDW_ON AND Displaysts == Sensor_Blinded))
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Departure, visualize, Display, is, Warning, configured, 1, status, OR, ON" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+14. ID: 3727018
+- Contents: System shall visualize F533 Warning2 Pop-up with Buzzer2B and send the status to IVI when
+Display status is Lane Sense Fault AND
+(Lane Departure Warning configured for vehicle OR
+Lane Keep Assist status is Lane Departure Warning ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning2 by algo
+Verify Warning2 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53302 for telltale 01700, audio buzzer 2B, popup and graphic
+
+Algo : (((If proxy LDW) AND Displaysts ==LaneSense_Fault) OR (StatusLKA == LDW_ON AND Displaysts == LaneSense_Fault)):
+
+CAN 
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Departure, visualize, Display, is, Warning, configured, 2, status, Fault, OR, ON" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+15. ID: 3727369
+- Contents: System shall visualize F533 Warning2 when
+Display status is Lane Sense Fault AND
+(Lane Departure Warning configured for vehicle OR
+Lane Keep Assist status is Lane Departure Warning ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning2 by algo
+Verify Warning2 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53302 for telltale 01700, popup and graphic
+
+Algo : (((If proxy LDW) AND Displaysts ==LaneSense_Fault) OR (StatusLKA == LDW_ON AND Displaysts == LaneSense_Fault)):
+
+Proxi : Byte 146, bit 5 (LDW)
+Byte 153, bit 5 ("Lane_Keep_Assist": Absent/Present).
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Departure, visualize, Display, is, Warning, configured, 2, status, Fault, OR, ON" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+16. ID: 3727376
+- Contents: System shall play F533 Warning3 when
+Telematics audio unavailable  AND
+Left/Right chime request preset
+with
+D01 visualization behaviour - IDC- 435062
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning3 by algo
+Verify Warning3 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53303 for audio 3D
+
+Algo :[AUDIOSts_Telematic = (Not_Available OR Initialization) OR
+
+AUDIOSts_Telematic = (Not_Available OR Initialization)] AND
+
+Algo
+(HALF_RF_CHIME_RQSts = True OR HALF_LF_CHIME_RQSts = True)
+
+CAN
+HAPTIC1.HALF_RF_CHIME_RQSts
+HAPTIC1.HALF_LF_CHIME_RQSts
+- Grooming Status: Approved
+- Grooming Comments: F244-11032 AUDIOSts_Telematic not found; repeated twice
+
+Check internally with Archiect.
+
+Need to create the JIRA for Trigger Condition and CAN-Signal.
+- Expert Domains: Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, 3, AND, preset" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3727427
+- Contents: System shall visualize F533 Warning4 Pop-Up with Buzzer2B and send the status to IVI when
+Display status is Sensor blinded AND
+Lane Keep Assist status is ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning4 by algo
+Verify Warning4 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53304 for telltale 01700, buzzer, popup and graphic
+
+Algo : (StatusLKA == LKA_ON AND Displaysts == Sensor_Blinded):
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, Display, is, blinded, 4, status, Sensor, AND" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+18. ID: 3727488
+- Contents: System shall visualize F533 Warning5 Pop-Up with Buzzer and send the status to IVI when
+Display status is Lane Sense Fault AND
+Lane Keep Assist status is ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning5 by algo
+Verify Warning5 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53304 for telltale 01700, buzzer, popup and graphic
+
+Algo : (StatusLKA == LKA_ON AND Displaysts == LaneSense_Fault):
+
+Buzzer:2B
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, Display, is, 5, status, Fault" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+19. ID: 3732452
+- Contents: System shall visualize F533 Warning6 when
+without hands on steering, level1 severity AND
+Lane Keep Assist status is ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning6 by algo
+Verify Warning6 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53306 for telltale 01670, popup and graphic
+
+Algo : (StatusLKA == LKA_ON AND HandsOnSts == “NO_HANDS_ON_STR_WHEEL_LKA_YELLOW”):
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+HAPTIC1.HandsOnSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, hands, visualize, steering, is, 6, AND, status" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+20. ID: 3732461
+- Contents: System shall visualize F533 Warning7 when
+without hands on steering, level2 severity AND
+Lane Keep Assist status is ON)
+with
+D01 visualization behaviour
+Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning7 by algo
+Verify Warning7 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53307 for telltale 01680, popup and graphic
+
+Algo : (StatusLKA == LKA_ON AND HandsOnSts == “NO_HANDS_ON_STR_WHEEL_LKA_RED”):
+
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+HAPTIC1.HandsOnSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, hands, visualize, steering, is, 7, status" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+21. ID: 3732464
+- Contents: System shall visualize F533 Warning8 when Lane Keep Assist unavailable
+with
+D01 visualization behaviour
+Priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present).
+
+Trigger Warning8 by algo
+Verify Warning8 visualized with D01 visualization and priority 0
+Refer HMI_POP.IND ID 53308 for telltale 01650, popup and graphic
+
+Algo : (DisplaySts == LKA_UNAVAILABLE):
+
+CAN
+HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+
+22. ID: 3732472
+- Contents: System shall visualize F533 Warning9 when below conditions are met:
+((StatusLKA=LKA_ON and Displaysts= (Sensor_Blinded or LaneSense_Fault)) or (StatusLKA=LDW_ON and Displaysts= (Sensor_Blinded or LaneSense_Fault)) or ((proxi LDW) and DisplaySts= (Sensor_Blinded or LaneSense_Fault)))
+with
+D01 visualization behaviour
+Priority 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+StatusLKA=LKA_ON and Displaysts= (Sensor_Blinded or LaneSense_Fault)) or (StatusLKA=LDW_ON and Displaysts= (Sensor_Blinded or LaneSense_Fault)) or
+((proxi LDW) and DisplaySts= (Sensor_Blinded or LaneSense_Fault
+
+Verify that the Warning-9 si triggered based on the condition and sent to IVI.
+
+CAN-Signal:
+HAPTIC1.DisplaySts 
+HAPTIC1.HandsOnSts [ 
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3732476
+- Contents: System shall display Lane assist fault telltale in C3 area during virtual telltale check phase (VTTCP) of tCKS seconds when
+proxi (Lane_Keep_Assist = Present),
+Welcome ceremony finished or interrupted OR
+Welcome ceremony unneeded
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : proxi (Lane_Keep_Assist = Present),
+
+Verify Lane assist fail telltale (01700) is displayed for tCKS seconds during VTTCP
+for below scenarios
+1.After welcome ceremony finished
+2. After welcome ceremony interrupted
+3. Welcome ceremony unneeded ((e.g. : welcome ceremony is completely displayed without interruptions at the previous key-cycle).)
+- Grooming Status: Approved
+- Grooming Comments: Welcome ceremony currently not present in Ferrari as per test team observation. 
+
+For welcome ceremony unneeded, generally self check is not done as per our understanding. 
+
+Check above points internally with Sivaprakasam
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, seconds, finished, interrupted, fault telltale, telltale, OR, ceremony" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3726904
+- Contents: PROXI
+ADAS_Configuration_1 Lane_Departure_Warning (proxi byte 146, bit 5).
+ADAS_Configuration_6 Lane_Keep_Assist (proxi byte 153, bit 5).
+F533 function shall be enabled if proxi (Lane_Departure_Warning == Present) OR (Lane_Keep_Assist = Present)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+2. ID: 3726906
+- Contents: CAN input
+HAPTIC1.ADAS_Unavailable_Camera
+HAPTIC1.HALF_CHIME_TYPESts
+HAPTIC1.DisplaySts
+HAPTIC1.HandsOnSts
+HAPTIC1.StatusLKA
+HAPTIC1.HALF_RF_CHIME_RQSts
+HAPTIC1.HALF_LF_CHIME_RQSts
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+3. ID: 3891632
+- Contents: The ADAS shall be displayed in Right dial visualisation Area.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be displayed" )
+- State (Harman_Requirement): In Work
+
+4. ID: 3733176
+- Contents: 6.2.1.1.2.27.1 F533 - Telltale
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): In Work
+
+5. ID: 3733223
+- Contents: System shall indicate Lane not detected telltale in C3 wireframe area as per Ferrari design.
+(see: image133.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present)
+
+Verify telltale 01650 display.
+Trigger by DisplaySts == LKA_UNAVAILABLE):
+
+CAN : HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Escape clause
+ (Look for: "as per" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image133.png
+
+6. ID: 3733227
+- Contents: System shall indicate Lane detected OR Hands On  telltale in C3 wireframe area as per Ferrari design.
+(see: image134.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present)
+
+Verify telltale 01660 display.
+Trigger by DisplaySts != LKA_UNAVAILABLE AND DisplaySts != Not_Used)
+
+CAN : HAPTIC1.DisplaySts
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image134.png
+
+7. ID: 3733236
+- Contents: System shall indicate "Lane detected OR Hands Off First Level Severity"  telltale in C3 wireframe area as per Ferrari design.
+(see: image135.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present)
+
+Verify telltale 01670 display.
+Trigger by (StatusLKA == LKA_ON AND HandsOnSts == “NO_HANDS_ON_STR_WHEEL_LKA_YELLOW”):
+
+CAN : 
+HAPTIC1.HandsOnSts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image135.png
+
+8. ID: 3733238
+- Contents: System shall indicate 'Lane detected OR Hands Off Second Level Severity'  telltale in C3 wireframe area as per Ferrari design.
+(see: image136.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present)
+
+Verify telltale 01680 display.
+Trigger by (StatusLKA == LKA_ON AND HandsOnSts == “NO_HANDS_ON_STR_WHEEL_LKA_RED”):
+
+CAN
+HAPTIC1.HandsOnSts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image136.png
+
+9. ID: 3733186
+- Contents: System shall indicate Lane assist off OR Hands OFF telltale in C3 wireframe area as per Ferrari design.
+(see: image137.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present)
+
+Verify telltale 01690 display.
+Trigger by HAPTIC1.StatusLKA = OFF
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image137.png
+
+10. ID: 3733212
+- Contents: System shall indicate Lane assist fault telltale in C3 wireframe area as per Ferrari design.
+(see: image138.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: (proxi Lane_Departure_Warning == Present) or [(proxi (Lane_Keep_Assist = Present)
+Verify telltale 01700 display.
+Trigger by HAPTIC1.StatusLKA
+
+Algo for LDW
+(((If proxy LDW) AND Displaysts ==LaneSense_Fault) OR (StatusLKA == LDW_ON AND Displaysts == LaneSense_Fault)):
+
+Algo for LKA
+(StatusLKA == LKA_ON AND Displaysts == LaneSense_Fault):
+
+CAN
+HAPTIC1.DisplaySts
+HAPTIC1.StatusLKA
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Approved
+- Visual Elements: image138.png
+
+11. ID: 3733175
+- Contents: 6.2.1.1.2.27.2 F533 - Display Icons
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): In Work
+
+12. ID: 3733170
+- Contents: 6.2.1.1.2.27.3 F533 Warnings
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image134.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image136.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image135.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image140.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image138.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image139.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image144.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image142.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image137.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image143.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image133.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image141.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image145.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F533 6.2.1.1.2.27  Lane Keeping Warning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

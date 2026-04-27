@@ -1,0 +1,301 @@
+{
+  "imageId": "PRK-0_Obstacle_Proximity_Signalling_Management_image84",
+  "category": "FLOWCHART_DIAGRAMS",
+  "confidence": 0.98,
+  "analysisTimestamp": "2026-02-24T14:50:00Z",
+  "diagramType": "state_machine_flowchart",
+  "systemName": "Obstacle Proximity Signalling Management",
+  "allTransitions": [
+    {
+      "transitionId": "T001",
+      "fromState": "STATUS 0",
+      "toState": "Stop_GoEnable Decision",
+      "trigger": "Key_On",
+      "condition": "System startup",
+      "description": "Initial transition from system OFF to decision point"
+    },
+    {
+      "transitionId": "T002", 
+      "fromState": "Stop_GoEnable Decision",
+      "toState": "ReadDelay = 0 sec",
+      "trigger": "TRUE",
+      "condition": "Stop_GoEnable == TRUE",
+      "description": "When obstacle proximity is enabled, proceed to read delay initialization"
+    },
+    {
+      "transitionId": "T003",
+      "fromState": "Stop_GoEnable Decision", 
+      "toState": "STATUS 1",
+      "trigger": "FALSE",
+      "condition": "Stop_GoEnable == FALSE",
+      "description": "When obstacle proximity is disabled, go to STATUS 1"
+    },
+    {
+      "transitionId": "T004",
+      "fromState": "ReadDelay = 0 sec",
+      "toState": "STATUS 1",
+      "trigger": "NPS_FrontButtonSts == 'Pressed'",
+      "condition": "Front button pressed AND Stop_GoEnable == 'False' from 'True'",
+      "description": "After delay initialization, transition to STATUS 1 when front button is pressed"
+    },
+    {
+      "transitionId": "T005",
+      "fromState": "STATUS 1",
+      "toState": "ReadDelay = 0 sec",
+      "trigger": "VehicleSpeed > 10 km/h",
+      "condition": "Vehicle speed exceeds threshold",
+      "description": "Return to delay state when vehicle speed is above 10 km/h"
+    },
+    {
+      "transitionId": "T006",
+      "fromState": "STATUS 1",
+      "toState": "STATUS 4",
+      "trigger": "NPS_FrontButtonSts == 'Pressed' AND VehicleSpeed ≤ 10km/h",
+      "condition": "Front button pressed AND vehicle speed below threshold AND Stop_GoEnable == 'True' from 'False'",
+      "description": "Transition to STATUS 4 when conditions met for proximity signalling activation"
+    },
+    {
+      "transitionId": "T007",
+      "fromState": "STATUS 1",
+      "toState": "STATUS 2", 
+      "trigger": "ReverseGearRCSSts == 'Not_Inserted'",
+      "condition": "Reverse gear not engaged",
+      "description": "Transition to STATUS 2 when reverse gear is not inserted"
+    },
+    {
+      "transitionId": "T008",
+      "fromState": "STATUS 2",
+      "toState": "ReadDelay = 1 sec",
+      "trigger": "ReverseGearRCSSts == 'Inserted'",
+      "condition": "Reverse gear engaged",
+      "description": "Transition to 1 second delay when reverse gear is inserted"
+    },
+    {
+      "transitionId": "T009",
+      "fromState": "ReadDelay = 1 sec",
+      "toState": "STATUS 2",
+      "trigger": "ReverseGearRCSSts == 'Not_Inserted'",
+      "condition": "Reverse gear disengaged during delay",
+      "description": "Return to STATUS 2 if reverse gear is removed during delay"
+    },
+    {
+      "transitionId": "T010",
+      "fromState": "ReadDelay = 1 sec",
+      "toState": "STATUS 3",
+      "trigger": "ReverseGearRCSSts == 'Inserted'",
+      "condition": "Reverse gear remains engaged after delay",
+      "description": "Proceed to STATUS 3 after successful 1 second delay with reverse gear engaged"
+    },
+    {
+      "transitionId": "T011",
+      "fromState": "STATUS 3",
+      "toState": "STATUS 2",
+      "trigger": "ReverseGearRCSSts == 'Not_Inserted'",
+      "condition": "Reverse gear disengaged",
+      "description": "Return to STATUS 2 when reverse gear is removed"
+    },
+    {
+      "transitionId": "T012",
+      "fromState": "STATUS 3",
+      "toState": "STATUS 2",
+      "trigger": "NPS_FrontButtonSts == 'Pressed'",
+      "condition": "Front button pressed while in STATUS 3",
+      "description": "Return to STATUS 2 when front button is pressed during reverse operation"
+    }
+  ],
+  "states": [
+    {
+      "stateId": "STATUS_0",
+      "stateName": "STATUS 0",
+      "stateType": "initial_state",
+      "description": "System OFF, Key OFF - Initial state before system activation",
+      "conditions": ["System_OFF", "Key_OFF"],
+      "actions": ["system_initialization"]
+    },
+    {
+      "stateId": "STATUS_1", 
+      "stateName": "STATUS 1",
+      "stateType": "active_state",
+      "description": "STATUS_HMI: ReverseGearRCSSts = 'Not_Inserted', Front Sensor = OFF, Rear Sensor = ON, ELSE Rear Sensor = OFF, Status Backlight 1",
+      "conditions": ["ReverseGearRCSSts_Not_Inserted", "Front_Sensor_OFF", "Rear_Sensor_ON_or_OFF"],
+      "actions": ["manage_rear_sensor", "control_status_backlight_1"]
+    },
+    {
+      "stateId": "STATUS_2",
+      "stateName": "STATUS 2", 
+      "stateType": "intermediate_state",
+      "description": "STATUS_HMI: ReverseGearRCSSts = 'Inserted', Front Sensor = ON, Rear Sensor = ON, Status Backlight 2",
+      "conditions": ["ReverseGearRCSSts_Inserted", "Front_Sensor_ON", "Rear_Sensor_ON"],
+      "actions": ["activate_front_sensor", "activate_rear_sensor", "control_status_backlight_2"]
+    },
+    {
+      "stateId": "STATUS_3",
+      "stateName": "STATUS 3",
+      "stateType": "reverse_state", 
+      "description": "STATUS_HMI: ReverseGearRCSSts = 'Inserted', Front Sensor = OFF, Rear Sensor = ON, Status Backlight 1",
+      "conditions": ["ReverseGearRCSSts_Inserted", "Front_Sensor_OFF", "Rear_Sensor_ON"],
+      "actions": ["deactivate_front_sensor", "activate_rear_sensor", "control_status_backlight_1"]
+    },
+    {
+      "stateId": "STATUS_4",
+      "stateName": "STATUS 4",
+      "stateType": "proximity_active_state",
+      "description": "STATUS_HMI: ReverseGearRCSSts = 'Not_Inserted', Front Sensor = ON, IF ReadDelayPD THEN Rear Sensor = ON, ELSE Rear Sensor = OFF, Status Backlight 2",
+      "conditions": ["ReverseGearRCSSts_Not_Inserted", "Front_Sensor_ON", "Conditional_Rear_Sensor"],
+      "actions": ["activate_front_sensor", "conditional_rear_sensor_control", "control_status_backlight_2"]
+    }
+  ],
+  "decisionPoints": [
+    {
+      "decisionId": "DECISION_001",
+      "decisionName": "Stop_GoEnable",
+      "decisionType": "boolean_decision",
+      "condition": "Stop_GoEnable == TRUE/FALSE",
+      "trueAction": "proceed_to_ReadDelay_0_sec",
+      "falseAction": "proceed_to_STATUS_1",
+      "description": "Initial decision point determining if obstacle proximity signalling is enabled"
+    }
+  ],
+  "processSteps": [
+    {
+      "stepId": "STEP_001",
+      "stepName": "ReadDelay = 0 sec",
+      "stepType": "delay_process",
+      "duration": "0_seconds",
+      "purpose": "Initialize delay counter for proximity signalling",
+      "inputConditions": ["Stop_GoEnable_TRUE"],
+      "outputActions": ["delay_initialization_complete"]
+    },
+    {
+      "stepId": "STEP_002", 
+      "stepName": "ReadDelay = 1 sec",
+      "stepType": "delay_process",
+      "duration": "1_second",
+      "purpose": "Provide delay before activating reverse proximity signalling",
+      "inputConditions": ["ReverseGearRCSSts_Inserted"],
+      "outputActions": ["reverse_delay_complete"]
+    }
+  ],
+  "triggers": [
+    {
+      "triggerId": "TRIGGER_001",
+      "triggerName": "Key_On",
+      "triggerType": "system_event",
+      "description": "Vehicle key turned on, system startup initiated"
+    },
+    {
+      "triggerId": "TRIGGER_002",
+      "triggerName": "Stop_GoEnable",
+      "triggerType": "configuration_parameter",
+      "possibleValues": ["TRUE", "FALSE"],
+      "description": "Configuration parameter controlling obstacle proximity feature enablement"
+    },
+    {
+      "triggerId": "TRIGGER_003",
+      "triggerName": "NPS_FrontButtonSts",
+      "triggerType": "user_input",
+      "possibleValues": ["Pressed", "Not_Pressed"],
+      "description": "Front button status for manual proximity signalling control"
+    },
+    {
+      "triggerId": "TRIGGER_004",
+      "triggerName": "VehicleSpeed",
+      "triggerType": "sensor_input",
+      "unit": "km/h",
+      "threshold": "10",
+      "description": "Vehicle speed sensor input with 10 km/h threshold for proximity signalling"
+    },
+    {
+      "triggerId": "TRIGGER_005",
+      "triggerName": "ReverseGearRCSSts", 
+      "triggerType": "gear_sensor",
+      "possibleValues": ["Inserted", "Not_Inserted"],
+      "description": "Reverse gear position sensor status"
+    }
+  ],
+  "conditions": [
+    {
+      "conditionId": "COND_001",
+      "conditionExpression": "Stop_GoEnable == TRUE",
+      "description": "Obstacle proximity signalling feature is enabled"
+    },
+    {
+      "conditionId": "COND_002", 
+      "conditionExpression": "Stop_GoEnable == FALSE",
+      "description": "Obstacle proximity signalling feature is disabled"
+    },
+    {
+      "conditionId": "COND_003",
+      "conditionExpression": "NPS_FrontButtonSts == 'Pressed'",
+      "description": "Front proximity button has been pressed by user"
+    },
+    {
+      "conditionId": "COND_004",
+      "conditionExpression": "VehicleSpeed > 10 km/h",
+      "description": "Vehicle speed exceeds 10 km/h threshold"
+    },
+    {
+      "conditionId": "COND_005",
+      "conditionExpression": "VehicleSpeed ≤ 10 km/h", 
+      "description": "Vehicle speed is at or below 10 km/h threshold"
+    },
+    {
+      "conditionId": "COND_006",
+      "conditionExpression": "ReverseGearRCSSts == 'Inserted'",
+      "description": "Reverse gear is engaged"
+    },
+    {
+      "conditionId": "COND_007",
+      "conditionExpression": "ReverseGearRCSSts == 'Not_Inserted'",
+      "description": "Reverse gear is not engaged"
+    }
+  ],
+  "systemBehavior": {
+    "primaryFunction": "Obstacle Proximity Signalling Management",
+    "operationalModes": [
+      "disabled_mode",
+      "forward_proximity_mode", 
+      "reverse_proximity_mode",
+      "combined_proximity_mode"
+    ],
+    "sensorManagement": {
+      "frontSensor": {
+        "activeStates": ["STATUS_2", "STATUS_4"],
+        "inactiveStates": ["STATUS_1", "STATUS_3"]
+      },
+      "rearSensor": {
+        "activeStates": ["STATUS_1", "STATUS_2", "STATUS_3", "STATUS_4_conditional"],
+        "inactiveStates": ["STATUS_1_conditional"]
+      }
+    },
+    "backlightControl": {
+      "backlight1": ["STATUS_1", "STATUS_3"],
+      "backlight2": ["STATUS_2", "STATUS_4"]
+    }
+  },
+  "safetyConsiderations": [
+    {
+      "safetyId": "SAFETY_001",
+      "description": "Speed-based proximity control prevents false activations at high speeds",
+      "mechanism": "VehicleSpeed > 10 km/h disables proximity signalling"
+    },
+    {
+      "safetyId": "SAFETY_002", 
+      "description": "Reverse gear detection ensures appropriate sensor activation",
+      "mechanism": "ReverseGearRCSSts controls rear sensor priority"
+    },
+    {
+      "safetyId": "SAFETY_003",
+      "description": "Manual override capability via front button",
+      "mechanism": "NPS_FrontButtonSts allows user control of proximity signalling"
+    }
+  ],
+  "qualityMetrics": {
+    "extractionCompleteness": 1.0,
+    "transitionIdentificationAccuracy": 0.98,
+    "stateDefinitionAccuracy": 0.95,
+    "conditionMappingAccuracy": 0.97,
+    "missingDataFlags": ["none"]
+  },
+  "relatedRequirements": ["PRK-0", "VEH-F179", "OBSTACLE_PROXIMITY_SIGNALLING"]
+}

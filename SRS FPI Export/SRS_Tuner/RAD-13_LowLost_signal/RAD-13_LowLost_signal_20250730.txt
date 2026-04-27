@@ -1,0 +1,205 @@
+# RAD-13 6.2.1.1.14  Low/Lost signal Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.14 RAD-13 Low/Lost signal
+
+- ID: 3939611
+- Artifact Type: SRS Feature
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- Grooming Comments: Offered with restrictions - FM Quality indication will we provided for analog stations. For digital services also the mute status will be available to the HMI
+- Expert Domains: Android HMI
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4086341
+- Contents: System shall display frequency value instead of the station name on the screen incase of weak radio signal, the tuner shall remain on the last tuned frequency.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When radio signal is weak, the tuner shall remain on the last tuned frequency. System shall display current frequency value instead of the station name on the scream if radio signal is weak.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall remain" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4086342
+- Contents: System shall display "No-stations available" label on player and in the list, when AM/FM/FMDAB signal and/or stations previously unavailable. In this case on the player, the seek/skip buttons and the frequency bar pointer are grayed out.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display "No-stations available" label on player and in the list, when AM/FM/FMDAB signal and/or stations previously unavailable. In this case on the player, the seek/skip buttons and the frequency bar pointer are grayed out.
+
+Based on the diagonistics requirement timeout period is 10secs
+
+Note: No Stations available is applicable only for Digital(HD/DAB), not applicable for analog.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, detects, label, stations" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4086343
+- Contents: System shall display "Signal lost" label, HD radio content shall grey out when HD radio signal lost.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display "Signal lost" label all HD radio content shall be greyed out when HD radio signal is lost.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, lost, grey out, label, content" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4092391
+- Contents: System shall display indication into the radio player when the signal is weak.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show signal lost indication into the radio player when the signal is too weak. (Digital stations- HD, DAB)
+- Grooming Status: Approved
+- Grooming Comments: Offered with restrictions: Only supporting digital stations. Analog stations are not offered.
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signal, display, is, indication, player, weak" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4092392
+- Contents: When the station signal becomes weak, the station volume shall mute with unchanged on Mute/Unmute status and a low signal indication shall show
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When the station signal becomes too weak, the station volume shall mute with no modification on Mute/Unmute status and a low signal indication (only frequency name shall show ) shall show.
+- Grooming Status: Approved
+- Grooming Comments: Only Digital stations are supported
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "becomes, mute, show" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4092394
+- Contents: System shall show indication and the tuner shall mute with unchanged status on Mute/Unmute when signal lost.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall show indication and the tuner shall mute with no modification on Mute/Unmute status when signal is lost.
+- Grooming Status: Approved
+- Grooming Comments: There is no HMI difference for lost and low signal indications.
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, tuner, show, mute, indication, status, Unmute, lost" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4092395
+- Contents: System shall mute the audio playback if there is a loss of HD Radio SPS audio due to poor signal reception.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall mute the audio playback if there is a loss of HD Radio SPS audio due to poor signal reception.
+
+Info: poor signal reception condition (e.g. driving outside of the coverage areas), 
+tuner shall mute (with no modification on Mute/Unmute status) as there is no analog backup for SPS program
+
+SPS Supplemental program service - HD-2 to HD-8 (any of them).
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "there" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4092396
+- Contents: System shall show indication into the radio player when the signal is weak.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show indication into the radio player when no signal is received on the current channel.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signal, show, is, indication, player, weak" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4092397
+- Contents: When no signal is received on the current channel then Broadcast metadata shall hidden.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify When no signal is received on the current channel then Broadcast metadata shall hidden.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "is received" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4092398
+- Contents: System shall display Low/Lost signal messages for AM, FM, DAB+, R-AM HD Radio, R-FM HD Radio.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Low/Lost signal messages for, DAB+, AM HD Radio, FM HD Radio.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Lost, messages, FM, DAB+, Radio" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: AM, FM not offered
+
+### Informational Items:
+
+1. ID: 4086340
+- Contents: [Info] This function allows user to manage the situations if radio signal strength is weak AND/OR lost.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4092389
+- Contents: Low Signal
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 4092390
+- Contents: [Info] The AM, FM and DAB station list is not updated in realtime if the H/W is single-tuner, therefore the station signal may become too weak.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4092393
+- Contents: Lost Signal
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-13 6.2.1.1.14  Low/Lost signal Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

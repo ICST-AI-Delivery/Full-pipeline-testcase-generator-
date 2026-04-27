@@ -1,0 +1,219 @@
+# PFL-1 6.2.6.2  Profile Creation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.2 PFL-1 Profile Creation
+
+- ID: 3939835
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, Audio Control, BT, IOC_Networking, Media Core, Parking, Projections, SXM, Security, System Architecture, System Core, System Infra
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4643308
+- Contents: System shall not allow the profile creation when If VehicleSpeedVSOSig >= SpeedProfile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system does not allow to create profile VehicleSpeedVSOSig >= SpeedProfile.
+
+SpeedProfile (IDC-434725 - PROFILING_MANAGEMENT($ TBD) IDC-434725 -
+PROFILING_MANAGEMENT($052B)
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- TestTeamComment: service ID not known
+- State (Harman_Requirement): Approved
+
+2. ID: 4727520
+- Contents: IDC shall allow the user to rename the new profile During the profile creation procedure
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to rename the new profile in profile creation.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4727527
+- Contents: System shall notallow the profile creation when "noteven" one character insert in the string.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system does not allow profile creation when no characters insert in string
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notallow, creation, insert, string" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4727528
+- Contents: System shall copy current profiled settings and driver position into the database of the newly created profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to store the newly created profiles in database.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, copy, profiled, created, settings, position, database, profile" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4727529
+- Contents: System shall provide a dedicated HMI interaction to allow the user to pair the created profile to the active key (i.e. current LastKeyFobNum value) when KeyHolderPosition == 2("Position2").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to pair created profile to active key.
+
+ KeyHolderPosition == 2 ("Position2"
+ STATUS_KHD.KeyHolderPosition
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, allow, to pair, created, interaction, user, profile, key i, value, KeyHolderPosition" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3969951
+- Contents: IDC shall allow user to create a new profile by short pressing on "Add New Profile".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that user able to create a new profile by short pressing on "Add New Profile".
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3969952
+- Contents: System shall set the correspondent output signal PresentProfile[x] =1 when the user creates a new profile.
+Note: where x is the index of the bit associated with the first available slot.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal PresentProfile[x] =1 when the user creates a new profile.
+
+Output
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.PresentProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, where x, set, output, creates, Note, is, associated, PresentProfile, profile, index, bit, slot" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3969953
+- Contents: IDC shall inform the user a new profile has been created.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system informs (pop up) the user when a new profile has been created.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "has been created" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3969954
+- Contents: IDC shall ask to the user if he want to pair a Key/skip this step through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system prompts the user to either pair a key or skip the step through HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "he, this" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3969955
+- Contents: IDC shall inform the user a new profile cannot be created while driving.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the user cannot create new profile while driving.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "cannot" ) 
+Passive voice
+ (Look for: "be created" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3969956
+- Contents: IDC shall inform the user that the maximum number of profiles has been reached.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system informs the user when the maximum number of profiles has been reached
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "maximum" ) 
+Passive voice
+ (Look for: "has been reached" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3969957
+- Contents: IDC shall store created profile in memory.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system stores created profiles in memory.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3969950
+- Contents: This feature allows the user to create a new user profile, dedicated for storage of personal preferences of all profiled settings, that can be restored at profile activation.
+- Artifact Type: Information
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Infra, WIFI
+- RQA Score: 0
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-1 6.2.6.2  Profile Creation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

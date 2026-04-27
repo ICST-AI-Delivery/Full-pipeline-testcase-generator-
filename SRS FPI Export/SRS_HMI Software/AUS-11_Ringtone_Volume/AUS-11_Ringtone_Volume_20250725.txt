@@ -1,0 +1,252 @@
+# AUS-11 6.2.1.16  Ringtone Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.16 AUS-11 Ringtone Volume
+
+- ID: 3408183
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3535108
+- Contents: The system shall display the "Ringtone Volume" interface on HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Ringtone volume interface is visible in HMI Audio Setting
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3870537
+- Contents: The system shall allow the user to change the "incoming call volume, Outgoing call volume including ringing/dialing" via the physical volume rotary.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the "incoming call & outgoing call Volume including ringing/dialing" can be changed via rotary knob.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to change, including, ringing, dialing, user, volume, rotary" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3535107
+- Contents: The system shall allow the user to change the Ringtone volume within the allowed range
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Ringtone Volume via HMI or Other methods  
+Verify that the Ringtone volume level can be adjusted (0 to 100%)
+
+Verify that the changed value is reflected on HMI.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (refer to IDC-417329 - FAD-0 Ferrari Audio Director Introduction )
+
+4. ID: 3535106
+- Contents: The system shall allow the user to change the Ringtone Volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that user can change the the Ringtone Volume.
+
+Verify that the changed value is reflected on HMI..
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3535172
+- Contents: The system shall play a dedicated sound preview on the RINGTONE channel at the selected volume level when a volume level is "selected"
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify a dedicated sound preview is played at the selected volume level when a volume level is selected for Ringtone volume.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, level, play, selected, is, preview, Channel" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Info] Refer to HMI specification for details about ringtone sound preview
+
+6. ID: 3535174
+- Contents: The system shall always align HMI indication of Voice control volume setting to the volume stored in Ringtone_Volume (i.e. if volume is updated from other interface than the setting, system shall update setting value HMI indication)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify the Navi voice volume interfce is visible in HI Audio Setting
+- Grooming Status: Review
+- Grooming Comments: [Abdul 25.07.2024]:Removed from PI4
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, align, setting, stored, update, indication, control, volume, value" ) 
+Unclear term
+ (Look for: "other" ) 
+Passive voice
+ (Look for: "is updated" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3535201
+- Contents: The system shall inhibit Ringtone Volume setting to user interaction during an incoming, active & outgoing call.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that, user can not interact with ringtone volume
+during Phone incoming call, outgoing call and  active call (the ringtone volume is disabled and greyed out)
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: During Phone incoming call or active call, outgoing call the ringtone volume is disabled and greyed out
+
+8. ID: 4576235
+- Contents: The system shall align HMI indication of Ringtone volume to the updated volume level on updating the volume from different interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Ringtone volume from HMI, Hardkey, Diagnostics.
+
+Verify that the updated Ringtone volume level is reflected on HMI
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Different interfaces include HMI. Hardkey, Diagnostics
+
+9. ID: 4570809
+- Contents: If setting Persistence type is Standard, the system shall persist the "Ringtone Volume" setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Ringtone Volume setting from HMI for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4570810
+- Contents: If setting persistent type = standard and the system can't read stored values from the memory, then system shall set the "Ringtone Volume" setting value to default value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Ringtone Volume setting value.
+
+Create error in memory reading.
+Verify that the Ringtone Volume setting value is set to default value in HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, read, stored, set, default, type   standard, values, memory, Volume, value" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4570811
+- Contents: If setting Persistence type = Profiled, the system shall store the last "Ringtone Volume" setting value  for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last "Ringtone Volume" setting value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]: OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, reboot, last, Volume, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4570812
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi paranmeter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (Ringtone Volume) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2027]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4570813
+- Contents: If setting Persistence type = Profiled and the system can't read the stored values from the memory, then the system shall set the "Ringtone Volume" setting value to default value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency.
+Change the Audio settings value.
+
+create error in memory reading.
+Verify the Ringtone Volume setting value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, read, stored, set, default, values, memory, Volume, value" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3525067
+- Contents: This setting allows the user to adjust the ringtone volume which will occur during an incoming call.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4539694
+- Contents: [Info] The ceil function rounds the result to the nearest integer greater than or equal to the result.
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-11 6.2.1.16  Ringtone Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

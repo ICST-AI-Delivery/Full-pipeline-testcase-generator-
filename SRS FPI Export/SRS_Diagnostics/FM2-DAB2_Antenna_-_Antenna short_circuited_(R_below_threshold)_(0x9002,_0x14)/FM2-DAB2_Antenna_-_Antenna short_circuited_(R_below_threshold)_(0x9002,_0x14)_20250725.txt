@@ -1,0 +1,97 @@
+# UnknownID 6.2.1.1.40 FM2-DAB2 Antenna - Antenna short circuited (R below threshold) (0x9002, 0x14) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.40 FM2-DAB2 Antenna - Antenna short circuited (R below threshold) (0x9002, 0x14)
+
+- ID: 3925958
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3925959
+- Contents: If No signal reception from AM/FM1-DAB1 Antenna, the system shall send FM2-DAB2 Antenna - Antenna short circuited  message with Proxi byte 82, bit 3(“Reserved for SDARS / DAB")  = "Present" in Vehicle configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system is sending FM2- DAB2 antenna short circuit message with Proxi byte 82, bit3 if no signal reception from AM/FM1- DAB1 antenna.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit, WLMR, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when Radio unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): Approved
+
+2. ID: 3925960
+- Contents: If Key-On, the system shall detect the Fault Conditions.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Pre condition Key-ON.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when Radio unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): Approved
+
+3. ID: 3925961
+- Contents: If the Maturation time is 10sec & DC current connection senses a current ≥ 150mA, the system shall come into contact with Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Maturation time as 10s.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when Radio unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): Approved
+
+4. ID: 3925962
+- Contents: If the De-Maturation is 10sec & DC current connection senses a current of 35÷135mA , the system shall face with De-Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as 10s.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when Radio unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.40 FM2-DAB2 Antenna - Antenna short circuited (R below threshold) (0x9002, 0x14) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

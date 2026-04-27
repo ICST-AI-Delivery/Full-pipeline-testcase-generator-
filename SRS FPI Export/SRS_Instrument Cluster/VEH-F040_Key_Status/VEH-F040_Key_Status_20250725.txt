@@ -1,0 +1,99 @@
+# VEH-F040 6.2.1.1.1.8  Key Status Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.8 VEH-F040 Key Status
+
+- ID: 3405880
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_Autosar, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3463087
+- Contents: System shall receive key status from HMI CAN
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify signal STATUS_B_CAN.KeySts received
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3463088
+- Contents: System shall consider physical key when network key status unavailable
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify KeyFisico have physical key value (ON/OFF)
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3711889
+- Contents: System shall perform cluster HMI ON when
+Key status received >=4 AND
+Physical key ON
+(see: image15.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify cluster HMI turns ON when CAN signal Key Status >=4 and  physical key by wire (+15) is ON
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image15.png
+
+4. ID: 3463090
+- Contents: System shall perform check phase at key on event for a time duration of T_Diagnosis
+Note : T_Diagnosis = T_Lampcheck + 1000ms
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify bub check for duaration T_Lampcheck (4s).
+Verify other errors not reported until T_Diagnosis finished
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1000’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: after the “T_Lampcheck” time parameter, IDC shall wait 1000 ms before signalling other possible failures (except for the ones that can interrupt this cycle and that
+shall be signaled when incoming), in order to guarantee that all the requests of telltale-check handled by external ECUs are terminated, within the “T_Lampcheck” time parameter.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image15.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F040 6.2.1.1.1.8  Key Status Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

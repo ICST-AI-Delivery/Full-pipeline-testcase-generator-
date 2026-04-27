@@ -1,0 +1,70 @@
+# UnknownID 6.2.4.2.1.7 User statistics DB Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.7 User statistics DB
+
+- ID: 4364610
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- Grooming Comments: Need to check with sadiq and system team.
+
+This sis a 3rd party user and not shown to user.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4364612
+- Contents: The system shall Read access for Navigation Data base with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the user is able to read  Navigation Data base with an active Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250226: Check that RDBI (0x22) worked fine in extended session. To check response value not possible, no info about values or not possible to validate response string.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 1 Byte
+Data type: Unsigned
+
+2. ID: 4364616
+- Contents: The system shall return the user statistics stored according to VFI-F871, upon requesting data identifier with the Read Data by Identifier “diagnostic session”.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the data identifier with read data by identifier diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, requesting, return, stored, according, identifier, Data, Identifier, statistics" )
+- TestTeamComment: RWeber_DIAG_250226: Check that RDBI (0x22) worked fine in extended session. To check response value not possible, no info about values or not possible to validate response string
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.7 User statistics DB Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

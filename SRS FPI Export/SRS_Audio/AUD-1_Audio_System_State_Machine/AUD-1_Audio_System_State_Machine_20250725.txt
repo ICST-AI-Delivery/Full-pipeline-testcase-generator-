@@ -1,0 +1,110 @@
+# AUD-1 6.2.1.2  Audio System State Machine Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2 AUD-1 Audio System State Machine
+
+- ID: 3408478
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3553293
+- Contents: In IDC_ON state, the system shall set the following CAN signal as below.
+IDC_AudioStreams.ExternalAmplifierSts to the value of the external
+ amplifier I2C signal ExternalAmplifierSts.
+IDC_AudioStreams.ExternalAmplifierFailSts to the value of the
+ external amplifier I2C signal ExternalAmplifierFailSts.
+AUDIO_INFO.AVASFailSts to the value of the external amplifier I2C signal AVASFailSts.
+IDC_AudioStreams.ExternalAmplifierMuteAll to the value of the external amplifier I2C signal ExternalAmplifierMuteAll.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to IDC ON State (set MainWakeSts_BCM = 1 ("Active"))
+
+Verify that the value of the below CAN signals are set properly.
+
+IDC_AudioStreams.ExternalAmplifierSts
+IDC_AudioStreams.ExternalAmplifierFailSts
+AUDIO_INFO.AVASFailSts
+IDC_AudioStreams.ExternalAmplifierMuteAll
+- Grooming Status: Approved
+- Grooming Comments: [02.01.2025: Abdul, Xiongwei] OK to approve
+
+[16.05.2024: Ahmed, Xiongwei, Dawid]: OK to approve.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "state, system, ExternalAmplifierSts, ExternalAmplifierFailSts, set, following, signal, value, AVASFailSts, ExternalAmplifierMuteAll" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3557023
+- Contents: In IDC ON state, the system shall send the Power train Status to FAD library.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the CAN signal "PWT_STATUS_2.PowertrainSts" with 
+values Off/ON/Starting/Shutdown.
+Verify the values are correctly received in FAD library.
+Use the logs (Linux, DSP, IVI) for Verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3553056
+- Contents: The system shall initialize FAD through the FAD_CTRL__init(void*fad_ctrl_memory, float AudioLevel, int SideDriver, int RoofType, int MeasurementMode) in "IDC ON" state.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3553428
+- Contents: If the Audio system is in "A2B_INIT" state, the FAD library shall not reproduce any audio content.
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3553429
+- Contents: If the value of AudioSts is equal to 1 ("AUDIO_NOT_AVAILABLE"), the FAD Library shall not reproduce any audio content.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3553432
+- Contents: If the value of AudioSts is equal to 2 ("AUDIO_AVAILABLE"), the FAD Library shall reproduce audio.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-1 6.2.1.2  Audio System State Machine Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

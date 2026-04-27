@@ -1,0 +1,165 @@
+# UnknownID 6.2.1.2.7 DMS 1_ERROR State Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.7 DMS 1_ERROR State
+
+- ID: 3792546
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538913
+- Contents: The DMS shall switch to ERROR state from any other state when a fault condition is detected.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: DMS is in any state
+
+Create a temporary or permanent fault
+
+Verify that the DMS is switched to Error state
+
+Verify the value of the below CAN signals.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+DMS_INFO.DMSSystemStatus= Error
+DMS_INFO.HMICode_DMS = not_active
+DMS_INFO.DMS_Attentiveness = Status_not_available
+DMS_INFO.DMS_DriverPresent = Status_not_available
+DMS_INFO.Nominal_condition = Status_not_available
+DMS_INFO.DMSSystemFail = temp_fail OR perma_fail according to Failure Management
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "any, other" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3538908
+- Contents: The system shall activate DMS in 'ERROR-state' but unable to 'work-correctly' due to the presence of a permanent or temporary fault.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: DMS is in any state
+
+Create a temporary or permanent fault.
+
+Verify that DMS is switched to Error state.
+Verify that the DMS functionality (Driver detection/Driver Attentiveness/Driver Distraction warning) is not working
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, work, DMS, presence, fault" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: Temporary failure is defined as a SW or network error that can be recovered during operation of the system
+NOTE: A temporary failure is related to network errors or invalid signals. If the failure persists, this will
+become a permanent failure.
+
+
+-Permanent failure is defined as a "HW or severe SW error that need a new initialization of the DMS", "as well as total  of the camera"
+
+3. ID: 4642803
+- Contents: The system shall send the below CAN signal values in DMS 'ERROR' state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = '7' (ERROR).
+DMS_INFO.DMSSystemStatus = Error
+DMS_INFO.HMICode_DMS= not_active
+DMS_INFO.DMS_Attentiveness = Status_not_available
+DMS_INFO.DMS_DriverPresen= Status_not_available
+DMS_INFO.Nominal_condition= Status_not_available
+DMS_INFO.DMSSystemFail = temp_fail OR perma_fail according to Failure Management
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in 'RUNNING' state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3792573
+- Contents: The DMS shall switch to User presence state from Error state on the temporary fault  recovery.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditin:
+DMS is in Error state due to temporary fault.
+Remove the fault
+
+Verify that DMS is switched to User Presence State
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3792575
+- Contents: The DMS shall switch to INIT state from Error state on the Permanent fault recovery
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: DMS is in Error state due to degradation conditions like partial camera obstruction, driver not present.
+Verify that DMS is switched to User Presence State
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3946254
+- Contents: System shall manage Transitions from/to any state as per the image above.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3946028
+- Contents: DMS camera shall be 'ON' in every state(if error/fault permits so) until 'explicitly' set to the 'OFF' state.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditions:
+None
+
+Conditions:
+Turn on the system and go through all the states.
+Verify that the camera is on in all the states via Eng. App.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Unclear term
+ (Look for: "explicitly" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.2.7 DMS 1_ERROR State Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

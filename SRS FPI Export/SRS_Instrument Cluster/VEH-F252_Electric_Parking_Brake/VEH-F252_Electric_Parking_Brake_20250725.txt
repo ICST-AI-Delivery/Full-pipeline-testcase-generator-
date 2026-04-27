@@ -1,0 +1,877 @@
+# VEH-F252 6.2.1.1.2.22  Electric Parking Brake Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.22 VEH-F252 Electric Parking Brake
+
+- ID: 3689886
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3694338
+- Contents: System shall display Electric Parking Brake indications as per the Ferrari Design.
+ROW (see: image124.png)
+USA (see: image125.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditoin: USA Market and Extra Market
+
+Verify that the Electric Parking Brake indications are displayed in B21 wireframe as per the Ferrari Design for USA Market and Extra Market
+
+CAN-Signal: NFR_HMI.ServiceLampReq
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image124.png, image125.png
+
+2. ID: 3694432
+- Contents: System shall use specific telltales for the USA market in the display and DTC is stored in Memory if PROXI "Country market set to USA.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Proxi Country market set to USA.
+
+Verify that the specific telltales for USA market 
+
+Proxi: Country market" = "USA" (byte 59, bits 4-5)
+
+
+CAN-Signals:NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Grooming Comments: 30/7 : FQ-421 DTC not required
+
+
+DTC code is required.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, DTC, use, telltales, market, display, Memory" ) 
+Passive voice
+ (Look for: "is stored" )
+- TestTeamComment: Testing will be done for default proxi value , FPI should have a task for testing team to check all proxi settings. Once the Proxi architecture is clear.
+- State (Harman_Requirement): Approved
+
+3. ID: 3694430
+- Contents: System shall use specific telltales for the destination market in the display and DTC is stored in Memory if PROXI "Country market set to Extra Market.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Proxi Country market set to Extra Market.
+
+Verify that the specific telltales for ROW market .
+
+Proxi: "Country market" = "Extra market" (byte 59, bits 4-5)
+
+
+CAN-Signal:NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Grooming Comments: 30/7 : FQ-421 DTC not required
+
+DTC code is required.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, DTC, use, telltales, market, display, Memory" ) 
+Passive voice
+ (Look for: "is stored" )
+- TestTeamComment: Testing will be done for default proxi value , FPI should have a task for testing team to check all proxi settings. Once the Proxi architecture is clear.
+- State (Harman_Requirement): Approved
+
+4. ID: 3695106
+- Contents: System shall display F252 Info-1 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when service lamp request is ON
+Note: Display Info-1 follows S10 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: ServiceLampReq == ON
+
+
+Verify that the Info 1 display Telltale when service lamp request is ON.
+
+CAN-Signal: NFR_HMI.ServiceLampReq
+
+Telltale Code:EPB001
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, service lamp request, display, is, Display, follows, Info-1" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3695108
+- Contents: System shall turn off Electric Parking Brake Telltale when EPB Display enable set to disable and Key-Off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+EPBDisplayEnable == Disabled EPB and Key-Off.
+
+
+
+Verify that the Electric Parking Brake Telltlae is turned Off when EPB Display is Disabled.
+
+CAN-Signal:NFR_HMI.EBDDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, turn off, enable, set, to disable, Telltale, Display" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3695123
+- Contents: When ServiceLampRequest  is ON, the Electric Parking Brake Ttelltale Behaviour shall depend by Service Lamp Blink Frequency.
+(see: image126.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: ServiceLampReq == ON
+
+Verify that the Telltale blinks as per the Service Lamp Blink Frequency.
+
+CAN-Signal: NFR_HMI.ServiceLampBlinkFreq
+
+NFR_HMI.ServiceLampReq
+- Grooming Status: Approved
+- Grooming Comments: Need Service Lamp Telltale.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ServiceLampRequest, Behaviour, is, depend, ON, Frequency" )
+- TestTeamComment: Need Service Lamp Telltale
+- State (Harman_Requirement): Approved
+- Visual Elements: image126.png
+
+7. ID: 3695193
+- Contents: System shall visualize Electric Parking Brake Info2 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when PBDisplayInfo has a transition from 1 to 2.
+Note: Info-2 follows D04 behaviour with Specific Priority: Parking Brake inserted.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: PBDisplayInfo == 2
+
+System shall visualize Electric Parking Brake Info2 when Park Brake display info transition from value one to two.
+
+CAN-Signal: NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, display, inserted, follows, Brake, transition, value, visualization, priority, Priority" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3695213
+- Contents: System shall display info-3 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when:
+PBDisplayInfo equal to 1 AND
+STS_DRS_DriverDoorSts equal to open AND  Vehiclespeed <V_car_moving(5km/hr)
+AVHDisplayInfo equal to No_Request_to_HMI
+Note: Info-3 follows D04 visualisation behaviour with Specific priority: Parking brake not insert
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo:
+
+ PBDisplayInfo == 1 AND STS_DRS_DriverDoorSts == open AND  Vehiclespeed <V_car_moving(5km/hr) 
+ AVHDisplayInfo == No_Request_to_HMI
+
+Verify that the Info-3 pop-up is displayed with buzzer when necessary conditions are met. In the Arena -H. with Text and Graphic.
+ 
+refer HMI_POP.IND 
+ID: 25203
+
+
+CAN-Signal :
+NFR_HMI.PBDisplayInfo
+NFR_SPEED.VehicleSpeedVSOSig
+NFR_HMI.AVHDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, insert, pop-up, buzzer, open, priority" ) 
+Negative statement
+ (Look for: "not" ) 
+Missing unit 
+ (Look for: "‘1,4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3695310
+- Contents: When Electric Parking Brake Info-3 active , the door icon shall appear without pop-up.
+(see: image127.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Door Icon is displayed without pop-up when Info-3 active
+
+Verify door telltale is displyed without pop-up.
+- Grooming Status: Approved
+- Grooming Comments: need clarity on door icon
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "F252 Info, door icon, happens, appear, pop-up" ) 
+Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image127.png
+
+10. ID: 3695312
+- Contents: System shall display info-4 pop-up with Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+Parking Brake DisplayInfo is equal to 1 AND
+KeyStatus Less than 4 AND
+AutoElectric Parking Brake Enable set to Disable
+Note:Info-4 follows D11 visulaisation behaviour with Specific priority: Parking brake not insert
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo:
+PBDisplayInfo == 1 AND KeySts < 4 AND AutoEPBEnable == Disable
+
+
+Verify that the Info-4 Pop-up and Buzzer when necessary conditions are met.
+
+Buzzer:2B
+
+CAN-Signal:
+NFR_HMI.PBDisplayInfo
+STATUS_NBC.KeySts
+NFR_INFO.AutoEPBEnable
+- Grooming Status: Approved
+- Grooming Comments: Graphic Colour does not match the Given colour in HMI.POP.IND
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, is, set, to Disable, follows, insert, pop-up, buzzer, DisplayInfo, priority" ) 
+Negative statement
+ (Look for: "not" ) 
+Missing unit 
+ (Look for: "‘1,4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3695319
+- Contents: System shall display info-5 pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Electronic Parking Brake remove Park Lock Request info set to On.
+Note: Info-5 follows D04 Visualisation behaviour with Priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger-Condition: 
+EPBRemovePLRqtInfo == ON
+
+Verify that the Info-5 pop-up when Electric Parking Brake remove Parking Lock Request Info set to On. 
+
+CAN-Signal:  NFR_HMI.EPBRemovePLRqtInfo
+
+POP-UP ID: 25205
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, remove, set, follows, pop-up, info, Priority-0" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3935770
+- Contents: System shall stop displaying any message about the function.IDC-454827
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3695323
+- Contents: System shall display Electric Parking Brake Pop-up when Electric Parking Brake Remove Park Lock Request Info is in ON after 5 seconds from the button has been pulled.    IDC-446983
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: 30/7 : FQ-421 requirement will be deleted - Obsolete
+
+Requirement is Not clear.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "EPBRemovePLRqtInfo, IDC, show, occurs, remain, display, pop-up, button, transition, buttonhas, Key-On Key-Off, anymessage, function" ) 
+Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "has been pulled, been pulled" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3695342
+- Contents: System shall display warning-1 pop-up with telltale with buzzer in B21 wireframe area when below conditions met:
+ServiceLampReq == ON AND
+ServiceLampBlinkFreq == 0 AND
+Power is ON AND
+VehicleSpeedVSOSig  Greater than or equal to V_car_moving
+Note: Warning-1 follows D04 Visulaisation behaviour with specific priority: Warning of parking brake (EPB) ON
+Virtual telltale with S10 behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo:
+erviceLampReq == ON AND ServiceLampBlinkFreq == 0 AND Power is ON AND VehicleSpeedVSOSig ≥ V_car_moving
+
+V_car_Moving is 5Km/Hr
+
+Verify that the Warning-1 Pop-Up with Buzzer and telltale is displayed when necessary conditions are met.
+
+Telltale ID: 25206
+
+Buzzer:2A
+
+CAN Signal: 
+NFR_HMI.ServiceLampReq
+NFR_HMI.ServiceLampBlinkFreq
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Engine, display, warning, met, is, moving, follows, Warning, pop-up, telltale, buzzer, area, AND, priority, EPB" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3727474
+- Contents: System shall continue to play Audio Buzzer until coditions met  even if the  Warning-1 visualisation is Interrupted by Escape Function.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Audio Buzzer shall continue to play even after Escape Function happened.
+
+Escape function is a User dismissable function.
+- Grooming Status: Approved
+- Grooming Comments: Escape Function is Not Clear
+3.1.1.4.3 Escape Function
+IDC-419553 - Indicates the possibility to interrupt the visualization cycle before the timeout with a user action.
+IDC-419799 - Some visualization cycle, when interrupted on the Binnacle display (NQS), can be shown on the Central display (NDR).
+- Expert Domains: Android HMI, Audio Processing, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, continue, to play, met, Buzzer, coditions" ) 
+Escape clause
+ (Look for: "until" ) 
+Passive voice
+ (Look for: "is Interrupted" )
+- State (Harman_Requirement): Approved
+
+16. ID: 5031964
+- Contents: The system shall disable the visualisation cycle if NOT (ServiceLampReq = ON AND ServiceLampBlinkFreq = 0 and Engine On* and VehicleSpeedVSOSig ≥ V_car_moving).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the visualisation id disabled when NOT (ServiceLampReq = ON AND ServiceLampBlinkFreq = 0 and Engine On* and VehicleSpeedVSOSig ≥ V_car_moving).
+
+CAN-Signal: 
+NFR_HMI.ServiceLampReq
+NFR_HMI.ServiceLampBlinkFreq
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, disable, moving, visualisation cycle, ServiceLampBlinkFreq, Engine, VehicleSpeedVSOSig" ) 
+Negative statement
+ (Look for: "NOT" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3726285
+- Contents: The visualization cycle of “Parking brake ON” Signalling shall show in rolling with other visualizations present on the display.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the Rolling visualisation is performed according to Telltales document when Parking Brake is ON.
+
+Refer: HMI-LF-8921 in Binnacle Telltale Document.
+
+
+CAN-Signal:
+NFR_HMI.EBDDisplayInfo
+NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Grooming Comments: How  this Rolling Visualisation  for warning happens?
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "cycle, Signalling, show, rolling, present, brake, display" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3727459
+- Contents: System shall stop the Warning-1 display in sync with the Key-Off Event
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Warning-1 Is active and
+Key-Off event Happened.
+
+Verify that the Warning-1 is displayed in sync with the Key Off.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+19. ID: 3695348
+- Contents: System shall display warning-2 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Parking Brake DisplayInfo equal to 6，7，8.
+Note: Warning-2 follows D01  Visulaisation behaviour with specific priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditon:
+PBDisplayInfo == 6, 7, 8
+
+Verify that the Warning-2 Pop-up with buzzer is displayed when Parking Brake Display Info equal to 6,7,8.
+
+CAN-Signal: NFR_HMI.PBDisplayInfo
+Buzzer: 2B
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, to 6, follows, pop-up, buzzer, equal" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3695383
+- Contents: System shall display warning-3 pop-up when Parking Brake Display info equal to 21.
+Note: Warning-3 follows D01 visualisation with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: PBDisplayInfo == 21
+
+
+Verfy that the Warning-3 Pop-up is displayed when Parking Brake Display info equal to 21.
+
+CAN-SIGNAL:
+NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, follows, pop-up, info" ) 
+Missing unit 
+ (Look for: "‘21’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+21. ID: 3695384
+- Contents: System shall display warning-4 pop-up when Parking Brake Display info equal to 22
+Note: Warning-4 follows D01 visualisation with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: PBDisplayInfo == 22
+
+Verify that the Warning-4 Pop-up when Parking Brake Display info equal to 22
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, follows, pop-up, info" ) 
+Missing unit 
+ (Look for: "‘22’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3695386
+- Contents: System shall display warning-5 pop-up with buzzer in B26 wireframe area when Electric parking brake Life Cycle Warning equal to ON.
+Note: Warning-5 follows D01 visualisation behaviour with Priority-3, For Virtual telltale  S17 Visualisation will follow.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: EPBLifeCycleWarning == ON
+
+Verify that the warning-5 is displayed when Electric Parking Brake Life Cycle Warning equal to ON.
+
+Buzzer:2B
+
+CAN-sIGNLA:
+NFR_HMI.EPBLifeCycleWarning
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, follows, will follow, telltale, buzzer, area, Life Cycle, equal, Visualisation" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3695389
+- Contents: System shall display Warning-6 when Warning Lamp Req equal to ON
+Note: Virtual telltale follows S17 Visualisation Behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: WarningLampReq == ON.
+
+Verify that the system displays Warning-6 Telltale when Warning Lamp Request equal to ON.
+
+Refer HMI POP.IND Id : 25211
+
+CAN Signal: NFR_HMI.WarningLampReq
+
+Telltale ID : 01410 . 01420
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, follows, telltale, Lamp" )
+- State (Harman_Requirement): Approved
+
+24. ID: 3695392
+- Contents: Electric Parking Brake Telltale shall turn off ,
+when EPB Display Enable set to Disable.
+When the Key-Off Event happen.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: Warning LAmp request is ON.
+
+Verify that the Electric Parking Brake shall be turned off when EPB Display Enable is set to Disable.
+
+CAN-Signal: NFR_HMI.EBDDisplayInfo
+- Grooming Status: Approved
+- Grooming Comments: What in the Case of Key-ON for this requiement.?
+
+During the KEy-On if a CAN signal value changes from Enable to Disable , should the req be disabled.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "turn off, Enable, happen" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3695394
+- Contents: System shall play warning-7 audio buzzer when Electronic Parking Brake Buzzer request equal to ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: 
+EPB_BuzzerReq == ON
+
+Verify that the Warning-7 is displayed when Electric Parking Brake Buzzer request equal to ON.
+
+Buzzer:1A
+
+CAN-Signals: 
+NFR_HMI.EPB_BuzzerReq
+- Grooming Status: Approved
+- Grooming Comments: What is the Output CAN Message Audio Buzzer - 1A.?
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, warning, buzzer, equal" )
+- State (Harman_Requirement): Approved
+
+26. ID: 3695397
+- Contents: Sysytem shall perform 2B buzzer when signal EPB_BuzzerReq == OFF , otherwise an 1A acoustic signalling shall drive by NPB
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall perform 2B buzzer when EPB_BuzzerReq==OFF , If not verify that the Acoustic signalling shall be driven by NPB. 
+
+Please refer Proxi File NPB data for Verifying the NPB.
+
+CAN-Signals: NFR_HMI.EPB_BuzzerReq
+- Grooming Status: Approved
+- Grooming Comments: What is an NPB ??
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Sysytem, signalling, perform, drive, buzzer, EPB, NPB" ) 
+Missing limits
+ (Look for: "‘1 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+27. ID: 3958437
+- Contents: System shall perform a Warning-8 2B buzzer if the signal EPB_BuzzerReq is OFF, otherwise an 1A acoustic signalling shall drive by NPB
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall perform 2B buzzer if EPB_BuzzerReq is  OFF otherwise an 1A audio buzzer will be played. 
+
+CAN-Signal: CAN-Signals: NFR_HMI.EPB_BuzzerReq
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signalling, perform, drive, buzzer, NPB" ) 
+Missing limits
+ (Look for: "‘1 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+28. ID: 3911944
+- Contents: At Key-OFF System shall stop playing the Buzzer.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the buzzer is stopped when KEY-oFF event happened.
+- Grooming Status: Approved
+- Expert Domains: Audio Processing
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+29. ID: 3695398
+- Contents: System shall display warning-8 pop-up with buzzer2B , buzzer1A ( shall play According to the EPBBuzzer Req and Value of the EPB) when Power Brake display info equal to 26.
+Note: Warning-8 follows D11 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: PBDisplayInfo == 26
+
+Verify that the Warnin-8 is displayed when Power Brake Display Info is equal to 26.
+and Buzzer 1A is played based on EPBBuzzer Req and NPB values 
+
+CAN-Signal: NFR_HMI.EPB_BuzzerReq.
+NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, play, According, follows, pop-up, Req, Value, EPB, Brake, equal, priority-1" ) 
+Missing unit 
+ (Look for: "‘26’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘1 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+30. ID: 3695399
+- Contents: System shall display fail-1 pop-up with telltale and buzzer in B26 wireframe area when below condition met:
+Parking Brake DisplayInfo equal to any of 9, 11, 12, 13, 14, 15, 16, 19, 20, 23 AND
+WarningLampRequest set to ON
+Note: Fail-1 follows D01 visualisation behaviour with priority 0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: PBDisplayInfo == 9, 11, 12, 13, 14, 15, 16, 19, 20, 23 AND WarningLampReq == ON
+
+Verify that the Fail-1 is displayed when neccessary conditions are met.
+
+Buzzer: 2B , 1A
+
+CAN-Signal: 
+NFR_HMI.PBDisplayInfo
+NFR_HMI.WarningLampReq
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, set, follows, pop-up, telltale, buzzer, area, equal, behaviour, priority" ) 
+Missing unit 
+ (Look for: "‘11,12,13,14,15,20,23,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3695402
+- Contents: System shall display fail-2 pop-up with buzzer when Parking brake display info equal to any of 10,17
+Note: Fail-2 follows D01 visualisation behaviour with priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algo: PBDisplayInfo == 10, 17
+
+Verfy that the Fail-2 Pop-up with Buzzer when Parking Brake Display Info is equal to 10,17.
+
+Buzzer:2B
+
+CAN-Signal: NFR_HMI.PBDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, pop-up, buzzer, equal" ) 
+Missing unit 
+ (Look for: "‘10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+32. ID: 3931367
+- Contents: Active diagnosis for virtual telltale turning ON/OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+33. ID: 3931369
+- Contents: DTC in case of virtual telltale fault (internal fault).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+34. ID: 3931374
+- Contents: the DTC shall specify in environmental conditions, which is the telltale that caused the internal fault.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DTC, specify, is, caused, conditions, telltale, fault" )
+- State (Harman_Requirement): Approved
+
+35. ID: 3931376
+- Contents: Service for V_car_moving calibration.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+36. ID: 4705744
+- Contents: If System detects a Message Counter or CRC error on NFR_INFO , NFR_HMI message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F252 Info 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the F252 Info-1 is displayed is the NFR_INFO is not received for more than MC_CRC_error_Counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, error, message, visualization" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3911950
+- Contents: System shall use the mentioned CAN signals to display Electric Parking Brake as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+2. ID: 3716734
+- Contents: System shall display Electric Parking Brake Warning 3 and 4 After replacing brake pads, in order to communicate with Ferrari Assistance Technician that Garage braking procedure is activated and/or applied,
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Electric Parking Brake 
+ Warning 3 or 4 is performed after replacing brake.
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, procedure, display, replacing, communicate, braking, 3, pads, Technician" ) 
+Escape clause
+ (Look for: "in order to" ) 
+Missing unit 
+ (Look for: "‘3,4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is activated, applied" )
+- State (Harman_Requirement): New
+
+3. ID: 3740330
+- Contents: Guidance: depending on the  NPB value in the Proxi data Buzzer 1A shall be applied.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+4. ID: 3695395
+- Contents: Acoustic Signallings shall be manage by IDC or by NPB using the signal EPB_BuzzerReq.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system or NPB shall manage acoustic signallings using the Signal EPB_BuzzerReq
+- Grooming Status: Blocked
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Signallings, be manage, using, NPB, EPB" )
+- State (Harman_Requirement): Review
+
+5. ID: 3695396
+- Contents: In case of failure, buzzer activation shall be directly driven by IDC or by EPB ECU through EPB_BuzzerReq signal.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Buzzer activatoin shall directly driven by System or Electric Parking Brake ECU in case of Failure of using the signal EPB_BuzzerReqSignal.
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be directly driven" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image124.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image126.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image127.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image125.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F252 6.2.1.1.2.22  Electric Parking Brake Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

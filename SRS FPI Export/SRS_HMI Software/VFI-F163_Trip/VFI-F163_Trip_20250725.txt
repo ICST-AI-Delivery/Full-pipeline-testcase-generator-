@@ -1,0 +1,95 @@
+# VFI-F163 6.2.2.10  Trip Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.10 VFI-F163 Trip
+
+- ID: 4136846
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4136857
+- Contents: IDC shall display the following trip statistics:
+Trip Distance
+Maximum speed
+Average speed
+Energy Used
+Travel Time
+Average Consumption
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display the value of profiled travelled distance.
+
+Input
+HMI_CAN:
+MYDRIVE_INFOPROFILE.TravelDistance_Profile
+
+ TRIP_INFORMATION.TripMaximumSpeed
+TRIP_INFORMATION.TripAverageSpeed
+ MY_DRIVE_INFO_3.TripEnergyUsed
+ TRIP_INFORMATION.TripTime
+ xEV_NAV_INFO.ElectricConsumption_Trip
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 5022531
+- Contents: System shall convert the received signal values (seconds) into the required unit of measurement (minutes, hours, days).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to convert the required units
+
+Trip Distance [km] (e.g 10,6 km)
+Maximum speed [km/h].
+Average speed [km/h] .
+Energy Used (excluding regenerated energy) [kWh], after 1000 kWh [MWh] using first two decimal number (e.g 20.14 MWh)
+Travel Time [mm,ss], after 60 minutes [hh:mm], after 24h [dd:hh]
+Average Consumption [Wh/km]
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, convert, received, seconds, required, values, unit, minutes, hours, days" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4136859
+- Contents: This function allows the user to visualize the partial odometer of the currently active profile on Central display.
+If according to SET6 unit of measure is set to miles, then IDC shall provide the trip indication applying the conversion formula as defined in GEN-1, with the truncation algorithm
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F163 6.2.2.10  Trip Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

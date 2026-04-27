@@ -1,0 +1,89 @@
+# UnknownID 6.2.1.1.95 T_NQS_on($054C) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.95 T_NQS_on($054C)
+
+- ID: 4378523
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4378524
+- Contents: The system shall be able to read the T_NQS_on in extended diagnostic session with the responses.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system allows the user to read the time required for charge visualization NQS during an extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- TestTeamComment: RWeber_DIAG_241106: I will only test that the DataRecord (tbd) can be read/write in extended session, No applicative or hmi test to check values and system behaviors.
+- State (Harman_Requirement): Approved
+
+2. ID: 4483105
+- Contents: The system shall be able to write the T_NQS_on in extended diagnostic session with the responses.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system allows the user to set a voltage threshold for NQS during an extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- TestTeamComment: RWeber_DIAG_241106: I will only test that the DataRecord (tbd) can be read/write in extended session, No applicative or hmi test to check values and system behaviors.
+- State (Harman_Requirement): Approved
+
+3. ID: 4483107
+- Contents: The default value of T_NQS_on shall be 4 with coefficient of 1/5 for 20sec.
+(see: image2.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that
+Default: 4 in decimal
+Coefficient: 1/5
+Physical value: 20 sec
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241106: I will only test that the DataRecord (tbd) can be read/write in extended session, No applicative or hmi test to check values and system behaviors.
+- State (Harman_Requirement): Approved
+- Visual Elements: image2.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image2.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.95 T_NQS_on($054C) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

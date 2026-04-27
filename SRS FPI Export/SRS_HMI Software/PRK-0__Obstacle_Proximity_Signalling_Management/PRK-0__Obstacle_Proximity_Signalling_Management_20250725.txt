@@ -1,0 +1,113 @@
+# PRK-0 6.2.4.1.17.2 : Obstacle Proximity Signalling Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.17.2 PRK-0: Obstacle Proximity Signalling Management
+
+- ID: 3848101
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3553481
+- Contents: The system shall provide "different Obstacle Color" based on the obstacle distance
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Based on the obstacle distance, verify that the obstacles are shown in a particular color.
+
+Refer the artifact 3553482
+ for the color and audio.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 14.02.2025 ] Approved
+
+Audio part is available in PRK-6 feature
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3553482
+- Contents: Figure: Absolute distance thresholds for the color and tone change (see: image82.png)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Visual Elements: image82.png
+
+2. ID: 3851626
+- Contents: The distances thresholds for colour changes are different in the various measurement areas as indicated in the
+following table:
+(see: image83.png)
+The table shows the maximum values of the absolute distance under which the colour is the one indicated. Values of
+thresholds are memorized inside NSP and can be modified through a dedicated diagnostic service
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Visual Elements: image83.png
+
+3. ID: 3851627
+- Contents: 5.4.2.3.1 "System failure" indication
+F244-50406 - NSP sends on BH-CAN network the failure status of the "parking sensor" system.
+The signal sent by NSP for this purpose is "NSPFailSts".
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+4. ID: 3851628
+- Contents: 5.4.2.3.2 Acoustic signal
+Values of signal NSPBuzzerRepetitionRate are published by NSP on the basis of the measured distance
+between the car and the closer obstacle.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+5. ID: 3851734
+- Contents: (see: image84.png)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Visual Elements: image84.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image84.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image83.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image82.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.17.2 : Obstacle Proximity Signalling Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

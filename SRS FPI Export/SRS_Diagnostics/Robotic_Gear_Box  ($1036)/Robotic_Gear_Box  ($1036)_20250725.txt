@@ -1,0 +1,124 @@
+# UnknownID 6.2.4.3.2.41 Robotic Gear Box  ($1036) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.41 Robotic Gear Box  ($1036)
+
+- ID: 3848204
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3848205
+- Contents: The robotic gear function shall allow the current gear value [2bytes] directly on ASCII format [P, R, N, D, L, 1, 2, 3, 4, 5, 6, 7, 8] , in accordance with the relative CAN signal.
+P: 0x0050
+R: 0x0052
+N: 0x004E
+D: 0x0044
+L: 0x004C
+1: 0x0031
+2: 0x0032
+3: 0x0033
+4: 0x0034
+5: 0x0035
+6: 0x0036
+7: 0x0037
+8: 0x0038
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Robotic gear box by Diagnostics $1036
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250212: This feature is testable. BUT we realize in the past, we need a CANoe simu to get a valid value and a positive response too. Otherwise always a NRC. Without right CAN signal info, not testable.
+- State (Harman_Requirement): Approved
+
+2. ID: 3848212
+- Contents: The Read request service of 22 10 31 from HU shall respond with a positive response of 62 10 31 zz. (see: image200.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the read request 22 10 31, verify the positive response 62 10 31 zz where zz represents different bytes which is there in data record
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250212: This feature is testable. BUT we realize in the past, we need a CANoe simu to get a valid value and a positive response too. Otherwise always a NRC. Without right CAN signal info, not testable.
+- State (Harman_Requirement): Approved
+- Visual Elements: image200.png
+
+3. ID: 3848237
+- Contents: The gear function shall allow the current gear value [2bytes] directly on  ASCII format [P R N D L 1 2 3 4 5 6 7] , in accordance with the relative CAN signal.
+P 0x0050
+R 0x0052
+N 0x004E
+D 0x0044
+L 0x004C
+1 0x0031
+2 0x0032
+3 0x0033
+4 0x0034
+5 0x0035
+6 0x0036
+7 0x0037
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Robotic gear box by Diagnostics $1036
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250212: This feature is testable. BUT we realize in the past, we need a CANoe simu to get a valid value and a positive response too. Otherwise always a NRC. Without right CAN signal info, not testable.
+- State (Harman_Requirement): Approved
+
+4. ID: 3848253
+- Contents: The system shall support the following NRCs for Engine Speed. (see: image201.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NRCs supported for Robotic gear box
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: This feature is testable. BUT we realize in the past, we need a CANoe simu to get a valid value and a positive response too. Otherwise always a NRC. Without right CAN signal info, not testable.
+- State (Harman_Requirement): Approved
+- Visual Elements: image201.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image201.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image200.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.41 Robotic Gear Box  ($1036) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

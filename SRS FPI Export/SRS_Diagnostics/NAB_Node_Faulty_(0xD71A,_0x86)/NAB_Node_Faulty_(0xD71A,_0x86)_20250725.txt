@@ -1,0 +1,68 @@
+# UnknownID 6.2.1.1.73 NAB Node Faulty (0xD71A, 0x86) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.73 NAB Node Faulty (0xD71A, 0x86)
+
+- ID: 3881538
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4605445
+- Contents: The System shall detect NAB Node Fault right after key-ON, if the NAB Node Missing at least one (but entire messages shouldn't miss ) message with wrong DLC.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Miss at least one (but not all) message with wrong DLC.
+-Set the Proxi byte 29, bit 2 (“NAB”) = "Present".
+-NAB Node Fault should Immediately detect during Key-ON.
+-Verify (0xD71A, 0x86) DTC will trigger.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, messages, detect, n't, miss, right, NAB, Missing, message, DLC" )
+- TestTeamComment: RWeber_DIAG_241213: No info about real CAN msg ID. The info "at least one" shows no details. Also we need a maturation time or threshold, otherwise we will get maybe some error state toggling (pass/fail).
+- State (Harman_Requirement): Approved
+
+2. ID: 4605451
+- Contents: The System shall clear the NAB Node Fault immediately after receiving the Right DLC.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -The Fault should be clear Immediately after receiving right DLC.
+-Verify (0xD71A, 0x86) DTC will clear.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "immediately" )
+- TestTeamComment: RWeber_DIAG_241213: No info about real CAN msg ID. The info "at least one" shows no details. Also we need a maturation time or threshold, otherwise we will get maybe some error state toggling (pass/fail).
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.73 NAB Node Faulty (0xD71A, 0x86) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

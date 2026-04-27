@@ -1,0 +1,270 @@
+# VEH-F532 6.2.1.1.1.28  Driver Drowsiness and Attention Monitoring Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.28 VEH-F532 Driver Drowsiness and Attention Monitoring
+
+- ID: 3939904
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, DMS, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3957057
+- Contents: System shall start DDA fail check for 4 seconds(tCKS) during the Key-On when following conditions are verify:
+Welcome ceremony finished or interrupted.
+Welcome ceremony unneeded( Welcome ceremony is completely displayed without interruptions at the previous key-cycle).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system start DDA fail check for 4 seconds (tCKS) during the Key-On when necessary conditins are met.
+
+*Welcome ceremony finished or interrupted.
+*Welcome ceremony un-needed.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ceremony, start, following, are verify, finished, interrupted, is, displayed, fail check, Key-On, conditions, interruptions" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3957058
+- Contents: System shall display DDA002 icon in A2 Wire-frame area during the DDA Fail Virtual Telltale Check Phase.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display's DDA02 icon in A2 wireframe area during the DDA Fail Virtual Telltale Check Phase.
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3957059
+- Contents: System shall stop displaying DDA002 at the end of F532 Info1 or F532 Fail2 Visualisation cycles in A2 wireframe area during the DDA Fail VTTCP.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system stop's displaying the Info1 and Fail2 visualisation cycle in A2 wireframe area during the DDA Fail Virtual Telltale Check Phase.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, displaying, end, cycles, VTTCP" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3957060
+- Contents: System shall display  the Icon at the end of F532 Info1 or F532 Fail2 visualisation cycles after the DDA Fail VTTCP.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall display the Icon at the end of F532 Info1  or F532 Fail2 visualisation cycles after the DDA Fail VTTCP.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Icon, end, cycles, VTTCP" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3957061
+- Contents: If PROXI Drowsiness is present (PROXI start Byte 170 , bit 3) System shall enable the DDA Functionality.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DDA Functionality is Enabled when PROXI Drowsiness is Present (Start byte 170 , bit 3).
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, DMS, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘170,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3957062
+- Contents: System shall perform the Drowsiness Warning Indication , If PROXI Drowsiness is present  AND DrowsinessSts is LAMP_ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+PROXI Drowsiness == Present AND DrowsinessSts == "LAMP_ON"
+
+Verify that the Drowsiness Warning indication is performed when Present AND DrowsinwssSts is LAMP_ON.
+
+CAN-Signal: HAPTIC1.DrowsinessSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3957063
+- Contents: System shall deactivate the Drowsiness Warning Indication , If PROXI Drowsiness is present  AND DrowsinessSts is LAMP_OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+PROXI Drowsiness == Present AND DrowsinessSts == "LAMP_OFF"
+
+Verify that the system deactivates Drowsiness Warning Indication when PROXI Drowsiness is present AND DrowsinessSts is LAMP_OFF.
+
+CAN-Signal: HAPTIC1.DrowsinessSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3957064
+- Contents: System shall perform the DDA Fail indication, If PROXI Drowsiness is Present AND DrowsinessStatus is Failure.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DDA Fail Indication is displayed when PROXI Drowsiness is present AND  DrowsinessStatus is Failure.
+
+CAN-Signal: HAPTIC1.DrowsinessSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3957065
+- Contents: System shall display Info1 Pop-up with Buzzer and Telltale when DrowsinessStatus is LAMP_ON in A2 wireframe area.
+Note:Info-1 follows D01 visualisation behaviour with priority0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+DrowsinessSts == LAMP_ON
+
+Proxi Byte: Byte-170 , Bit-3 , Drowsiness is Present
+
+Verify that the Info-1 warning is triggered with Pop-up Buzzer and Telltale when DrowsinessStatus is LAMP_ON.
+
+Audio Buzzer : Buzzer 2B_DDA
+
+Pop-Up ID: 53201
+
+Telltale ID:DDA001
+
+Telltale Reference ID: 00020 
+
+CAN-Signals: HAPTIC1.DrowsinessSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, DMS, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, Buzzer, Telltale, DrowsinessStatus, Info-1, behaviour" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3957066
+- Contents: system shall stop the acoustic signaling whenthe trigger condition is available or the user close the visualisation cycle via escape function.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Buzzer signalling until the trigger condition is valid or until the user close the warning via escape funtion.
+- Grooming Status: Approved
+- Expert Domains: DMS, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "condition, system, is available, close, stop, function, signaling" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3957067
+- Contents: System shall display the Info1 icon until the end of the visualisation cycle in A2 wireframe area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display's the Info1 icon until the end of the visualisation cycle in A2 wireframe area.
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3957069
+- Contents: If the F532 Info1 visualisation cycle is interrupt by ADAS priority visualisation cycle system shall resume to display F532 Info1 visualisation at the end of ADAS priority visualisation cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info1 Visualisation shall resume to display if it is interrupted by ADAS priority visualisation.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, resume, to display, visualisation, end, visualisation cycle" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+13. ID: 3957068
+- Contents: During the ADAS priority visualisation cycle if the F532 Info1 visualisation cycle is triggered system shall display F532 Info1 visualisation at the end of ADAS priority visualisation cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info1 visualisation cycle is triggered system shall displayed at the end of ADAS priority visualisation cycle.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, visualisation, end, visualisation cycle" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+14. ID: 3957074
+- Contents: System shall display Fail-1 Pop-up with Telltale when DrowsinessStatus is Failure in A2 wirframe Area.
+Note: Fail-1 follows D01 visualisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 Pop-up with Telltale is displayed when Drowsiness status is failure in A2 wire frame area.
+
+Pop-up ID: 53202
+
+Telltale ID: DDA002
+
+Telltale Reference :00030
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Telltale, DrowsinessStatus, Failure, Area, Priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3957056
+- Contents: System shall display the "Driver Drowsiness and Attention Monitoring" indications as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the  System display indicate  Driver Drowsiness and Attention Monitoring as per the  Ferrari Design.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Drowsiness, Monitoring, indications, Design" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F532 6.2.1.1.1.28  Driver Drowsiness and Attention Monitoring Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

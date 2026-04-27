@@ -1,0 +1,122 @@
+# PMN-4 6.2.2.4  Power ON/OFF with Passive Entry Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.4 PMN-4 Power ON/OFF with Passive Entry
+
+- ID: 3880665
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3881269
+- Contents: IDC shall display the overview of power ON status when NPE_ActuationReq == 2 ("PowerOn_Request")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system's display of power on status
+HMI power On Availability conditions.
+
+input:
+NPE_ActuationReq == 2 ("PowerOn_Request")
+
+ RFHUB1.NPE_ActuationReq
+
+output:
+
+HMI_INFO.IDC_CommandSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3881312
+- Contents: IDC shall display the overview of power OFF status when NPE_ActuationReq == 3 ("PowerOff_Request").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system's display of power off status
+
+input:
+NPE_ActuationReq == 3 ("PowerOff_Request").
+
+ RFHUB1.NPE_ActuationReq
+
+output:
+HMI_INFO.IDC_CommandSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3881487
+- Contents: IDC shall set IDC_CommandSts = 1 ("PowerOn_Action") for T_PowerAction time period when the user performs the Power ON action.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system behaves as expected during the power on process.
+
+ IDC_CommandSts = 1 ("PowerOn_Action")
+
+output msg
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, performs, IDC_CommandSts, PowerOn_Action, action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3881488
+- Contents: IDC shall set IDC_CommandSts = 2 ("PowerOff_Action") for T_PowerAction time period when the user performs the Power OFF action.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system behaves as expected during the power off process.
+
+IDC_CommandSts = 2 ("PowerOff_Action")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, performs, IDC_CommandSts, PowerOff_Action, action" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3880683
+- Contents: This functionality defines the transition between POWER ON/HMI ON with Passive Entry.
+HMI-LF-8733 - After this transition: Cabin mode, Parking lights, anti-tilt alarm off are automatically deactivated
+- Artifact Type: Information
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PMN-4 6.2.2.4  Power ON/OFF with Passive Entry Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

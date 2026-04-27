@@ -1,0 +1,159 @@
+# MAP-7 6.2.1.7  Map License Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7 MAP-7 Map License Management
+
+- ID: 4895562
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Security, System Core, System Infra, USB
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895563
+- Contents: System shall have the VIN number field when enable a map.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the VIN number when map activate
+
+check if VIN is correct and MAP is starting.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, enable, field, map" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895568
+- Contents: System shall store the info related to each single map version, activation date, map's serial number (S/N) in the fixed indexed table shown below:
+(see: image3.png)
+(see: image4.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify that the system able to store the values in the table form.
+
+Data table inside IDC  IDC-452366 - Data table inside IDC
+We can read it out through diagnostics
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, related, fixed, shown, info, version, date, number, N, table" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image3.png, image4.png
+
+3. ID: 4895570
+- Contents: System shall lock the new information into the license data table when map version update.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify that the system able to lock the new license data when map version update
+
+Data table inside IDC  IDC-452366 - Data table inside IDC
+We can read it out through diagnostics
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, lock, information, table, update" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4895660
+- Contents: IDC shall store the license data table by reading the RDI parameter "Data inside IDC Map Update table".
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the license data when 
+ RDI parameter "Data inside IDC Map Update table".
+
+Data table inside IDC  IDC-452366 - Data table inside IDC
+We can read it out through diagnostics
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4895664
+- Contents: IDC shall get status of the map license of the corresponding row by reading "Navigation data base - active".
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the status of the map license of the row when 
+"Navigation data base - active".
+
+Data table inside IDC  IDC-452366 - Data table inside IDC
+We can read it out through diagnostics
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4895665
+- Contents: If the license is activated, then "Navigation data base - active" Routine shall report "active".
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the routine when license activate
+
+Data table inside IDC  IDC-452366 - Data table inside IDC
+We can read it out through diagnostics
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is activated" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4895667
+- Contents: IDC shall get the map version of the corresponding row of the data table by reading "Navigation data base - map versions" Routine.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the map version when 
+"Navigation data base - map versions" Routine.
+
+ Map data base - map versions  IDC-486968 - MAP - Map data base - map
+version($TBD)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image4.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image3.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of MAP-7 6.2.1.7  Map License Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

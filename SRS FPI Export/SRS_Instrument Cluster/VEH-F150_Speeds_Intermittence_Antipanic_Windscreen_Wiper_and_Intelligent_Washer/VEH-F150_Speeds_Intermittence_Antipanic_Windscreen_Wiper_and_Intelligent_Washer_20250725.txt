@@ -1,0 +1,318 @@
+# VEH-F150 6.2.1.1.2.13  Speeds Intermittence Antipanic Windscreen Wiper and Intelligent Washer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.13 VEH-F150 Speeds Intermittence Antipanic Windscreen Wiper and Intelligent Washer
+
+- ID: 3408578
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3896862
+- Contents: System shall check PROXI Rain-Twilight == Present (PROXI Start Byte 59, bit 0)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Proxi Rain_Twilight is enabled by setting proxi to present
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3896770
+- Contents: System  shall manage the view of windscreen wiper motor blocked/overloaded and error status, by the signal EXTERNAL_LIGHTS.FrontWindshieldWiperMotErrSts= “Active”.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, blocked, overloaded, view, error status, EXTERNAL_LIGHTS, #8221" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3896782
+- Contents: System shall manage the view of RLS failure status, by the signal STATUS_NBC.RainSensorFailSts = "Active".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3896784
+- Contents: System shall manage the view of Wiper system failure on Car Wash situation, by the signal EXTERNAL_LIGHTS.FrontWindWiperCarWashErrSts= “Active”.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Wiper System failure is triggered by signal EXTERNAL_LIGHTS.FrontWindWiperCarWashErrSts is "Active".
+- Grooming Status: Review
+- Expert Domains: ADVNet, Android HMI, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3896786
+- Contents: System shall manage the view of the windscreen service position activation by the signal EXTERNAL_LIGHTS.FrontWiperServicePositionSts change from "Not_Active" to "Active".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3896788
+- Contents: System  shall manage the view of the windscreen service position deactivation by the signal EXTERNAL_LIGHTS.FrontWiperServicePositionSts change from "Active" to "Not_Active".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3896790
+- Contents: System shall set the wiper water low level physical output IF SETUP_NBC.WiperWaterLowLevel = "ON".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3784536
+- Contents: System shall display Fail-1 Pop-up , Telltale with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS area when FrontWindshieldWiperMotorErrorStatus is Active.
+Note:Fail-1 follows D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(FrontWindshieldWiperMotErrSts = Active
+
+Verify that the Fail-1 is triggered when trggered condition is met.
+
+POP_UPID: 01500001
+
+Buzzer:2B
+
+CAN-Signal:
+EXTERNAL_LIGHTS.FrontWindshieldWiperMotErrSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, FrontWindshieldWiperMotorErrorStatus, display, is, follows, Pop-up, Buzzer, area, Present, Priority-2" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3784538
+- Contents: System shall display Fail2 Pop-up ,  Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when RainSensorFailSts is 'Fail_Present'
+Note:Fail2 follows D01 Visualisation behaviour with Priority2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+RainSensorFailSts = Fail_present
+
+Verify that the Fail-2 Pop-up is displayed when necessary conditions are met.
+
+POP-UP ID: 01500002
+
+Buzzer:2B
+
+CAN-Signal:
+STATUS_NBC.RainSensorFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RainSensorFailSts, display, is, follows, Pop-up, Telltale, Buzzer, area, Active" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3784539
+- Contents: System shall display Fail-3 Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when FrontWindWiperCarWashErrSts is "Active"
+Note:Fail-3 follows D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+FrontWindWiperCarWashErrSts= "Active")
+
+Verify that the Fail-3 Pop-up is displayed when necessary conditions are met.
+
+POP-UP ID:
+
+
+CAN-Signal:
+EXTERNAL_LIGHTS.FrontWindWiperCarWashErrSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, FrontWindWiperCarWashErrSts, display, is, follows, Pop-up, Active, Priority-2" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3784540
+- Contents: System shall display Warning-1 Pop-up ,  Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when WiperWaterLowLevel is ON
+Note:Warning-1 follows D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+FrontWindWiperCarWashErrSts= "Active")
+
+Verify that the Warning-1 Pop-up is displayed when necessary conditions are met.
+
+POP-UP ID: 01500003
+
+
+CAN-Signal:
+SETUP_NBC.WiperWaterLowLevel
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, WiperWaterLowLevel, display, is, follows, Pop-up, Buzzer, area, Priority-2" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3784541
+- Contents: System shall display Warning-2 Pop-up with buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when RoboticTransmissionWarning is Carwash_mode_activation
+Note:Warning-2 follows D01 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+FrontWindWiperCarWashErrSts= "Active")
+
+Verify that the Warning-1 Pop-up is displayed when necessary conditions are met.
+
+POP-UP ID: 01500005
+
+
+CAN-Signal:
+STATUS_C_NCA_NCR.RoboticTransmissionWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, RoboticTransmissionWarning, Priority-2" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4759463
+- Contents: System shall display Warning-4 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when FrontWiperServicePointStatus is Active.
+Note: Warning-4 Follows D11 visualization behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(FrontWiperServicePositionSts = Active.
+
+Verify that the Warning-4 Pop-up is displayed when necessary conditions are met.
+
+POP-UP ID: 
+
+
+CAN-Signal:
+EXTERNAL_LIGHTS.FrontWiperServicePositionSts
+- Grooming Status: Approved
+- Grooming Comments: Missmatch with the Pop-UP iD.
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, Follows, Pop-up, FrontWiperServicePointStatus, Active, priority-0" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4759474
+- Contents: System shall display Warning-5 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when FrontWiperServicePositionSts is Not_active.
+Note: Warning-5 follows D11 visualization behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(FrontWiperServicePositionSts = Not_Active.
+
+Verify that the Warning-5 Pop-up is displayed when necessary conditions are met.
+
+POP-UP ID: 01500006
+
+
+
+CAN-Signal:
+EXTERNAL_LIGHTS.FrontWiperServicePositionSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, Pop-up, FrontWiperServicePositionSts, _active, Priority-0" ) 
+Negative statement
+ (Look for: "Not" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3931164
+- Contents: System shall set restore the relative physical outpuy in relation of relative signal AND reset relative DTC when IDC detects the presence message of EXTERNAL_LIGHT/SETUP_NBC
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set restore, reset, detects, outpuy, DTC, message" )
+- State (Harman_Requirement): Obsolete
+
+16. ID: 4705612
+- Contents: If IDC detects a Message Counter or CRC error on EXTERNAL_LIGHTS message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F150 Fail 1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the F150 Fail-1 is displayed is the EXTERNAL_LIGHTS is not received for more than MC_CRC_error_Counter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "message, IDC, show, error, visualization" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3896771
+- Contents: System shall display Speeds Intermitence Antipanic Windscreen Wiper and Intelligent indications as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Wiper, indications, Design" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F150 6.2.1.1.2.13  Speeds Intermittence Antipanic Windscreen Wiper and Intelligent Washer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

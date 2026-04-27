@@ -1,0 +1,176 @@
+# UnknownID 6.2.3.1.11 Pattern TFT display  ($0068) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.11 Pattern TFT display  ($0068)
+
+- ID: 5074821
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5074825
+- Contents: The system shall apply the selected pattern on Binnacle Layer "1", on Binnacle Layer "2", on Central Display & on Rear Central Display
+Different patterns are available for:
+0x00 : display OFF
+0x01 : white
+0x02 : red
+0x03 : green
+0x04 : blue
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify and apply the different pattern in Binnacle Layer "1", on Binnacle Layer "2", on Central Display & on Rear Central Display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, patterns, apply, selected, are available, display, pattern, Layer, amp, Display, blue" )
+- TestTeamComment: RWeber_DIAG_250228: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+
+2. ID: 5074839
+- Contents: The System shall have RecordDataIdentifier ($0068) to know the Pattern TFT dispaly.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($0068)
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0068’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250228: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+
+3. ID: 5074842
+- Contents: (see: image85.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the protocol service.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- TestTeamComment: RWeber_DIAG_250228: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image85.png
+
+4. ID: 5074845
+- Contents: ControlStates (zz)
+(see: image86.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control state from the given table.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- TestTeamComment: RWeber_DIAG_250228: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image86.png
+
+5. ID: 5074883
+- Contents: Control NR
+(see: image87.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control NR from the given table.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- TestTeamComment: RWeber_DIAG_250228: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image87.png
+
+### Informational Items:
+
+1. ID: 5074864
+- Contents: controlStatusRecord - shortTermAdjustment (yy)
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+2. ID: 5074865
+- Contents: no data assigned
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+3. ID: 5074867
+- Contents: controlStatusRecord -  resetToDefault (xx)
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+4. ID: 5074868
+- Contents: no data assigned
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+5. ID: 5074869
+- Contents: controlStatusRecord - returnControlToECU (ww)
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+6. ID: 5074870
+- Contents: no data assigned
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Diag
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image86.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image87.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image85.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.11 Pattern TFT display  ($0068) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

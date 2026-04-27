@@ -1,0 +1,128 @@
+# UnknownID 6.1.2.1 Maps Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.1 Maps
+
+- ID: 2356485
+- Artifact Type: SRS Feature
+- Responsible Domain: GNSS_Navigation
+- Grooming Status: New
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2356486
+- Contents: 6.1.2.1.1 The Supplier shall be responsible for providing and updating the maps database (Navigation Maps, ADAS Maps, and Cloud-based HD maps) to Ferrari.
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Expert Domains: HMI Design
+
+2. ID: 2356487
+- Contents: 6.1.2.1.2 The Supplier shall split the maps database into maps group and indicate the maps group used for the country. According to political and geographical reasons, some countries could be present in more than one group.
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Grooming Status: Blocked
+- Grooming Comments: 1/8/2023: Anju: The requirement is not applicable since the Nav app is not there.
+- Expert Domains: Legal, Software Architecture
+- State (Harman_Requirement): New
+
+3. ID: 2356488
+- Contents: 6.1.2.1.3 The Supplier shall fulfill and send Ferrari the "Allowed_DB" document, providing the following information for each Ferrari Market:
+
+ 
+
+HW version
+
+Maps group
+
+Default maps database
+
+Allowed maps database 
+
+VDE (Voice Destination Entry) functionality and VDE languages supporting
+
+Spelling functionality supporting
+
+SDS (Speech Dialog System) functionality supporting
+
+Pre-recorded prompt: TBT (Turn By Turn) and TTS (Text To Speech) supporting
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Grooming Status: Blocked
+- Grooming Comments: 1/8/2023: Anju: The requirement is not applicable since the Nav app is not there.
+- Expert Domains: Software Architecture
+- State (Harman_Requirement): New
+
+4. ID: 2356489
+- Contents: 6.1.2.1.4 The Supplier (Tier 1) shall be responsible for all concerns and activities related to maps (bugfix, map update, certifications, country regulation compliance, etc.), so it shall manage completely map Suppliers (Tier 2).
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Grooming Status: Blocked
+- Grooming Comments: 1/8/2023: anju: Need clarification from ferrari about the legal certification and process
+- Expert Domains: Legal, Software Architecture
+- State (Harman_Requirement): Review
+
+5. ID: 2356490
+- Contents: 6.1.2.1.5 According to the previous statement, the Supplier shall also provide and agree with Ferrari on implementing the OTA (Over The Air) map update procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Grooming Status: Blocked
+- Grooming Comments: 1/8/2023 : Anju : Since it not a connected system OTA is not in scope
+- State (Harman_Requirement): New
+
+6. ID: 2356491
+- Contents: 6.1.2.1.6 The Supplier shall provide the details regarding the maps database updates procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Grooming Status: Blocked
+- Grooming Comments: [PDostert 2024.08.02] ADAS Map Update is supported, but the details are specified by Ferrari, not Harman. This is not a valid requirement.
+
+1/8/2023 : Anju: Map database update via USB is supported in  ADAS Map 
+
+Need confirmation from the supplier: Is this testable ?
+- Expert Domains: System Architecture
+- State (Harman_Requirement): Review
+
+### Informational Items:
+
+1. ID: 2356492
+- Contents: 6.1.2.1.7 The Supplier shall completely manage maps databases from the technical and economical point of view. The Supplier shall clarify in advance and include all one-time and renewal costs in the offer.
+- Artifact Type: Information
+- Grooming Status: Blocked
+- Expert Domains: Sales, System Architecture
+- State (Harman_Requirement): Approved
+
+2. ID: 2356493
+- Contents: 6.1.2.2 Navigation Languages
+- Artifact Type: Information
+
+3. ID: 2356469
+- Contents: 6.1.3 Infotainment Functionalities
+- Artifact Type: Information
+
+4. ID: 2356470
+- Contents: 6.1.3.1 Navigation
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.1 Maps Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

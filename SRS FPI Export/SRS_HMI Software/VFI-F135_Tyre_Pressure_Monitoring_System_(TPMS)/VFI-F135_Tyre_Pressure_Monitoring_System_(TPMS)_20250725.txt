@@ -1,0 +1,208 @@
+# VFI-F135 6.2.2.7  Tyre Pressure Monitoring System (TPMS) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.7 VFI-F135 Tyre Pressure Monitoring System (TPMS)
+
+- ID: 4889484
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: last
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4889485
+- Contents: System shall merge information regarding Status Car model and TPMS when the Status Car model is display.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the status car model and TPMS information when status car model is displayed.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, merge, regarding, is display, information, model, TPMS, Status" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4889486
+- Contents: System shall not highlight (default state) pressure label, the Tyre elements and the label of the pressure measuring unit when XHYTyrePressureSts ==0("Fail_Not_Present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the default state pressure label, the tyre elements and the label of the pressure measuring unit when XHYTyrePressureSts ==0 ("Fail_Not_Present").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4889487
+- Contents: System shall Yellow highlighted (e.g. in case of a flat tyre) pressure label, the tyre elements and the label of the pressure measuring unit when
+XHYTyrePressureSts ==1("Low_Pressure_Soft_warning")
+OR
+XHYTyrePressureSts ==2("Flat_Tyre_Hard_warning").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the yellow highlighted color pressure label, the tyre elements and the label of the pressure measuring unit when 
+XHYTyrePressureSts ==1 ("Low_Pressure_Soft_warning")
+
+OR
+
+XHYTyrePressureSts ==2("Flat_Tyre_Hard_warning").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Yellow, highlighted, XHYTyrePressureSts, warning, e, tyre" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4889488
+- Contents: System shall continue to show the highlighted element until the relative activation condition is verified.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the highlighted color until relative activation condition is verified.
+
+if the conditions are met yellow color present.
+- Grooming Status: Approved
+- Grooming Comments: what is the relative activation condition? how do we know it is verified?
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Passive voice
+ (Look for: "is verified" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4889489
+- Contents: IDC shall display in the default state (not highlight) all the TPMS graphical elements.
+(see: image35.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the default color of all the TPMS elements.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image35.png
+
+6. ID: 4889490
+- Contents: IDC shall display a pop up when the signal unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when signal is not available.
+
+TPMS Screen
+TyrePressureSystemFailSts = Fail Present
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4889491
+- Contents: The highlighted Flat and Low-Pressure states shall priority over the display of the Status Car elements visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the priority of flat and low-pressure states over status car elements
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "states, highlighted, priority over, display, visualization" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4889492
+- Contents: System shall use the following signals for display the four pressure labels:
+Front left pressure label: LHFPressureSts
+Front right pressure label: RHFPressureSts
+Rear left pressure label: LHRPressureSts
+Rear right pressure label: RHRPressureSts
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 4 pressure labels
+
+Front left pressure label: LHFPressureSts
+Front right pressure label: RHFPressureSts
+Rear left pressure label: LHRPressureSts
+Rear right pressure label: RHRPressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "right" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4889493
+- Contents: IDC shall use the following signals for display the four Tyres TPMS status:
+Front left tyre: LHFTyrePressureSts
+Front right tyre: RHFTyrePressureSts
+Rear left tyre: LHRTyrePressureSts
+Rear right tyre: RHRTyrePressureSts
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 4 TPMS tyres status
+
+Front left tyre: LHFTyrePressureSts
+Front right tyre: RHFTyrePressureSts
+Rear left tyre: LHRTyrePressureSts
+Rear right tyre: RHRTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4889494
+- Contents: IDC shall display the value of Pressure Unit in the label of the Tyre pressure measuring unit.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display the pressure unit.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image35.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F135 6.2.2.7  Tyre Pressure Monitoring System (TPMS) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

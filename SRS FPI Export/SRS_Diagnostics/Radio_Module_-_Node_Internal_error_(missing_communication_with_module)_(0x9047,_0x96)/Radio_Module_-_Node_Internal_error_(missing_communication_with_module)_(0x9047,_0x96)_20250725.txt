@@ -1,0 +1,89 @@
+# UnknownID 6.2.1.1.37 Radio Module - Node Internal error (missing communication with module) (0x9047, 0x96) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.37 Radio Module - Node Internal error (missing communication with module) (0x9047, 0x96)
+
+- ID: 3920012
+- Artifact Type: SRS Feature
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3920013
+- Contents: If Radio module is not responding, the system shall send  Radio Module - Node Internal error  message with Permanent evaulation in Vehicle configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system is sending radio module- node internal error message when radio module is not responding.
+- Grooming Status: Blocked
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit, WLMR, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when it is only the use case to disconnect radio unit from power.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): Review
+
+2. ID: 3920014
+- Contents: If Key-On, the system shall  detect the Fault Conditions.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Pre condition Key-ON.
+- Grooming Status: Blocked
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when it is only the use case to disconnect radio unit from power.
+- State (Harman_Requirement): Review
+
+3. ID: 3920015
+- Contents: If the Maturation time is 1sec  &  physical disconnection or removal of the hardware module occurs, the system shall come into contact with Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Maturation time as 1s.
+- Grooming Status: Blocked
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when it is only the use case to disconnect radio unit from power.
+- State (Harman_Requirement): Review
+
+4. ID: 3920016
+- Contents: If the De-Maturation is 1sec  &  DTC is devalidated as soon as the radio module is connected again to the IDC , the system shall face with De-Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as 1s.
+- Grooming Status: Blocked
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when it is only the use case to disconnect radio unit from power.
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.37 Radio Module - Node Internal error (missing communication with module) (0x9047, 0x96) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

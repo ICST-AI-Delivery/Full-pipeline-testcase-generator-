@@ -1,0 +1,153 @@
+# UnknownID 6.2.2.2.7.3 Driver configuration restore after capsizing interference Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2.7.3 Driver configuration restore after capsizing interference
+
+- ID: 4884453
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4884454
+- Contents: System shall set SeatProfileReq = 2("ProfileReq") when
+IDC is in HMI_Power ON
+AND
+proxi parameter RearSeats ==1("2 positions")
+AND
+STS_DRS_DriverDoorSts ==1("Closed")
+AND
+RSLCapsizingDown ==0("Off")
+AND
+proxi parameter side driver ==0("left")
+AND
+IDC reads the transition from RSLCapsizingUp ("On") to ("Off")
+AND
+transition from RSLInterferenceLogic ("On") to ("Off") 
+AND
+SeatProfileSts == 6(" NAGInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile when
+
+IDC is in HMI_Power ON
+AND
+proxi parameter RearSeats == 1 ("2 positions")
+AND
+STS_DRS_DriverDoorSts == 1 ("Closed")
+AND
+RSLCapsizingDown == 0 ("Off")
+
+AND
+proxi parameter side driver == 0 ("left")
+AND
+IDC reads the transition from RSLCapsizingUp 1 ("On") to 0 ("Off")
+AND
+transition from RSLInterferenceLogic 1 ("On") to 0 ("Off") 
+AND
+SeatProfileSts == 6 (" NAGInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, IDC, set, is, RearSeats, Closed, reads, ANDSeatProfileSts, ProfileReq, positions, driver, left, transition, RSLCapsizingUp, Off, ANDtransition, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4884455
+- Contents: System shall set SeatProfileReq = 2("ProfileReq") when
+IDC is in HMI_Power ON status
+ AND
+proxi parameter RearSeats =="1"("2 positions")
+AND
+STS_DRS_DriverDoorSts=="1"("Closed")
+AND
+RSRCapsizingDown =="0"("Off")
+AND
+proxi parameter side driver =="1"("Right")
+AND
+transition from RSRCapsizingUp ("On") to ("Off")
+AND
+transition from RSRInterferenceLogic ("On") to ("Off")
+AND
+SeatProfileSts == 6("NAGInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the Seat Profile when
+
+IDC is in HMI_Power ON status
+ AND
+proxi parameter RearSeats == 1 ("2 positions")
+AND
+STS_DRS_DriverDoorSts== 1 ("Closed")
+AND
+RSRCapsizingDown == 0 ("Off")
+AND
+proxi parameter side driver == 1 ("Right")
+AND
+transition from RSRCapsizingUp 1 ("On") to 0 ("Off")
+AND
+transition from RSRInterferenceLogic 1 ("On") to 0("Off")
+AND
+SeatProfileSts == 6 ("NAGInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, IDC, status, set, is, RearSeats, Closed, ANDSeatProfileSts, ProfileReq, positions, driver, Right, ANDtransition, RSRCapsizingUp, Off, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4884456
+- Contents: IDC shall set SeatProfileReq = ("Not_Active") when
+SeatProfileSts == [5("Manual_Moving") OR 1("Fail_present") OR (2("ProfileReached") for Nsample of
+message SETUP_NAG_V3)]
+OR
+a transition of SeatProfileSts != 6("NAGInternalFunction") to SeatProfileSts == 6("NAGInternalFunction")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile when
+
+SeatProfileSts == [5 ("Manual_Moving") OR 1 ("Fail_present") OR (2("ProfileReached") for Nsample of
+message SETUP_NAG_V3)]
+
+
+OR
+
+
+a transition of SeatProfileSts != 6 ("NAGInternalFunction") to SeatProfileSts == 6 ("NAGInternalFunction")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "transition, set, SeatProfileSts, SeatProfileReq, Not_Active, Manual_Moving, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.2.7.3 Driver configuration restore after capsizing interference Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

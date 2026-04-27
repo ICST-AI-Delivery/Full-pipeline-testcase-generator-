@@ -1,0 +1,289 @@
+# VEH-F141 6.2.1.1.1.19  Signalling of Speed Limit Exceeded Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.19 VEH-F141 Signalling of Speed Limit Exceeded
+
+- ID: 3939913
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3985617
+- Contents: System shall enable Signalling of Speed Limit Exceeded function
+when the signal Speed ThresholdEnable is enable.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+SpeedThresholdEnable=Enable(1)
+SpeedThresholdEnable=Not_Enable(0)
+
+
+Verify that the Signalling of Speed Limit Exceeded is enabled when  the Signal Speed Threshold Enable is Enable.
+
+CAN-Signal: NFR_SPEED.VehicleSpeedVSOSig
+NIT_VEHICLE_SETUP.SpeedThreshold
+NIT_VEHICLE_SETUP.SpeedThresholdEnable
+
+Example: In order to check this functionality if the speedlimit is 50KMPH and if we set speed to 60KMPH this function will be appear.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signal, enable, Signalling, Limit, function" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3985624
+- Contents: System shall be able to store Speed Limit of SpeedThreshold, Enable the SpeedThreshold  and DistanceUnit , and manage the visulaization.
+(see: image54.png)
+(see: image55.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algorithm:
+SpeedThresholdEnable=Enable
+
+Verify that the Signalling of Speed Limit Exceeded is enabled when  the Signal Speed Threshold Enable is Enable.
+- Grooming Status: Approved
+- Grooming Comments: Where should the Speed Limit  of Speed Threshold be stored?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be done" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image54.png, image55.png
+
+3. ID: 3985625
+- Contents: System shall display the graphical indication of speed limit in Left Dial as mentioned below:
+The start position of the internal crown shall align with the SpeedThreshold Signal value.
+The end position of the internal crown shall align with end scale.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display the graphical indication of speed limit in Left dial as:
+
+* The start position of the internal crown shall be aligned with the SpeedThreshold Signal  value.
+
+* The end position of the internal crown shall be aligned with end scale. 
+
+CAN-Signals: NIT_VEHICLE_SETUP.SpeedThreshold
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, position, display, mentioned, align, indication, limit, Dial, crown, value, scale" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3985668
+- Contents: System shall perform F141 Warning-1 once the speed limit surpass, and repeat if the vehicle speed goes 5 speed units under the limit and then exceeds again the speed limit value and also  If the user sets a new threshold, the warning shall be reset and it shall be shown again if the logic described above is verified (see: image56.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verifyt that the system  performs F141 Warning 1 once the speed limit is surpassed, and  be repeated if the vehicle speed goes 5 speed units under the limit and then exceeds again the speed limit value
+
+Pop_up iD: 01410001
+
+Buzzer: Speed Alert Buzzer
+
+CAN-Signal: NIT_VEHICLE_SETUP.SpeedThreshold
+
+NIT_VEHICLE_SETUP.SpeedThresholdEnable
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, perform, once, surpass, repeat, exceeds, again, Warning-1, units, limit, value" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image56.png
+
+5. ID: 3985693
+- Contents: If the user sets a new threshold, the warning shall be reset and it shall be shown again if the logic described above is verified.
+(see: image57.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning shall be reset and it shall be shown again as per the logic If the user sets a new threshold.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "reset, shown" ) 
+Passive voice
+ (Look for: "be shown" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image57.png
+
+6. ID: 3985718
+- Contents: System shall store the last valid value received of SpeedThreshold, SpeedThresholdEnable and DistanceUnit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Veify that the system stores the last value received of SpeedThreshold , SpeedThresholdEnable and DistanceUnit.
+- Grooming Status: Approved
+- Grooming Comments: Where should the Speed Limit  of Speed Threshold be stored?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, received, last, value, DistanceUnit" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3985724
+- Contents: System shall use these stored values in case of missing information from INFO_IDC.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall store the values in case of missing information from INFO-IDC.
+- Grooming Status: Approved
+- Grooming Comments: Need to confirm with System Infra regards the value storage.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "these" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3985800
+- Contents: System shall display Warning-1 Pop-Up with buzzer when speed limit exceeded(Vanalog greater than or equal to SpeedThreshold).
+Note: Warning-1 follows D04 visualisation behaviour with No-priority.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition: Vanalog≥SpeedThreshold
+
+Verify that the system shall display Warning-1 buzzer when speed limit exceeded(Vanalog greater than or equal to SpeedThreshold).
+
+Pop_up iD: 01410001
+
+Buzzer: Speed Alert Buzzer
+
+CAN-Signal: NIT_VEHICLE_SETUP.SpeedThreshold
+
+NIT_VEHICLE_SETUP.SpeedThresholdEnable
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, buzzer, limit, SpeedThreshold, No-priority" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3985802
+- Contents: System shall consider the Vehicle speed when VehicleSpeedVSOFailSts is 0 (Fail not present).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall consider the vehicle speed when VehicleSpeedVSOFailSts is 0(Fail not present).
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be considered" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4757088
+- Contents: System shall allow the user for Different management for destination markets requiring a (120km/h) fixed and user unset speed limit (“Arabia buzzer”: byte 68, bit 4).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Sppedlimit is 120KM/hr fixed and unset using Arabia Buzzer Proxi.
+
+Proxi:
+Byte68, bit-4.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, requiring, fixed, byte, management, markets, limit, buzzer #8221, bit 4" ) 
+Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘120 km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4757091
+- Contents: System shall display Signalling of Speed Limit Exceeded if Arabia Buzzer is present the function will be always enabled and the SpeedThreshold shall be set to 120 km/h.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Veify that the Speed Limit is set to 120km/hr when Proxi Arabia Buzzer is set to present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, SpeedThreshold, display, Signalling, Limit, function" ) 
+Missing limits
+ (Look for: "‘120 km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Exceeded, be always enabled, be set" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3980709
+- Contents: System shall display the Signalling of Speed Limit Exceeded Indications as per the Ferrari design.
+(see: image53.png)
+Note: Please refer HMI.POP.IND
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Review
+- Visual Elements: image53.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image57.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image53.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image56.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image54.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image55.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F141 6.2.1.1.1.19  Signalling of Speed Limit Exceeded Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

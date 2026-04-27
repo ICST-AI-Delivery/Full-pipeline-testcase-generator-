@@ -1,0 +1,105 @@
+# SET-62-C 6.2.3.6.3.3 harge Limit-User Max SOC Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.3.3 SET-62-Charge Limit-User Max SOC
+
+- ID: 4733095
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- HB_Comment: 28
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4754745
+- Contents: IDC shall provide the method S11.setMaxSOC for the UserMaxSOC parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user max SOC 
+
+S11.setMaxSOC_return.UserMaxSOC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4754746
+- Contents: System shall receive S11.setMaxSOC request, then:
+IDC shall align the setting visualization to the UserMaxSOC value received.
+IDC shall populate CAN output signal User_Max_SOC according to UserMaxSOC parameter value
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user max SOC value and CAN output signal for user max SOC when S11.setMaxSOC request
+
+S11.setMaxSOC_return.UserMaxSOC
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall receive, shall align, shall populate" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4754747
+- Contents: IDC shall set functional_ack = 0x0000 when IDC is able to align the CAN output signal User_Max_SOC according to the parameter value received
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the ack function when 
+f IDC is able to align the CAN output signal User_Max_SOC according to the
+parameter value received.
+ functional_ack = 0x0000
+
+ S11.setMaxSOCPreset_return.functional_ack
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4754748
+- Contents: System shall set functional_ack = 0x0051 when unable to align the status of the setting OR output signal value received.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify ack function when output signal and status not received.
+functional_ack = 0x0051
+
+ S11.setMaxSOCPreset_return.functional_ack
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "when unable" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-62-C 6.2.3.6.3.3 harge Limit-User Max SOC Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

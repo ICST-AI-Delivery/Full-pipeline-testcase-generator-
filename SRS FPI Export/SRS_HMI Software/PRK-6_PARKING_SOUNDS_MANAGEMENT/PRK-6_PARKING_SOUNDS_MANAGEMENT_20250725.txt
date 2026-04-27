@@ -1,0 +1,396 @@
+# PRK-6 6.2.4.7  PARKING SOUNDS MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.7 PRK-6 PARKING SOUNDS MANAGEMENT
+
+- ID: 3939643
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3966039
+- Contents: The system shall activate the parking sound 'only' if 'NSP_Buzzer' is '0'("Not Active").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter NSP_Buzzer =0
+
+Simulate an Obstacle and verify that Parking audio is heard from IDC.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3966043
+- Contents: The system shall multiplex 'parking sound acoustic feedback' with 'other sounds of the system'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: play a sound (e.g. general warning)
+Verify the parking Audio is played with the existing Audio concurrently
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5031911
+- Contents: The system shall allow to adjust the Park Assist sounds volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Volume of the Park assist sound can be adjusted.
+
+Note: This can be done via HMI/Diagnostic/Hard key
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1073
+[Yuanhang, Abdul 14.02.2025]
+Park Assist sounds are adjustable: Is this means volume adjustment?
+Excludible: only one Audio Channel is available for Parking Audio, We can not play multiple parking audio concurrently
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5445689
+- Contents: The system shall play only one Park Assist sound at a time
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify only one Park Assist sound can be played at a time
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1073
+[Yuanhang, Abdul 14.02.2025]
+Park Assist sounds are adjustable: Is this means volume adjustment?
+Excludible: only one Audio Channel is available for Parking Audio, We can not play multiple parking audio concurrently
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3966796
+- Contents: The system shall trigger the 'PARK_ASSIST' Rear Parking audio source activation & send the chime with 'directionality Left' when the CAN signals 'FrameNumber' is '0' & 'LHNSPBuzzerReqSts' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '0' &  STATUS_NSP2.LHNSPBuzzerReqSts' is '1'.
+
+Verify the Park Assist Audio directionality from the log
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, trigger, PARK, sending, set, to ', activation, chime, Left, amp, LHNSPBuzzerReqSts" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3966802
+- Contents: The system shall trigger the 'PARK_ASSIST' Rear Parking audio source activation & send the chime with directionality Right if the CAN signals 'FrameNumber is  '0' & 'RHNSPBuzzerReqSts' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '0' &  STATUS_NSP2.RHNSPBuzzerReqSts' is '1'.
+
+Verify the Park Assist Audio directionality from the log
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3966804
+- Contents: The system shall trigger the 'PARK_ASSIST' Rear Parking audio source activation & send the chime with directionality Center If the CAN signals 'FrameNumber' is '0' & 'CNSPBuzzerReqSts' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '0' &  STATUS_NSP2.CFNSPBuzzerReq' is '1'.
+
+Verify the Park Assist Audio directionality from the log
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3966812
+- Contents: The system shall trigger the 'PARK_ASSIST' Front Parking audio source activation & send the chime with directionality Left if the CAN signals 'FrameNumber' is '1' & 'LHNSPBuzzerReqSts' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '1' &  STATUS_NSP2.LHNSPBuzzerReqSts' is '1'.
+
+Verify the Park Assist Audio directionality from the log
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, trigger, PARK, sending, set, activation, chime, Left, amp, LHNSPBuzzerReqSts" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3966823
+- Contents: The system shall trigger the 'PARK_ASSIST' Front Parking audio source activation & send the chime with directionality Right if the CAN signals 'FrameNumber' is '1' & 'RHNSPBuzzerReqSts' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '1' &  STATUS_NSP2.RHNSPBuzzerReqSts' is '1'.
+
+Verify the Park Assist Audio directionality from the log
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, trigger, PARK, sending, set, activation, chime, Right, amp, RHNSPBuzzerReqSts" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3966828
+- Contents: The system shall trigger the 'PARK_ASSIST' Front Parking audio source activation & send the chime with directionality Center if the CAN signals 'FrameNumber' is '1' & 'CNSPBuzzerReqSts' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '1' &  STATUS_NSP2.'CFNSPBuzzerReq' is '1'.
+
+Verify the Park Assist Audio directionality from the log
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, ', trigger, PARK, sending, set, activation, chime, Center, amp" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3966839
+- Contents: The system shall send the "audio file Parking_Rear" to the PARK_ASSIST stream if a NSP acoustic feedback is requested on rear speakers ('FrameNumber == 0') according to the directionality.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '0' 
+
+Verify via log the 'Parking_Rear 'Audio is playing.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is requested" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3966868
+- Contents: The system shall send the "audio file Parking_Front" to the PARK_ASSIST stream If a NSP acoustic feedback is requested on front speakers ('FrameNumber == 1') according to the directionality.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the below CAN signals STATUS_NSP2.FrameNumber
+= '1' 
+
+Verify via log the 'Parking_Front 'Audio is playing.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is requested" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4000306
+- Contents: The system shall reproduce '3' beeps per second when 'NSPBuzzerRepetitionRate' is 0.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the CAN signal STATUS_NSP2.NSPBuzzerRepetitionRate =0.
+Verify the Parking Audio is continuously playing as 3 beeps/sec.
+- Grooming Status: Approved
+- Grooming Comments: [Yuanhang, Abdul 14.02.2025] Parking Audio is based on CAN signal
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4000307
+- Contents: The system shall reproduce '6' beeps per second when 'NSPBuzzerRepetitionRate' is '1'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the CAN signal STATUS_NSP2.NSPBuzzerRepetitionRate =1
+Verify the Parking Audio is continuously playing as 6 beeps/sec.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+15. ID: 4000309
+- Contents: The system shall reproduce '9' beeps per second when 'NSPBuzzerRepetitionRate' is '2'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the CAN signal STATUS_NSP2.NSPBuzzerRepetitionRate =2
+Verify the Parking Audio is continuously playing as 9 beeps/sec.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+16. ID: 4000312
+- Contents: The system shall reproduce a continuous beep sound when 'NSPBuzzerRepetitionRate' is '3'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the CAN signal STATUS_NSP2.NSPBuzzerRepetitionRate =3
+Verify the Parking Audio is continuously playing  (continuous beep sound).
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, reproduce, sound, is, continuous" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3966890
+- Contents: The system shall continuously update the repetition rate information according to NSPBuzzerRepetitionRate.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking the audio is playing (example: 3 beeps/sec)
+
+During the playback, change the CAN signal (STATUS_NSP2.NSPBuzzerRepetitionRate) value.
+
+Verify the Audio repletion is as per the latest value of the CAN signal.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "continuously" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3966895
+- Contents: The system shall maintain the source activation on the requested side speaker as long as the parking Audio activated signal is present.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set any one of the  beep value in the CAN signal STATUS_NSP2.NSPBuzzerRepetitionRate.
+&
+Set one of the below direction signal.
+
+STATUS_NSP2.LHNSPBuzzerReqSts
+STATUS_NSP2.RHNSPBuzzerReqSts
+STATUS_NSP2.CNSPBuzzerReqSts
+
+Verify the Audio is active as long as the audio input signal value is set.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3965437
+- Contents: This function describes the management of the sounds related to parking sensors.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3965443
+- Contents: The system shall display the Parking Sounds Management as reported in:
+HMI-LF-8000 - Parking sensors and rear gear audio behaviours
+HMI-LF-8016 - IDC in Sound document
+HMI-LF-7855 - Parking Sensors Threshold
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, Sounds, reported, Management, sensors, audio behavioursIDC-446356 - HMI-LF-8016 - IDC, document" )
+- State (Harman_Requirement): New
+
+3. ID: 3966006
+- Contents: The system shall implement the logics of Parking Sounds Management according to SFS F179.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+4. ID: 3966028
+- Contents: The parking sensor system(NSP) has acoustic directional feedback and it shall be operational when an obstacle is detected by sensors when the parking assist system is active. This feedback has to be reproduced according to the position and distance where the obstacle is detected.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 3966042
+- Contents: The system shall generate audio from NSP if NSP_Buzzer = 1(Active).
+- Artifact Type: Information
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+6. ID: 3966886
+- Contents: The system shall request a specific repetition rate for the sound feedback according to 'NSPBuzzerRepetitionRate' as follows:
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+7. ID: 3966888
+- Contents: The system shall reproduce the acoustic feedback as soon as one of the described signals combination is received.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "as soon" ) 
+Passive voice
+ (Look for: "is received" )
+- State (Harman_Requirement): New
+
+8. ID: 3966897
+- Contents: Proxi
+Start Byte 133, Start bit 6 - NSP_Buzzer (0 = "Not Active", 1 = "Active")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 3966992
+- Contents: Network interfaces
+Inputs
+STATUS_NSP2.LHNSPBuzzerReqSts
+STATUS_NSP2.RHNSPBuzzerReqSts
+STATUS_NSP2.CNSPBuzzerReqSts
+STATUS_NSP2.FrameNumber
+STATUS_NSP2.NSPBuzzerRepetitionRate
+STATUS_NSP2.TotalFrameNumber
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-6 6.2.4.7  PARKING SOUNDS MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

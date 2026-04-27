@@ -1,0 +1,223 @@
+# VFI-F914- 6.2.2.30.5 Schedule Departure Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.5 VFI-F914-Schedule Departure
+
+- ID: 4119248
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4119249
+- Contents: IDC shall provide the calendar week interfaces when the user selects the Schedule type as Departure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to select week when Schedule type as Departure.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "provide, selects, interfaces, type, Departure" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4758520
+- Contents: System shall provide as first day interface "Saturday" (dayMask bit1) for the following values of proxi parameter Country Code:
+2= Afghanistan – Islamic Republic of Afghanistan,
+4= Algeria – People's Democratic Republic of Algeria,
+19= Bahrain – Kingdom of Bahrain,
+67= Egypt – Arab Republic of Egypt,
+102= Iran – Islamic Republic of Iran
+103= Iraq – Republic of Iraq,
+110= Jordan – Hashemite Kingdom of Jordan,
+117= Kuwait – State of Kuwait, 
+124= Libya – State of Libya, 
+162= Oman – Sultanate of Oman, 
+175= Qatar – State of Qatar, 
+187= Saudi Arabia – Kingdom of Saudi Arabia, 
+209= Syria – Syrian Arab Republic, 
+225= United Arab Emirates, 
+237= Yemen – Republic of Yemen
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the first day Saturday" (dayMask bit1) proxi conditions
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4758521
+- Contents: System shall provide as first day interface "Sunday" (dayMask bit0) for the following values of
+proxi parameter Country Code: 
+11= Argentina – Argentine Republic, 
+24= Belize, 
+28= Bolivia – Plurinational State of Bolivia, 
+31= Brazil – Federative Republic of Brazil, 
+42= Canada,
+48= Chile – Republic of Chile, 
+49= China – People's Republic of China, 
+50= Colombia – Republic of Colombia,
+55= Costa Rica – Republic of Costa Rica,
+64= Dominican Republic, 
+66= Ecuador – Republic of Ecuador
+68= El Salvador – Republic of El Salvador,
+91= Guatemala – Republic of Guatemala, 
+96= Honduras – Republic of Honduras, 
+97= Hong Kong, 
+105= Israel – State of Israel,
+108= Jamaica,
+109= Japan,
+112= Kenya – Republic of Kenya,  128= Macao,  141 = Mexico – United Mexican States,  156= Nicaragua – Republic of Nicaragua,
+166= Panama – Republic of Panama,  169= Peru – Republic of Peru,  170= Philippines – Republic of the Philippines,  174= Puerto Rico,  198 = South Africa – Republic of South Africa,  115= Korea, South – Republic of Korea,  210= Taiwan – Republic of China,  227= United States – United States of America,  232= Venezuela – Bolivarian Republic of Venezuela,  240= Zimbabwe – Republic of Zimbabwe
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the first day Sunday" (dayMask bit0) proxi conditions
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4758522
+- Contents: System shall provide as first day interface "Monday" (dayMask bit 6) for the remaining values of proxi parameter Country Code.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the first day monday" (dayMask bit6) proxi conditions
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘6’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4119250
+- Contents: System shall set first day as Sunday when  proxi parameter Country Code==227("United States – United States of America")OR109("Japan").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, proxi, day, Sunday, Code, States  #8211; United States of America" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 4119253
+- Contents: System shall set first day as Monday when Country Code proxi values (! = 227OR109).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, day, Monday, values" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 4119254
+- Contents: System shall allow the "Depart by" time setting update with a resolution r = 15 minutes.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify depart by resolution 15 min
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘1 minute’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4119255
+- Contents: IDC shall allow user to set the following when Schedule type as Departure:
+Day
+week
+end time
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to set, following, set, type, Departure" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 4119256
+- Contents: IDC shall show for each day interface the active/notactive state based on the value
+of Xday.
+where XDay = {Monday, Tuesday,  Wednesday,  Thursday,  Friday,  Saturday, Sunday
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the active/not active days based on Xday
+
+XDay = {Monday, Tuesday,  Wednesday,  Thursday,  Friday,  Saturday, Sunday
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, interface, based, state, value, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4758525
+- Contents: System shall set output internal interface INFO_endHours, INFO_endMinutes when Departure setting active .
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify output values when departure setting active 
+
+INFO_endHours, INFO_endMinutes
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, setting, INFO_endHours, active" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4119251
+- Contents: IDC shall map day Mask bits to weekdays as follow:
+(see: image47.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image47.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image47.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914- 6.2.2.30.5 Schedule Departure Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

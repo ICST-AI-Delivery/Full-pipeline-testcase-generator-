@@ -1,0 +1,527 @@
+# VEH-F269 6.2.1.1.2.24  Scheduled Service Warning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.24 VEH-F269 Scheduled Service Warning
+
+- ID: 3408589
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3912311
+- Contents: System shall provide service reminder based on maintenance plan for relevant country market and unit setting as per below table
+(see: image128.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that  the service reminder is provided by the system based on the provided table.
+
+Proxi: Byte 59, bits 4-5 (“Country Market”) 
+Byte 59, bits 6-7 (“Detail for Extra Market”)
+
+CAN-Signal:
+SERVICE_INFO.DistanceToServiceValidData 
+SERVICE_INFO.DistanceToService 
+SERVICE_INFO.DaysToServiceValidData 
+SERVICE_INFO.DaysToService
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, based, setting, reminder, plan, market, table" ) 
+Escape clause
+ (Look for: "as per" ) 
+Unclear term
+ (Look for: "relevant" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image128.png
+
+2. ID: 3912338
+- Contents: System shall calculate program maintenance using previously set date if current set date is preceding latest coupon or car start date
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the current set date is  less than car start date or latest coupon then system shall use previous set date.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, calculate, program, using, maintenance, date" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3912516
+- Contents: System shall calculate remaining distance before first coupon starting from a total travel distance equal to 0km(0mi)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify first service reminder displayed when remaining distance calculated from total travel distance of 0km.
+
+Reset odometer via tester.
+Verify first service reminder displayed when remaining distance calculated from total travel distance of 0km.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, calculate, remaining, starting, distance, coupon, equal" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3912518
+- Contents: System shall calculate remaining days before first coupon from start car date set
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify remaining days for first coupon from 'start car date'
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3912520
+- Contents: System shall store coupon 0 when start car date is set
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the  system shall store coupon 0 start car date is set.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, start, is set, coupon, date" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3912522
+- Contents: System shall display service reminder warning once at key on when reminder days/distance for programmed maintenance less than or equal to values in table
+(see: image129.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify reminder shown at key on from remaining distance <= 2000km (1240mi) or days <=30days.
+Verify reminder not displayed again until a key on happens with distance <=1800km(1116mi) or days<=27 days for programmed maintenance  
+Verify further display as per table.
+
+Proxi: Byte 59, bits 4-5 (“Country Market”) 
+Byte 59, bits 6-7 (“Detail for Extra Market”)
+
+CAN-Signal:
+SERVICE_INFO.DistanceToServiceValidData 
+SERVICE_INFO.DistanceToService 
+SERVICE_INFO.DaysToServiceValidData 
+SERVICE_INFO.DaysToService
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning once, programmed, reminder, key, distance, maintenance, values, table" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image129.png
+
+7. ID: 3912556
+- Contents: System shall store below data, readable by diagnosis tool, on programmed maintenance completion
+Number of coupon done
+Date of the coupons
+Total distance covered.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the below data is stored as described:
+
+Number of coupon done
+Date of the coupons
+Total Distance covered
+- Grooming Status: Approved
+- Grooming Comments: Need to know , how to store and verify the Data with IOC/Sys Infra.?
+- Expert Domains: IOC_Diag, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, programmed, done, covered, data, readable, tool, completion, coupons, distance" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3912746
+- Contents: System shall interrupt coupon resetting after programmed maintenance trigger if condition not met
+Date on CAN network > start car date OR
+Date on CAN network > previous coupon's date (see: image130.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+Service
+
+Verify the Coupon resetting if the conditions are met
+
+Date on CAN network > start car date OR
+Date on CAN network > previous coupon's date.
+
+CAN-Signal:
+SERVICE_INFO.DaysToServiceValidData 
+SERVICE_INFO.DaysToService
+
+Internal Signal:
+Time&Date
+Service
+- Grooming Status: Approved
+- Grooming Comments: How to trigger Service from internal signals And how to verify coupon re-setting is done.?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, interrupt, resetting, coupon, trigger" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image130.png
+
+9. ID: 3912754
+- Contents: System shall allow diagnosis write of coupon list in case of a replacement ECU after verifying
+no previous data written
+no start car date programmed before (no existing coupon registered)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the coupon data is programmed after ECU replacement.
+- Grooming Status: Approved
+- Grooming Comments: How to simulate ECU replacement ?
+ how to verify coupon re-setting is done.?,
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3912788
+- Contents: System shall maintain stored data on scheduled maintenance during battery disconnect
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the Service/Maintanance data is stored and available in the next battery cycle.
+- Grooming Status: Approved
+- Grooming Comments: How to verify service data availability ?
+Check with IOC/Sys Infra team.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 3912793
+- Contents: On battery reconnect, system shall use for programmed maintenance calculation
+new date set
+last stored distance
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the new date is set and last store distance is available on battery re-connect.
+
+* Time to service
+* Distance to service.
+- Grooming Status: Approved
+- Grooming Comments: How to verify service data availability ?
+Check with IOC/Sys Infra team.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+12. ID: 3912795
+- Contents: System shall indicate data invalid when
+Start car date is not set
+Start car date is set and the current date is preceding the last coupon date.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger invalid data by tester (start car date not set)
+
+Verify
+DayToServiceValidData=Not_Valid 
+DistanceToServiceValidData=Not_Valid 
+
+Trigger invalid data by tester (start car date  set and current date preceding last coupon date)
+
+Verify
+DayToServiceValidData=Not_Valid
+- Grooming Status: Approved
+- Grooming Comments: How to indicate data invalid , Either Via Warning or Telltale?
+
+How to clear the Car date & Service coupon data?
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, Start, set, is preceding, invalid, date" ) 
+Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3912797
+- Contents: System shall increment Service_Coupon parameter for completed coupon
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if  Service_Coupon parameter incremented for service completed coupon.
+
+Internal Signal:
+Service
+- Grooming Status: Approved
+- Grooming Comments: How to simulate coupon completion & How to verify Service Coupon Parameter?
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 3726338
+- Contents: System shall visualize F269 Warning1 Pop-Up with Buzzer and send the status to IVI (Incomplete vehicle data signalling) when
+Date adjustment  not execute
+total travel distance equals or is greater than 201km (125 miles)
+with
+D01 visualization behaviour
+priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+On the same day distance travelled is greater than or equal to 201KM.
+
+
+Trigger Warning1 by CAN.
+Verify Warning 1 visualization performed as per HMI_POP.IND with prio-2 and D01 visualization
+
+Algo
+Date adjustment not execute & Travel distance>= 201 km):
+
+CAN-Signal:
+SERVICE_INFO.DistanceToServiceValidData 
+SERVICE_INFO.DistanceToService
+- Grooming Status: Approved
+- Grooming Comments: FQ-420 -> Tot travel dist >=201km
+
+Tot travel distance > 201 or => 201 [IDC-446734, IDC-446743]
+
+25/02/25: 16:44-> Need to know the Trigger condition.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, signalling, start, is unavailable, vehicle, date, distance" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3726889
+- Contents: System shall display Warning-2 Pop-up and send the status to IVI when DistanceToService<2000KM(1242.742 mi)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(DistanceToService<2000km
+
+Verify that the Warning-2 Pop-up is displayed and sent to IVI when trigger condition is met. 
+
+CAN-Signal:
+SERVICE_INFO.DistanceToServiceValidData 
+SERVICE_INFO.DistanceToService
+- Grooming Status: Approved
+- Grooming Comments: FQ-422
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+16. ID: 5106070
+- Contents: System shall display Warning-3 Pop-Up and send the status to IVI when (DistanceToService< 1240 [{_}mi{_}])
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(DistanceToService<1240mi
+
+Verify that the Warning-3 Pop-up is displayed and sent to IVI when trigger condition is met. 
+
+CAN-Signal:
+SERVICE_INFO.DistanceToServiceValidData 
+SERVICE_INFO.DistanceToService
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, Pop-Up, status, DistanceToService" ) 
+Missing unit 
+ (Look for: "‘1240’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+17. ID: 5106074
+- Contents: System shall display Warning-4 Pop-Up and send the status to  IVI when (DaysToService <30)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+DaysToService <30
+
+Verify that the Warning-4 Pop-up is displayed and sent to IVI when trigger condition is met. 
+
+CAN-Signal:
+SERVICE_INFO.DaysToServiceValidData 
+SERVICE_INFO.DaysToService
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, to  IVI, Pop-Up, status, DaysToService" ) 
+Missing unit 
+ (Look for: "‘30’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+18. ID: 5106077
+- Contents: System shall display Warning-5 Pop-Up and send the Status to IVI when (DaysToService = 1)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+DaysToService =1
+
+Verify that the Warning-5 Pop-up is displayed and sent to IVI when trigger condition is met. 
+
+CAN-Signal:
+SERVICE_INFO.DaysToServiceValidData 
+SERVICE_INFO.DaysToService
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, to IVI, Pop-Up, Status, DaysToService   1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+19. ID: 5106080
+- Contents: System shall display Warning-6 Pop-Up and send the Status to IVI when (DaysToService <1)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+DaysToService <1
+
+Verify that the Warning-6 Pop-up is displayed and sent to IVI when trigger condition is met. 
+
+CAN-Signal:
+SERVICE_INFO.DaysToServiceValidData 
+SERVICE_INFO.DaysToService
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, to IVI, Pop-Up, Status, DaysToService  1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3931428
+- Contents: Stop&Start(byte 61, bit7) for S&S warning Filtering management.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3912308
+- Contents: 6.2.1.1.2.24.1 VEH-F269 Logic
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+2. ID: 3931162
+- Contents: System shall use the mentioned CAN signals to display Schedule service warning Indications as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3912521
+- Contents: The start car date can be written only once. If the total odometer is reset using the tester the start car date
+must be set again and the counter must be reset. [
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+4. ID: 3912551
+- Contents: For each scheduled service expiration, the Ferrari Assistance Technician must be able to store new data service through the diagnosis command.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+5. ID: 3912748
+- Contents: In case of IDC replacement, the Ferrari Assistance Technician must
+restore the kilometres/ miles covered present in the total odometer
+read the information for each coupon (number of coupon done / date of the coupon / total distance covered) and rewrite them in the new IDC; it is possible to rewrite this information only if no data have never been written before. Coupon list can be updated only if the start car date has never been programmed before (no existing coupon registered).
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+6. ID: 3912307
+- Contents: 6.2.1.1.2.24.2 VEH-F269 Warnings
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image128.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image129.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image130.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F269 6.2.1.1.2.24  Scheduled Service Warning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,209 @@
+# AUS-0 6.2.1.7  Audio setting introduction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7 AUS-0 Audio setting introduction
+
+- ID: 3408180
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3532585
+- Contents: The System shall show the Audio settings on HMI if HMI screen is ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the HMI Audio settings are visible on HMI if HMI is powered ON.
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Muthu 07.07.2024] :OK to Approve, 
+
+[17.05. 2024. Muthuraj, Xiongwei]: reove this part from SRS "if the "Power ON availability" field is valued with "n.a.", 
+
+[10.05.2024 , Abdul] Ahmed to check the requirement with Ferrari
+
+[Ahmed, Xiongwei]:
+Ferrari: These are settings for audio in the HMI menu, for all audio settings they are currently set to n.a., which means that the setting shall be available when HMISts!=0, which means they shall be available when someone is in the car. it is more for HMI domain colleagues to know if to show the audio specific setting or not in the HMI menu.
+
+Responsible is HMI, Expert is Systems
+- Expert Domains: Android HMI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is powered" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3532750
+- Contents: For each audio setting if the "Power ON availability" field is valued with "V" or "yes", then IDC shall make the given setting available only if HMISts = 2 ("HMI_PowerON") -
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: [Muthuraj , 17,05.2024] not needed, link to above requirement.
+
+[Abdul];if the "Power ON availability" field is valued with "V" or "yes", the system  shall make the given setting available only if "HMI_PowerON" (HMISts = 2 ).
+
+Ahmed to check the requirement with Ferrari
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, make, given, setting available, setting, HMISts" ) 
+Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Unclear term
+ (Look for: "only" ) 
+Passive voice
+ (Look for: "is valued" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3532786
+- Contents: The system shall make unavailable the specific setting applying the HMI strategy as defined in HMI specification, if the HMI screen is Off.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+HMI screen is Off.
+
+Change the Audio settings value (e.g Audio Volume) via hardkey, Diagnostics)
+
+Verify the HMI Audio settings are not visible if HMI Sts signal is 0 (HMI is Off).
+
+Note: The changed Value should be reflected in the system,  this can be verified by turning ON the HMI.
+- Grooming Status: Approved
+- Grooming Comments: [25.07.2024, Muthu]:Approved
+
+[20.05.2024, Muthu]: If HMI Off ,means entire screen is blank.
+Audio team to clarify : if Audio settings change from some other means(e.g. Diag, Harkey, Voice)...how it is making unavailable ?
+
+[Abdul 17.05.2024]:The System shall make unavailable the specific Audio setting applying the HMI strategy as defined in HMI specification, if the availability conditions are not met.
+
+Ahmed to check the requirement with Ferrari
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, make unavailable, applying, defined, setting, strategy, specification" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: If availability" field is valued with "n.a." then IDC shall make the given setting un-available if HMISts = 0 ("HMI_OFF")
+
+4. ID: 3532995
+- Contents: The system shall show the value in HMI Audio settings if the user sets a value for an Audio setting.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the value of the Audio values in HMI Audio setting (via HMI, hardkey)
+
+Verify the changed values are reflected on HMI Audio settings
+
+Verify the Value of the relevant Audio settings via the CAN signal "IDC_AudioSettings"
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3533088
+- Contents: The system shall "not-save" the last value set by the user before "ECU shut down" if "no_persistence" is "requested" for that setting.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn OFF the Auto save from HMI.
+Decline the persistency request popup
+(Refer the IDC-432870 - PFL-7 Auto Save)
+
+Change the Audio settings value.
+Verify that the value is not persisted. 
+
+Verify the default value is visible on next ignition cycle.
+- Grooming Status: Approved
+- Grooming Comments: [25.07.2024, Muthu]:OK to approve 
+20.05.2024, Muthu] How to select non persistent?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, save, set, shut, value" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer the docuemnt "F244_MenuStructure: for the setting which doesn't need persistency.
+
+6. ID: 3533089
+- Contents: The systems shall set the default value for the setting on next "power/ignition-cycle" if the Audio setting is "not-persistent".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn OFF the Auto save from HMI.
+Decline the persistency request popup
+(Refer the IDC-432870 - PFL-7 Auto Save) 
+
+change the value and do an ignition reset (S2R, Cold boot).
+Verify the default value is visible for that setting in the user profile.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "systems, set, value, setting, ignition-cycle" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3533090
+- Contents: The system shall set the Audio setting value to the HMI default value in case of first system start up.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the software.
+In the first startup, Verify that the default value is shown for the Audio settings.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer the menu structure document for default value
+
+### Informational Items:
+
+1. ID: 3533016
+- Contents: When a new "HMI meaning" selection is performed by the user, IDC shall send the "output_signal_name" populated with the o_value correspondent to the new HMI_value.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3535065
+- Contents: Refer to "PMN-2 HMI Status Management" for the HMI status definition.
+Refer to HMI menu structure for the default value of each setting.
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): New
+
+3. ID: 3953065
+- Contents: At every first IDC start up, the IDC shall set all the audio setting to their correspondent values thought the IDC-482739 - Settings APIs ( IDC-482739 - Settings APIs).
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "their" ) 
+Unclear term
+ (Look for: "all, every" )
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer to IDC-482739 - Settings APIs.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-0 6.2.1.7  Audio setting introduction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

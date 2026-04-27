@@ -1,0 +1,169 @@
+# UnknownID 6.2.4.3.1.16 USB Status (directly connected device) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.16 USB Status (directly connected device)
+
+- ID: 3943815
+- Artifact Type: SRS Feature
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3943819
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and Dimension: 10 Bytes, Data type: HEX
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte.
+- State (Harman_Requirement): Approved
+
+2. ID: 3943825
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return details about the USB Status as follows.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned details about the USB Status in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+3. ID: 3943841
+- Contents: The USB Status parameter fields shall populate based on the USB Power Status, USB Speed, USB Device Class, USB Protocol, USB Vendor ID, USB Product ID and USB Status shown in the below tables.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Power status values.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "parameter fields, populate, based, shown, Status, Speed, Class, Protocol, Product ID, tables" )
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+4. ID: 3943861
+- Contents: The System shall support the USB power status values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Power status values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+5. ID: 3943910
+- Contents: The System shall support the USB Speed status values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Speed values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+6. ID: 3943924
+- Contents: The System shall support the USB Device Class values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Device Class values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+7. ID: 3943933
+- Contents: The System shall support the USB Protocol values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Protocol values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+8. ID: 3943952
+- Contents: The System shall support the USB Vendor ID as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Vendor ID values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+9. ID: 3944001
+- Contents: The System shall support the USB Product ID as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB Product ID values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+10. ID: 3944016
+- Contents: The System shall support the USB Status  as follows
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the USB status values in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Check to response length of 10 byte. No info about how to validate the repsonse
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.16 USB Status (directly connected device) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

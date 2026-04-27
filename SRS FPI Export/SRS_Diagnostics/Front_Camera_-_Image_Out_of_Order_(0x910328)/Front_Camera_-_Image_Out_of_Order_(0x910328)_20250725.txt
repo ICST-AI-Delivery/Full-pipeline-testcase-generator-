@@ -1,0 +1,71 @@
+# UnknownID 6.2.1.5.32 Front Camera - Image Out of Order (0x910328) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.32 Front Camera - Image Out of Order (0x910328)
+
+- ID: 4613064
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4613065
+- Contents: The System shall detect Image Out of Order Fault in Front Camera within 1s with SV in active state, if Video frame timestamps out-of-order for the Front camera.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the frames from the camera are out of order. 
+-Image Out of Order Fault in Front Camera should be detect within 1s when SV is in active state.
+-Set Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality") = "Present"
+-Verify DTC will be trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Out, Camera, SV, state" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for request 0x1906&"DTC-ID". No info about fault condition or when an error is detected an image is wrong. Applicative test (with an error picture) not handable by diag team.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: https://confluence.harman.com/confluence/pages/viewpage.action?spaceKey=FERRARISPACE4&title=Diagnostic+specification+releases
+
+2. ID: 4613066
+- Contents: The System shall clear the DTC within 1s, if the Image Out of Order Fault in Front Camera is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify No fault is detected in Front camera.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "clear, is" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for request 0x1906&"DTC-ID". No info about fault condition or when an error is detected an image is wrong. Applicative test (with an error picture) not handable by diag team.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: https://confluence.harman.com/confluence/pages/viewpage.action?spaceKey=FERRARISPACE4&title=Diagnostic+specification+releases
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.32 Front Camera - Image Out of Order (0x910328) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

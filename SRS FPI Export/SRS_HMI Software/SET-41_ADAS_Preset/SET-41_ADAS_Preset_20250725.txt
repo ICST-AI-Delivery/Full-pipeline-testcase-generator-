@@ -1,0 +1,99 @@
+# SET-41 6.2.3.5.1  ADAS Preset Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.5.1 SET-41 ADAS Preset
+
+- ID: 3408669
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 40
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3792961
+- Contents: IDC shall provide users to:
+All ON
+All OFF
+CUSTOM ADAS presets.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 3 ADAS presets are available for the user.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3980298
+- Contents: System shall set the ADAS Preset to ALL ON when proxi parameter ADAS_preset_persistency == 0("Not_Active") and HMI status availability condition is met.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the adas preset to ALL ON when the mentioned proxy condition.
+
+ADAS_preset_persistency == 0("Not_Active") & HMI Status is available.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, to ALLON, proxi, preset, Preset, parameter" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+3. ID: 3980297
+- Contents: System shall persist ADAS Preset value when proxi parameter ADAS_preset_persistency ==1(Active) as per persistency logic in SET-0.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the adas preset is persists when ADAS_preset_persistency == 1("Active").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, proxi, preset, ALLOFF, parameter" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3792959
+- Contents: - IDC shall apply the ADAS Preset logic to the following ADAS activation setting, grouped as "ADAS Ferrari":
+Traffic Sign Assistance
+Lane departure warning OR Lane Keep Assist according to proxi configuration
+Drowsiness Detection Alert
+Driver Monitoring System
+Blindspot
+- ADAS Preset shall not affect the ADAS secondary adjustments (e.g. Sensitivity, Feedback, etc.)
+- ADAS Presets are mutually exclusive
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-41 6.2.3.5.1  ADAS Preset Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

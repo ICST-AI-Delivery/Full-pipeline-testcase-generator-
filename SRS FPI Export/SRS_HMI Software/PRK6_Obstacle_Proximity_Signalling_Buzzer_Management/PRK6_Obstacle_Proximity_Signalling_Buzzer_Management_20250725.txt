@@ -1,0 +1,128 @@
+# UnknownID 6.2.4.7.2 PRK6: Obstacle Proximity Signalling Buzzer Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.7.2 PRK6: Obstacle Proximity Signalling Buzzer Management
+
+- ID: 3851648
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Grooming Comments: [17.02.2025 Yuanhang, Abdul] : This is blocked, Audio team to discuss and come back
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3851649
+- Contents: If PROXI parameter NSP_Buzzer = 0 (Not Active), the system shall generate and route to the speakers on the corresponding quadrant the parking sensor buzzer, according to the signal STATUS_NSP2.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter NSP_BUzzer =0
+
+Verify that the parking sensor buzzer sound is heard via speakers based on the signal STATUS_NPS2
+
+Note:
+In case of
+Central buzzer activation, the buzzer must be routed to both quadrants of the front or rear sector or to the central speaker only
+when available.
+- Grooming Status: Approved
+- Grooming Comments: [Yuanhang, Abdul 18.02.2025] Approved
+
+https://jira.harman.com/jira/browse/FQ-1000
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: In case of Central buzzer activation, the buzzer must be routed to both quadrants of the front or rear sector or to the central speaker only
+when available. .
+
+2. ID: 3877298
+- Contents: The system shall stop inhibiting the reverse gear buzzer if "STATUS_NSP2"(or a part of it: 1 message of multimessage) is not "received" for '5' consecutive times.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the reverse gear buzzer sound is Not audible if the message (STATUS_NPS2) is missed  for 5 consecutive times.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1000
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3851756
+- Contents: The logic shall be described in the following table:
+(see: image117.png)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- RQA Score: 60
+- Issues Found by RQA: Passive voice
+ (Look for: "be described" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): New
+- Visual Elements: image117.png
+
+2. ID: 3851657
+- Contents: Refer to IDC Finalized Specification for the frequency and volume values of the front and rear buzzer signalling.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+3. ID: 3851633
+- Contents: The system shall reproduce the frequency of the tone as aligned with the visualization on HMI
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Verification Criteria: Simulate the obstaclce with the dtance rangeas mentioned in the table
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be aligned, are communicated" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: distances from the different parts of the car are communicated in units of 4cm.
+
+Note: Audio play back is based on the CAN signal
+
+4. ID: 5034126
+- Contents: (see: image118.png)
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+- Visual Elements: image118.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image117.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image118.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.7.2 PRK6: Obstacle Proximity Signalling Buzzer Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

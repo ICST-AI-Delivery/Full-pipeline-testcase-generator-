@@ -1,0 +1,116 @@
+# PHN-6 6.2.1.6  Delete Device Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.6 PHN-6 Delete Device
+
+- ID: 3715993
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, BT, Projections
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3716632
+- Contents: System shall display the list of paired devices with an "Add device" button on HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display all the previously connected paired device list and "Add device" button shall display in the end of the paired list.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, paired, Add, list, devices, device, button, HMI" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4544230
+- Contents: System shall allow user to delete a paired device by long press interaction, If user presses again on the delete button displayed on the device then paired device will be deleted without a confirmation pop-up.
+(see: image3.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall allow user to delete a paired Device, through a long press interaction, when user presses again on the delete button appeared on the device then it will be directly deleted (without a confirmation pop-up)
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to delete, display, paired, deleted, device, interaction, button, pop-up" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image3.png
+
+3. ID: 3716634
+- Contents: System shall allow the user to delete the selected device from the list of paired devices.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall allow the user to delete the selected device from the list of paired ones.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3716644
+- Contents: System shall remove the saved information of the deleted device on deleting the device from the paired device list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall remove the device from the paired devices list and all the information saved for the selected device when the user requests to delete a selected device.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3716651
+- Contents: System shall disconnect the device when the deleted device currently connected.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall disconnect the device when the deleted device is currently connected.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, disconnect, deleted, connected, device" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3716658
+- Contents: System shall ask the user confirmation to delete the device from device list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall ask the user confirmation to delete a device from device list.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image3.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-6 6.2.1.6  Delete Device Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

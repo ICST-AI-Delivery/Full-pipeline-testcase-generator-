@@ -1,0 +1,101 @@
+# UnknownID 6.2.2.1.2 Power Management - Power State IDC ON Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.2 Power Management - Power State IDC ON
+
+- ID: 3452728
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_IOC
+- Grooming Status: Approved
+- Expert Domains: System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3452756
+- Contents: IDC shall initiate a wake-up signal to transition from IDC OFF to IDC ON state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if wake-up signal is activated while transition from OFF to ON state
+- Grooming Status: Approved
+- Grooming Comments: Dawid Strzelec, shouldn't it be replaced by 3452757?
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3452757
+- Contents: IDC shall transition from IDC OFF to IDC ON state when a network is active (Diagnostic session, Network traffic).
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if during Network Active (Diagnostic Session or Network traffic) IDC can transition from OFF to ON state
+
+Set WakeReq_NIT = 1 ("Active")
+Set WakeRsn_NIT= 0 ("Diag")
+- Grooming Status: Approved
+- Grooming Comments: need to take test approval
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "network, transition, is active, OFF, state, session, traffic" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3452748
+- Contents: IDC shall switch to state Suspend to RAM (IDC OFF) when sleep signal should receive.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if IDC transitions to IDC Off state ( Suspend to RAM) when sleep signal is received
+- Grooming Status: Approved
+- Grooming Comments: This is a white label functionality and needs to be clarified
+
+Need to clarify based on the customization from CAN signal so that the verification perspective can be cleared
+
+Moved to PMN-5
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signal, switch, state, RAM, receive, Suspend, OFF" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3452758
+- Contents: IDC shall maintain sub states HMI ON, HMI OFF & HMI Power ON in IDC ON state.
+- Artifact Type: Information
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if the mentioned sub states are supported
+- Grooming Status: Approved
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.1.2 Power Management - Power State IDC ON Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

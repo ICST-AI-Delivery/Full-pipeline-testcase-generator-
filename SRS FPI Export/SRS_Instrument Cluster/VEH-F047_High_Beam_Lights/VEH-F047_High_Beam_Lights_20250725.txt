@@ -1,0 +1,189 @@
+# VEH-F047 6.2.1.1.1.11  High Beam Lights Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.11 VEH-F047 High Beam Lights
+
+- ID: 3406471
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3494866
+- Contents: During key on and steady state system shall indicate  high beam on/off when high beam lights on/off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition : Key on or Steady state.
+CAN Signal: HighBeamSts
+
+
+Turn high beam lights on.
+Verify high beam telltale ON
+
+Turn high beam lights off
+Verify high beam telltale OFF
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, lights, indicate, beam, off" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HighBeamSts == ON)
+
+2. ID: 3494869
+- Contents: The system shall indicate  high beam off in sync with key off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: CAN Signal: HighBeamSts
+
+Verify HighBeam tellatale off in key off.
+
+
+Key on. Turn high beam lights on.
+Verify high beam telltale ON
+
+
+Key off. Verify high beam telltale OFF in sync with key Off
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "high" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HighBeamSts == ON)
+
+3. ID: 3438881
+- Contents: During key onSystem and steady state system shall playdisplay high beam lights buzzer on detecting high beam light failureInfo-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger high beam failure by CAN (Right_HB_FailSts ==Fail_present OR Left_HB_FailSts == Fail_present OR ADB_FailSts == Fail_present OR Comp_HB_FailSts == Fail_present)
+
+Verify buzzer played. Verify buzzer audio against wav file
+
+CAN-Signal: EXTERNAL_LIGHTS.HighBeamSts
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, play, detecting, lights, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F047)
+
+4. ID: 3438912
+- Contents: System shall trigger High Beam light failure pop-up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenon detecting high beam light failure
+Note: System shall follow
+D01 Visualisation Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the High Beam Light failure pop-up is displayed when high beam light failure is detected.
+
+CAN-Signal: 
+STATUS_C_LCU.Right_HB_FailSts OR
+STATUS_C_LCU.Left_HB_FailSts
+STATUS_C_LCU.Comp_HB_FailSts
+STATUS_C_LCU.ADB_FailSts
+
+Buzzer:2B
+
+Algorithm:
+Right_HB_FailSts ==Fail_present OR Left_HB_FailSts == Fail_present OR ADB_FailSts == Fail_present OR Comp_HB_FailSts == Fail_present
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall trigger, shall follow" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (Right_HB_FailSts ==Fail_present OR Left_HB_FailSts == Fail_present OR ADB_FailSts == Fail_present OR Comp_HB_FailSts == Fail_present)
+
+5. ID: 4686262
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values:
+(see: image29.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+Proxi:
+(Right_HB_FailSts =Fail_present OR Left_HB_FailSts = Fail_present OR
+ADB_FailSts = Fail_present OR Comp_HB_FailSts = Fail_present)
+
+
+Verify Indications were displyed in the central displayed according to Proxi and CAN inputs and as per per Indication ID's.
+
+CAN-Signal: STATUS_C_LCU.Right_HB_FailSts
+STATUS_C_LCU.Left_HB_FailSts
+STATUS_C_LCU.Comp_HBFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signals, send, following, input, present, INDICATOR_STATUS, values, Proxi, INDICATOR, Controls, interfaces 0   Not_Active, Indication ID Quick Controls, Right" ) 
+Missing unit 
+ (Look for: "‘0,1,00470001,00470002,00470003’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘3 D l’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image29.png
+
+### Informational Items:
+
+1. ID: 3438868
+- Contents: System shall display  high beam telltale as per Ferrari design.
+(see: image28.png)
+Note: System shall follow
+SO9 Visualisation Behaviour
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify telltale as displayed in B14 wireframe area as per design.
+CAN Signal: HighBeamSts
+
+
+Verifu S09 behaviour referring 3494875: CAN input Virtual Telltales behavior codes
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall follow" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00790
+- Visual Elements: image28.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image29.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image28.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F047 6.2.1.1.1.11  High Beam Lights Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

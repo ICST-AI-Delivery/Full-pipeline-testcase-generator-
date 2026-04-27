@@ -1,0 +1,144 @@
+# VEH-F001 6.2.1.1.1.1  Immobilizer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.1 VEH-F001 Immobilizer
+
+- ID: 3405873
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Approving without ASIL classification.
+Also clarified in JIRA <FQ-119>
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, Security, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3497747
+- Contents: System shall display Warning-1 Pop-Up , Telltale and Buzzer when (ImmoCodeWarningLightSts is 10, 11, 12, 14, 15, 16, 17).
+Note:Warning-1 follows D01 Visualiszation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Send 10,11,12,14,15,16,17 values through the ImmoCodeWarningLightSts CAN message and verify that the Warning-1 is displayed.
+
+CAN-Signal: STATUS_NBC.IMMOCodeWarningLightSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: HMI part
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer info below. Telltale on for pop-up on values of ImmoCodeWarningLightSts
+
+2. ID: 3415255
+- Contents: System shall display Warning-2 Pop-Up , Telltale and Buzzer when (ImmoCodeWarningLightSts is 1).
+Note:Warning-2 follows D01 Visualiszation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Send 1 values through the ImmoCodeWarningLightSts CAN message and verify that the Warning-2 is displayed.
+
+CAN-Signals:
+STATUS_NBC.IMMOCodeWarningLightSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: HMI part
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer info above and warning sheet F244_HMI_POP.IND_PI3_S2_240202.xlsx
+
+3. ID: 3439312
+- Contents: System shall display Warning-3 Pop-Up , Telltale and Buzzer when (ImmoCodeWarningLightSts is 2,3,4,5,6,7,8).
+Note:Warning-3 follows D01 Visualiszation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Send 2,3,4,5,6,7,8 values through the ImmoCodeWarningLightSts CAN message and verify that the Warning-3 is displayed.
+
+CAN-Signal: STATUS_NBC.IMMOCodeWarningLightSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Control, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F001)
+
+4. ID: 3497806
+- Contents: For vehicles with start stop, system shall inhibit immobilizer warning display during engine cranking and engine off
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : proxi Stop&Start = Present (proxi byte 61, bit 7) TRUE
+ Verify immobilizer warning not displayed during engine off and during cranking
+- Grooming Comments: Reference file SFS F506 missing
+Proxi file required to understnd proxi values.
+EdriveSts mentioned as input, but usage not clear
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, inhibit, warning, cranking, vehicles, stop, immobilizer, display, engine, off" )
+- TestTeamComment: Testing will be done for default proxi settings till proxi architecture is clear. Domain to create a task in FPI for complete testing once proxi architecture clarified
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3497740
+- Contents: System shall display immobilizer indicator on immobilizer malfunction as per Ferrari Design
+(see: image1.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify telltale displayed as per Ferrari design HMI_LF_Binnacle_Telltales
+
+Refer 3497777 info. Verify telltale ON displayed by modifying CAN ImmoCodeWarningLightSts as in info (Pop-up ON = Telltale On)
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: HMI part
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code 00510
+- Visual Elements: image1.png
+
+2. ID: 3497777
+- Contents: (see: image2.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Approved
+- Visual Elements: image2.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image1.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image2.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F001 6.2.1.1.1.1  Immobilizer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

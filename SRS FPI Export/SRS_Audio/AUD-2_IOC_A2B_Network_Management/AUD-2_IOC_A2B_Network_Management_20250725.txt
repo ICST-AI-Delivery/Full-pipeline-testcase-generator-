@@ -1,0 +1,188 @@
+# AUD-2 6.2.1.3.1  IOC: A2B Network Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3.1 AUD-2 IOC: A2B Network Management
+
+- ID: 3492107
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_IOC
+- Grooming Status: Approved
+- Expert Domains: Audio Control, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3483791
+- Contents: System shall initialize the A2B networks(A2B Network1, A2B Network2)  according to "AD2431/AD2432/AD2433/AD2435 A2B" Transceiver Technical Reference.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the discovery status of A2B 1 and A2B networks via SFI traces in DLT logs.
+
+Verify the Audio system is in "A2B_INIT" state (The signal "AudioSts" = 0)
+- Grooming Status: Approved
+- Grooming Comments: [Ahmed , Jaijith, Dawid]: OK to approve. The statement "line fault diagnostic" from CRS is not needed in SRS.
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2435 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3526634
+- Contents: The system shall set the value of the following CAN signals according to the detected fault on "A2B Network1"
+IDC_AudioStreams2.A2B_1_FailLocation
+IDC_AudioStreams2.A2B_1_FailSymptom
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Create a fault on A2B network1 (e.g. A2B Network 1 - Master to Sub 0 - Open wires or wrong port)
+Verify the  value of the signals IDC_AudioStreams2.A2B_1_FailLocation and IDC_AudioStreams2.A2B_1_FailSymptom according to the detected fault
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024, Dawid]: OK to approve with the signals from PI4 document.
+The signal mentioned in the PI3 document is not available in the dbc,
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3559195
+- Contents: The system shall set the value of the 'CAN-signals' as below when 'no-fault' detected on 'A2B Network1'
+'IDC_AudioStreams2.A2B_1_FailLocation' = '0'("Fail_not_present").
+'IDC_AudioStreams2.A2B_1_FailSymptom' = '0'("Fail_not_present").
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Clear the fault on A2B Network 1.
+Verify the value of the below signals are 0.
+IDC_AudioStreams2.A2B_1_FailLocation = 0 ("Fail_not_present")
+IDC_AudioStreams2.A2B_1_FailSymptom = 0 ("Fail_not_present")
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024, Dawid]: OK to approve with the signals from PI4 document.
+The signal mentioned in the PI3 document is not available in the dbc,
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Escape clause
+ (Look for: "as below" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3417380
+- Contents: The system shall have Standard Configuration as the default A2B network 2 configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the A2 Network configuration is the Standard configuration by default.
+Use Diagnostic command for verification.
+
+Note: In the initial releases:
+Verify by using AME commands.
+- Grooming Status: Approved
+- Grooming Comments: In the initial releases, the configuration can be changed in between standard and measurement by using AME commands.
+
+[17.05.2023]: Ahmed: White label
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3559189
+- Contents: The system shall set the value of the following CAN signals according to the detected fault on "A2B Network 2"
+IDC_AudioStreams2.A2B_2_FailLocation
+IDC_AudioStreams2.A2B_2_FailSymptom
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Create a fault on A2B network2 (e.g. A2B Network 2 - Master to Sub 0 - Open wires or wrong port)
+Verify the  value of the signals IDC_AudioStreams2.A2B_2_FailLocation and IDC_AudioStreams2.A2B_2_FailSymptom according to the detected fault
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024, Dawid]: OK to approve with the signals from PI4 document.
+The signal mentioned in the PI3 document is not available in the dbc,
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3526638
+- Contents: The system shall set the value of the 'CAN-signals' as below when no-fault detected on 'A2B Network2'.
+'IDC_AudioStreams2.A2B_2_FailLocation' = '0' ("Fail_not_present").
+'IDC_AudioStreams2.A2B_2_FailSymptom' = '0' ("Fail_not_present").
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: No fault is detected on A2B Network 2.
+
+Verify the value of the below signals are 0.
+IDC_AudioStreams2.A2B_2_FailLocation = 0 ("Fail_not_present")
+IDC_AudioStreams2.A2B_2_FailSymptom = 0 ("Fail_not_present")
+- Grooming Status: Approved
+- Grooming Comments: [17.05.2024, Dawid]: OK to approve with the signals from PI4 document.
+The signal mentioned in the PI3 document is not available in the dbc,
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3417426
+- Contents: If a sub node (or multiple sub nodes) drops on an A2B network, the system shall use partial rediscovery on that network.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Disconnect some of the nodes( external amplifier /ACC/RTM/ Mic ) from the A2B Network  1 and Network 2.
+
+Verify the partition rediscovery on A2B network 1 and  A2B network 2
+Use IOC trace for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, rediscovery, network" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3526606
+- Contents: The System shall reinitialize the discovery of the A2B network node if all the sub nodes drops from that A2B network.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Disconnect all the nodes( External amplifier ,ACC,RTM, Mic) from the A2B Network 1 and Network 2.
+
+Verify the re-initialization of the discovery on both A2B network (network 1 and 2)
+Use IOC trace for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, reinitialize, discovery, node" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3565719
+- Contents: The line fault diagnostic of the A2B Networks shall be performed according to "AD2431/AD2432/AD2433/AD2435 A2B Transceiver Technical Reference".
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-2 6.2.1.3.1  IOC: A2B Network Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

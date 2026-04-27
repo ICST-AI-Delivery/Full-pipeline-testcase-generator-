@@ -1,0 +1,83 @@
+# UnknownID 6.2.4.4.3.7 AVAS Switch-Off Speed ($052A) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.4.3.7 AVAS Switch-Off Speed ($052A)
+
+- ID: 3733547
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3733548
+- Contents: The system shall be able to read the AVAS Switch-Off Speed in extended diagnostic session with the responses.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the requirement that the system displays a vehicle speed of 31km/h when AVAS is switched off in the NAFTA region.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, alerting, is turn off, speed, vehicle, region" )
+- TestTeamComment: RWeber_DIAG_241106: Only check to pos. response in extended session, with DataRecord length 2byte
+- State (Harman_Requirement): Approved
+- Requirement Rationale: With range of [0-255] default physical value will be 31 and offset value will be 0
+
+2. ID: 3733549
+- Contents: The system shall be able to write the AVAS Switch-Off Speed in extended diagnostic session with the responses.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the requirement that the system displays a vehicle speed of 21km/h when AVAS is switched off in the EU region.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, AVAS, display, is, turn off, speed, Kmph, region" )
+- TestTeamComment: RWeber_DIAG_241106: Only check to pos. response in extended session, with DataRecord length 2byte
+- State (Harman_Requirement): Approved
+- Requirement Rationale: With range of [0-255] default physical value will be 21 and offset value will be 0
+
+3. ID: 3733561
+- Contents: The default value of AVAS_Switch-off speed shall be 0 with coefficient of 1 and physical value of 1. (see: image227.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_241106: Only as info and wrong table from spec here in DNG
+- State (Harman_Requirement): Approved
+- Visual Elements: image227.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image227.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.4.3.7 AVAS Switch-Off Speed ($052A) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

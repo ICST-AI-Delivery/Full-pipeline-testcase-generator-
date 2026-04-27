@@ -1,0 +1,147 @@
+# VFI-F868 6.2.2.17  Steering wheel heater Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.17 VFI-F868 Steering wheel heater
+
+- ID: 4136847
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4153665
+- Contents: System shall manage the Steering Wheel heating setting if SteeringWheelHeater = 1("present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+
+SteeringWheelHeater = 1 ("present").
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 4153672
+- Contents: System shall set default value as Not_Active when SteeringWheelHeater is "absent".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system shall set default value as not active when SWH is absent.
+
+RimHeatingCommand = 0 ("Not_Active")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, SteeringWheelHeater, set, is, value, Not_Active" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4153671
+- Contents: IDC shall provide following Steering wheel heating state:
+0("Not_Active") means Not Active
+1("Active") means Active
+2("Fail_Present") means Unavailable
+3 ("Not_used") means Unavailable
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the steering wheel heating states as mentioned.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4153670
+- Contents: System shall always align the output signal RimHeatingCommand to the value received by input signal RimHeatingFbk.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal and make sure that the values are aligned.
+
+RimHeatingCommand
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4153669
+- Contents: IDC shall not align with output signal to the input signal when the user requests a setting update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system not able to align with output signal when user requests an update
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "align, requests" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4153675
+- Contents: IDC shall display steering wheel heater failure status.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display SWH failure status.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4153673
+- Contents: System shall apply the following when IDC does not receive STATUS_NBC_2message for t > F868_T_Missing_Msg
+Inhibit the Steering wheel heater setting
+Set RimHeatingCommand == 0("Not_Active")
+Set DTC for missing message
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify when the can signals not received check the following conditions.
+
+Inhibit the Steering wheel heater setting
+Set RimHeatingCommand == 0 ("Not_Active")
+Set DTC for missing message
+
+STATUS_NBC_2 message for t > F868_T_Missing_Msg
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, following, receive, Inhibit, setting, heater, Not_Active, message" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F868 6.2.2.17  Steering wheel heater Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

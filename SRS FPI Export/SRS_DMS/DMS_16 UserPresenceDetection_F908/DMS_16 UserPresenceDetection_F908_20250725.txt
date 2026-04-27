@@ -1,0 +1,146 @@
+# UnknownID 6.2.1.17.1.1 DMS 16: UserPresenceDetection_F908 Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.17.1.1 DMS 16: UserPresenceDetection_F908
+
+- ID: 3845991
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Blocked
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3845993
+- Contents: The system shall detect the User Presence based on the User Presence proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS detects the User presence  if
+UserPresence proxi parameter parameter has the value present
+
+Verify the DMS is not detecting the user presence if UserPresence proxi parameter has value other than present
+- Grooming Status: Blocked
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-455
+
+[Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Note: The user presence parameter has the default value absent
+
+2. ID: 3846003
+- Contents: The DMS shall disable the user presence functionality by default.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the software or do a factory reset.
+
+Verify the DMS is not detecting the User presence  
+
+Note: The user presence parameter has the default value absent
+- Grooming Status: Blocked
+- Grooming Comments: [Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: The user presence parameter has the default value absent
+
+3. ID: 3846010
+- Contents: The NBC shall detect the user presence & start user absent timer
+NBC detects a user presence through one of the following transition (OR condition)
+DMS camera detected
+Passenger seat sensor detected
+Any front seat belt buckled
+Door opening
+Any internal wakeable button pressed
+charging flap opening
+rear seat belt transition
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-455
+
+[Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3846014
+- Contents: The NBC shall reset  the Tuser_absent timer & maintain UserPresence interface to 'Active' value if NBC detects a user interaction within Tuser_absent timer expiration through one of the following transition (OR condition)
+Any internal button pressed
+Charging plug inserted
+Door/charging flap transition
+Door position change
+Rear seat belt transition
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: [Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "reset, maintain, interface, value, position, transition" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3846019
+- Contents: The system shall set the User absence signal to "Absent" when NBC detects an external door-lock command(VPSDoorSts = Locked_External & Interior_Lock = Not_Active for more than '2' sec) or '(Tuser_absent' timer expires)'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: [Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, detects, signal, Absent, command" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3846020
+- Contents: NBC shall maintain User Presence to Present at power On conditions.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: [Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3846021
+- Contents: NBC shall set NBCActivityInProgress output interface to 'Active' value as long as UserPresence signal is transmitted to 'Present' value.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: [Antonio, Saheel _04.03.2025] Not needed here
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is transmitted" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.17.1.1 DMS 16: UserPresenceDetection_F908 Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

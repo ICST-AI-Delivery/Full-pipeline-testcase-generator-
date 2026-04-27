@@ -1,0 +1,131 @@
+# DMS-1 6.2.1.2.3 _DMS State: Active Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.3 DMS-1_DMS State: Active
+
+- ID: 3733670
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3762600
+- Contents: The system shall switch to Active state from User Presence state on HMI power ON.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Start the Head Unit
+DMS is in User Presence state.
+Verify that the DMS is switched to Active State on Power on the HMI (Ignition ON).
+
+Verify the values of the below CAN signals in DMS Active state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+DMS_INFO.DMSSystemStatus according to Settings Management
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4642796
+- Contents: The system shall send the below CAN signal values in DMS 'Active' state
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = Active.
+ActiveDMS_INFO.DMSSystemStatus according to Settings Management
+DMS_INFO.HMICode_DMS= not_active
+DMS_INFO.DMS_Attentiveness according to Attentiveness Estimation
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+DMS_INFO.Nominal_condition according to Non-Nominal Condition Determination
+DMS_INFO.DMSSystemFail= not_fail
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in Active state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3538868
+- Contents: In ACTIVE state, DMS shall monitor the driver for distraction but disables distraction
+warning according to Attention Warning.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: DMS is in active state.
+
+Check the below CAN signals when driver is present and not present condition.
+or
+if driver is present and Driver is attentive or not.
+
+DMS_INFO.DMS_Attentiveness according to Attentiveness Estimation
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+DMS_INFO.HMICode_DMS = not_active
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, monitor, disables, according, driver, distraction, state, warnings, Warning" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3538877
+- Contents: The DMS shall switch to 'RUNNING' state from 'ACTIVE' state when both speed threshold & gear engaged conditions are met according to 'Attention Warning & HMI Settings'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in Active state.
+
+Set the below conditions:
+gear engaged.
+Set the speed threshold ( 20 kmph)
+HMI User setting DMS_Enable =1
+
+Verify that the DMS is switched to Running state
+
+Verify the value of the CAN signals 
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+
+DMS_INFO.DMSSystemStatus = On
+ DMS_INFO.HMICode_DMS according to Attention Warning
+DMS_INFO.DMS_Attentiveness according to Attentiveness Estimation
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+DMS_INFO.Nominal_condition according to Non-Nominal Condition Determination
+DMS_INFO.DMSSystemFail = not_fail
+- Grooming Status: Review
+- Grooming Comments: [Mayank, Abdul,  25.07.2024]: Switching from Active state to  WARNING state is Invalid
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, switch, state, engaged, satisfied, according, Warning, RUNNING, amp, conditions, Settings" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-1 6.2.1.2.3 _DMS State: Active Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

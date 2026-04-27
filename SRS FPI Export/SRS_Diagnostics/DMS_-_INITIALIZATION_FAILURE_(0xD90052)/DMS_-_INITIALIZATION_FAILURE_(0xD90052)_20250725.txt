@@ -1,0 +1,71 @@
+# UnknownID 6.2.1.4.6 DMS - INITIALIZATION FAILURE (0xD90052) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4.6 DMS - INITIALIZATION FAILURE (0xD90052)
+
+- ID: 3835478
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3835479
+- Contents: The DMS system shall detect the initialization failure within 1s during the permanent evaluation when the key-ON and the initialization exceeds time limit.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: -DMS system initialization exceeds time limit imposed.
+-The Key should be on and the vehicle is configured with Permanent evaluation.
+-DMS initialization failure should be detected within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, exceeds, failure, evaluation, limit" )
+- TestTeamComment: RWeber_DIAG_241014: What means "DMS system init exceeds"?
+Is it a CAN signal or special system state. I need here also clear info about the DTC trigger.
+- State (Harman_Requirement): Approved
+
+2. ID: 3835482
+- Contents: The System shall de-validate/clear the DMS initialization failure within 1s if the Blockage of time limit  disappear.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: -Blockage is not present anymore.
+-DMS initialization failure should be clear within 1s.If the Key-ON, the system shall able to detect the fault conditions of failure.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, de, validate, clear, disappear, DMS, failure, Blockage" )
+- TestTeamComment: RWeber_DIAG_241014: Single precondition key-On. I expected clamp signal from HMI-CAN.
+Proxy settings are not listen and than not needed.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.4.6 DMS - INITIALIZATION FAILURE (0xD90052) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

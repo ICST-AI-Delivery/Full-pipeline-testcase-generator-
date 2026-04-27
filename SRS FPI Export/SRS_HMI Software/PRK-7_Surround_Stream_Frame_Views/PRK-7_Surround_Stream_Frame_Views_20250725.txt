@@ -1,0 +1,201 @@
+# PRK-7 6.2.4.8.1  Surround Stream Frame Views Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.8.1 PRK-7 Surround Stream Frame Views
+
+- ID: 4606486
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4606501
+- Contents: The system shall show both tyres In the lateral (left and right) view without displaying Parking lines.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondiotn: Surround view is actrive
+
+Switch to left and right view.
+
+Verify the both tyres are visible In the lateral (left and right) view without displaying Parking lines.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, left, displaying, tyres, view, lines" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4606490
+- Contents: The system shall show the of top front/top rear view in auto mode based on the gear engaged and the obstacle detection thresholds (each sector has certain threshold for the top view display).
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Actiavte the Auto mode via HMI button.
+Verify that the 
+below top views can be visible in auto mode: Top Front and Top Rear based on gear engaged and the obstacle detection thresholds.
+- Grooming Status: Approved
+- Grooming Comments: [obstacle detection is handled by camera team]
+- Expert Domains: Android HMI, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, based, engaged, has certain, view, mode, detection, sector, threshold, display" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4606509
+- Contents: The system shall show  Each sector on front/top rear view based on y c -> Mapped above
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Grooming Status: Review
+- Expert Domains: Android HMI, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, based, Mapped, sector, view, above" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4606656
+- Contents: The system shall allow the user to deativate the automode via automode button or on pressing a different camera button
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the autojode can be deactiavted on pressing a different camera button or via auto mode button
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to deativate, pressing, user, button" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4606699
+- Contents: The system shall switch to surround view top front/top rear based on gear dependent(AUTO) if IDC screen was "active" before the automatic top view activation.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Auto mode when the screen is in IDC screen.
+Engage front/reverse gear
+
+Verify that the top front/top rear view is automatically shown based on gear position.
+
+Note: Reverse gear engaged: The top view is not displayed if there is an obstacle detected by Frontal sensors.
+
+First gear engaged: The top view is not displayed if there is an obstacle detected by Rear sensors.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, surround, based, view, dependentAUTO" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The automatic activation of Front/Rear top view depends on the engaged gear:
+
+Reverse gear engaged: The top view is not displayed if there is an obstacle detected by Frontal sensors.
+
+First gear engaged: The top view is not displayed if there is an obstacle detected by Rear sensors.
+
+6. ID: 4606679
+- Contents: The system shall return to surround view screen displayed before top view activation on deactivating the auto mode if surround view was "active" before the automatic top view activation.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: precondition: SV was active before automatic top view
+
+Deactivate the automatic top view.
+
+Verify that the view is switched to previous view.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, return, surround, displayed, deactivating, screen, activation, mode, was, top" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4606799
+- Contents: The system shall "not-re-activate" surround visualization if the 'distance' from obstacle doesn't change & surround view was de-activated during obstacle detection.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Surround View is deactivated when obstacle is detected.
+
+Verify that the  Surround view visualization is not activated again if the distance from obstacle does not change.
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, view, was, activated, visualization, detection" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4606494
+- Contents: The system shall support the below four different kinds of views triggered according to the camera Views buttons status.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Verification Criteria: Verify that it is possible to launch the below 4 views by using the camera button
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, triggered, according, buttons, kinds, Left, Right" )
+- State (Harman_Requirement): New
+
+2. ID: 4606515
+- Contents: The table below report the engagement thresholds. When the vehicle moves away from the obstacle the top view disengagement threshold is 30cm higher of the engagement threshold:
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- State (Harman_Requirement): New
+
+3. ID: 4606614
+- Contents: All distances in the table are tunable.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "Add, Map, SRS, content, PRK-7, Information" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+4. ID: 4606841
+- Contents: HMI-LF-4431 - Parking sound is preserved for Reverse gear. [ Accepted ] -> map to Parking audio SRS and mention the paplicability to  Reverse gear also -> Remove it
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "sound, Accepted, engage, surround, according, gear, conditions, Audio, team" ) 
+Imprecise verb
+ (Look for: "can" ) 
+Passive voice
+ (Look for: "is preserved" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-7 6.2.4.8.1  Surround Stream Frame Views Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

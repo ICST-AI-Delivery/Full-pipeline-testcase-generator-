@@ -1,0 +1,249 @@
+# PRK-2 6.2.4.3.2  Parking Lines Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2 PRK-2 Parking Lines
+
+- ID: 4523069
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4523070
+- Contents: The system shall show the Parking lines on stream view area.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the Parking lines are visible in stream view.
+- Grooming Status: Approved
+- Grooming Comments: [Wei 29.11.2024]
+Ok to approve.
+
+[18.11.2024 Prashant, Abdul] AI on Prashant to discuss with Wie.
+What is this requirement means?
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Visualization on Stream View area: In width the parking lines shall follow the
+table below and consider the external mirrors, Top Front and Top Rear view included. Lines
+appear on the stream view related to the gear (if Gear is in reverse lines are visible in
+rear/toprear view not in Front view)
+
+2. ID: 4523238
+- Contents: Difference between the real vehicle path vs virtual parking lines:
+(see: image97.png)
+(see: image98.png)
+- Artifact Type: SRS Req
+- Grooming Status: Review
+- Grooming Comments: [29.11.2024, Wei] Not needed as confirmed by Customer.
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image97.png, image98.png
+
+3. ID: 4523281
+- Contents: The system shall show an animation on the parking guidelines according to the direction of the vehicle movement.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: 1.Change the gear to forward.
+Verify that the animation starts from the front wheels according to the steering wheel rotation.
+
+2. Change the gear to reverse
+Verify that the: animation starts from the rear to the end of the lines according to the steering wheel rotation.
+
+Note: Verify for both stream view and Bird view.
+- Grooming Status: Review
+- Grooming Comments: [Wei 29.11.2024]
+Blocked as currently in discussion with customer
+Note: Not offered in CRS currently.
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: This is applicable for both stream view and Bird view.
+
+4. ID: 4523378
+- Contents: The system shall show the parking lines on Bird view Area with Lines appear on the front or the rear of the Car model according to the gear engaged (e.g Rear in reverse).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Verification Criteria: Verify the parking lines are visible on Bird view based on the gear.
+- Grooming Status: Approved
+- Grooming Comments: Wei, Abdul 21.02.2025: Approved
+
+[Wei 29.11.2024] Not needed in SRS. OK to remove
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "lines, Lines, follow, consider, appear, according, engaged, Area, tablebelow, mirrors, front, rear, model, e, reverse" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4523380
+- Contents: The system shall show an animation of the lines during the transition from reverse
+to Drive and viceversa when lines move from the rear wheel to the front wheels.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Grooming Comments: [Abdul 18.02.2025] Obsolete since it is not offered in CRS
+
+[Wei 29.11.2024]
+Blocked as currently in discussion with customer
+Note: Not offered in CRS currently.
+
+
+[18.11.2024] This is under discussion with customer .Wei will provide the details on the  
+
+1. animation of the lines during the transition from reverse
+to Drive and viceversa when lines move from the rear wheel to the front wheels.
+
+2. What is this meaning here
+when lines move from the rear wheel to the front wheels.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, lines, move, animation, transition, Drive, viceversa, wheel, wheels" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 4523383
+- Contents: The system shall have precautionary margin of at least 5 cm for Parking lines.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Parking lines are visible in the HMI
+
+Verify that the difference between the real vehicle path vs virtual parking lines are within the margin (+- or - 5 cm)
+- Grooming Status: Approved
+- Grooming Comments: [Wei 29.11.2024] Ok to approve
+
+
+[18.11.2024 Prashant, Abdul] AI on Prashant to discuss with Wie.
+What is this requirement means?
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Following requirements are valid for all parking system version:
+
+Precautionary margin is independently of the steering angle, the gear or the position of the line
+
+7. ID: 4523388
+- Contents: The system shall support tolerance "on difference between left and right parking line" as '0' to '5' cm.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Parking lines are visible in the HMI
+
+Verify that the difference between the real vehicle path vs virtual parking lines are within the tolrance (+- or - 5 cm)
+- Grooming Status: Approved
+- Grooming Comments: [Wei 29.11.2024] Ok to approve
+
+[18.11.2024 Prashant, Abdul] AI on Prashant to discuss with Wie.
+What is this requirement means?
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, tolerance, difference, line, cm" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4575677
+- Contents: The system shall follow the below table for parking lines dimensions and colours
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: Wei, Abdul 21.02.2025: Not offered
+
+[Wei 29.11.2024]
+Blocked as currently in discussion with customer
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, follow, table, dimensions, colours" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: parking lines = Grid lines = Guide lines
+
+9. ID: 4573659
+- Contents: The system shall show the dynamic Parking lines which follow the steering wheels angle.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Vefrify the Parking lines are changed as per the real time steering wheel angle
+- Grooming Status: Approved
+- Grooming Comments: [Wei 29.11.2024]
+Ok to approve
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, follow, wheels, lines" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4573661
+- Contents: The System shall show the Live wheel turning at the centre of stream frame
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Live wheel tuning is visible at the centre of the steam frame.
+
+Note: Wheel tuning is the parking guideline
+- Grooming Status: Approved
+- Grooming Comments: [Wei 29.11.2024]
+Ok to approve
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: Wheel tuning is the parking guideline
+
+11. ID: 4600876
+- Contents: The system shall show the possible maximum wheels turning lines in surround view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the maximum wheel turning lines are visible in surround View.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "possible, maximum" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4573644
+- Contents: (see: image99.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image99.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image97.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image99.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image98.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-2 6.2.4.3.2  Parking Lines Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

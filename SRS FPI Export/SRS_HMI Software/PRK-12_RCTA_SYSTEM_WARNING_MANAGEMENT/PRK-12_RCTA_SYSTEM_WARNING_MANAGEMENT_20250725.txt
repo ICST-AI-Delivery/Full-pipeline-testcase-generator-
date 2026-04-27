@@ -1,0 +1,186 @@
+# PRK-12 6.2.4.13  RCTA SYSTEM WARNING MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.13 PRK-12 RCTA SYSTEM WARNING MANAGEMENT
+
+- ID: 3411918
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Grooming Comments: [Artashes 12.07.2024]: It is from Red label
+- Expert Domains: ADVNet, Audio Control, IOC_IOC, Kernel, Parking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3541065
+- Contents: The system shall enable/disable the RCTA warning based on the Proxi parameter 'RCTA'.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the RCTA warning is enabled if  proxi parameter RCTA = 1 ("Present").
+Verify that the RCTA warning is disabled if proxi parameter RCTA = 0 ("Absent")
+- Grooming Status: Approved
+- Grooming Comments: [avaloor 2.09.2024]: As informed, this SRS is approved and can be verified as same as other Proxi parameter requirement.
+
+[Sudarsan, Aradhya 12.07.2024]:
+How to verify the proxi parameter value is not clear.
+- Expert Domains: Kernel, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, enable, disable, warning, based, parameter, RCTA" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3715641
+- Contents: The system shall activate the RCTA warning (Visual) on receiving the RCTA warning signal("STATUS_NIT_V2.Alert_RCTA") during the below conditions.
+Reverse gear is engaged.
+The HMI setting "Blind Spot Detection" is On.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Set the proxi parameter RCTA = 1 ("Present").
+Reverse gear is engaged.
+The HMI setting "Blind Spot Detection" is On.
+Send the RCTA warning via CAN
+
+Verify the RCTA warning on "HMI RVC View" and verify that the warning audio is heard.
+- Grooming Status: Approved
+- Grooming Comments: [Siva, 12.07.2024]: This can be approved.
+Only the enabling/disabling the proxi parameter is not clear
+
+F244-25089: This is mapped only for <Alert_RCTA> is used by IDC to show the visual alert,
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is engaged" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HMI-LF-7857 - Rear Cross Traffic Assist (RCTA) system RCTA activation and warning
+
+3. ID: 3713133
+- Contents: The system shall provide the RCTA warning until the vehicle is on the risk area.
+- Artifact Type: SRS Req
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate RCTA warning and move the vehicle towards the risk area.
+
+Verify that the warning is visible & heard until the vehicle is on the risk area
+- Grooming Status: Approved
+- Grooming Comments: [Wei 02.09.2024]: This is obsolete for Harman
+[Art 12.07.2024]: Harman is not monitoring the risk area. SO it is NA for Harman
+Wei to communicate with Customer.
+
+
+[Sunil]: How we know that the vehicle is is on risk area?
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3713167
+- Contents: The system shall disable '2-D' walls in Bird view of surround view when 'RCTA' warning is present.
+- Artifact Type: SRS Req
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Turned on the Surround View.
+
+Activate RCTA
+Verify RCTA warning is visible and 2D walls is not visible.
+
+Note: Normally 2D wall (e.g. red color colored curve) will be activated on detecting the obstacle.
+- Grooming Status: Approved
+- Grooming Comments: Sensor team
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, disable, is present, walls, view, RCTA, warning" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3541127
+- Contents: System shall display a visual warning when 'RCTA' warning(Ie_bol_AlertRCTA = ON)  is received.
+- Artifact Type: SRS Req
+- Verification Criteria: Verify that the warning is shown when Ie_bol_AlertRCTA =  1 ("ON”).
+- Grooming Status: Approved
+- Expert Domains: Camera, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is received" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3541129
+- Contents: The system shall show the RCTA warning (HMI and Audio) for all duration RCTA warning signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning remains active (visible on the display and heard the Audio) for the entire duration of RCTA warning signal.
+- Grooming Status: Approved
+- Grooming Comments: [Abdul 02.09.2024]:
+Updated the SRS as per the Jira ticket https://jira.harman.com/jira/browse/FQ-462
+
+Sunil: Need clarity on this.
+From  Ferrari
+
+[Sunil 12.07.2024]: Do we need RCTA warning closing based on the CAN signal  or if it is based on sound?
+- Expert Domains: Audio Control, Camera, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: RCTA warning signal : Ie_bol_AlertRCTA = “ON”
+
+7. ID: 3713127
+- Contents: The system shall always show the RCTA warning in all kind of views (in info/popup area).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Simulate RCTA warning.
+User should be able to get the RCTA warning in different views (RVC view, SVC (Front View, rear View, surround View) in info/popup area
+- Grooming Status: Approved
+- Grooming Comments: [Muthu, Siva, 12.07.2024]
+Blocked. Waiting for the Ferrari update on the Jira ticket.
+Jira ticket: (https://jira.harman.com/jira/browse/FQ-387)
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always, all" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The signal comes from XBSS ECU and is not directional. The overlay graphics in all views will be always the same independently on the position/direction of the obstacle. Please look for the updated graphics in the latest release.
+
+### Informational Items:
+
+1. ID: 3541053
+- Contents: This function describes the warning to be shown in parking view based on RCTA signal.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3541057
+- Contents: The system shall implement the logics of RCTA System Warning according to Surround View Management.
+- Artifact Type: Information
+- Verification Criteria: Information
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer SFS F560 – Surround View Management.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-12 6.2.4.13  RCTA SYSTEM WARNING MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

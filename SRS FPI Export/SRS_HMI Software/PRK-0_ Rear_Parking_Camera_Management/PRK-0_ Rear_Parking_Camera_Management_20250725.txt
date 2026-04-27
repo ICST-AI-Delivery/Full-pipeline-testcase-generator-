@@ -1,0 +1,137 @@
+# PRK-0 6.2.4.1.9 : Rear Parking Camera Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.9 PRK-0: Rear Parking Camera Management
+
+- ID: 3604187
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Grooming Comments: F802, Pi4
+[Wei, Abdul 31.12.2024]:Front Parking camera is not applicable currently
+- Expert Domains: Camera, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3554299
+- Contents: The Rear Camera system shall acquire the video signal through RCAM sensor
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that HU acquire Rear video signals from rear view camera.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-583
+#5
+
+Artashes, Abdul, Sunil: Dual Camera system is NA currently for F244
+
+[Prashant, Abdul 29.07.2024]: Need clarity on RCAM sensor.
+what is the meaning of below requirement.
+
+
+F244-25012 - RCAM provides rear camera views, which are spatially coupled and transmitted in a single
+
+Check with Sunil.
+- Expert Domains: Camera, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, capture, signal, sensor" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: F244-25012 - RCAM provides rear camera views, which are spatially coupled and transmitted in a single
+flux.
+
+2. ID: 3604131
+- Contents: The system shall show the "rear camera video along with parking grid in overlay" based on: 
+⦁    Reverse Gear
+⦁    Steering Angle
+⦁    Camera Button
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn On the Ignition.
+Verify that the "rear camera video along with parking grid in overlay" are displayed on Rear camera view based on the Reverse Gear, Steering Angle and Camera Button.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 31.12.2024]:Approved
+
+Steering Angle: this is not using for activation/deactivation Surround View Camera and Rear View Camera.
+
+Front camera View is based on Steering Angle. 
+this is only using for driving guideline during SV.RVC, Front View ?
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, based, Steering, video, grid, overlay, on, #10625, Angle, Button" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3604136
+- Contents: The system shall detect/clear the internal failure in the parking system.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that below CAN signal is set when failure (Under Voltage, Over Voltage in Camera) is present 
+    Internal signal RCVSFailSts = Fail_Present.
+
+Verify the related DTC is set.
+
+When fault is cleared, Verify as below
+
+ •    Internal signal RCVSFailSts = Fail_Not_present
+ •    Heal DTC
+- Grooming Status: Approved
+- Grooming Comments: [Artashes]: OK to approve..
+
+Camera team to confirm
+
+
+Is the signal mentioned here is CAN or internal signal
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, clear, failure" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3604130
+- Contents: The function describes the visualization of the video coming from the rear camera with the parking grid in overlay.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3624499
+- Contents: For further details about requested diagnosis functionality see the specification finalized IDC
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3624500
+- Contents: For further details on fail conditions and recovery see the CDD document
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3624501
+- Contents: For further details about requested diagnosis functionality see the specification finalized IDC
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.9 : Rear Parking Camera Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

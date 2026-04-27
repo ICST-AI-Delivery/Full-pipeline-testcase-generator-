@@ -1,0 +1,97 @@
+# UnknownID 6.2.3.1.14 T_SS  ($2040) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.14 T_SS  ($2040)
+
+- ID: 3976527
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: As per MTA it is not applicable for current program. Need to be checked with ferrari.
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976528
+- Contents: The system shall check T_SS parameter with time to filter out each one of new failure/warning inherent to telltales check & event or eventual signal of telltales.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, check, to filter out, warning, time, inherent, telltales, amp, event, signal" )
+- TestTeamComment: RWeber_DIAG_250221: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3976563
+- Contents: The System shall have RecordDataIdentifier  to know the T_SS.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($2040)
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3976586
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3976587
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3976589
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the data record from the given table.
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Check only protocol if read and writable. Applicative test not possible.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.14 T_SS  ($2040) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

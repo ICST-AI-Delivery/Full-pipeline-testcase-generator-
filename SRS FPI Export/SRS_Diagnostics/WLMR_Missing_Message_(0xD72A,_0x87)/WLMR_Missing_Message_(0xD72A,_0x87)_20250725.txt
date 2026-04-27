@@ -1,0 +1,75 @@
+# UnknownID 6.2.1.1.89 WLMR Missing Message (0xD72A, 0x87) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.89 WLMR Missing Message (0xD72A, 0x87)
+
+- ID: 3847384
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3847386
+- Contents: The system shall detect WLMR missing message fault upon detecting missing VEHSTAT_V2 with maturation time of "2"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the WLMR missing message fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: IDC detects a missing VEHSTAT_V2
+    Maturation Time: 2s
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit, WLMR, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_241125: okay
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: WLMR does not send a scheduled message
+Vehicle Configuration: Proxi byte 129, bit 2 (WLMR) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3847410
+- Contents: The system shall make the WLMR missing message Fault inactive upon detecting the relative message from missing message condition with De-maturation time "1"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the WLMR missing message fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: IDC detects the relative message from missing message condition
+    De-Maturation Time: 1s
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "able to" )
+- TestTeamComment: RWeber_DIAG_241125: okay
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: WLMR does not send a scheduled message
+Vehicle Configuration: Proxi byte 129, bit 2 (WLMR) == "Present"
+Fault Detection Conditions: Key-On
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.89 WLMR Missing Message (0xD72A, 0x87) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

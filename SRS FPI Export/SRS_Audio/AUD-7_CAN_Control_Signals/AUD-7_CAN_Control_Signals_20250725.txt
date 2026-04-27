@@ -1,0 +1,197 @@
+# AUD-7 6.2.1.8  CAN Control Signals Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.8 AUD-7 CAN Control Signals
+
+- ID: 4081220
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4081226
+- Contents: The system shall use the following CAN control signal/proxi parameter  to manage Audio Contents.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Verify the mentioned CAN signals are forwarded to the correct modules (ESE, AVAS, FAD).
+
+Verify the Proxi parameter (ESE_Functionality) with value is received in ESE module.
+
+Use logcat log for verification
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4081267
+- Contents: The system shall ignore the CAN control signal 'STATUS_NCP.CapoteSts' if proxi parameter NCP is set to "Absent":
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Set the the Proxi parameter NCP to absent
+
+Verify that the value of CAN signal STATUS_NCP.Capotestatus is not received in the modules (AVAS, FAD and ESE)
+
+Use logcat log for verification
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4081275
+- Contents: The system shall ignore the below CAN control signals if proxi parameter Rear_Doors is set to "Absent":
+STATUS_DOORS.STS_DRS_RearLeftDoorSts
+STATUS_DOORS.STS_DRS_RearRightDoorSts
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Set the Proxi parameter Rear_Doors to absent
+
+Verify that the value of the CAN signals are not received in the modules (AVAS, FAD and ESE)
+
+Use logcat log for verification
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ignore, control" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4081280
+- Contents: The system shall ignore the below CAN control signals if the value of the proxi parameter RearWindows is 'Absent':
+VEHSTAT_V2.Position_FbkWMRL
+VEHSTAT_V2.Position_FbkWMRR
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Set the Proxi parameter RearWindows to absent
+
+Verify the value of  CAN signals  are not received in the modules (AVAS, FAD and ESE)
+
+Use logcat log for verification
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, parameter RearWindows, ignore, control, is, signals, Absent" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4082037
+- Contents: The system shall ignore the below CAN control signal if the value of the proxi parameter 'RSL' is 'Absent':
+SETUP_RSL_V3.RearSeatLeftBackRestPos
+SETUP_RSL_V3.RearSeatLeftLiftPos
+SETUP_RSL_V3.RearSeatLeftLongitudinalPos
+SETUP_RSL_V3.RearSeatLeftTiltPos.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Set the Value of the Proxi parameter RSL to absent
+
+Verify that the value of  CAN signal  is not received in the modules (AVAS, FAD and ESE)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, ignore, control, is, signal, value, Absent" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4096523
+- Contents: The system shall ignore the below CAN control signal if the value of the proxi parameter 'RSR' is "Absent":
+SETUP_RSR_V3.RearSeatRightBackRestPos
+SETUP_RSR_V3.RearSeatRightLiftPos
+SETUP_RSR_V3.RearSeatRightLongitudinalPos
+SETUP_RSR_V3.RearSeatRightTiltPos
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: Set the Value of the Proxi parameter RSR to absent
+
+Verify that the value of CAN signal is not received in the modules (AVAS, FAD and ESE)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, ignore, control, is, signal, parameter, Absent" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4081222
+- Contents: [Info] This function list all the CAN control signals received by the IDC to manage all Audio Contents(FAD, ESE BEV and AVAS).
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4081248
+- Contents: (see: image22.png)
+(see: image23.png)
+(see: image24.png)
+(see: image25.png, image26.png, image27.png)
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+- Visual Elements: image22.png, image23.png, image24.png, image25.png, image26.png, image27.png
+
+3. ID: 4096527
+- Contents: Proxi
+Start Byte 29, Start Bit 7 - NCP (0 = "Absent", 1 = "Present")
+Start Byte 123, Start bit 2 - Rear_Doors (0 = "Absent", 1 = "Present")
+Start Byte 129, Start Bit 1 - RearWindows (0 = "Absent", 1 = "Present")
+IStart Byte 36, Start bit 1 - RSL (0 = "Absent", 1 = "Present")
+Start Byte 36, Start bit 2 - RSR (0 = "Absent", 1 = "Present")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image22.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image25.png, image26.png, image27.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image24.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image23.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-7 6.2.1.8  CAN Control Signals Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,179 @@
+# AUS-0 6.2.1.7.1  Audio Settings: Persistence Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7.1 AUS-0 Audio Settings: Persistence
+
+- ID: 3535081
+- Artifact Type: SRS Feature
+- Responsible Domain: Media Core
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [27.11.2026]
+Siva to tell what is the defalt value of Proxi ?
+
+[25.07.2024,Muthu]:
+HMI is Expert Domain
+
+[Siva, Muthu, Ahmed]: HMI is responsible, System is Expert.
+[Abdul]: It is blocked due to one SRS requirement which needs confirmation from HMI team.
+- Expert Domains: Android HMI, Audio Control, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3535097
+- Contents: If setting Persistence type is Standard, the system shall persist the Audio settings independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+
+Note: Verify this for all the applicable audio sources (Navigation Audio source, Ringtone, Voice Control   ...etc.)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3533753
+- Contents: If setting persistent type = standard and system can't read the stored  value from the memory, then system shall set the "Audio setting" value to default value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Audio settings value.
+
+Create error in memory reading.
+Verify that the Audio settings value is set to default value in HMI.
+
+Note: Verify this for all the applicable audio sources (Navigation Audio source, Ringtone, Voice Control   ...etc.).
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, read, stored, set, default, standard, value, memory, setting" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3533754
+- Contents: The system shall apply the logic of Standard Persistence regardless the current profile, If proxi parameter Profile = 0 ("absent").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Set the proxi parameter "Profile = 0".
+
+Verify that persistence type is standard.
+
+Use logcat log for verification.
+
+Verify that changed Audio setting value is persisted for all the user profiles  across all ignition cycle.
+- Grooming Status: Review
+- Grooming Comments: [Muthu 25.07.2024]:  persistence type setting is not available in HMI
+
+-> OK, it will be standard.
+
+Need HMI confirmation , whether any place is there in HMI to verify the Persistency type.
+
+need confirmation on Responsible domain.
+
+IOC is needed? HMI to confirm
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3537182
+- Contents: If setting Persistence type = Profiled, the system shall store the last setting value  for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+
+Verify that the last HMI Audio settings value is shown/restored as per the current user profile.
+
+Note: Verify this for different audio sources like Navigation Audio source, Ringtone, Voice Control
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]: OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3751517
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi paranmeter "Profile" =1.
+
+
+Verify that the last HMI Audio settings value is shown/restored as per the current user profile.
+
+Note: Verify this for different audio sources like Navigation Audio source, Ringtone, Voice Control.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2027]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3535092
+- Contents: If setting Persistence type = Profiled and the system can't read stored values from the memory then system shall set the Audio setting value to default value.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency (set the Proxi paranmeter "Profile" =1).
+Change the Audio settings value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+
+Note: Verify this for different audio sources like Navigation Audio source, Ringtone, Voice Control.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, default, value" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3533079
+- Contents: Each setting may have an assigned type of preferable persistency storage. The IDC supports following two types of the storages:
+"Standard", independent by the current user
+"Profiled", according to the current user
+Refer to Persistence and Profile column of HMI Menu Structure for the type of persistence applicable to each Audio setting.
+- Artifact Type: Information
+- Grooming Status: Approved
+- Expert Domains: Media Core
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-0 6.2.1.7.1  Audio Settings: Persistence Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

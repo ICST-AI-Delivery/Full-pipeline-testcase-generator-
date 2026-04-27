@@ -1,0 +1,73 @@
+# RAD-15 6.2.1.1.16  Alternative Frequency Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.16 RAD-15 Alternative Frequency
+
+- ID: 3939608
+- Artifact Type: SRS Feature
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3969264
+- Contents: System shall switch automatically to the stronger signal frequency in a list of frequencies in the RDS message DB.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Verification Criteria: Verify system shall switch automatically to the stronger signal frequency in a list of frequencies in the RDS message DB
+
+Note: Alternate Frequency is always ON
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "automatically" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Alternate Frequency is always on
+
+2. ID: 3969265
+- Contents: System shall switch to the strong signal frequency based on the region, when the regionalization setting set to ON.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, regionalization, switch, based, setting, set, frequency, region" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3969266
+- Contents: Alternate frequency is applicable for FM and DAB+.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-15 6.2.1.1.16  Alternative Frequency Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

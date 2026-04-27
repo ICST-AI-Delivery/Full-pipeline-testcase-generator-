@@ -1,0 +1,128 @@
+# UnknownID 6.1.2.3.19 Google Android Auto over Wireless
+
+
+
+Google Android Auto over Wireless Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.19 Google Android Auto over Wireless
+
+
+
+Google Android Auto over Wireless
+
+- ID: 2353493
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353494
+- Contents: 6.1.2.3.19.1 The System shall have a unique static SSID and static BSSIDs for each individual...
+
+
+
+The System shall have a unique static SSID and static BSSIDs for each individual HU.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Redlabel. Need to know strategy for SSID configuration.
+How to do derive the SSID? Naming convention.
+Removed as per OPL re review.We got hte information for SSID naming convention.
+Customer query OPL:Issue #40.
+
+2. ID: 2353495
+- Contents: 6.1.2.3.19.2 The System shall not use a dual Access Point with the same SSID to avoid the MD...
+
+
+
+The System shall not use a dual Access Point with the same SSID to avoid the MD spontaneously roaming to a network that operates on 2.4GHz and breaking the active projection session.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+3. ID: 2353496
+- Contents: 6.1.2.3.19.3 The System shall use Wi-Fi Protected Access II (WPA2) encryption (RSN/AES).
+
+
+
+The System shall use Wi-Fi Protected Access II (WPA2) encryption (RSN/AES).
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+4. ID: 2353497
+- Contents: 6.1.2.3.19.4 The System shall be protected by a unique randomly generated Pre-Shared Key (PSK...
+
+
+
+The System shall be protected by a unique randomly generated Pre-Shared Key (PSK) upon the access point's first initialization.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+5. ID: 2353498
+- Contents: 6.1.2.3.19.5 The HMI shall allow the user to automatically generate a new PSK and/or manually...
+
+
+
+The HMI shall allow the user to automatically generate a new PSK and/or manually change the current PSK.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+6. ID: 2353499
+- Contents: 6.1.2.3.19.6 The System WiFi Network shall be advertised as 'ANDROID_METERED' over the vendor...
+
+
+
+The System WiFi Network shall be advertised as 'ANDROID_METERED' over the vendor-specific option 43 in the access point DHCP configuration if the access point has Internet access.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Networking
+
+7. ID: 2353500
+- Contents: 6.1.2.3.19.7 The System shall assign IPs dynamically to the connected devices by running a DH...
+
+
+
+The System shall assign IPs dynamically to the connected devices by running a DHCP server on the Wi-Fi interface.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Networking
+
+8. ID: 2353501
+- Contents: 6.1.2.3.19.8 The System shall assign only IPv4 addresses for wireless projection.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Networking
+
+9. ID: 2353502
+- Contents: 6.1.2.3.19.9 The System shall not use Dynamic Frequency Selection (DFS) during active AAW.
+
+
+
+The System shall not use Dynamic Frequency Selection (DFS) during active AAW.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: DFS is not supported.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.19 Google Android Auto over Wireless]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

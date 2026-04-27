@@ -1,0 +1,98 @@
+# UnknownID 6.2.4.3.2.37 Odometer content to the last FROM updating  ($2002) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.37 Odometer content to the last FROM updating  ($2002)
+
+- ID: 4034871
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Confirm needed from IOC team Azmat.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4034872
+- Contents: Whenever the user starts the download process, the ECU shall save the odometer content into the RLI.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the saved odometer content after download process was started.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: Only check to pos response. No applicative test for unit update procedure possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 4034873
+- Contents: The System shall have RecordDataIdentifier ($2002) to know the odometer content to the last FROM updating.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($2002)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2002’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Only check to pos response. No applicative test for unit update procedure possible.
+- State (Harman_Requirement): Approved
+
+3. ID: 4034876
+- Contents: (8) Odometer content to the last FROM updating
+The System shall compose the value of the odometer into 3 bytes: Highbyte - Middlebyte - Lowbyte.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the value of the odometer should be in 3 bytes as follows
+Highbyte - Middlebyte - Lowbyte.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 bytes’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: Only check to pos response. No applicative test for unit update procedure possible.
+- State (Harman_Requirement): Approved
+
+4. ID: 4034886
+- Contents: The System shall support the following NRC's
+Read NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250212: Only check to pos response. No applicative test for unit update procedure possible.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.37 Odometer content to the last FROM updating  ($2002) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

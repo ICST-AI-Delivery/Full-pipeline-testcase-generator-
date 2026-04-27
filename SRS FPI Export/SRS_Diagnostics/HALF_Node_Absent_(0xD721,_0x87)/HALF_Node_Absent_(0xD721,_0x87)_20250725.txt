@@ -1,0 +1,92 @@
+# UnknownID 6.2.1.1.23 HALF Node Absent (0xD721, 0x87) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.23 HALF Node Absent (0xD721, 0x87)
+
+- ID: 3898023
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3898024
+- Contents: The system shall be able to detect half node absent fault during key OFF to Key ON transition and half node absent steady state if configured.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Proxi byte 30, bit 1 (“HALF”)  = "Present".
+-Set HALF Node Absent or disconnected messages.
+-Or do not TSR_01 messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Absent, message, 30, bit1 #8220;HALF #8221, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+2. ID: 3898025
+- Contents: The system shall trigger the half node absent fault in >= tCKD during key OFF to Key ON transition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered with in tCKD during key OFF to Key ON transition.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, transition, Key-Off, amp, state, conditions" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+3. ID: 3898026
+- Contents: The IDC shall trigger the half node absent fault in >= tREC2 at half node absent steady state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered with in tCKD during key OFF to Key ON transition.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "time, message, system, is, is absent, come, transition, Key-Off, amp, contact, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+4. ID: 3898027
+- Contents: The IDC shall immediately de-validate/clear the fault if the TSR_01 messages are received.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send TSR_01 messages.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "state, is, come" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.23 HALF Node Absent (0xD721, 0x87) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,344 @@
+=== PICTURE-CENTRIC FPI ANALYSIS - STANDARDIZED PROMPT TEMPLATE ===
+**Template Version:** 2.3.0
+**Created:** 2026-01-27
+**Last Updated:** 2026-01-29 10:21:30
+**Author:** Picture Analyze Agent Development Team
+**Template Type:** Detailed Analysis Template
+**Status:** Production Ready
+**Compatibility:** Application v4.0.0+
+
+## VERSION HISTORY
+| Version | Date | Changes | Author |
+|---------|------|---------|---------|
+| 2.3.0 | 2026-01-29 | Added inline table data section, complete tables embedded in TXT files for single-file review | Development Team |
+| 2.2.0 | 2026-01-29 | Added State Event Matrix processing capability, enhanced diagram-to-table conversion | Development Team |
+| 2.1.0 | 2026-01-29 | Added standardized version header, improved documentation | Development Team |
+| 2.0.0 | 2026-01-28 | Picture-centric approach implementation | Development Team |
+| 1.0.0 | 2026-01-27 | Initial template creation | Development Team |
+
+## TEMPLATE INFORMATION
+- **Purpose**: Comprehensive FPI analysis with detailed technical documentation
+- **Use Case**: Full-scale analysis requiring complete requirement mapping and technical specifications
+- **Processing Time**: 10-15 minutes per FPI (varies by complexity)
+- **Output Format**: Structured TXT with complete validation checklists
+
+## CORE PRINCIPLE
+**PICTURE-FIRST ANALYSIS**: Only analyze requirements that have associated images. Exclude all text-only requirements from the report.
+
+## EXECUTION METHODOLOGY
+
+### 1. FPI Discovery and Image Inventory
+- Locate target FPI directory and identify all images
+- Parse FPI TXT file to find requirements with image references (see: imageX.png)
+- **CRITICAL**: Exclude any requirement without explicit image reference
+- Create primary focus on visual content analysis
+
+### 2. Picture-Centric Organization Structure
+```
+=== PICTURE-CENTRIC FPI ANALYSIS REPORT ===
+├─ FPI Overview (basic metadata only)
+├─ IMAGE INVENTORY & ANALYSIS (primary section)
+├─ Image-to-Requirement Cross-Reference
+├─ Visual Content Extraction (tables/data from images)
+├─ CSV Format Ready Data
+├─ Visual Design Technical Analysis
+├─ Enhancement Details
+├─ Processing Summary
+└─ Validation Checklist
+```
+
+### 3. Image-First Processing Pipeline
+**For Each Image:**
+- **Image Analysis**: Content type, dimensions, enhancement details
+- **Linked Requirements**: Only requirements that reference this specific image
+- **Technical Extraction**: Tables, design specs, color analysis, state matrices
+- **State Event Matrix Processing**: For diagrams with input/output signal mappings
+- **Quality Assessment**: OCR confidence, conversion readiness
+- **Ferrari Compliance**: Telltale codes, design standards
+
+### 4. Requirement Filtering Rules
+**INCLUDE ONLY:**
+- Requirements with explicit image references: "(see: imageX.png)"
+- Requirements that contain "Visual Elements: imageX.png" in source data
+- Informational requirements with direct image links
+
+**EXCLUDE COMPLETELY:**
+- Text-only requirements without image references
+- Behavioral requirements without visual elements
+- Audio-only requirements (chimes, buzzers without visual component)
+- Pure CAN signal requirements without visual mapping
+
+## REQUIRED OUTPUT STRUCTURE
+
+### Section 1: FPI Overview
+```
+=== FPI OVERVIEW ===
+[Basic FPI metadata]
+Visual Requirements Only: X (requirements with linked images)
+Text-Only Requirements: Excluded from analysis
+```
+
+### Section 2: Image Inventory & Analysis (PRIMARY FOCUS)
+```
+=== IMAGE INVENTORY & ANALYSIS ===
+
+IMAGE X: imageX.png
+├─ Content: Describe visual elements as clearly as possible (light bulb, sunburst, exclamation mark, etc)
+├─ Content Type: Icon, Table, Diagram, etc.
+├─ Original Dimensions: Dimensions in pixels
+├─ Enhancement Applied: Specific image enhancement details
+├─ Design Analysis: Analyze color, style, symbols used
+├─ Quality Assessment: Assess clarity and suitability for dashboard
+├─ Ferrari Design Compliance: Verify telltale codes, design standards
+├─ Conversion Ready: Indicate if applicable (Yes for tables, N/A for icons)
+├─ LINKED REQUIREMENTS (X requirements reference this image):
+│  ├─ REQUIREMENT ID: XXXXX (Brief Name)
+│  │  ├─ Contents: Requirement text with visual references
+│  │  ├─ Status: [Approved/etc] | RQA Score: XX
+│  │  ├─ Technical Details: CAN signals, popup IDs, etc.
+│  │  └─ Condition/Analysis: Specific visual-based technical analysis
+```
+
+### Section 3: Image-to-Requirement Cross-Reference
+```
+=== IMAGE-TO-REQUIREMENT CROSS-REFERENCE ===
+
+Requirements with Visual Elements (X total):
+├─ REQ XXXXX → imageX.png (brief description)
+└─ REQ XXXXX → imageY.png (brief description)
+
+Excluded Requirements (Text-Only): X requirements excluded
+└─ Note: List excluded requirement IDs with explanation
+```
+
+### Section 4: Visual Content Extraction
+```
+### DIAGRAM TYPE IDENTIFICATION
+
+**Step 1: Analyze Diagram Structure**
+- Identify start/end points (terminators - ovals)
+- Count total blocks/shapes and identify types
+- Determine flow direction (top-to-bottom, left-to-right)
+- Look for decision diamonds vs. process rectangles
+
+**Step 2: Classify Diagram Type**
+```
+IF (start/end terminators AND sequential blocks) THEN
+    → Sequential Flow Diagram (use Block-by-Block Analysis)
+ELSE IF (grid pattern AND input/output headers) THEN
+    → State Matrix Diagram (use Matrix Extraction)
+ELSE IF (multiple decision diamonds AND loops) THEN
+    → Complex State Machine (use Hybrid Analysis)
+ELSE
+    → Mixed Analysis Required
+```
+
+### SEQUENTIAL FLOW DIAGRAM ANALYSIS
+
+**Block-by-Block Analysis Process:**
+```
+FOR each block in diagram:
+    1. Identify block shape using FLOWCHART_SYMBOL_REFERENCE_GUIDE.txt:
+       - Terminator (oval): Start/End points
+       - Process (rectangle): Actions/Operations  
+       - Decision (diamond): Conditional logic
+       - Delay (curved rectangle): Wait periods
+       - Connector (circle): Flow continuation
+    
+    2. Extract block content:
+       - Action description
+       - Preconditions (what must be true before this block)
+       - Decision criteria (if decision diamond)
+       - Time requirements (if delay block)
+       
+    3. Map relationships:
+       - Input from previous block
+       - Output to next block(s)
+       - Alternative paths (for decisions)
+       - Cyclic returns (block N → block M where M < N)
+```
+
+**Decision Point Analysis:**
+```
+FOR each decision diamond:
+    1. Identify decision criteria from block text
+    2. Map logical operators (AND, OR, NOT)
+    3. Trace YES/NO paths clearly
+    4. Document path conditions:
+       - Path A: Condition set 1 (typically YES path)
+       - Path B: Condition set 2 (typically NO path)  
+       - Logic: IF (A AND B) OR (C) THEN next_block
+    5. Check for error handling paths
+```
+
+**Sequential Flow State Matrix:**
+```
+| Block | Preconditions | Action | Conditions Checked | Output State | Next Block |
+|-------|---------------|--------|--------------------|--------------|------------|
+| 1     | Initial_State | Action_Description | N/A | Resulting_State | Block_2 |
+| 2     | Block_1_Complete | Action_Description | Decision_Logic | Decision_State | Block_3/Block_X |
+| N     | Block_N-1_State | Final_Action | Termination_Check | Final_State | Terminator |
+```
+
+**Cyclic Flow Pattern Recognition:**
+```
+1. Map all flow paths from start to end
+2. Identify blocks that reference previous blocks (Block N → Block M where M < N)
+3. Document cycle conditions:
+   - Entry point: Block where cycle begins
+   - Exit conditions: When cycle terminates  
+   - Loop logic: Conditions for continuation vs. exit
+```
+
+### STATE EVENT MATRIX EXTRACTION
+
+**For Traditional State Matrices:**
+- **Input Parameters:** Clearly define input signals and their possible values
+- **Initial State:** Explicitly document the initial state of the system 
+- **Output Parameters:** Define output signals and their possible values
+- **Complete Combinations:** Ensure all possible combinations included
+
+**Matrix Format:**
+| Input_1 | Input_2 | Initial_State | Output_1 | Output_2 | State Description |
+|---------|---------|---------------|----------|----------|-------------------|
+| Value_1 | Value_2 | Initial_Value | Value_A  | Value_B  | [State_Name]      |
+| Value_X | Value_Y | Initial_Value | Value_X  | Value_Y  | [State_Name]      |
+
+### CAN SIGNAL INTERPRETATION
+
+**Automotive Signal Format:** DOMAIN.SIGNAL_NAME.Parameter
+**Examples:**
+- HMI_CAN.STATUS_DOORS.Interior_Lock
+- HMI CAN.KFHUB1.HMiPoweronkeg  
+- INFO CAN.WAKE C NBC.Mainwakests BEM
+
+**Signal Values:** Typically binary (Active/Inactive, ON/OFF, 0/1, Present/Absent)
+
+**Documentation Requirements:**
+- Map all CAN signals with full hierarchical names
+- Define all possible values for each signal
+- Document signal dependencies and timing requirements
+```
+
+### Section 5: Extracted Table Data
+```
+=== EXTRACTED TABLE DATA ===
+[Include complete tables inline for immediate review - ALL TABLE DATA EMBEDDED IN TXT FILE]
+
+TABLE DATA X: [Table Name] (from imageX.png)
+Purpose: [Table purpose and usage]
+
+Column_1 | Column_2 | Column_3
+---------|----------|----------
+Value_1  | Value_2  | Value_3
+...      | ...      | ...
+
+STATE EVENT MATRIX: [Matrix Name] (from imageX.png)
+Purpose: [Matrix purpose - input/output signal mapping]
+
+Input_1 | Input_2 | Input_3 || Output_1 | Output_2 | Output_3 | State_Description
+--------|--------|---------||---------|---------|---------|-----------------
+   0    |   0    |   0     ||    0    |    0    |    0    | [State Description]
+...     | ...    | ...     || ...     | ...     | ...     | ...
+
+Signal Definitions:
+Input Signals: [Define each input signal and its values]
+Output Signals: [Define each output signal and its values]
+```
+
+### Section 6: CSV Format Ready Data
+```
+=== CSV FORMAT READY DATA ===
+[All table data in CSV format, ready for Excel import]
+```
+
+### Section 7: Visual Design Technical Analysis
+```
+=== VISUAL DESIGN TECHNICAL ANALYSIS ===
+[Analysis of visual elements, design patterns, system integration]
+```
+
+## QUALITY STANDARDS
+
+### Image Enhancement Requirements:
+- **Content-Specific Enhancement**: Different approaches for tables vs icons vs diagrams
+- **OCR Optimization**: 95%+ accuracy for tabular content
+- **Production Quality**: Enhancement suitable for Ferrari implementation
+- **Color Accuracy**: Hex color specifications where relevant
+
+### Picture-Centric Analysis Standards:
+- **Image-First Structure**: Visual content drives the analysis
+- **Complete Visual Coverage**: Every image analyzed with linked requirements
+- **Requirement Filtering**: Zero tolerance for text-only requirements
+- **Technical Precision**: CAN signals, telltale codes, system behaviors from visual elements
+
+### Validation Requirements:
+- **100% Visual Requirements**: Only image-linked requirements included
+- **Complete Image Processing**: Every image enhanced and analyzed
+- **Clear Traceability**: Image-to-requirement mapping explicit
+- **Conversion Readiness**: All tabular data CSV-formatted
+
+## EXECUTION CHECKLIST
+
+### Pre-Processing:
+- [ ] Identify all images in FPI directory
+- [ ] Parse FPI TXT file for image references
+- [ ] Filter requirements to visual-only
+- [ ] Categorize images by content type
+
+### Image Analysis:
+- [ ] Process each image with appropriate enhancement
+- [ ] Extract all textual/tabular content with OCR
+- [ ] Analyze design specifications (colors, dimensions, styles)
+- [ ] Link each image to its referencing requirements
+
+### Requirement Processing:
+- [ ] Document only requirements with image references
+- [ ] Extract technical details (CAN signals, popup IDs, etc.)
+- [ ] Map visual conditions to system behaviors
+- [ ] Exclude all text-only requirements
+
+### Output Generation:
+- [ ] Structure report with image inventory as primary section
+- [ ] Format all table data for CSV conversion
+- [ ] Document enhancement details for each image
+- [ ] Provide complete validation checklist
+
+## SUCCESS CRITERIA
+
+### Processing Quality:
+- **Image Enhancement**: 100% success rate with appropriate techniques
+- **OCR Accuracy**: 95%+ for all textual elements
+- **Requirement Mapping**: 100% coverage of visual requirements only
+- **Table Conversion**: All tabular data ready for CSV/Excel
+
+### Picture-Centric Focus:
+- **Visual Priority**: Images and their requirements are primary focus
+- **Clean Filtering**: Zero text-only requirements included
+- **Technical Depth**: Complete analysis of visual elements
+- **Implementation Ready**: All data suitable for system development
+
+### Output Quality:
+- **TXT Format**: Human-readable validation format
+- **Structured Organization**: Clear hierarchy with images first
+- **Complete Documentation**: Enhancement, extraction, and analysis details
+- **Ferrari Compliance**: Design standards and telltale codes verified
+
+## TEMPLATE VALIDATION NOTES
+
+This picture-centric approach has been validated on:
+- **Simple FPIs**: VEH-F001 Immobilizer (2 images, clean filtering)
+- **Complex FPIs**: VEH-F027 Position Lights (6 images, multi-requirement linking)
+- **Content Diversity**: Icons, simple tables, complex multi-condition tables
+- **Requirement Complexity**: XOR logic, compound boolean conditions
+- **Cross-References**: Multi-image requirements and combined tables
+
+The template successfully handles:
+- Multiple requirements referencing the same image
+- Images referenced by multiple requirements  
+- Complex tabular data with boolean logic
+- Cross-referenced images (image13+image14)
+- Ferrari design compliance verification
+- Production-ready enhancement specifications
+
+**Ready for deployment** across all 300+ images in the SRS FPI export with confidence in consistent, high-quality picture-centric analysis.

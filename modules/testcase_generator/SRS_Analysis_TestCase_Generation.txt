@@ -1,0 +1,1289 @@
+# Prompt for SRS Feature Analysis and Test Case Generation V9
+
+## VERSION HISTORY
+
+| Version | Date       | Changes                                                                                                   | Author  |
+|---------|------------|-----------------------------------------------------------------------------------------------------------|---------|
+| V1-V5   | Pre-2025   | Initial versions and iterative improvements                                                               | ASemon  |
+| V6      | 2025-07-24 | Comprehensive restructuring and optimization of test case generation methodology                          | ASemon  |
+| V7      | 2025-07-25 | Added explicit instructions for handling informational/referenced requirements in test cases and matrices | ASemon  |
+| V8      | 2025-07-25 | Updated scripts to avoid overwriting existing analysis files                                             | ASemon  |
+| V9      | 2025-07-30 | Clarified requirement-to-test case mapping principles for optimized test coverage                        | ASemon  |
+| V10     | 2026-03-05 | **MAJOR ENHANCEMENT**: Integrated CLIP-based mandatory workflow, real content extraction requirements, VEH-F844 success pattern, individual image analysis file creation, and dual-system recognition methodology | ASemon  |
+| V11     | 2026-03-06 | **CRITICAL SAFEGUARDS**: Added explicit validation rules for Requirements Summary structure, traceability matrix accuracy, template compliance enforcement, and quality control checkpoints to prevent analysis errors | ASemon  |
+| V12     | 2026-03-09 | **VISUAL CONTEXT INTEGRATION**: Added mandatory human validation visual context integration (Section 2.3.12) to extract human-verifiable criteria from analysis files, and enhanced test case generation with visual verification guidelines from analysis results | ASemon  |
+| V13     | 2026-03-10 | **TEST CASE INTEGRATION BRIDGE**: Added mandatory final visual information consolidation (Section 2.3.13) to create test-ready consolidated visual files that serve as the primary bridge between detailed image analysis and test case creation, ensuring comprehensive visual verification in testing | ASemon  |
+| V14     | 2026-03-10 | **COMPREHENSIVE DEPENDENCY FRAMEWORK**: Added mandatory Test Case Dependency Mapping (Section 3.5), enhanced Expected Results Alignment requirements (Section 3.1.9), and strengthened Quality Assurance Framework (Section 4.5) to ensure complete test case structure validation and execution optimization | ASemon  |
+
+## IMPORTANT NOTE ON FILE HANDLING
+
+The analysis scripts (`run_srs_analysis.sh` and `run_srs_analysis_single.sh`) have been updated to check if an analysis file already exists for a feature before creating a new placeholder file. This prevents accidentally overwriting existing analyses. The scripts now:
+
+1. Check if an analysis file already exists for the feature
+2. If an analysis file exists, skip the placeholder creation
+3. If no analysis file exists, create a new placeholder file with the current date in the filename
+
+When running the scripts, you will see a message indicating whether an analysis file already exists for each feature. If it does, the script will skip that feature to avoid overwriting the existing analysis.
+
+
+## 1. OVERALL OBJECTIVE
+
+Your primary task is to create a comprehensive and methodical test management infrastructure for validating Software Requirements Specifications (SRS) for an in-vehicle infotainment system. This involves two main phases for each SRS feature:
+
+1.  **Detailed Analysis**: Systematically analyze the provided SRS feature document (`.txt` file) by yourself with your own AI capabilities in a comprehensive, robust, methodical and detailed method
+2.  **Test Case Generation**: Create detailed, methodical, efficient, and traceable test cases based on the analysis that should have a technical language and logic by yourself with your own AI capabilities in a comprehensive, robust, methodical and detailed method
+3.  **Parse the data generated at point 1 and point 2 using a .PY script to be able to run it on multiple files in a row
+The final output for each feature will be a single, consolidated analysis and test case document.
+
+---
+
+## 2. PHASE 1: DETAILED ANALYSIS
+
+For each SRS Feature, create a robust and detailed analysis document. The analysis must be structured with the following sections.
+
+### 2.1. Req Feature Overview and Approval Status
+
+-   **Feature ID and Name**: Extract from the source document.
+-   **Brief Description**: Write a concise summary of the feature's purpose and functionality. This should clearly explain what the feature does, its main purpose, and how it contributes to the overall system.
+-   **Responsible Domain**: Extract from the source document.
+-   **Test Stage**: Extract from the source document.
+-   **Approval Status**: Check the "Grooming Status" field. If it is not "Approved", mark the feature as "NOT APPROVED" and **stop all further analysis and test case creation for this feature.**
+-   **Requirements Approval**: Include a count of approved requirements vs. total requirements (e.g., "15/17 requirements approved (2 obsolete)")
+-   **Analysis Date**: Include the current date in YYYY-MM-DD format.
+
+### 2.2. Requirements Summary
+
+-   Summarize all key functional requirements from the source document in a methodical manner using technical approaches
+-   Clearly distinguish between active requirements, informational items, Referenced Requirements and exclude the obsolete requirements.
+
+#### 2.2.1 CRITICAL REQUIREMENT ANALYSIS FORMAT (MANDATORY COMPLIANCE)
+
+**ABSOLUTE REQUIREMENT**: You __must__ create **INDIVIDUAL ENTRIES** for each requirement ID. **NO GROUPING OR COMBINING ALLOWED**.
+
+**MANDATORY FORMAT FOR EACH REQUIREMENT**:
+```
+**Req. ID**: [EXACT_REQUIREMENT_ID] - [SPECIFIC_REQUIREMENT_TITLE]
+- **Testability**: [High/Medium/Low] - [SPECIFIC_VERIFICATION_METHOD]
+- **Dependencies**: [LIST_SPECIFIC_DEPENDENCIES]
+- **Implementation**: [SPECIFIC_IMPLEMENTATION_DETAILS]
+```
+
+**VALIDATION CHECKPOINTS**:
+- [ ] **Individual Entry Check**: Each requirement ID has its own separate entry
+- [ ] **No Combined Entries**: No entries like "3828029, 3793745, 3793757 - Combined Description"
+- [ ] **Specific Titles**: Each entry has a specific, unique title describing that requirement only
+- [ ] **Complete Information**: Each entry includes testability, dependencies, and implementation
+- [ ] **Source Verification**: Each requirement ID matches exactly with the source SRS document
+
+**FORBIDDEN PRACTICES**:
+- ❌ **Combined requirement entries** (e.g., "3828029, 3793745 - Area 1 Specifications")
+- ❌ **Generic descriptions** that could apply to multiple requirements
+- ❌ **Placeholder requirement IDs** not found in the source document
+- ❌ **Grouped functional areas** instead of individual requirement analysis
+
+-   For each requirement, you __must__ include:
+    * Testability assessment (how the requirement can be verified)
+    * Dependencies on other requirements or signals
+    * Implementation considerations or challenges
+    * Note any obsolete or problematic requirements with clear marking
+
+### 2.2.1 Requirement Quality Assessment
+
+-   For each requirement with RQA issues:
+    * Analyze the specific issues identified (e.g., compound requirements, missing units)
+    * Create a mitigation strategy for each issue type:
+        - For compound requirements: Break down into atomic test steps
+        - For missing units: Define appropriate units and tolerances for testing
+        - For negative statements: Convert to positive verification criteria
+        - For unclear terms: Define specific, measurable criteria
+    * Flag requirements with low RQA scores (<70) for additional test coverage
+    * Document how the test cases will address these quality issues
+
+### 2.3. Advanced Visual Elements Analysis
+
+#### 2.3.1 CLIP-Based Image Classification Integration (MANDATORY WORKFLOW)
+
+-   You __must__ use the existing **CLIP classification system** as the **mandatory first step** for each image in the feature folder:
+    * **Step 1 - Retrieve CLIP Results**: For each image in the feature folder, look up its classification in `merged_clip_predictions.csv`
+    * **Step 2 - Extract Classification Data**: Obtain the predicted category, confidence level, and any additional metadata
+    * **Step 3 - Validate Classification**: Ensure the CLIP prediction aligns with the image content and context within the SRS feature
+    * **Step 4 - Handle Low Confidence**: For images with confidence < 0.7, consider secondary category analysis or manual verification
+    * **CRITICAL REQUIREMENT**: **NO IMAGE ANALYSIS** may proceed without first completing the CLIP classification lookup
+
+-   The **13 specialized automotive categories** used by the CLIP system are:
+
+    1. **HMI DISPLAY LAYOUTS**: Full instrument-cluster screens showing multiple UI regions together (speed/RPM/fuel/warnings). A single cohesive dashboard display, NOT a lone warning icon and NOT a blocky flowchart of boxes and arrows.
+
+    2. **CONFIGURATION TABLES**: Technical tables with rows and columns whose cells contain only text or numbers. May include borders, headers, or colored/shaded text BUT NOT COLORED ICONS but NO pictogram shapes or dashboard symbols. No icon silhouettes in any cell.
+
+    3. **TELLTALE ICONS & INDICATORS**: Single isolated car warning icon or symbol on a plain background with no other dashboard elements. Only one warning light (battery, oil, temperature, etc.).
+
+    4. **TABLE WITH TELLTALES**: Tables that contain automotive warning pictograms INSIDE their cells. At least one cell shows a recognizable colored image with an icon (battery, oil lamp, ABS, seatbelt), i.e., a drawn symbol with an outline. Not just colored or shaded cells—must be a visible pictogram.
+
+    5. **SYSTEM ARCHITECTURE DIAGRAMS**: Block diagrams of modules (ECUs, sensors, controllers) as rectangular boxes connected by lines or arrows. Focus on components and data or wiring connections; no logic gate symbols.
+
+    6. **PROCESS FLOW DIAGRAMS**: Process flow diagrams showing sequential steps and decision logic with connected shapes. Contains rectangular process boxes, diamond decisions with Yes/No branches, start/end terminators, and arrows for workflow. Must not contain a horizontal time axis with stacked HIGH/LOW waveform rows.
+
+    7. **STATE FLOW DIAGRAMS**: State machine diagrams with circular/oval states connected by arrows and labeled transitions. Emphasis on state bubbles and directional connectors. NOT a waveform with a horizontal time axis.
+
+    8. **DIGITAL TIMING DIAGRAMS**: Digital timing diagrams with a horizontal time axis, stacked HIGH/LOW waveform rows, rectangular step transitions, and vertical alignment guides. Shows signal states over time, with synchronized markers and temporal relationships. Not a flowchart or wiring schematic.
+
+    9. **ANALOG/THRESHOLD TIMING DIAGRAMS**: Plots versus time or parameter with axes and units. Single or few continuous traces (ramps, slopes) and threshold markers, or ON/OFF versus a non‑time variable such as speed or temperature.
+
+    10. **COLOR AND GRADIENTS**: Color charts, gradient scales, or color calibration patterns. No text or icons.
+
+    11. **TECHNICAL SPECIFICATIONS**: Technical specification documents or parameter lists that don't fit other categories but contain important technical information.
+
+    12. **MULTI-CONDITION LOGIC**: Complex logic diagrams showing multiple conditions, decision trees, or multi-variable relationships that don't fit standard flowchart patterns.
+
+    13. **GENERAL TECHNICAL DIAGRAMS**: Any other technical diagrams that don't fit the above categories but contain important automotive system information.
+
+#### 2.3.2 Category-Specific Analysis Methodology Integration
+
+-   For each visual element, you __must__ apply the **CLIP-integrated analysis approach**:
+    * **Prompt Lookup**: Map the CLIP predicted category to the corresponding analysis template in the `vision_api_prompts/` directory
+    * **Apply Specialized Methodology**: Use the category-specific analysis framework from the retrieved prompt file
+    * **Maintain Comprehensive Coverage**: Follow the Picture-Centric approach defined in the category-specific template
+    * **Preserve SRS Integration**: Ensure the analysis maintains traceability to specific requirements with Ferrari-specific considerations
+    * **Standards Compliance**: Continue automotive standards compliance assessment (ISO 2575, ISO 15008, ISO 26262 where applicable)
+
+#### 2.3.3 Category-Specific Prompt Lookup and Application
+
+-   You __must__ follow this **CLIP-to-prompt mapping process** for each image:
+    * **Lookup Process**: Use the image path to find its entry in `merged_clip_predictions.csv`
+    * **Prompt Selection**: Map the CLIP category to the corresponding prompt file in `vision_api_prompts/` directory
+        - For example, if CLIP classifies an image as "HMI DISPLAY LAYOUTS", use the `01_HMI_DISPLAY_LAYOUTS_v1.0.md` prompt
+    * **Prompt Application**: Apply the specialized analysis methodology from the selected prompt
+    * **Confidence Handling**: For images with low confidence scores, consider secondary category analysis
+
+-   **Prompt Integration Workflow**:
+    * **Step 1**: Extract image path and filename from the feature folder
+    * **Step 2**: Lookup image classification in `merged_clip_predictions.csv`
+    * **Step 3**: Retrieve corresponding category-specific prompt from `vision_api_prompts/`
+    * **Step 4**: Apply the specialized analysis methodology from the prompt
+    * **Step 5**: Generate the required tables and analysis based on the category
+
+#### 2.3.4 Category-Specific Table Generation Requirements
+
+-   **For HMI DISPLAY LAYOUTS**, you __must__ create:
+    * **Display Structure Analysis Table** with columns: Region Name, Position, Dimensions, Purpose, Content Type, Visual Hierarchy
+    * **UI Element Inventory Table** with columns: Element Name, Type, Position, Color, State, Related Signals, Verification Method
+    * **Telltale State Matrix** with columns: Telltale Name, ISO 2575 Code, Position, Color, Current State, Priority Level, Function Description
+
+-   **For CONFIGURATION TABLES**, you __must__ create:
+    * **Table Content Analysis** with columns: Parameter Name, Value Range, Units, Description, Requirements Reference
+    * **Data Validation Matrix** with columns: Field Name, Data Type, Valid Range, Boundary Conditions, Error Handling
+
+-   **For TELLTALE ICONS & INDICATORS**, you __must__ create:
+    * **Telltale Specification Table** with columns: Icon Name, ISO 2575 Code, Color, Activation Conditions, Priority Level, Related Signals
+    * **Ferrari Compliance Check** with columns: Element, Ferrari Standard, Compliance Status, Notes
+
+-   **For TABLE WITH TELLTALES**, you __must__ create:
+    * **Telltale Mapping Matrix** with columns: Table Position, Telltale Icon, ISO Code, Activation Signal, Color, Priority, Function
+    * **State Condition Table** with columns: System Condition, Telltale Response, Signal Values, Display Behavior
+
+-   **For SYSTEM ARCHITECTURE DIAGRAMS**, you __must__ create:
+    * **Component Analysis Table** with columns: Component Name, Type, Function, Input Signals, Output Signals, Communication Protocol
+    * **Signal Flow Matrix** with columns: Source, Destination, Signal Name, Protocol, Timing, Failure Modes
+
+-   **For PROCESS FLOW DIAGRAMS**, you __must__ create:
+    * **Process Step Analysis** with columns: Step Number, Process Name, Input Conditions, Output Results, Decision Points, Next Steps
+    * **Decision Logic Table** with columns: Decision Point, Condition, True Path, False Path, Signal Dependencies
+
+-   **For STATE FLOW DIAGRAMS**, you __must__ create:
+    * **State Transition Matrix** with columns: Current State, Event/Trigger, Conditions, Actions, Next State, Signal Transmission
+    * **State Definition Table** with columns: State Name, Description, Entry Conditions, Exit Conditions, Associated Signals
+
+-   **For DIGITAL TIMING DIAGRAMS**, you __must__ create:
+    * **Signal Timing Analysis** with columns: Signal Name, Initial State, Transition Times, Duration, Relationship to Other Signals
+    * **Timing Constraint Table** with columns: Constraint Type, Minimum Time, Maximum Time, Tolerance, Verification Method
+
+-   **For ANALOG/THRESHOLD TIMING DIAGRAMS**, you __must__ create:
+    * **Threshold Analysis Table** with columns: Parameter, Threshold Value, Units, Hysteresis, Response Time, Related Signals
+    * **Performance Curve Analysis** with columns: Input Range, Output Range, Slope, Critical Points, Tolerance Bands
+
+-   **For COLOR AND GRADIENTS**, you __must__ create:
+    * **Color Specification Table** with columns: Color Name, RGB/Hex Value, Usage Context, Visibility Requirements, Compliance Standards
+
+-   **For TECHNICAL SPECIFICATIONS**, you __must__ create:
+    * **Specification Parameter Table** with columns: Parameter Name, Value, Units, Tolerance, Test Method, Requirements Reference
+
+-   **For MULTI-CONDITION LOGIC**, you __must__ create:
+    * **Logic Condition Matrix** with columns: Input Conditions, Logic Operation, Output Result, Priority, Signal Dependencies
+    * **Truth Table** (when applicable) with all input combinations and corresponding outputs
+
+-   **For GENERAL TECHNICAL DIAGRAMS**, you __must__ create:
+    * **Technical Element Analysis** with columns: Element Name, Function, Specifications, Related Requirements, Test Approach
+
+#### 2.3.5 Automotive Standards Compliance Analysis
+
+-   For each visual element, you __must__ assess compliance with relevant automotive standards:
+    * **ISO 2575 Telltale Compliance**: Symbol accuracy, color usage, priority indication
+    * **ISO 15008 HMI Compliance**: Text readability, color contrast, information hierarchy
+    * **ISO 26262 Functional Safety**: Safety-critical display requirements, fail-safe states
+    * **Ferrari Design Standards**: Brand consistency, color palette, typography, layout principles
+
+#### 2.3.6 Enhanced Data Extraction Requirements
+
+-   You __must__ extract all tabular data in **CSV-ready format** with proper column headers
+-   You __must__ identify and document all **decision tables** for state transitions and logic flows
+-   You __must__ create **complete element inventories** for all UI components, telltales, and controls
+-   You __must__ document all **signal-to-display mappings** with exact values and conditions
+-   You __must__ provide **verification checklists** for each visual element type
+
+#### 2.3.7 Ferrari-Specific Analysis Requirements
+
+-   For Ferrari automotive systems, you __must__ include:
+    * **Brand Compliance Assessment**: Alignment with Ferrari HMI guidelines and design language
+    * **Color Palette Verification**: Use of approved Ferrari colors and color combinations
+    * **Typography Analysis**: Approved fonts, sizing, and text styling requirements
+    * **Layout Principle Compliance**: Adherence to Ferrari-specific layout and hierarchy standards
+    * **Performance Display Requirements**: Ferrari-specific performance metrics and display requirements
+
+#### 2.3.8 Picture-Centric Output Structure
+
+-   You __must__ structure the visual analysis with **image content as the primary focus**:
+    * **Image Overview**: Content type, enhancement details, quality assessment, analysis confidence
+    * **Primary Analysis Section**: Category-specific detailed analysis (largest section)
+    * **Technical Data Extraction**: All tables, values, and specifications from the image
+    * **Standards Compliance**: Automotive and Ferrari-specific compliance verification
+    * **Test Implications**: How the visual information impacts test case design
+
+#### 2.3.9 Real Content Extraction Requirements (MANDATORY)
+
+-   You __must__ extract **ONLY REAL CONTENT** from actual images - **NO PLACEHOLDER DATA ALLOWED**:
+    * **Forbidden**: Generic examples like "Example: Speed = 120 km/h" or "Sample warning message"
+    * **Required**: Actual values visible in the image like "Current Speed: 87 km/h" or specific warning text
+    * **Verification**: Every table, value, and specification must be directly observable in the image
+    * **Documentation**: Create individual analysis files for each image using category-specific templates
+
+-   **Individual Image Analysis File Creation**:
+    * You __must__ create separate analysis files for each image (e.g., `VEH-F844_image65_COMPLETE_STATE_MATRIX_ANALYSIS.txt`)
+    * Each file __must__ use the appropriate category-specific template from `vision_api_prompts/`
+    * Files __must__ contain comprehensive analysis with real extracted data, not generic descriptions
+    * All analysis files __must__ be saved in the `analysis_results/` directory
+
+-   **Main Analysis Document Updates**:
+    * After creating individual image analysis files, you __must__ update the main visual analysis document
+    * Replace any placeholder content with real extracted data from the individual analysis files
+    * Ensure complete integration of actual image content into the overall feature analysis
+    * Maintain traceability between individual image analyses and the consolidated analysis
+
+#### 2.3.10 VEH-F844 Success Pattern Integration (MANDATORY WORKFLOW)
+
+-   You __must__ follow this **proven successful methodology** demonstrated in the VEH-F844 analysis:
+
+    **Step 1: CLIP Classification Lookup**
+    * Check `merged_clip_predictions.csv` for each image classification
+    * Record confidence levels and predicted categories
+    * Handle low-confidence classifications appropriately
+
+    **Step 2: Category-Specific Prompt Application**
+    * Map CLIP category to corresponding prompt file in `vision_api_prompts/`
+    * Apply the specialized analysis methodology from the retrieved prompt
+    * Follow the Picture-Centric approach defined in the template
+
+    **Step 3: Real Content Extraction**
+    * Extract actual text, values, and data visible in each image
+    * Create comprehensive tables with real data (not examples)
+    * Document all visible elements, states, and configurations
+
+    **Step 4: Individual Analysis File Creation**
+    * Create detailed analysis files for each image using category-specific templates
+    * Save files in `analysis_results/` directory with descriptive names
+    * Include complete technical data extraction and analysis
+
+    **Step 5: Main Analysis Integration**
+    * Update the main visual analysis document with real extracted content
+    * Replace placeholder content with actual data from individual analyses
+    * Ensure complete traceability and integration
+
+    **Step 6: Dual-System Recognition**
+    * Identify system variants (e.g., INFO vs VEH systems as discovered in VEH-F844)
+    * Document configuration differences between system variants
+    * Create appropriate test coverage for all system configurations
+
+#### 2.3.11 Quality Assurance Framework
+
+-   You __must__ ensure **100% element coverage**: Every visible component cataloged and analyzed
+-   You __must__ achieve **95%+ accuracy** in reading current display states and values
+-   You __must__ provide **complete standards mapping** to automotive requirements
+-   You __must__ generate **CSV-ready data** for all extracted tabular information
+-   You __must__ maintain **complete traceability** between visual elements and requirements
+-   You __must__ verify that **NO PLACEHOLDER CONTENT** exists in any analysis output
+-   You __must__ create **individual analysis files** for each image with real extracted data
+
+-   All images should be analyzed using this advanced methodology with category-specific approaches
+
+### 2.3.12 Supplementary Human Validation Visual Context Integration (MANDATORY)
+
+**CRITICAL NOTE**: This section provides **SUPPLEMENTARY** human-verifiable criteria that are **IN ADDITION TO** the comprehensive technical analysis. This section **MUST NOT** replace or simplify the detailed technical analysis required in all other sections. The full technical depth, comprehensive signal analysis, detailed tables, and technical rigor **MUST BE MAINTAINED** throughout the entire analysis.
+
+When image analysis files exist in the `analysis_results/` directory for the current SRS feature, you __must__ integrate human-verifiable visual details from these files as a **supplementary section** to support human validation and testing:
+
+#### 2.3.12.1 Analysis File Integration Process (Supplementary to Technical Analysis)
+
+-   **Step 1: Identify Relevant Analysis Files**
+    * Scan the `analysis_results/` directory for files related to the current feature
+    * Look for files with naming pattern: `[FEATURE-ID]_image[X]_[DESCRIPTION]_ANALYSIS.txt`
+    * Document all analysis files that contain visual information for this feature
+
+-   **Step 2: Extract Human-Verifiable Visual Details (Supplementary)**
+    * From each analysis file, extract information that can be verified by human testers without requiring the original image
+    * **IMPORTANT**: This extraction is **supplementary** to the comprehensive technical analysis, not a replacement
+    * Focus on sections that contain observable characteristics, measurements, and specifications
+    * Extract details from key sections including:
+        - **Icon Inventory**: Physical descriptions, color specifications, positioning details
+        - **Color State Analysis**: Specific color values, contrast ratios, visibility characteristics
+        - **Visual Characteristics**: Measurable dimensions, text content, layout specifications
+        - **Standards Compliance**: Compliance status and specific requirements
+        - **CSV Format Ready Data**: Structured data tables with verification criteria
+
+-   **Step 3: Transform into Human Validation Criteria (Supplementary)**
+    * Convert technical analysis data into specific validation checkpoints
+    * Create observable criteria that can be verified through direct system observation
+    * Include exact specifications for colors, text, positioning, and behavior
+    * Document measurable characteristics and expected states
+    * **REMINDER**: This is supplementary to the full technical analysis
+
+#### 2.3.12.2 Supplementary Visual Context Integration Template
+
+For each image analysis file referenced, you __must__ create a **supplementary subsection** following this structure:
+
+```markdown
+#### Supplementary Human Validation Context from [ANALYSIS_FILE_NAME]
+
+**Note**: This section provides supplementary human validation criteria extracted from the analysis file. This is **IN ADDITION TO** the comprehensive technical analysis above, not a replacement.
+
+**Source Analysis File**: `analysis_results/[FILENAME]`
+
+**Human-Verifiable Visual Criteria (Supplementary)**:
+- **Observable Colors**: [Extract specific color descriptions from analysis file]
+- **Physical Characteristics**: [Extract measurable dimensions and layout details]
+- **Text Content Verification**: [Extract all visible text and labeling information]
+- **State Indicators**: [Extract descriptions of visual states and indicators]
+- **Standards Compliance**: [Extract compliance requirements and verification criteria]
+
+**Human Validation Checklist (Supplementary)**:
+- [ ] [Specific validation point extracted from analysis file]
+- [ ] [Color verification requirement from analysis file]
+- [ ] [Text content verification from analysis file]
+- [ ] [Physical layout verification from analysis file]
+- [ ] [Standards compliance verification from analysis file]
+
+**Test Case Integration Points (Supplementary)**:
+- [List how these visual criteria should be integrated into test cases]
+- [Specify which test steps should include visual verification]
+- [Define expected results based on visual analysis data]
+```
+
+#### 2.3.12.3 Integration Requirements (Supplementary to Technical Analysis)
+
+-   **Mandatory Integration**: You __must__ reference and integrate visual context from analysis files when they exist **as a supplement** to the comprehensive technical analysis
+-   **Technical Depth Preservation**: You __must__ ensure that adding this supplementary section does **NOT** reduce the technical depth or comprehensiveness of the primary analysis
+-   **Traceability**: You __must__ maintain clear traceability between analysis files and validation criteria
+-   **Human-Centric Focus**: You __must__ ensure all extracted criteria can be verified by human testers without requiring the original images
+-   **Test Case Enhancement**: You __must__ use the extracted visual criteria to enhance test case validation steps **in addition to** technical verification steps
+-   **Complete Coverage**: You __must__ ensure that all critical visual information from analysis files is incorporated into human validation criteria **while maintaining** full technical analysis coverage
+
+#### 2.3.12.4 Quality Validation (Technical Depth Preservation)
+
+Before proceeding to test case generation, you __must__ verify:
+- [ ] **Technical Analysis Completeness**: Full technical analysis has been maintained with comprehensive detail
+- [ ] **File Coverage**: All relevant analysis files in `analysis_results/` have been identified and referenced
+- [ ] **Content Extraction**: Key visual validation criteria have been extracted from each analysis file
+- [ ] **Human Verifiability**: All extracted criteria can be verified through direct system observation
+- [ ] **Supplementary Integration**: Visual criteria are properly integrated as supplementary content, not replacement content
+- [ ] **Traceability**: Clear links exist between analysis files and validation requirements
+- [ ] **No Oversimplification**: The addition of human validation criteria has not reduced the technical depth of the primary analysis
+
+**CRITICAL REMINDER**: This supplementary human validation integration ensures that the rich visual analysis performed by the Picture Analyze Agent is effectively leveraged for human validation and test case development, providing comprehensive visual verification criteria that support thorough testing **IN ADDITION TO** the full technical analysis, not as a replacement for it.
+
+#### 2.3.13 Final Visual Information Consolidation for Test Case Integration (MANDATORY)
+
+After completing individual image analysis files and human validation visual context integration, you __must__ create a final consolidated visual information file that serves as the primary input for test case creation:
+
+##### 2.3.13.1 Consolidated File Creation Requirements
+
+-   **Mandatory File Creation**: You __must__ create a consolidated file named `[FEATURE-ID]_ALL_IMAGES_INFORMATION_CONSOLIDATED.txt` in the `analysis_results/` directory
+-   **Test-Centric Focus**: The consolidated file __must__ contain visual information specifically organized for test case development and verification
+-   **Bridge Function**: This file serves as the critical bridge between detailed visual analysis and test case creation, ensuring all visual elements are properly integrated into testing
+
+##### 2.3.13.2 Test-Verifiable Visual Elements Extraction
+
+You __must__ extract and organize visual information that can be directly used in test case verification steps:
+
+-   **Observable Visual States**: Document all visual states that can be observed during testing (colors, text content, icon states, display layouts)
+-   **Measurable Characteristics**: Include specific measurements, dimensions, positions, and timing behaviors that can be verified
+-   **State-Dependent Visual Behavior**: Document how visual elements change based on different system states, signal values, or conditions
+-   **Verification Criteria**: Provide specific criteria that testers can use to verify visual elements without requiring the original images
+
+##### 2.3.13.3 Test Case Integration Structure
+
+The consolidated file __must__ be structured to directly support test case creation with the following sections for each image:
+
+```markdown
+## Image [X]: [IMAGE_NAME] - [CATEGORY_TYPE]
+
+### Test-Verifiable Visual Elements
+- **Colors**: [Specific color descriptions with verification criteria]
+- **Text Content**: [All visible text with exact formatting and positioning]
+- **Icons/Symbols**: [Detailed descriptions of all icons with states and conditions]
+- **Layout Elements**: [Positioning, sizing, and arrangement details]
+- **Interactive Elements**: [Buttons, controls, and their visual states]
+
+### Visual Verification Checklist for Test Cases
+- [ ] [Specific verification point that can be used in test steps]
+- [ ] [Color verification requirement with exact criteria]
+- [ ] [Text content verification with expected content]
+- [ ] [Layout verification with positioning requirements]
+- [ ] [State verification with condition-based expectations]
+
+### Test Step Integration Points
+- **Visual Verification Steps**: [Direct input for "Observe..." test steps]
+- **Expected Visual Results**: [Specific visual outcomes for test case expected results]
+- **Condition-Based Visual Behavior**: [Visual changes based on signal values or system states]
+- **Standards Compliance Verification**: [Visual compliance checks for automotive standards]
+
+### Signal-to-Visual Mapping for Test Cases
+| Signal/Condition | Visual Element | Expected Visual State | Verification Method |
+|------------------|----------------|----------------------|-------------------|
+| [Signal Name] | [Visual Element] | [Expected State] | [How to verify] |
+```
+
+##### 2.3.13.4 Test Case Development Integration Requirements
+
+-   **Direct Test Step Creation**: The consolidated visual information __must__ enable direct creation of test steps in the format: "Verify [specific visual element] displays [expected state] when [condition]"
+-   **Expected Results Foundation**: Visual information __must__ provide the foundation for creating specific expected results in test cases
+-   **Visual Validation Integration**: All visual verification criteria __must__ be designed for integration into the test case validation steps as required by Section 3.1
+-   **Human Verification Focus**: All consolidated visual information __must__ be verifiable by human testers through direct system observation
+
+##### 2.3.13.5 Quality Assurance for Test Integration
+
+Before proceeding to test case creation, you __must__ verify that the consolidated visual information file:
+
+- [ ] **Complete Coverage**: Includes visual information from all individual image analysis files
+- [ ] **Test-Ready Format**: All visual information is formatted for direct use in test case creation
+- [ ] **Verification Criteria**: All visual elements include specific verification criteria for testing
+- [ ] **Signal Integration**: Visual behavior is mapped to specific signal values and system conditions
+- [ ] **Standards Compliance**: Visual compliance requirements are clearly documented for test verification
+- [ ] **Human Verifiable**: All visual criteria can be verified through direct system observation during testing
+
+##### 2.3.13.6 Integration with Test Case Generation
+
+The consolidated visual information file __must__ be referenced during test case creation to ensure:
+
+-   **Visual Context Integration**: Test cases include specific visual verification steps based on consolidated visual information
+-   **Expected Visual Results**: Test case expected results reference specific visual states from the consolidated file
+-   **Complete Visual Coverage**: All critical visual elements from the consolidated file are verified in test cases
+-   **Traceability**: Clear traceability exists between consolidated visual information and test case verification steps
+
+This consolidated visual information file ensures that the comprehensive visual analysis performed on individual images is effectively transformed into actionable test verification criteria, providing the foundation for creating thorough test cases with specific visual validation requirements.
+
+### 2.4. Data Structure and Signal Analysis
+
+-   **Tables**: Convert any tables from the source document into well-formatted markdown tables. Explain the purpose and significance of each table.
+-   **CAN/Internal Signals**:
+    -   List all CAN and internal signals mentioned in the requirements.
+    -   For each signal, you __must__ document:
+        * Signal name and path
+        * Description of purpose
+        * Value ranges and meanings
+        * Requirements that reference this signal
+    -   Create a clear mapping between signals and their functional impacts (e.g., `CruiseControlLampSts = 2` results in `Lamp Status = GREEN`).
+-   **Dependencies**: Identify and describe any key data relationships or dependencies related to that CAN message or between CAN messages
+-   **Systematic Table Creation for All Logic**:
+    - You __must__ actively identify any requirement that describes a set of discrete states, conditions, or thresholds (e.g., color-coding based on SOC levels, different warnings based on signal values, etc.).
+    - You __must__ create the following standard tables for all features:
+        * Signal Information Table (with columns: Signal, Description, Purpose, Value Range)
+        * Signal-to-Function Mapping Table (with columns: Signal, Function, Requirements)
+        * State/Condition Logic Tables appropriate to the feature (e.g., threshold tables, display logic tables, conversion tables)
+    - You __must__ convert this logic into a formal markdown table in the analysis section. This ensures that all conditions are clearly documented before test case generation begins.
+
+### 2.4.1 CAN Signal Detailed Analysis
+
+- For each CAN signal, create a comprehensive analysis table with:
+  * Signal Name and ID
+  * Data Type and Bit Length
+  * Valid Range and Engineering Units
+  * Update Rate/Frequency
+  * Timeout Behavior
+  * Recovery Strategy
+  * Default/Initial Values
+  * Dependencies on Other Signals
+  * Signal Path (source ECU to destination)
+- For signals with complex behavior, create additional tables showing:
+  * State transitions based on signal values
+  * Timing diagrams for signal sequences
+  * Error handling for invalid signal values
+
+### 2.5. Core Functionality and Gaps
+
+You __must__ be robust and detailed in analyzing the information in order to build up:
+
+-   **Validation Methods**: Define validation criteria methods that can be applied to this feature. (e.g., Functional Testing, Interface Testing, Visual Verification, etc) by making a deep, detailed analyze of the requirements. Those also should be included in the consolidated test cases.
+    * For each validation method, list the specific requirements it applies to
+    * Explain how each method would be implemented in practice
+
+-   **Test Design Methodology**: You __must__ select the most specific test design methodology possible applicable for the SRS Feature overall requirement. For example use 'Boundary Value Analysis' when a requirement involves a range of numerical inputs, use 'State Transition Testing' when a requirement's behavior depends on changes in system state (e.g., engine on/off, key status), etc.
+    * You __must__ explicitly list all applicable test methodologies for the feature
+    * You __must__ explain which requirements each methodology applies to
+    * You __must__ organize test scenarios according to these methodologies
+
+-   **Key Test Scenarios**: List the most critical test scenarios needed to validate the core functions that will define the high priority test cases (Priority A).
+    * Each scenario must be detailed enough to understand what is being tested and why
+    * Include expected inputs and outputs for each scenario
+    * Clearly link each scenario to specific requirements
+
+-   **Main Components**: Identify the main functional components of the feature that will define the medium priority test cases (Priority B).
+    * For each component, describe what it does and how it should be tested
+    * Include specific test considerations for each component
+
+-   **Functional Gaps**: Note any potential gaps, ambiguities, or missing information in the requirements (e.g., undefined timeout values, missing failure signals) that will define the low-low priority test cases, called as priority D for our project.
+    * For each gap, suggest how testing could address or work around the ambiguity
+    * Propose specific test approaches to investigate undefined behaviors
+
+### 2.6. Image-to-Test Case Traceability Matrix
+
+-   After analyzing all images and creating test cases, you __must__ create an image-to-test case traceability matrix with the following columns:
+    * Image Name: Name of the image file
+    * Image Type: Classification of the image
+    * Key Information: Critical information extracted from the image
+    * Test Case IDs: List of test cases that verify aspects of this image
+    * Coverage Assessment: Assessment of how completely the image information is tested
+-   This matrix __must__ be included in the analysis document to demonstrate complete coverage of visual information.
+
+### 2.7 Formula and Calculation Verification
+
+- For each formula or calculation in the requirements:
+  * Create a formula validation table with test inputs covering:
+    - Minimum boundary values
+    - Maximum boundary values
+    - Typical values
+    - Edge cases (e.g., zero, negative values if applicable)
+    - Invalid inputs
+  * Document expected outputs for each test input
+  * Define specific verification methods (e.g., diagnostic tool reading, display verification)
+  * Create dedicated test cases that explicitly verify the formula's implementation
+  * Include verification of rounding behavior and precision requirements
+
+### 2.8 Domain-Specific Analysis
+
+Based on the responsible domain of the SRS feature, include the appropriate domain-specific analysis section:
+
+#### 2.8.1 Audio Domain Analysis (if applicable)
+- **Audio Signal Path Analysis**: Document the audio signal flow from source to output
+- **Sound Profile Mapping**: Create tables mapping user profiles to audio parameters
+- **Audio Quality Verification Methods**: Define specific methods for verifying audio quality
+- **Audio Processing Analysis**: Document any signal processing, filtering, or enhancement requirements
+- **Audio Routing Logic**: Create tables showing how audio is routed based on system states
+
+#### 2.8.2 Connectivity Domain Analysis (if applicable)
+- **Protocol Compliance Analysis**: Document compliance requirements with industry standards
+- **Security Verification Framework**: Define methods for verifying security requirements
+- **Connection State Diagram**: Create state diagrams for connection processes
+- **Device Compatibility Matrix**: Document supported devices and their capabilities
+- **Network Performance Requirements**: Document any bandwidth, latency, or reliability requirements
+
+#### 2.8.3 Instrument Cluster Domain Analysis (if applicable)
+- **Display Layout Analysis**: Document the layout and organization of display elements
+- **Telltale Behavior Analysis**: Create tables showing telltale activation conditions
+- **Sensor Data Processing**: Document how raw sensor data is processed and displayed
+- **Warning Priority Logic**: Document how multiple warnings are prioritized and displayed
+- **Display Mode Analysis**: Document different display modes and their activation conditions
+
+#### 2.8.4 DMS Domain Analysis (if applicable)
+- **Sensor Performance Analysis**: Document sensor capabilities and limitations
+- **Detection Algorithm Analysis**: Document how detection algorithms work and their parameters
+- **Warning Escalation Logic**: Document how warnings escalate based on detection conditions
+- **Calibration Requirements**: Document any calibration procedures or requirements
+- **Privacy Considerations**: Document any privacy requirements or limitations
+
+---
+
+## 3. PHASE 2: TEST CASE GENERATION
+
+After completing the detailed analysis, create test cases based on your findings. 
+Follow these Test Case Design Methodology and guidelines strictly and be: comprehensive, methodical, precautions, logical and applying technical logic.
+
+### 3.1. Test Case Design Methodology and guidelines:
+
+-   **Test Case Optimization Strategy**:
+    - You __must__ analyze all requirements before creating test cases to identify logical groupings of requirements that can be tested together.
+    - You __must__ create a dependency graph of requirements to determine the most efficient testing sequence.
+    - You __must__ minimize the total number of test cases while maintaining complete requirement coverage.
+    - You __must__ use a hierarchical testing approach where possible - test basic functionality first, then build on those test cases for more complex scenarios.
+    - You __must__ identify opportunities to combine related test cases, especially when they:
+        * Test related aspects of the same functionality
+        * Share similar setup steps and preconditions
+        * Verify different aspects of the same requirement
+        * Test timing-related behaviors that can be verified in sequence
+    - You __must__ integrate verification of signal reception into other test cases rather than creating standalone reception test cases, since most test cases already set and use signals.
+    - You __must__ focus on boundary values and critical conditions rather than testing every possible value when testing ranges.
+
+### 3.1.1 Requirement Coverage Principles
+
+- **One-to-One Mapping**: Each requirement should ideally be validated by exactly one primary test case to minimize redundancy and maintenance overhead.
+- **Requirement Consolidation**: Related requirements that share similar test conditions should be consolidated into a single test case when possible.
+- **Exceptions to One-to-One Mapping**: A requirement may be covered by multiple test cases only when:
+  * The requirement has multiple distinct aspects that cannot be efficiently tested together
+  * The requirement involves different system states or conditions that require separate test setups
+  * The requirement needs both positive and negative testing approaches
+- **Documentation of Exceptions**: When a requirement is covered by multiple test cases, document the rationale in the test case description.
+- **Requirement Matrix Representation**: In the requirement matrix, each requirement should appear in exactly one row, mapped to its primary test case.
+
+-   **Test Case Consolidation Rules**:
+    - When multiple requirements share the same preconditions and test environment, you __must__ combine them into a single test case when possible.
+    - You __must__ identify "foundation" test cases that verify core functionality and can serve as preconditions for other test cases.
+    - You __must__ use test case references in preconditions (e.g., "Execute TC_Feature_01_BASIC_OPERATION first") rather than repeating steps.
+    - You __must__ combine timing-related test cases that verify different aspects of the same timing requirement.
+    - You __must__ integrate gap investigation test cases into functional test cases when the gap relates to the functionality being tested.
+    - You __must__ combine test cases that verify different aspects of the same signal or state transition.
+    - You __must__ avoid creating separate test cases for signal reception when the reception can be verified as part of functional test cases.
+
+-   **Adapting Test Design to Requirement Type**:
+    - You __must__ tailor the `Test Design Methodology` and `Test Steps` to the specific nature of each requirement being tested.
+    - If a requirement specifies non-functional behavior (such as performance, timing, or diagnostic access), the chosen methodology must reflect this (e.g., 'Performance Testing', 'Diagnostic Verification').
+    - The test steps must describe a clear and logical procedure to validate that specific non-functional aspect, such as how to measure a frequency, verify diagnostic parameter access, or confirm a timing constraint.
+
+-   **Specific and Actionable Test Steps**:
+    - You __must__ write test steps with precise, executable actions. Never use generic descriptions like "Trigger a visualization cycle" or "Change the status".
+    - Each test step __must__ include exact signal values (e.g., "Set CAN signal NVO_INFO_V2.WarningID = 10 (Low-priority warning)") rather than abstract descriptions.
+    - You __must__ include specific timing information in test steps (e.g., "Wait for 500ms", "Observe the display for 5 seconds").
+    - When verification is needed, you __must__ specify the exact method (e.g., "Using a diagnostic tool, read the value of VEH_INFO_RightDialContent").
+    - For observation steps, you __must__ specify what exactly should be observed and for how long.
+    - When network communication is involved, you __must__ include steps to verify signal transmission using appropriate tools (e.g., "Using the network analyzer, capture and record signals sent to Binnacle Display").
+
+-   **Test Step Granularity**:
+    - Break down complex actions into multiple steps to ensure clarity and precision.
+    - Include separate steps for setting signals, waiting for system response, and observing results.
+    - For user interactions (like button presses), include separate steps for press and release actions with appropriate timing.
+    - When testing state transitions, include steps to verify the state before and after the transition.
+
+-   **Detailed Expected Results**:
+    - For each test step, you __must__ provide a specific, verifiable expected result.
+    - Expected results __must__ include exact values where applicable (e.g., "VEH_ACCSelection value is read as 2 (Medium)").
+    - For signal transmission steps, expected results __must__ specify which signals are transmitted, their values, and their destinations.
+    - For observation steps, expected results __must__ describe exactly what should be visible on the display.
+    - Include "No action yet" or similar for steps where no immediate result is expected (e.g., waiting steps).
+
+-   **Image-Based Test Steps**:
+    - For UI/Display Mockup images, you __must__ create test steps that explicitly verify each UI element's appearance and behavior under different conditions.
+    - For Value Mapping Table images, you __must__ ensure test cases include steps to test each mapped value, boundary conditions, and at least one invalid value per signal.
+    - For Network/Communication Diagram images, you __must__ create test cases that verify each communication path, including normal operation and at least one failure mode per path.
+
+-   **Visual Context Integration from Analysis Files (MANDATORY - SUPPLEMENTARY TO TECHNICAL VERIFICATION)**:
+    - When analysis files exist in `analysis_results/` directory for the current feature, you __must__ integrate visual verification steps based on the extracted human validation criteria **AS A SUPPLEMENT** to comprehensive technical verification steps
+    - **CRITICAL**: Visual verification steps are **IN ADDITION TO** detailed technical test steps, not a replacement for them
+    - You __must__ reference the visual context integration from Section 2.3.12 to create **supplementary** test steps that verify:
+        * **Observable Colors**: Include **supplementary** test steps that verify specific color states, contrast ratios, and visibility characteristics extracted from analysis files
+        * **Physical Characteristics**: Include **supplementary** test steps that verify measurable dimensions, layout specifications, and positioning details from analysis files
+        * **Text Content**: Include **supplementary** test steps that verify all visible text, labeling information, and typography requirements from analysis files
+        * **State Indicators**: Include **supplementary** test steps that verify visual states, indicators, and behavioral characteristics from analysis files
+        * **Standards Compliance**: Include **supplementary** test steps that verify compliance requirements and verification criteria from analysis files
+    - You __must__ create **supplementary** test steps using the format: "Verify [specific visual criterion from analysis file] by observing [specific system location/display]"
+    - You __must__ include expected results that reference the exact specifications extracted from the analysis files **in addition to** technical expected results
+    - You __must__ ensure traceability between analysis file content and test case verification steps **while maintaining** comprehensive technical test coverage
+    - **REMINDER**: Visual verification is supplementary to, not a replacement for, comprehensive technical testing
+
+-   **Efficiency**: Optimize and merge test cases where possible to validate multiple related requirements with a single test. Each requirement should ideally be validated by exactly one primary test case, while one test case can cover multiple requirements. This one-to-one mapping between requirements and primary test cases reduces redundancy and simplifies maintenance.
+
+-   **Dependencies**: Use test cases as preconditions for others where logical to build complex scenarios and reduce repetitive steps.
+
+-   **Clarity**: Use concise, technical language. Focus on testable actions and expected outcomes with a technical vocabulary.
+
+-   **Batching**: Batch process CAN/LIN message transmissions in test steps to improve efficiency.
+
+-   **Optimized Test Step Structure**:
+    - You __must__ design test steps to verify multiple related requirements in a single logical sequence when possible.
+    - You __must__ avoid redundant verification steps - if a condition has been verified in a previous step and hasn't changed, don't verify it again.
+    - You __must__ use parameterized test steps where appropriate to test multiple values efficiently.
+    - You __must__ combine related verification steps when they can be observed simultaneously.
+    - You __must__ reuse setup steps across test cases by referencing previous test cases rather than repeating the steps.
+
+-   **Test Step Structure Methodologies**:
+    - The 'Test Step Description' and 'Test Step Expected Results' sections __must__ be structured as follows:
+	- For every condition you test, you will create a __pair of steps__ in the `Test Step Description`. The first step will be the __action__ (e.g., `Set CAN signal X to value Y`). The second step will be the __observation__ (e.g., `Observe the HMI display`).
+	- The `Test Step Expected Results` section __must__ have the exact same number of steps. The result for an __action step__ should be a simple confirmation like `Signal set successfully.` or `No action yet.`. The result for an __observation step__ must describe the expected system behavior in detail.
+
+-   **Testing Strategy**:
+    - When testing a numerical range, your test steps __must__ validate the lower boundary, the upper boundary, and at least one value from inside the range.
+    - You __must__ create test cases to cover __every point__ listed in the 'Key Test Scenarios' section of your analysis.
+    - For every point listed in 'Functional Gaps' that is testable (e.g., verifying default behavior for an undefined value, checking diagnostic parameters), you __must__ create a corresponding test case with lower priority.
+
+-   **Systematic Priority Assignment**:
+    - Priority A: Test cases that verify core functionality without which the feature would be unusable
+    - Priority B: Test cases that verify important but non-critical functionality
+    - Priority C: Test cases that verify edge cases, special conditions, or optional functionality
+    - Priority D: Test cases that verify requirements marked as gaps or ambiguities
+
+-   **Comprehensive Coverage Mandate**:
+    - You __must__ create test cases to cover __every point__ listed in the 'Key Test Scenarios' and 'Main Components' section of your analysis.
+    - For every point listed in 'Functional Gaps' that is testable (e.g., verifying default behavior for an undefined value), you __must__ create a corresponding test case to investigate and document the system's behavior. If possible to include in other test cases it would be ideal.
+
+-   **Test Step Generation from Tables**:
+    - If the analysis for a feature contains a markdown table that defines a set of logical conditions, states, or use cases (such as a truth table or a state machine), the corresponding test case __must__ have a separate and explicit pair of "action" and "observation" steps for __each individual row__ of that table.
+    - The test steps must explicitly state the input values from each row and the expected outcome from that same row. You __must not__ use a single, high-level step that refers to the entire table.
+
+-   **Root-Cause Condition Testing**:
+    - When a test case validates a system's reaction to a specific event or state (e.g., a "Warning" state), the test steps __must__ simulate the fundamental input conditions that cause that event, rather than just setting a high-level signal that represents the event itself.
+    - The test steps should always trace the logic back to the primary input signals, referencing the analysis tables to determine the correct values to send. This ensures the entire logical path is validated.
+
+-   **Test Case Dependency Management**:
+    - You __must__ explicitly document when a test case depends on the successful execution of another test case.
+    - You __must__ design test cases to be as independent as possible, but recognize when dependencies are unavoidable.
+
+### 3.1.5 Recovery and Fault Handling Test Strategy
+
+- For each recovery or fault handling requirement:
+  * Create a fault injection test approach that specifies:
+    - How to simulate the fault condition (e.g., disconnect sensor, send invalid CAN signals)
+    - Duration of fault condition to test (including boundary testing around timeout values)
+    - Expected system behavior during fault
+    - Expected recovery behavior after fault is cleared
+    - Timing requirements for fault detection and recovery
+  * Create dedicated test cases with Priority A for critical recovery scenarios
+  * Include verification of any diagnostic trouble codes or error logging
+
+### 3.1.6 Visual Element Verification Strategy
+
+- For each visual element (displayed on HMI, cluster, etc.):
+  * Create a visual verification checklist that includes:
+    - Exact text content verification (including case, punctuation)
+    - Color verification (with specific RGB values or color names)
+    - Position verification (with coordinates or relative positioning)
+    - Size verification (with dimensions or relative sizing)
+    - Animation verification (if applicable)
+    - Response time verification (if applicable)
+  * Define specific verification methods (e.g., visual inspection, screenshot comparison)
+  * Create test steps that explicitly verify each aspect of the visual element
+
+### 3.1.7 Timing and Performance Test Strategy
+
+- For each timing or performance requirement:
+  * Create a timing verification approach that specifies:
+    - How to measure the timing (e.g., video recording, diagnostic tool)
+    - Required measurement precision
+    - Test conditions that might affect timing (e.g., system load)
+    - Multiple measurement samples to ensure consistency
+    - Statistical analysis approach (e.g., average, maximum, minimum)
+  * Create dedicated test cases with specific steps for timing verification
+
+### 3.1.8 Advanced Test Case Optimization
+
+After generating initial test cases, you __must__ apply the following optimization techniques to reduce the total number of test cases while maintaining complete coverage:
+
+- **Functional Grouping Analysis**:
+  * You __must__ analyze all test cases to identify those that test related aspects of the same feature or requirement
+  * You __must__ group test cases by the requirements they verify, the signals they manipulate, or the system states they validate
+  * You __must__ identify test cases that share similar preconditions, setup steps, or verification methods
+
+- **Test Case Consolidation Criteria**:
+  * You __must__ combine test cases that verify different aspects of the same requirement when they share similar setup and verification methods
+  * You __must__ merge test cases that test boundary values and nominal values of the same parameter into a single comprehensive test case
+  * You __must__ integrate test cases that verify signal reception with test cases that use those signals for functional verification
+  * You __must__ combine test cases that verify related state transitions or condition checks
+  * You __must__ merge test cases that test normal operation with those that test recovery behavior for the same functionality
+
+- **Optimization Implementation**:
+  * You __must__ create new test case names that reflect the broader scope of the consolidated test cases
+  * You __must__ ensure that all test steps from the original test cases are preserved in the consolidated test cases
+  * You __must__ maintain the same sequence of operations where order is important for proper testing
+  * You __must__ update the requirement matrix to reflect the new test case structure while maintaining complete requirement coverage
+  * You __must__ update any test case dependency mappings to reflect the new consolidated test case structure
+  * You __must__ ensure that each requirement is primarily validated by exactly one test case in the requirement matrix. When consolidating test cases, assign each requirement to the most appropriate test case that fully validates it.
+
+- **Coverage Verification**:
+  * You __must__ verify that each requirement is still covered by at least one test case after optimization
+  * You __must__ ensure that all edge cases, boundary conditions, and special scenarios from the original test cases are still tested
+  * You __must__ confirm that all signal values, state transitions, and timing requirements are still verified
+  * You __must__ validate that the image-to-test case traceability matrix is updated to reference the new test case names
+
+- **Optimization Examples**:
+  * **Signal Reception and Usage**: Combine test cases that verify signal reception with test cases that use those signals for functional verification
+  * **Boundary Value Testing**: Combine test cases that test individual boundary values into a single test case that tests all boundary values sequentially
+  * **State Transition and Recovery**: Combine test cases that test normal state transitions with those that test recovery behavior
+  * **Related Requirements**: Combine test cases that test related requirements that share similar setup and verification methods
+
+- **Optimization Targets**:
+  * You __must__ aim to reduce the number of test cases by at least 30% through consolidation
+  * You __must__ ensure that no test case exceeds 30 test steps after consolidation
+  * You __must__ prioritize consolidating test cases with similar setup requirements to minimize redundant setup steps
+  * You __must__ focus on consolidating test cases with lower priority (C and D) into higher priority test cases (A and B) when appropriate
+
+This optimization process ensures efficient test execution while maintaining comprehensive coverage of all requirements, scenarios, and edge cases.
+
+### 3.1.9 Enhanced Expected Results Alignment Requirements (MANDATORY COMPLIANCE)
+
+**ABSOLUTE REQUIREMENT**: You __must__ ensure **PERFECT ALIGNMENT** between Test Step Description and Test Step Expected Results sections in every test case.
+
+**MANDATORY ALIGNMENT RULES**:
+- [ ] **1:1 Correspondence**: Each test step in the Description section __must__ have exactly one corresponding expected result
+- [ ] **Sequential Matching**: Expected result #N __must__ correspond to test step #N
+- [ ] **Complete Coverage**: No test step may be without a corresponding expected result
+- [ ] **Specific Results**: Each expected result __must__ be specific, measurable, and verifiable
+- [ ] **Technical Precision**: Expected results __must__ include exact values, signal states, and observable behaviors
+
+**EXPECTED RESULTS STRUCTURE REQUIREMENTS**:
+- **Action Steps**: Expected results should confirm successful execution (e.g., "Signal set successfully", "Command executed")
+- **Observation Steps**: Expected results __must__ describe detailed, specific system behavior (e.g., "Display shows 'SPORT' mode with red background color", "CAN signal VEH_ManettinoPosition transmits value 3")
+- **Verification Steps**: Expected results __must__ specify exact values and states to be verified
+- **Timing Steps**: Expected results should acknowledge timing requirements (e.g., "System waits 500ms", "No immediate action")
+
+**QUALITY VALIDATION CHECKLIST**:
+Before finalizing any test case, you __must__ verify:
+- [ ] **Step Count Match**: Number of expected results = Number of test steps
+- [ ] **Content Alignment**: Each expected result directly addresses its corresponding test step
+- [ ] **Specificity Check**: All expected results contain specific, verifiable criteria
+- [ ] **Technical Accuracy**: All signal values, states, and behaviors are technically correct
+- [ ] **Completeness Verification**: No generic or placeholder expected results remain
+
+**FORBIDDEN PRACTICES**:
+- ❌ **Mismatched Counts**: Different numbers of test steps and expected results
+- ❌ **Generic Results**: Vague expected results like "System responds appropriately"
+- ❌ **Missing Results**: Test steps without corresponding expected results
+- ❌ **Placeholder Content**: Generic expected results that don't match specific test steps
+- ❌ **Incomplete Descriptions**: Expected results that don't fully describe the expected system behavior
+
+**VALIDATION ENFORCEMENT**:
+You __must__ apply this validation to ALL test cases across ALL priority levels (A, B, C, D) to ensure consistent quality and structure throughout the entire test suite.
+
+### 3.2. Test Case Template
+
+Create each test case using the following structure and parameters:
+
+-   **Test Case Name**: `TC_<Feature>_<Index>_<MAIN FUNCTIONALITY>`
+    -   `<Index>`: A two-digit number representing the execution order (e.g., 01, 02).
+    -   `<MAIN FUNCTIONALITY>`: A concise, unique, and descriptive name (max 40 characters).
+-   **Test Domain**: System Test (for SRS requirements).
+-   **Test Design Methodology**: Specify the method used (e.g., Truth Table Testing, Equivalence Partitioning).
+-   **Req. ID**: List all requirement IDs covered by this test case, including both testable requirements and any informational or referenced requirements that provide important context for the test case (such as images, tables, or additional information that testers need).
+-   **Priority**: A, B, C, or D, based on functional importance.
+-   **Test Case Description**: A brief overview of the test's objective.
+-   **Pre-Condition**:
+    -   Start with the standard system availability block:
+        "- Head unit and Displays are up and running
+        - Vector CANoe/CANalyzer is connected and messages are transmitted
+        - STATUS_NBC_3: UserPresence = Present(2)
+        - WAKE_C_NBC: MainWakeSts_BCM = 1 (Active)
+        - RFHUB1.HMIPowerOnReq= 1 (Active)
+        - Status_B_CAN: KeySts = 4 (On)"
+    -   Add any other specific preconditions or references to previous test cases.
+-   **Test Step Description**:
+    -   Numbered list of actions to perform identical to expected steps
+    -   Include specific CAN signal values to be sent.
+-   **Test Step Expected Results**:
+    -   Numbered list of expected outcomes identical to description steps
+    -   **Must match the number of steps in the Test Step Description.**
+-   **Post-Condition**: Describe the expected system state after the test.
+-   **Test case location**: LLM
+-   **Test Phase**: SYS5 (for SRS requirements),SYS4 (for System Integration), SWE6 (for Software Qualification Test)
+-   **Weight**: 1, 2, or 3 based on complexity.
+-   **Owner**: ASemon
+-   **FreeField**: (leave empty)
+-   **Vehicleline**: Common
+-   **OEM**: Ferrari
+-   **Product**: Ferrari IDC
+-   **FURPS**: Functional
+-   **ASIL Level**: QM (unless specified otherwise in requirements).
+-   **Component**: Identify the main component(s) under test.
+-   **KPI Target**: (leave empty)
+-   **Automation**: "Automatable" for simple cases, otherwise "Not Automatable".
+-   **Region**: ROW
+-   **Domain**: Cluster SW (to be generated based on the main responsible domain of the req ID, Cluster SW, Audio, HMI as example)
+
+### 3.3. Requirement Matrix
+
+#### 3.3.1 CRITICAL TRACEABILITY MATRIX SAFEGUARDS (MANDATORY COMPLIANCE)
+
+**ABSOLUTE REQUIREMENT**: You __must__ follow these **MANDATORY VALIDATION STEPS** before creating the requirement matrix:
+
+**PRE-MATRIX VALIDATION CHECKLIST**:
+- [ ] **Source Verification**: All requirement IDs in the matrix exist in the original SRS source document
+- [ ] **Individual Requirement Check**: Each requirement ID from the Requirements Summary section appears as a separate column
+- [ ] **Complete Coverage Verification**: Every testable requirement has exactly one "X" marking in the matrix
+- [ ] **Test Case Validation**: Every test case name in the matrix matches exactly with the test case names in Section 9
+- [ ] **No Placeholder IDs**: No generic or placeholder requirement IDs (e.g., REQ_001, PLACEHOLDER_ID)
+- [ ] **Cross-Reference Check**: Requirement IDs in matrix match those listed in individual test case "Req. ID" fields
+
+**MANDATORY MATRIX STRUCTURE**:
+```
+| Test Case Name | [REQ_ID_1] | [REQ_ID_2] | [REQ_ID_3] | [REQ_ID_N] |
+|----------------|------------|------------|------------|------------|
+| TC_FEATURE_01  | X          |            |            |            |
+| TC_FEATURE_02  |            | X          | X          |            |
+| TC_FEATURE_03  |            |            |            | X          |
+```
+
+**VALIDATION RULES**:
+- ✅ **One-to-One Mapping**: Each requirement ID should have exactly one "X" in its column
+- ✅ **Complete Coverage**: Every requirement from Requirements Summary must appear as a column
+- ✅ **Exact Matching**: Test case names must match exactly with Section 9 test cases
+- ✅ **Source Traceability**: All requirement IDs must exist in the original SRS document
+
+**FORBIDDEN PRACTICES**:
+- ❌ **Missing Requirements**: Requirements from analysis not appearing in matrix columns
+- ❌ **Incorrect Test Case Names**: Names not matching Section 9 test cases
+- ❌ **Multiple Mappings**: Same requirement marked with "X" in multiple test cases (unless explicitly justified)
+- ❌ **Placeholder Requirements**: Generic requirement IDs not from source document
+- ❌ **Incomplete Coverage**: Requirements without any "X" marking
+
+**QUALITY CONTROL VERIFICATION**:
+Before finalizing the matrix, you __must__ verify:
+1. **Column Count**: Number of requirement columns = Number of requirements in Requirements Summary
+2. **Row Count**: Number of test case rows = Number of test cases in Section 9
+3. **Coverage Count**: Number of "X" markings = Number of testable requirements
+4. **Name Matching**: All test case names exactly match Section 9 names
+5. **ID Verification**: All requirement IDs exist in original SRS source document
+
+-   After all test cases for a feature are defined, create a final section with a traceability matrix.
+-   The matrix should map each test case to the testable requirement IDs it validates.
+-   Format: `| Test Case Name | Req. ID 1 | Req. ID 2 | ... |`
+-   Use "X" to mark which requirements are covered by each test case.
+-   Ensure that every testable requirement is covered by exactly one test case in the matrix.
+-   If a requirement logically requires multiple test cases for complete validation, designate one test case as the primary validation case in the matrix, and document the supporting test cases in the test case description.
+-   If a testable requirement is not covered, provide an explanation why.
+-   **Important**: Do NOT include informational requirements or referenced requirements in the requirement matrix. These should be included in the test case Req. ID field for better traceability for testers, but they should not appear in the matrix since they don't need to be "covered" in the same way as testable requirements.
+
+### 3.4 Test Case Dependency Mapping
+
+- Create a visual dependency graph showing:
+  * Test case execution order dependencies
+  * Prerequisite relationships between test cases
+  * Critical path through test cases
+  * Optional vs. mandatory test cases
+- For each test case with dependencies:
+  * Explicitly document all prerequisite test cases
+  * Define the specific system state required before execution
+  * Identify any test cases that cannot be run if this test case fails
+
+### 3.5 Test Case Dependency Mapping (MANDATORY COMPREHENSIVE FRAMEWORK)
+
+**ABSOLUTE REQUIREMENT**: You __must__ create a comprehensive dependency mapping framework that ensures optimal test case execution order and identifies all critical relationships between test cases.
+
+#### 3.5.1 Dependency Analysis Requirements (MANDATORY)
+
+**COMPREHENSIVE DEPENDENCY IDENTIFICATION**:
+- [ ] **Prerequisite Dependencies**: Identify test cases that require successful completion of other test cases
+- [ ] **System State Dependencies**: Document test cases that require specific system states established by previous tests
+- [ ] **Signal Dependencies**: Map test cases that depend on signals or configurations set by other test cases
+- [ ] **Functional Dependencies**: Identify test cases that build upon functionality verified by other test cases
+- [ ] **Resource Dependencies**: Document test cases that require specific hardware or software resources
+
+**DEPENDENCY CLASSIFICATION SYSTEM**:
+- **Hard Dependencies**: Test case cannot execute without prerequisite completion
+- **Soft Dependencies**: Test case can execute but may have reduced effectiveness without prerequisite
+- **Conditional Dependencies**: Dependency exists only under specific conditions or configurations
+- **Parallel Dependencies**: Test cases that can run simultaneously but share resources or states
+
+#### 3.5.2 Execution Order Optimization (MANDATORY)
+
+**CRITICAL PATH ANALYSIS**:
+- [ ] **Primary Execution Path**: Define the optimal sequence for maximum test coverage efficiency
+- [ ] **Alternative Paths**: Identify backup execution sequences for different testing scenarios
+- [ ] **Parallel Execution Opportunities**: Map test cases that can run simultaneously to reduce total execution time
+- [ ] **Bottleneck Identification**: Identify test cases that create execution bottlenecks and optimize around them
+
+**EXECUTION SEQUENCE REQUIREMENTS**:
+- **Foundation Tests First**: Basic functionality tests must execute before complex scenario tests
+- **State Building**: Tests that establish system states must precede tests that depend on those states
+- **Error Recovery**: Tests that verify error recovery must follow tests that can create error conditions
+- **Performance Optimization**: Sequence tests to minimize setup/teardown overhead
+
+#### 3.5.3 Dependency Documentation Framework (MANDATORY)
+
+**MANDATORY DEPENDENCY TABLE**:
+For each test case with dependencies, you __must__ create a dependency table:
+
+```markdown
+| Test Case | Prerequisite Test Cases | Required System State | Dependency Type | Failure Impact |
+|-----------|------------------------|----------------------|-----------------|----------------|
+| TC_XXX_01 | None | Initial State | None | None |
+| TC_XXX_02 | TC_XXX_01 | Basic Function Active | Hard | Blocks TC_XXX_03, TC_XXX_04 |
+| TC_XXX_03 | TC_XXX_02 | Signal X = Value Y | Hard | Blocks TC_XXX_05 |
+```
+
+**DEPENDENCY GRAPH VISUALIZATION**:
+You __must__ create a visual dependency graph showing:
+- **Node Representation**: Each test case as a node with priority level indicated
+- **Edge Representation**: Dependencies as directed edges with dependency type labeled
+- **Critical Path Highlighting**: Primary execution path highlighted in the graph
+- **Parallel Execution Groups**: Test cases that can run in parallel grouped visually
+
+#### 3.5.4 Risk Assessment and Mitigation (MANDATORY)
+
+**DEPENDENCY RISK ANALYSIS**:
+- [ ] **Single Point of Failure**: Identify test cases whose failure blocks multiple downstream tests
+- [ ] **Circular Dependencies**: Detect and resolve any circular dependency issues
+- [ ] **Resource Conflicts**: Identify potential conflicts when test cases run in parallel
+- [ ] **State Corruption**: Assess risk of test cases corrupting system state for subsequent tests
+
+**MITIGATION STRATEGIES**:
+- **Alternative Paths**: Define backup execution sequences when primary dependencies fail
+- **State Reset Procedures**: Document procedures to reset system state between test cases
+- **Isolation Techniques**: Define methods to isolate test cases to prevent interference
+- **Recovery Procedures**: Document steps to recover from test case failures
+
+#### 3.5.5 Execution Optimization Framework (MANDATORY)
+
+**EFFICIENCY OPTIMIZATION**:
+- [ ] **Batch Execution Groups**: Group test cases that can share setup/teardown procedures
+- [ ] **Resource Utilization**: Optimize test case sequence to maximize resource utilization
+- [ ] **Time Optimization**: Minimize total execution time through optimal sequencing
+- [ ] **Parallel Execution Planning**: Identify opportunities for concurrent test execution
+
+**VALIDATION REQUIREMENTS**:
+Before finalizing the dependency mapping, you __must__ verify:
+- [ ] **Complete Coverage**: All test case dependencies are identified and documented
+- [ ] **Execution Feasibility**: The defined execution sequence is technically feasible
+- [ ] **Risk Mitigation**: All identified risks have appropriate mitigation strategies
+- [ ] **Optimization Validation**: The execution sequence is optimized for efficiency and effectiveness
+
+---
+
+## 4. QUALITY ASSURANCE CHECKLIST
+
+Before finalizing your analysis and test cases, verify that your output meets the following quality criteria:
+
+### 4.1. CRITICAL ANALYSIS VALIDATION (MANDATORY COMPLIANCE)
+
+**REQUIREMENTS SUMMARY VALIDATION**:
+- [ ] **Individual Requirement Entries**: Each requirement ID has its own separate, detailed entry
+- [ ] **No Combined Entries**: No grouped requirement descriptions (e.g., "3828029, 3793745 - Combined Description")
+- [ ] **Source Document Verification**: All requirement IDs exist in the original SRS source document
+- [ ] **Complete Information**: Each requirement includes testability, dependencies, and implementation details
+- [ ] **Specific Titles**: Each requirement has a unique, descriptive title
+
+**TRACEABILITY MATRIX VALIDATION**:
+- [ ] **Matrix Column Verification**: Each requirement from Requirements Summary appears as a separate column
+- [ ] **Test Case Name Matching**: All test case names in matrix exactly match Section 9 test case names
+- [ ] **Complete Coverage**: Every testable requirement has exactly one "X" marking
+- [ ] **No Placeholder IDs**: All requirement IDs are from the original SRS document
+- [ ] **Cross-Reference Accuracy**: Requirement IDs in matrix match those in test case "Req. ID" fields
+
+**CONTENT EXTRACTION VALIDATION**:
+- [ ] **Real Data Only**: No placeholder or example data in any analysis section
+- [ ] **Image Content Verification**: All extracted data is directly observable in the images
+- [ ] **Individual Image Analysis**: Separate analysis files created for each image
+- [ ] **CLIP Classification Integration**: All images processed through CLIP classification system
+
+**TECHNICAL DEPTH PRESERVATION VALIDATION**:
+- [ ] **Comprehensive Technical Analysis**: Full technical analysis maintained with detailed signal analysis, comprehensive tables, and technical rigor
+- [ ] **No Oversimplification**: Human validation criteria are supplementary additions, not replacements for technical content
+- [ ] **Technical Test Coverage**: Test cases include comprehensive technical verification steps in addition to visual verification
+- [ ] **Signal Analysis Completeness**: All CAN signals, state transitions, and technical behaviors are thoroughly analyzed
+- [ ] **Standards Compliance**: Full automotive standards compliance analysis maintained alongside human validation criteria
+
+### 4.2. Analysis Quality Checks
+
+- [ ] All requirements are summarized with testability assessments
+- [ ] All visual elements are described in detail with their purpose explained
+- [ ] All CAN/Internal signals are documented with complete information
+- [ ] All logical conditions are represented in formal markdown tables
+- [ ] Validation methods are linked to specific requirements
+- [ ] Test design methodologies are appropriate for the requirements
+- [ ] Key test scenarios are clearly defined and prioritized
+- [ ] Functional gaps are identified with testing approaches
+- [ ] Images are properly classified by type and analyzed accordingly
+- [ ] Image-to-Test Case Traceability Matrix is complete
+- [ ] Domain-specific analysis is included for the appropriate domain
+- [ ] Formula and calculation verification tables are complete
+- [ ] CAN signal detailed analysis tables are complete
+- [ ] Requirements with RQA issues have mitigation strategies
+
+### 4.2. Test Case Quality Checks
+
+- [ ] Test cases are optimized to minimize redundancy
+- [ ] Each test case has a clear objective and covers specific requirements
+- [ ] Test steps follow the action/observation pair structure
+- [ ] Expected results match the number of test steps
+- [ ] All test cases have appropriate priorities assigned
+- [ ] Test dependencies are clearly documented
+- [ ] All requirements are covered in the traceability matrix
+- [ ] Test cases for functional gaps are included with appropriate priority
+- [ ] Test steps include specific signal values, timing information, and verification methods
+- [ ] Expected results include exact values and detailed descriptions of expected behavior
+- [ ] UI elements from mockup images are explicitly verified in test steps
+- [ ] All signal value mappings from value mapping tables are tested
+- [ ] Communication paths from network diagrams are verified
+- [ ] Recovery and fault handling test strategies are defined
+- [ ] Visual element verification strategies are defined
+- [ ] Timing and performance test strategies are defined
+- [ ] Test case dependency mapping is complete
+
+### 4.3. Overall Document Quality
+
+- [ ] Document follows the required structure
+- [ ] Technical language is used consistently
+- [ ] No placeholder text or incomplete sections remain
+- [ ] Tables are properly formatted and aligned
+- [ ] Consistent terminology is used throughout the document
+- [ ] Document is free of grammatical and spelling errors
+
+### 4.4 Test Case Optimization Checks
+
+- [ ] Related test cases are combined where appropriate
+- [ ] Timing-related test cases are consolidated when testing the same timing requirement
+- [ ] Signal reception verification is integrated into functional test cases
+- [ ] Gap investigation is integrated into functional test cases where possible
+- [ ] Test cases focus on boundary values and critical conditions
+- [ ] Redundant setup steps are eliminated by referencing previous test cases
+- [ ] The total number of test cases is minimized while maintaining complete requirement coverage
+
+### 4.5 Strengthened Quality Assurance Framework (MANDATORY COMPREHENSIVE VALIDATION)
+
+**ABSOLUTE REQUIREMENT**: You __must__ implement this comprehensive quality assurance framework to ensure complete validation of all analysis and test case components before finalization.
+
+#### 4.5.1 Pre-Analysis Validation Framework (MANDATORY)
+
+**SOURCE DOCUMENT INTEGRITY CHECKS**:
+- [ ] **SRS Document Completeness**: Verify the source SRS document contains all required sections and information
+- [ ] **Requirement ID Verification**: Confirm all requirement IDs in the source document are properly formatted and unique
+- [ ] **Approval Status Validation**: Verify the grooming status and approval information is clearly documented
+- [ ] **Image Availability Check**: Confirm all referenced images are accessible and properly named
+- [ ] **CLIP Classification Availability**: Verify all images have corresponding entries in `merged_clip_predictions.csv`
+
+**ANALYSIS PREPARATION VALIDATION**:
+- [ ] **Template Availability**: Confirm all required category-specific templates are available in `vision_api_prompts/`
+- [ ] **Analysis Results Directory**: Verify `analysis_results/` directory is accessible for individual image analysis files
+- [ ] **Dependency Mapping Preparation**: Ensure all prerequisite information is available for dependency analysis
+- [ ] **Domain-Specific Requirements**: Confirm domain-specific analysis requirements are understood and applicable
+
+#### 4.5.2 Analysis Phase Quality Validation (MANDATORY)
+
+**REQUIREMENTS ANALYSIS VALIDATION**:
+- [ ] **Individual Requirement Verification**: Each requirement ID has a separate, detailed analysis entry
+- [ ] **Testability Assessment Completeness**: All requirements have appropriate testability ratings with justification
+- [ ] **Dependency Mapping Accuracy**: All requirement dependencies are correctly identified and documented
+- [ ] **Implementation Analysis Depth**: Implementation considerations are thoroughly analyzed for each requirement
+- [ ] **Gap Identification Completeness**: All potential gaps and ambiguities are identified and documented
+
+**VISUAL ANALYSIS VALIDATION**:
+- [ ] **CLIP Integration Compliance**: All images processed through CLIP classification system
+- [ ] **Category-Specific Analysis Application**: Appropriate category-specific templates applied to each image
+- [ ] **Real Content Extraction Verification**: No placeholder or example data in visual analysis
+- [ ] **Individual Analysis File Creation**: Separate analysis files created for each image with comprehensive content
+- [ ] **Standards Compliance Assessment**: All relevant automotive standards compliance evaluated
+
+**TECHNICAL ANALYSIS VALIDATION**:
+- [ ] **Signal Analysis Completeness**: All CAN/internal signals thoroughly documented with complete specifications
+- [ ] **Logic Table Creation**: All logical conditions converted to formal markdown tables
+- [ ] **Data Structure Documentation**: Complete documentation of all data structures and relationships
+- [ ] **Formula Verification Preparation**: All formulas and calculations prepared for verification testing
+
+#### 4.5.3 Test Case Generation Quality Validation (MANDATORY)
+
+**TEST CASE STRUCTURE VALIDATION**:
+- [ ] **Template Compliance**: All test cases follow the mandatory template structure exactly
+- [ ] **Expected Results Alignment**: Perfect 1:1 correspondence between test steps and expected results
+- [ ] **Technical Precision**: All test steps include specific signal values, timing, and verification methods
+- [ ] **Priority Assignment Accuracy**: Test case priorities correctly assigned based on functional importance
+- [ ] **Dependency Documentation**: All test case dependencies clearly documented and validated
+
+**TEST COVERAGE VALIDATION**:
+- [ ] **Requirement Coverage Completeness**: Every testable requirement covered by exactly one primary test case
+- [ ] **Scenario Coverage Verification**: All key test scenarios from analysis covered by test cases
+- [ ] **Gap Investigation Coverage**: All identified gaps addressed with appropriate test cases
+- [ ] **Visual Element Coverage**: All visual elements from analysis integrated into test case verification
+- [ ] **Edge Case Coverage**: All boundary conditions and edge cases covered in test cases
+
+**TEST CASE OPTIMIZATION VALIDATION**:
+- [ ] **Consolidation Effectiveness**: Related test cases appropriately consolidated without losing coverage
+- [ ] **Execution Efficiency**: Test case sequence optimized for efficient execution
+- [ ] **Dependency Optimization**: Test case dependencies optimized to minimize execution bottlenecks
+- [ ] **Resource Utilization**: Test cases optimized for maximum resource utilization
+
+#### 4.5.4 Integration and Traceability Validation (MANDATORY)
+
+**TRACEABILITY MATRIX VALIDATION**:
+- [ ] **Matrix Structure Compliance**: Traceability matrix follows mandatory structure requirements
+- [ ] **Requirement-Test Case Mapping**: Perfect mapping between requirements and test cases
+- [ ] **Cross-Reference Accuracy**: All cross-references between sections are accurate and complete
+- [ ] **Coverage Verification**: Matrix demonstrates complete coverage of all testable requirements
+- [ ] **Name Consistency**: All test case names consistent across all sections and matrices
+
+**INTEGRATION VALIDATION**:
+- [ ] **Visual-Technical Integration**: Visual analysis properly integrated with technical analysis
+- [ ] **Analysis-Test Case Integration**: Analysis findings properly integrated into test case design
+- [ ] **Dependency Integration**: All dependencies properly integrated across analysis and test cases
+- [ ] **Standards Integration**: Automotive standards compliance integrated throughout analysis and testing
+
+#### 4.5.5 Final Quality Assurance Validation (MANDATORY)
+
+**DOCUMENT COMPLETENESS VALIDATION**:
+- [ ] **Section Completeness**: All required sections present and complete
+- [ ] **Content Depth Verification**: All sections meet required depth and technical rigor standards
+- [ ] **Consistency Validation**: Consistent terminology, formatting, and structure throughout document
+- [ ] **Technical Accuracy**: All technical information accurate and verifiable
+- [ ] **Professional Quality**: Document meets professional standards for technical documentation
+
+**EXECUTION READINESS VALIDATION**:
+- [ ] **Test Case Executability**: All test cases are technically executable with provided information
+- [ ] **Dependency Feasibility**: All test case dependencies are technically feasible
+- [ ] **Resource Requirements**: All required resources for test execution are identified and available
+- [ ] **Verification Methods**: All verification methods are clearly defined and implementable
+- [ ] **Success Criteria**: All success criteria are measurable and verifiable
+
+#### 4.5.6 Quality Assurance Enforcement (MANDATORY)
+
+**VALIDATION CHECKPOINT REQUIREMENTS**:
+You __must__ complete ALL validation checkpoints in each phase before proceeding to the next phase. Any failed validation checkpoint __must__ be resolved before continuing.
+
+**QUALITY GATE ENFORCEMENT**:
+- **Phase 1 Gate**: All analysis phase validations must pass before beginning test case generation
+- **Phase 2 Gate**: All test case generation validations must pass before creating traceability matrices
+- **Final Gate**: All integration and final validations must pass before document completion
+
+**CONTINUOUS VALIDATION**:
+Throughout the entire process, you __must__ continuously validate that:
+- Technical depth and rigor are maintained at all times
+- No shortcuts or simplifications compromise analysis quality
+- All mandatory requirements are followed without exception
+- Professional standards are maintained throughout the document
+
+This strengthened quality assurance framework ensures that every analysis and test case document meets the highest standards of technical accuracy, completeness, and professional quality, providing reliable foundation for comprehensive system testing and validation.
+
+---
+
+## 5. EXAMPLE OUTPUT STRUCTURE
+
+```markdown
+# VEH-FXXX Feature Name - Analysis Document
+
+## 1. Feature Overview and Approval Status
+[Complete feature overview with all required fields]
+
+## 2. Requirements Summary
+[Detailed requirements summary with testability assessments]
+
+## 3. Visual Elements Analysis
+[Comprehensive analysis of all visual elements]
+
+## 4. Data Structure Analysis
+[Complete signal information and logic tables]
+
+## 5. Core Functionality Considerations
+[Detailed validation methods, test methodologies, and scenarios]
+
+## 6. Domain-Specific Analysis
+[Analysis specific to the feature's domain]
+
+## 7. Formula and Calculation Verification
+[Verification tables for formulas and calculations]
+
+## 8. Image-to-Test Case Traceability Matrix
+[Complete traceability between images and test cases]
+
+## 9. Test Cases
+[Optimized test cases following the required format]
+
+## 10. Test Case Dependency Mapping
+[Visual representation of test case dependencies]
+
+## 11. Requirement Matrix
+
+| Test Case Name | Req. ID 1 | Req. ID 2 | Req. ID 3 | Req. ID 4 | Req. ID 5 |
+|----------------|-----------|-----------|-----------|-----------|-----------|
+| TC_FEATURE_01  | X         |           |           |           |           |
+| TC_FEATURE_02  |           | X         | X         |           |           |
+| TC_FEATURE_03  |           |           |           | X         | X         |

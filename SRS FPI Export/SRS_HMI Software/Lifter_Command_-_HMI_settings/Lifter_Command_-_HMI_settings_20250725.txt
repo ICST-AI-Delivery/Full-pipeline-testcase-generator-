@@ -1,0 +1,165 @@
+# UnknownID 6.2.3.7.2.1 Lifter Command - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.2.1 Lifter Command - HMI settings
+
+- ID: 3603625
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core, System Infra
+- HB_Comment: last
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3603627
+- Contents: IDC shall allow user to activate/deactivate the lifter through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to activate/deactivate the lifter through HMI.
+
+HMI-CAN:
+STATUS_NIT_V2.NIT_LifterButtonSts
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to activate, deactivate, lifter, HMI" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4731040
+- Contents: IDC shall set
+IDC_Lifter_ShortPressRqt = 0 ("Not_Active") AND IDC_Lifter_LongPressRqt = 0 ("Not_Active") when no interaction is detected on Lifter command.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the signals when no interaction.
+
+IDC_Lifter_ShortPressRqt = 0 ("Not_Active") AND IDC_Lifter_LongPressRqt = 0 ("Not_Active")
+
+ STATUS_NIT_V2.IDC_Lifter_LongPressRqt
+STATUS_NIT_V2.IDC_Lifter_ShortPressRqt
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "is detected" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4731041
+- Contents: System shall set ID
+C_Lifter_ShortPressRqt =1("Active") for 2 periodicity of the message AND IDC_Lifter_LongPressRqt = 0("Not_Active") when interaction on the Lifter interface for t<T_LifterLong.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system allow user interaction when
+
+IDC_Lifter_ShortPressRqt =1 ("Active") for 2 periodicity of the message AND IDC_Lifter_LongPressRqt = 0
+("Not_Active")
+
+short press one time- lifter goes down symbol goes yellow
+short press 2 times- lifter goes up symbol goes green
+long press --lifter goes up same as press 2 times
+
+ STATUS_NIT_V2.IDC_LifterButtonValidData
+
+ STATUS_NIT_V2.IDC_Lifter_ShortPressRqt
+STATUS_NIT_V2.IDC_Lifter_LongPressRqt
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, Not_Active, interaction, interface" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4731042
+- Contents: System shall set the output
+signal IDC_Lifter_LongPressRqt = 1("Active") for two periodicities of the message as T_LifterLong
+time threshold is met AND IDC_Lifter_ShortPressRqt = 0("Not_Active") when the Lifter interface pressed for t = T_LifterLong.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal when
+
+IDC_Lifter_LongPressRqt = 1 ("Active") for 2 periodicities of the message as soon as T_LifterLong
+time threshold is met AND IDC_Lifter_ShortPressRqt = 0 ("Not_Active")
+
+long press one time- lifter goes up symbol goes yellow
+long press 2 times- lifter goes up symbol goes green
+
+
+ STATUS_NIT_V2.IDC_LifterButtonValidData
+
+ STATUS_NIT_V2.IDC_Lifter_ShortPressRqt
+STATUS_NIT_V2.IDC_Lifter_LongPressRqt
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, threshold, set, is met, pressed, IDC, periodicities, Not_Active" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4731045
+- Contents: System shall set output signal IDC_Lifter_LongPressRqt =0 after t=T_LifterLong
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal when
+
+IDC_Lifter_LongPressRqt =0
+
+ STATUS_NIT_V2.IDC_Lifter_LongPressRqt
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3964161
+- Contents: System shall allow user interaction when a transition from HMISts = HMI_PowerOn to HMI_On
+AND
+LifterInfoForDisplay == 1("Moving_Up") OR  3("Up") OR 7("Waiting_at_KeyOFF") OR 8("Waiting_at_KeyON") OR 0xB("LimitedUP")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the transmission power on to hmi on when
+LifterInfoForDisplay == 1("Moving_Up") OR  3("Up") OR 7("Waiting_at_KeyOFF") OR 8("Waiting_at_KeyON") OR 0xB("LimitedUP")
+
+Messge
+HMI_INFO
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, performs, Moving, Waiting, transition, HMISts" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.7.2.1 Lifter Command - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

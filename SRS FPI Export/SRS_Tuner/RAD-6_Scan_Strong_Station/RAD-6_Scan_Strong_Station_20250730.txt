@@ -1,0 +1,165 @@
+# RAD-6 6.2.1.1.7  Scan Strong Station Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.7 RAD-6 Scan Strong Station
+
+- ID: 3407908
+- Artifact Type: SRS Feature
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538799
+- Contents: System shall display stations identify frequencies as Strong for FM, AM, DAB+ and remove the station when the station identify as weak. (Scan shall happen in the background).
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Strong stations  frequencies for FM, AM, DAB+ and week station shall not display.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "station, execute, identify, remove, scan, stations, frequencies, FM, DAB, weak" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer AD-04 Document for station list
+Applicable bands: FM, AM, and DAB+
+
+2. ID: 3538891
+- Contents: System shall check frequency respecting the timing
+- <2secs per independent station (due to PSN update-feature)(i.e. max 40 seconds if 20 different stations are “on air“)
+- <3secs if band is empty
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Blocked
+- Grooming Comments: [Devi Chandra]
+Not Ready for external grooming- Not Offered state.
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, band, check, respecting, update, frequency, secs, station, #8220" ) 
+Missing unit 
+ (Look for: "‘20’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘40 seconds’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is empty" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3538893
+- Contents: System shall display frequencies available on the network and update the entries for DAB+ Scan.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display all the frequencies available on the network and update the entries for DAB+ Scan.
+- Grooming Status: Approved
+- Grooming Comments: FM/DAB services are combined in one station/service list
+
+[Devi Chandra: 04-Jul-2024] Need Clarification regarding the combined FM, DAB stations. Clarification pending from customer.
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, update, frequencies, network, entries, DAB, Scan" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3583662
+- Contents: System shall respect timing for scan:
+- ~4 secs per ensemble (e.g. 20 sec if 5 ensembles are receivable, which usually means > 50 audio services)
+- <3 secs if band is empty
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Blocked
+- Grooming Comments: [Devi Chandra]
+Not Ready for external grooming- Not Offered state.
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ensembles, means, secs, band, respect, timing, are receivable, scan, services" ) 
+Missing unit 
+ (Look for: "‘4,20,5,50,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is empty" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: (To be confirmed by the supplier)
+
+5. ID: 3538903
+- Contents: IDC shall display available stations  for AM in ~10 secs per entire band.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Check IDC shall display available stations for AM("MW") within ~10 secs.
+- Grooming Status: Approved
+- Grooming Comments: Harshitha: 24-FEB-2025]: Comment from sheikibbrahim.
+Not possible for ~4sec.
+
+Discussion with Ferrari, agreed for 10 sec
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- State (Harman_Requirement): Approved
+
+6. ID: 3604104
+- Contents: System shall allow user to scan strong stations for AM, FM, DAB + radio frequencies.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to scan strong stations for AM, FM, DAB + radio frequencies.
+- Grooming Status: Approved
+- Grooming Comments: FM/DAB services are combined in one station/service list
+
+[Devi chandra: 04-jul-2024] Need Clarification regarding the combined FM, DAB stations. Clarification pending from customer
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to scan, stations, FM, DAB, frequencies" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3583659
+- Contents: This function describes station scanning process to indicate stations with strong signal.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3538880
+- Contents: Background Scan
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3583666
+- Contents: FM Scan
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3583664
+- Contents: DAB+ Scan
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 3583667
+- Contents: AM Scan
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-6 6.2.1.1.7  Scan Strong Station Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

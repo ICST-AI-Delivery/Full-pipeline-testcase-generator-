@@ -1,0 +1,282 @@
+# PRK-0 6.2.4.1.15 : Surround View Management: EOL Configuration Parameters Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.15 PRK-0: Surround View Management: EOL Configuration Parameters
+
+- ID: 3845447
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Review
+- Grooming Comments: [27.12.2024]
+Relevant Proxi parameters will be covered in the application requirements specification.
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3604212
+- Contents: Configuration Parameters Table
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3604213
+- Contents: Wake-Up Generation for CAN Communication
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3604200
+- Contents: F244-25089 - Below are listed all the signals received by the IDC for SW management and the task assigned: -> Already covered above-. Delete it
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "received, assigned, signals, management, task" ) 
+Unclear term
+ (Look for: "all" ) 
+Passive voice
+ (Look for: "are listed" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3604201
+- Contents: IF PROXI parameter Rear_Camera_Position = Trunk -> Already covered above, delete it
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3604202
+- Contents: While home button has always the same behaviour, back button works on two different level, Level 0 is the root of HMI tree, level 1 represent all deeper levels of the HMI flows.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Compound requirement
+ (Look for: "button, has always, is, represent, flows, behaviour, button works, level, root, tree, levels" ) 
+Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Unclear term
+ (Look for: "all" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3604204
+- Contents: The system shall inhibit the driver actions w.r.t. to SW HMI interfaces If a Pop-Up is shown on the same area of the Surround View.-> Covered above
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Grooming Status: Review
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, inhibit, driver, w, interfaces" ) 
+Passive voice
+ (Look for: "is shown" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3877263
+- Contents: The system shall visualize the Front &/ Rear sensor frame based on the proxi parameter Parking Sensor.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Verification Criteria: Verify that the front and rear frames are shown on HMI based on the PROXI parameter "Parking Sensor".
+
+Note:
+If PROXI parameter Parking Sensor = 1
+(Front&Rear) the two frames will be used by the HMI to visualize obstacles, instead, if PROXI parameter Parking Sensor = 0
+(Rear), the second frame will be ignored by the user ECU.
+- Grooming Status: Review
+- Grooming Comments: Wei, Abdul:  Not needed
+
+Need clarity from systems team on the applicability of proxi
++ check the exisngt srs requirement
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: If PROXI parameter Parking Sensor = 1
+(Front&Rear) the two frames will be used by the HMI to visualize obstacles, instead, if PROXI parameter Parking Sensor = 0
+(Rear), the second frame will be ignored by the user ECU.
+
+8. ID: 3848082
+- Contents: F244-50381 - On the basis of the distances measured NSP publish on the CAN colours that have to be visualized on HMI through following signals:
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Verification Criteria: Set the CAN signal as below.
+
+Verify the obstacle detected are shown on HMI.
+- Grooming Status: Review
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, measured, publish, have, following, receive, detected, basis, colours, signals, information" ) 
+Passive voice
+ (Look for: "to be visualized" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: F244-50382 - Each one of these signals can have 4 values:
+0 = no colour;
+1 = green;
+2 = yellow;
+3 = red.
+
+### Informational Items:
+
+1. ID: 3604214
+- Contents: 6.2.4.1.16 PRK -0: Obstacle Proximity Signalling
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+2. ID: 3845460
+- Contents: The function describes the Obstacle Proximity System Management.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+3. ID: 3845469
+- Contents: ObstacleProximitySignallingBuzzerMng shall manage the Parking Sensors buzzer.
+ObstacleProximitySignallingViewInd shall manage the Parking Sensors visualization.
+The system shall manage the below functionalities via ObstacleProximitySignalling
+Front Sensor HMI button.
+Parking Sensors
+Parking Sensors fail warning
+Parking Sensors buzzer
+Parking Sensors visualization
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+4. ID: 3848058
+- Contents: Information relative to rear sensors are contained in the first frame of STATUS_NSP2 (FrameNumber = 0), while
+ones relative to the front sensors are contained in the second frame of STATUS_NSP2 (FrameNumber = 1).
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+5. ID: 3845471
+- Contents: Since information that have to be transmitted from NSP to IDC require more than 8 bytes, the CAN message
+STATUS_NSP2 is Multimessage. This means that NSP node divides the information in more messages and, in each of them,
+indicates the total number of messages and a message counter though the following two messages:
+TotalFrameNumber
+0 = Not used
+1 = Two frames
+FrameNumber, that indicate the number of the frame
+0 = frame 1
+1 = frame 2
+The first frame is relative to rear sensor while the second is relative to frontal ones. If PROXI parameter Parking Sensor = 1
+(Front&Rear) the two frames will be used by the HMI to visualize obstacles, instead, if PROXI parameter Parking Sensor = 0
+(Rear), the second frame will be ignored by the user ECU. [ Approved ]
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+6. ID: 3848063
+- Contents: F244-50365 - EXAMPLE: The system refers to the following tables to evaluate with more accuracy the approaching to the
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+7. ID: 3848064
+- Contents: NSP shall consider PROXI parameters Vehicle_definition_for_NIT and Vehicle_definition_for_NIT2, in order to check the vehicle type.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Requirement Rationale: NSP is active only into Key-ON condition.
+
+8. ID: 3848071
+- Contents: 6.2.4.1.17 Obstacle Proximity Sensor Information Management
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+9. ID: 3848079
+- Contents: The system shall represent the value of the distance in unit of '4'cm & an offset of '30'cm hence, for example if 'LHCentralObstacleDistance = 13' the real distance is '(4*13) + 30 = 52 + 30 = 82cm' in order to do this 'NSP' has to compute
+the value of parameter to publish through the below formula:
+Segment = Int(Dist / 4).
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+10. ID: 3848088
+- Contents: (see: image81.png)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Visual Elements: image81.png
+
+11. ID: 3851677
+- Contents: Each one of these signals can have 4 values:
+0 = no colour;
+1 = green;
+2 = yellow;
+3 = red.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3848091
+- Contents: 6.2.4.1.17.1 Obstacle Proximity Setting Management
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+13. ID: 3848092
+- Contents: F244-50383 - If PROXI parameter NSP_Buzzer = 1(Active), NSP uses an own buzzer for the front and rear signalling.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+14. ID: 3848094
+- Contents: F244-50393 - If PROXI parameter NSP_Buzzer = 1 (Active): Buzzer is performed by NSP
+For the front signalling the sound frequency has to be 600Hz, instead the rear signalling sound frequency has to be 1000Hz [
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image81.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.15 : Surround View Management: EOL Configuration Parameters Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

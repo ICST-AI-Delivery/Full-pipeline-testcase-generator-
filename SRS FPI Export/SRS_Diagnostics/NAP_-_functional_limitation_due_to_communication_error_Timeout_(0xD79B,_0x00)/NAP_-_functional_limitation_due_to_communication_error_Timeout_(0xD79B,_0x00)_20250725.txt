@@ -1,0 +1,69 @@
+# UnknownID 6.2.1.1.88 NAP - functional limitation due to communication error Timeout (0xD79B, 0x00) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.88 NAP - functional limitation due to communication error Timeout (0xD79B, 0x00)
+
+- ID: 3939866
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- Grooming Comments: VHAL is responsible for this feature
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3939868
+- Contents: If the NAP responds late, resulting in a communication timeout and failure to communicate the required configuration (following SFS) within 1 second after Key-ON, the system shall set a Diagnostic Trouble Code (DTC).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Proxi byte 28, bit 2 (NAP) == "Present".
+-Verify ECU communication timeout with NAP should expires.
+-NAP communication error Timeout fault should detect within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, resulting, to communicate, required, following, set, timeout, failure, configuration, SFS, DTC" )
+- TestTeamComment: RWeber_DIAG_241025: okay
+- State (Harman_Requirement): Approved
+
+2. ID: 3939873
+- Contents: The System shall clear the DTC, if ECU communication with the NAP is successfully established within the de-maturation time of 1s.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: -DTC is devalidated within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "established" )
+- TestTeamComment: RWeber_DIAG_241025: okay
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.88 NAP - functional limitation due to communication error Timeout (0xD79B, 0x00) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

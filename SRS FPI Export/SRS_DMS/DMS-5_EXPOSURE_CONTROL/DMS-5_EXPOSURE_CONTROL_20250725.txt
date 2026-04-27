@@ -1,0 +1,134 @@
+# DMS-5 6.2.1.6  EXPOSURE CONTROL Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.6 DMS-5 EXPOSURE CONTROL
+
+- ID: 3733142
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3733149
+- Contents: The system shall control the camera LEDs to adapt the IR illumination of the driver's face if DMS camera is active. -> is it deleted?
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system activates the IR illumination when the DMS camera is active.
+
+Verify the IR illumination can be adapted.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, control, to adapt, LEDs, illumination, face" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3733154
+- Contents: DMS shall be able to automatically control exposure in the acquired images and recognize if it is ok for the correct functioning of the system.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify that it is possible to control the exposure in the acquired images automatically.
+
+Verify the DMS functionality is working
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, measure, acquired, recognize, functioning, exposure, amp, system" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3733155
+- Contents: DMS camera shall guarantee the correct exposure of the driver face in the images acquired by the camera in all environmental conditions.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify that the correct exposure of the driver face in the images acquired by the camera in all environmental conditions.
+
+
+Ensure that the driver face is detected properly in all environmental conditions
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "proper" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3733157
+- Contents: 'IR-LEDs' illumination shall guarantee eye-safety according to all applicable standards.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify that the IR LED illumination complies with relevant eye safety standards.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "applicable" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3733159
+- Contents: The system shall operate effectively during the day & night without getting affected by weather-conditions.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS is working during day and night in different weather conditions.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, operate, getting, affected, day  amp, conditions" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3733161
+- Contents: DMS system performance shall not be affected by lighting conditions, glaring from the sun & stray light.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS is not affected by the below conditions.
+Lighting conditions
+glaring from the sun
+stray light.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "be affected" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3733147
+- Contents: The function describes how to manage the exposure of the image acquisition.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3859475
+- Contents: The system shall implement the logics of Exposure control according to Performance Target setting.
+- Artifact Type: Information
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-5 6.2.1.6  EXPOSURE CONTROL Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

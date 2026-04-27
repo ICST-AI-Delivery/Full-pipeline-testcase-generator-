@@ -1,0 +1,70 @@
+# UnknownID 6.2.1.1.85 Clima - Comunication error timeout (0xD00A, 0x01) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.85 Clima - Comunication error timeout (0xD00A, 0x01)
+
+- ID: 3938821
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Need to confirm who is responsible for NDR.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3938822
+- Contents: The System shall detect Communication error timeout in Clima  within 1s after key-ON, if the Air conditioning Functional limitation due to communication error Timeout and Communication has fail to set the required configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Air conditioning: functional limitation due to communication error Timeout.
+-Communication error timeout in Clima should detect within 1s after key-ON.
+-Verify Communication should failed to set the required configuration.
+-Verify (0xD00A, 0x01) DTC will trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Communication, detect, conditioning, has fail, to set, required, error timeout, limitation, error Timeout, configuration" )
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. We have no modified IDC (internal HW changes) to trigger this DTC or details about CAN msg which send this info/state.
+- State (Harman_Requirement): Approved
+
+2. ID: 3938830
+- Contents: The System shall clear the Communication error timeout in control unit within 1s, if Communication re-established.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Communication has been re-established.
+-Verify (0xD00A, 0x01) DTC will clear within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. We have no modified IDC (internal HW changes) to trigger this DTC or details about CAN msg which send this info/state.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.85 Clima - Comunication error timeout (0xD00A, 0x01) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

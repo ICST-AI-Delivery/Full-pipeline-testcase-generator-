@@ -1,0 +1,82 @@
+# UnknownID 6.2.2.3.8 Driver Positions Memories recall Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.8 Driver Positions Memories recall
+
+- ID: 4886174
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886175
+- Contents: IDC shall set MirrorsProfileReq = 1("MemoryOrAutoTiltReq") and update the mirror configuration output signals with value stored in the Mn slot when continuous press on Mn.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the memory profile request and mirrors are reached the saved config for that Mn.
+ MirrorsProfileReq = 1 ("MemoryOrAutoTiltReq")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886176
+- Contents: IDC shall set MirrorsProfileReq = 0 ("Not_Active") if it detects finger release during the user's recall action (i.e. continuous press on Mn interface).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mirror profile request during user recall action. 
+MirrorsProfileReq = 0 ("Not_Active")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886177
+- Contents: System shall set output signal
+MirrorsProfileReq = 0("Not_Active") AND keep the "Mirrors configuration output signals" unchange when no Mn configuration select.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the Mirrors configuration output signals (unchanged) when no Mn configuration selected.
+
+MirrorsProfileReq = 0 ("Not_Active")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, keep, select, signalMirrorsProfileReq, Not_Active, signals, unchange" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.8 Driver Positions Memories recall Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

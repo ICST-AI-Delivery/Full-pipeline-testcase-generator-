@@ -1,0 +1,404 @@
+# VEH-F006 6.2.1.1.1.3  Low Voltage Battery Indication Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.3 VEH-F006 Low Voltage Battery Indication
+
+- ID: 3405875
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3415278
+- Contents: System shall display pop-up warning for low voltage battery send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS and Main_AreaPopup. when battery not charging and engine off
+Note : Fail1 -> RechargeSts = Not charging AND PowertrainSts=OFF)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger recharge failure by CAN. RechargeSts = Not charging AND PowertrainSts=OFF)
+Verify warning displayed : GO TO DEALER
+
+CAN-Signals:
+PWT_STATUS_2.RechargeSts
+PWT_STATUS_2.PowertrainSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, charging, RechargeSts, warning, battery, off, EngineOFF" )
+- TestTeamComment: Hsutter [2024-05-07] It is possible to write a test case
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail1 of F006 from HMI_POP.IND
+
+2. ID: 3439321
+- Contents: System shall display Fail-1 Telltale and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when (RechargeSts = Not charging AND PowertrainSts=OFF)
+Note : Fail1 -> RechargeSts = Not charging and EngineOFF):
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger recharge failure by CAN.
+Verify buzzer audible. Check buzzer audio gainst wav file in Buzzer Prio Matrix
+
+
+CAN-Signal:RechargeSts = Not charging
+
+PWT_STATUS_2.RechargeSts
+- Grooming Status: Approved
+- Grooming Comments: JIRA needed as we req says bueer indicatin and missing in HMI.POP.INd doc.
+
+Ompraksh: 17/04/2025: No-Buzzer in HMI.POP.IND PI6
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, detecting, RechargeSts, buzzer, voltage, charging, EngineOFF" )
+- TestTeamComment: Hsutter [2024-05-07] It is possible to write a test case
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F006)
+
+3. ID: 3945702
+- Contents: System shall display Warning22 Pop-Up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Low Voltage System Warning For Display is Consumption too high with
+D11 Visualisation behaviour and
+priority0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(LVSysWarningForDisplay= LV_Consumption_too_high)
+
+Verify that the Warning-22 Pop-up with Telltale when low voltage System Warning for Display is consumption too high.
+
+POP-UP ID:  00609
+
+Telltale ID: WRM007
+
+Telltale Ref Code: 01750
+
+CAN-Signals: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Grooming Comments: PDF have virtual warning TT WRM035 and HMI.POP_ING have 007
+- Expert Domains: Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Display, 22, Warning, Consumption" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3945755
+- Contents: System shall display Warning-23 Pop-up with Buzzer  send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Low Voltage System Warning For Display is  Secondary_Relè_Stuck_Closed.
+Note:Warning-22 follows D11 Visualisation behaviour with priority0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-23 Pop-up and Telltale shall be displayed when Low Voltage System Warning for Display is Secondary Rele Stuck Closed.
+
+POP-UP ID:  00610
+
+Telltale ID: WRM007
+
+Telltale Ref Code: 01750
+
+CAN-Signals: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Display, Stuck, Closed, Warning, Secondary_Rel #232" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3945760
+- Contents: System shall display Warning-55 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Low Voltage System Warning For Display is   Communication_Fault_Critical with
+D11 Visualisation behaviour
+priority0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-55 Pop-up and Telltale shall be displayed when Low Voltage System Warning for Display is Communication_Fault_Critical
+
+POP-UP ID:  00611
+
+Telltale ID: WRM007
+
+Telltale Ref Code: 01750
+
+Audio Buzzer: 2B
+
+CAN-Signals: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3945778
+- Contents: System shall display Warning-56 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when Low Voltage System Warning For Display is LVB_SOH_warning with
+D11 Visualisation behaviour
+priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-56 Pop-up and Telltale shall be displayed when Low Voltage System Warning for Display is Communication_Fault_Critical
+
+POP-UP ID:  00612
+
+Telltale ID: LVB001
+
+Telltale Ref Code: 01750
+
+Audion Buzzer: 2B
+
+CAN-Signals: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Display, warning, follows, Pop-up, Buzzer, Warning, LVB, priority-0" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3945849
+- Contents: System shall display Warning-57 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Low Voltage System Warning For Display is  LVB_Thermal_Runaway with
+D11 Visualisation behaviour
+specific priority- thermal runaway.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning-57 Pop-up with Telltale with Buzzer is displayed when Low Voltage System Warning For Display is LVB_Thermal_Runaway.
+
+POP-up ID:00613
+
+
+Telltale ID: 
+
+Telltale Ref Code: 01750
+
+Audio Buzzer: 2A
+
+Verify that the system shall stop other visualisation cycle overlapping or rolling with F006 Warning-57 visualisation cycle as per 'thermal runway' priority
+
+CAN-Signal: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Display, follows, Pop-up, Buzzer, Warning, LVB, runaway" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3945927
+- Contents: Specific Behaviour:
+System shall continue to display warning-57 once the activation condition is verified and even if the LVSysWarningForDisplay signal becomes different from "LVB_Thermal_Runaway" or PWT_STATUS_1 message is missing on the network until the next key - cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-57 continue to display even if LVSysWarningForDisplay signal value becomes other than LVB_Thermal_Runaway or PWT_STATUS_1 message is missing on the network.
+
+Verify Warning 57 display stops with display off
+
+CAN-Signal: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is activated" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3945928
+- Contents: System shall stop displaying Warning-57 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS if  the Low Voltage System Warning For Display is other than LVB_Thermal_Runaway for the next Key-cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system stop's displaying the Warning-57 after the next key cycle if the Low Voltage System Warning For Display is Other than LVB_Thermal_Runaway
+
+CAN-Signal: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3945929
+- Contents: System shall display F804 Warning31 Pop-Up with Buzzer2A and send the Status to IVI. when HVBWarningForDisplay = HVB_Thermal_runaway and PROXI (Thermal_Runaway_Indication = "present").
+Note: F804 is a Specific Prioriry with Thermal Run-away.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+PROXI (Thermal_Runaway_Indication = "present")
+
+Trigger-Condition:
+HVBWarningForDisplay = HVB_Thermal_runaway
+
+Verify F804 Warning-31 is displayed when necessary conditions are met.
+
+Buzzer:2B
+
+CAN-Signal: HVB_HMI_STS.HVBWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Warning, equals, signal" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3945955
+- Contents: System shall display warning-58 Pop-up  when LVSysWarningForDisplay is LVB_SW_Fault with
+D11 visusalisation behaviour
+Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+LVSysWarningForDisplay = LVB_SW_Fault
+
+Verify that the Warning-58 is displayed when LVSysWarningForDisplay is LVB_SW_Fault.
+
+
+
+POP-UP ID:  00614
+
+Telltale ID: LVB001
+
+Telltale Ref Code: 01750
+
+Audion Buzzer: 2B
+
+CAN-Signals: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, LVSysWarningForDisplay" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3945988
+- Contents: System shall display Warning-100 when  LVSysWarning For Display is LV_Failure_Warning with
+D11 Visualisation Behaviour
+Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+LVSysWarningForDisplay = LVB_SW_Fault
+
+Verify that the Warning-58 is displayed when LVSysWarningForDisplay is LVB_SW_Fault.
+
+
+
+POP-UP ID:  00615
+
+Telltale ID: LIM001
+
+Telltale Ref Code: 01740
+
+Audion Buzzer: 2B
+
+CAN-Signals: PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 4617233
+- Contents: System shall display Warning-101 when  LVSysWarning For Display is LV Secondary Relè Stuck Closed with
+D11 Visualisation Behaviour
+Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition: (LVSysWarningForDisplay = LV Secondary Relè Stuck Closed)
+
+Verify that the Warning-101 is displayed when LVSysWarningForDisplay is LV Secondary Rele Stuck closed.
+
+POP-up ID: 00060016
+
+
+CAN-Signal:
+- PWT_STATUS_1.LVSysWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: Audio Processing
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 4662004
+- Contents: System shall show the visualisation cycle F006 Fail-1 , If system detects a message counter or CRC error on PWT_STATUS_1 message for more than MC_CRC_error.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system F006 Fail-1 is displayed when System detects a message counter or CRC error on PWT_STATUS_1 message more than MC_CRC_error.
+
+Note: MC_CRC_Error values is 5
+- Grooming Status: Approved
+- Expert Domains: FuSa, IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, visualisation, Fail-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3415277
+- Contents: System shall display Low Voltage Battery Indication on low voltage detection as per Ferrari Design
+(see: image3.png)
+Note : System shall display as per S07 visualization cycle
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger low battery voltage by CAN RechargeSts = Not charging and EngineOFF
+
+Verify telltale display as per HMI_LF_Binnacle_Telltales
+
+Verify S07 visualisation behaviour. Refer 3494875: CAN input Virtual Telltales behavior codes
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-05-07] It is possible to write a test case
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code 01750
+- Visual Elements: image3.png
+
+2. ID: 3945931
+- Contents: Example:
+(see: image4.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+- Visual Elements: image4.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image4.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image3.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F006 6.2.1.1.1.3  Low Voltage Battery Indication Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

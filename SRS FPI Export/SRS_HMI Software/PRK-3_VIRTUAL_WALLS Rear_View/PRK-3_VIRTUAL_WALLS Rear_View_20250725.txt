@@ -1,0 +1,227 @@
+# PRK-3 6.2.4.4.1  VIRTUAL WALLS: Rear View Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.4.1 PRK-3 VIRTUAL WALLS: Rear View
+
+- ID: 4545785
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Review
+- Grooming Comments: [12.-03.2025, Wei, Abdul] Obsolete
+
+28.02.2025: Wei, SunilAbdul:
+Apprpved
+
+27.11.2024: Sunil, Wei: This is blocked now.
+This is applicable for next PI (FX9)
+
+[Prashant,Abdul 18.11.2024] Sunil to confirm
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4545012
+- Contents: The RVC shall tune all the distances (8 distances) & Colors mentioned in the table below
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: [Prashant,Abdul 18.11.2024] Sunil to confirm
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4545787
+- Contents: The RVC shall visualize the obstacle by Arcs that move inside each sectors (7 front and 7 rear).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualize, move, obstacle, Arcs, sectors, front, rear" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4545900
+- Contents: The RVC shall visualize the position of the Arcs(one per sector) on the basis of obstacle distance with multiple sectors "activated" at the "same" time.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Keep the obstacles in multiple sectors and at different distance.
+
+Verify all the obstacles which has obstacles are shown by Arcs (one per sector)
+- Grooming Status: Review
+- Grooming Comments: [Sunil, Abdul 23.01.2025] Approved
+
+[Prashant 18.11.2024](resolution and number of arc for each Sector tbd -> This needs to confirmed by Wei
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualize, activated, position, sector, basis, distance, sectors" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3981156
+- Contents: The system shall visualize 'a total of 14 sectors' ('7' on the front of the vehicle and '7' on the rear).
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, visualize, total, front, vehicle, rear" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3981160
+- Contents: The system shall show Virtual Walls both in bird view("2D walls") & camera stream frame("3D walls") according to HMI specification.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "purpose, feedback, system, appear, is, is different, depending, Map, show, according, frame, walls, perpective, SRS, both, view, amp, specification" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3981163
+- Contents: The system shall use '3' distance range & wall-color depends on the distance from the obstacle.   -S this available in PI6 -> Covered above
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3981178
+- Contents: The system shall calibrate & configure the values of distance and color. -> Alrready covered above
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, calibrate, configure, amp, values, distance, color" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3981191
+- Contents: The system shall activate or deactivate the '3-D' walls toggling the HMI button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, deactivate, toggling, walls, button" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 5028965
+- Contents: (see: image106.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image106.png
+
+2. ID: 3981166
+- Contents: each range is connected to a color as described in the following tables. (see: image107.png)
+- Artifact Type: Information
+- Verification Criteria: [Check in CRS, Remove if it is removed]
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image107.png
+
+3. ID: 3981175
+- Contents: (see: image108.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image108.png
+
+4. ID: 3981204
+- Contents: The system shall visualise '2D' & '3D' walls depending on 'NSPControlSts' as shown in Table '1'.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3981209
+- Contents: Proxi
+Start Byte 112, Start bit 6 - Rear View Camera disable/enable (0 = "disabled", 1 = "enabled")
+Start Byte 184, Start bit 4- IDC_SurroundViewFunctionality (0 = "Not Present", 1 = "Present")
+Start Byte 184, Start bit 3- IDC_Vehicle_Type (0 = "Invalid", 1 = "F244")
+- Artifact Type: Information
+- Verification Criteria: Need system infra as expert domani
+
+Add the expert doain in the existing STS (e.g PRK0 or PRK 1)
+- State (Harman_Requirement): New
+
+6. ID: 3981212
+- Contents: Calibration Parameters
+Calibration_Parameter_# (List of the calibratable parameters used by the specific functionality)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3981216
+- Contents: Inputs
+STATUS_NSP2.NSPControlSts
+STATUS_NSP2.LHLateralObstacleDistance
+STATUS_NSP2.LHCentralObstacleDistance
+STATUS_NSP2.RHLateralObstacleDistance
+STATUS_NSP2.RHCentralObstacleDistance
+STATUS_NSP2.LHLateralColor
+STATUS_NSP2.LHCentralColor
+STATUS_NSP2.RHLateralColor
+STATUS_NSP2.RHCentralColor
+STATUS_NSP2.TotalFrameNumber
+STATUS_NSP2.FrameNumber
+STATUS_NSP2.NSPFailSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 3981217
+- Contents: Inputs
+INFO_CameraActivation
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image107.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image106.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image108.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-3 6.2.4.4.1  VIRTUAL WALLS: Rear View Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

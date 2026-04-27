@@ -1,0 +1,126 @@
+# RAD-52 6.2.1.1.52   Radio On/Off Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.52 RAD-52  Radio On/Off
+
+- ID: 4889829
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4889839
+- Contents: system shall provide user with an interface to turn ON/OFF Radio functionality by short press on ON/OFF Player buttons.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: system receives Button_DH_1 = 1 ("Pressed") then radio is set ON, IF radio is OFF and vice versa
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4889855
+- Contents: System shall turn ON/OFF the radio functionality using the knob volume interaction. (see: image14.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the radio is ON then user press on volume command(mute), Radio will be OFF and viceversa
+Note: Radio OFF screen should shown on HMI.
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Audio Processing, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image14.png
+
+3. ID: 4889860
+- Contents: After turning on the radio, the system shall displays the following information on player. (see: image15.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: After Radio On, The following information will be shown on now playing screen as per source(AM/FM/DAB/HD).
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, turning, displays, following, radio, information, player" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image15.png
+
+4. ID: 4889859
+- Contents: System shall persist the last radio state for each key ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the last state is coming up on HMI after key ON.
+- Grooming Status: Approved
+- Grooming Comments: Based on this JIRA https://jira.harman.com/jira/browse/FQ-781 we change following  the Requirement 
+IDC-493071 - At each Key ON, IDC shall set the radio functionality OFF to current requirement.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, pause, functionality OFF, key ON, interaction, display" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4889871
+- Contents: When the user select a station from the list in case of Radio functionality set to OFF then system shall set the radio functionality ON and Tune to the selected station.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: When Radio is in OFF state, If User goes and select the station from station list the stste will change to raido ON and the selected station will be tuned.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, select, set, Tune, selected, station, list, functionality ON" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4889844
+- Contents: [Info]This function shall allow the user to activate or deactivate the radio functionality.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 50
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" ) 
+Compound requirement
+ (Look for: "function, allow, to activate, deactivate, functionality, system" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image15.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image14.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-52 6.2.1.1.52   Radio On/Off Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

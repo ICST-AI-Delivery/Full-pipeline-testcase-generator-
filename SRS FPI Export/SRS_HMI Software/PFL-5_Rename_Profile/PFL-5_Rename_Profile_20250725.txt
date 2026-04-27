@@ -1,0 +1,209 @@
+# PFL-5 6.2.6.6  Rename Profile Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.6 PFL-5 Rename Profile
+
+- ID: 3939839
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3969983
+- Contents: System shall allow the user to rename any of existing User Profiles except the Guest profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the user able to rename the user profiles except guest profile.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "except" ) 
+Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3969984
+- Contents: IDC shall add a space and numeric suffix to the entered name When a profile should rename with an already existing profile name.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to add a space and numeric suffix correctly when a profile is renamed with an existing name.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "profile, add, entered, rename, existing, space, suffix, name" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3969985
+- Contents: IDC shall provide a visualization cycle to inform the user the renaming procedure has been completed.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that the renaming procedure is completed.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "has been completed" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3969986
+- Contents: IDC shall provide a visualization cycle to inform the user the change has not finalize when the profile name has not change.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when the profile name has not been changed and the change is not finalized.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "name, provide, to inform, has finalize, has change, visualization cycle, change" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3969987
+- Contents: IDC shall inform the user a profile cannot be renamed while driving.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that a new profile cannot be renamed in driving.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "cannot" ) 
+Passive voice
+ (Look for: "be renamed" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3969989
+- Contents: IDC shall require additional confirmation to exit from the keyboard ambient.
+(see: image130.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the confirmation to exit from the keyboard ambient.
+- Grooming Status: Approved
+- Grooming Comments: this is related to love from need to add oem attribute as yes
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image130.png
+
+7. ID: 3969991
+- Contents: IDC shall store Updated profile name for persistence.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to store the updated name for persistence.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4728580
+- Contents: System shall "not" allow to complete the procedure when "no" characters inserted in the string.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system does not allow the rename process when no characters in string
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to complete, inserted, procedure, no, characters, string" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4728581
+- Contents: IDC shall check if the entered characters match the string associated to an already existing profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to check the characters that matched to the string for existing profile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "characters, check, entered, match, associated, existing, string, profile" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4728582
+- Contents: IDC shall prohibit the use of the keyboard when VehicleSpeedVSOSig >= SpeedProfile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user not able to access the keyboard when VehicleSpeedVSOSig >= SpeedProfile.
+
+SpeedProfile (IDC-434725 - PROFILING_MANAGEMENT($ TBD) IDC-434725 -
+PROFILING_MANAGEMENT($052B)
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3969982
+- Contents: This function allows the user to rename an existing User Profile.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4102887
+- Contents: Languages available for keyboard depends on system language. Below the list of available languages for Keyboard and handwriting:
+Latin
+Turkish
+Arabic
+Cyrillic
+Chinese
+Japanese
+(see: image131.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image131.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image130.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image131.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-5 6.2.6.6  Rename Profile Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

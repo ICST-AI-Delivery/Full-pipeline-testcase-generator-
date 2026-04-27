@@ -1,0 +1,70 @@
+# VEH-F022 6.2.1.1.1.5  EOBD Telltale And Engine ECU Failure Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.5 VEH-F022 EOBD Telltale And Engine ECU Failure
+
+- ID: 4634276
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4634279
+- Contents: System shall display Fail1 Telltale and send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when Propulsion System Failure is Fail_Present.
+Note: System shall follow S14 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+PropulsionSystemFailure = Fail_Present
+
+
+Verify the Telltale is displayed for Fail-1 When trigger condition is met.
+
+Pop-Up ID: 00220001
+
+Telltale ID: WRM019
+
+
+CAN-Signal:
+PWT_STATUS_1.PropulsionSystemFailure
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Failure, display, is, follow, Telltale, visualisation" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4634277
+- Contents: System shall display EOBD Telltale and Engine ECU Failure indications as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F022 6.2.1.1.1.5  EOBD Telltale And Engine ECU Failure Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,425 @@
+# RAD-32 6.2.1.1.33  HD Radio Artist Experience Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.33 RAD-32 HD Radio Artist Experience
+
+- ID: 4094216
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4097599
+- Contents: System shall allow the user to turn Off the cover arts in HD radio screens.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow the user to turn Off the cover arts in HD radio screens.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4097616
+- Contents: System shall display cover art in the the below priority:
+1. System shall display the cover art of the now playing artist, song, or program when Artist/song/program cover art available
+2. System shall display channel's cover art when artist/song/program  cover art unavailable.
+3. System shall display predefined place holder image when artist/song/program/channel cover art unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display cover art in the the below priority:
+1. System shall display the cover art of the currently playing artist, song, or program when Artist/song/program cover art available
+2. System shall display channel's cover art when artist/song/program  cover art unavailable.
+3. System shall display predefined place holder image when artist/song/program/channel cover art is unavailable.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, playing, predefined, art, priority, artist, program, Artist, cover, image, program/channel cover art unavailable" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4097703
+- Contents: System shall allow the user to enable/disable HD Radio Artist Experience® feature.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow the user to enable/disable HD Radio Artist Experience feature.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, enable, disable, Experience" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4097835
+- Contents: System shall allow user to enable HD Radio Artist Experience® when the user selection in dedicated interaction is ON
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to enable HD Radio Artist Experience when the user selection in dedicated interaction is ON
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, enable, selection, is, Experience #174, interaction" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4097836
+- Contents: System shall allow user to disable HD Radio Artist Experience® when the user selection in dedicated interaction is OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to disable HD Radio Artist Experience® when the user selection in dedicated interaction is OFF.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to disable, selection, is, Experience #174, interaction, OFF" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4097853
+- Contents: System shall display album art image JPG format with 200x200pixels" resolution and max size of PNG file with "24Kbytes".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display album art image JPG and PNG format with resolution of 200x200 pixels and a maximum file size of 24 Kbytes.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, art, album, format, resolution, size, file" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4097860
+- Contents: System shall display the retrieved image synchronously with the beginning of the song.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the retrieved image synchronously with the beginning of the song.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4097879
+- Contents: System shall adjust PSD message timing to account for transmission delays when non-HD transmission channels are in use.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall adjust PSD message timing to account for any transmission delays when non-HD transmission channels are in use.
+- Grooming Comments: Not Offered in CRS
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, adjust, timing, to account, are, delays, channels, use" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 4097898
+- Contents: System shall hold the last display image for a duration of 10 to 30 seconds after the loss of digital audio signal, then system shall clear the image buffer.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall hold the last displayed image for a duration of 10 to 30 seconds after the loss of digital audio signal, then system shall clear the image buffer.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4097920
+- Contents: System shall hold images for up to five minutes in memory, for return to station.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall hold images for up to five minutes in memory, for return to station
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 4097997
+- Contents: System shall display the image for a minimum of 5 seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall display the image for a minimum of 5 seconds.
+- Grooming Status: Blocked
+- Grooming Comments: Not Offered in CRS
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+12. ID: 4097942
+- Contents: System shall ignore station logo that tune in before the song started, if a second image  (or further) received.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display Logo from current playing song, instead of previous channel/frequency.
+
+Note: Song logo is not available then station logo has to show.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ignore, tune, started, received, logo, further" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Ignore logo because as it is redundant for receivers that tuned in before the song
+
+13. ID: 4098005
+- Contents: System shall display the upcoming image received shortly after the song beginning when the receiver untune to the station before beginning of the song OR a data impairment issue at time of transmission occurs.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the (second or third) image received shortly after the song beginning when the receiver is not tune into the station before beginning of the song.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, upcoming, received, beginning, untune, occurs, image, receiver, station, issue" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Upcoming image (second or third)
+
+14. ID: 4098010
+- Contents: System shall display the logo image in JPEG or PNG format , with resolution 200x200, under 24 kilobytes.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the logo image in JPEG or PNG format , with resolution 200x200, under 24 kilobytes.
+- Grooming Status: Approved
+- Grooming Comments: Need to check with space 4 about how to check image resolution
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, image, format" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4098018
+- Contents: System shall cache the Station Logo image received by the broadcaster
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+16. ID: 4098021
+- Contents: System shall display station Logo image when Artist experience image unreceived by the broadcaster for a particular song.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Station Logo image when no-Artist Experience image is received by the broadcaster for a particular song.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, unreceived, image, broadcaster, song" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4098046
+- Contents: System shall display Station Logo image when receive a craft PSD XHDR message indicating that the station logo has to display.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Station Logo image when receive a craft PSD XHDR message indicating that the station logo has to display.
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, logo, display, receive, indicating, has, to display, image, PSD, message" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4098058
+- Contents: Station Logo and Artist Experience visualization shall be compliant to RD_HD-05
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: space4 requirement
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+19. ID: 4098063
+- Contents: System shall store temporarily (i.e. volatile  memory) the retrieve image.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall store temporarily (i.e. volatile  memory) the retrieve image
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "temporarily" )
+- State (Harman_Requirement): Approved
+
+20. ID: 4098065
+- Contents: System shall store HD Radio Artist Experience® setting value for persistency
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall store HD Radio Artist Experience® setting value for persistency
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+21. ID: 4098069
+- Contents: When album art/station logo unavailable, then system shall provide a dedicate indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If neither album art nor station logo are available, then system shall display placeholder image.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "art, system, provide, logo unavailable, indication" )
+- State (Harman_Requirement): Approved
+
+22. ID: 4098071
+- Contents: HD Radio Artist Experience feature shall applicable to AM HD, FM HD radio sources
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HD Radio Artist Experience feature shall applicable to AM HD, FM HD radio sources
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4097424
+- Contents: [Info] This function allows the user to activate/deactivate the HD Radio Artist Experience®, a feature that provides images related to the specific audio segment.
+[Info]Broadcasters are able to send static and dynamic images along with their audio and textual information to enhance the listening experience.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4097702
+- Contents: placeholder info: (see: image7.png)
+(see: image8.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image7.png, image8.png
+
+3. ID: 4097848
+- Contents: Album image
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4097850
+- Contents: [Info] The image is transferred to the receiver before the song occurs therefore and hence the receiver needs enough memory capabilities (see for example radio world website explanation of artist experience) .
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 4097857
+- Contents: [Info] The Artist Experience bandwidth is pooled across all HD channels, so the images for the MPS/HD1,
+SPS1/HD2 and other channels share the same data bandwidth
+[Info]The data size allocated for transmission of Artist Experience is 4 kbps. So, a maximum file size
+image of 24 kilobytes would take 48 seconds to transmit
+[Info]iBiquity Recommended Storage Capacity Example for Artist Experience®:
+Non-Volatile Memory (Permanent) – Station Logos
+. Maximum logo size = 24 kbytes x 50 logos = 1.17 Mbytes (as defined by RD_HD-05)
+.Volatile Memory (RAM) – Album Art
+.Maximum image size = 24 kbytes x 2 Album Art images per channel x 4 (SPS Channels) x 2 frequencies (to save last station for return tuning) = 384 kbytes (as defined by RD_HD-05.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 4097875
+- Contents: [Info]the synchronous visualization of the downloaded image with the starting of the song is controlled by an event signal (conveyed by the XHDR trigger into the PSD message)
+[Info] This trigger matches an image previously sent by MSAC (aka Multiport
+synchronous/asynchronous client) through a unique identifier called a LOT ID
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 4098003
+- Contents: Station Logo
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4098004
+- Contents: [Info]A second image transmission event happens concurrently with a new song start.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 4098009
+- Contents: [Info] It is possible to receive the image also a third or more times after the song has started
+[Info] Transmitting station logos is critical since receivers use the logos as a fallback when song specific
+synchronized images are unavailable
+[Info]Station Logo is usually broadcasted once every 15 minutes or less. MSAC treats this as a low-priority
+send
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 4098057
+- Contents: [Info] For instance, at Clear Channel, this command is used when the default generic PSD messages is displayed, so that receivers that support Station Logo will display the image
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+11. ID: 4098062
+- Contents: Received image storage
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+12. ID: 4098064
+- Contents: [Info] There is no need to store the images to a non-volatile memory for future usage
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+13. ID: 4098066
+- Contents: Persistence
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+14. ID: 4098068
+- Contents: Recovery
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image8.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image7.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-32 6.2.1.1.33  HD Radio Artist Experience Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

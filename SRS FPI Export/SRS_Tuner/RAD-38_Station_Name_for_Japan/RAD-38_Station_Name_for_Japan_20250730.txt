@@ -1,0 +1,96 @@
+# RAD-38 6.2.1.1.39  Station Name for Japan Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.39 RAD-38 Station Name for Japan
+
+- ID: 4094224
+- Artifact Type: SRS Feature
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Blocked
+- State (Harman_Requirement): In Work
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5835150
+- Contents: System shall access the Japan FM station names database during Software update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: During software update HU is not in operating state?
+If Operating the HMI during flashing, is Flashing interrupted or not?
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): In Work
+
+2. ID: 5835193
+- Contents: System shall apply a query on database based on vehicle current geographical position to filter the names for the station available in the prefecture during normal usage,
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Based on vehicle location need to verify the assigned station name
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+3. ID: 5835195
+- Contents: system shall assign names to match the frequencies from the retrieved stations
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Based on vehicle location need to verify the assigned station name
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+4. ID: 5840752
+- Contents: System shall scan and assign the name to Japan AM Stations
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Based on vehicle location need to verify the assigned station name
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5835144
+- Contents: This function is dedicated to scan and to assign name to Japan radio stations
+- Artifact Type: Information
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+2. ID: 5835330
+- Contents: For an example of stations based on prefecture and frequency please refer to reference document  RD_JPN-01 FM_AM_Station_List_Japan
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-38 6.2.1.1.39  Station Name for Japan Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

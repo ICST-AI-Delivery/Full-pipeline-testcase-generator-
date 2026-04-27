@@ -1,0 +1,369 @@
+# AUS-4 6.2.1.10  Audio Presets Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.10 AUS-4 Audio Presets
+
+- ID: 4032632
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4616071
+- Contents: The system shall support the below sound presets
+Studio, Concerto, Cinema, Immersivo, Comfort and Auto
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an entertainment Audio.
+Change the sound preset (Studio, Concerto, Cinema, Immersivo, Comfort and Auto
+Verify the Audio is heard as per the selected sound preset.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, presets, Cinema, Immersivo, Comfort, Auto" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4616073
+- Contents: The system shall not show the Auto preset by default & enable the Auto preset visualization via the Engineering Menu.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash the SW
+Verify that user can not see 'Auto preset' by default.
+
+Verify that it is possible to Enable the Auto Preset via Engineering Menu and can be visible on HMI
+
+Note: 
+Auto preset can be hided/visible on engineering menu based on proxi and calibration parameter
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-896
+https://jira.harman.com/jira/browse/FQ-894
+
+[Abdul, Muthuraj 12.12.2024]:  it's visualization
+can be enabled by software (It is Engineering menu)
+https://jira.harman.com/jira/browse/FQ-751
+
+
+Ask this to Ferrai:
+HMI-LF-8937 - Auto preset is a [Showable configurable item] (i.e is not visible to the user by default but it's visualization
+can be enabled by software)
+ 
+IDC-430586 - IDC shall manage the Audio Preset setting only if proxi parameter Audio_Level == 3 ("High
+End").
+
+What is the use of Audio_levl proxi if this can be enabled/disable via Enginering Menu ?
+
+What is manage means : Ask in the previous question
+
+https://jira.harman.com/jira/browse/FQ-896
+https://jira.harman.com/jira/browse/FQ-894
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer to Menustructure for further information.
+Refer to ENG domain for activation.
+
+The purple color setting in Menustructure can be controlled via Engineering Menu.
+
+3. ID: 4032750
+- Contents: The system shall manage the Audio Preset setting only if proxi parameter 'Audio_Level == 3'("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level == '3'("High End").
+
+Verify that Audio Preset setting is visible.
+Verify the the Audio preset value can be changed from HMI.
+
+Verify  the setting is hided if Audio_Level !=3
+- Grooming Status: Approved
+- Grooming Comments: [25.02.2025 Abdul] Kept the text as Manage as informed by FO (Muthuraj)
+
+Ferrari:The reported settings will be available only if the mentioned conditions are matched, otherwise will be hided.
+
+[12.12.2024 Muthu, Abdul]: What is manage
+https://jira.harman.com/jira/browse/FQ-894
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The reported settings will be available only if the mentioned conditions are matched, otherwise will be hided.
+
+4. ID: 4032755
+- Contents: The system shall apply the " Audio Preset setting " for the 'ENTERTAINMENT' Audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Audio Preset settings are visible.
+
+Verify the Audio Preset settings can be changed for Entertainment Sources.
+
+Note: Entertainment Sources includes 
+ Radio, Android Auto, Apple CarPlay, Traffic Alert
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-879
+- Expert Domains: Audio Control, Media Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4032784
+- Contents: The system shall set the Audio Preset setting value to the 'IDC_AudioSettings.AudioPreset'' output signal when user changes the Audio Preset setting value.
+HMI meaning         :    AudioPreset
+Studio                   '0'("Studio")
+Concerto              '1'("Concerto")
+Cinema                '2'("Cinema")
+Immersive            '3'("Immersive")
+Comfort                '4'("Comfort").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Audio Preset setting value.
+
+Verify that the set value is shown on the HMI and in the CAN signal 'IDC_AudioSettings.AudioPreset
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, output, according, follows, requests, setting, meaning, value, change, Studio, Concerto, Cinema, Comfort" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4032846
+- Contents: The system shall set the Automatic Preset setting value to the "IDC_AudioSettings.AutomaticPreset'' output signal when the user changes the .Automatic' Preset setting state.
+HMI meaning         :        AutomaticPreset
+OFF (Not Active)            '0'("Off")
+ON (Active)                    '1'("On")
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: Change the Automatic Preset setting value  (On/Off).
+
+Verify that the set value is shown on the HMI and in the CAN signal 'IDC_AudioSettings.AutomaticPreset
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, output, according, follow, requests, meaning, value, update, state" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4622012
+- Contents: If setting Persistence type is Standard, the system shall persist the Audio Presets settings independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Presets) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4622013
+- Contents: If setting persistent type = standard, the system shall set the Audio Presets setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Audio Presets settings value.
+
+Create error in memory reading.
+Verify that the Audio settings value is set to default value in HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, Presets, to default, read, stored, type   standard, value, portion" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4622014
+- Contents: If setting Persistence type = Profiled, the system shall store the last 'Audio Preset setting' value for the current active user profile, before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+
+Verify that the last HMI Audio settings (Audio presets) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]: OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, Preset, value, profile, system shutdown" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4622015
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi paranmeter "Profile" =1.
+
+
+Verify that the last HMI Audio settings value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4622016
+- Contents: If setting Persistence type = Profiled, the system shall set the Audio Presets setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Audio settings value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 09.12.2024]:OK to approve
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, Presets, to default, read, stored, value, portion" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4032875
+- Contents: The system shall set the signal IDC_AudioSettings.Audio Preset = 0 ("Studio") If proxi parameter Audio_Level != 3("High End").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter (Audio_Level) !=3
+
+Verify that the Audio Preset is = 0 ("Studio") in HMI and in the CAN signal
+IDC_AudioSettings.Audio Preset
+- Grooming Status: Approved
+- Grooming Comments: [09.12.2024, Muthu, Abdul]: Engineering menu is there only for the purple color item in Menu structure
+
+https://jira.harman.com/jira/browse/FQ-896
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4032636
+- Contents: The Audio Preset feature allows the user to select between the following audio presets:
+Studio preset allows the listener to listen to music with the highest fidelity in terms of Timbre, Definition, and Frequency Response;
+Concerto preset allows the listener to listen to music tracks as in a live experience enhancing Dynamics, Sound Image and perceived listening environment size;
+Cinema preset enhances the auditory experience and the soundscape, improving depth of perceived sounds by enlarging the Sound Image without distorting the Timbre;
+Immersive presets allows the listener to be at the center of the sound event, creating a three-dimensional Sound Image;
+Comfort preset reduces all the most tiring components of listening, minimizing the effort and attention required, making it ideal for long trips or non-active listening.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4032642
+- Contents: The system shall display the "Audio Presets" interfaces as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+3. ID: 4032716
+- Contents: Different profiles of sound enhancement are available and affect the entire audio scene.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4032799
+- Contents: The system shall properly select the Audio Preset through the FAD_CTRL__setAudioPreset(void *fad_ctrl_memory, int preset_value) API If the value of Audio Preset setting changes, where:
+preset_value = Audio Preset HMI_Value
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "properly" )
+- State (Harman_Requirement): Review
+
+5. ID: 4032867
+- Contents: The system shall enable/disable the Automatic Preset functionality through the 'FAD_CTRL__setAutomaticPreset(void *fad_ctrl_memory, bool enable)' APIIf the value of AutomaticPreset changes, where:
+enable = false IF HMI_Value == OFF
+enable = true IF HMI_Value == ON
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, enable, disable, functionality, value, changes, IF" )
+- State (Harman_Requirement): Review
+
+6. ID: 4032870
+- Contents: The system shall apply Persistence logics to Audio Preset setting as defined in Audio setting introduction
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+7. ID: 4032878
+- Contents: Diagnosis
+  Calibration Parameters
+AudioPreset
+AutomaticPresetEnable
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4032881
+- Contents: Proxi
+Start Byte 154, Start bit 6 - Audio Level (0 = "Invalid", 1 = "Base", 2 = "Premium", 3 = "High End")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 4032883
+- Contents: Outputs
+   INFO_CAN:
+IDC_AudioSettings.AudioPreset
+IDC_AudioSettings.AutomaticPreset
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-4 6.2.1.10  Audio Presets Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

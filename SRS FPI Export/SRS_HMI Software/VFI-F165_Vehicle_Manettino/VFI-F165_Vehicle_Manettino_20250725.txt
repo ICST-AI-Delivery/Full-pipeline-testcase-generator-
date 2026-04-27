@@ -1,0 +1,117 @@
+# VFI-F165 6.2.2.11  Vehicle Manettino Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.11 VFI-F165 Vehicle Manettino
+
+- ID: 4136853
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4136867
+- Contents: IDC shall provide following manettino status:
+ICE
+WET
+COMFORT
+SPORT
+ESC - OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the different type of manettino's.
+
+Input
+HMI_CAN:
+NVO_INFO_V2.ManettinoSts
+NFR_HMI.ESCOFFLampRequest
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4136933
+- Contents: IDC shall indicate same value when vehicle Dynamic configuration should show in more than one display.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the synchronization of vehicle dynamic configuration. (ice,wet etc)
+
+
+for cluster tel tale ref VEH-manettino
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "indicate, show" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4136871
+- Contents: IDC shall display a pop up when user changes configuration manually.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when user changes the configuration manually.
+
+through SWC
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, changes, up, configuration" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4136934
+- Contents: System shall provide visual and acoustic feedback when ESC OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to provide visual and acoustic feedback when ESC OFF.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, visual, feedback, OFF" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4136935
+- Contents: IDC shall display a popup when ESC ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when ESC ON
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F165 6.2.2.11  Vehicle Manettino Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,206 @@
+# VEH-F812 6.2.1.1.1.31  Recharge Flap Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.31 VEH-F812 Recharge Flap Management
+
+- ID: 3939907
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4000008
+- Contents: System shall display Feedback-1 Pop-up when RechargeFlapDisplayInfo is Recharge_Flap_Open.
+Note: Feedback-1 follows D11 visualization behaviour  with Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System Displays Feedback-1 Pop-up when RechargeFlapDisplayInfo is Recharge_Flap_Open.
+
+Pop-Up ID: 08120001
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, RechargeFlapDisplayInfo, Priority-1" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4000009
+- Contents: Systen shall display Feedback-2 Pop-up with buzzer when RechargeFlapDisplayInfo is "Recharge_Flap_Close".
+Note: Feedback-2 follows D11 visualization behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System Displays Feedback-2 Pop-up when RechargeFlapDisplayInfo is Recharge_Flap_Close.
+
+Pop-Up ID: 
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Systen, display, is, follows, Pop-up, buzzer, RechargeFlapDisplayInfo, Priority-2" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4000010
+- Contents: System shall perform Feedback-2 when starting from a condition different from Closed.
+Note: By default the recharge flap is always closed and F812-Feedback-2  not-be-visualised.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Feedback-2  is displayed as per the trigger condition.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, starting, Closed" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4000011
+- Contents: System shall display Info-1 Pop-up when RechargeFlapDisplayInfo is Impossible_to_open_Flap.
+Note: Info-1 follows D04 visualization behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-1 Pop-Up when RechargeFlapDisplayInfo is Impossible to open flap.
+
+Pop-UpID: 08120003
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, RechargeFlapDisplayInfo, Info-1, Priority-2" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4000012
+- Contents: System shall display Info-2 Pop-up when RechargeFlapDisplayInfo is EPB_not_inserted.
+Note: Info-2 follows D11 visualization behaviour with Priorirty-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-2 Pop-Up when RechargeFlapDisplayInfo is EPB_not_inserted.
+
+Pop-UpID: 08120004
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, inserted, follows, Pop-up, RechargeFlapDisplayInfo, Priorirty-2" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4000013
+- Contents: System shall display Info-3 Pop-up when RechargeFlapDisplayInfo is ImpossibleToOpenChargingFlap.
+Note: Info-3 follows D11 visualization behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-3 Pop-Up when RechargeFlapDisplayInfo is Impossible to open Charging Flap.
+
+Pop-UpID: 08120005
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, RechargeFlapDisplayInfo, ImpossibleToOpenChargingFlap, Priority-2" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4000014
+- Contents: System shall display Info-4 Pop-up when RechargeFlapDisplayInfo is "EPBUnavailableNoCharging".
+Note: Info-4 follows D11 visualization behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-4 Pop-Up when RechargeFlapDisplayInfo is EPBUnavailableNoCharging
+
+Pop-UpID: 08120006
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, RechargeFlapDisplayInfo, EPBUnavailableNoCharging, Priority-2" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4000015
+- Contents: System shall display Info-5 Pop-up when RechargeFlapDisplayInfo   is  "Opening_Not_Allowed".
+Note: Info-5 follows D11 visualization behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-5 Pop-Up when RechargeFlapDisplayInfo is EPBUnavailableNoCharging
+
+Pop-UpID: 08120007
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, Allowed, follows, Pop-up, RechargeFlapDisplayInfo, Priority-2" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4000016
+- Contents: System shall display Warning-1 Pop-up when RechargeFlapDisplayInfo is "ChargingFlapOpenPleaseCloseIt".
+Note: Warning-1 follows D04 visualization behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-1 Pop-up when RechargeFlapDisplayInfo is ChargingFlapOpenPleaseCloseIt.
+
+Pop-Up ID: 08120008
+
+CAN-Signal: STATUS_NCB_2.RechargeFlapDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, RechargeFlapDisplayInfo, ChargingFlapOpenPleaseCloseIt, Priority-2" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4000007
+- Contents: System shall display the Recharge Flap Management as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F812 6.2.1.1.1.31  Recharge Flap Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

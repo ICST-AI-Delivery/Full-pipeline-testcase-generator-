@@ -1,0 +1,84 @@
+# UnknownID 6.2.3.2.4.1 Time Format - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.2.4.1 Time Format - HMI settings
+
+- ID: 3557152
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- HB_Comment: Yes
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3557154
+- Contents: IDC shall allow user to select 24hrs/12hrs time format through HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to select 24hrs/12hrs time format through HMI
+
+HMI-CAN:
+NIT_VEHICLE_SETUP.HourMode
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note: 24hrs / 12hrs
+
+2. ID: 4730894
+- Contents: IDC shall update time visualization mode according to the Time format setting value.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to update time
+ NIT_VEHICLE_SETUP.HourMode
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4730895
+- Contents: IDC shall set internal output interface INFO_HourMode = HourMode
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal INFO_HourMode = HourMode
+
+time should be in sync both IVI and cluster.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.2.4.1 Time Format - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

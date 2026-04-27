@@ -1,0 +1,64 @@
+# RAD-20 6.2.1.1.21  DAB MOT DLS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.21 RAD-20 DAB MOT DLS
+
+- ID: 3939619
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976157
+- Contents: System shall display the DAB  DLS message of length <= 128 characters
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display and visualize the DLS message.
+
+Applicable for DAB+ 
+
+[Info] DLS is a 128 characters long (max) text and is provided every 20 seconds by the transmitting
+station. It is used to convey song titles, music type and news or traffic updates.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘128’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Info] DLS is a 128 characters long (max) text and is provided every 20 seconds by the transmitting
+station. It is used to convey song titles, music type and news or traffic updates.
+
+### Informational Items:
+
+1. ID: 3976156
+- Contents: [Info] This function allows the user to visualize the DAB Dynamic Label Segment (DAB equivalent of RDS RadioText).
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-20 6.2.1.1.21  DAB MOT DLS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

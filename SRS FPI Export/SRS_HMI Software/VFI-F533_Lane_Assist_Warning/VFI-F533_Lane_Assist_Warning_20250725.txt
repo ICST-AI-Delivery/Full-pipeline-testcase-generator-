@@ -1,0 +1,262 @@
+# VFI-F533 6.2.2.19  Lane Assist Warning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.19 VFI-F533 Lane Assist Warning
+
+- ID: 3408240
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_IOC, System Infra
+- HB_Comment: 04
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3697714
+- Contents: System shall trigger the Audio SOURCE "LDW" activation by sending the audio file LDW when below conditions are meet:
+proxi parameter Lane_Departure_Warning set 1 ("present") AND
+HALF_CHIME_TYPESts == ("Audio_01" OR "Audio_02" OR "Half_Chime")
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system triggers the audio source LDW activation by sending the audio file conditions.
+
+ Start Byte 146, Start Bit 5 - Lane_Departure_Warning (0 = "absent", 1 = "present")
+
+HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, sending, are meet, Warning, set, SOURCE, activation, file, conditions, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3697715
+- Contents: If HALF_RF_CHIME_RQSts == 1("True") then the directionality should required from rightside
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the directionality (right side).
+
+HAPTIC1.HALF_RF_CHIME_RQSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3697716
+- Contents: If HALF_LF_CHIME_RQSts == 1("True"), then the directionality should required from left side
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the directionality (left side).
+
+HAPTIC1.HALF_LF_CHIME_RQSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3697717
+- Contents: System shall trigger the Audio SOURCE "LANE_CROSSING" activation when below conditions are meet:
+proxi parameter Lane_Keep_Assist ==1 ("present") AND
+HALF_CHIME_TYPESts== ("Audio_01" OR "Audio_02" OR "Half_Chime"),
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system triggers the audio source LKA activation by sending the audio file conditions.
+
+ HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, are meet, SOURCE, LKA, activation, conditions, present" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4730412
+- Contents: System shall send the "LKA_Intervention.wav" audio file when HALF_CHIME_TYPESts == 1 ("Audio_01") OR ("Half_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file when 
+HALF_CHIME_TYPESts == 1 ("Audio_01") OR ("Half_Chime").
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4730417
+- Contents: System shall send the "LKA_Continued.wav" audio file when HALF_CHIME_TYPESts == 2("Audio_02").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file when 
+HALF_CHIME_TYPESts == 2("Audio_02").
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3697723
+- Contents: System shall mantain the source activation on the requested side speaker as long as HALF_XF_CHIME_RQSts ==1 ("True"), where X={L,R}
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system maintains the source activation on the requested side speaker condition.
+
+ HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3697725
+- Contents: System shall satisfy both the requests when left and right requests activate at a time.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system satisfies both the requests concurrently when left and right requests activated at the same time.
+
+HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, satisfy, left, activate, requests, time" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3697726
+- Contents: System shall trigger the Audio SOURCE "LKA_Warning" activation sending the audio file "LKA_Warning.wav" to the LANE_KEEPING stream when HALF_CHIME_TYPESts == 3("Audio_03").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system triggers the audio source LKA Warning1 activation by sending the audio file conditions.
+
+ HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, LKAWarning, sending, SOURCE, activation, file" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3697727
+- Contents: System shall trigger the Audio SOURCE "LKA_HandsOff" activation sending the audio file "LKA_HandsOff.wav" to the LANE_KEEPING stream when HALF_CHIME_TYPESts == 4("Audio_04").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system triggers the audio source LKA Warning1 activation by sending the audio file conditions.
+
+ HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, LKAWarning, sending, SOURCE, activation, file" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3697732
+- Contents: System shall trigger the Audio SOURCE "LKA_Deactivation" activation sending the audio file  "LKA_Deactivation" to the LANE_KEEPING stream when HALF_CHIME_TYPESts == 5("Audio_05"),
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system triggers the audio source LKA Deactivation activation by sending the audio file conditions.
+
+ HAPTIC1.HALF_CHIME_TYPESts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, sending, SOURCE, LKADeactivation, activation, file" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3697738
+- Contents: System shall wait untill the audio file has finish play before deactivate the audio source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system wait until the audio file has finished playing before deactivating the audio source.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, wait, untill, has, deactivate, file, play, source" )
+- TestTeamComment: we need audio time from customer. Ahmed will provide the time
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3697705
+- Contents: System shall implement the logics and display the interfaces as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Lane Assist warning is displayed, and Logics were performed as per the Ferrari design.
+- Grooming Status: Review
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, implement, display, logics, interfaces, design" )
+- State (Harman_Requirement): Review
+
+2. ID: 3697712
+- Contents: This function defines the audio and visual warning triggers for LDW/LKA functionality
+(see: image42.png)
+- Artifact Type: Information
+- Grooming Status: New
+- State (Harman_Requirement): Review
+- Visual Elements: image42.png
+
+3. ID: 3697713
+- Contents: Refer to "SET-45 Lane Assist (Lane Departure Warning / Lane Keep Assist) settings" for setting
+logic
+(see: image43.png)
+- Artifact Type: Information
+- Grooming Status: New
+- State (Harman_Requirement): Review
+- Visual Elements: image43.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image42.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image43.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F533 6.2.2.19  Lane Assist Warning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

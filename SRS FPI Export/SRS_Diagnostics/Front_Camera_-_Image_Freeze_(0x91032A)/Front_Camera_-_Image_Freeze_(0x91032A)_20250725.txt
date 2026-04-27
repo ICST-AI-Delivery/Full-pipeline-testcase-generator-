@@ -1,0 +1,71 @@
+# UnknownID 6.2.1.5.40 Front Camera - Image Freeze (0x91032A) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.40 Front Camera - Image Freeze (0x91032A)
+
+- ID: 4620794
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4620796
+- Contents: The System shall detect Image Freeze Fault in Front Camera within 1s with SV in active state, if Front camera video stream frozen.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the Front camera video stream Frozen.
+-Image Freeze Fault in Front Camera should be detect within 1s when SV is in active state.
+-Set Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality") = "Present"
+-Verify DTC will be trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Fault, Camera, SV, state" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for request 0x1906&"DTC-ID". No info about how to simulate or trigger an image freeze. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: https://confluence.harman.com/confluence/pages/viewpage.action?spaceKey=FERRARISPACE4&title=Diagnostic+specification+releases
+
+2. ID: 4621060
+- Contents: The System shall clear the DTC within 1s, if the Image Freeze Fault in Front Camera is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify No fault is detected in Front camera.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, clear, is absent, DTC, Camera" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for request 0x1906&"DTC-ID". No info about how to simulate or trigger an image freeze. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: https://confluence.harman.com/confluence/pages/viewpage.action?spaceKey=FERRARISPACE4&title=Diagnostic+specification+releases
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.40 Front Camera - Image Freeze (0x91032A) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

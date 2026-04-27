@@ -1,0 +1,278 @@
+# VEH-F179 6.2.1.1.1.23  Obstacles Proximity Signalling Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.23 VEH-F179 Obstacles Proximity Signalling
+
+- ID: 4727268
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Grooming Comments: Please Refer :
+https://jira.harman.com/jira/browse/FQ-1033
+
+Note:
+Changes are reflected in the next documentation.
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4727292
+- Contents: During Key-Off IDC shall stop and reset Parking SysFilter timer
+(see: image59.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Parking SysFilterTimer  is stopped and reset by the System during the KEY-OFF.
+
+After ParkSysFilter timer the Fail-2 is triggered the Warning should be trigered in the Steady state
+
+Before ParkSystemFilter time i.e.,35 seconds the Warning should be trigered in the Steady state.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "NQS, stop, reser, timer" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image59.png
+
+2. ID: 4727299
+- Contents: During Key-On NQS shall start ParkingSysFilter timer.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System is in ON state or Steady state then the Parking SysFilter timer should be started.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4727313
+- Contents: During Key-On ParkingSysFilter timer expires when it becomes greater than or equal to the T_ParkingSysFilter time Parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System is in ON state or Steady state then the Parking SysFilter timer should be started.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 20
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "expires, becomes, Parameter" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4727344
+- Contents: During Steady State NQS shall continue to increase the active ParkingSysFilter timer.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System is in ON state or Steady state then the Parking SysFilter timer should be started.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4727348
+- Contents: ParkingSysFilter timer expires when it becomes greater than or equal to the T_ParkingSysFilter time parameter
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System is in ON state or Steady state then the Parking SysFilter timer should be started.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 20
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "timer, expires, becomes, parameter" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4727356
+- Contents: When ParkingSysFilter expires, NQS shall stop incrementing it.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System is in ON state or Steady state then the Parking SysFilter timer should be started.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 20
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "ParkingSysFilter, NQS, expires, stop, incrementing" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4727371
+- Contents: System shall stop  performing buzzer activation from NCA/NCR request(F198 Info1 and F200 Warning-16, while the other requests are regularly controlled when the buzzer NSP is Active(RHNSPBuzzerReqSts or CNSPBuzzerReqSts or LHNSPBuzzerReqSts is Active).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System is in ON state or Steady state then the Parking SysFilter timer should be started.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Grooming Comments: Need to check the Resonsible domain for this req!
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, performing, activation, NCA/NCR, requests, buzzer NSP is ActiveRHNSPBuzzerReqSts, CNSPBuzzerReqSts, LHNSPBuzzerReqStsis Active" ) 
+Unclear term
+ (Look for: "other, regularly" ) 
+Passive voice
+ (Look for: "controlled" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4758889
+- Contents: System shall display Fail-1 Pop-up and Buzzer when Proxi NSP is present  and NSPFailSts is Front Failure or Rear Failure or System Failure.
+Note: Fail-1 follows D01 visualisation behaviour with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi parameter NSP = “present” (byte 29, bit 0).
+
+Trigger Condition:
+(NSPFailSts = Front Failure or Rear Failure or System Failure)
+
+Verify that the Fail-1 Pop-up with buzzer is displayed and send it to IVI when trigger condition is met.
+
+CAN-Signal:
+STATUS_NSP2.NSPFailSts
+
+Proxi:(byte 29, bit 0).
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, NSP, display, is present, is, follows, Pop-up, Buzzer, NSPFailSts, Failure, Priority-2" )
+- State (Harman_Requirement): Approved
+
+9. ID: 5037972
+- Contents: System shall display Fail-2 Pop-up with Buzzer and Send the Status to IVI when ([PRK_RCVSFailSts = “Fail_Present” or INFO_IDC_RVCSFailSts=“Fail_Present” or IDC_INFO missing information** or DTC is present  and ParkingSysFilter timer expired.
+AND
+proxi parameter RVCSFail_popup_inhibition= “Popup_present” (byte 174, bit 1).
+Note: This visualization cycle shall be independents from the presence/absence of NSP (byte29, bit 0).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi parameter RVCSFail_popup_inhibition= “Popup_present” (byte 174, bit 1).
+
+Trigger Condition:
+([PRK_RCVSFailSts = “Fail_Present” or INFO_IDC_RVCSFailSts=“Fail_Present” or IDC_INFO missing information** or DTC is present (see Diagnosis paragraph
+below)] and ParkingSysFilter timer expired.
+
+Verify Pop-Up and Buzzer is displayed as per the Trigger Condition
+
+
+Internal Interface:
+INFO_IDC_RVCSFailSts
+PRK_RCVSFailSts
+
+
+Proxi: (byte 174, bit 1).
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_Diag, IOC_IOC, System Core, System Infra
+- RQA Score: 30
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" ) 
+Compound requirement
+ (Look for: "System, DTC, cycle, display, Send, missing, is present, expired, present, Note, be, Pop-up, Buzzer, Status, IVI, INFO, information, timer, independents, presence, absence, bit" ) 
+Missing unit 
+ (Look for: "‘1,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+10. ID: 5037974
+- Contents: System shall display Warning-1 Pop-up with Buzzer and send the status to IVI. when
+([PRK_RCVSFailSts = “Fail_Present” or INFO_IDC_RVCSFailSts= “Fail_Present” or DTC is present and ParkingSysFilter timer not expired
+AND
+proxi parameter RVCSFail_popup_inhibition= “Popup_present” (byte 174, bit 1)
+Note:this visualization cycle shall be independents from the presence/absence of NSP (byte29, bit 0).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi parameter RVCSFail_popup_inhibition= “Popup_present” (byte 174, bit 1).
+
+Trigger Condition:
+([PRK_RCVSFailSts = “Fail_Present” or INFO_IDC_RVCSFailSts=“Fail_Present” or IDC_INFO missing information** or DTC is present (see Diagnosis paragraph
+below)] and ParkingSysFilter timer not expired.
+
+Verify Pop-Up and Buzzer is displayed as per the Trigger Condition
+
+
+Internal Interface:
+INFO_IDC_RVCSFailSts
+PRK_RCVSFailSts
+
+
+Proxi: (byte 174, bit 1).
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" ) 
+Compound requirement
+ (Look for: "System, DTC, cycle, display, send, is present, present, Note, be, Pop-up, Buzzer, status, IVI, INFO, timer, independents, presence, absence, bit" ) 
+Negative statement
+ (Look for: "not" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "expired" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4727274
+- Contents: System shall display Obstacles Proximity Signalling as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image59.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F179 6.2.1.1.1.23  Obstacles Proximity Signalling Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

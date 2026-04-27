@@ -1,0 +1,89 @@
+# UnknownID 6.2.4.3.1.24 GPS - Position Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.24 GPS - Position
+
+- ID: 4010217
+- Artifact Type: SRS Feature
+- Responsible Domain: NavSens
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4010219
+- Contents: The system shall read GPS-Position with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Grooming Comments: 1.Does this latitude and longitude requires from DR(SW DR) data or non-DR(directly from chip) data
+
+2.The latitude and longitude data will be off 8 bytes each so what need to be filled for the remaining bytes?
+
+Need ask some example data how it look like?
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 28 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+
+2. ID: 4010223
+- Contents: Whenever the user  requesting data identifier with the diagnostic service Read Data By Identifier the ECU shall return the GPS positioning coordinates divided as follows (see: image169.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned module information for GPS-Position in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "return, positioning, divided, follows, ECU, GPS, coordinates" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 28 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image169.png
+
+3. ID: 4010224
+- Contents: In case of no GPS reception, parameter shall be populated with dashes (e.g. "--------------")
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "be populated" )
+- TestTeamComment: RWeber_DIAG_250225: should be testable
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image169.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.24 GPS - Position Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

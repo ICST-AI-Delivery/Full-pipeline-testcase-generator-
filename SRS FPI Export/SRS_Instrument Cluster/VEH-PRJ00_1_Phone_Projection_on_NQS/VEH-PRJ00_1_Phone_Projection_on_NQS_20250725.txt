@@ -1,0 +1,404 @@
+# VEH-PRJ00 6.2.1.1.1.43 1 Phone Projection on NQS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.43 VEH-PRJ001 Phone Projection on NQS
+
+- ID: 4028872
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Projections, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4031351
+- Contents: System shall display the screen to Smartphone projection informations in the dedicated "H" area, When Smartphone projection is expect to be shown on display.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Connect the Phone via bluetooth or Via USB and verify that the Smart phone informations are displayed in Dedicated H-Area.
+
+Verify these items were projected on to the screen:
+*Distance to next manoeuvre
+ *Next manoeuvre pictogram
+ *Next manoeuvre address
+- Grooming Status: Approved
+- Expert Domains: Projections, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, projection, display, dedicated, is expect, to be shown, screen, informations" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4031372
+- Contents: Syem shall stop displaying the phone projection contents on the Cluster when the phone projections session is interrupt.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Disconnect the Phone via bluetooth or Via USB and verify that the Smart phone informations are not-displayed in Dedicated H-Area.
+- Grooming Status: Approved
+- Expert Domains: Projections, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Syem, stop, displaying, is interrupt, contents, Cluster, session" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4031380
+- Contents: System shall implement the below mentioned interfaces:
+Pictogram
+Distance to next manouvre
+Next turn indication
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Route Guidance should be Active.
+
+Verify that the Pictogram , Distance to Next Manouvre, Next turn indication Interfaces are displayed by the system.
+- Grooming Status: Approved
+- Grooming Comments: Need interfaces from Shiva (System Infra)
+- Expert Domains: Projections, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4031390
+- Contents: If some navigation information are not available from projection APIs (e.g. third-party's applications), then the missing information shall not be shown on native system.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if missing navigation information is not displayed on cluster.
+
+EX;
+Unknown Distance(Place Holder)
+- Grooming Status: Approved
+- Expert Domains: Projections, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, information, stop, displaying, are unavailable, system, projection, applications" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4031402
+- Contents: System shall provide the user with an indication on the NQS display while the Navigation Application is ongoing as described in the HMI specification showing:
+Distance to the next manoeuvre
+Next manoeuvre pictogram
+Next manoeuvre address
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Route Guidance(Apple Carplay or Android Auto) should be Active.
+
+Verify that the Pictogram , Distance to Next Manouvre, Next turn indication Interfaces are displayed by the system.
+
+Area: Binnacle H-Area
+- Grooming Status: Approved
+- Expert Domains: Projections, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, display, is ongoing, described, showing, manoeuvre, indication, NQS, Application, specification, address" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4031422
+- Contents: System shall implement the HMI interfaces as defined in TBD
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+7. ID: 4031426
+- Contents: Sytem shall retrieve the media information coming from applications in projection mode through dedicated APIs to display them on native system.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "them" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 4031538
+- Contents: The supported media information shall be:
+Play/pause status
+Track timebar
+Elapsed/Residual/Total playtime
+Track name
+Artist name
+Album name
+Album image
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "information, supported, be, Play, Elapsed, status, playtime" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 4031539
+- Contents: System shall stop displaying the Native system when audio information are unavailable from projection APIs (e.g. third-party's applications).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, information, stop, displaying, are unavailable, system, projection, applications" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 4031558
+- Contents: System shall provide the user with an indication on the NQS display while the Navigation Application is ongoing as described in the HMI specification showing:
+Distance to the next manoeuvre
+Next manoeuvre pictogram
+Next manoeuvre address
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, display, is ongoing, described, showing, manoeuvre, indication, NQS, Application, specification, address" )
+- State (Harman_Requirement): Obsolete
+
+11. ID: 4031575
+- Contents: System shall implement the HMI interfaces as defined in TBD
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+12. ID: 4031586
+- Contents: System shall retrieve the media information coming from applications in projection mode through dedicated APIs to display them on native system
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "them" )
+- State (Harman_Requirement): Obsolete
+
+13. ID: 4031588
+- Contents: System shall retrieve the phone information coming from applications in projection mode through a dedicated API to display them on native system
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "them" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 4031591
+- Contents: The supported phone call information are:
+Interlocutor contact name/number
+Call status
+Call duration
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+15. ID: 4031594
+- Contents: System shall stop displaying the Native system when phone information are unavailable from projection APIs (e.g. third-party's applications).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, information, stop, displaying, are unavailable, system, projection, applications" )
+- State (Harman_Requirement): Obsolete
+
+16. ID: 4031621
+- Contents: System shall provide the user with an indication of the played song on the NQS display while the Phone Application is ongoing,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, played, display, is ongoing, indication, song, NQS, Application" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 4029035
+- Contents: This function describe the phone projection repetitions that IDC shall display on NQS.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+2. ID: 4029115
+- Contents: System shall display on NQS the phone projection repetitions only if a phone projection session is established.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+3. ID: 4029142
+- Contents: For further details please refer to the Phone Projection chapter in the IDC Phone specification.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+- Requirement Rationale: Please refer 3512027: Phone Projection
+
+4. ID: 4029143
+- Contents: System shall display Phone Projection on NQS as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+5. ID: 4031345
+- Contents: System shall apply the HMI requirements both for Apple CarPlay and for Android Auto repetitions.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, requirements, CarPlay, repetitions" )
+- State (Harman_Requirement): New
+
+6. ID: 4031347
+- Contents: 6.2.1.1.1.43.1 Phone projection screen management
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+7. ID: 4031373
+- Contents: This function defines screen management when a phone projection session is enstablished
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" ) 
+Passive voice
+ (Look for: "is enstablished" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): New
+
+8. ID: 4031377
+- Contents: 6.2.1.1.1.43.2 Connection/Disconnection
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+9. ID: 4031378
+- Contents: Yet to Confirm
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 4031379
+- Contents: 6.2.1.1.1.43.3 Navigation Application
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): In Work
+
+11. ID: 4031384
+- Contents: System shall retrieve the navigation information coming from applications in projection mode through dedicated Interfaces's to display them on native system
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Route Guidance should be Active.
+
+Verify that the Pictogram , Distance to Next Manouvre, Next turn indication Interfaces are displayed by the system.
+- Expert Domains: Projections, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "them" )
+- State (Harman_Requirement): In Work
+
+12. ID: 4031387
+- Contents: The supported navigation information by the system are:
+Distance to next manoeuvre
+Next manoeuvre pictogram
+Next manoeuvre address
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Route Guidance should be Active.
+
+Verify that the Pictogram , Distance to Next Manouvre, Next turn indication Interfaces are displayed by the system.
+- Grooming Status: Approved
+- Expert Domains: Projections, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4031415
+- Contents: 6.2.1.1.1.43.4 Audio Application
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+14. ID: 4031572
+- Contents: 6.2.1.1.1.43.5 Phone Application
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-PRJ00 6.2.1.1.1.43 1 Phone Projection on NQS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

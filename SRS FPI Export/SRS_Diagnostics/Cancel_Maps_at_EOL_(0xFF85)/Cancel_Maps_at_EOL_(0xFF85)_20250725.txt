@@ -1,0 +1,105 @@
+# UnknownID 6.2.2.1.6 Cancel Maps at EOL (0xFF85) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.6 Cancel Maps at EOL (0xFF85)
+
+- ID: 4136899
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Need to check the start condition with the customer.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4136901
+- Contents: The system shall read Ferrari Security access session with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Ferrari Security access session and Protocol service of $31
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Protocol service $31
+
+2. ID: 4136905
+- Contents: Routine status (see: image23.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the routine status from given table.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Visual Elements: image23.png
+
+3. ID: 4136918
+- Contents: Request Results (see: image24.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the request result from the given table.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+- Visual Elements: image24.png
+
+4. ID: 4136908
+- Contents: If the Start service is correctly activated, IDC shall delete the irrelevant map data (except Emilia-Romagna data) based on the current PROXI configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that IDC is able to delete the irrelevant MAP data if start service is correctly activated.
+- Grooming Status: Approved
+- Grooming Comments: Need to check the start condition with the customer.
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, delete, be complete, data, bases, configuration, maps, correspondency" )
+- TestTeamComment: RWeber_DIAG_250120: Cdd 6.0.0 specified this routine with start and result routine control types. Diag will not test some applicative system behavior, when the routine was started. Applicable functionality should test by MAP domain/experts.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image24.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image23.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.1.6 Cancel Maps at EOL (0xFF85) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

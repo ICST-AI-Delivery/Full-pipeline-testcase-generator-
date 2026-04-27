@@ -1,0 +1,261 @@
+# VFI-F914- 6.2.2.30.3 Amperage management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.3 VFI-F914-Amperage management
+
+- ID: 4103750
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4103751
+- Contents: IDC shall align the Amperage indication to the value of CalendarCharging.ACMaxCurrentSet.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4103752
+- Contents: IDC shall not align with CalendarCharging.ACMaxPowerSet when on user setting update on dedicated interface.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the value of CalendarCharging.ACMaxPowerSet not align when user update the setting
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4103753
+- Contents: IDC shall show the "MAX" label as current Amperage HMI_value when  CalendarCharging.ACMaxPowerSet == MAX (e.g. 0xFF).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the MAX value when
+
+CalendarCharging.ACMaxPowerSet == MAX (e.g. 0xFF).
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4103794
+- Contents: If AC Max Current Set is MAX, then only decrease interface (e.g. minus) shall be available.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the minus button availability
+
+CalendarCharging.ACMaxCurrentSet == MAX
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "decrease, be" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4103805
+- Contents: If CalendarCharging.ACMaxPowerSet  == MAX AND a short press should detect on the decrease interface:
+System shall perform a graphic update by showing as HMI_Value
+System shall populate CalendarCharging.ACMaxPowerSet = ACMaxPowerAvail
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the HMI value and ACMaxPowerAvail when
+
+CalendarCharging.ACMaxPowerSet  == MAX AND a short press
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, perform, showing, populate, press, interface, update, ACMaxCurrAvail" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4103808
+- Contents: IDC shall allow user to increase the Amperage when HMI Value is ACMaxPowerAvail.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to increase the amperage value when HMI Value is ACMaxPowerAvail.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "populate, interacts" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4103811
+- Contents: IDC shall manage the charge speed setting update with a different resolution depending on the current value of ACMaxPowerSet.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the charge speed update based on current value of ACMaxPowerSet.
+
+INFO_ACMaxPowerSet
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 A’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4103813
+- Contents: If CalendarCharging.ACMaxPowerSet == 0.5 kW, then only increase interface (e.g. plus) shall be available.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the plus button availability when 
+
+CalendarCharging.ACMaxPowerSet == 0.5 kW,
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "increase, be" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4758268
+- Contents: System shall set resolution r="1"kW when ACMaxPowerSet ∈ [22, 7) kW.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set the resolution as 1kw when ACMaxPowerSet ∈ [22, 7) kW.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘7 kW’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4758272
+- Contents: System shall set resolution r=0.5(kW) when ACMaxPowerSet ∈ [7, 1) kW.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to set the resolution as 0.5kw when ACMaxPowerSet ∈ [7, 1) kW.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘0.5 kW’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4758274
+- Contents: System shall decrease the value with a resolution of "0.5"kW when ACMaxPowerSet =="7"kW AND a decrease command detect.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the minus button when
+ a resolution of "0.5"kW when ACMaxPowerSet =="7"kW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "decrease, detect" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4758275
+- Contents: System shall increase the value with a resolution of "1"kW ACMaxPowerSet == "7"kW AND an increase command detect.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the increase button when resolution of "1"kW ACMaxPowerSet == "7"kW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, increase, detect, value, resolution" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4758400
+- Contents: IDC shall set internal output interface INFO_ACMaxPowerSet according to calendarCharging.ACMaxPowerSet value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output INFO_ACMaxPowerSet according to calendarCharging.ACMaxPowerSet value.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4758413
+- Contents: System shall show the Maximum available charge power according to the value of ACMaxPowerAvail.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the max charge power based on ACMaxPowerAvail.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4758418
+- Contents: IDC shall align the Amperage indication to the value of CAN input signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify alignment of the amperage value with input signal 
+
+xEV_CHRG_HMI_2.HVB_AC_LimitChargeCurr_HMI
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4758423
+- Contents: IDC shall hide the Amperage indication HVB_AC_LimitChargeCurr_HMI == 0xFFFF
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to hie amperage indication when HVB_AC_LimitChargeCurr_HMI == 0xFFFF
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914- 6.2.2.30.3 Amperage management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

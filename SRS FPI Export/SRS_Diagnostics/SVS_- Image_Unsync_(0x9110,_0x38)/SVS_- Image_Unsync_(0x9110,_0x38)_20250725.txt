@@ -1,0 +1,65 @@
+# UnknownID 6.2.1.5.22 SVS - Image Unsync (0x9110, 0x38) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.22 SVS - Image Unsync (0x9110, 0x38)
+
+- ID: 4464316
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4464319
+- Contents: The system shall find fault images from different cameras which are unsync over   100 milli seconds within 1s when Surround View is in active state.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify (0x9110,0x38) DTC shall trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, View, find, fault, are unsync, is, images, cameras, seconds, state" )
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. No info in diag spec about "fault images from different cameras" state or use case. Applicative test not possible. Also no info at "Verification Criteria" field.
+- State (Harman_Requirement): Approved
+
+2. ID: 4468855
+- Contents: The System shall resolve the image unsync of svs system within 1s when images detect correctly.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: - The DTC should clear.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. No info in diag spec about "fault images from different cameras" state or use case. Applicative test not possible. Also no info at "Verification Criteria" field.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.22 SVS - Image Unsync (0x9110, 0x38) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

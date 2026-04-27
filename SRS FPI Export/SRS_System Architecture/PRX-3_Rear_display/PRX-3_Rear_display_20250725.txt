@@ -1,0 +1,67 @@
+# PRX-3 6.2.3.4  Rear display Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.4 PRX-3 Rear display
+
+- ID: 3890034
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3890036
+- Contents: IDC shall handle the proxi bit NDRR to support functions and interactions related to Rear display:
+IDC shall not apply Rear display logics if proxi NDRR is "Absent".
+IDC shall apply Rear display logics if NDRR is "Present".
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the required customer proxi parameters and send the config data using the Dev Studio.
+Verify the configuration data in the head unit.
+
+Verify the logic interaction related to rear display.
+
+Start Byte 36, Start bit 4 - NDRR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "NDRR, handle, bit, to support, apply, display, is, functions, interactions, logics, Absent, Present" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3890035
+- Contents: This function specifies the rear display presence in the vehicle
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRX-3 6.2.3.4  Rear display Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,68 @@
+# UnknownID 6.2.3.5.9.1 Set Speed Limit - HMI setting - Enable Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.5.9.1 Set Speed Limit - HMI setting - Enable
+
+- ID: 3583912
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3607987
+- Contents: IDC shall allow user to adjust the speed limit when speed alert enabled.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to adjust the speed limit when speed alert enabled.
+
+NIT_VEHICLE_SETUP.SpeedThreshold
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "speed, enabled" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3607988
+- Contents: IDC shall allow user to set the speed limit in steps of 5 KMPH/MPH.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to set the speed limit in steps of 5 KMPH/MPH.
+
+NIT_VEHICLE_SETUP.SpeedThreshold
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘5 KMPH’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.5.9.1 Set Speed Limit - HMI setting - Enable Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

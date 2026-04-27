@@ -1,0 +1,302 @@
+# AUS-8 6.2.1.14  Navigation Voice Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.14 AUS-8 Navigation Voice Volume
+
+- ID: 3408182
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3524076
+- Contents: The system shall provide "Navigation Voice Volume" interface in HMI Audio settings.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the "Navigation voice volume" interface is visible in HMI Audio Setting..
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3524817
+- Contents: The system shall allow the user to change the Navigation Voice Volume within the allowed range.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that user can change the "Navigation Voice volume" within the allowed range (0 to 100%)
+
+Verify the changed value is reflected on HMI Audio setting.
+
+Note: Volume can be changed via Hardkey/Diag/HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: refer to IDC-417329 -
+FAD-0 Ferrari Audio Director Introduction for volume range.
+
+Volume can be changed via Hardkey/Diag/HMI
+
+3. ID: 3538190
+- Contents: The system shall provide a dedicated audio preview (which the volume is calibratable in order to be significant) while adjusting the Navigation-voice volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Volume level popup is shown in the HMI status bar.
+
+Verify that a 'dedicated audio preview" is played while Navigation voice volume is being adjusted.
+- Grooming Status: Review
+- Grooming Comments: [26.02.2025, Abdul, Ahmed]
+OK to approve. Only Audio feedback, no HMI feedback.
+Mapped to 3534933
+
+https://jira.harman.com/jira/browse/FQ-1018
+
+[Muthu 25.07.2024]:OK to approve
+
+what is the audio prompt here? 
+[Muthuraj, Xiongwei 17.05.2024] A popup to show in status bar (Volume level popup) and additionally an audio message also there. 
+Audio prompt: Audio
+Popup: HMI
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, provide, adjusting, level popup  amp, volume" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3524411
+- Contents: The System shall allow the Navigation Voice volume adjustment within the allowed range.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Navi voice volume level can be adjusted (0 to 100% ) via HMI
+
+Verify that the adjusted volume level is displayed on the HMI.
+- Grooming Status: Review
+- Grooming Comments: [Mapped to previous SRS]
+
+[Muthu 25.07.2024]:OK to approve
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3524412
+- Contents: The system shall enable/disable Navi-voice volume UI-settings based on the proxi parameters Carplay or Android auto.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Navigation voice volume setting is enabled on HMI when the proxi parameter CarPlay = 1 or Android Auto =1
+
+Verify that the Navigation voice volume setting is disabled on HMI when the proxi parameter CarPlay = 0 and Android Auto =0
+- Grooming Status: Approved
+- Grooming Comments: [Muthu]: OK to approve.
+
+what is both are 0
+by using the proxi parameters is ok?
+
+using diagnostics/EOL -> Not sure, so procxi is OK
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, enable, disable, based, volume, settings, parameters Carplay, auto" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3534933
+- Contents: The system shall play a dedicated "sound preview" on the navigation channel at the "selected volume level" when a volume level is "selected".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select a volume level for Navigation sound.
+Verify that a dedicated sound preview is  played at the selected volume level.
+- Grooming Status: Approved
+- Grooming Comments: Xiongwei: OK to approve,. Audio part is from White label.
+https://jira.harman.com/jira/browse/FQ-1018
+
+Muthu: OK to approve
+Confirm with Audio Team.
+
+
+[Abdul : 17.05.2024] : need confirmation from HMI and Audio team
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, level, play, selected, is, preview, channel" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to HMI specification for details about Navi Voice volume sound preview
+
+7. ID: 3534934
+- Contents: The system shall display the Navigation volume level on HMI if the Navigation volume level is changed from other interface than the HMI settings.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Change the Navigation volume level from other interface than HMI settings (SWC Hard key, Diagnostics).
+
+Verify the selected Navigation volume level is displayed on HMI.
+- Grooming Status: Review
+- Grooming Comments: Xiongwei: OK to aprove.
+Audio level change is from White label.
+
+[Abdul 17.05.2024], Need the interface name here
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, level, HMI, settings" ) 
+Unclear term
+ (Look for: "other" ) 
+Passive voice
+ (Look for: "is changed" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 4576114
+- Contents: The system shall align HMI indication of Navigation volume to the updated volume level on updating the volume from different interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the Navigation volume from HMI, Hardkey, Diagnostics.
+
+Verify that the updated Navigation volume level is reflected on HMI
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Different interfaces include HMI. Hardkey, Diagnostics
+
+9. ID: 4881527
+- Contents: If setting Persistence type is Standard, the system shall persist the 'Navigation Voice Volume"' setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Navigation Voice Volume) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, across, settings, cycles" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4881528
+- Contents: If setting persistent type = standard, the system shall set the "Navigation Voice Volume" setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Navigation Voice Volume setting value.
+
+Create error in memory reading.
+Verify that the Navigation Voice Volume setting value is set to default value in HMI..
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4881529
+- Contents: If setting Persistence type = Profiled, the system shall store the last "Navigation Voice Volume" setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Navigation Voice Volume") value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, reboot, last, Volume, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4881530
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Navigation Voice Volume") value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4881531
+- Contents: If setting Persistence type = Profiled, the system shall set the 'Navigation Voice Volume"' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the "Navigation Voice Volume" setting value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, Volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3524047
+- Contents: This setting allows the user to adjust the External Navi Voice volume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4539942
+- Contents: [Info] The ceil function rounds the result to the nearest integer greater than or equal to the result.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4576120
+- Contents: Proxi
+Start Byte 83, start bit 3 - CarPlay (0 = "absent", 1 = "present")
+Start Byte 83, start bit 4 - Android Auto (0 = "absent", 1 = "present")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-8 6.2.1.14  Navigation Voice Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

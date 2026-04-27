@@ -1,0 +1,91 @@
+# UnknownID 6.2.1.1.93 VCU Node Faulty (0xD734, 0x86) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.93 VCU Node Faulty (0xD734, 0x86)
+
+- ID: 3848170
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3848171
+- Contents: The system shall detect VCU Node fault upon receiving wrong DLC with Maturation time "5"s.
+PWT_STATUS_1 OR
+PWT_STATUS_2 OR
+BMS_LVB1 OR
+MOT1 OR
+STATUS_C_NCM OR 
+PWT_STATUS_3 OR
+PWT_STATUS_6 OR
+XEV_STS_HMI OR
+VCU_COOLING_INFO OR
+VCU_COOLING_PWT OR
+NCR_INFO OR
+STATUS_C_NCA_NCR OR
+GEAR_INFO
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the VCU Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: Wrong DLC 
+    Maturation Time: immediate
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit, WLMR, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: VCU does not send a scheduled message  
+Vehicle Configuration: Proxi byte 30, bit 5 (VCU) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3848174
+- Contents: The system shall make the VCU Node Fault inactive upon receiving the right DLC.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the VCU Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: Right DLC
+    De-Maturation Time: Immediate
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: VCU does not send a scheduled message  
+Vehicle Configuration: Proxi byte 30, bit 5 (VCU) == "Present"
+Fault Detection Conditions: Key-On
+Timeout:2500ms
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.93 VCU Node Faulty (0xD734, 0x86) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

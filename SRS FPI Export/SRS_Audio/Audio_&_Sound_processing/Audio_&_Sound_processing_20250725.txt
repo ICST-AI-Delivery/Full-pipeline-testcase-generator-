@@ -1,0 +1,85 @@
+# UnknownID 6.1.3.1.1.1 Audio & Sound processing Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.3.1.1.1.6 Audio system overview
+
+- ID: 2357080
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2357081
+- Contents: 6.1.3.1.1.1.6.1 The System shall support the following list of audio sources: Entertainment and Connectivity audio. E.g., media sources, online and offline streaming, streaming from connected nomad devices by using CP and AA technologies, etc.Announcement audio. E,g., navigation, voice assistant, telephony, etc.Call audio. E.g., real-time streaming from connected phones, etc.Acoustics. E.g., vehicle sounds (parking, welcome/goodbye, etc.), user sounds (touches, notifications, etc.), cluster sounds (warnings, status notifications, etc.), etc.Tuner audio. E.g., streaming from Tuner device, etc.Early and vehicle audio. E.g., tone generators and predefined players, etc.Microphone audio in. E.g., in-vehicle microphone inputs, including the reference channels to able ECNR or provide Media Clock Reference, etc.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+2. ID: 2357082
+- Contents: 6.1.3.1.1.1.6.2 The audio framework on the Android side shall allow the Audio management to lock/unlock the audio focus and abandon the audio focus to applications within the IVI partition.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+3. ID: 2357083
+- Contents: 6.1.3.1.1.1.6.3 The audio control HAL shall provide the audio control interface specific to Tier1 HW and be agnostic concerning all different Audio subsystem variants.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+4. ID: 2357084
+- Contents: 6.1.3.1.1.1.6.4 The SSE (Speech Signal Enhancement) is the HAL level SWP for telephony and voice assistants.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+5. ID: 2357085
+- Contents: 6.1.3.1.1.1.6.5 The System shall use the Audio MW (ALSA is recommended) and specific kernel-level audio drivers on the IVI part to establish audio stream communication with the Audio partition.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+6. ID: 2357086
+- Contents: 6.1.3.1.1.1.6.6 The Audio Control shall control all functionality within the Audio Subsystem (including the Audio crossbar, TDM interfaces, etc.) except external Sound System components like an A2B or Ethernet Amplifier.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+7. ID: 2357087
+- Contents: 6.1.3.1.1.1.6.7 The Audio Crossbar shall adapt the logical routing commands from the Audio Control function to physical audio resources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+8. ID: 2357088
+- Contents: 6.1.3.1.1.1.6.8 The sound and speech components shall handle audio stream handling.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+9. ID: 2357089
+- Contents: 6.1.3.1.1.1.6.9 The tone generators and early sound subsystem shall provide very early sounds of the System by predefined patterns.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+### Informational Items:
+
+1. ID: 2357090
+- Contents: 6.1.3.2 HMI Requirements
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.3.1.1.1 Audio & Sound processing Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

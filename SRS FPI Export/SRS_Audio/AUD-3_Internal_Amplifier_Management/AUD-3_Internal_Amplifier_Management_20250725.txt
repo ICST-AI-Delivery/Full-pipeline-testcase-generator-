@@ -1,0 +1,120 @@
+# AUD-3 6.2.1.4  Internal Amplifier Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4 AUD-3 Internal Amplifier Management
+
+- ID: 3408480
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3540524
+- Contents: The system shall have the internal amplifier channel assignment in Base & High End loud speaker configurations as per the below table, by using the proxi parameter Audio_Level.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Base and High End loud speaker configuration by using proxi parameter "Audio _Level".
+
+Verify that the loud speakers connected in the corresponding channels are functional.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, have, assignment, configurations, table" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3540499
+- Contents: The system shall allow to disable all the internal amplifier channels by using the proxi parameter Audio_Level.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Set the proxi parameter Audio_Level = 0 ("Invalid") or 2 ("Premium")
+
+Verify that the internal amplifier channels are disabled.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3591339
+- Contents: (see: image14.png)
+(see: image15.png)
+Table: Internal amplifier channel assignment in Base and High End loud speaker Configurations.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image14.png, image15.png
+
+2. ID: 3540531
+- Contents: 6.2.1.4.1 Internal Amplifier  Diagnostics
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+3. ID: 4153668
+- Contents: Channel 1 Loudspeaker Output - Circuit short to ground
+Channel 1 Loudspeaker Output - Circuit short to battery
+Channel 1 Loudspeaker Output - Circuit open
+Channel 1 Loudspeaker Output - Performance or incorrect operation
+Channel 1 Loudspeaker Output - Circuit resistance below threshold
+Channel 2 Loudspeaker Output - Circuit short to ground 
+Channel 2 Loudspeaker Output - Circuit short to battery 
+Channel 2 Loudspeaker Output - Circuit open
+Channel 2 Loudspeaker Output - Performance or incorrect operation
+Channel 2 Loudspeaker Output - Circuit resistance below threshold 
+Channel 3 Loudspeaker Output - Circuit short to ground 
+Channel 3 Loudspeaker Output - Circuit short to battery
+Channel 3 Loudspeaker Output - Circuit open 
+Channel 3 Loudspeaker Output - Performance or incorrect operation 
+Channel 3 Loudspeaker Output - Circuit resistance below threshold
+Channel 4 Loudspeaker Output - Circuit short to ground
+Channel 4 Loudspeaker Output - Circuit short to battery
+Channel 4 Loudspeaker Output - Circuit open
+Channel 4 Loudspeaker Output - Performance or incorrect operation 
+Channel 4 Loudspeaker Output - Circuit resistance below threshold
+Channel 5 Loudspeaker Output - Circuit short to ground 
+Channel 5 Loudspeaker Output - Circuit short to battery
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image14.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image15.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-3 6.2.1.4  Internal Amplifier Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

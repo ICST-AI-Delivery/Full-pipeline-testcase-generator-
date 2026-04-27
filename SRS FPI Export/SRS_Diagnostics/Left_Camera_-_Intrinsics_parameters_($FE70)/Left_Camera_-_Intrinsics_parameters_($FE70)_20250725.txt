@@ -1,0 +1,78 @@
+# UnknownID 6.2.4.2.3.19 Left Camera - Intrinsics parameters ($FE70) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.3.19 Left Camera - Intrinsics parameters ($FE70)
+
+- ID: 3889576
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3889578
+- Contents: The system shall support Read access for Left Camera Intrinsics parameters with Default and Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Left Camera can able to Read  inttrinsics parameters in Default and Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, Extended, access, parameters, session" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 64 Bytes
+Data type: HEX
+
+2. ID: 3889581
+- Contents: When requesting data identifier with the Read Data by Identifier “diagnostic session”, the ECU shall return the Left Camera Intrinsics parameters.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned  Left Camera Intrinsics Parameters.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3889585
+- Contents: If the data from the camera is in double type and takes up 8-bytes, the System shall have 8-parameters for each one of camera which result of total 64-bytes.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the data from the camera is in double type and it takes 8 bytes.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, result, parameters, camera, bytes" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.3.19 Left Camera - Intrinsics parameters ($FE70) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

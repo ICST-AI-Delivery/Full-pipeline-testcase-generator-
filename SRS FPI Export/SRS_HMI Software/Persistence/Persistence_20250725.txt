@@ -1,0 +1,77 @@
+# UnknownID 6.2.3.1.4 Persistence Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.4 Persistence
+
+- ID: 3841070
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3841584
+- Contents: IDC shall never save the last value set by the user when persistence request for the setting not set.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system not able to store the last value when persistence not set.
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "never save, set, persistence, value, request, never" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3841627
+- Contents: IDC shall set the output signal to HMI default value when the setting is not persistent.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set output signal as HMI default value when the setting is not persistent
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "setting, set, populated, is, signal, correspondent, value, persistent" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3841071
+- Contents: Each setting have an assigned type of preferable persistency storage. The IDC supports following two types of the storages:
+"Standard", independent by the current user
+"Profiled", according to the current user
+- Artifact Type: Information
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.4 Persistence Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

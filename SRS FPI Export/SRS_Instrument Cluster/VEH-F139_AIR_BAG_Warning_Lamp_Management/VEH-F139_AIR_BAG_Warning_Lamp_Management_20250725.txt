@@ -1,0 +1,358 @@
+# VEH-F139 6.2.1.1.1.12  AIR BAG Warning Lamp Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.12 VEH-F139 AIR BAG Warning Lamp Management
+
+- ID: 3406515
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3465521
+- Contents: When failure condition disappear before minimum warning time, system shall continue to display airbag failure warning for minimum time (2s).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at steady state. AirBagFailSts = Fail present for 1s
+
+Verify failure warning displayed when AirBagFailSts = Fail.
+
+After 1s, change AirBagFailSts to no fail. Verify warning continues to display for 1s ( total of 2s )
+- Grooming Comments: Zoltan : 2s minm time is too short. Will check with customer if it is configurable
+
+Not a blocker
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3523771
+- Contents: When airbag lamp fail and airbag system fail are simultaneously present, system shall perform rolling visualization
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag lamp fail and Airbag system fail 
+AirBagWarningLampSts = Lamp in Fail
+AirBagFailSts = Fail present
+
+
+CAN-Signal: AIRBAG1.AirBagWarningLampSts
+AIRBAG1.AirBagFailSts
+
+Verify rolling visualization performed for telltales
+
+Reference: HMI-LF-8982
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3524105
+- Contents: During Key-On phase, system shall display Airbag system failure telltale and send the Warning status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenwhen Airbag failure  is continuously present for more than 15s
+Note: Telltale shall follow D10 visualization Behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at keyon. AirBagFailSts = Fail present): Keep fault for >=15s
+
+Verify telltale displayed as per Fail1 for F130 HMI_POP.IND after 15s of continuous fail present
+
+Verify D01 behaviour of telltale. Refer 3494873: CAN input Visualization Cycle behavior codes
+
+CAN-Signal: AIRBAG1.AirBagFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, parking, warning, position, DRL, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail1 for F139 in HMI_POP.IND
+
+4. ID: 3463655
+- Contents: During Key-On phase, system shall display warning text send the Warning status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when Airbag failure  is continuously present for more than 15s
+Note: Telltale shall follow D10 visualization Behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at keyon. AirBagFailSts = Fail present): Keep fault for >=15s
+
+Verify telltale displayed as per Telltale Binnacle <01460> after 15s of continuous fail present
+
+Verify D10 behaviour of telltale. Refer 3494873: CAN input Visualization Cycle behavior codes.
+
+CAN-Signal: CAN-Signal: AIRBAG1.AirBagFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, parking, warning, position, DRL, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail1 for F139 in HMI_POP.IND
+
+5. ID: 3463656
+- Contents: During key on phase, system shall display warning when Airbag failure is continuously present for more than 15s
+Note: warning shall follow D10 visualization Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at keyon. AirBagFailSts = Fail present): Keep fault for >=15s
+
+Verify warning displayed as per Fail1 for F130 HMI_POP.IND after continuous fails for 15s
+
+Verify D10 behaviour . Refer 3494873: CAN input Visualization Cycle behavior codes
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail1 for F139 in HMI_POP.IND
+
+6. ID: 3524122
+- Contents: During running of car, system shall display Airbag failure telltale when Airbag failure detected
+Note: Telltale shall follow D10 visualization Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at steady state. AirBagFailSts = Fail present):
+
+Verify telltale displayed as per Binnacle Telltale<01460>
+
+Verify D10 behaviour of telltale. Refer 3494873: CAN input Visualization Cycle behavior codes.
+
+CAN-Signal: AIRBAG1.AirBagFailSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail1 for F139 in HMI_POP.IND
+
+7. ID: 3524089
+- Contents: During running of car, system shall display warning text and send the Warning status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenwhen Airbag failure detected
+Note: Telltale shall follow D10 visualization Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at steady state. AirBagFailSts = Fail present):
+
+Verify warning text displayed as per Fail1 for F130 HMI_POP.IND
+
+Verify D10 behaviour of telltale. Refer 3494873: CAN input Visualization Cycle behavior codes.
+
+CAn-Signal: AIRBAG1.AirBagFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail1 for F139 in HMI_POP.IND
+
+8. ID: 3523756
+- Contents: System shall play AIR BAG Warning Lamp Management  buzzer to indicate airbag failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at steady state. AirBagFailSts = Fail present):
+
+Verify buzzer played as in wav file at IDC_Vehicle_Buzzer_Priority_Matrix
+
+CAN-Signal: AIRBAG1.AirBagFailSts
+
+Buzzer: 2B
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: AIR BAG Warning Lamp Management buzzer from IDC_Vehicle_Buzzer_Priority_Matrix
+
+9. ID: 3523760
+- Contents: System shall indicate Fail2 and send the Fail status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.
+when airbag-failure-telltale flashing without airbag failure
+Note: Visualization shall follows D10 visualization Behaviour with priority-0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail2 by AirBagFailSts = Fail not present, lamp flashing):
+Verify D10 visualization cycle.. 
+Verify visualization as per HMI.POP IND with telltale, buzzer, popup and graphic. Refer 3494873: CAN input Visualization Cycle behavior codes.
+
+CAN-Signal: AIRBAG1.AirBagFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Visualization, indicate, follows, flashing, failure, priority-0" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Fail2 for F139 in HMI_POP.IND
+
+10. ID: 3523749
+- Contents: System shall display Generic Fail telltale to indicate airbag lamp failure send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when
+Note: Telltale shall follow D10 visualization Behaviour
+(see: image31.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag lamp fail AirBagWarningLampSts = Lamp in Fail):
+
+Verify Generic fail telltale displayed
+
+Verify D10 behaviour of telltale. Refer 3494873: CAN input Visualization Cycle behavior codes.
+
+CAN-Signal: AIRBAG1.AirBagWarningLampSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Warning1 for F139 in HMI_POP.IND
+- Visual Elements: image31.png
+
+11. ID: 3523754
+- Contents: System shall play AIR BAG Warning Lamp Management  buzzer to indicate airbag lamp fail status
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag lamp fail AirBagWarningLampSts = Lamp in Fail):
+
+Verify buzzer played as in wav file at IDC_Vehicle_Buzzer_Priority_Matrix
+
+CAN-Signal: AIRBAG1.AirBagWarningLampSts
+
+Buzzer:2B
+- Grooming Status: Approved
+- Expert Domains: Audio Processing
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: AIR BAG Warning Lamp Management buzzer from IDC_Vehicle_Buzzer_Priority_Matrix
+
+12. ID: 3465523
+- Contents: During key off, system shall display Airbag Warning lamp telltale to indicate airbag failure send the Warning-2 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.
+Note : Telltale shall have CAN input visualization cycle D11 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger airbag failure at key off as
+AirBagFailSts =Fail_Present_Lamp_On.
+
+Verify airbag failure telltale displayed with D11 behaviour
+Refer 3494873: CAN input Visualization Cycle behavior codes 
+
+CAN-Signal: AIRBAG1.AirBagWarningLampSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, parking, position light DRL, warnings, failure, chimes" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Warning2 for F139 in HMI_POP.IND
+
+13. ID: 4705534
+- Contents: If IDC detects a Message Counter or Checksum error on message AIRBAG1 for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F139 Fail-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displaye Fail-1 When Message Counter or Checksum error is dtected by the system.
+
+Threshold Value: 500ms
+
+Reference ID: F244-FUSA-7075
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, error, visualization, Fail-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3526510
+- Contents: 6.2.1.1.1.12.1 Airbag Warning - General
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): Approved
+
+2. ID: 3463653
+- Contents: System shall indicate airbag failure by Airbag readiness indicate and failure telltale
+(see: image30.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify telltale as displayed in B23 wireframe area as per design.
+AirBagFailSts = Fail present
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image30.png
+
+3. ID: 3526511
+- Contents: 6.2.1.1.1.12.2 F139 - Airbag Fail1
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): Approved
+
+4. ID: 3526512
+- Contents: 6.2.1.1.1.12.3 F139 - Airbag Fail 2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): Approved
+
+5. ID: 3526513
+- Contents: 6.2.1.1.1.12.4 F139 - Airbag Warning 1
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): Approved
+
+6. ID: 3526514
+- Contents: 6.2.1.1.1.12.5 F139 - Airbag Warning 2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image30.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image31.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F139 6.2.1.1.1.12  AIR BAG Warning Lamp Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

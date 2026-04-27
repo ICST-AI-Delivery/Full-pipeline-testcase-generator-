@@ -1,0 +1,83 @@
+# SET-62-C 6.2.3.6.3.1 harging limit - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.3.1 SET-62-Charging limit - HMI settings
+
+- ID: 3540885
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: 28
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4733073
+- Contents: System shall manage the "Charging limit" setting only If proxi parameter "Charging_Setting" == 1
+("Present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi parameter proxi parameter "Charging_Setting" == 1
+("Present").
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, Charging, setting, limit, parameter, Present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3546744
+- Contents: IDC shall allow user to select charging limit in the range of 20% -100% in steps of 5% using slider.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to select charging limit in the range of 20% -100% in steps of 5% using slider through HMI.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.User_Max_SOC
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note:20, 25, 30, 35, 40, 45, 50, 55, 60, 65,70, 75,80,85,90,95,100
+
+3. ID: 4733079
+- Contents: System shall discard user interaction detected on SOC limit adjustment slider when LongParkingSts == 1("Active").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify use not able to access limit slider when 
+LongParkingSts == 1 ("Active")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-62-C 6.2.3.6.3.1 harging limit - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

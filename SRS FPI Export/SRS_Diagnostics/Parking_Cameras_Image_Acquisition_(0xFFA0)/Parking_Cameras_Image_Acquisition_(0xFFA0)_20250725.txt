@@ -1,0 +1,133 @@
+# UnknownID 6.2.2.4.2 Parking Cameras Image Acquisition (0xFFA0) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.4.2 Parking Cameras Image Acquisition (0xFFA0)
+
+- ID: 4615389
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4615390
+- Contents: The system shall read Parking Cameras Image Acquisition with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 31’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for routine with start/stop/status in ext. session. No info about how to simulate this requirement. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Protocol service: $31
+
+2. ID: 4615395
+- Contents: Target ID (see: image42.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Target ID from the table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for routine with start/stop/status in ext. session. No info about how to simulate this requirement. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Visual Elements: image42.png
+
+3. ID: 4615397
+- Contents: RoutineStatus (see: image43.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the routine status from the table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for routine with start/stop/status in ext. session. No info about how to simulate this requirement. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Visual Elements: image43.png
+
+4. ID: 4615400
+- Contents: Status (see: image44.png, image45.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the status from the table below.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for routine with start/stop/status in ext. session. No info about how to simulate this requirement. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Visual Elements: image44.png, image45.png
+
+5. ID: 4615401
+- Contents: The system shall acquire the raw fisheye images from the parking cameras selected through target ID input data parameter (All cameras by default) & make them available for download.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the raw fisheye images from the parking cameras selected through target ID input data parameter (All cameras by default) & make them available for download
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "All" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for routine with start/stop/status in ext. session. No info about how to simulate this requirement. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+
+6. ID: 4615402
+- Contents: The system shall respond with the routine result as defined above, considered with binary logic.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the routine result
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, respond, defined, result, logic" )
+- TestTeamComment: RWeber_DIAG_250114: Only check to pos. resp. for routine with start/stop/status in ext. session. No info about how to simulate this requirement. Applicative test not handable by diag team with current spec/feature info.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (e.g. result is 0x06 means that both 0x02 and 0x04 are true)
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image42.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image43.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image44.png, image45.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.4.2 Parking Cameras Image Acquisition (0xFFA0) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

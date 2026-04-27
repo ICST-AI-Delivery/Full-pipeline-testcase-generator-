@@ -1,0 +1,205 @@
+# VEH-F853 6.2.1.1.2.40  Acoustic Vehicle Alerting System Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.40 VEH-F853 Acoustic Vehicle Alerting System
+
+- ID: 3408609
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3888921
+- Contents: System shall display Acoustic Vehicle Alerting System Info-1 when PROXI AVAS_Popup is Present(Byte 123, bit6) AND INFO_AvasAlertSound is On.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-1 is displayed when Proxi AVAS_Popup is Present.
+
+PROXI : Byte-123 , Bit-6
+- Grooming Status: Approved
+- Grooming Comments: Need to check if INFO_AvasAlertSound is same as AUDIO_INFO.AvasAlertSound??
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is PresentByte, is, Vehicle, Info-1, INFO_AvasAlertSound" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3888922
+- Contents: In-Case of PROXI AVAS_Popup is Absent (Byte 123, bit6) AND INFO_AvasAlertSound is On.  System shall display Acoustic Vehicle Alerting System Info-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-2 is displayed in absence of Proxi Byte 123 , Bit-6 of AVAS_Popup.
+
+PROXI : Byte-123 , Bit-6
+- Grooming Status: Approved
+- Grooming Comments: Need to clarify if Info-2 is obsolete!
+
+Need to
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3714085
+- Contents: System shall display Fail-1 Pop-up with buzzer when Info AVAS Fail status is equal to Fail Present.
+Note: Fail-1 follows D01 Visualisation with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+
+If the signal AUDIO_INFO.AVASFailSts == 1 ("Fail_Present") OR NFR_SPEED.VehicleSpeedVSOSig FailSts= "FailPresent" OR PWT_STATUS_3.GasPedalPositionValidData = "Not Valid", then IDC shall populate the internal interface AUD_AVASFailSts = 1 ("Fail_Present"), else AUD_AVASFailSts shall be set to default value 0 ("Not_Present")
+
+
+
+Trigger Condition: AUD_AVASFailSts = Fail_Present
+
+Verify that the Fail-1 Pop-up is displayed when Info_AVAS Fail status is equal to Fail Present.
+
+Buzzer:2B
+
+Internal Signal:
+AUD_AvasAlertSound
+- Grooming Status: Approved
+- Grooming Comments: 24/02/25:Added the Pre-Condition from AUD Master Spec
+
+"XX"Date: Input is coming from Audio team , Please check with audio team and confirm.
+
+How AUD_AVAS_Fail status will be triggered.?
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, AVAS, display, is, follows, Pop-up, buzzer, status, Present, Priority-1" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3714086
+- Contents: System shall display Info-1 Pop-up with Telltale in B8 wireframe area when below conditions met:
+PROXI "AVAS_Popup" == "present" AND
+AUD_AvasAlertSound == "On"
+Note: Info-1 follows D04 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+If the signal AUDIO_INFO.AvasAlertSound == 1 ("On"), then IDC shall populate the internal interface
+AUD_AVASAlertSound = 1 ("On"), else AUD_AVASAlertSound shall be set to default value 0 ("Off")
+
+Trigger Condition:
+PROXI "AVAS_Popup" == "present" AND
+AUD_AvasAlertSound == "On"
+
+Verify that the Info-1 is triggered when Proxi AVAS_Popup is set to Present and AUD_AvasAlertSound is ON
+
+
+Internal Interface:
+AUD_AvasAlertSound
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, follows, Pop-up, Telltale, area, present, Info-1, priority-1" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3714087
+- Contents: System shall display entire Info1 visulaisation(both Pop-up and Icon) only first time during the Key-On Cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the entire Info-1 visualisation only first time during the Key-On Cycle.
+- Grooming Status: Approved
+- Grooming Comments: Need to create JIRA , What is the Pop-up ? for Info-1??
+
+Does Icon mean a telltale for the requirement.
+
+Where should it display either in B8 or B2/3 wireframe Areas? 
+
+
+OM::13/03/25:
+Can we consider? the Info-1 Pop-up from HMI.POP.IND doc?
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, entire, Pop-up, Icon, time, Cycle" ) 
+Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4420034
+- Contents: System shall display Info-1 Icon with out Pop-up in B8 wireframe Area , If the activation conditions are met for Second (or more) times in the same Key-ON Cycle without showing the Pop-Up.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+("AVAS_Popup" = "present")
+(AUD_AvasAlertSound = "On")
+
+Verify that the Pop-Up in B8 Wireframe Area , If the activation conditions are met for Second(or more) times in the same Key-ON cycle.
+
+Internal Interfaces:
+AUD_AvasAlertSound
+- Grooming Status: Approved
+- Grooming Comments: Testing team , need inforamtion to test this internal interfaces related req's.
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Icon, Pop-up, Area, times, Key" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3714088
+- Contents: System shall display Info-2 Pop-up with Telltale in B8 wireframe area when below conditions met:
+PROXI "AVAS_Popup" == "absent" AND
+INFO_AvasAlertSound == "On"
+Note: Info-2 follows D04 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-2 Pop-up with telltales in B8 wireframe area when PROXI AVAS_Popup is absent AND INFO_AvasAlertSound is ON.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, follows, Pop-up, Telltale, area, priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713954
+- Contents: System shall display the "Acoustic Vehicle Alerting System" indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F853 6.2.1.1.2.40  Acoustic Vehicle Alerting System Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

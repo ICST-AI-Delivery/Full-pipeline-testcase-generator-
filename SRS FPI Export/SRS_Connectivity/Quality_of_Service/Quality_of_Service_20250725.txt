@@ -1,0 +1,116 @@
+# UnknownID 6.1.2.3.15 Quality of Service
+
+
+
+Quality of Service Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.15 Quality of Service
+
+
+
+Quality of Service
+
+- ID: 2353473
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353474
+- Contents: 6.1.2.3.15.1 The System shall support QoS prioritization according to the latest version of t...
+
+
+
+The System shall support QoS prioritization according to the latest version of the Wi-Fi Multimedia (WMM) Technical Specification.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353475
+- Contents: 6.1.2.3.15.2 The System shall at least support the parts of the IEEE802.11e standard required...
+
+
+
+The System shall at least support the parts of the IEEE802.11e standard required for WMM certification.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Since WMM is part of WFA. We will be considering only the components which are required for carplay projection so this requirement would go Offered with Restriction.
+Move to white label.
+OPL query raised.
+
+3. ID: 2353476
+- Contents: 6.1.2.3.15.3 The QoS classes shall map to applications within the System as follows: * Voice...
+
+
+
+The QoS classes shall map to applications within the System as follows:
+
+ 
+
+Voice (AC_VO):
+
+
+
+ovoice & control data traffic for Apple Carplay Wireless;
+
+oSCON VoIP audio stream.
+
+Video (AC_VI):
+
+
+
+oscreen data traffic for Apple Carplay Wireless;
+
+oSDIS video/audio stream.
+
+Best Effort (AC_BE):
+
+
+
+oany (internal) control traffic.
+
+Background (AC_BK):
+
+
+
+ocustomer traffic.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: Whitelabel requirement.
+
+4. ID: 2353477
+- Contents: 6.1.2.3.15.4 The WMM Information Element (IE) shall be included in all relevant management fr...
+
+
+
+The WMM Information Element (IE) shall be included in all relevant management frames.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: Requirement to be moved to Whitelabel as WMM required for QOS.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.15 Quality of Service]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

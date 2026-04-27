@@ -1,0 +1,166 @@
+# UnknownID 6.2.4.2.4 PRK 1: Parking view automatic activation use cases Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.4 PRK 1: Parking view automatic activation use cases
+
+- ID: 3883616
+- Artifact Type: SRS Feature
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_IOC, Parking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3927160
+- Contents: The system shall follow the below behavior when parking sound feedback is 'active' & the obstacle detection by sensors.
+There shall be no obstacles detected when vehicle moves away from the obstacle.
+IDC switches to parking-view when an obstacle is detected under threshold.
+The Parking-view shall not-be displayed if Reverse-gear is engaged & a front-obstacle is detected.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+IDC screen is displayed, parking sound feedback is already active and there are obstacles detected by sensors
+
+Verify the below behavior.
+1. Vehicle moves away from the obstacle, there are no obstacles detected, IDC screen is still displayed.
+2. for both Front and Rear, IDC screen switches to Parking view when an obstacle is detected under threshold.
+
+3. If Reverse gear is engaged, with IDC screen visualized, and a front obstacle is detected the Parking view shall not be displayed.
+- Grooming Status: Approved
+- Grooming Comments: [Sunil, Ganesh 07.02.2024]
+Approved
+
+[Sunil; 26.01.2025]
+https://jira.harman.com/jira/browse/FQ-947
+https://jira.harman.com/jira/browse/FQ-928
+
+[Wei, Abdul 30.12.2024] Obstacle detection, check with Camera team.
+
+https://jira.harman.com/jira/browse/FQ-601
+
+Prashant, Artashes, Abdul:
+Question to customer: What is Parking view means?
+How does it different from rear camera view
+
+https://jira.harman.com/jira/browse/FQ-601
+- Expert Domains: Android HMI, IOC_IOC, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, feedback, follow, parking, is, detected, behavior, amp, obstacles, sensors" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Threshold is the distance zone of the obstacle (Red, Green , Yellow).
+
+2. ID: 3927187
+- Contents: The system shall follow the below behaviors when the screen is IDC& obstacles are unavailable.
+IDC screens switch to Parking-view on detecting an obstacle.
+No Parking view display if "Gear is in Reverse position & a front obstacle detection"
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+IDC is displayed and there are no obstacles.
+
+
+Verify the below behavior:
+1. IDC screens switch to Parking view when an obstacle is detected.
+2. No Parking view display If Reverse gear is engaged with IDC screen visualized, and a front obstacle is detected.
+- Grooming Status: Approved
+- Grooming Comments: [14.02.2025 Wei, Abdul, Ganesh] Approved
+
+
+https://jira.harman.com/jira/browse/FQ-601
+
+Prashant, Artashes, Abdul:
+Question to customer: What is Parking view means?
+How does it different from rear camera view
+- Expert Domains: Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, screen, obstacles, screens, Gear, follow, is, are unavailable, switch, detecting, behaviors, amp, obstacle, display, position  amp, detection" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3927195
+- Contents: The system shall follow the below behavior if speed increases over the '10'km/h('20 km/h' for surround).
+IDC switches on parking view when speed is '10km/h' & an obstacle detected under threshold for Front-sensor.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+speed increases over the 10 km/h (20 km/h for Surround)
+
+Verify the  below behavior:
+IDC switches on Parking view when speed is 10km/h and an obstacle is detected under threshold.
+Note this behavior is only applicable for front view.
+- Grooming Status: Approved
+- Grooming Comments: [14.02.2025 Wei, Abdul, Ganesh] Approved
+https://jira.harman.com/jira/browse/FQ-601
+
+# 16: To Ferarri:
+Ask customer
+
+Prashant: This can be clarified after getting the customer feedback on the above SRS
+Need to ask Sunil/Artashes: <= 10 km/h is applicable to SVC also?
+- Expert Domains: Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, IDC, speed, follow, increases, switches, is, detected, behavior, km, h, view, amp, obstacle, under threshold" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Note this behavior is only applicable for front view.
+
+4. ID: 3927206
+- Contents: The system shall follow the below behavior when an obstacle's detected.
+The acoustic feedback is "still played" but the IDC screen is preserved(no automatic reactivation of Parking view) when a new obstacle's detected under threshold on the same side('front/rear').
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+An obstacle is detected and IDC screen (HMI) is displayed and acoustic feedback played.
+
+Simulate a new obstacle under threshold  on the same side (front/rear)
+
+Verify the screen is displayed as HMI screen (Not switched to Parking view) and acoustic feedback is still played.
+- Grooming Status: Approved
+- Grooming Comments: [14.02.2025 Wei, Abdul, Ganesh] Approved
+
+https://jira.harman.com/jira/browse/FQ-601
+
+# 20:
+
+1. Starting point: IDC screen is displayed with an obstacle detected.
+
+Question to customer:
+Is there any condition to not show the parking view when there is an obstacle is detected?
+
+2. What is IDC screen here, our assumption is, it is HMI home screen.
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, feedback, obstacle's, follow, detected, is, played, is preservedno, behavior, 's, screen, reactivation, view, under threshold, side, rear" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.4 PRK 1: Parking view automatic activation use cases Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

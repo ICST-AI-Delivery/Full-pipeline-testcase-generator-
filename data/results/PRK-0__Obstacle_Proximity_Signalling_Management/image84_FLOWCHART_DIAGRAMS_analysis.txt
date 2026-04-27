@@ -1,0 +1,74 @@
+Image: image84.png
+Category: FLOWCHART DIAGRAMS
+Analysis Date: 2026-04-16 23:41:23
+================================================================================
+
+This is a state machine diagram that appears to represent a vehicle or automotive system control flow. Here's a detailed analysis:
+
+## Overall Structure
+The diagram shows 5 states (STATUS 0-4) connected by decision diamonds and conditional flows, representing different operational modes of what appears to be a vehicle safety or sensor system.
+
+## States Analysis
+
+**STATUS 0 (Initial State)**
+- System OFF, Key OFF
+- Entry point triggered by "Key_On"
+
+**STATUS 1 (System Initialization)**
+- Multiple sensor states: "Not_Inserted"
+- Front/Rear sensors OFF
+- Rear sensor ON
+- ELSE rear sensor OFF
+- Status Backlight 1
+
+**STATUS 2 (Active Monitoring)**
+- Reverse gear detection active
+- Front sensor ON, Rear sensor OFF
+- Status Backlight 2
+
+**STATUS 3 (Reverse Mode)**
+- Reverse gear inserted
+- Front sensor OFF, Rear sensor ON
+- Status Backlight 1
+
+**STATUS 4 (Warning State)**
+- "Not_Inserted" status
+- Front/Rear delay configurations
+- Rear sensor ON
+- ELSE rear sensor OFF
+- Status Backlight 2
+
+## Decision Points and Transitions
+
+**Key Decision Diamonds:**
+1. **Stop_GoEnable**: Routes to either "ReadDelay = 0 sec" (TRUE) or continues to STATUS 1 (FALSE)
+2. **ReadDelay = 1 sec**: Controls transitions between states 2 and 3
+3. **Multiple conditional checks** involving:
+   - Vehicle speed (≤10 km/h)
+   - Button press states
+   - Reverse gear status
+   - Front button status
+
+## Key Conditional Logic
+
+**Speed-Based Conditions:**
+- Vehicle speed ≤10 km/h appears as a critical threshold
+- Combined with gear and button states for state transitions
+
+**Sensor Management:**
+- Front and rear sensors are toggled ON/OFF based on current state
+- Backlight status (1 or 2) indicates different operational modes
+
+**Complex Transition Conditions:**
+- Multiple AND/OR logic combinations
+- Examples: "NPS_FrontButtons = 'Pressed' AND VehicleSpeed ≤10 km/h"
+- "Stop_GoEnable = 'True' AND VehicleSpeed goes below 10 km/h"
+
+## System Behavior
+This appears to be a parking assistance or proximity sensor system that:
+1. Activates based on key position and vehicle speed
+2. Manages front/rear sensor activation based on gear position
+3. Provides visual feedback through status backlights
+4. Responds to user button inputs and vehicle operational parameters
+
+The state machine ensures proper sensor activation sequences and safety interlocks based on driving conditions.

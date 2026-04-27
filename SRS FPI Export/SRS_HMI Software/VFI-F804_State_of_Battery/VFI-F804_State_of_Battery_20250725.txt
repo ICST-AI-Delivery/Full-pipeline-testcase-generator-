@@ -1,0 +1,204 @@
+# VFI-F804 6.2.2.22  State of Battery Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.22 VFI-F804 State of Battery
+
+- ID: 3408243
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3727854
+- Contents: IDC shall display numarical indication for state of battery in percentage(0%-100%).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to see battery state in percentage (0-100%)
+
+HMI_CAN:
+xEV_STS_HMI.HVB_SOC
+xEV_STS_HMI.HVB_Temperature_Indicator
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘0 %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3727857
+- Contents: IDC shall provide visual indication for state of battery (state of charge) through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to see battery state through HMI
+
+HMI_CAN:
+xEV_STS_HMI.HVB_SOC
+xEV_STS_HMI.HVB_Temperature_Indicator
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3912274
+- Contents: System shall provide the State of Charge indication in a dynamic graph on NDR
+and NDRR displays, If OBC_Status is 2"Connected_ready" OR 3("AC_power_flow_active") OR 4("DC_power_flow_active"),
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge indication in dynamic graph.
+
+Verify the refresh rate
+
+Diagnosis
+Calibratable parameters
+
+Graph_update_freq  (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+Graph_time_frame (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+- Grooming Status: Approved
+- Grooming Comments: please provide more details about dynamic graph for this particular signal.
+
+Raised Jira Ticket
+
+https://jira.harman.com/jira/browse/FQ-639
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, indication, graph, displays" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The refresh rate is as per the diagnostoc parameter Graph_update_freq parameter
+
+4. ID: 4085462
+- Contents: IDC shall update the current graph with a refresh rate equal to Graph_update_freq parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system updates the current graph at the specified refresh rate.
+
+Diagnosis
+Calibratable parameters
+Graph_update_freq  (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+Graph_time_frame (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 4085465
+- Contents: IDC shall display the previous battery soc value in a time frame equal to Graph_time_frame parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system displays the previous battery SOC value within specified time frame
+
+Diagnosis
+Calibratable parameters
+Graph_update_freq  (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+Graph_time_frame (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+6. ID: 4085463
+- Contents: IDC shall rescale the battery soc axis scale based on the maxiumum soc visualized.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system correctly rescales the SOC axis based on the max.SOC visualized.
+
+Diagnosis
+Calibratable parameters
+Graph_update_freq  (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+Graph_time_frame (GRAPH_PARAMETERS  IDC-460493 - GRAPH_PARAMETERS ($052E))
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3732482
+- Contents: IDC shall display battery temperature through HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the battery temperature
+
+HMI_CAN:
+xEV_STS_HMI.HVB_SOC
+xEV_STS_HMI.HVB_Temperature_Indicator
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3727858
+- Contents: IDC shall display visual feedback when SOC (state of charge) is low through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify if user able to get feedback when SOC is low
+
+HMI_CAN:
+xEV_STS_HMI.HVB_SOC
+xEV_STS_HMI.HVB_Temperature_Indicator
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, is, feedback, state, charge, HMI" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3732551
+- Contents: IDC shall synchronize the state of charge value.
+Note: battery state will maintain uniform accross the display. (cluster and IVI battery indication)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the synchronization
+
+HMI_CAN:
+xEV_STS_HMI.HVB_SOC
+xEV_STS_HMI.HVB_Temperature_Indicator
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall synchronize, will maintain" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F804 6.2.2.22  State of Battery Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

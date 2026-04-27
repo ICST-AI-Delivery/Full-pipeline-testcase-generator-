@@ -1,0 +1,97 @@
+# UnknownID 6.1.1.1 DMS
+
+
+
+DMS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.1.1 DMS
+
+
+
+DMS
+
+- ID: 2354328
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354329
+- Contents: 6.1.1.1.1 The ECU shall support Driver Monitoring System (DMS) functionalities.
+
+
+
+The ECU shall support Driver Monitoring System (DMS) functionalities.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System validation Test
+- Verification Criteria: ckuruva:
+Verify the DMS function availability
+- Grooming Status: Approved
+
+2. ID: 2354330
+- Contents: 6.1.1.1.2 The DMS implementation shall fulfill the EU Regulation (EU 2019/2144 Cluster C,...
+
+
+
+The DMS implementation shall fulfill the EU Regulation (EU 2019/2144 Cluster C, or latest version).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System validation Test
+- Verification Criteria: verify the DMS as per EU 2019/2144 regulation
+- Grooming Status: Blocked
+- Expert Domains: HMI Design
+
+3. ID: 2354331
+- Contents: 6.1.1.1.3 The Supplier shall provide its own solution (if available).
+
+
+
+The Supplier shall provide its own solution (if available).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System validation Test
+- Verification Criteria: ckuruva:
+Verify the DMS function
+- Grooming Status: Approved
+- Expert Domains: DMS-OMS
+
+4. ID: 2354332
+- Contents: 6.1.1.1.4 The implementation shall use basic algorithms and shall be able to achieve the d...
+
+
+
+The implementation shall use basic algorithms and shall be able to achieve the detection/recognition part with a dual-core ARM A53 CPU.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System validation Test
+- Grooming Status: Blocked
+- Grooming Comments: we are providing solution to Ferrari with 4 core Exynos Cluster partition (advance version of dual core), is this requirement valid??
+
+Chandrakala: Ferrari customer need to provide the DMS scope.
+- Expert Domains: Software Architecture
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.1.1 DMS]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

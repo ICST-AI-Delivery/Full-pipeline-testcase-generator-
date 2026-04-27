@@ -1,0 +1,159 @@
+# VEH-F033 6.2.1.1.2.3  Rear Fog Light Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.3 VEH-F033 Rear Fog Light
+
+- ID: 3406469
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3886322
+- Contents: System shall enable Rear Fog Lights indication based on proxi Byte 115, bits 0-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify rear fog light functionality not active for Byte 115, bits 0-1 ("RearFogLights": Absent / Reserved)
+
+Verify rear fog light functionality active for Byte 115, bits 0-1("RearFogLights":  Single Rear Fog Lights / Double Rear Fog Lights _
+
+CAN-SIGNAL: EXTERNAL_LIGHTS.RearFogLightSts
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3428721
+- Contents: System shall indicate Rear Fog Lights telltale ON when rear fog lights are turned ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI RearFogLights == "Present" (PROXI start Byte 115, from bit 0 to bit 1),
+
+Set RearFogLightSts == ON.
+Verify rear fog lights Info1 displayed as per HMI_POP.IND id 03301 with telltale 00770
+
+CAN-Signal: EXTERNAL_LIGHTS.RearFogLightSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are turned" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3429173
+- Contents: System shall indicate Rear Fog Lights failure by Master Light Fail telltale in B11 Wireframe area with priority2 and send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS and follows D01 visualization behaviour for F033 Info-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI RearFogLights == "Present" (PROXI start Byte 115, from bit 0 to bit 1),
+
+Trigger F033 fail 1 by algo
+Verify rear fog lights Fail1 displayed as per HMI_POP.IND id 03302 with telltale 00740, buzzer 2B and popup
+
+Verify F033 fail1 in central display too as per HMI_POP.IND
+
+Algo
+(LHRearFogLightFailSts OR RHRearFogLightFailSts == Fail_Present)
+
+EXTERNAL_LIGHTS.LHRearFogLightFailSts
+EXTERNAL_LIGHTS.RHRearFogLightFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, failure, telltale, area, priority2, behaviour" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00740
+
+4. ID: 3438882
+- Contents: System shall play rear fog lights buzzer on detecting rear fog light failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI RearFogLights == "Present" (PROXI start Byte 115, from bit 0 to bit 1),
+
+Trigger F033 fail 1 by algo
+Verify rear fog lights Fail1 displayed as per HMI_POP.IND id 03302 with telltale 00740, buzzer 2B and popup
+Verify F033 fail1 in central display too as per HMI_POP.IND
+
+Algo
+(LHRearFogLightFailSts OR RHRearFogLightFailSts == Fail_Present)
+
+CAN-Signal:
+EXTERNAL_LIGHTS.LHRearFogLightFailSts
+EXTERNAL_LIGHTS.RHRearFogLightFailSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F033)
+
+5. ID: 3438908
+- Contents: System shall trigger Rear Fog light failure pop-up with buzzer and send send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  on detecting rear fog light failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : PROXI RearFogLights == "Present" (PROXI start Byte 115, from bit 0 to bit 1),
+
+Trigger F033 fail 1 by algo
+Verify rear fog lights Fail1 displayed as per HMI_POP.IND id 03302 with telltale 00740, buzzer 2B and popup
+Verify F033 fail1 in central display too as per HMI_POP.IND
+
+Algo
+(LHRearFogLightFailSts OR RHRearFogLightFailSts == Fail_Present)
+
+CAN-Signal: EXTERNAL_LIGHTS.LHRearFogLightFailSts
+EXTERNAL_LIGHTS.RHRearFogLightFailSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202.xlsx
+
+6. ID: 5026251
+- Contents: Active Diagnosis telltale for Virtual Telltale turn ON/OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Blocked
+- Grooming Comments: Please refer JIRA- FQ-1068
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F033 6.2.1.1.2.3  Rear Fog Light Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

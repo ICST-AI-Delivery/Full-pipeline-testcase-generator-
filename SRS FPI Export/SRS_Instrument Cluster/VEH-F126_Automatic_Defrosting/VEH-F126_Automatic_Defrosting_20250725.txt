@@ -1,0 +1,71 @@
+# VEH-F126 6.2.1.1.1.18  Automatic Defrosting Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.18 VEH-F126 Automatic Defrosting
+
+- ID: 3939880
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3980570
+- Contents: System shall display Fail-1 Pop-up with Buzzer and send the status to IVI when NPRFailStatus is Fail_Present.
+Note:Fail-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+NPRFailSts= Fail_Present
+
+Verify that the Fail-1 Pop-up with buzzer is displayed when NPRFailStatus is Fail_Present.
+
+POP-UP ID:12601
+
+Audio Buzzer: Buzzer 2B
+
+CAN-Signal:STATUS_NPR.NPRFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Buzzer, NPRFailStatus, priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3980565
+- Contents: System shall display Automatic Defrosting indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F126 6.2.1.1.1.18  Automatic Defrosting Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

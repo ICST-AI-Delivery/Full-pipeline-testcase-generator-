@@ -1,0 +1,140 @@
+# UnknownID 6.1.2.3.12 Operation Frequency Configuration
+
+
+
+Operation Frequency Configuration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.12 Operation Frequency Configuration
+
+
+
+Operation Frequency Configuration
+
+- ID: 2353447
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353448
+- Contents: 6.1.2.3.12.1 The WLAN network created by the AP shall be set up on both bands, 2.4 and 5 GHz,...
+
+
+
+The WLAN network created by the AP shall be set up on both bands, 2.4 and 5 GHz, in parallel.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353449
+- Contents: 6.1.2.3.12.2 The User shall not have the option to select in which frequency band the WLAN ne...
+
+
+
+The User shall not have the option to select in which frequency band the WLAN network is set up.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+3. ID: 2353450
+- Contents: 6.1.2.3.12.3 The User shall not have the option to select which channel the WLAN network is s...
+
+
+
+The User shall not have the option to select which channel the WLAN network is set up.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+4. ID: 2353451
+- Contents: 6.1.2.3.12.4 In the 2.4 GHz band, the AP shall autonomously select one of the preferred chann...
+
+
+
+In the 2.4 GHz band, the AP shall autonomously select one of the preferred channels 1, 6, or 11 randomly for setting up the WLAN network.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Requirement is contradictory with 2353452.For car play we need to maintain channels across boot cycles.This would be met only for first boot after flash.
+
+5. ID: 2353452
+- Contents: 6.1.2.3.12.5 In the 2.4 GHz band, the AP shall use a static, preconfigured channel for settin...
+
+
+
+In the 2.4 GHz band, the AP shall use a static, preconfigured channel for setting up the WLAN network.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+6. ID: 2353453
+- Contents: 6.1.2.3.12.6 In the 5 GHz band, the AP shall autonomously select a random channel allowed for...
+
+
+
+In the 5 GHz band, the AP shall autonomously select a random channel allowed for non-stationary outdoor use according to the country settings.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Grooming Comments: Review with SW team.
+
+7. ID: 2353454
+- Contents: 6.1.2.3.12.7 In the 5 GHz band, the AP shall use a static, preconfigured channel for setting...
+
+
+
+In the 5 GHz band, the AP shall use a static, preconfigured channel for setting up the WLAN network.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- Grooming Comments: Review with SW team
+
+8. ID: 2353455
+- Contents: 6.1.2.3.12.8 The 5 GHz radio shall remain switched off at all times if the country settings i...
+
+
+
+The 5 GHz radio shall remain switched off at all times if the country settings indicate that the usage of 5 GHz for WLAN is not allowed.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+9. ID: 2353456
+- Contents: 6.1.2.3.12.9 In 5 GHz, the System shall operate the WLAN network with the highest available c...
+
+
+
+In 5 GHz, the System shall operate the WLAN network with the highest available channel bandwidth (e.g., 80 MHz for 802.11ac) supported by AP and stations.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+10. ID: 2353457
+- Contents: 6.1.2.3.12.10 In 2.4 GHz, the System shall operate the WLAN network with a channel bandwidth o...
+
+
+
+In 2.4 GHz, the System shall operate the WLAN network with a channel bandwidth of 20 MHz only.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.12 Operation Frequency Configuration]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

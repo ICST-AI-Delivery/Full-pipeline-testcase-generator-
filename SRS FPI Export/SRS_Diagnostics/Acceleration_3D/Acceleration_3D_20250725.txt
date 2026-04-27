@@ -1,0 +1,104 @@
+# UnknownID 6.2.4.3.1.26 Acceleration 3D Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.26 Acceleration 3D
+
+- ID: 4015865
+- Artifact Type: SRS Feature
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4015867
+- Contents: The system shall read Acceleration 3D with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 6 bytes. No applicative test with correct values for each byte possible, because no simulation available.
+- State (Harman_Requirement): Approved
+
+2. ID: 4015871
+- Contents: Upon requesting data identifier with the diagnostic service Read Data By Identifier the ECU shall return the X, Y and Z axis acceleration as follows: (see: image179.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 6 bytes. No applicative test with correct values for each byte possible, because no simulation available.
+- State (Harman_Requirement): Approved
+- Visual Elements: image179.png
+
+3. ID: 4015900
+- Contents: The System shall allow the sensor to send readings in Milligravity.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 6 bytes. No applicative test with correct values for each byte possible, because no simulation available.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: 1mG =0,00981m/s^2
+
+4. ID: 4016011
+- Contents: The Gyro sensor acceleration format shall be in the range of -2000<=Acceleration<=2000.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2000’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 6 bytes. No applicative test with correct values for each byte possible, because no simulation available.
+- State (Harman_Requirement): Approved
+
+5. ID: 4016018
+- Contents: The Gyro sensor acceleration format shall respect the rule 0x07FF = not available.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 6 bytes. No applicative test with correct values for each byte possible, because no simulation or HW mod available.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image179.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.26 Acceleration 3D Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

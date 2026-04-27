@@ -1,0 +1,115 @@
+# SET-7 6.2.3.7.14  Keyboard Layout Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.14 SET-7 Keyboard Layout
+
+- ID: 4009306
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: OEM feature
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4011303
+- Contents: IDC shall allow user to short press on “Keyboard layout” a sub-level list should open with available languages:
+Automatic
+Latin
+Turkish
+Arabic
+Cyrillic
+Chinese
+Japanese
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify the languages when user able to short press on keyboard layout.
+- Grooming Status: Approved
+- Grooming Comments: this feature is related to lovefrom. need to set oem.
+
+testing team want to discuss with HMI team (muthu)
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall allow, should open" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4011305
+- Contents: System shall change the language when Keyboard language should set to "Automatic".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify system able to change the language in automatic state.
+- Grooming Status: Approved
+- Grooming Comments: all the keyboard related reqs and lang.related reqs are handled by lovefrom.
+hand writing keyboard and keyboard multi lang.support.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, change, set, language, Automatic" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4011304
+- Contents: System shall revert the default layout when the current layout shouldn't support by the new language in manual keyboard layout.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify that the system revert the default lay out when new language that does not support current layout.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, layout, revert, n't, support, language" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4118435
+- Contents: system shall affects the characters available on keyboard and the direction of text insertion on search box.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify that the keyboard layout affects the characters available and the direction of text insertion in the search box
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, affects, characters, direction, insertion, box" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4156690
+- Contents: (see: image66.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image66.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image66.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-7 6.2.3.7.14  Keyboard Layout Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

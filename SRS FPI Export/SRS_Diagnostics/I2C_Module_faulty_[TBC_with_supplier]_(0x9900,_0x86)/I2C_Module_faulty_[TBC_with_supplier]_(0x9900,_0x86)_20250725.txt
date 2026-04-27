@@ -1,0 +1,69 @@
+# UnknownID 6.2.1.1.96 I2C Module faulty [TBC with supplier] (0x9900, 0x86) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.96 I2C Module faulty [TBC with supplier] (0x9900, 0x86)
+
+- ID: 4625697
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4625704
+- Contents: The System shall detect I2C Module Fault within 2s after key-ON, if the I2C Module Missing at least one (but entire messages shouldn't miss ) message and one message refuse to received from Clock module.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: -Miss at least one (but not all) message.
+-Verify vehicle is always configured.
+-Fault should detect within 2s during Key-ON.
+-Verify (0x9900, 0x86) DTC will trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, miss, refuse, to received, Module, message, module" )
+- TestTeamComment: RWeber_DIAG_250306: I2C ?= ICC. No info about which missing messages or which message, missing CAN ID and msg ID. So far only protocol test. Also no spec about proxi, etc… poor spec quality.
+- State (Harman_Requirement): Approved
+
+2. ID: 4625711
+- Contents: The System shall clear the I2C Module Fault immediately after receiving entire messages.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: -The Fault should be clear Immediately after receiving all the messages.
+-Verify (0x9900, 0x86) DTC will clear.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250306: I2C ?= ICC. No info about which missing messages or which message, missing CAN ID and msg ID. So far only protocol test. Also no spec about proxi, etc… poor spec quality.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.96 I2C Module faulty [TBC with supplier] (0x9900, 0x86) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

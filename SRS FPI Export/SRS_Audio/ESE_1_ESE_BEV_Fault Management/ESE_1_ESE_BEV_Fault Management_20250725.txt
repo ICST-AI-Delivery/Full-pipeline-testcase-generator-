@@ -1,0 +1,279 @@
+# UnknownID 6.2.3.2.2 ESE 1: ESE BEV Fault Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.2.2 ESE 1: ESE BEV Fault Management
+
+- ID: 3713035
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3526679
+- Contents: The system shall send the ESE Fail status to the ESE BEV library
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Create any of the 3  ESE BEV errors mentioned below SRS.
+Verify the ESE Fail status is sent to the ESE BeV library
+
+Use DSP log for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3526672
+- Contents: The system shall set the "ESE Fail status" to "fail present" if one of the following fault is present.
+A fault detection on A2B Accelerometer.
+A fault detection on one of the MIC inputs.
+One of the signal is missing or invalid.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Create any of the fault mentioned in the requirement and verify the CAN signal "IDC_AudioStreams2.ESEFailSts" =1 ("Fail_Present").
+- Grooming Status: Approved
+- Grooming Comments: [Ahmed]: CAN signal in PI3 is not valid and changed to the CAN signal "IDC_AudioStreams2.ESEFailSts"
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3712894
+- Contents: The system shall provide the visualization cycle (POPUP_ESE_FAIL) If a fault on A2B Accelerometer is detected.
+The system shall populate the output internal interface AUD_ESE_Fail = 1 ("Present") if a fault on A2B Accelerometer is detected.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Create a fault on Accelerometer (e.g. Accelerometer open circuit, short +ve line to Vbat).
+Verify the notification on the cluster and central HMI as provided in the artifact ID 3715019
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Ahmed 12.07.2024]: Approved.
+- Expert Domains: Android HMI, Cluster SW, IOC_Autosar
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is detected" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4570787
+- Contents: The system shall populate the output internal interface "AUD_ESE_Fail" to default value = "0"("Not present") if "no-fault" detection on "A2B Accelerometer".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Create a fault on Accelerometer (e.g. Accelerometer open circuit, short +ve line to Vbat).
+Verify the notification on the cluster and central HMI as provided in the artifact ID 3715019
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, IOC_Autosar
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, populate, to default, present, interface, value, detection" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3712923
+- Contents: The system shall set the relative internal interface to CAN signal initial value If one of the 'ESE BEV' CAN signal is missing or invalid.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Verification Criteria: 1. Stop sending one of the ESE BEV relevant CAN message.
+
+Verify the Value of the internal interface is set to the default value of the missed CAN signal.
+
+2. Set an invalid value to one of the ESE BEV relevant CAN message.
+
+Verify the Value of the internal interface is set to the default value of the missed CAN signal.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, signal, interface, value, missing, invalid" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4597265
+- Contents: The system shall set IDC_AudioStreams2.ESEFailSts = '1' ("Fail_Present") if one of the following fault is present:
+Detection of a fault on A2B Accelerometer.
+The AccelerometerFail output control signal is equal to 1
+Detection fault on one of the MIC inputs
+One of the signals is missing or invalid
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Set a fault on A2B Accelerometer/MiC inputs or Stop sending one of the Signal or send an Invalid signal value.
+
+Verify the value of the CAN signal
+IDC_AudioStreams2.ESEFailSts = '1' ("Fail_Present")
+
+Verify the value of the signal  IDC_AudioStreams2.ESEFailSts =0 after clearing the fault.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Detection, set, fault, is missing, Accelerometer, inputs, signals, invalid" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3932580
+- Contents: The IDC shall send to the ESE BEV library the signal PWT_STATUS_2.PowertrainSts through the internal interface PowertrainSts. (PowertrainSts = PWT_STATUS_2.PowertrainSts).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3932582
+- Contents: PWT_STATUS_6.GearIndex
+PWT_STATUS_6.TransientTorque
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 4643114
+- Contents: [Info] Refer to AD-14 for further details about this visualization cycle
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3715019
+- Contents: Figure: POPUP_ESE_FAIL on Cluster HMI (see: image144.png)
+(see: image145.png)
+Figure: POPUP_ESE_FAIL on Central HMI
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image144.png, image145.png
+
+3. ID: 4639930
+- Contents: Proxi
+Start Byte 169, Start bit 7 - ESE_Functionality (0 = "absent", 1 = "present");
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 4156158
+- Contents: HMI_CAN [IDC-437026 ]
+PWT_STATUS_2.PowertrainSts [IDC-438098 ]
+PWT_STATUS_2.EDriveSts [IDC-482799 ]
+STATUS_NCP.CapoteSts [IDC-437037 ]
+NFR_SPEED.VehicleSpeedVSOSig [IDC-437034 ]
+PWT_STATUS_3.GasPedalPosition [IDC-438090 ]
+ASR_PEDAL_PRESS.BrakeRodStroke [IDC-438089 ]
+ASR_PEDAL_PRESS.BrakePressureTarget [IDC-438093 ]
+ASR_PEDAL_PRESS.BrakePressureActual [IDC-438077 ]
+NVO_INFO_V2.ManettinoSts [IDC-438081 ]
+PWT_STATUS_2.EManettinoSts [IDC-438083 ]
+xEV_STS_HMI.HVB_SOC [IDC-438087 ]
+GE.LwsAngle [IDC-438095 ]
+YRS_DATA.YawRate [IDC-438097 ]
+YRS_DATA.LongAcceleration [IDC-438100 ]
+YRS_DATA.LatAcceleration [IDC-438103 ]
+ESP_WSS_Front.VRD_LV [IDC-438105 ]
+ESP_WSS_Front.VRD_RV [IDC-438075 ]
+ESP_WSS_Rear.VRD_LH [IDC-438078 ]
+ESP_WSS_Rear.VRD_RH [IDC-438216 ]
+VCU_COOLING_PWT.InputFrontAxle_Temperature [IDC-438204 ]
+VCU_COOLING_PWT.InputRearAxle_Temperature [IDC-438203 ]
+PWT_STATUS_6.FL_WheelTrq [IDC-438208 ]
+PWT_STATUS_6.FR_WheelTrq [IDC-438206 ]
+PWT_STATUS_6.RL_WheelTrq [IDC-438166 ]
+PWT_STATUS_6.RR_WheelTrq [IDC-438170 ]
+PWT_STATUS_6.P4L_speed_v2 [IDC-438174 ]
+PWT_STATUS_6.P4R_speed_v2 [IDC-438177 ]
+PWT_STATUS_6.P4RL_Speed [IDC-438179 ]
+PWT_STATUS_6.P4RR_Speed [IDC-438212 ]
+PWT_STATUS_6.P4FL_Torque [IDC-438217 ]
+PWT_STATUS_6.P4FR_Torque [IDC-482800 ]
+PWT_STATUS_6.P4RL_Torque [IDC-438220 ]
+PWT_STATUS_6.P4RR_Torque [IDC-438222 ]
+PWT_STATUS_6.P4FL_DeratingCoeff [IDC-438224 ]
+PWT_STATUS_6.P4FR_DeratingCoeff [IDC-438193 ]
+PWT_STATUS_6.P4RL_DeratingCoeff [IDC-438195 ]
+PWT_STATUS_6.P4RR_DeratingCoeff [IDC-438197 ]
+PWT_STATUS_6.Comp_Oprtn_Start [IDC-438199 ]
+PWT_STATUS_6.CompSpd_Est [IDC-438201 ]
+P4FL_STATUS.P4FL_Current [IDC-438182 ]
+P4FL_STATUS.P4FL_Temperature [IDC-438184 ]
+P4FR_STATUS.P4FR_Current [IDC-438186 ]
+P4FR_STATUS.P4FR_Temperature [IDC-438188 ]
+P4RL_STATUS.P4RL_Current [IDC-438190 ]
+P4RL_STATUS.P4FL_Temperature [IDC-438181 ]
+P4RR_STATUS.P4RR_Current [IDC-438164 ]
+P4RR_STATUS.P4RR_Temperature [IDC-438167 ]
+NCR_INFO.GearEngaged [IDC-438160 ]
+NCR_INFO.FutureSyncGear [IDC-438209 ]
+STATUS_C_NCA_NCR.ActualGearForDisplay [IDC-438213 ]
+STATUS_C_NCA_NCR.ShiftModeSts [IDC-438229 ]
+PWT_STATUS_6.TorqueIndex [IDC-438233 ]
+PWT_STATUS_6.ShiftTorque [IDC-438231 ]
+GEAR_INFO.ShiftType [IDC-458047 ]
+GEAR_INFO.ShiftSuggestionLevel [IDC-458046 ]
+PWT_STATUS_2.VCU_EnergyProfileRqt [IDC-458616 ]
+STATUS_B_CAN.KeySts
+PWT_STATUS_6.TorquePerc
+PWT_STATUS_6.TorqueReadyPerc
+PWT_STATUS_6.TorqueNegPerc
+PWT_STATUS_6.RPM_MOD
+IDC_AudioStreams2.ESEFailSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 4597907
+- Contents: Outputs
+AUD_ESE_Fail
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 4529886
+- Contents: Outputs
+INFO_CAN [IDC-437062 ]
+IDC_AudioStreams2.ESEFailSts [IDC-437061 ]
+IDC_AudioStreams2.ESE_InternalSound [IDC-437060 ]
+IDC_AudioStreams2.ESE_ExternalSound [IDC-437063 ]
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 4598219
+- Contents: HMI_CAN
+PWT_STATUS_3.GasPedalPosition
+NFR_SPEED.VehicleSpeedVSOSigFailSts
+AUDIO_INFO.AVASFailSts
+AUDIO_INFO.AVASAlertSound
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4598428
+- Contents: Outputs
+AUD_AVASFailSts
+AUD_AVASAlertSound
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image145.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image144.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.2.2 ESE 1: ESE BEV Fault Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,154 @@
+# AUD-5 6.2.1.6  Emergency Call Mute Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.6 AUD-5 Emergency Call Mute Management
+
+- ID: 3408482
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_IOC
+- Grooming Status: Approved
+- Expert Domains: Kernel, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3494603
+- Contents: If proxi parameter "EmergencyCallMute" is enabled, the system shall enable the emergency call mute feature.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash a SW which has proxi parameter EmergencyCallMute = 1 
+
+Verify via log the emergency call mute feature is enabled.
+
+The emergency call mute feature should be disabled if proxi parameter EmergencyCallMute = 0
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is enabled" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3507831
+- Contents: The System shall trigger the Emergency Call mute request if a Manual Emergency call is triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Emergency call mute feature is enabled.
+
+Set the hardwired signal IDCMuteReq = "Active"
+
+Verify that the external Amplifiers are muted.
+Verify the CAN signal HMI_INFO.Ecall_IDCMuteReq = 1 ("Active")
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Kernel
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is triggered" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3507828
+- Contents: The System shall trigger the Emergency Call mute request if an Automatic Emergency call is triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Emergency call mute feature is enabled.
+
+Set the CAN signals:
+AIRBAG1.CrashOutputSts != "No_Crash" AND AIRBAG1.CrashOutputValidData
+
+Verify the external Amplifiers are muted.
+Verify the CAN signal HMI_INFO.Ecall_IDCMuteReq = 1 ("Active")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is triggered" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4700574
+- Contents: The system shall set the value of "External amplifier mute" & the value of the CAN signal "HMI_INFO.Ecall_IDCMuteReq" based on the "Emergency Call Mute Request status".
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Step 1: Activate Emergency call mute request.
+Verify that the external Amplifiers are muted and 
+ CAN signal HMI_INFO.Ecall_IDCMuteReq = 1 ("Active").
+
+Step2:
+Deactivate the Emergency call mute request.
+
+Verify that the external Amplifiers are unmuted and
+HMI_INFO.Ecall_IDCMuteReq = 0".
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3494803
+- Contents: The system shall not trigger the emergency call mute request if emergency call is not active.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the hardwired signal IDCMuteReq = "Not Active" and AIRBAG1.CrashOutputSts = "No_Crash
+
+Verify that the external Amplifiers are unmuted.
+Verify the value of HMI_INFO.Ecall_IDCMuteReq = 0 ("Not_Active")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4640447
+- Contents: Proxi
+Start Byte 111, Start Bit 0 - EmergencyCallMute (0 = "disabled", 1 = "enabled")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4640459
+- Contents: Inputs
+HMI_CAN
+AIRBAG1.CrashOutputSts
+AIRBAG1.CrashOutputValidData
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 4640469
+- Contents: HMI_CAN
+HMI_INFO.Ecall_IDCMuteReq
+I2C over A2B
+ExternalAmplifierMuteAll
+Physical Interface
+IDCMuteReq(GPIO9)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-5 6.2.1.6  Emergency Call Mute Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

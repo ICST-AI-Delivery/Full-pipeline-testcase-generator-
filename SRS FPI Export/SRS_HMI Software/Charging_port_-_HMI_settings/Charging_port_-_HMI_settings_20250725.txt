@@ -1,0 +1,177 @@
+# UnknownID 6.2.3.6.2.1 Charging port - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.2.1 Charging port - HMI settings
+
+- ID: 3540861
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: Yes
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4731552
+- Contents: System shall manage the "Charge Port" setting when proxi parameter "Charging_Setting" == 1 ("Present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi parameter for charge port
+"Charging_Setting" == 1 ("Present").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, setting, proxi, Charging, Port, parameter, Present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3540863
+- Contents: IDC shall allow the user to open/close the charging port through HMI settings
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user is able to open/close the charging port through HMI.
+
+HMI_CAN:
+COMMAND_NIT_TO_NBC.ChargeButtonReq
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, close, charging, open, port, HMI settings" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3540878
+- Contents: IDC shall allow the user to start/stop the charging when the charging cable is insert.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user is able to start/stop the charging when a charging cable is insert through HMI.
+
+HMI_CAN:
+COMMAND_NIT_TO_NBC.ChargeButtonReq
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "cable, allow, to start, stop, is insert, charging" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4731561
+- Contents: IDC shall allow the user to lock/unlock the charging port through HMI settings
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to lock/unlock charging port
+RechargeFlapSts == 1 ("Open")
+AND
+Recharge_PlugSts != 0 ("Not_Connected")
+AND
+OBC_Status == "Connected_Ready"
+AND
+ChargeInletType == 0 ("CCS2")
+AND
+HVBChargeWarningForDisplay == "No_Failure"
+
+RechargeFlapSts == 1 ("Open")
+AND
+Recharge_PlugSts != 0 ("Not_Connected")
+AND
+OBC_Status == 4 ("DC_Power_flow_active")
+AND
+ChargeInletType == 0 ("CCS2")
+
+RechargeFlapSts == 1 ("Open")
+AND
+Recharge_PlugSts != 0 ("Not_Connected")
+AND
+OBC_Status == 3 ("AC_Power_flow_active")
+AND
+ChargeInletType == 0 ("CCS2")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to lock, unlock, charging, port, HMI settings" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4733049
+- Contents: System shall display ERROR in the charge port setting
+when RechargeFlapSts == 1("Open")
+AND
+HVBChargeWarningForDisplay == [1("OBC Fail_Communication") OR
+2("PlugLock_Fail") OR 3("OBC_Fail_Power_Conversion") OR 4("BOOSTER_Fail")OR 5("HVB_Recharge_Fail_ChargingBus") OR 6("EVSE_Fail")]
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the error text is displayed when 
+
+RechargeFlapSts == 1 ("Open")
+AND
+HVBChargeWarningForDisplay == [1 ("OBC Fail_Communication") OR
+2 ("PlugLock_Fail") OR 3 ("OBC_Fail_Power_Conversion") OR 4
+("BOOSTER_Fail")OR 5 ("HVB_Recharge_Fail_ChargingBus") OR 6
+("EVSE_Fail")]
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RechargeFlapSts, display, setting, ERROR, port, Open, Fail_Communication, PlugLock_Fail, BOOSTER_Fail" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4733051
+- Contents: System shall set ChargeButtonReq = 0("Not_Active") when no interaction perform on the Charge Port setting.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the charge button request when no user interaction.
+
+ChargeButtonReq = 0 ("Not_Active")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, interaction, set, perform, ChargeButtonReq, Not_Active, setting" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4733053
+- Contents: System shall inhibit the charge port from user interaction when ActualGearForDisplay != 0xB("P") AND RechargeFlapSts ==0("Closed")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user not able to access charge port when in OPEN.  
+
+ActualGearForDisplay != 0xB ("P") AND RechargeFlapSts ==0 ("Closed")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inhibit, Closed, port, interaction, ActualGearForDisplay, RechargeFlapSts" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.6.2.1 Charging port - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

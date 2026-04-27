@@ -1,0 +1,95 @@
+# UnknownID 6.2.2.32.3 Plug status visualization Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32.3 Plug status visualization
+
+- ID: 4895657
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895658
+- Contents: IDC shall provide Plug status indication as specified in HMI Specification according to Recharge_PlugSts
+If
+"Recharge_PlugSts == 0" ("Not_Connected")
+Then
+IDC shall provide the indication for "cable unplugged"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If
+"Recharge_PlugSts == 0" ("Not_Connected")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall provide" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895659
+- Contents: IDC shall provide Plug status indication as specified in HMI Specification according to Recharge_PlugSts
+If
+"Recharge_PlugSts == 1" ("Connected_unlocked")
+Then
+IDC shall provide the indication for "cable plugged_unlocked"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If
+"Recharge_PlugSts == 1" ("Connected_unlocked")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall provide" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895661
+- Contents: IDC shall provide Plug status indication as specified in HMI Specification according to Recharge_PlugSts
+If
+"Recharge_PlugSts == 2" ("Connected_locked")
+Then
+IDC shall provide the indication for "cable plugged and locked"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the charge label status when
+If
+"Recharge_PlugSts == 2" ("Connected_locked")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall provide" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.32.3 Plug status visualization Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

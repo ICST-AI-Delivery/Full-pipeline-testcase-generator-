@@ -1,0 +1,159 @@
+# PRK-13 6.2.4.14  DOOR OPENING AND MIRROR MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.14 PRK-13 DOOR OPENING AND MIRROR MANAGEMENT
+
+- ID: 3939655
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3970056
+- Contents: The system shall disable the video streaming from the displaced cameras in the views that make use of camera both in Bird view & camera stream frame because the doors are open or the side view mirrors are closed.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open the door or close the side mirrors and verify the camera view is disabled in bird view and camera stream frame.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, displaced, situations, cameras, position" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3970057
+- Contents: The system shall disable the video streaming from the displaced cameras in the views that make use of camera both in Bird view & camera stream frame.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Grooming Comments: [Saheel, Sunil_05.03.2025] Merge with above requirement and map above
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, disable, streaming, displaced, make, video, cameras, views, use, amp, frame" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3970067
+- Contents: The system shall show opening door animation for the corresponding door & grey-out the video streaming from the camera mounted on the corresponding door for the views using that camera If(Ie_enu_DrvrDoorSts OR Ie_enu_PsngrDoorSts) ! = closed.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: (Ie_enu_DrvrDoorSts OR Ie_enu_PsngrDoorSts) ! = closed 
+
+Verify door open or close animation is displayed in bird view and also corresponding view is greyed out.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, opening, corresponding, grey, streaming, mounted, using, closed, animation, door  amp, camera, door, views, IfIe" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3970106
+- Contents: The system shall show folded mirror icon for the corresponding mirror and grey out the video stream coming from the camera mounted on the corresponding mirror for the views using that camera If 'Ie_bol_FldMrrSts' is set to folded.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: 'Ie_bol_FldMrrSts' is set to folded.
+
+Verify in bird view the folded mirror icon is displayed and also corresponding camera view is greyed out.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, folded, corresponding, grey out, coming, mounted, using, mirror icon, mirror, stream, camera, views" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3970119
+- Contents: The system shall show opening door animation for the corresponding door & grey out the video stream coming from the camera mounted on the corresponding door for the views using that camera if '(Ie_enu_DrvrDoorSts OR Ie_enu_PsngrDoorSts) != closed & Ie_bol_FldMrrSts == folded'.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: '(Ie_enu_DrvrDoorSts OR Ie_enu_PsngrDoorSts) != closed & Ie_bol_FldMrrSts == folded'.
+
+Verify door open or close animation is displayed in bird view and also corresponding view is greyed out.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, opening, corresponding, grey out, coming, mounted, using, camera, folded, animation, door  amp, stream, door, views" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3970122
+- Contents: The system shall resume "normal-operation" once all the cameras go back to "their" "nominal positions"(doors closed & mirrors unfolded).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: '(Ie_enu_DrvrDoorSts OR Ie_enu_PsngrDoorSts) = open & Ie_bol_FldMrrSts == unfolded'.
+
+Verify bird view and camera view stream displaying actual camera view of surrounding area.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "once" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3970032
+- Contents: This function describes Surround View behavior when cameras are displaced due to doors opening or mirrors folding.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3970033
+- Contents: The system shall display the Door Opening and Mirror Management as reported in: 
+HMI-LF-7927 - Surround View occluded view
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, occluded, Opening, view" )
+- State (Harman_Requirement): New
+
+3. ID: 4003683
+- Contents: The system shall implement the logics of Door Opening & Mirror Management according to:
+SFS F560 – Surround View Management
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+4. ID: 3970124
+- Contents: Inputs
+Ie_bol_FldMrrSts
+Ie_enu_DrvrDoorSts
+Ie_enu_PsngrDoorSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-13 6.2.4.14  DOOR OPENING AND MIRROR MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

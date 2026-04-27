@@ -1,0 +1,212 @@
+# RAD-8 6.2.1.1.9  Direct Tune Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.9 RAD-8 Direct Tune
+
+- ID: 3407916
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3539581
+- Contents: System shall tune given station if the user give correct and complete frequency number to tune to the particular station. (frequency range differs in each market and for tuner source)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall tune given station if the user give correct and complete frequency number to tune to the particular station.
+
+DAB direct tune is NA.
+- Grooming Status: Approved
+- Grooming Comments: FM/DAB services are combined in one station/service list
+
+Need clarification regarding DAB and which source to play? For AM and FM is possible.
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, tune, given, differs, station, market, tuner source" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer AD-04 document 
+
+each Market (EU, JAP, CHN, etc.)  each tuner (FM, AM, DAB, etc.)
+
+AD-04 Document:
+https://workplace.harman.com/apps/PLOEM/55/OEM288/Shared%20Documents/30_Customer_Specs/3010_CRS_Overview/301030_FineSpec-PI5.1_June_2024/PI5.1_June24%20-%20Co-Applicable%20Documents/AD-04_Ferrari_CountryCoding_and_Broadcasts_v41.xlsx?d=w0aeb8314be054434b124f2d1baba8806
+
+2. ID: 3539592
+- Contents: IDC shall verify user entries to station/frequencies with in the allowed range and step size.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall verify user entries to the stations or frequencies within the allowed range. Applicable for FM, AM, FM HD, AM HD
+
+AM HD, FM HD applicable for NA region.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3539599
+- Contents: IDC shall display tuned frequency for DAB in the III-band and L-Band (if present) database (independently by the preset)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify IDC shall display tuned frequency for DAB in the III-band.
+
+Band-3 (Above FM frequencies)
+
+Note: L-Band is not supported.
+- Grooming Status: Approved
+- Grooming Comments: L band is not supported.
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, search, tuned, frequency, DAB, database, preset" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3539603
+- Contents: IDC shall display a keyboard and search box interface for the user to interact.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display keyboard and search box interface for the user to interact to input the frequency.
+- Grooming Status: Blocked
+- Grooming Comments: need to recheck with muthu
+
+[Devi Chandra : 08-Jul-2024]:
+
+Clarification needed about keyboard interface. - This will be taken by Muthuraj
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3539607
+- Contents: System shall deny user to enter certain frequency ranges which is incompatible with the particular country.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall not permit the user to enter certain frequency ranges which is not compatible with the particular country.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, deny, to enter, is incompatible, ranges, country" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer AD-04 document
+
+6. ID: 3539618
+- Contents: System shall restrict the tuning procedure or system shall add zero to the given input and tune to the result frequency when user inserts incomplete frequency.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall restrict the tuning procedure or system shall add 0 to the given input and tune to the resulted frequency when user inserts incomplete frequency. 
+(e.g.: “88” -->“88.0” )
+Applicable for only FM.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, restrict, tuning, add, given, tune, inserts, procedure, input, frequency" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3604105
+- Contents: System shall allow direct tune for AM, FM, AM HD, FM HD radio frequencies.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow direct tune for AM, FM, AM HD, FM HD radio frequencies.
+
+
+AM HD, FM HD applicable for NA region.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3604106
+- Contents: Applicability: DAB +
+- Artifact Type: SRS Req
+- Responsible Domain: DAB_Cross Dev
+- Grooming Status: Blocked
+- Grooming Comments: [Devi Chandra-08-Jul-2024]
+Norbert: DAB+ is not applicable for Direct tune.
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: IDC_450320 - DAB+ is not offered.
+
+9. ID: 3716196
+- Contents: System shall search station view can't access when the antenna detached
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: Need to check with system infra
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, search, access, detached, station" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3716236
+- Contents: When the antenna detaching happens while the user is inside the station search view, the commands shall unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: (i.e. keyboard grayed out).
+
+### Informational Items:
+
+1. ID: 3583677
+- Contents: This function allows the user to perform direct tuning to the station
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3539616
+- Contents: [Info] For example, available EU range is from 87.50 Mhz to 108.00 Mhz, while for JAP the frequency range goes from 76 Mhz to 90 Mhz
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer AD-04 document
+
+3. ID: 3557224
+- Contents: DAB/FM features:
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3539601
+- Contents: Frequency typing
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-8 6.2.1.1.9  Direct Tune Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,280 @@
+# RAD-0 6.2.1.1.1  Radio Management Introduction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1 RAD-0 Radio Management Introduction
+
+- ID: 3407901
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, IOC_Diag, Software Architecture, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3497954
+- Contents: System shall manage functionalities and settings specifically relates to digital radio bands (e.g. DAB, SXM) when proxi "Reserve for SDARS / DAB" == 1("present")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the functionalities and settings related to digital radio bands DAB, SXM when proxi   for SDARS/DAB is present
+
+SDARS / DAB" == 1("present")
+- Grooming Status: Approved
+- Grooming Comments: Need clarification from software architect team.
+- Expert Domains: AM_FM_HD, Android HMI, IOC_Diag, Software Architecture
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, relates, bands, proxi, functionalities, settings, SDARS / DAB, present" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 3497984
+- Contents: System shall manage functionalities and settings specifically relates to digital radio bands (e.g. DAB, SXM) shall not be available, when proxi "Reserve for SDARS / DAB" == 0 ("absent").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Verification Criteria: verify functionalities and settings specifically relates to digital radio bands (e.g. DAB, SXM) shall not be available, when proxi is absent.
+
+
+SDARS / DAB" == 0
+- Grooming Status: Approved
+- Grooming Comments: Proxi architectural discussion is in Progress (Azmat, Shiva)
+- Expert Domains: AM_FM_HD, Android HMI, IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, SXM, manage, relates, bands, absent, proxi, is, functionalities, settings, SDARS, DAB" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+3. ID: 3498016
+- Contents: The system shall manage HD Radio functionalities for NAR HW variant regardless proxi reserved for SDARS/DAB
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall manage HD Radio functionalities for NAR HW variant regardless proxi reserved for SDARS/DAB
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "reserved" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+
+From Test team:
+NAR supports both SDARS, DAB?
+- State (Harman_Requirement): Approved
+
+4. ID: 3582927
+- Contents: System shall store current radio configuration data at the end of key cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: To Verify at ignition cycle the information for the last radio configuration has to saved
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3498053
+- Contents: When starting the radio system shall perform a check on the presence of the last mode and when last mode present, it will load to obtain radio configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: To Verifiy IDC shall check on the presence of the last mode. If  present , it will be loaded to obtain the latest radio configuration, When starting the radio
+
+Note: at the first start system shall tune the FM tuner with the first available frequency based for each countries
+- Grooming Status: Approved
+- Grooming Comments: What is the default frequency during virgin start/Factory reset?
+
+
+Customer Clarification:
+at the first start you can tune the FM tuner with the first available frequency based for each countries
+
+Query:
+Could you please let us know what IDC should be tuned ( AM or FM ) and what frequency if there is no last mode present , for example when factory reset is done or when it very first start ?
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, starting, perform, will load, obtain, check, presence, mode, mode present, configuration" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3582942
+- Contents: Last mode information shall stored:
+1. Last frequency tuned for each radio source(FM, AM, etc.)
+2. Last radio source (FM, AM, etc.)
+3. List of strong stations for each source
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify 
+Last mode information shall stored:
+1. Last frequency tuned for each radio source(FM, AM, etc.)
+2. Last radio source (FM, AM, etc.)
+3. List of strong stations for each source
+- Grooming Status: Approved
+- Grooming Comments: Last station list persistency is not supported. Need Clarification from customer - Clarified (Station persistency is supported)
+2. Storing the memory profiles will impact on the memory.
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "etc, effective" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3582950
+- Contents: IDC shall implement Persistence requirements according to Persistence (standard Persistence) and Profiled feature (profiled persistence) columns of menu structure
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall implement persistence according to standard and profiled persistence.(Enable the persistency for each profile)
+- Grooming Status: Approved
+- Grooming Comments: Refer profile related topis in Finespec
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "columns, implement, according, profiled, requirements, Persistence, feature, structure" )
+- TestTeamComment: From Test: Difference between standard and profiled persistency.
+- State (Harman_Requirement): Approved
+
+8. ID: 3498135
+- Contents: System shall erase the last value set by the user before ECU shut down, when persistence request for the setting is un sent.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: To Verify when no persistence is requested for setting then system shall not save the last values set by the user before ECU shut down
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, erase, set, shut, is, sent, value, request, setting" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3498141
+- Contents: System shall store the last radio setting value for the active profile in the portion of memory of current active user profile, before IDC shutdown or reboot, when proxi parameter Profile ==1( "present") AND Profiled persistency request..
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall recognize the last radio setting value for the active profile before shut down or reboot, when profile proxi parameter is set to 1.
+
+Note:  Start Byte 167, Start bit 5 - Profile (0 = "absent", 1="present")
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, reboot, proxi, Profiled, radio, value, profile, portion, memory, present, request" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+10. ID: 3498148
+- Contents: System shall recover the store value for each profile setting according to the active profiled, When proxi parameter Profile equal to 1( "present") AND Profiled persistency is requested then at key cycle
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the systems restores correct profiled settings after a key cycle when profile is present.
+
+Proxi profile ==1
+
+Note:- Start Byte 167, Start bit 5 - Profile (0 = "absent", 1="present")
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recover, store, setting, according, profiled, proxi, Profiled, value, profile, present, request, key cycle" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+11. ID: 3498151
+- Contents: System shall store the setting value before shutdown or reboot, when proxi parameter Profile is 0 ("absent") OR Standard Persistence request.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall store the setting value before its shutdown or reboot when proxi is absent or standard persistance is requested.
+
+proxi parameter Profile is 0 ("absent")
+
+Note:- Start Byte 167, Start bit 5 - Profile (0 = "absent", 1="present")
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, reboot, proxi, value, shutdown, absent OR Standard, request" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+12. ID: 3498154
+- Contents: If proxi parameter Profile is 0 ("absent") OR Standard Persistence request, then at next key cycle system shall recover the last store value of the setting to provide in UI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall recover the last stored value of the setting to provide UI at next key cycle when proxi is absent or standard persistance is requested.
+
+Proxi parameter Profile is 0 ("absent")
+
+Note:- Start Byte 167, Start bit 5 - Profile (0 = "absent", 1="present")
+- Grooming Status: Approved
+- Grooming Comments: Need To check with HMI Team regarding Profile 0 and Profile 1
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, proxi, recover, to provide, absent OR Standard, request, value, setting, UI" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+13. ID: 3593316
+- Contents: System shall allow frequency for AM, FM , DAB+, FM HD Radio, AM HD Radio, SXM.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow frequency for AM, FM , DAB+, FM HD Radio, AM HD Radio, SXM.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, SXM
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, frequency, AM, FM, DAB+, Radio" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3593309
+- Contents: [Info] For each function defined in RAD Domain the function applicability to one or more radio sources is indicated in dedicated paragraph (useful for testing references
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3498044
+- Contents: Radio Last Mode
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3498114
+- Contents: Radio setting persistence
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3582913
+- Contents: Data:
+
+Proxi -
+Start Byte 82, Start bit 3 - Reserved for SDARS/DAB (0 = "absent", 1 = "present")
+Start Byte 167, Start bit 5 - Profile (0 = "absent", 1="present")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-0 6.2.1.1.1  Radio Management Introduction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,70 @@
+# UnknownID 6.2.1.5.30 Left Camera - Image Out of Order (0x910528) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.30 Left Camera - Image Out of Order (0x910528)
+
+- ID: 4613049
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4613052
+- Contents: The System shall detect Image Out of Order Fault in Left Camera within 1s with SV in active state, if Video frame timestamps are out of order for the Left camera.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the frames from the camera are out of order. 
+-Image Out of Order Fault in Left Camera should be detect within 1s when SV is in active state.
+-Set Proxi byte 184, bit 4 (“IDC_SurroundViewFunctionality") = "Present"
+-Verify DTC will be trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Out, Left, SV, state" )
+- TestTeamComment: RWeber_DIAG_250218: Will check at protocol side that DTC is readbale with 0x1906.
+No info about what "Out of Order" means in detail, only disconnect camera module or some HW defect. Not sure that it possible to set passed/failed states.
+- State (Harman_Requirement): Approved
+
+2. ID: 4613053
+- Contents: The System shall clear the DTC within 1s, if the Image Out of Order Fault in Left Camera is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify No fault is detected in Left camera.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250218: Will check at protocol side that DTC is readbale with 0x1906.
+No info about what "Out of Order" means in detail, only disconnect camera module or some HW defect. Not sure that it possible to set passed/failed states.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.30 Left Camera - Image Out of Order (0x910528) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

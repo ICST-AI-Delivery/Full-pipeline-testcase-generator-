@@ -1,0 +1,295 @@
+# VEH-F535 6.2.1.1.2.29  Full Speed Forward Collision Warning with Mitigation Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.29 VEH-F535 Full Speed Forward Collision Warning with Mitigation Management
+
+- ID: 3408597
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3882406
+- Contents: System shall display Full Speed Forward Collision Function shall enable if Proxi - Forward_Collision_Mitigation = Present (proxi byte-146, bit-1) AND DASM = Present (proxi byte-33, bit-1).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Full Speed Forward Collision shall be enabled if Proxi =-Forward_Collision_Mitigation is Present
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "enable, bit" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3769054
+- Contents: System shall start the "FCW Fail " virtual Telltale Check Phase (VTTCP) of tCKS seconds(5 Seconds-Duration of check telltale at key-on) when Key-On and following conditions is verify:
+Welcome ceremony finished or interrupted.
+Welcome ceremony unneeded (e.g. : welcome ceremony is completely displayed without interruptions at the previous key-cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System performs Virtual Telltlae Check Phase with-in 5 seconds from the Key-ON event and:
+
+* Welcome ceremony Finished or Interrupted.
+* Welcome Ceremony Un-needed.
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ceremony, start, seconds, following, is verify, finished, interrupted, is, displayed, Fail, Phase, telltale, conditions, e, interruptions" ) 
+Missing limits
+ (Look for: "‘5 Seconds’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3769080
+- Contents: System shall display Warning-5 and Warning-6  after the "FCW Fail" VTTCP in the B7 wireframe area and stop displaying Warning-5 and Warning-6 during the FCW Fail VTTCP.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-5 and 6 of FCW Fail shall be displayed in the B7 wireframe area and also verify that the Warning-5 and 6 shall stop during the FCW Fail VTTCP.
+
+Wire-Frame: B7 Area.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, stop, displaying, after, Fail, VTTCP, area, Warning-5" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3769314
+- Contents: If FCW and DASM proxi are present，
+then the FCW information in the ADAS screen shall be visible independently of the status (or the proxi) of the ACC and LDW functionalities in the C4 Wireframe Area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ACC and LDW functionalities are displayed  independently of the status(or the proxi) when FCW and DASM proxi are present.
+
+Wire-Frame: C4 Area.
+
+Proxi Bytes:
+Byte 146, bit 0 ("Adaptive_Cruise_Control": Absent/Present)
+
+Byte 33, bit 1 ("DASM": absent/present)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "are present, be visible, information, screen, status, proxi, functionalities, Area" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3886334
+- Contents: If HMICode_FCW= (Pre Intervention Warning OR Intervention Warning)
+then the System  shall highlight in red some of the element of the ADAS screen Central dial , Left dial that display at that moment.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System highlights the elements of the ADAS screen , central dial ,Left Dial display in red when HMICode_FCW is Pre Intervention Warning OR Intervention Warning).
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, some, screen, moment" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3773895
+- Contents: System shall display Warning-1 Pop-up, Buzzer 2B with Telltale in B7 Wireframe Area and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when DASMFailSts_HMI value is equal to Fail_present.
+Note: Warning-1 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System display Warning-1 Pop-up with Buzzer and Telltale when DASMFailStatus_HMI is Fail Present.
+
+Verify that the Warning-1 Follows D01 Visualisation behaviour with Priority-0.
+
+Wire-Frame: B7 Area
+
+Buzzer: 2B Audio
+
+Pop-up Id: 53501
+
+Telltlae ID: 00700
+
+CAN-Signal: DASM_HMI.DASMFailSts_HMI
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, is, Fail, follows, Pop-up, Telltale, Area, status, priority-0" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3773915
+- Contents: System shall display Warning-2 Pop-up with Telltale in B7 Wireframe Area send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when FCWSystemStatus value is equal to OFF.
+Note: Warning-2 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Warning-2 pop-up with Telltale when FCWsystem Status is Off.
+
+Verify that the Warning-1 Follows D01 Visualisation behaviour with Priority-0.
+
+Wire-Frame: B7 Area
+
+Pop-up Id: 53502
+
+Telltlae ID: 00690
+
+CAN-Signal: DASM_HMI.FCWSystemSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, is, follows, Pop-up, Telltale, Area, OFF, priority-0" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3774223
+- Contents: System shall display Warning-3 Pop-up with Buzzer FCW  at least for 3s in B7 Wireframe Area when HMICode_FCW value is  Pre Intervention Warning ORIntervention_warning.
+Note: Warning-3 follows D01 visualisation behaviour with priority - ADAS.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays warning-3 Pop-up with buzzer atleast for 3 seconds in B7 Wireframe Area when HMICode_FCW is  Pre Intervention Warning OR Intervention Warning.
+
+ Wire-Frame: B7 Area
+
+Pop-up Id:53503
+
+Buzzer : FCW_AEB_pre_collision_sound
+
+CAN-Signal: DASM_HMI.HMICode_FCW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, is, follows, Pop-up, FCW, Area, ORIntervention_warning, priority - ADAS" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3774224
+- Contents: When Warning-3 occurs, then system shall display the red car symbol inside “ACC+LDW icon”.
+(see: image153.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall display red car symbol inside "ACC+LDW icon" When Warning-3 Occurs
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, occurs, display, symbol, #8220, icon" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image153.png
+
+10. ID: 3774246
+- Contents: System shall display Warning-4 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when HMICode_FCW value is equal to  Post_Intervention_warning
+Note: Warning-4 follows D01 visualisation behaviour with major priority Compared to Warning-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-4 displays pop-up with buzzer when HMICode_FCW is Post_Intervention_Warning, Verify that the warning-4 follows D01 Behaviour with Major priority compared to Warning-3.
+
+CAN-Signal:
+DASM_HMI.HMICode_FCW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, value, display, is, warning, follows, Compared, Pop-up, priority" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3774361
+- Contents: When Warning-4 occurs, then system shall display the white car symbol inside “ACC+LDW icon” shall return white on wireframe area C4
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall display White car symbol inside "ACC+LDW icon" When Warning-4 Occurs
+- Grooming Status: Approved
+- Grooming Comments: Where is this C4 Wireframe displayed?
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, occurs, display, return, symbol, #8220, icon, area" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4710318
+- Contents: System shall display Warning-5 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS When DASMFailSts_HMI= Fail_Present.
+Note: Warning-5 Follows S01 visualisation behaviour with Priority.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+DASMFailSts_HMI = Fail_Present
+
+Verify that the Warning-5 is triggered when trigger condition met.
+
+CAN-Signal:
+DASM_HMI.DASMFailSts_HMI
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 4710320
+- Contents: System shall display Warning-6 Telltale and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS When FCWSystemsSts is OFF..
+Note: Warning-6 Follows D01 visualisation behaviour with Priority.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+FCWSystemSts = OFF
+
+Verify that the Warning-6 is triggered when necessaey conditions are met.
+
+Telltale Reference: FCW001
+
+CAN-Signal:
+DASM_HMI.FCWSystemSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3769041
+- Contents: System shall display Full Speed Forward Collision Warning with Mitigation Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Full Speed Forward Collision warning with Mitigation Management is displayed as per the Ferrari Design.
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image153.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F535 6.2.1.1.2.29  Full Speed Forward Collision Warning with Mitigation Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

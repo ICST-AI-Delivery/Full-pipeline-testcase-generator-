@@ -1,0 +1,68 @@
+# RAD-17 6.2.1.1.18  DAB Diversity Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.18 RAD-17 DAB Diversity
+
+- ID: 3939616
+- Artifact Type: SRS Feature
+- Responsible Domain: DAB_Cross Dev
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976141
+- Contents: System shall indicate proxi signal DAB_Antenna_number of the DAB 2-antenna absent/present, When proxi "Reserve for SDARS / DAB"==1("Present").
+- Artifact Type: SRS Req
+- Responsible Domain: DAB_Cross Dev
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall indicate signal DAB_Antenna_number, When proxi "Reserve for SDARS / DAB"==1("Present")
+
+DAB_Antenna_number ==0: 1-antenna being present or no diversity in the DAB antenna setup
+
+DAB_Antenna_number ==1: 2-antenna being present, indicating diversity in the DAB antenna setup
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, proxi, DAB, absent, present, Reserve, SDARS / DAB, Present" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+- Requirement Rationale: DAB_Antenna_number ==0: 1-antenna being present or no diversity in the DAB antenna setup
+
+DAB_Antenna_number ==1: 2-antenna being present, indicating diversity in the DAB antenna setup
+
+Start Byte 82, Start bit 3 - Reserved for SDARS/DAB (0 = "absent", 1 = "present")
+Start Byte 125, Start bit 0 - Reserved for DAB_Antennas_Number (0 = "1 Antenna", 1 = "2 Antennas")
+
+### Informational Items:
+
+1. ID: 3976140
+- Contents: [Info]This function is dedicated to the DAB Diversity, a method to improve reliability of DAB signal reception.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-17 6.2.1.1.18  DAB Diversity Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

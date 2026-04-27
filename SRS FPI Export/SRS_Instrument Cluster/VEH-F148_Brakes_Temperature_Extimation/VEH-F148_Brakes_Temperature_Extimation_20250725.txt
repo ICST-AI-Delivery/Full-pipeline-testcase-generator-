@@ -1,0 +1,223 @@
+# VEH-F148 6.2.1.1.2.12  Brakes Temperature Extimation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.12 VEH-F148 Brakes Temperature Extimation
+
+- ID: 3406518
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3665385
+- Contents: System shall display warning-1 pop-up in R1/R2/R3/R4/R5 wireframe areas with buzzer and telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Brake Wear Status is equal to Alarm On.
+Note: Warning-1 is a D01 behaviour with priority-2.
+(see: image101.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: BrakeWearSts == "Alarm_ON"
+
+Verify that the Warning-1 is triggered when Brake wear status is equal to Alarm On. 
+
+Pop-Up ID:01480001
+
+
+CAN-Signal: BTE_INFO.BrakeWearSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, pop-up, areas, buzzer, telltale, Status, Alarm, Warning-1" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image101.png
+
+2. ID: 3665388
+- Contents: System shall display warning-2 pop-up in R1/R2/R3/R4/R5 wireframe areas with buzzer and telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when STC Display info is equal to Yellow Alarm.
+Note: Warning-2 is a D11 behaviour with priority-0.
+(see: image103.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+ STC_DisplayInfo == "Yellow_Alarm"
+
+Verify that the Warning-2 is triggered when STC display info is equal to Yellow Alarm
+
+Pop-Up ID: 01480002
+ 
+
+CAN-Signal: BTE_INFO.STC_DisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, Warning, pop-up, areas, buzzer, telltale, info, Alarm, priority-0" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image103.png
+
+3. ID: 3665389
+- Contents: System shall display warning-3 pop-up with buzzer and telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when STC Display info is equal to Red Alarm.
+Note: Warning-3 is a D11 behaviour with priority-0.
+(see: image104.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: 
+STC_DisplayInfo == "Red_Alarm"
+
+Verify that the warning-30 is displayed when STC display info is equal to Red Alarm.
+
+Pop-Up iD: 01480003
+
+
+CAN-Signal: 
+BTE_INFO.STC_DisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, Warning, pop-up, buzzer, telltale, info, Alarm, priority-0" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image104.png
+
+4. ID: 3665390
+- Contents: System shall display warning4 pop-up in B26  wireframe area with buzzer and telltale , send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when STF_Fluid Alarm is equal to Red Alarm..
+Note: Warning4 is a D11 behaviour with priority0.
+(see: image105.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: 
+STF_FluidAlarm == "Red_Alarm"
+
+
+Verify that the Warning-4 is displayed when STF_Fluid Alarm is equal to Red Alarm.
+
+
+CAN-Signal:
+ BTE_INFO.STF_FluidAlarm
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, send, using, is, Warning, pop-up, area, buzzer, telltale, status, IVI, INDICATOR, Alarm, 4, behaviour" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image105.png
+
+5. ID: 3665391
+- Contents: System shall display warning-5 pop-up in R1/R2/R3/R4/R5 wireframe areas with  buzzer and telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when STF Change Fluid is equal to Alarm ON.
+Note: Warning-5 is a D01 behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: 
+STF_ChangeFluid == "Alarm_ON"
+
+Verify that the Warning-5 when STF Change Fluid is equal to Alarm ON.
+
+CAN-Signal: BTE_INFO.STF_ChangeFluid
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, Alarm, pop-up, areas, buzzer, telltale, Fluid, priority-0" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3665392
+- Contents: System shall display warning-6 pop-up  with buzzer  when send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenBTE_Library Info For Display is equal to "Update_EEPROM".
+Note: Warning-6 is a D04 behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: 
+BTE_LibraryInfoForDisplay == "Update_EEPROM"
+
+Verifyt that the warning-6 pop-up is displayed when BTE_Library info For Display is equal to Update_EEPROM
+
+CAN-Signal: BTE_LibraryInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, Update, Warning, is, buzzer, Display, behaviour, priority-0" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3665384
+- Contents: System shall display Brakes Temperature Extimation as per Ferrari design
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Brakes Temperature Extimation are displayed as per the Ferrari Design.
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): In Work
+
+2. ID: 3665387
+- Contents: (see: image102.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Approved
+- Visual Elements: image102.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image104.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image103.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image105.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image102.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image101.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F148 6.2.1.1.2.12  Brakes Temperature Extimation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

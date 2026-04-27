@@ -1,0 +1,106 @@
+# VFI-F914- 6.2.2.30.4 Schedule Charging Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.4 VFI-F914-Schedule Charging
+
+- ID: 4103814
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4103816
+- Contents: IDC shall make the start and end time interfaces available for user selection when the user selects the Schedule type as "Charge".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the start and end time are available for user selection when Schedule type as "Charge"
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "make, selects, start, interfaces, selection, type, Charge" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4103817
+- Contents: system shall allow the time settings update with a resolution r = 15 minutes.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the resolution r=15 min
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘1 minute’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4103819
+- Contents: IDC shall provide the Time interfaces according to the Time format set by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the time format selected by the user
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4119247
+- Contents: IDC shall allow user to set the following when Schedule type as "Charge":
+dayMask
+startHours
+startMinutes
+endHours
+endMinutes
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the attributes when Schedule type as "Charge"
+
+dayMask
+startHours
+startMinutes
+endHours
+endMinutes
+
+INFO_startHour
+ INFO_startMinute
+ INFO_endHour
+ INFO_endMinute
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to set, following, startMinutes, endMinutes, Schedule type, Charge" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914- 6.2.2.30.4 Schedule Charging Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

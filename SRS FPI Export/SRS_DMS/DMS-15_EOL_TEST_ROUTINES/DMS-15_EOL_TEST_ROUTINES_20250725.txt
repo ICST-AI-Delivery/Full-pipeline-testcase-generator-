@@ -1,0 +1,127 @@
+# DMS-15 6.2.1.16  EOL TEST ROUTINES Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.16 DMS-15 EOL TEST ROUTINES
+
+- ID: 3408502
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3593537
+- Contents: The system shall implement a "Image Clarity Test Routine" during EOL to assess the general image clarity in order to detect dirtiness or damage impacting the optical path of the camera.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the routine can accurately assess the resolution of the captured image.
+
+Verify that the routine can detect whether the camera is properly focused or if there are any issues such as dirtiness or damage
+
+Use DID 0xFFC0.
+- Grooming Status: Approved
+- Grooming Comments: White label provides only the Camera status , not the reason for the not working(e.g. blockage, blurred/dirtiness, damage)
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, to assess, to detect, impacting, Routine, clarity, dirtiness, damage, path" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3593538
+- Contents: The Image clarity routine shall respond with image clarity indication based on the camera blockage detection algorithm according to Blindness Detection.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the camera blockage detection algorithm accurately identifies various types of blockages.
+
+Use DID 0xFFC0.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "routine, respond, based, according, indication, detection, Detection" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3593539
+- Contents: The Image clarity routine shall respond with "OK NO BLOCKAGE" if no blockage is detected in the system.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the routine can accurately detect 
+the absence of blockages within the camera's view.
+
+Use DID 0xFFC0.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "no" ) 
+Passive voice
+ (Look for: "is detected" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3593541
+- Contents: The routine shall respond with "OK PARTIAL BLOCKAGE" if the system detects partial blockage.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the routine can accurately detect and classify partial blockages within the camera's view.
+
+Use DID 0xFFC0.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3593542
+- Contents: The routine shall respond with "OK TOTAL BLOCKAGE" if the system detects total blockage.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the routine can accurately detect and classify total blockages within the camera's view.
+
+Use DID 0xFFC0.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3840774
+- Contents: This function explains how to configure the system during vehicle production.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3593534
+- Contents: The DMS shall implement the following test routines to be launched through RDI to verify the correct functioning of the system after the vehicle production process.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "to be launched" )
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-15 6.2.1.16  EOL TEST ROUTINES Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

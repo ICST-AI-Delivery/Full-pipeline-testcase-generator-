@@ -1,0 +1,262 @@
+=== MASTER PROCESS ORCHESTRATOR ===
+**Template Version:** 1.0.0
+**Created:** 2026-02-02
+**Last Updated:** 2026-02-02 13:37:30
+**Author:** Picture Analyze Agent Development Team
+**Template Type:** Process Orchestrator
+**Status:** Production Ready
+**Compatibility:** Application v4.0.0+
+
+## VERSION HISTORY
+| Version | Date | Changes | Author |
+|---------|------|---------|---------|
+| 1.0.0 | 2026-02-02 | Initial modular orchestrator creation | Development Team |
+
+## TEMPLATE INFORMATION
+- **Purpose**: Coordinates master picture analysis process with version control and automated classification
+- **Use Case**: Main entry point for any picture analysis workflow
+- **Processing Time**: Variable (depends on sub-components)
+- **Output Format**: Coordinated multi-component execution with status reporting
+
+## CORE PRINCIPLE
+**MODULAR ORCHESTRATION**: Coordinates independent components while maintaining version control and process integrity across all sub-systems.
+
+## EXECUTION METHODOLOGY
+
+### 1. Process Initialization
+```
+=== MASTER PROCESS ORCHESTRATOR - EXECUTION LOG ===
+Process Start Time: [TIMESTAMP]
+Orchestrator Version: 1.0.0
+Target Directory: [USER_SPECIFIED]
+Components to Execute: VERSION_CONTROL_MANAGER, AUTOMATED_IMAGE_CLASSIFIER
+```
+
+### 2. Component Execution Sequence
+```
+STEP 1: VERSION_CONTROL_MANAGER
+├─ Purpose: Apply version control standards to all outputs
+├─ Input: Process metadata, target directory
+├─ Output: Version-controlled headers and tracking
+└─ Status: [SUCCESS/FAILURE]
+
+STEP 2: AUTOMATED_IMAGE_CLASSIFIER  
+├─ Purpose: Classify images and update CSV database
+├─ Input: Image directory, classification criteria
+├─ Output: Updated image_classifications.csv
+└─ Status: [SUCCESS/FAILURE]
+```
+
+### 3. Integration Points
+```
+INTER-COMPONENT COMMUNICATION:
+├─ VERSION_CONTROL_MANAGER → Provides version headers to all components
+├─ AUTOMATED_IMAGE_CLASSIFIER → Uses version control for CSV updates
+└─ ORCHESTRATOR → Monitors and reports status of all components
+```
+
+## ORCHESTRATION WORKFLOW
+
+### Pre-Execution Validation
+```
+VALIDATION CHECKLIST:
+□ Target directory exists and contains images
+□ VERSION_CONTROL_STANDARDS.md accessible
+□ IMAGE_CLASSIFICATION_DOCUMENTATION.txt accessible  
+□ image_classifications.csv exists and writable
+□ All component prompts available (v1.0.0)
+```
+
+### Execution Sequence
+```
+1. INITIALIZATION PHASE:
+   ├─ Log process start with timestamp
+   ├─ Validate all required files and directories
+   ├─ Initialize component status tracking
+   └─ Generate unique process execution ID
+
+2. VERSION CONTROL PHASE:
+   ├─ Execute: VERSION_CONTROL_MANAGER_v1.0.0
+   ├─ Input: Process metadata, execution context
+   ├─ Expected Output: Version headers for all subsequent outputs
+   └─ Validation: Confirm version control standards applied
+
+3. CLASSIFICATION PHASE:
+   ├─ Execute: AUTOMATED_IMAGE_CLASSIFIER_v1.0.0
+   ├─ Input: Target directory, version control headers
+   ├─ Expected Output: Classifications appended to CSV
+   └─ Validation: Confirm all images processed and classified
+
+4. COMPLETION PHASE:
+   ├─ Aggregate component results
+   ├─ Generate execution summary
+   ├─ Apply final version control to summary
+   └─ Report overall process status
+```
+
+### Error Handling
+```
+ERROR MANAGEMENT:
+├─ Component Failure: Log error, attempt recovery, continue with remaining components
+├─ File Access Issues: Validate permissions, provide clear error messages
+├─ Version Control Errors: Fallback to manual versioning with warnings
+└─ Classification Errors: Log failed images, continue with successful ones
+```
+
+## OUTPUT SPECIFICATIONS
+
+### Process Execution Log
+```
+=== MASTER PROCESS EXECUTION SUMMARY ===
+**Process Version:** 1.0.0
+**Execution ID:** [UNIQUE_ID]
+**Start Time:** [TIMESTAMP]
+**End Time:** [TIMESTAMP]
+**Duration:** [DURATION]
+
+COMPONENT EXECUTION RESULTS:
+├─ VERSION_CONTROL_MANAGER v1.0.0: [SUCCESS/FAILURE]
+│  ├─ Execution Time: [DURATION]
+│  ├─ Outputs Generated: [COUNT]
+│  └─ Status Details: [DETAILS]
+│
+└─ AUTOMATED_IMAGE_CLASSIFIER v1.0.0: [SUCCESS/FAILURE]
+   ├─ Execution Time: [DURATION]
+   ├─ Images Processed: [COUNT]
+   ├─ Classifications Added: [COUNT]
+   └─ Status Details: [DETAILS]
+
+OVERALL PROCESS STATUS: [SUCCESS/PARTIAL/FAILURE]
+```
+
+### Status Reporting
+```
+PROCESS METRICS:
+├─ Total Images Discovered: [COUNT]
+├─ Images Successfully Classified: [COUNT]
+├─ Classification Success Rate: [PERCENTAGE]
+├─ Version Control Compliance: [PASS/FAIL]
+├─ CSV Updates: [COUNT] new entries
+└─ Error Count: [COUNT]
+```
+
+## COMPONENT INTEGRATION SPECIFICATIONS
+
+### VERSION_CONTROL_MANAGER Interface
+```
+INPUT SPECIFICATION:
+- process_context: Object containing execution metadata
+- target_outputs: List of files/outputs requiring version control
+- component_versions: Dictionary of component versions
+
+OUTPUT SPECIFICATION:
+- version_headers: Standardized headers for all outputs
+- execution_metadata: Version-controlled process tracking
+- compliance_status: Version control validation results
+```
+
+### AUTOMATED_IMAGE_CLASSIFIER Interface
+```
+INPUT SPECIFICATION:
+- image_directory: Path to images for classification
+- classification_criteria: Reference to IMAGE_CLASSIFICATION_DOCUMENTATION.txt
+- csv_target: Path to image_classifications.csv
+- version_control_data: Headers and metadata from VERSION_CONTROL_MANAGER
+
+OUTPUT SPECIFICATION:
+- classification_results: List of classified images with confidence scores
+- csv_updates: Number of new entries added to CSV
+- processing_errors: List of failed classifications with error details
+```
+
+## QUALITY ASSURANCE
+
+### Component Validation
+```
+PRE-EXECUTION VALIDATION:
+□ All component prompt files exist and are accessible
+□ Component versions are compatible (all v1.0.0)
+□ Required reference files are available
+□ Target directories have proper permissions
+
+POST-EXECUTION VALIDATION:
+□ All components reported successful completion
+□ Version control applied to all outputs
+□ CSV updates completed successfully
+□ No critical errors in execution log
+```
+
+### Process Integrity Checks
+```
+INTEGRITY VALIDATION:
+□ Process execution ID is unique and tracked
+□ All timestamps are consistent and sequential
+□ Component outputs follow version control standards
+□ Error handling executed properly for any failures
+□ Final summary includes all required metrics
+```
+
+## DEPLOYMENT INSTRUCTIONS
+
+### Setup Requirements
+```
+REQUIRED FILES:
+├─ VERSION_CONTROL_STANDARDS.md (existing)
+├─ IMAGE_CLASSIFICATION_DOCUMENTATION.txt (existing)  
+├─ image_classifications.csv (existing)
+├─ VERSION_CONTROL_MANAGER_v1.0.0.txt (to be created)
+├─ AUTOMATED_IMAGE_CLASSIFIER_v1.0.0.txt (to be created)
+└─ MASTER_PROCESS_ORCHESTRATOR_v1.0.0.txt (this file)
+```
+
+### Execution Command
+```
+USAGE:
+"Execute MASTER_PROCESS_ORCHESTRATOR v1.0.0 on directory [TARGET_DIRECTORY]"
+
+PARAMETERS:
+- TARGET_DIRECTORY: Path containing images to analyze and classify
+- OPTIONAL: --verbose for detailed logging
+- OPTIONAL: --dry-run for validation without execution
+```
+
+## SUCCESS CRITERIA
+
+### Process Success Metrics
+- **Component Execution**: All components complete successfully
+- **Version Control**: 100% compliance with VERSION_CONTROL_STANDARDS.md
+- **Image Classification**: All discoverable images classified and logged
+- **Data Integrity**: CSV updates maintain data consistency
+- **Error Handling**: Graceful handling of any component failures
+
+### Quality Standards
+- **Modularity**: Components execute independently with clear interfaces
+- **Traceability**: Complete execution logging with timestamps
+- **Reliability**: Consistent results across multiple executions
+- **Maintainability**: Clear separation of concerns between components
+
+## FUTURE ENHANCEMENT HOOKS
+
+### Extensibility Points
+```
+FUTURE COMPONENT INTEGRATION:
+├─ ANALYSIS_ENGINE: For detailed FPI analysis (future v2.0.0)
+├─ REPORT_GENERATOR: For automated report creation (future v2.0.0)
+├─ QUALITY_VALIDATOR: For output validation (future v1.1.0)
+└─ BATCH_PROCESSOR: For multi-directory processing (future v1.1.0)
+```
+
+### Version Evolution Path
+```
+VERSION ROADMAP:
+├─ v1.1.0: Add batch processing and enhanced error recovery
+├─ v1.2.0: Integrate quality validation component
+├─ v2.0.0: Full analysis pipeline integration
+└─ v2.1.0: Advanced reporting and metrics dashboard
+```
+
+---
+
+**Template Status:** Production Ready
+**Next Review:** 2026-03-02
+**Approval:** Picture Analyze Agent Development Team

@@ -1,0 +1,109 @@
+# UnknownID 6.2.1.1.68 NBC Node Absent (0xD700, 0x87) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.68 NBC Node Absent (0xD700, 0x87)
+
+- ID: 3876932
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3876936
+- Contents: The System shall detect NBC node absent fault during key OFF to Key ON transition and NBC steady state if configure.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Proxi byte 26, bit 0 (“NBC”) = "Present".
+-Set NBC Node Absent or disconnected messages.
+-Or do not send all periodic messages are not received or has a wrong DLC:
+EXTERNAL_LIGHTS and
+
+SETUP_NBC and
+
+STATUS_RLFSoSe and 
+
+STATUS_NBC and
+
+STATUS_NBC_2 and
+
+STATUS_NBC_3 and
+
+STATUS_DOORS and
+
+STATUS_NPG and
+
+STATUS_B_CAN and 
+
+STATUS_B_CAN2 messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Key, configure, fault, key OFF, transition, state" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+2. ID: 3876950
+- Contents: The System shall trigger the NBC node absent fault at tCKD during key OFF to Key ON transition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered with in tCKD during key OFF to Key ON transition.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a de-maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+3. ID: 3876953
+- Contents: The System shall trigger the NBC node absent fault at tREC2 during NBC steady state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered with in tREC2 during NBC steady state.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3876963
+- Contents: The System shall immediately clear the fault, if the NBC messages are received.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the de-maturation time
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "immediately" ) 
+Passive voice
+ (Look for: "are received" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.68 NBC Node Absent (0xD700, 0x87) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

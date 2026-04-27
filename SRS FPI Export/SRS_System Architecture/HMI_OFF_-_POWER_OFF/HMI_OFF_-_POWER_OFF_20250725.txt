@@ -1,0 +1,57 @@
+# UnknownID 6.2.6.2.1.1 HMI OFF - POWER OFF Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.2.1.1 HMI OFF - POWER OFF
+
+- ID: 4885313
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Security, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4885314
+- Contents: At HMI Off state, the system shall switch off the clock area and display current time with physical hands even if vehicle is in lock state. (see: image9.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HMI_INFO.HMISts CAN Signal for HMI OFF Status
+Verify the system is displaying current time only with needles and background will be blank in HMI OFF State
+- Grooming Status: Approved
+- Expert Domains: Security, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, vehicle, switch off, display, is, state, clock area, time, hands" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image9.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image9.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.6.2.1.1 HMI OFF - POWER OFF Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

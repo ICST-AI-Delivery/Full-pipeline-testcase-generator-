@@ -1,0 +1,98 @@
+# VEH-F253 6.2.1.1.2.23  Auto Vehicle Hold Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.23 VEH-F253 Auto Vehicle Hold
+
+- ID: 3408588
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3695408
+- Contents: System shall display Info-1 Telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when AVHDisplayInfo is "Under_Intervention" in B9 wireframe area.
+Note: Info-1 follows D11 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-1 is displayed when necessary conditions are met in B9 wireframe area. 
+
+Telltale ID: HOL001
+
+CAN-Signal: NFR_HMI.AVHDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, is, follows, Info-1, AVHDisplayInfo, Under_Intervention, area" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3695409
+- Contents: System shall Fail-1 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Auto Vehicle Hold DisplayInfo is "Fail_Lamp_ON"
+Note: Fail-1 follows D01 Visualisation with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 pop-up is displayed when Auto Vehicle Hold Display info is Fail_Lamp_On.
+
+Audio Buzzer: Buzzer2B
+
+CAN-Signal: NFR_HMI.AVHDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Fail, is, follows, pop-up, buzzer, Vehicle, DisplayInfo, priority-0" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3695406
+- Contents: System shall display Auto Vehicle Hold indications and implement logics as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, implement, Vehicle, indications, logics, design" )
+- State (Harman_Requirement): Review
+
+2. ID: 3695407
+- Contents: Auto Vehicle Hold system allows a faster deactivation of parking brake than Electric Parking Brake.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F253 6.2.1.1.2.23  Auto Vehicle Hold Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

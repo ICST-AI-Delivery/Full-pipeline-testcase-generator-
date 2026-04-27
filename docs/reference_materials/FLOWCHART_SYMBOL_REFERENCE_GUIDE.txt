@@ -1,0 +1,242 @@
+=== FLOWCHART SYMBOL REFERENCE GUIDE ===
+**Version:** 1.0.0
+**Created:** 2026-01-29
+**Author:** Picture Analyze Agent Development Team
+**Source:** Flowchart Design PDF + Automotive FPI Analysis Experience
+**Purpose:** Complete reference for flowchart symbol interpretation
+
+## STANDARD FLOWCHART SYMBOLS
+
+### **Primary Symbols (ANSI Standard)**
+
+#### **1. Terminator (Oval/Rounded Rectangle)**
+- **Shape:** Oval or rounded rectangle
+- **Purpose:** Start and end points of a process
+- **Usage:** Every flowchart must begin and end with terminators
+- **Examples:** "START", "END", "Begin Process", "Terminate"
+- **Automotive Context:** System initialization, shutdown sequences
+
+#### **2. Process (Rectangle)**
+- **Shape:** Rectangle
+- **Purpose:** Action steps or operations to be performed
+- **Usage:** Most common symbol in flowcharts
+- **Examples:** "Calculate Value", "Send CAN Signal", "Wait 1 Min"
+- **Automotive Context:** CAN signal transmission, system operations, delays
+
+#### **3. Decision (Diamond)**
+- **Shape:** Diamond
+- **Purpose:** Decision points with YES/NO or TRUE/FALSE outcomes
+- **Usage:** Creates branching paths in the flow
+- **Examples:** "Is Key Present?", "System Ready?", "Error Detected?"
+- **Automotive Context:** Sensor checks, system status validation, error conditions
+
+#### **4. Data/Input-Output (Parallelogram)**
+- **Shape:** Parallelogram (slanted rectangle)
+- **Purpose:** Data input or output operations
+- **Usage:** Reading sensors, displaying information, storing data
+- **Examples:** "Read Sensor", "Display Status", "Store Configuration"
+- **Automotive Context:** Sensor readings, HMI displays, EEPROM operations
+
+#### **5. Predefined Process (Rectangle with Double Lines)**
+- **Shape:** Rectangle with double vertical lines
+- **Purpose:** Reference to a process defined elsewhere
+- **Usage:** Subroutines, functions, or external processes
+- **Examples:** "Call Diagnostics", "Execute Safety Check"
+- **Automotive Context:** Standard automotive procedures, safety protocols
+
+#### **6. Document (Rectangle with Wavy Bottom)**
+- **Shape:** Rectangle with wavy bottom edge
+- **Purpose:** Document generation or reference
+- **Usage:** Reports, logs, documentation output
+- **Examples:** "Generate Report", "Log Error", "Create Documentation"
+- **Automotive Context:** Diagnostic reports, error logs, compliance documentation
+
+#### **7. Storage (Open Rectangle)**
+- **Shape:** Rectangle with one open side
+- **Purpose:** Data storage or retrieval
+- **Usage:** Database operations, file storage, memory access
+- **Examples:** "Store in EEPROM", "Read from Flash", "Access Database"
+- **Automotive Context:** Non-volatile memory, configuration storage
+
+#### **8. Connector (Circle)**
+- **Shape:** Small circle
+- **Purpose:** Connect different parts of flowchart
+- **Usage:** Avoid line crossings, continue flow on same page
+- **Examples:** Numbered circles (1, 2, 3) or lettered (A, B, C)
+- **Automotive Context:** Complex automotive diagrams with multiple paths
+
+#### **9. Off-Page Connector (Pentagon)**
+- **Shape:** Pentagon (house shape)
+- **Purpose:** Connect to flowchart on different page
+- **Usage:** Large, multi-page flowcharts
+- **Examples:** Page references, section continuations
+- **Automotive Context:** Multi-module system diagrams
+
+#### **10. Delay (Rectangle with Curved Side)**
+- **Shape:** Rectangle with one curved side
+- **Purpose:** Wait or delay in the process
+- **Usage:** Time-based operations, waiting periods
+- **Examples:** "Wait 5 seconds", "Delay 100ms", "Timeout Period"
+- **Automotive Context:** System startup delays, sensor stabilization periods
+
+### **Advanced Symbols**
+
+#### **11. Manual Operation (Trapezoid)**
+- **Shape:** Trapezoid (wider at top)
+- **Purpose:** Manual or human intervention required
+- **Usage:** User actions, manual procedures
+- **Examples:** "User Input Required", "Manual Override"
+- **Automotive Context:** Service procedures, user interactions
+
+#### **12. Manual Input (Quadrilateral with Slanted Top)**
+- **Shape:** Rectangle with slanted top
+- **Purpose:** Manual data entry
+- **Usage:** Keyboard input, manual parameter setting
+- **Examples:** "Enter Password", "Set Configuration"
+- **Automotive Context:** Diagnostic parameter input, calibration values
+
+#### **13. Merge (Inverted Triangle)**
+- **Shape:** Triangle pointing down
+- **Purpose:** Multiple flows converge to single flow
+- **Usage:** Combining parallel processes
+- **Examples:** Multiple sensor inputs to single decision
+- **Automotive Context:** Multi-sensor data fusion
+
+#### **14. Extract (Triangle)**
+- **Shape:** Triangle pointing up
+- **Purpose:** Single flow splits into multiple flows
+- **Usage:** Distributing process to multiple paths
+- **Examples:** Broadcast signal to multiple systems
+- **Automotive Context:** CAN signal distribution
+
+### **Flow Direction Indicators**
+
+#### **Arrows**
+- **Straight Arrow (→):** Normal process flow
+- **Curved Arrow (↻):** Loop or iteration
+- **Double Arrow (↔):** Bidirectional flow
+- **Dotted Arrow (- - →):** Optional or conditional flow
+
+#### **Flow Rules**
+- **Standard Direction:** Top to bottom, left to right
+- **Return Lines:** Separate from main flow path
+- **Minimize Crossings:** Use connectors to avoid line intersections
+
+## AUTOMOTIVE-SPECIFIC INTERPRETATIONS
+
+### **CAN Signal Processing**
+- **Input Parallelogram:** CAN message reception
+- **Process Rectangle:** Signal processing, validation
+- **Decision Diamond:** Signal value evaluation
+- **Output Parallelogram:** CAN message transmission
+
+### **System State Management**
+- **Terminator:** System power states (ON/OFF, Sleep/Wake)
+- **Process:** State transitions, mode changes
+- **Decision:** State condition checks
+- **Storage:** State persistence in memory
+
+### **Error Handling Patterns**
+- **Decision → Process:** Error detection → Error handling
+- **Process → Connector:** Error recovery → Return to main flow
+- **Decision → Terminator:** Critical error → System shutdown
+
+### **Timing and Delays**
+- **Delay Symbol:** Mandatory waiting periods
+- **Process with Time:** "Wait N seconds" operations
+- **Decision with Timeout:** "Wait until condition OR timeout"
+
+## COLOR CODING GUIDELINES
+
+### **Recommended Color Usage**
+- **Green:** Normal operation, success paths
+- **Red:** Error conditions, failure paths
+- **Yellow/Orange:** Warning conditions, attention required
+- **Blue:** Information, data flow
+- **Gray:** Disabled or inactive states
+
+### **Ferrari Automotive Standards**
+- **Limit Colors:** Maximum 3-4 colors per diagram
+- **Consistent Mapping:** Same colors for same function types
+- **Professional Appearance:** Avoid rainbow effects
+- **Accessibility:** Consider color-blind friendly palettes
+
+## DIAGRAM LAYOUT BEST PRACTICES
+
+### **Structure Guidelines**
+1. **Start at Top-Left:** Begin with terminator
+2. **Flow Top-to-Bottom:** Primary flow direction
+3. **Decision Branching:** YES typically right, NO typically down
+4. **Return Paths:** Use separate lanes or connectors
+5. **End at Bottom-Right:** Conclude with terminator
+
+### **Readability Rules**
+- **Consistent Sizing:** All symbols same size category
+- **Adequate Spacing:** Prevent crowding
+- **Clear Labels:** Concise, descriptive text
+- **Logical Grouping:** Related processes near each other
+
+### **Complexity Management**
+- **Single Page Limit:** 15-20 symbols maximum
+- **Use Sub-Processes:** Break complex flows into modules
+- **Connector Strategy:** Minimize line crossings
+- **Legend Inclusion:** Document symbol meanings
+
+## VALIDATION CHECKLIST
+
+### **Symbol Usage Validation**
+- [ ] All symbols conform to ANSI standards
+- [ ] Start and end terminators present
+- [ ] Decision diamonds have exactly two outputs
+- [ ] Process rectangles have single input/output
+- [ ] Connectors properly numbered/lettered
+
+### **Flow Logic Validation**
+- [ ] All paths lead to terminators
+- [ ] No orphaned symbols (disconnected)
+- [ ] Decision paths clearly labeled (YES/NO)
+- [ ] Flow direction consistently applied
+- [ ] Return paths properly routed
+
+### **Automotive Compliance Validation**
+- [ ] CAN signals properly represented
+- [ ] System states clearly defined
+- [ ] Error handling paths included
+- [ ] Timing requirements documented
+- [ ] Safety considerations addressed
+
+## TROUBLESHOOTING COMMON ISSUES
+
+### **Symbol Misidentification**
+- **Problem:** Confusing process with decision symbols
+- **Solution:** Diamonds = questions, Rectangles = actions
+
+### **Flow Path Confusion**
+- **Problem:** Unclear decision outcomes
+- **Solution:** Label all paths clearly (YES/NO, TRUE/FALSE)
+
+### **Complexity Overload**
+- **Problem:** Too many symbols on one diagram
+- **Solution:** Break into sub-processes, use off-page connectors
+
+### **Inconsistent Standards**
+- **Problem:** Mixed symbol styles
+- **Solution:** Follow single standard (ANSI recommended)
+
+## INTEGRATION WITH ANALYSIS TEMPLATES
+
+This symbol reference guide integrates with:
+- PICTURE_CENTRIC_FPI_ANALYSIS_PROMPT_TEMPLATE.txt
+- CONCISE_PICTURE_CENTRIC_FPI_ANALYSIS_TEMPLATE.txt
+- ENHANCED_ANALYSIS_METHODOLOGY_SCRIPT.txt
+- Sequential Flow Analysis Templates
+
+## FUTURE ENHANCEMENTS
+
+### **Planned Additions**
+1. **Interactive Symbol Checker:** Validation tool for symbol usage
+2. **Automotive Symbol Library:** Extended set for vehicle-specific needs
+3. **Color Palette Guide:** Standardized automotive color schemes
+4. **Template Integration:** Direct linking with analysis templates
+
+=== END OF SYMBOL REFERENCE GUIDE ===

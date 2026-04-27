@@ -1,0 +1,119 @@
+# VFI-F871 6.2.2.6.1  User Interaction statistics - Interaction occurrences Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.6.1 VFI-F871 User Interaction statistics - Interaction occurrences
+
+- ID: 5026403
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- HB_Comment: 2402
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5026406
+- Contents: System shall reserve 2bytes of storage size for the number of occurrence counter of any monitored feature interaction.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to reserve 2 bytes for the number of occurrence counter of any monitored feature interaction.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 bytes’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5026408
+- Contents: System shall restart the occurrence counter to zero when value of an occurrence counter has overflow.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to restart the occurrence counter to 0 when occurrence counter has overflow.
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, restart, to zero, has overflow, counter, value" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5026419
+- Contents: System shall count the occurrence and store in "Occurrence at speed =0" when  NFR_Speed_FA <1AND NFR_Speed_FA_FailSts == 0("Fail_not_present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify occurrence at speed status when
+
+NFR_Speed_FA <1AND NFR_Speed_FA_FailSts == 0("Fail_not_present").
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, count, occurrence, store, speed" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5026423
+- Contents: System shall count the occurrence and store in "Occurrence at speed >0" when  NFR_Speed_FA ≥1AND NFR_Speed_FA_FailSts == 0("Fail_not_present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify occurrence as speed status when 
+NFR_Speed_FA ≥1AND NFR_Speed_FA_FailSts == 0("Fail_not_present").
+- Grooming Status: Approved
+- Grooming Comments: [Raja 25-04-25]:
+Assumption is the excel sheet with user interaction parameters will be a configuration file. the config file will be used by development and testing team.
+
+Please refer the below document in reference section. 
+5559267: F244_Interaction_Frequency 2.xlsx
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, count, occurrence, store, speed" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F871 6.2.2.6.1  User Interaction statistics - Interaction occurrences Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

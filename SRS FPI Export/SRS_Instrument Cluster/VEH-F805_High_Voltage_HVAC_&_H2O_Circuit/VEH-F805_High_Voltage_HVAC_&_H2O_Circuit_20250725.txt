@@ -1,0 +1,96 @@
+# VEH-F805 6.2.1.1.2.36  High Voltage HVAC & H2O Circuit Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.36 VEH-F805 High Voltage HVAC & H2O Circuit
+
+- ID: 3408604
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713235
+- Contents: System shall display Info-1 Pop-up send the Info-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Cabin_Energy_Deactivation_PopUp is "Pre_warning_message".
+Note: Info-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+Cabin_Energy_Deactivation_PopUp = "Pre_warning_message"
+
+Verify that the System displays Info-1 Pop-up when Cabin_Energy_Deactivation_Popup is "Pre_warning_message".
+
+Pop-up ID: 08050001
+
+
+CAN-Signals: VCU_COOLING_INFO.Cabin_Energy_Deactivation_PopUp
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Info-1, priority-1" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3713262
+- Contents: System shall display Warning-1 Pop-up with Buzzer send the Warning-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Cabin_Energy_Deactivation_PopUp is "Turn_Off_loads_message".
+Note: Warning-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+Cabin_Energy_Deactivation_PopUp = "Turn_Off_loads_message".
+
+
+Verify that the System displays Info-1 Pop-up when Cabin_Energy_Deactivation_Popup is "Turn_Off_loads_message".
+
+Pop-up ID: 08050002
+Buzzer: 2B
+
+CAN-Signals: VCU_COOLING_INFO.Cabin_Energy_Deactivation_PopUp
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Buzzer, priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713226
+- Contents: System shall display High Voltage HVAC and H2O Circuit as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, HVAC, Circuit, design" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F805 6.2.1.1.2.36  High Voltage HVAC & H2O Circuit Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

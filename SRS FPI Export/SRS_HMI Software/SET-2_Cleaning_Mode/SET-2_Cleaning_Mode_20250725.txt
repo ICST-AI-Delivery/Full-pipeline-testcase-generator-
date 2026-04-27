@@ -1,0 +1,105 @@
+# SET-2 6.2.3.2.1  Cleaning Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.2.1 SET-2 Cleaning Mode
+
+- ID: 5025827
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5025828
+- Contents: System shall manage cleaning mode functionality when proxi parameter CleaningMode == 1 ("present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the cleaning mode when proxi parameter cleaningmode==1 ("present").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, cleaning, functionality, proxi, mode, parameter CleaningMode    1, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5025829
+- Contents: IDC shall allow user to exit the cleaning mode when cleaning mode is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to exit from cleaning mode
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to exit, cleaning, is active, mode" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5025832
+- Contents: System shall apply the following graphic strategy when cleaning mode active:
+Central display should be slightly dimmed (using a specific graphic and not managing display brightness)
+B area, D area and C area (except for C1 area) should switch off
+Bottom bar shows the label "Press any button to exit screen clean mode"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the conditions when cleaning mode active.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, following, cleaning, strategy, mode active" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5025862
+- Contents: IDC shall deactivate cleaning mode by removing the graphic effect when Cleaning Mode is active AND [ IDC receives Button_AH_X ==1("Pressed") where X =(1,2,3)].
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify cleaning mode deactivation when
+Button_AH_X == 1 ("Pressed")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Mode, deactivate, cleaning, removing, is active, receives, Pressed, mode, effect" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5025833
+- Contents: (see: image51.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image51.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image51.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-2 6.2.3.2.1  Cleaning Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,115 @@
+# VFI-F174 6.2.2.18  GPS Information management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.18 VFI-F174 GPS Information management
+
+- ID: 3408238
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Grooming Comments: Already created Jira ticket.need clarification from customer
+- Expert Domains: Android HMI, IOC_Networking, NavSens
+- HB_Comment: 0502
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3828865
+- Contents: System shall publish on HMI-CAN the information retrieved from the GPS module as follow:
+Number of satellites acquired by GPS module
+Estimated GPS Coordinates – Latitude
+Estimated GPS Coordinate – Longitude
+Estimated GPS Coordinate – Altitude
+Estimated G-DOP values
+GPS Fix status
+Validity of the previous values estimated by GPS for antenna position coordinates,number of satellites acquired, G-DOP.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the GPS information through CAN signals.
+
+To check the feature the proper environment should be vehicle 
+
+NIT_GPS_Satellites_number
+NIT_GPS_Latitude
+ NIT_GPS_Longitude
+ NIT_GPS_Altitude
+GPSReliability 
+NIT_GPS_Fixed 
+ NIT_GPSValidData
+- Grooming Status: Approved
+- Grooming Comments: Already created Jira ticket.need clarification from customer
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: To check the feature the proper environment should be vehicle
+- State (Harman_Requirement): Approved
+
+2. ID: 3837422
+- Contents: System shall convert the GPS antenna and IMU position details along x, y and z from proxi to true value using the below formula.
+(see: image40.png)
+(see: image41.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the convertion of GPS values into Proxi values.
+
+Proxi
+Start Byte 135, Start bit 0 - X_Dist_Axis_Front
+Start Byte 159, Start bit 0 - Y_Dist_Axis_Front
+Start Byte 161, Start bit 0 - Z_Dist_Axis_Front
+Start Byte 136, Start bit 0 - Y_Dist_Axis_Front
+Start Byte 137, Start bit 0 - Z_Dist_Axis_Front
+Start Byte 157, Start bit 0 - X_Dist_Axis_Front
+Start Byte 138, Start bit 0 - Pitch_degrees
+Start Byte 140, Start bit 0 - Yaw_degrees
+Start Byte 142, Start bit 0 - Roll_degrees
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, convert, along, to true, using, details, x, y, z, proxi, value, formula" )
+- TestTeamComment: To check the feature the proper environment should be vehicle
+- State (Harman_Requirement): Approved
+- Visual Elements: image40.png, image41.png
+
+### Informational Items:
+
+1. ID: 3828864
+- Contents: This function allows the IDC to retrieve and manage information coming from GPS module.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image40.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image41.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F174 6.2.2.18  GPS Information management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

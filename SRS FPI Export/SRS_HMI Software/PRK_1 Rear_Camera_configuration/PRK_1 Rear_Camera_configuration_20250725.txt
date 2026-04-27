@@ -1,0 +1,226 @@
+# UnknownID 6.2.4.2.6 PRK 1: Rear Camera configuration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.6 PRK 1: Rear Camera configuration
+
+- ID: 3936654
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3539552
+- Contents: Camera system shall display Sensor view and camera flux together on HMI screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the reverse gear,.
+
+Verify the sensor view and camera view  are together displayed on HMI screen.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, view, together, screen" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3539553
+- Contents: The system shall display "camera-view" on screen without allowing the following action:
+"Reverse Gear" = engaged & "Parking_Deactivation" = "never_deactivable"
+Screen changes due to HMI buttons interaction.
+Screen changes due to "other" "automatic or manual actions".
+Some graphical element that "overlaps" the "camera view".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking deactivation proxi is set to never deactivatable.
+
+Revuierse gear is engaged
+
+Verify the cmaera view on screen
+
+Verify the below functionalities are not available
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, Parking, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, allowing, following, engaged, overlaps, screen, action, Gear, amp, Parking_Deactivation, interaction, actions, element, view" ) 
+Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to HMI spec
+
+3. ID: 3539555
+- Contents: The system shall launch the parking view on "pressing the HMI camera button" during Reverse gear if the user closes parking view previously.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Revere gear is engaged
+Parking view (Camera View) is open
+
+
+Close the parking view
+Verify that it is possible to re-launch the parking view by pressing the camera button
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, launch, pressing, view, button, gear" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3557005
+- Contents: The system shall show the parking view on engaging the reverse gear
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parking view (camera visualization) is shown on engaging the reverse gear
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3539557
+- Contents: The system shall allow to close the parking view if parking view is active on screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify it is possible to close the Parking view if parking view is active on the screen
+- Grooming Status: Approved
+- Grooming Comments: [Dhivakar, Ganesh, Abdul 26.02.2025]: Approved,
+- Expert Domains: Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3539558
+- Contents: If proxi parameter Parking_Deactivation == "never_deactivable", the system shall disable the camera view closure as long as reverse gear is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Sonfigure teh proxi 
+Parking_Deactivation == "never_deactivable
+
+Vefiy the parking view can not be closed when Reverse gear is engaged
+- Grooming Status: Approved
+- Expert Domains: Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, proxi, disable, is active, Parking_Deactivation, closure, gear" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3539548
+- Contents: The system shall implement Sensor View activation management as defined in PRK-3 VIRTUAL WALLS.
+Note: This will be covered in PRK 3 feature
+- Artifact Type: Information
+- Responsible Domain: Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+2. ID: 3539551
+- Contents: The system shall visualize camera flux only if 'ReverseGearBCSts==R'.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Camera flux is visualized when ReverseGearBCSts=="R"
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+3. ID: 5038027
+- Contents: 6.2.4.2.7 PRK-1: Surround View configuration
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+4. ID: 3539564
+- Contents: Surround View Management shall manage the different Surround View visualizations.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Expert Domains: Android HMI, Camera, Surround_View, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): New
+
+5. ID: 3539566
+- Contents: Surround view activation states shall be compliant to regulation requirements defined in reference documents PRK_UN_01, PRK_UN_02, PRK_US_01, PRK_SK_01, PRK_CH_01 according to Proxi parameter value IDC_SurroundView_Compliance_Norm
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the surround view activation states are compliant to the referenced documents.
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+6. ID: 3539567
+- Contents: Proxi
+Start Byte 112, Start bit 6- Rear View Camera disable/enable (0 = "disabled", 1 = "enabled")
+Start Byte 184, Start bit 4- IDC_SurroundViewFunctionality (0 = "Not Present", 1 = "Present")
+Start Byte 184, Start bit 3- IDC_Vehicle_Type (0 = "Invalid", 1 = "F244")
+Start Byte 58, Start bit 4- Side driver (0 = "left", 1 = "right")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 3539568
+- Contents: Calibration Parameters
+Ce_v_ParkSpeedThld
+Ce_t_NSWRdyStsTmr
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4368117
+- Contents: Interfaces
+Network interfaces
+Inputs
+Ie_bol_RevGearBCSts
+Ie_bol_StpGoEn
+Ie_v_VehicleSpeed
+Ie_bol_VehicleSpeedFailSts
+Ie_enu_NSPTotFrmNbr
+Ie_enu_NSPFrmNbr
+Ie_enu_NSPFailSts
+Ie_enu_NSPCtrlSts
+Ie_len_NSPLHLatObstDist
+Ie_len_NSPLHCenObstDist
+Ie_len_NSPRHLatObstDist
+Ie_len_NSPRHCenObstDist
+Internal interfaces
+Inputs
+INFO_CameraActivation
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.6 PRK 1: Rear Camera configuration Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

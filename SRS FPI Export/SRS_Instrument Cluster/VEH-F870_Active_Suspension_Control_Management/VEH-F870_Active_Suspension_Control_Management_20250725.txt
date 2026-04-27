@@ -1,0 +1,153 @@
+# VEH-F870 6.2.1.1.2.42  Active Suspension Control Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.42 VEH-F870 Active Suspension Control Management
+
+- ID: 3408614
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3917623
+- Contents: CAN, ETHERNET and Network Interface
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3888918
+- Contents: System shall Display Active Suspension Control Management When Proxi Active Byte 130, bit 0 (ActiveSuspensionFunctionality: absent/present). Present AND Byte-58, bit-1 is Type coupè/spider
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Active Suspension Control Management is Present 
+
+Proxi: Byte-58 , Bit-1(Type Coupe/Spider)
+Vyte 130, bit 0 for Active Suspension Functionality.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Management, Display, is, Byte-58, coup #232, spider" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3793036
+- Contents: System shall Display Info-9 Pop-up with Buzzer and send the status to IVI when Suspension System Info For Display is Degrade.
+Note: Info-9 Follows D01 Visualisation Behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-9 when Suspension System Info for Display is Degrade. 
+
+Buzzer:2B
+
+CAN-Signal: SUSPENSION_INFO.SuspensionSystemInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, is, Follows, Pop-up, Info, Degrade, Priority-2" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3793037
+- Contents: System shall Display Info-10 Pop-up with Buzzer when Suspension System Info For Display Not Available.
+Note: Info-10 Follows D01 Visualisation Behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-10 Pop-up is displayed when suspension system info for display is not available.
+
+Buzzer:2B
+
+CAN-Signal: SUSPENSION_INFO.SuspensionSystemInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Info-10 Pop-up, Info, Not, Priority-2" ) 
+Missing unit 
+ (Look for: "‘10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3793038
+- Contents: System shall Display Fail-3 Pop-up with Buzzer when Suspension System Info For Display is Fault.
+Note: Fail-3 Follows D01 Visualisation Behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Fail-3 when Suspesnsion System Info For display is Fault.
+
+Buzzer:2B
+
+CAN-Signal: SUSPENSION_INFO.SuspensionSystemInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, is, Follows, Pop-up, Info, Fault, Priority-1" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3793039
+- Contents: System shall Display Fail-4 Pop-up with Buzzer when Suspension System Info For Display is Critical Fault.
+Note: Fail-4 Follows D01 Visualisation Behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-4 is displayed when Suspension System Info for Display is Critical Fault.
+
+CAN-Signal: SUSPENSION_INFO.SuspensionSystemInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, is, Follows, Pop-up, Info, Fault, Priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3793035
+- Contents: System shall display Active Suspension Control Management indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F870 6.2.1.1.2.42  Active Suspension Control Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,67 @@
+# UnknownID 6.2.1.1.27 Video Output 2 FPD Fault - Link not locked (0x905B, 0x93) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.27 Video Output 2 FPD Fault - Link not locked (0x905B, 0x93)
+
+- ID: 3912316
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3912317
+- Contents: The System shall detect Video Output-2 FPD Fault within 1s when key-ON, if the lock signal of Binnacle-1 Serializer and FPD-Link Serializer is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Serializer (Binnacle1 (TOP) 2-2, Binnacle1 (TOP) 2-1), FPD-Link
+serializer not locked.
+-Set Proxi byte 26, bit 3 - "NQS" == 1 ("present") and Lock signal should be absent.
+-Video Output-2 FPD Fault should be detected within 1s when key-ON.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241213: Only protocol test for this DTC (check to pos. response). We have no HW to modify video signal or trigger this DTC to active/passive
+- State (Harman_Requirement): Approved
+
+2. ID: 3912320
+- Contents: If the lock signal of Serializer is present, the System shall clear the Video Output-2 FPD Fault within 1s.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: -De-Maturation Time should not exceed 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241213: Only protocol test for this DTC (check to pos. response). We have no HW to modify video signal or trigger this DTC to active/passive
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.27 Video Output 2 FPD Fault - Link not locked (0x905B, 0x93) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

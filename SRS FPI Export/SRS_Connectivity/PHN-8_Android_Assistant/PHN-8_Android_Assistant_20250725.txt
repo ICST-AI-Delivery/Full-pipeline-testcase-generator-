@@ -1,0 +1,77 @@
+# PHN-8 6.2.1.8  Android Assistant Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.8 PHN-8 Android Assistant
+
+- ID: 4596622
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_Networking, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4596624
+- Contents: System shall trigger Android Assistant when a long press (>= T_Long) detected on the steering wheel mute button (VolumeButtonPushSts ==1), then System shall utilize the A2B microphone to provide access to Android Assistant  functionalities.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall trigger Android Assistant when a long press is detected on the steering wheel mute button, then System shall utilize the A2B microphone to provide access to Android Assistant functionalities.
+
+Info:
+long press = (>= T_Long) 
+(VolumeButtonPushSts ==1)
+ STATUS_NVO.VolumeButtonPushSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, detected, utilize, provide, Assistant, press, VolumeButtonPushSts, access, functionalities" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4596625
+- Contents: System shall send a voice assistant prompt on voice audio source when Android Assistant activated.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Verification Criteria: Verify System shall send a voice assistant prompt on voice audio source when Android Assistant activated.
+- Grooming Status: Approved
+- Grooming Comments: Need clarity for voice prompt on voice audio source when android assistant activated.
+- Expert Domains: Android HMI, Audio Processing, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, activated, prompt, source, Assistant" )
+- TestTeamComment: Need clarity for voice prompt on voice audio source when android assistant activated.
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4596623
+- Contents: [Info] This function allows user to use phone Voice Recognition assistant for device
+ functionalities
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-8 6.2.1.8  Android Assistant Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

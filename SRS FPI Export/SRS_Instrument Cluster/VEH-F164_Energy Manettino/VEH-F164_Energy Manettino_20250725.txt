@@ -1,0 +1,165 @@
+# VEH-F164 6.2.1.1.2.15  Energy Manettino Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.15 VEH-F164 Energy Manettino
+
+- ID: 3715022
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3715023
+- Contents: System shall display Energy Manettino indications as per the Ferrari design.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Energy Manettino is displayed as per the Ferrari design.
+
+CAN-Signal:PWT_STATUS_2.EManettinoSts
+
+Wire-Frame : B15 Area
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3715032
+- Contents: System shall display the "Energy Manettino" labels through EManettinoSts signal, as summarized in the table below:
+(see: image115.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the Energy Manettino labels through Emanettino singla status as per the table.
+
+CAN-Signal:PWT_STATUS_2.EManettinoSts
+
+Wire-Frame : B15 Area
+- Grooming Status: Approved
+- Grooming Comments: The Animation part will out of Scope for PI3
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image115.png
+
+3. ID: 3715033
+- Contents: System shall display SELECTED eMANETTINO STATUS NOT ALLOWED  Info-1 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when EManettinoTransitionInfo = “Status_Not_Allowed (x1)” OR “not_used”
+Note: Info-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Condition:   SELECTED eMANETTINO STATUS NOT ALLOW
+EManettinoTransitionInfo = “Status_Not_Allowed (x1)” OR “not_used”
+
+Verify that the System shall display Info-1 is displayed when necessary conditions are met with D01 Visualiastion with Priority-1.
+
+Buzzer: 2B Buzzer Audio
+
+CAN-Signals: PWT_STATUS_2.EManettinoTransitionInfo
+
+Wire-Frame: H Area
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, ALLOWED, met, Allowed, Degraded, follows, STATUS, pop-up, buzzer, Info-1, priority-1" ) 
+Negative statement
+ (Look for: "NOT" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3715034
+- Contents: System shall display Info-2  Pop-up with buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when (EManettinoTransitionInfo = “Status_Modified ")
+Note: Info-2 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Condition:  .eMANETTINO STATUS AUTOMATICALLY CHANGED (EManettinoTransitionInfo = “Status_Modified_Eco” OR "Status_Modified_Standard"
+
+Verify that the System shall display eMANETTINO STATUS AUTOMATICALLY CHANGED Info-2 pop-up with buzzer when below conditions are met with D01 Visualisation and Priority-1.
+
+Buzzer : 2B Audio
+
+CAN-Signals:PWT_STATUS_2.EManettinoTransitionInfo
+
+Wire-Frame: H Area
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, CHANGED, met, Modified, follows, STATUS, pop-up, buzzer, priority-1" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3715035
+- Contents: System shall display eMANETTINO FAILURE Fail-1 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when EManettinoFailSts = "Fail present".
+Note: Fail-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Condition:  eMANETTINO FAILURE (EManettinoFailSts = "Fail present").
+
+Verify that the System shall display eMANETTINO FAILURE Fail-1 pop-up with buzzer when EManettinoFailSts = "Fail present". with D01 Visualisation and Priority-1.
+
+Buzzer : 2B
+
+CAN-Signals: PWT_STATUS_2.EManettinoFailSts
+
+Wire-Frame: H area
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, FAILURE, pop-up, buzzer, EManettinoFailSts, present, priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3715025
+- Contents: On the “Energy Manettino” there are three stable positions selectable by the user through rotary command.
+(see: image114.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the Energy Manettino shall contain three stable Positions which can be selectable by the user by rotary command.
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+- Visual Elements: image114.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image115.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image114.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F164 6.2.1.1.2.15  Energy Manettino Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

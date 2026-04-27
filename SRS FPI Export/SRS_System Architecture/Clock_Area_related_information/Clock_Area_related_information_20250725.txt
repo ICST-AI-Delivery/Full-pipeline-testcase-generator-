@@ -1,0 +1,311 @@
+# UnknownID 6.2.6.1.6 Clock Area related information Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.1.6 Clock Area related information
+
+- ID: 4884899
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886463
+- Contents: System shall reconfigure the content in the dedicated HMI context according to Clock area visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the content in D-area is displaying as per user selected clock mode.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4886465
+- Contents: System shall show the clock related information depending on which content visualized in following clock area managed from the front Central display. (see: image7.png, image8.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the content in D-area is displaying as per user selected clock mode.
+
+Clock details mentioned in D1.1 to D2.4
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, depending, content, visualized, following, managed, information, area, Central display" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image7.png, image8.png
+
+3. ID: 4886472
+- Contents: System shall show the statistics and Clock related information on Main area page1.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the statistics and clock related information on Main area page1.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, statistics, information, page" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886538
+- Contents: system clock Area Visualization mode is Clock then system shall provide indications for the following:
+Time
+Time format
+Date
+External temperature
+External AQI
+Vehicle direction
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify all indications are provided on clock for clock visualization
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4886541
+- Contents: system clock area Visualization mode is Compass then system shall provide indications for the following
+Time
+Time format
+Date
+Vehicle direction
+Altitude
+GPS coordinates
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify all indications are provided on compass module
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 4886544
+- Contents: system Clock Area Visualization mode is Chrono then system shall provide indications for the following:
+Time
+Time format
+Date
+Chrono info
+Driven distance
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify all indications are provided on chrono module
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4886545
+- Contents: when sytem shall detect GPIO3_Clk_Bttn1 input  from LOW to HIGH, then set an internal variable at t0 (ChronoOdometer(t0)=0).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the ChornoOdometer value to be zero.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "sytem, detect, set, LOW, HIGH, variable" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4886546
+- Contents: system shall detects the input GPIO2_Clk_Bttn2 transition from LOW to HIGH and chrono is in Idle state, then system shall start implemented the distance count.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the distant count value on HMI.
+
+System shall start the distant count using following logic:
+ChronoOdometer(ti+1)= ChronoOdometer(ti)+ [TotalOdometer(ti+1)-TotalOdometer(ti)] where sample time T = ti+1 -(ti)=2000ms
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall start" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4886547
+- Contents: system shall detects the input GPIO2_Clk_Bttn2 = HIGH for t < TlongpressClk, then system shall pause the chrono count and stop and keep the distance count.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: By Short press on GPIO2_Clk_Bttn2, Chrono Should Pause the count
+
+Note: TlongpressClk default value is 1sec
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall pause" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4886551
+- Contents: system shall stop and reset the distance count, If GPIO2_Clk_Bttn2  = HIGH for t >= TlongpressClk.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: By longpress on GPIO2_Clk_Bttn2, Chrono Should stop and reset the count.
+
+Note: TlongpressClk default value is 1sec
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "stop, reset" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4887420
+- Contents: system shall detect the input GPIO3_Clk_Bttn1 transition from LOW to HIGH, then system shall set an internal variable at t0 , equals to ChronoAverageSpeed(t0)=0.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the chronoAvaergeSpeed(to) set to zero, when clicking on GPIO3_Clk_Bttn1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall detect, shall set" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4886555
+- Contents: system shall detect the input GPIO2_Clk_Bttn2 transition from LOW to HIGH then start the average speed count .
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: system shall count the average speed count using following logic:
+ChronoAverageSpeed(ti)= [TotalSpeed(ti-1)+VehicleSpeedVSOSig(ti)]\nt where sample time T = ti+1 -(ti)=500ms
+- Grooming Status: Approved
+- Grooming Comments: what is the value of nt?
+ "nt will be the number of samples on which we are calculating the average speed" so the number of samples in the sampling period
+https://jira.harman.com/jira/browse/FQ-1022
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 4886556
+- Contents: system shall detects the input GPIO2_Clk_Bttn2 = HIGH for t < TlongpressClk, then system shall pause the chrono count and stop and keep the average speed count.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: when shortpress the GPIO2_clk_bttn2 , chrono count shall pause and show the average speed.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall pause" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4886557
+- Contents: system shall stop and reset average speed count, If GPIO2_Clk_Bttn2  = HIGH for t >= TlongpressClk.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: when longpress the GPIO2_clk_bttn2 , chrono count shall stop and reset the average speed.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "stop, reset" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4886565
+- Contents: system shall detects the input  GPIO3_Clk_Bttn1 transition from LOW to HIGH, then system shall set an internal variable at t0 , equals to ChronoPower(t0)=0
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the chronopower(to) set to zero, when clicking on GPIO3_Clk_Bttn1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall set" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4886568
+- Contents: system shall detects the input  GPIO2_Clk_Bttn2 transition from LOW to HIGH, then start the energy power count .
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the chronopower is reflecting on 
+HMI
+
+Note: system shall start the energy power count using following logic:
+ChronoPower(ti+Δt)= ChronoPower(ti )+{[InstantPower(ti+1)+InstantPower(ti )]/2}*Δt/3600 where sample time Δt=500ms
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+17. ID: 4886569
+- Contents: system shall detect the input GPIO2_Clk_Bttn2 = HIGH for t < TlongpressClk, then pause the chrono count and stop and keep the energy power count
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: when shortpress the GPIO2_clk_bttn2 , chrono count shall pause and show the energy power count.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, pause, stop, keep, TlongpressClk, count" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4886570
+- Contents: system shall stop and reset the energy power count, if GPIO2_Clk_Bttn2  = HIGH for t >= TlongpressClk.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: when long pressthe GPIO2_clk_bttn2 , chrono count shall stop and reset the energy power count.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "stop, reset" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image7.png, image8.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.6.1.6 Clock Area related information Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

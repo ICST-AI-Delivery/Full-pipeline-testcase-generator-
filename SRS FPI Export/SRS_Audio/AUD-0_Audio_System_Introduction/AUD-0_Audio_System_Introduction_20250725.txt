@@ -1,0 +1,209 @@
+# AUD-0 6.2.1.1  Audio System Introduction Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1 AUD-0 Audio System Introduction
+
+- ID: 3406785
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3471174
+- Contents: The Audio System shall use IDC 8 channels internal amplifier to drive the  loudspeakers.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the speakers/sound cards which are connected to the 8 internal amplifier channels are functional.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-16] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+2. ID: 3471192
+- Contents: The Audio System shall use an A2B 16 channels external amplifier to drive loudspeakers.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify by connecting the external amplifier or A2B analyzer to the 16 A2B channels..
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘16’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: Hsutter [2024-04-16] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+3. ID: 3415544
+- Contents: The Audio System shall drive up to 24 loudspeaker channels at a time.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if upto 24 loudspeakers (8 internal speakers + 16 external Speakers) are functional at a time.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘24’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3471202
+- Contents: The system shall allow to set either of the below loudspeaker configurations during build time.
+Base Configuration
+High End Configuration
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if either base configuration or high end configuration is set by default as per the software.
+Verify by using AME commands.
+- Grooming Status: Approved
+- Grooming Comments: [Xiongwei, Ahmed, Abdul] The default configuration is as per the Software.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-16] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+5. ID: 3543722
+- Contents: The system shall allow the user to set either of the below loudspeaker configurations via proxi parameter.
+Base Configuration
+High End Configuration:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the loud speaker configuration via proxiparameter Audio level
+Note:
+Audio level =1 (Base configuration)
+Audio level =3  (High end configuration)
+
+Verify the configuration is changed correctly. (Verify by using AME commands)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3481679
+- Contents: In Base Configuration, the Audio System shall support the loudspeakers as follows:
+Four Woofers (Front Left, Front Right, Rear Left, Rear Right)
+Five Mid range (Front Left, Central, Rear Left, Rear Right, Front Right)
+Four Tweeters (Front Left, Front Right, Rear Left, Rear Right)
+Two External Speakers ( Front, Rear)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the mentioned loud speakers are working in base configuration
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, follows, Configuration, loudspeakers, Left, Right, Central, Front, Rear" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3471196
+- Contents: In High End Configuration, the Audio System shall support the loudspeakers as follows:
+Four Woofers (Front Left, Front Right, Rear Left, Rear Right)
+Five Mid range (Front Left, Front Right, Central, Rear Left, Rear Right)
+Five Tweeters (Front Left, Front Right, Central, Rear Left, Rear Right)
+Two Surround (Left, Right)
+Four Headliner (Front Left, Front Right, Rear Left, Rear Right)
+One Subwoofer
+Two External Speakers ( Front, Rear)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the mentioned loud speakers are working in high end configuration.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, follows, Configuration, loudspeakers, Left, Right, Central, Front, Rear" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3471190
+- Contents: The Audio System shall manage the audio contents generated by the IDC, which are managed by 3 distinct processing modules:
+FAD - Ferrari Audio Director
+ESE BEV - Engine Sound Enhancement for BEV
+AVAS - Acoustic Vehicle Alerting System
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+2. ID: 4462845
+- Contents: Where:
+FL-W: Front Left Woofer
+FL-M: Front Left Midrange
+FL-T: Front Left Tweeter
+FR-W: Front Right Woofer
+FR-M: Front Right Midrange
+FR-T: Front Right Tweeter
+C-M: Central Midrange
+RL-W: Rear Left Woofer
+RL-M: Rear Left Midrange
+RL-T: Rear Left Tweeter
+RR-W: Rear Right Woofer
+RR-M: Rear Right Midrange
+RR-T: Rear Right Tweeter
+F-EXT: Front External Speaker
+R-EXT: Rear External Speaker
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 4462851
+- Contents: Where:
+FL-W: Front Left Woofer
+FL-M: Front Left Midrange
+FL-T: Front Left Tweeter
+FR-W: Front Right Woofer
+FR-M: Front Right Midrange
+FR-T: Front Right Tweeter
+C-M: Central Midrange
+C-T: Central Tweeter
+RL-W: Rear Left Woofer
+RL-M: Rear Left Midrange
+RL-T: Rear Left Tweeter
+RR-W: Rear Right Woofer
+RR-M: Rear Right Midrange
+RR-T: Rear Right Tweeter
+L-S: Left Surround
+R-S: Right Surround
+FL-H: Front Left Headliner
+FR-H: Front Right Headliner
+RL-H: Rear Left Headliner
+RR-H: Rear Right Headliner
+SUB: Subwoofer
+F-EXT: Front External Speaker
+R-EXT: Rear External Speaker
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-0 6.2.1.1  Audio System Introduction Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

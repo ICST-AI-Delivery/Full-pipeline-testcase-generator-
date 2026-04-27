@@ -1,0 +1,70 @@
+# VEH-F849 6.2.1.1.1.38  Engine Sound Generator Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.38 VEH-F849 Engine Sound Generator
+
+- ID: 5499774
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Control, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5499778
+- Contents: System shall display Fail-1 Pop-Up with Telltale and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when AUD_ESE_Fail=1.
+Note: Fail-1 Follows D01 visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+AUD_ESE_Fail= 1
+
+Verify that the Fail-1 Pop-Up is displayed when trigger condition is met.
+
+Pop-Up ID: 08490001
+
+Buzzer: 2B
+
+Internal Signal:
+AUD_ESE_Fail
+- Grooming Status: Approved
+- Grooming Comments: Need to check with Audio team , How to simulate internal signals!
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Follows, Pop-Up, Telltale, status, IVI, INDICATOR_STATUS" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5499776
+- Contents: System shall display Engine Sound Generator indications as per the Ferrari design.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F849 6.2.1.1.1.38  Engine Sound Generator Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

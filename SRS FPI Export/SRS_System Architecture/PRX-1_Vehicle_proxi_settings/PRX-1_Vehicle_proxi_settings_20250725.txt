@@ -1,0 +1,141 @@
+# PRX-1 6.2.3.2  Vehicle proxi settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.2 PRX-1 Vehicle proxi settings
+
+- ID: 3890025
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3890027
+- Contents: System shall apply the logic for Vehicle Model map for the specific car model:
+System shall apply logics for F244 vehicle model when proxi Vehicle_definition_for_NIT2==11(F244).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the required customer proxi parameters and send the config data using the Dev Studio.
+Verify the configuration data in the head unit.
+
+Verify the logic for Vehicle Model mapping for the specific car model implementation
+
+convert the value from decimal to binary.
+
+Start Byte 154, Start bit 0 - Vehicle_definition_for_NIT2 (0 = "F169", 1 = "F173", 2 = "F175", 3 = "F171", 4 =
+"F164FL", 5 = "F150BD", 6 = "F167", 7 = "F173VS", 8 = "F250", 9 = "F173M", 10 = "F169M", 11 = "F244")
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, logic, map, model, logics" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 3890028
+- Contents: System shall apply the following logics for vehicle variant mapping for the specific car variant implementation:
+IDC shall apply logics to Coupe vehicle variant when proxi Type ==0(coupe)
+IDC shall apply logics to Spider vehicle variant when proxi Type ==1(spider)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the required customer proxi parameters and send the config data using the Dev Studio.
+Verify the configuration data in the head unit.
+
+Verify the logics for Vehicle variant mapping for the specific car variant implementation
+
+Start Byte 58, Start bit 1 - Type (0 = "coupe", 1 = "spider")
+Start Byte 144, Start bit 0 - Vehicle_Variant_for_NIT (0 = "invalid", 1 = "Coupe", 2 = "Spider", 3 = "Special
+Coupe", 4 = "Special Spider", 5 = "Challenge", 6 = "XX", 7 = "OneOff(1)", 8 = "Fiorano", 9 = "1 seat")
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, following, logics, vehicle, mapping, implementation, variant, proxi Type" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+3. ID: 3890029
+- Contents: System shall handle market specific configurations through proxi bits.
+Note: Market means "Country market" and "Detail for Extra market"
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the required customer proxi parameters and send the config data using the Dev Studio.
+Verify the configuration data in the head unit.
+
+Verify the market specific proxi bits
+
+Start Byte 59, Start bit 4 - Country market (0 = "USA", 1 = "CANADA", 2 = "Extra market", 3= "Mercato
+Arabia")
+Start Byte 59, Start bit 6 - Detail for Extra market (0 = "all other country", 1 = "all other country", 2 =
+"Japanese", 3 = "UK")
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, handle, means, configurations, proxi bits, market, Detail" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+4. ID: 3890030
+- Contents: System shall handle country code proxi bits to configure features according to target country specifications.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the country code proxi bits
+
+Start Byte 79, Start bit 0 - Country Code (0 - 240 = all country code)
+- Grooming Status: Approved
+- Grooming Comments: Start Byte 59, Start bit 6 - Detail for Extra market (0 = "all other country", 1 = "all other country", 2 = "Japanese",
+3 = "UK")
+
+Query:
+1.both 0 and 1 are having same values
+
+
+Start Byte 79, Start bit 0 - Country Code (0 - 240 = all country code)
+
+document shared to testing team (suma)
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "target" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3890026
+- Contents: This function describes that Ferrari vehicle functionality shall depend on vehicle model, vehicle variant, market, country code. These data shall be recognized by relevant proxi parameters.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRX-1 6.2.3.2  Vehicle proxi settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

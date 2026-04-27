@@ -1,0 +1,87 @@
+# UnknownID 6.2.1.17.2 DMS 16: User Presence Detection Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.17.2 DMS 16: User Presence Detection
+
+- ID: 3848197
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3710435
+- Contents: The DMS shall detect the "presence of the driver in the vehicle cabin" in all the system states.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that DMS detects the driver presence in all the below system States.
+
+1. HMI OFF",
+2. "HMI ON",
+3. "HMI Power-ON"
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3710436
+- Contents: The DMS shall detect the driver presence in driver seat with and without face detection.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS detects the driver presence in driver seat without face detection.
+
+Verify the driver presence status by using the CAN signal DMS_INFO.DMS_DriverPresent
+
+Note: The CAN signal can have the below values 
+Driver_present : If the driver is detected
+No_driver_present : If the driver is not detected
+Status_not_available: If DMS is not able to evaluate Driver presence
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, detect, presence, seat, detection" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3710437
+- Contents: The DMS shall not confuse objects left on the driver seat(like jacket,backpack, etc) as a person.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS should not detect the other objects left on the driver seat as a person
+
+Verify the driver presence status by using the CAN signal DMS_INFO.DMS_DriverPresent
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "effective" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.17.2 DMS 16: User Presence Detection Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

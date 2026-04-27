@@ -1,0 +1,110 @@
+# PRK-0 6.2.4.1.14.1 : Surround View Management: Recovery Requirements Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.14.1 PRK-0: Surround View Management: Recovery Requirements
+
+- ID: 3845430
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul][Approved without DTC]
+
+[Abdul 27.12.2024]: Section in Diagnostics:
+IDC-458584 - PARKING CAMERAS
+Need confirmation.
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3845432
+- Contents: The system shall not display the "dynamic parking lines" in Key-On condition if PROXI parameter "IDC_SurroundViewFunctionality = present'  & 'LwsFailSts = FailPresentBatteryDisconnection".
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Ignition Key is ON
+Set PROXI parameter  IDC_SurroundViewFunctionality = present 
+AND 
+set the CAN signal as below
+
+LwsFailSts = FailPresentBatteryDisconnection
+Launch the SVC 
+
+
+Verify that 
+ Dynamic parking lines are not displayed
+- Grooming Status: Approved
+- Grooming Comments: [Approved without DTC]
+Prashanth, Abdul 04.02.2025]
+Note: required DTCs will come through Diagnostic Specification. 
+
+
+
+Blocked due to [
+Need Diagnostic team input on DTC]
+If they are testing, will remove from this SRS
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This is Valid in In "Key-On" condition
+
+2. ID: 3845437
+- Contents: The system shall not display the "dynamic parking lines" if PROXI parameter "IDC_SurroundViewFunctionality = present' & '[(Lw
+sFailSts = Fail_Present_Ignition_Latched OR Fail_Present_Recoverable) OR (LwsAngle = Invalid)]".
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Ignition Key is ON
+
+Set PROXI parameter IDC_SurroundViewFunctionality = present &  set the values for the below mentioned CAN signal as below
+[(Lw
+sFailSts = Fail_Present_Ignition_Latched OR Fail_Present_Recoverable) OR (LwsAngle = Invalid)]
+
+Verify that 
+1. Dynamic parking lines are not displayed
+- Grooming Status: Approved
+- Grooming Comments: [Approved without DTC]
+Prashanth, Abdul 04.02.2025]
+Note: required DTCs will come through Diagnostic Specification. 
+
+
+What is the meaning of these signal + DTC-. Check with IOC and Diag team
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This is Valid in In "Key-On" condition
+
+### Informational Items:
+
+1. ID: 3845438
+- Contents: For further details on fail conditions and recovery see F802 and IDC CDD document
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.14.1 : Surround View Management: Recovery Requirements Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

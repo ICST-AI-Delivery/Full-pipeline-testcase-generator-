@@ -1,0 +1,77 @@
+# PHN-7 6.2.1.7  Siri Eyes Free Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7 PHN-7 Siri Eyes Free
+
+- ID: 4596618
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_Networking, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4596620
+- Contents: System shall trigger Siri eyes Free when a long press (>= T_Long) detected on the steering wheel mute button (VolumeButtonPushSts ==1), then System shall utilize the A2B microphone to provide access to Siri functionalities.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall trigger Siri eyes Free when a long press is detected on the steering wheel mute button, then System shall utilize the A2B microphone to provide access to Siri functionalities.
+
+Info:
+long press = (>= T_Long) 
+(VolumeButtonPushSts ==1)
+ STATUS_NVO.VolumeButtonPushSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, detected, utilize, provide, eyes Free, press, VolumeButtonPushSts, access, functionalities" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4596621
+- Contents: System shall send a voice assistant prompt on voice audio source when Siri Eyes Free Assistant activated.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall send a voice assistant prompt on voice audio source when Siri Eyes Free Assistant activated.
+- Grooming Status: Approved
+- Grooming Comments: Need clarity for voice prompt on voice audio source when siri eyes activated.
+- Expert Domains: Android HMI, Audio Processing, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, activated, prompt, source, Assistant" )
+- TestTeamComment: Need clarity for voice prompt on voice audio source when siri eyes activated.
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4596619
+- Contents: [Info] This function defines the trigger to activate Apple's Siri Eyes Free system - an infotainment-based technology that seamlessly allows drivers to interact with the vehicle via voice command
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-7 6.2.1.7  Siri Eyes Free Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

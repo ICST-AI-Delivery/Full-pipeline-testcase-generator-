@@ -1,0 +1,101 @@
+# UnknownID 6.1.3.1.4 Phone information
+
+
+
+Phone information Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.3.1.4 Phone information
+
+
+
+Phone information
+
+- ID: 2353677
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353678
+- Contents: 6.1.3.1.4.1 The System shall send the current signal strength of all connected mobile phones...
+
+
+
+The System shall send the current signal strength of all connected mobile phones to the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353679
+- Contents: 6.1.3.1.4.2 The System shall update the network information whenever one of the following st...
+
+
+
+The System shall update the network information whenever one of the following states has changed: register state, provider name, or service provider name.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+3. ID: 2353680
+- Contents: 6.1.3.1.4.3 The System shall update the network information on the HMI in one batch to avoid...
+
+
+
+The System shall update the network information on the HMI in one batch to avoid any possible screen flickering.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: domain has to update in a opalized way to update HMI in one batch
+
+moved back to connectivity domain
+
+4. ID: 2353681
+- Contents: 6.1.3.1.4.4 The System shall report the battery status of the telephone to the HMI.
+
+
+
+The System shall report the battery status of the telephone to the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+5. ID: 2353682
+- Contents: 6.1.3.1.4.5 The System shall inform the HMI with 0xFF indicating invalid battery status.
+
+
+
+The System shall inform the HMI with 0xFF indicating invalid battery status.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: BT team to check and come back.
+Android AOSP passes on the values as is to the HMI. No checks are done to validate the value. We can check with the customer if this is required. If the need is to display in HMI the invalid status then it can be handled by HMI based on the value received from Bluetooth. 
+
+Discussed with connectivity team, invalid battery status will be triggered from AOSP, HMI can handle it.
+- TestTeamComment: [Hsutter, 2024-01-15] TestTeamApproval was removed because "System Qualification Test" was removed from the Test Stage
+
+The Verification Criteria was not accepted by System Test.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.3.1.4 Phone information]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

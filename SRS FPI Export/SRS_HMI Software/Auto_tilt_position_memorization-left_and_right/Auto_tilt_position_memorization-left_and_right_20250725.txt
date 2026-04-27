@@ -1,0 +1,130 @@
+# UnknownID 6.2.2.3.10  Auto tilt position memorization-left and right Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.10  Auto tilt position memorization-left and right
+
+- ID: 4886184
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886185
+- Contents: System shall store the retrieved values for Passenger mirror auto tilt horizontal position and vertical position in active Mn slot when RDI Driver Position Memories are enable and one of the Mn is active. when
+proxi "Side Driver" == 0 ("left") AND Right_Mirror_Button == 1 ("Active")
+AND ReverseGearBCSts == 1 ("Inserted") AND MirrorAutoTilt setting is enabled AND IDC detects a transition from MirrorProfileSts == 5 ("Manual_Moving") to MirrorProfileSts == 3 ("ManualReached"),
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to store the passenger mirror auto tilt values when RDI Driver Position Memories are enabled and one of the Mn is active. 
+
+Fdbk_Pos_Hor_RH_Exmi
+AND Fdbk_Pos_Ver_RH_Exmi in the active Mn slot 
+
+proxi "Side Driver" == 0 ("left") AND Right_Mirror_Button == 1 ("Active")
+
+AND ReverseGearBCSts == 1 ("Inserted") AND MirrorAutoTilt setting is enabled AND IDC detects a transition from MirrorProfileSts == 5 ("Manual_Moving") to MirrorProfileSts == 3 ("ManualReached"),
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, retrieved, are enable, is active, values, position, slot, Memories" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886574
+- Contents: System shall provide a popup to the user to confirm the saving of the new position when proxi parameter Profile == 1("present") AND AutoSave setting is OFF.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up for saving new positions when
+
+proxi parameter Profile == 1 ("present") AND AutoSave setting is OFF.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, setting, provide, to confirm, proxi, is, popup, user, saving, position, parameter Profile    1, OFF" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4886576
+- Contents: IDC shall store the retrieved values for Passenger mirror auto tilt horizontal position and vertical position in Mlast slot when user confirms the saving.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to store the passenger mirror auto tilt values in Mlast when user confirms the saving.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "store, retrieved, confirms, saving, values, position, slot" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4886580
+- Contents: IDC shall discard the retrieved values for Auto tilt position when the user does not confirm the memorization.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system not able to store the values when user does not confirm the memorization.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "discard, retrieved, confirm, values, position, memorization" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4886582
+- Contents: System shall auto store the retrieved values for Passenger mirror auto tilt horizontal position and vertical position in active Mlast slot when proxi parameter Profile == 1("Present") AND AutoSave is ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system shall auto save the values in Mlast when 
+ proxi parameter Profile == 1("Present") AND AutoSave is ON.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, auto, store, retrieved, proxi, is, values, position, slot, parameter Profile    1, AutoSave" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4886591
+- Contents: System shall auto store the retrieved values for Passenger mirror auto tilt horizontal position and vertical position in Mlast slot when  proxi parameter Profile == 0("Absent").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to store the values in Mlast when proxi parameter Profile == 0 ("Absent").
+
+input signals Fdbk_Pos_Hor_RH_Exmi AND Fdbk_Pos_Ver_RH_Exmi
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, auto, store, retrieved, proxi, values, position, slot, parameter Profile    0" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.3.10  Auto tilt position memorization-left and right Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

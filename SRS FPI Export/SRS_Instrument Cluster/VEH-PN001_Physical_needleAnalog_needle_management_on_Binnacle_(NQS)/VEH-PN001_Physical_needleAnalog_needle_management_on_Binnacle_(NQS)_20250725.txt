@@ -1,0 +1,166 @@
+# VEH-PN001 6.2.1.1.2.46  Physical needle/Analog needle management on Binnacle (NQS) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.46 VEH-PN001 Physical needle/Analog needle management on Binnacle (NQS)
+
+- ID: 4895645
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895646
+- Contents: System shall be the master for the position of the Analog Needle and shall guarantee the allignment between the Analog Needle and the graphical contents related to the physical needle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Position of the Analog needle  shall be the master and allign between the Analog needle and graphic contents related to physical needle.
+
+Note: Refer VEH-F803,F813
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall be, shall guarantee" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895647
+- Contents: System shall display the Analog Needle in three main modes:
+Emotional Gauge.
+Charging Gauge.
+Opening/Closing Ceremony
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system displays Analog Needle displays in three main modes.
+
+Emotional Guage
+Charging Guage and
+Opening/Closing Ceremony.
+
+Note: Refer VEH-F803, F813
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Charging, Opening, Closing, Needle, modes, Gauge, Ceremony" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4895649
+- Contents: System shall communicate with the Analog Needle module of the Binnacle by the means of an I2C communication bus and could not be testable.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: IDC-494328 - The following requirements could be non testable.
+IDC-494330-
+
+The req's cannot be testable.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall communicate" ) 
+Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "testable" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895650
+- Contents: System shall set the target position and target speed of the Analog Needle via I2C bus.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: IDC-494328 - The following requirements could be non testable.
+IDC-494329
+
+The req's cannot be testable.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, position, speed, bus" ) 
+Unclear term
+ (Look for: "target" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895651
+- Contents: System shall read the Analog Needle actual status (e.g. actual position, actual acceleration, ...).
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: IDC-494328 - The following requirements could be non testable.
+IDC-494460
+
+The req's cannot be testable.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, Kernel
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4895652
+- Contents: System shall manage the Analog Needle power management via I2C.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: IDC-494328 - The following requirements could be non testable.
+IDC-494459
+
+The req's cannot be testable.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4895654
+- Contents: System shall request the Analog Needle power on state in case of HMI ON status.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: IDC-494328 - The following requirements could be non testable.
+IDC-494440
+
+The req's cannot be testable.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 4895655
+- Contents: System shall request the Analog Needle power off state in case of HMI OFF status
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: IDC-494328 - The following requirements could be non testable.
+IDC-494439
+
+The req's cannot be testable.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-PN001 6.2.1.1.2.46  Physical needle/Analog needle management on Binnacle (NQS) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

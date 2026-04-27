@@ -1,0 +1,76 @@
+# VEH-F869 6.2.1.1.1.41  Mild Hybrid Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.41 VEH-F869 Mild Hybrid Management
+
+- ID: 4009783
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4009820
+- Contents: System shall display Fail-1 Pop-up with Buzzer and Telltale when MVFailSts is Fail_Present AND MVSysWarningForDisplay is MV_Failure_Warning.
+Note: Fail-1 Follows D04 Visuaslisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-1 Pop-up and buzzer is displayed as per the trigger condition.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, MVFailSts, display, is, Follows, Pop-up, Buzzer, Telltale, Priority-1" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4009842
+- Contents: System shall display Fail-2 Pop-up with Buzzer and Telltale when MVFailSts is Fail_Present AND MVSysWarningForDisplay is MV_Failure_Critical.
+Note: Fail-2 Follows D04 Visuaslisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Fail-2 Pop-up and buzzer is displayed as per the trigger condition.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, MVFailSts, display, is, Follows, Pop-up, Buzzer, Telltale, Priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4009796
+- Contents: System shall display Mild Hybrid Management Indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F869 6.2.1.1.1.41  Mild Hybrid Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

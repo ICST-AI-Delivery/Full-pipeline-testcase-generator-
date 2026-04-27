@@ -1,0 +1,124 @@
+# WER-RELAT 6.2.1.4.1 DMS - POED ERRORS (0xD90001) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4.1 DMS - POWER-RELATED ERRORS (0xD90001)
+
+- ID: 3754864
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3754868
+- Contents: The System Shall detect DMS Camera Over voltage with the threshold and Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS POWER-RELATED ERRORS with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+Maturation Failure Threshold: Voltage on DMS camera >16V OR Voltage on DMS camera <8V OR Current on DMS camera >500mA
+
+Maturation Time: TBD
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Camera, voltage, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Only test to pos response for req 0x1906...
+No info or ideas how to enable/disable any listen error with DMS camera modules. No expert about camera HW / setup / setting.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+2. ID: 3754875
+- Contents: The System Shall detect DMS Camera Under voltage with the threshold and Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS POWER-RELATED ERRORS with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+Maturation Failure Threshold: Voltage on DMS camera >16V OR Voltage on DMS camera <8V OR Current on DMS camera >500mA
+
+Maturation Time: TBD
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Camera, voltage, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Only test to pos response for req 0x1906...
+No info or ideas how to enable/disable any listen error with DMS camera modules. No expert about camera HW / setup / setting.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+3. ID: 3754880
+- Contents: The System Shall detect DMS Camera Over Current with the threshold and Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS POWER-RELATED ERRORS with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+Maturation Failure Threshold: Voltage on DMS camera >16V OR Voltage on DMS camera <8V OR Current on DMS camera >500mA
+
+Maturation Time: TBD
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, Camera Over Current, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Only test to pos response for req 0x1906...
+No info or ideas how to enable/disable any listen error with DMS camera modules. No expert about camera HW / setup / setting.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+4. ID: 3754886
+- Contents: The System Shall unable to detect DMS Camera Nominal Voltage AND Nominal Current within the threshold and De-Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS POWER-RELATED ERRORS with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+De-Maturation Failure Threshold: Nominal Voltage AND Nominal Current on DMS camera
+
+De-Maturation Time: 1 s
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, unable, to detect, Voltage, Current, threshold, time" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of WER-RELAT 6.2.1.4.1 DMS - POED ERRORS (0xD90001) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

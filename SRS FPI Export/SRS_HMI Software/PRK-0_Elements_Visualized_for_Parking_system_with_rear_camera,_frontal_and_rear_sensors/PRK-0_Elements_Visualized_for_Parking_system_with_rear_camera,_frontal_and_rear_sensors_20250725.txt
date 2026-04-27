@@ -1,0 +1,221 @@
+# PRK-0 6.2.4.1.3  Elements Visualized for Parking system with rear camera, frontal and rear sensors Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.3 PRK-0 Elements Visualized for Parking system with rear camera, frontal and rear sensors
+
+- ID: 4613103
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3604110
+- Contents: The system shall display the following elements for the Parking system with rear camera, frontal & rear sensors:
+Classic View (Sensor View, Frame view )
+Wide View ( Frame view)
+Parking Sensors view (when rear camera is off)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the parking.
+
+Verify that the below elements are visible on HMI screen.
+
+Sensors view.
+Camera stream frame.
+Controls
+
+Note: Refer the below artifact (4655858) for the view.
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: For UK markets, mirrored views should be displayed
+
+2. ID: 4655844
+- Contents: For UK Version, the system shall display the mirrored version of the following views
+Classic View (Sensor View, Frame view)
+Wide View (Frame view)
+Parking Sensors view (when rear camera is off)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking view is visible with the mentioned elements.
+
+1. Configure for UK Version (Proxi Parameter: Detail for Extra market)
+2.Verify the mirrored version of the parking view
+- Grooming Status: Approved
+- Grooming Comments: [Dhivakar, Abdul 18.03.2025] Approved
+
+To Ferrari:
+Muthu 24.01,2025: How to enable/disable the UK version ?
+
+https://jira.harman.com/jira/browse/FQ-956
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, camera, display, mirrored, following, view, is off, Version, version" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4655858
+- Contents: (see: image69.png)
+(see: image70.png)
+Figure  Classic View
+(see: image71.png)
+(see: image72.png)
+Figure  Wide View
+(see: image73.png)
+(see: image74.png)
+Figure  Frontal sensor view
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image69.png, image70.png, image71.png, image72.png, image73.png, image74.png
+
+2. ID: 4613105
+- Contents: The system shall visualize the below elements in Classic view of Parking system with rear camera, frontal and rear sensors:
+Sensors view Area: it shows front and rear obstacles detection around the car model.
+Rear Camera stream frame: it shows the rear camera view,
+Parking lines lines and maximum turning lines: they are shown inside the Rear Camera
+Stream Frame
+Info/popup area: it is positioned inside the Rear camera stream frame, it shows the
+system information (e.g Rear Camera label, calibration failure, distance from closest
+obstacle, RCTA). It shall not cover the homologative area of the stream view.
+Controls: front parking sensors button (it is positioned inside the sensors view Area)
+and wide view bar (it is positioned inside Rear Camera stream Frame Area)
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Verification Criteria: Precondition:
+Parking system with Rear view configuration is activated
+
+In 2D view, activate Classic View.
+
+Verify that the below elements are visualized.
+Sensors view Area:
+
+Rear Camera Stream Frame
+Info/popup area: 
+obstacle, RCTA). 
+Controls: 
+wide view bar (it is positioned inside Rear Camera stream Frame Area)
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, Parking, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "system, visualize, view, bar, elements, camera, sensors, Area, area, obstacle, RCTA, Camera stream Frame Area" ) 
+Passive voice
+ (Look for: "is positioned" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4613107
+- Contents: The system shall visualize the below elements in  Wide View of Parking system with rear camera, frontal and rear sensors:
+Rear Camera stream frame: it shows the rear camera wide view
+Parking lines lines and maximum turning lines: they are shown inside the Rear Camera
+Stream Frame
+Info/popup area: it is positioned inside the Rear camera stream frame, it shows the
+system information (e.g Rear Camera label, calibration failure, distance from closest
+obstacle, RCTA). It shall not cover the homologative area of the stream view.
+Controls: front parking sensors button and wide view bar (they are positioned inside
+Rear Camera stream Frame Area)
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Verification Criteria: Precondition:
+Parking system with Rear view configuration is activated
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, Parking
+- RQA Score: 20
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it, they, It" ) 
+Compound requirement
+ (Look for: "shall shall" ) 
+Unclear term
+ (Look for: "maximum" ) 
+Passive voice
+ (Look for: "are shown, is positioned, are positioned" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4613108
+- Contents: The system shall visualize the below elements in  Frontal Parking Sensors view of Parking system with rear camera, frontal and rear sensors (when rear camera is off).
+Sensors view Area: it shows front obstacles detection around the car mode and
+Distance from Closest Front Obstacles
+Controls: front parking sensors button
+- Artifact Type: Information
+- Responsible Domain: Camera
+- Verification Criteria: Precondition:
+Parking system with Rear view configuration is activated
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Parking
+- RQA Score: 50
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "system, camera, visualize, is off, view, shows, around, front, elements, sensors, Area, obstacles detection, mode, ObstaclesControls" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image71.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image69.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image70.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image74.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image73.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image72.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.3  Elements Visualized for Parking system with rear camera, frontal and rear sensors Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

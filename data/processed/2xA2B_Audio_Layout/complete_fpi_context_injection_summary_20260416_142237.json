@@ -1,0 +1,744 @@
+{
+  "timestamp": "2026-04-16T14:22:46.660948",
+  "main_fpi": "2xA2B_Audio_Layout",
+  "summary": {
+    "critical_dependencies": [
+      {
+        "fpi": "AUD-2_A2B_Network_2_configuration_via_diagnostics",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "AUD-2_A2B_Network_Management",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "AUD-2_IOC_A2B_Network_Management",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Measurement_Configuration_(0xD80094)",
+        "score": 3,
+        "justification": "Critical A2B configuration dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD81111)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD81112)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD81013)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD81011)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD81012)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD81001)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8101A)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Positive_wire_shorted_to_ground_(0xD81411)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Reverse_wires_or_wrong_port_(0xD81401)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD81511)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD81512)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD81413)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD81412)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1_-_Wires_shorted_together_(0xD8141A)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_ground_(0xD82111)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Negative_wire_shorted_to_VBATT_(0xD82112)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Open_wires_or_wrong_port_(0xD82013)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_ground_(0xD82011)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Positive_wire_shorted_to_VBATT_(0xD82012)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Reverse_wires_or_wrong_port_(0xD82001)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Wires_shorted_together_(0xD8201A)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_ground_(0xD82511)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Negative_wire_shorted_to_VBATT_(0xD82512)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Open_wires_or_wrong_port_(0xD82413)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_ground_(0xD82411)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Positive_wire_shorted_to_VBATT_(0xD82412)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Reverse_wires_or_wrong_port_(0xD82401)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Wires_shorted_together(0xD8241A)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_ground_(0xD82911)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Negative_wire_shorted_to_VBATT_(0xD82912)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Open_wires_or_wrong_port_(0xD82813)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_ground_(0xD82811)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Positive_wire_shorted_to_VBATT_(0xD82812)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Reverse_wires_or_wrong_port_(0xD82801)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Wires_shorted_together_(0xD8281A)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_ground_(0xD82D11)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Negative_wire_shorted_to_VBATT_(0xD82D12)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Open_wires_or_wrong_port_(0xD82C13)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_ground_(0xD82C11)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Positive_wire_shorted_to_VBATT_(0xD82C12)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Reverse_wires_or_wrong_port_(0xD82C01)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Wires_shorted_together_(0xD82C1A)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_Configuration_($0528)",
+        "score": 3,
+        "justification": "Critical A2B network dependency"
+      }
+    ],
+    "high_priority_dependencies": [
+      {
+        "fpi": "FAD-1_Audio_Channels_Interaction",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "FAD-2_Audio_Channels_Control",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "FAD-2_Audio_Channels_Control_-_Min_Switch-On_Volume",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "FAD-2_Channel_Directionality",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "FAD-2 Channel_Directionality",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Power_Management",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_open_(0x940013)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94001A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940012)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940011)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_open_(0x940113)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94011A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940112)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940111)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_open_(0x940213)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94021A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940212)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940211)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_open_(0x940313)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94031A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940312)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940311)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_open_(0x940413)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94041A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940412)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940411)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_open_(0x940513)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94051A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940512)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940511)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_open_(0x940613)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94061A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940612)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940611)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_open_(0x940713)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_resistance_below_threshold_(0x94071A)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_short_to_battery_(0x940712)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Circuit_short_to_ground_(0x940711)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "T_POWER_MANAGEMENT_($0503)",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "Power_Management",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "PMN-1_IDC_Power_Management",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_ON",
+        "score": 2,
+        "justification": "High priority power dependency"
+      },
+      {
+        "fpi": "RAD-31_HD_Radio_SPS_channel",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "RAD-40_SXM_Channel_Search",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "RAD-42_SXM_Channel_info",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      },
+      {
+        "fpi": "RAD-43_SXM_Favourite_channel",
+        "score": 2,
+        "justification": "High priority audio channel dependency"
+      }
+    ],
+    "optional_dependencies": [
+      {
+        "fpi": "Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "Battery_voltage_ ($1004)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Current_Date  ($2050)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Front_Camera_-_Over_Voltage_(0x9103,_0x17)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Left_Camera_- Over_Voltage_(0x9105,_0x17)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Max_Switch-On_Volume ($0527)",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "Min_Switch-On_Volume ($XXXX)",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "Rear_Camera_- Over_Voltage_(0x9104,_0x17)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Right_Camera_- Over_Voltage_(0x9106,_0x17)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Speed_Dependent_Volume_($0525)",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "VIN_Current",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Volume_Attenuation_Enable_($052F)",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "Volume_Attenuation_Levels_($0526)",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "Volume_Control_($0520)",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "[GPIO2]_Dig_IO_#2_-_Clock_Button_2_Over_current_(0x9062,_0x19)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "[GPIO2]_Dig_IO_#2_-_Clock_Button_2_Over_voltage_(0x9062,_0x17)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "[GPIO3]_Dig_IO_#3_-_Clock_Button_1_Over_current_(0x9063,_0x19)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "[GPIO3]_Dig_IO_#3_-_Clock_Button_1_Over_voltage_(0x9063,_0x17)",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_Settings_Persistence",
+        "score": 1,
+        "justification": "Optional HMI audio control dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_settings_via_Diagnostics",
+        "score": 1,
+        "justification": "Optional HMI audio control dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_setting_introduction",
+        "score": 1,
+        "justification": "Optional HMI audio control dependency"
+      },
+      {
+        "fpi": "AUS-0__Audio_settings_via_Diagnostics",
+        "score": 1,
+        "justification": "Optional HMI audio control dependency"
+      },
+      {
+        "fpi": "AUS-0 Audio_Settings_Persistence",
+        "score": 1,
+        "justification": "Optional HMI audio control dependency"
+      },
+      {
+        "fpi": "AUS-11_Ringtone_Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "AUS-12_General_Warning_Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "AUS-13_Parking_Sensor_Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "AUS-4_Audio_Presets",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "AUS-7_Speed_Dependent_Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "AUS-8_Navigation_Voice_Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "AUS-9_Voice_Control_Volume",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "Volume_Bar",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      },
+      {
+        "fpi": "VEH-F006_Low_Voltage_Battery_Indication",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "VEH-F804_High_Voltage_Battery",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "VEH-F805_High_Voltage_HVAC_&_H2O_Circuit",
+        "score": 1,
+        "justification": "Optional power parameter dependency"
+      },
+      {
+        "fpi": "Displays_Physical_Commands_for_Central_Display_-_VolumeMute_Command",
+        "score": 1,
+        "justification": "Optional audio setting dependency"
+      }
+    ]
+  },
+  "statistics": {
+    "total_features_analyzed": 1426,
+    "total_dependencies_found": 145,
+    "critical_count": 53,
+    "high_priority_count": 57,
+    "optional_count": 35
+  }
+}

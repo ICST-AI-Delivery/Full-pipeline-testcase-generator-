@@ -1,0 +1,87 @@
+# SET-33 6.2.3.4.4  Attenuation Light Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.4.4 SET-33 Attenuation Light
+
+- ID: 3939851
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: HMI_CAN:
+NIT_VEHICLE_SETUP_3.CabinNightDaySwitch
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3976345
+- Contents: IDC shall manage Attenuation Night Light setting only if Cabin_Light = 1 ("present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition of attenuation night light setting.
+
+Cabin_Light = 1 ("present")
+
+Start Byte 185, Start bit 1 - Cabin_Light (0 = "Absent", 1 = "Present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 3976348
+- Contents: Attenuation Night Light setting shall be available only in Engineering Mode.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the attenuation night light setting available in engineering mode.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3976346
+- Contents: IDC shall allow user to activate/deactivate attenuation night lights through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the enable/disable of attenuation night lights through HMI.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.CabinNightDaySwitch
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to activate, deactivate, CabinNightDaySwitch, HMI" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-33 6.2.3.4.4  Attenuation Light Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,97 @@
+# UnknownID 6.2.1.4.4 DMS - BLINDNESS (0xD90031) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4.4 DMS - BLINDNESS (0xD90031)
+
+- ID: 3754994
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3755002
+- Contents: The DMS camera is completely block up, the System shall refuse light .
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify DMS camera is completely obstructed with no light is received.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "completely" )
+- TestTeamComment: RWeber_DIAG_250110: Only test to pos response for req 0x1906...
+No info or ideas how to enable/disable a "block up" error with current spec description. Also no expert about DMS camera setup or config.
+- State (Harman_Requirement): Approved
+
+2. ID: 3754996
+- Contents: The System shall detect DMS camera Blindness fault with the threshold and Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS BLINDNESST with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+Maturation Failure Threshold: The System DMS camera is not able to acquire images due to complete obstruction.
+
+Maturation Time: TBD
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, fault, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Only test to pos response for req 0x1906...
+No info or ideas how to enable/disable a "block up" error with current spec description. Also no expert about DMS camera setup or config.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+3. ID: 3754998
+- Contents: The System shall unable to detect DMS camera Blindness fault within the threshold and De-Maturation time is 1 sec.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS BLINDNESS with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+De-Maturation Failure Threshold: Obstruction is not present anymore.
+
+De-Maturation Time: 1 s
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, unable, to detect, fault, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Only test to pos response for req 0x1906...
+No info or ideas how to enable/disable a "block up" error with current spec description. Also no expert about DMS camera setup or config.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.4.4 DMS - BLINDNESS (0xD90031) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

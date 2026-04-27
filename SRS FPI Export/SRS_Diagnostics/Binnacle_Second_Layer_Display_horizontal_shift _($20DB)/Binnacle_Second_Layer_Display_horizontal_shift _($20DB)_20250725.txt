@@ -1,0 +1,87 @@
+# UnknownID 6.2.4.3.2.24 Binnacle Second Layer Display horizontal shift  ($20DB) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.24 Binnacle Second Layer Display horizontal shift  ($20DB)
+
+- ID: 4634285
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4634286
+- Contents: Binnacle Second Layer Display vertical shift allow to horizontally pixel shift the video stream for the Binnacle Second Layer Display [1Byte].
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DTCFailureType($6082) “virtual” parameter.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, parameter, identifies, #8220, fault type" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the horizontal shift so far, missing details for msg simulation.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: see to TFO 09009 for further details.
+
+2. ID: 4634287
+- Contents: The System shall have RecordDataIdentifier ( $20DB ) to know the Binnacle Second Layer Display vertical shift.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($6082)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 6082’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the horizontal shift so far, missing details for msg simulation.
+- State (Harman_Requirement): Approved
+
+3. ID: 4634290
+- Contents: The System shall support the following NRC's
+Read NR (see: image199.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the horizontal shift so far, missing details for msg simulation.
+- State (Harman_Requirement): Approved
+- Visual Elements: image199.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image199.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.24 Binnacle Second Layer Display horizontal shift  ($20DB) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,809 @@
+# VEH-F813 6.2.1.1.2.38  HVB Recharge Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.38 VEH-F813 HVB Recharge Management
+
+- ID: 3408606
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3956800
+- Contents: System shall display F813 Pop-up with Buzzer and ssend the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUSWarning-103 to indicate when PlugInRechargeWarning is"Plug in recharge not available. Insert P" with
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 103 by algo.
+Verify warning displayed as per  with , buzzer, popup and graphic.
+
+Trigger Condition:
+(PlugInRechargeWarning=PlugInRecharge_NotAvailable_InsertP) 
+
+HMI.POP_IN id 08130005
+Buzzer:2B
+
+
+CAN-Signal:
+PWT_STATUS_1.PlugInRechargeWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3956804
+- Contents: System shall display F813 Warning-104 with Pop-Up and Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when (HVBChargeWarningForDisplay=OBC_Fail_Power_Conversion)
+D11 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 104 by algo.
+Verify warning displayed as per  with  buzzer, popup and graphic.
+
+Algo
+(HVBChargeWarningForDisplay=OBC_Fail_Power_Conversion)
+
+HMI.POP_IN id 81306
+
+Buzzer:2B
+
+CAN-Signal:
+HVB_HMI_STS.HVBChargeWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to indicate, to stop, Warning-104, plug, car" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3956810
+- Contents: System shall display F813 Warning-106 With Pop-up and Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when (HVBChargeWarningForDisplay=EVSE_Fail
+D11 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 106 by algo.
+Verify warning displayed as per  with  buzzer, popup and graphic.
+
+Algo
+(HVBChargeWarningForDisplay=OBC_Fail_Power_Conversion)
+
+HMI.POP_IN id 81307
+
+Buzzer:2B
+
+CAN-Signal:
+CAN-Signal:
+HVB_HMI_STS.HVBChargeWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3956816
+- Contents: System shall display F813 Warning-99 Pop-up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when PlugInRechargeWarning= PlugInRecharge_NotAvailable_CheckEPB
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 99 by algo.
+Verify warning displayed as per  with  buzzer, popup and graphic.
+
+Algo
+(PlugInRechargeWarning= PlugInRecharge_NotAvailable_CheckEPB)
+
+HMI.POP_IN id 81308
+
+Buzzer:2B
+
+CAN-Signal:
+PWT_STATUS_1.PlugInRechargeWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3956827
+- Contents: System shall display F813 Warning-73 Pop-Up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when HVBChargeWarningForDisplay=("HVB_Recharge_Fail_ChargingBus" OR "BOOSTER_Fail"))
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F183 warning 73 by algo.
+Verify warning displayed as per  buzzer, popup and graphic.
+
+Algo
+(HVBChargeWarningForDisplay=("HVB_Recharge_Fail_ChargingBus" OR "BOOSTER_Fail")) 
+
+HMI.POP_IN id 81309 
+
+Buzzer:2B
+
+CAN-Signal:
+HVB_HMI_STS.HVBChargeWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3956843
+- Contents: System shall display F813 Warning-79 with Pop-up and Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when  HVBChargeWarningForDisplay=OBC_Fail_Communication
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 79 by algo.
+Verify warning displayed as per  with telltale, buzzer, popup and graphic.
+
+Algo
+(HVBChargeWarningForDisplay=OBC_Fail_Communication)
+
+HMI.POP_IN id 81310
+Buzzer:2B
+
+CAN-Signal:
+HVB_HMI_STS.HVBChargeWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3956853
+- Contents: System shall display F813 Warning-80 with Pop-up and Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when PlugInRechargeWarning= PlugInRecharge_NotCompleteable)
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 80 by algo.
+Verify warning displayed as per (check PI6) with   popup and graphic in central display
+
+Algo
+(PlugInRechargeWarning= PlugInRecharge_NotCompleteable)
+
+Buzzer:2B
+
+HMI.POP_IN id 81311
+
+CAN-Signal:
+PWT_STATUS_1.PlugInRechargeWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3956864
+- Contents: System shall display F813 Warning-81 Pop-up with Buzzer and send the status to IVI when PlugInRechargeWarning= PlugInRecharge_NotAvailable)
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F183 warning 81 by algo.
+Verify warning displayed as per , buzzer  popup and graphic in central display
+
+Algo
+(PlugInRechargeWarning= PlugInRecharge_NotAvailable)
+
+HMI.POP_IN id 81312 
+Buzzer:2B
+
+CAN-Signal:
+PWT_STATUS_1.PlugInRechargeWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3956872
+- Contents: System shall display F813 Warning-82 With Pop-Up and Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when HVBChargeWarningForDisplay= PlugLock_Fail)
+D01 visualization
+Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger F813 warning 82 by algo.
+Verify warning displayed as per buzzer  popup and graphic in central display
+
+Algo
+(HVBChargeWarningForDisplay= PlugLock_Fail)
+
+HMI.POP_IN id 81313
+
+Buzzer:2B
+
+CAN-Signal:
+HVB_HMI_STS.HVBChargeWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 4654621
+- Contents: System shall display F813 Warning-83 with Pop-up and Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when (HVBChargeWarningForDisplay= Pwr_Limited_By_Grid
+Note: Warning-83 follows D11 visualisation behaviour with Priority 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+HVBChargeWarningForDisplay= Pwr_Limited_By_Grid
+
+Verify that the Warning-83 is triggered based on the Trigger condition and sent to IVI.
+
+Pop-Up id: 08130014
+
+Buzzer:2B
+
+CAN-Signal:
+HVB_HMI_STS.HVBChargeWarningForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4758890
+- Contents: Service Parameter for a calibration of :
+T_charging_screen_inOFF parameter
+T_charging_screen_inON parameter
+T_charging_screen_ONtoOFF parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Grooming Comments: You will find the update in RMF203.
+
+Refer FQ-916
+
+https://jira.harman.com/jira/browse/FQ-916
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3715865
+- Contents: System shall display the correct unit of measurement in Charge Indicator Screen Display.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall display the correct unit o f measurement for Change indicator screeen display.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+13. ID: 3715866
+- Contents: The measuring unit shall display accordingly with the value of related signal, with the correct conversion:
+Time & date and format
+Range
+Energy
+Power
+Current
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Measuring unit shall be displayed accordingly with the value of related signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "unit, display, format, value, signal, conversion, date" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3715868
+- Contents: System shall display Info-1 and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when RechargeStatus is Charging and Key-On AND proxi China_Specific_Indication_NQS = "Absent".
+Note: Info-1 follows D11 Visualisation behaviour with Priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+proxi China_Specific_Indication_NQS = "Absent"
+
+Trigger-Condition:
+(OBC_Status= (AC_Power_flow_active OR DC_Power_flow_active) AND Key-On)
+
+Verify that the Info-1 telltale is displayed when triggered
+
+CAN-Signal: PWT_STATUS_2.RechargeSts
+- Grooming Status: Approved
+- Grooming Comments: Raise a JIRA what is the IVI content to be displayed , if not needed then what is the use of VEH Indicator Status.
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RechargeStatus, display, is, Charging, follows, Telltale, AND, Info-1, Priority-2" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3715869
+- Contents: System shall display Info-2 Pop-up with Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when High Voltage Battery Charge Completed is 1.
+Note: Info-2 follows D11 visualisation behaviour with priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+HVB_ChargeCompleted=1
+
+Verify that the Info-2 pop-up is displayed when High Voltage Battery Charge Completed is 1. 
+
+POP-UP ID: 08130002
+Buzzer:3A
+
+CAN-Signal:
+HVB_CHRG_CNTRL
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Charge" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3715870
+- Contents: System shall display Info-3 pop-up when Vehicle Start Not Allowed is Active.
+Note:Info-3 follows D01 visualisation behaviour with priority-2.
+IDC-449817|IDC-449837|IDC-449839|IDC-449841|IDC-449842|IDC-449843
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+VehicleStartNotAllowed =Active
+
+Verify that the Info-3 Pop-up is displayed when Vehicle Start Not Allowed is Active.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, follows, pop-up, Not, Active" )
+- State (Harman_Requirement): Obsolete
+
+17. ID: 3715871
+- Contents: System shall display Info-4 and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Recharge status is charging and Key-ON AND proxi China_Specific_Indication_NQS = "Present".
+Note: Info-4 follows D11 visualisation behaviour with priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+proxi China_Specific_Indication_NQS = "Present"
+
+Trigger Condition: 
+RechargeSts =Charging and Key-On
+ 
+Verify that the Info-4 Telltale is displayed when Recharge status is charging and Key-On.
+- Grooming Status: Approved
+- Grooming Comments: Raise a JIRA what is the IVI content to be displayed , if not needed then what is the use of VEH Indicator Status.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, charging, follows, Telltale" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3715862
+- Contents: The remaining time shall follow the visualization logic described below:
+If RechargeTime Lessthan 60, then the remaining time shall show in minutes (e.g. RechargeTime=5 Remaining time on display= 05 min).
+If RechargeTime Greater than or equal to 60, then the remaining time shall show in hh:mm format (e.g. RechargeTime=65 Remaining time on display= 1h 05min).
+If Recharge Time Greater than or equal to 1440 min (24h), then the remaninig time shall show in dd (eg. 1 Day, 2 Days)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the remaining time display follows the described logic.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "time, follow, described, show, Remaining, display, logic, Lessthan, than, eg" ) 
+Missing unit 
+ (Look for: "‘60,5,65’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3715822
+- Contents: When charging gauge visualization active then the animation  System shall show the following informations:
+% SOC visualization on SOC Scale, driven by HVB_SOC signal.
+Range vs Current SOC (e.g 15% 94 km), driven by HVB_SOC, ElectricRangeHMI_DuringCharge signal.
+Range visualization (e.g 200 km), driven by EV_Nav_RangeforCharge signal.
+Range and SOC limit select (e.g limit: 85% 560km), driven by ElectricRangeHMI_Max signal
+Range and SOC limit visualization shall perform if limit set.
+Range added during charging session (+150km), driven by ElectricRangeHMI_DuringCharge signal
+SOC added during charging session (+ 40%), driven by signal SOC_Added_during_Chrg signal
+(see: image189.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall show the necessary informations when trigger conditions are met.
+
+CAN-Signal:
+PWT_STATUS_2.RechargeSts
+xEV_STS_HMI.HVB_SOC
+xEV_RANGE_HMI.ElectricRangeHMI_DuringCharge
+EV_Nav_RangeforCharge
+xEV_RANGE_HMI.ElectricRangeHMI_Max
+xEV_CHRG_HMI.SOC_Added_during_Chrg
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "animation, System, charging, perform, show, following, driven, select, added, visualization, informations, Scale, signal, e, session" ) 
+Missing unit 
+ (Look for: "‘+150’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘% 94 km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image189.png
+
+20. ID: 3715821
+- Contents: System shall display Charging Gauge Visualisation in primary dial as per below conditions :
+If system receives recharge status as Charging OR Starting Charge with a time-out parameter in HMI-OFF.
+If System receives recharge status as Charging when HMI-ON.
+If System receives recharge status as Charging when after transition from HMI-ON to HMI-OFF with a time-out parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall display charging   gauge visualisation in primary dial as per the conditions.
+- Grooming Status: Approved
+- Grooming Comments: What is the Time out Parameter!
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, display, receives, Charging, Starting, Visualisation, dial, conditions, status, Charge, parameter, HMI-OFF, transition" ) 
+Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Obsolete
+
+21. ID: 4710328
+- Contents: System shall display Charge Indicator Screen Visualizazion as reported below:
+In HMI OFF, if IDC receives INFO_ChargeLabel=("Plugged" OR "Starting_to_Charge" OR "Charging") , with a T_nqs_on timer parameter.
+In HMI ON , if IDC receives INFO_ChargeLabel=("Plugged" OR "Starting_to_Charge" OR "Charging"), with T_nqs_on timer parameter.
+After transitions from HMI ON to HMI OFF, if IDC receivesINFO_ChargeLabel=("Plugged" OR "Starting_to_Charge" OR "Charging"), with a T_nqs_on timer parameter.
+System shall perform the correct animation from HMI OFF to Charging HMI , ON to Charging, Power OFF to Charging.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Charge Indicator Screen is Visualised when the necessary conditins are met.
+
+Trigger Condition:
+In HMI OFF, if IDC receives INFO_ChargeLabel=("Plugged" OR "Starting_to_Charge" OR "Charging") , with a T_nqs_on timer parameter.
+In HMI ON , if IDC receives INFO_ChargeLabel=("Plugged" OR "Starting_to_Charge" OR "Charging"), with T_nqs_on timer parameter.
+After transitions from HMI ON to HMI OFF, if IDC receivesINFO_ChargeLabel=("Plugged" OR "Starting_to_Charge" OR "Charging"), with a T_nqs_on timer parameter.
+IDC shall perform the correct animation from HMI OFF to Charging HMI , ON to Charging, Power OFF to Charging
+
+T-nqs_on parameter is a timing value.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, transitions, display, receives, Starting, perform, Visualizazion, INFO_ChargeLabel, Charging, HMI, OFF, receivesINFO_ChargeLabel, animation" ) 
+Passive voice
+ (Look for: "reported" )
+- State (Harman_Requirement): Approved
+
+22. ID: 4710327
+- Contents: During HMI OFF system shall disaplay Primary Dial , Left Dial and Right Dial contents.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays the Primary Dial , Left Dial and Right Dial Content during the HMI is in OFF state.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, disaplay, Dial, contents" )
+- State (Harman_Requirement): Approved
+
+23. ID: 4758973
+- Contents: During HMI ON , System shall display on Primary Dial contents.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays the Primary Dial , Content during the HMI is in ON state.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+24. ID: 4758977
+- Contents: System shall visualize charging contents in a specific areas as reported below:
+Primary Dial: Maximum power limited by Grid, Rate limit set, Maximum Power Available, SOC, Charge Rate, Power charge rate.
+Left Dial: % SOC, SOC limit selected, Range ,Range added ,Range added during charging session
+Right Dial: Charging status visualization informations, Time to complete charge remaning, Residual time to complete charge
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the charging contents are displayed in a specific dial as per the dial contents.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, charging, limited, added, Charging, complete, remaning, contents, areas, power, limit set, Power Available, SOC, Rate, rate, Range, session, Dial, informations, charge, time" ) 
+Unclear term
+ (Look for: "Maximum" ) 
+Passive voice
+ (Look for: "reported, selected, Range added" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3715858
+- Contents: System shall stop displaying the charging end time and replace with "--" when the charging stop or in case of missing signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall stop displaying the  end time and replace with "--" when the charging is sopeed or missign signal.
+
+CAN-Signal: PWT_STATUS_2.RechargeSts
+- Grooming Status: Approved
+- Grooming Comments: recharge status CAN signal does not have th especified values, but PI5 have updated CAN signals. Need larity on How to handle ? MTA is developing on PI3.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, displaying, replace, end time, signal" )
+- State (Harman_Requirement): Approved
+
+26. ID: 3715859
+- Contents: When charging time visualization active then the animation shall perform and IDC shall show the following informations:
+Time to complete charge (e.g 10:15 AM), driven by HVB_RechargeEndTime_hour, HVB_RechargeEndTime_minute signals.
+Residual time to complete charge (e.g 40 mins), driven by HVB_RechargeTimeLeft_HMI signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Necessary Informations are displayed and the Animation is performed when charging rate visualisation when trigger conditions are met.
+
+CAN-signal:
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "animation, IDC, signal, charging, perform, show, following, complete, driven, to complete, informations, charge, signals, time, e" ) 
+Missing limits
+ (Look for: "‘40 mins’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+27. ID: 3715854
+- Contents: When charging rate visualization activate then the animation shall perform and System shall show the following informations:
+Current Power (e.g 320 kW), driven by HVB_ChargeCurrent_HMI signal
+Charge Rate (e.g: 30 km/h), driven by HVB_ChargeRate_HMI signal.
+Energy Recharged (e.g: 110 kWh), driven by HVB_EnergyCharged_HMI signal.
+Maximum Power Available (e.g 350 kW), driven by HVB_MaxChargePwr _HMI signal.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Necessary Informations are displayed and the Animation is performed when charging rate visualisation when trigger conditions are met.
+
+CAN-signal:
+HVB_ChargeCurrent_HMI signal
+HVB_ChargeRate_HMI signal.
+HVB_EnergyCharged_HMI signal.
+HVB_MaxChargePwr _HMI signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "animation, System, signal, charging, activate, perform, show, following, driven, Recharged, visualization, informations, h, e" )
+- State (Harman_Requirement): Approved
+
+28. ID: 3715857
+- Contents: System shall display Charging Time visualization in Right Dial as report below:
+"Starting to charge" when Recharge status is starting charge OR Loading.
+The residual time to complete charge (e.g 40 mins) and charging end time (e.g 08:00 AM) when RechargeStatus is Charging.
+On the scale the residual time and the values and performing the animation.
+(see: image190.png)
+(see: image191.png)
+(see: image192.png)
+(see: image193.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Chatging Rate Visualisation in Right dial as per the Conditions. 
+
+CAN-Signals:
+CAN-signal:
+HVB_ChargeCurrent_HMI signal
+HVB_ChargeRate_HMI signal.
+HVB_EnergyCharged_HMI signal.
+HVB_MaxChargePwr _HMI signal.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, Charging, Starting, to charge, is, starting charge, to complete, charging, performing, visualization, Dial, Loading, time, e, end time e, RechargeStatus, values, animation" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image190.png, image191.png, image192.png, image193.png
+
+29. ID: 3715824
+- Contents: System shall display Charging Rate Visualisation in Primary Dial as below:
+System shall replace the numerical indicator with ”- -” when RechargeStatus is Starting Charge OR Not available.
+System shall display the numerical indicator, unit (km and/or kW) and the current charging rate when RechargeSts= (Charging)
+IDC shall visualize on the rate
+ scale the difference between the maximum power available and the current charging rate when RechargeSts= (Charging)
+(see: image194.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Charging Rate Visualisation in Left dial as per the Conditions
+
+
+CAN signals:
+PWT_STATUS_2.RechargeSts
+xEV_STS_HMI.HVB_SOC
+xEV_RANGE_HMI.ElectricRangeHMI_DuringCharge
+EV_Nav_RangeforCharge
+xEV_RANGE_HMI.ElectricRangeHMI_Max
+xEV_CHRG_HMI.SOC_Added_during_Chrg
+- Grooming Status: Approved
+- Grooming Comments: Split to 3 seperate requirements before approving.
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, RechargeStatus, IDC, display, replace, is, Starting, visualize, scale, Visualisation, Dial, indicator, #8221;- - #8221, Charge, Not, unit km, rate, Charging, difference, power available" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image194.png
+
+### Informational Items:
+
+1. ID: 3715817
+- Contents: System shall display the High Voltage Battery Recharge Management as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the High Voltage Battery Recharge Management indications are displayed as per the Ferrari design.
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+2. ID: 3917600
+- Contents: PROXI:Byte 123, bit 7 (China_Specific_Indication_NQS absent/present)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): New
+
+3. ID: 3715819
+- Contents: 6.2.1.1.2.38.1 Charge Indicator Screen Visualization
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+4. ID: 3715820
+- Contents: 6.2.1.1.2.38.1.1 Charging Gauge Visualization
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+5. ID: 3715823
+- Contents: 6.2.1.1.2.38.1.2 Charging Rate Visualization
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+6. ID: 3715860
+- Contents: 6.2.1.1.2.38.1.3 Charging Time Visualization
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): Review
+
+7. ID: 3715861
+- Contents: 6.2.1.1.2.38.1.4 Remaining time visualization logic
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+8. ID: 3715867
+- Contents: 6.2.1.1.2.38.1.5 F813-Info
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+9. ID: 3956799
+- Contents: 6.2.1.1.2.38.1.6 F813-Warning
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): In Work
+
+10. ID: 3715864
+- Contents: 6.2.1.1.2.38.1.7 Unit of measure visualization logic
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image193.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image190.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image191.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image189.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image194.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image192.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F813 6.2.1.1.2.38  HVB Recharge Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

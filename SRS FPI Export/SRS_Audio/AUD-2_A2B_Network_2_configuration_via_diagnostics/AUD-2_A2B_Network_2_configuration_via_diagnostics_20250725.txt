@@ -1,0 +1,568 @@
+# AUD-2 6.2.1.3.2  A2B Network 2 configuration via diagnostics Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3.2 AUD-2 A2B Network 2 configuration via diagnostics
+
+- ID: 3483954
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3483955
+- Contents: The system shall support the "A2B_2_Configuration" calibration parameter to set the A2B network 2 configuration as one of the below.
+Standard Configuration
+Measurement configuration
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to switch A2B Network 2 configuration ( between Standard and Measurement configuration) via Diagnostics.
+
+Note: In the initial releases:
+1. verify by using AME commands.
+- Grooming Status: Approved
+- Grooming Comments: Xiaongwei 08.05.2024: This feature is Valid
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3491973
+- Contents: 6.2.1.3.3 A2B Network  Diagnostics
+- Artifact Type: Information
+- Responsible Domain: IOC_Diag
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+2. ID: 3726824
+- Contents: The system shall support the fault "A2B Network 1 - Master to Sub 0 - Open wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, to Sub, fault, Master, wires, port" )
+- State (Harman_Requirement): Review
+
+3. ID: 3726825
+- Contents: System shall support the fault "A2B Network1 - Master to Sub "0" - Reverse wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, wires, support, fault, Master, Sub, port" )
+- State (Harman_Requirement): Review
+
+4. ID: 3726827
+- Contents: The system shall support the fault "A2B Network1 - Master to Sub0 - Defective node or wrong software parameter" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, to Sub, fault, Master, node, parameter" )
+- State (Harman_Requirement): Review
+
+5. ID: 3726826
+- Contents: The system shall support the fault "A2B Network 1 - Master to Sub 0 - Wires shorted together" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+6. ID: 3417429
+- Contents: The system shall support the fault "A2B Network 1 - Master to Sub 0 - Positive wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Verification Criteria: After the wakeup 
+AudioSts is equal to 2 ("AUDIO_AVAILABLE"),
+
+Network 1:
+
+After the wakeup: Verify the Upstream data flow is configured with slot size of 16 bits.
+Downstream data flow shall be configured with slot size of 16 bits.
+
+
+Verify the below CAN signals value after the wakeup.
+ AUDIO_INFO.A2B_1_FailLocation = 0 ("Fail_not_present")
+AUDIO_INFO.A2B_1_FailSymptom = 0 ("Fail_not_present")
+
+A2B Network 2:
+AUDIO_INFO.A2B_2_FailLocation = 0 ("Fail_not_present")
+AUDIO_INFO.A2B_2_FailSymptom = 0 ("Fail_not_present")
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+7. ID: 3726829
+- Contents: The system shall support the fault "A2B Network 1 - Master to Sub 0 - Negative wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+8. ID: 3726830
+- Contents: The system shall support the fault "A2B Network 1 - Master to Sub 0 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+9. ID: 3726831
+- Contents: The system shall support the fault "A2B Network 1 - Master to Sub 0 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+10. ID: 3726832
+- Contents: The system shall support the fault "A2B Network1 - Sub '0' to Sub '1' - Open wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, wires, support, fault, Sub, port" )
+- State (Harman_Requirement): Review
+
+11. ID: 3726833
+- Contents: The system shall support the fault "A2B Network1 - Sub '0' to Sub '1' - Reverse wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, wires, port" )
+- State (Harman_Requirement): Review
+
+12. ID: 3726883
+- Contents: The system shall support the fault "A2B Network1 - Sub '0' to Sub '1' - Defective node or wrong software parameter" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, node, parameter" )
+- State (Harman_Requirement): Review
+
+13. ID: 3726834
+- Contents: The system shall support the fault "A2B Network 1 - Sub 0 to Sub 1 - Wires shorted together" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+14. ID: 3726835
+- Contents: The system shall support the fault "A2B Network 1 - Sub 0 to Sub 1 - Positive wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+15. ID: 3726836
+- Contents: The system shall support the fault "A2B Network 1 - Sub 0 to Sub 1 - Negative wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+16. ID: 3726879
+- Contents: The system shall support the fault "A2B Network 1 - Sub 0 to Sub 1 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+17. ID: 3726837
+- Contents: The system shall support the fault "A2B Network 1 - Sub 0 to Sub 1 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+18. ID: 3726838
+- Contents: The system shall support the fault "A2B Network 2 - Master to Sub 0 - Open wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Master, wires, port" )
+- State (Harman_Requirement): Review
+
+19. ID: 3726839
+- Contents: The system shall support the fault "A2B Network2 - Master to Sub '0' - Reverse wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, wires, port" )
+- State (Harman_Requirement): Review
+
+20. ID: 3726840
+- Contents: The system shall support the fault "A2B Network2 - Master to Sub '0' - Defective node or wrong software parameter" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, node, parameter" )
+- State (Harman_Requirement): Review
+
+21. ID: 3726841
+- Contents: The system shall support the fault "A2B Network 2 - Master to Sub 0 - Wires shorted together" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+22. ID: 3726842
+- Contents: The system shall support the fault "A2B Network 2 - Master to Sub 0 - Positive wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+23. ID: 3726843
+- Contents: The system shall support the fault "A2B Network 2 - Master to Sub 0 - Negative wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+24. ID: 3726844
+- Contents: The system shall support the fault "A2B Network 2 - Master to Sub 0 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+25. ID: 3726845
+- Contents: The system shall support the fault "A2B Network 2 - Master to Sub 0 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+26. ID: 3726846
+- Contents: The system shall support the fault "A2B Network2 - Sub '0' to Sub '1' - Open wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, wires, support, fault, Sub, port" )
+- State (Harman_Requirement): Review
+
+27. ID: 3726847
+- Contents: The system shall support the fault "A2B Network2 - Sub '0' to Sub '1' - Reverse wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, wires, port" )
+- State (Harman_Requirement): Review
+
+28. ID: 3726848
+- Contents: The system shall support the fault "A2B Network2 - Sub '0' to Sub '1' - Defective node or wrong software parameter" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, node, parameter" )
+- State (Harman_Requirement): Review
+
+29. ID: 3726849
+- Contents: The system shall support the fault "A2B Network 2 - Sub 0 to Sub 1 - Wires shorted together" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+30. ID: 3726850
+- Contents: The system shall support the fault "A2B Network 2 - Sub 0 to Sub 1 - Positive wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+31. ID: 3726851
+- Contents: The system shall support the fault "A2B Network 2 - Sub 0 to Sub 1 - Negative wire shorted to ground" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+32. ID: 3726852
+- Contents: The system shall support the fault "A2B Network 2 - Sub 0 to Sub 1 - Positive wire shorted to VBATT" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+33. ID: 3726853
+- Contents: The system shall support the fault "A2B Network 2 - Sub 0 to Sub 1 - Positive wire shorted to VBATT" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+34. ID: 3726854
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Open wires or wrong port" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Network, 1, Sub, wires, port" )
+- State (Harman_Requirement): Review
+
+35. ID: 3726855
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Reverse wires or wrong port" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Network, 1, Sub, wires, port" )
+- State (Harman_Requirement): Review
+
+36. ID: 3726856
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Defective node or wrong software parameter" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Network, 1, Sub, node, parameter" )
+- State (Harman_Requirement): Review
+
+37. ID: 3726857
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Wires shorted together" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+38. ID: 3726858
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Positive wire shorted to ground" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+39. ID: 3726859
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Negative wire shorted to ground" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+40. ID: 3726860
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Positive wire shorted to VBATT" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+41. ID: 3726861
+- Contents: The system shall support the fault "A2B Network 2 - Sub 1 to Sub 2 - Positive wire shorted to VBATT" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+42. ID: 3726862
+- Contents: The system shall support the fault "A2B Network2 - Sub '2' to Sub '3' - Open wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, wires, support, fault, Sub, port" )
+- State (Harman_Requirement): Review
+
+43. ID: 3726863
+- Contents: The system shall support the fault "A2B Network2 - Sub '2' to Sub '3' - Reverse wires or wrong port" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, wires, port" )
+- State (Harman_Requirement): Review
+
+44. ID: 3726864
+- Contents: The system shall support the fault "A2B Network2 - Sub '2' to Sub '3' - Defective node or wrong software parameter" for A2B Network.
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, fault, Sub, node, parameter" )
+- State (Harman_Requirement): Review
+
+45. ID: 3726865
+- Contents: The system shall support the fault "A2B Network 2 - Sub 2 to Sub 3 - Wires shorted together" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+46. ID: 3726866
+- Contents: The system shall support the fault "A2B Network 2 - Sub 2 to Sub 3 - Positive wire shorted to ground" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+47. ID: 3726867
+- Contents: The system shall support the fault "A2B Network 2 - Sub 2 to Sub 3 - Negative wire shorted to ground" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+48. ID: 3726868
+- Contents: The system shall support the fault "A2B Network 2 - Sub 2 to Sub 3 - Positive wire shorted to VBATT" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+49. ID: 3726869
+- Contents: The system shall support the fault "A2B Network 2 - Sub 2 to Sub 3 - Positive wire shorted to VBATT" for A2B Network
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2,3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "wire shorted" )
+- State (Harman_Requirement): Review
+
+50. ID: 3559618
+- Contents: Whenever a line fault is detected, the IDC shall store the appropriate DTC until the fault is present.
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Review
+
+51. ID: 3417430
+- Contents: A2B Network 1 - Sub 0 to Sub 1 - Open wires or wrong port
+A2B Network 1 - Sub 0 to Sub 1 - Reverse wires or wrong port
+A2B Network 1 - Sub 0 to Sub 1 - Defective node or wrong software parameter
+A2B Network 1 - Sub 0 to Sub 1 - Wires shorted together
+A2B Network 1 - Sub 0 to Sub 1 - Positive wire shorted to ground
+A2B Network 1 - Sub 0 to Sub 1 - Negative wire shorted to ground
+A2B Network 1 - Sub 0 to Sub 1 - Positive wire shorted to VBATT
+A2B Network 1 - Sub 0 to Sub 1 - Positive wire shorted to VBATT
+- Artifact Type: Information
+- Responsible Domain: IOC_Diag
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "wires, shorted, Network 1 - Sub 0, node, wire, VBATT" ) 
+Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Wires shorted" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+52. ID: 3417431
+- Contents: INFO_CAN
+IDC_AudioStreams2.A2B_1_FailLocation
+IDC_AudioStreams2.A2B_1_FailSymptom
+IDC_AudioStreams2.A2B_2_FailLocation
+IDC_AudioStreams2.A2B_2_FailSymptom
+- Artifact Type: Information
+- Responsible Domain: IOC_Diag
+- Grooming Status: Blocked
+- RQA Score: 0
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUD-2 6.2.1.3.2  A2B Network 2 configuration via diagnostics Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

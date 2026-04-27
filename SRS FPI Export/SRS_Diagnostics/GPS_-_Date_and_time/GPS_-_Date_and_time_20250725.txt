@@ -1,0 +1,232 @@
+# UnknownID 6.2.4.3.1.25 GPS - Date and time Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.25 GPS - Date and time
+
+- ID: 4011674
+- Artifact Type: SRS Feature
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4011676
+- Contents: The system shall read GPS-Date and time with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+
+2. ID: 4011680
+- Contents: Whenever the user requesting data identifier with the diagnostic service Read Data By Identifier the ECU shall return the GPS Date and Time as follows: (see: image170.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned module information for GPS date and time in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "return, follows, ECU, Date, Time" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image170.png
+
+3. ID: 4011681
+- Contents: Byte-0 GPS Date and Time parameter fields shall be populated as follows: (see: image171.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the GPS date and time parameter as per the table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be populated" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image171.png
+
+4. ID: 4011682
+- Contents: Byte-1: Year parameter fields shall be populate as follows: (see: image172.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter field per year as per the table
+- Grooming Status: Approved
+- Grooming Comments: when the data is not available what needs to be filled? 00 or 7F?
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image172.png
+
+5. ID: 4011683
+- Contents: The system shall calculate the year as: Year = offset +2000
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘+2000’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be calculated" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+
+6. ID: 4011684
+- Contents: Byte 2: GPS Month parameter fields shall be populate as follows: (see: image173.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter field per month as per the table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image173.png
+
+7. ID: 4011685
+- Contents: Byte 3: GPS Day parameter fields shall be populate as follows (see: image174.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter field per day as per the table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image174.png
+
+8. ID: 4011686
+- Contents: Byte 4: GPS Hour parameter fields shall be populate as follows (see: image175.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter field per hour as per the table
+- Grooming Status: Approved
+- Grooming Comments: Need to check what is meaning of not defined and when to use that?
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image175.png
+
+9. ID: 4011687
+- Contents: Byte 5: GPS Minute parameter fields shall be populate as follows: (see: image176.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter field per minute as per the table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image176.png
+
+10. ID: 4011688
+- Contents: Byte 6: GPS Second parameter fields shall be populate as follows (see: image177.png, image178.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parameter field per second as per the table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 7 bytes (see spec PI6). No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image177.png, image178.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image175.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image177.png, image178.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image171.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image174.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image170.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image173.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image172.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image176.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.25 GPS - Date and time Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

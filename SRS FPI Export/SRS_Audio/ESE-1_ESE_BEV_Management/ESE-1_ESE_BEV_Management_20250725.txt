@@ -1,0 +1,243 @@
+# ESE-1 6.2.3.2  ESE BEV Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.2 ESE-1 ESE BEV Management
+
+- ID: 3408494
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3523774
+- Contents: The system shall enable/disable the ESE BEV functionality as per the proxi parameter ESE_Functionality.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: 1. Verify that the ESE BEV functionality can be enabled/disabled by using the proxi parameter "ESE_Functionality". Use DSP traces in the DLT log for verification.
+
+Note: ESE_Functionality = 1  means "Present".
+Note: ESE_Functionality = 0  means "Absent"
+
+2. The ESE BEV sound should not be heard on activating the ESE BEV sound if ESE BEV functionality is disabled
+- Grooming Status: Approved
+- Grooming Comments: Xiongwei 22.08.2024: Ok to approve
+
+[Ahmed 10.07.2024]: Blocked. No interface is available to implement this. Jira ticket: https://jira.harman.com/jira/browse/FQ-397
+
+
+
+Refer the document F849 to get the condition for activating the ESE (ENGINE) sound
+
+F244_Specifications_F849_Vf5_R1_EngineSoundGenerator_ESG_
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, disable, functionality, ESE_Functionality" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3525031
+- Contents: The system shall allow the user to activate/deactivate the internal speakers sound for ESE BEV.
+Remove the linked CRS from f849
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Blocked
+- Grooming Comments: How to active/deactivate the sound for the internal speakers is not clear, Jira ticket:https://jira.harman.com/jira/projects/FQ/issues/FQ-398
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3708143
+- Contents: The system shall allow the user to activate/deactivate the external speakers sound for ESE BEV. Remove the linked CRS from f849
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Blocked
+- Grooming Comments: How to active/deactivate the sound for the external speakers is not clear, Jira ticket:https://jira.harman.com/jira/projects/FQ/issues/FQ-398
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3525036
+- Contents: System shall deactivate the active ESE BEV audio when the speed>10?
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3523739
+- Contents: System shall send information regarding the proxi parameter
+ESE_Functionality to the ESE BEV library through the internal interface ESE functionality, that shall have the same mapping of the proxi parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: [Abdul]: Mapped to 3523774
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3523778
+- Contents: The system shall send the following input channels to ESE BEV library.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the mentioned input channels (Artifact ID 3611316) are sent to the ESE BEV library.
+
+Use DSP logs for verification.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3526666
+- Contents: The system shall output the following output channels from ESE BEV library
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the mentioned output channels (Artifact ID 3712877) from ESE BEV library.
+
+Use DSP logs for verification.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4596687
+- Contents: The system shall connect the ESE BEV library to the following control PINs:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Guaranteed by Design
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3526680
+- Contents: The system shall send the current vehicle conditions to the ESE BEV library as received via the corresponding CAN signals.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the received CAN signals value are sent to the ESE BEV library.
+
+Use DSP logs for verification.
+
+Note:
+ The CAN signal inputs are mentioned in the below link
+https://confluence.harman.com/confluence/pages/viewpage.action?pageId=536928732#FerrariESE/ESGIntegration-ESE/ESGCompleteSignalMapping
+
+
+The ESE BEV relevant CAN signals are available in the artifact 4081248
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 3713659
+- Contents: The system shall send the capote status information to the ESE BEV library based on the proxi parameter NCP.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Set the proxi parameter NCP = Present
+
+Send the CAN signal with Capote status (CapoteSts = STATUS_NCP.CapoteSts).
+
+Verify Capote status from the ESE library
+
+Use DSP log for verification.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 90
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3624229
+- Contents: [Info] This function describes the management of ESE BEV functionality
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3525017
+- Contents: For the ESE BEV sound activation logics please refer to SFS F849
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3611316
+- Contents: (see: image139.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image139.png
+
+4. ID: 3712877
+- Contents: (see: image140.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image140.png
+
+5. ID: 4596693
+- Contents: (see: image141.png)
+(see: image142.png, image143.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image141.png, image142.png, image143.png
+
+6. ID: 4596716
+- Contents: GTT Control Mixer shall allow user to change the routing of the control signals without requiring a signal flow update.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Mixer, allow, to change, requiring, routing, signals, update" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image140.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image139.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image141.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image142.png, image143.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of ESE-1 6.2.3.2  ESE BEV Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

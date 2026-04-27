@@ -1,0 +1,113 @@
+# VFI-F091 6.2.2.4  Power Door Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.4 VFI-F091 Power Door
+
+- ID: 5022548
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- HB_Comment: 03
+- TestTeamComment: Need to cross check with suma
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5022549
+- Contents: IDC shall trigger the Audio SOURCE
+"RL_POWER_DOOR" activation sending the audio file "Door_Opening" when  STS_LV_DoorAlert == 1("Single_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "Door_Opening" when
+STS_LV_DoorAlert == 1("Single_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "activation, trigger, sending, Single, SOURCE, file" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5022553
+- Contents: IDC shall trigger the Audio SOURCE
+"RR_POWER_DOOR" activation sending the audio file "Door_Opening" when STS_RV_DoorAlert == 1("Single_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "Door_openinig" when  
+STS_RV_DoorAlert == 1("Single_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "activation, trigger, sending, Single, SOURCE, file" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5022552
+- Contents: IDC shall trigger the Audio SOURCE "RL_POWER_DOOR" activation sending the audio file "Door_Antipinch when  STS_LV_DoorAlert == 2("Double_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "Door_Antipinch" when
+STS_LV_DoorAlert == 2("Double_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "activation, trigger, sending, SOURCE, file" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5022551
+- Contents: IDC shall trigger the Audio SOURCE "RR_POWER_DOOR" activation sending the audio file "Door_Antipinch" when  STS_RV_DoorAlert == 2("Double_Chime").
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the audio file "Door_Antipinch" when
+STS_RV_DoorAlert == 2("Double_Chime").
+- Grooming Status: Approved
+- Grooming Comments: MTA will be played by these chimes. we need confirmation from MTA team.until then that blocked
+- Expert Domains: Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "activation, trigger, sending, SOURCE, file, Door_Antipinch" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5075711
+- Contents: The Power Doors Sounds are not adjustable.
+The Rear doors automatic opening and closing sounds are excludible.
+The rear doors Anti-pinch sound is not excludible.
+the external sound shall be emitted synchronized with the internal sound. The internal sound shall be emitted and perceived by the door that triggers the feature.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F091 6.2.2.4  Power Door Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

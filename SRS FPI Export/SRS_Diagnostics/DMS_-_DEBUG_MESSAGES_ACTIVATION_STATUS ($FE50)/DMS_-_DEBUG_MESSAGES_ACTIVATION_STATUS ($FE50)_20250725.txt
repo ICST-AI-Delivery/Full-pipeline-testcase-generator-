@@ -1,0 +1,79 @@
+# UnknownID 6.2.4.2.2.3 DMS - DEBUG MESSAGES ACTIVATION STATUS ($FE50) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.2.3 DMS - DEBUG MESSAGES ACTIVATION STATUS ($FE50)
+
+- ID: 3725913
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3725919
+- Contents: The system shall have the Read and Write access to Extended diagnostic session with TBD as Dimension and Data type.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read and Write the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, have, Write, Read, access, session, Dimension, type" )
+- TestTeamComment: RWeber_DIAG_240924: Check to NRC if request for read/write would be in Default Session
+- State (Harman_Requirement): Approved
+
+2. ID: 3725923
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall get back the saved value of DMS Debug Messages Activation Status.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned value of DMS Debug Messages Activation Status.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_240924: Only check to pos. response in extended session, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+3. ID: 3725948
+- Contents: Whenever the user requests the Data Identifier along with a specific value via the diagnostic service Write Data By Identifier, the ECU shall Activate/Deactivate the read access for DMS Debug Message and keep that in Non-Volatile-Memory.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the read access for DMS Debug Message ,it should be activate or deactivate  by the ECU after receiving a request via Diagnostics.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Activate, Deactivate, keep, access, Message, Non-Volatile-Memory" )
+- TestTeamComment: RWeber_DIAG_240924: Only check to pos. response in extended session to write current value, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.2.3 DMS - DEBUG MESSAGES ACTIVATION STATUS ($FE50) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

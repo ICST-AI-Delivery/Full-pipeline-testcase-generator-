@@ -1,0 +1,230 @@
+# PRK-19 6.2.4.20   OBSTACLE DISTANCE Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.20  PRK-19 OBSTACLE DISTANCE
+
+- ID: 3411919
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu, Prashant, Sunil] : Red Label
+- Expert Domains: Parking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3541179
+- Contents: The system shall  display the detected obstacle  distance on the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the obstacle distance is correctly displayed on HMI.
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3558028
+- Contents: The system shall display the "obstacle distance from Obstacle" on HMI parking screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking is active.
+
+Verify that the "detected obstacles with the distance from obstacle to vehicle" are visible on HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Muthu, Sunil, Siva 17.07.2024]  ; OK to approve
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Generic Parking visualization interactions
+
+3. ID: 3559104
+- Contents: The system shall display the obstacle distances detected by frontal and rear sensors on "Sensors View & Bird View" & color the obstacles according to the sensor visualization color feedback.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that obstacles are correctly identified and displayed on both sensors view and Bird view.
+
+Verify that obstacles are color-coded according to the sensor visualization color feedback, indicating their proximity to the vehicle. (Refer the below artifacts (IDs 3726372 and 3726381) for the color code with respect to obstacle distance).
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Muthu, Sunil, Siva 17.07.2024]  ; OK to approve
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, detected, color, according, distances, sensors, amp, obstacles, visualization, feedback" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer the below artifacts (IDs 3726372 and 3726381) for the color code with respect to obstacle distance).
+
+Note:
+The position and distance of the obstacles can be identified by using the signals LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance.
+
+4. ID: 3559162
+- Contents: Color of the overlay shall depend on the distance value.
+- Artifact Type: SRS Req
+- Verification Criteria: Verify that the overlay changes color dynamically based on the obstacle  distance.
+- Grooming Status: Approved
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer HMI specification.
+
+5. ID: 3559106
+- Contents: The system shall display the 'front obstacle distance' & label 'Front' on stream frame if front camera view = selected.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the front camera from HMI screen.
+
+Verify that the system displays the obstacle distance and the label "Front" on stream frame.
+- Grooming Status: Approved
+- Grooming Comments: Sunil M, Artashes, Prashant 19.07.204]:
+No SRS requirement is needed in this SRS feature from the below specs
+IDC-452850 - SFS F802 – Front and Rear Parking Camera Management [ Draft ]
+IDC-452852 - SFS F560 – Surround View Management
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, Front, distance, amp, label, frame" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3726808
+- Contents: The system shall display the 'rear obstacle' distance & the 'label Rear' on stream frame if rear camera view's "selected".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the rear camera from HMI screen.
+
+Verify that the system displays the "obstacle distance" and the label "Rear" on stream frame.
+- Grooming Status: Approved
+- Expert Domains: Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, label, selected, obstacle, amp, frame" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3559163
+- Contents: The system shall display the obstacle distance in "cm & inches" according to the vehicle measurement unit set and shows the selected camera view.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system calculates the obstacle distance in both centimeters and inches based on the selected vehicle measurement unit.
+- Grooming Status: Approved
+- Grooming Comments: Ask to customer:
+No settings is available in settings documents.
+Need details about this from customer.
+https://jira.harman.com/jira/browse/FQ-442
+
+Check the docuemnt 
+IDC-425412 - SET-6 Measurement units setup in Settings document.
+
+question: we need to display in cm/inch in which all conditions
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, according, distance, unit set" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3726419
+- Contents: The system shall display the obstacle distance" & "2D/3D wall" with same color based on the sensors color feedback.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the same color is displayed for "obstacle distance and 2D /3D wall" based on the sensors color feedback
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: 2D wall is in Bird view/Top View
+3D wall is for 3D view/ stream View
+
+9. ID: 3559161
+- Contents: The system shall display the distance indication of the closest obstacle (both Front and Rear) based on parking sensors signals and reverse gear status.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the "closest distance from the obstacle" is shown on the HMI screen
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, overlay, based, indication, Front, signals" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3541054
+- Contents: This function describes the obstacle distance overlay functionality.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3726372
+- Contents: (see: image125.png)
+Figure:  Absolute distance thresholds for the colour and tone change
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image125.png
+
+3. ID: 3742647
+- Contents: (see: image126.png)
+Figure: Surround
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image126.png
+
+4. ID: 3742649
+- Contents: (see: image127.png)
+Figure:  Rear camera, frontal and rear sensors
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image127.png
+
+5. ID: 3559164
+- Contents: Inputs
+Ie_enu_NSPTotFrmNbr
+Ie_enu_NSPFrmNbr
+Ie_enu_NSPFailSts
+Ie_enu_NSPCtrlSts
+Ie_len_NSPLHLatObstDist
+Ie_len_NSPLHCenObstDist
+Ie_len_NSPRHLatObstDist
+Ie_len_NSPRHCenObstDist
+Ie_bol_RevGearBCSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image126.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image127.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image125.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-19 6.2.4.20   OBSTACLE DISTANCE Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

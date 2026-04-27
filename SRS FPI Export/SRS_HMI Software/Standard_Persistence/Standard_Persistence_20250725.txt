@@ -1,0 +1,70 @@
+# UnknownID 6.2.3.1.4.1 Standard Persistence Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.4.1 Standard Persistence
+
+- ID: 3841631
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: only for persistance RD: syscore
+ED: hmi.
+this is handled to early boot loader service to load the data boot, profile switch use cases .
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3841632
+- Contents: IDC shall store the setting before the shut down/reboot in standard persistence.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to store the setting before shutdown or reboot.
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3841644
+- Contents: System shall set the following logic for standard persistence:
+IDC shall recover the last store value of the setting to provide in UI.
+IDC shall set the setting related output signal to HMI default value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to recover last store value.
+verify that the system able to set HMI default value.
+- Grooming Status: Approved
+- Expert Domains: ADAS_Horizon, AM_FM_HD, Audio Control, BT, Camera, DAB_Cross Dev, DMS, DMS-OMS, IOC_IOC, Media Core, Parking, Projections, Sensor
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall set, shall recover" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.4.1 Standard Persistence Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

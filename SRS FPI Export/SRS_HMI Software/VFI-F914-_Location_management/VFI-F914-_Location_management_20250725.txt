@@ -1,0 +1,116 @@
+# VFI-F914- 6.2.2.30.2 Location management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30.2 VFI-F914-Location management
+
+- ID: 4098785
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4103745
+- Contents: IDC shall allow user to edit the calendar through HMI when charge location is in ("No_Location") OR ("Not_Available").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to edit the calendar when
+
+calendarCharging.chargeLocation ==1("No_Location")OR0("Not_Available").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, edits, reads, calendar, calendarCharging.chargeLocation, No_Location" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4103746
+- Contents: IDC shall set the charge Location as "New_Location" for each of the calendar row.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the charge location status for calendar row
+
+chargeLocation = 2 ("New_Location")
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4103747
+- Contents: System shall provide Location indication as "At last location" when charge Location is Not_Available.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the location indication status when
+
+calendarCharging.chargeLocation==0("Not_Available").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, indication, location, calendarCharging.chargeLocation" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4103748
+- Contents: System shall provide Location indication as empty when charge Location is No_Location.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the location indication (empty) status when
+
+calendarCharging.chargeLocation==1("No_Location").
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as empty" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4103749
+- Contents: System shall provide Location indication as "At this location" when calendarCharging.chargeLocation==x("Location_(x-2)"), where x=[3, 47].
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the location indication status when
+
+calendarCharging.chargeLocation==x("Location_(x-2)"), where x=[3, 47].
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "where x  3" ) 
+Missing unit 
+ (Look for: "‘47’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914- 6.2.2.30.2 Location management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

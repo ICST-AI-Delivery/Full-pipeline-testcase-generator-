@@ -1,0 +1,498 @@
+# FAD-3 6.2.2.4  Upmixing Control Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.4 FAD-3 Upmixing Control
+
+- ID: 3408487
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Grooming Comments: [Abdul 10.09.2024]: Approving the feature with blocked SRS requirement as requested by FO
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, IOC_IOC, Projections, SXM, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3572785
+- Contents: The system shall apply the upmixing Control to the ENTERTAINMENT channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an Entertainment Audio source.
+Verify that the entertainment audio is mixed with other sources
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3572894
+- Contents: The system shall support up to 2 channels for entertainment audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: play the entertainment Audio sources (Projection and tuner).
+
+Verify that the Audio is heard via internal amplifier and External amplifier
+- Grooming Status: Approved
+- Grooming Comments: [09.01.2025 Xiongwei, Abdul]:
+support up to 2 channels.
+
+[Ahmed, Abdul 25.10.2024]:
+OK to approve as the channel needs to be reserved. Need to get confirmation from Xiongwei
+
+https://jira.harman.com/jira/browse/FQ-735
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, Projections, SXM
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘12’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3572895
+- Contents: The system shall support the following audio source formats for upmixing:
+No source playing
+Mono
+Stereo
+Multichannel 5.1
+Multichannel 7.1
+Dolby Atmos (7.1.4)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play the entertainment audio sources with the below mentioned format and verify that the upmixed audio(audio is mixed with other audio sources)  is heard from the speakers
+
+No source playing, Mono, Stereo.
+- Grooming Status: Approved
+- Grooming Comments: [09.01.2025 Xiongwei, Abdul]
+The below source formats are Not Applicable
+Multichannel 5.1
+Multichannel 7.1
+Dolby Atmos (7.1.4)
+
+[25.06.2024 Abdul]: Need confirmation from Xiongwei on the customer feedback:
+
+https://jira.harman.com/jira/browse/FQ-735
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, SXM
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3573009
+- Contents: The system shall set the CAN signal "IDC_Audio Streams. Entertainment Format"  to the value of the currently playing audio source format.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play any main Audio source (Tuner, Projection)
+
+Verify that the system sets the signal IDC Audio Streams Entertainment Format to the value of the currently playing
+audio source format
+
+Note: Refer the artifact 4466469
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-735
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3572896
+- Contents: The System shall send to the FAD the current audio source format setting the value of the internal interface EntertainmentFormat.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the system accurately detects the current audio source format.
+
+Verify that the value of the internal interface 'EntertainmentFormat' is correctlt based on the detected audio source format.
+- Grooming Status: Review
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3573008
+- Contents: The system shall set the value of Entertainment audio source Format to "Undefined" if there is no audio stream playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that when there is no audio stream playing, the Entertainment audio source format value is set to 0("Undefined")
+
+Verify by using the CAN signal
+IDC_AudioStreams.EntertainmentFormat
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3573057
+- Contents: The FAD library shall adapt the upmixing depending on the source format.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the "Entertainment audio sources mixed with other sources" are heard on the speakers correctly.
+- Grooming Status: New
+- Grooming Comments: [Xiongwei, Abdul, 09.01.2025]: 
+Not offered. Harman doesn't need to verify the output audio format from FAD library.
+
+[Changli, 31.07.2024]: Harman doesn't need to verify the output audio format from FAD library.
+- Expert Domains: Audio Control
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3573106
+- Contents: The system shall set the value of the Entertainment Format interface to 1("Mono") if the active audio source is Mono.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that when a Mono audio source is detected, the system automatically sets the value of the Entertainment Format interface to 1.
+Verify the audio source formats by using the below CAN signal
+IDC_AudioStreams.EntertainmentFormat
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3608013
+- Contents: The system shall map the audio source channels to the ENTERTAINMENT channels as follows if the active audio source is Mono:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Guaranteed by Design
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allocate, channels, follows" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3573479
+- Contents: System shall set the value of the Entertainment Format interface to 2 ("Stereo") when the active audio source is Stereo.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that when a Stereo audio source is detected, the system automatically sets the value of the Entertainment Format interface to 2.
+
+Verify the audio source formats by using the below CAN signal
+IDC_AudioStreams.EntertainmentFormat
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3608016
+- Contents: If the active audio source is Stereo, the system shall map the source channels to the ENTERTAINMENT channels as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Guaranteed by Design
+- Verification Criteria: Guaranteed by Design
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allocate, channels, follows" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3573481
+- Contents: IF the active audio source is Multichannel 5.1, the IDC shall set the value of the Entertainment source Format interface to 3 ("5.1").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that when a multichannel 5.1 audio source is detected, the IDC automatically sets the value of the Entertainment Format interface to 3.
+Verify the audio source formats by using the below CAN signal
+IDC_AudioStreams.EntertainmentFormat
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3608027
+- Contents: When the active audio source is Multichannel 5.1, the system shall map the source channels to the ENTERTAINMENT channels as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an entertainment audio source with Stereo format
+Play an entertainment audio source with Stereo format
+Verify the audio input format (Stereo) and the assigned source channel by using logcat log
+Verify the audio is playing in all the speakers. 
+Verify the audio is playing in the speaker connected to the internal amplifier Channel 1
+- Grooming Status: New
+- Grooming Comments: [Xiongwei, Abdul, 09.01.2025]: 
+Not offered.
+We don't have any use case for Multichannel 5.1
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3573606
+- Contents: IF the active audio source is Multichannel 7.1, the IDC shall set the value of the Entertainment source Format interface to 4 ("7.1").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that when a Multichannel 7.1 audio source is detected, the IDC automatically sets the value of the Entertainment Format interface to 4.
+
+Verify the audio source formats by using the below CAN signal
+IDC_AudioStreams.EntertainmentFormat
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+15. ID: 3608025
+- Contents: When the active audio source is Multichannel 7.1, System shall allocate the source channels to the ENTERTAINMENT stream channels as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an entertainment audio source with Stereo format
+
+Verify the audio is playing in the speaker connected to the internal amplifier Channel 1
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3573610
+- Contents: The system shall set the value of Entertainment source Format interface to 5 ("Dolby Atmos") if the active audio source is Dolby Atmos.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that when a multichannel 5.1 audio source is detected, the IDC automatically sets the value of the Entertainment Format interface to 3.
+
+Verify the audio source formats by using the below CAN signal
+IDC_AudioStreams.EntertainmentFormat
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+17. ID: 3608022
+- Contents: When the active audio source is Dolby Atmos, the System shall map the source channels to the ENTERTAINMENT stream channels as follows.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Play an entertainment audio source with Stereo format
+
+Verify the audio is playing in the speaker connected to the internal amplifier Channel 1
+- Grooming Status: Review
+- Grooming Comments: [avaloor, Ahmed, Xiongwei]: Not offered
+The Dolby Atmos format is not used in F244 application.
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+18. ID: 3573611
+- Contents: The system shall inhibit user interaction with Balance setting while the Entertainment source Format is 5 ("Dolby Atmos").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify the Balance setting interface on HMI is not available to user  during the  Entertainment audio play back with audio source format 5
+- Grooming Status: Review
+- Grooming Comments: Ahmed, Xiogwei, Abdul: Not offered
+- Expert Domains: Android HMI
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+19. ID: 3608018
+- Contents: The system shall inhibit user interaction with Fader setting while the Entertainment source Format is 5 ("Dolby Atmos").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul, 09.01.2025]: dolby atmos is not applicable for F244
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+20. ID: 3608019
+- Contents: The system shall inhibit user interaction with VIP setting while the Entertainment source Format is 5 ("Dolby Atmos").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul, 09.01.2025]: dolby atmos is not applicable for F244
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3608020
+- Contents: While EntertainmentFormat== 5 ("Dolby Atmos"),System shall inhibit user interaction with Audio Preset setting-0 ("Studio").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify the Audio preset setting-0 (Studio) interface on HMI is not available to user  during the  Entertainment audio play back with audio source format 5 (Dolby Atmos)
+- Grooming Status: Review
+- Grooming Comments: [Xiongwei, Abdul, 09.01.2025]: dolby atmos is not applicable for F244
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+22. ID: 3608021
+- Contents: The system shall follow the below behavior If the current audio source format is not supported:
+Set the value of the entertainment format = 2 ("Stereo")
+Set the value of the signal IDC_AudioStreams.EntertainmentFormat to 2 ("Stereo").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play a not supported audio format.
+
+Verify that the system automatically sets the value of the Entertainment source Format to 2 ("Stereo")
+.
+Verify the value of the CAN signal
+IDC_AudioStreams.EntertainmentFormat =2 (Stero)
+
+Verify the Audio is playing as a stereo source.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, manage, supported, value, interface-0, source" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3941705
+- Contents: The syatem shall set the signal IDC_AudioStreams.EntertainmentFormat to 2 ("Stereo").
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+24. ID: 3622328
+- Contents: Internal interfaces
+EntertainmentFormat
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3622230
+- Contents: This function describes the upmixing management for entertainment channel.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4466469
+- Contents: (see: image130.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image130.png
+
+3. ID: 3941701
+- Contents: The system shall set the entertainment format before the Source Activation through the the FAD_CTRL__setEntertainmentFormat(void *fad_ctrl_memory, int format_value) API, where:
+format_value = value currently playing audio source format according to IDC-426816.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "currently" )
+- State (Harman_Requirement): Review
+
+4. ID: 3573063
+- Contents: The channel mapping of the audio source to the ENTERTAINMENT channel is described in the following requirement groups.
+- Artifact Type: Information
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be described" )
+- State (Harman_Requirement): New
+
+5. ID: 3844752
+- Contents: (see: image131.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image131.png
+
+6. ID: 3844770
+- Contents: (see: image132.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image132.png
+
+7. ID: 3844779
+- Contents: (see: image133.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image133.png
+
+8. ID: 3844786
+- Contents: (see: image134.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image134.png
+
+9. ID: 4155752
+- Contents: [Info] The Dolby Atmos format is not used in F244 application.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 3844797
+- Contents: (see: image135.png)
+(see: image136.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image135.png, image136.png
+
+11. ID: 3941703
+- Contents: IF the current audio source format is not among the supported ones, the system shall set the entertainment format through the FAD_CTRL__setEntertainmentFormat(void*fad_ctrl_memory, int format_value) API, where:
+format_value = 2 ("Stereo")
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Review
+
+12. ID: 3622327
+- Contents: Outputs
+INFO_CAN
+IDC_AudioStreams.EntertainmentFormat
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image134.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image136.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image131.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image135.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image132.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image130.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image133.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-3 6.2.2.4  Upmixing Control Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

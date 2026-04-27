@@ -1,0 +1,86 @@
+# FAD-6 6.2.2.7  Entertainment Metadata Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.7 FAD-6 Entertainment Metadata
+
+- ID: 3721293
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Media Core, Projections
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3721301
+- Contents: The system shall send the information about the metadata of the active audio source belonging to ENTERTAINMENT channel to the FAD library
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an entertainment Audio source
+Verify the Audio playback with below metadata.
+album, artist,  genre,  album_art, album_artist,  composer, year, duration, 
+mime_type
+- Grooming Status: Approved
+- Expert Domains: Media Core, Projections
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3721407
+- Contents: Internal interfaces
+EntertainmentSourceMetadata
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3721300
+- Contents: [Info] This function describes the metadata information the IDC shall provide to the FAD library.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4724499
+- Contents: The IDC shall send to the FAD information about the metadata of the active audio source belonging to
+ENTERTAINMENT channel through the FAD_CTRL__setMetadata(void *fad_ctrl_memory, char *title, char *album,
+char *artist, char *genre, char *album_art, char *album_artist, char *composer, char *year, char *duration, char
+*mime_type) API, where the parameters are defined according to Android MediaMetadata standard.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3721401
+- Contents: The FAD library shall adapt the processing depending on the metadata of the audio source being played.
+- Artifact Type: Information
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "being played" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-6 6.2.2.7  Entertainment Metadata Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

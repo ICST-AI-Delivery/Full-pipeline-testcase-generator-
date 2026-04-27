@@ -1,0 +1,326 @@
+{
+  "imageId": "VEH-F663_Wireless_Charger_Module_image179",
+  "category": "CONFIGURATION_TABLES",
+  "confidence": 0.95,
+  "analysisTimestamp": "2026-02-24T14:47:00Z",
+  "tableStructure": {
+    "tableType": "mapping_table",
+    "dimensions": {"rows": 9, "columns": 2},
+    "headers": [
+      {
+        "columnIndex": 0,
+        "headerText": "Input LIN",
+        "dataType": "identifier",
+        "description": "LIN bus input signal identifiers"
+      },
+      {
+        "columnIndex": 1,
+        "headerText": "Output CAN",
+        "dataType": "identifier", 
+        "description": "CAN bus output signal identifiers"
+      }
+    ],
+    "visualFormatting": {
+      "headerRowColor": "light_gray",
+      "alternatingRows": false,
+      "highlightedCells": ["none"]
+    }
+  },
+  "parameters": [
+    {
+      "parameterId": "PARAM-001",
+      "parameterName": "WCM_WCM_Status",
+      "dataType": "status_signal",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.WCM_Status",
+      "unit": "none",
+      "description": "Wireless Charger Module status signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["LIN_bus_communication", "CAN_bus_communication"],
+      "safetyLevel": "QM",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-002", 
+      "parameterName": "WCM_IntErr_I2C_CommFault",
+      "dataType": "error_signal",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.IntErr_I2C_CommFault",
+      "unit": "none",
+      "description": "I2C communication fault error signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none", 
+        "step": "none"
+      },
+      "dependencies": ["I2C_communication", "error_handling"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-003",
+      "parameterName": "WCM_IntErr_CoilOverTemp",
+      "dataType": "temperature_error",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.IntErr_CoilOverTemp",
+      "unit": "none",
+      "description": "Coil over-temperature error signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["temperature_monitoring", "thermal_protection"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-004",
+      "parameterName": "WCM_IntErr_CoilDisconnect",
+      "dataType": "connection_error",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.IntErr_CoilDisconnect",
+      "unit": "none",
+      "description": "Coil disconnection error signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["coil_connection_monitoring", "fault_detection"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-005",
+      "parameterName": "WCM_IntErr_ThmDisconnect",
+      "dataType": "thermal_error",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.IntErr_ThmDisconnect",
+      "unit": "none",
+      "description": "Thermal sensor disconnection error signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["thermal_sensor_monitoring", "temperature_safety"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-006",
+      "parameterName": "WCM_KeepAliveWCM",
+      "dataType": "keepalive_signal",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.KeepAliveWCM",
+      "unit": "none",
+      "description": "WCM keep-alive heartbeat signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["system_monitoring", "communication_health"],
+      "safetyLevel": "QM",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-007",
+      "parameterName": "WCM_CurrentFairWCM",
+      "dataType": "current_measurement",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.CurrentFairWCM",
+      "unit": "amperes",
+      "description": "WCM current measurement signal mapping",
+      "constraints": {
+        "minimum": "0",
+        "maximum": "15",
+        "step": "0.1"
+      },
+      "dependencies": ["current_sensing", "power_monitoring"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-008",
+      "parameterName": "WCM_GenericFairWCM",
+      "dataType": "generic_fault",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.GenericFairWCM",
+      "unit": "none",
+      "description": "Generic fault signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["fault_monitoring", "system_diagnostics"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    },
+    {
+      "parameterId": "PARAM-009",
+      "parameterName": "WCM_ResponseErrorWCM",
+      "dataType": "response_error",
+      "validValues": ["LIN_to_CAN_mapping"],
+      "defaultValue": "STATUS_WCM.ResponseErrorWCM",
+      "unit": "none",
+      "description": "Response error signal mapping",
+      "constraints": {
+        "minimum": "none",
+        "maximum": "none",
+        "step": "none"
+      },
+      "dependencies": ["communication_monitoring", "response_validation"],
+      "safetyLevel": "ASIL_B",
+      "automotiveStandard": "ISO_11898_CAN"
+    }
+  ],
+  "configurationSets": [
+    {
+      "setId": "CONFIG_SET_001",
+      "setName": "WCM_LIN_CAN_Gateway_Configuration",
+      "description": "Complete LIN to CAN signal mapping for Wireless Charger Module",
+      "parameters": {
+        "WCM_WCM_Status": "STATUS_WCM.WCM_Status",
+        "WCM_IntErr_I2C_CommFault": "STATUS_WCM.IntErr_I2C_CommFault",
+        "WCM_IntErr_CoilOverTemp": "STATUS_WCM.IntErr_CoilOverTemp",
+        "WCM_IntErr_CoilDisconnect": "STATUS_WCM.IntErr_CoilDisconnect",
+        "WCM_IntErr_ThmDisconnect": "STATUS_WCM.IntErr_ThmDisconnect",
+        "WCM_KeepAliveWCM": "STATUS_WCM.KeepAliveWCM",
+        "WCM_CurrentFairWCM": "STATUS_WCM.CurrentFairWCM",
+        "WCM_GenericFairWCM": "STATUS_WCM.GenericFairWCM",
+        "WCM_ResponseErrorWCM": "STATUS_WCM.ResponseErrorWCM"
+      },
+      "applicableVehicleTypes": ["electric", "hybrid"],
+      "validationStatus": "valid"
+    }
+  ],
+  "decisionTables": [
+    {
+      "tableId": "LIN_CAN_SIGNAL_MAPPING",
+      "description": "LIN to CAN signal mapping decision matrix",
+      "inputs": [
+        {
+          "name": "lin_signal_received",
+          "possibleValues": ["WCM_WCM_Status", "WCM_IntErr_I2C_CommFault", "WCM_IntErr_CoilOverTemp", "WCM_IntErr_CoilDisconnect", "WCM_IntErr_ThmDisconnect", "WCM_KeepAliveWCM", "WCM_CurrentFairWCM", "WCM_GenericFairWCM", "WCM_ResponseErrorWCM"]
+        },
+        {
+          "name": "gateway_active",
+          "possibleValues": ["true", "false"]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "can_signal_transmitted",
+          "possibleValues": ["STATUS_WCM.WCM_Status", "STATUS_WCM.IntErr_I2C_CommFault", "STATUS_WCM.IntErr_CoilOverTemp", "STATUS_WCM.IntErr_CoilDisconnect", "STATUS_WCM.IntErr_ThmDisconnect", "STATUS_WCM.KeepAliveWCM", "STATUS_WCM.CurrentFairWCM", "STATUS_WCM.GenericFairWCM", "STATUS_WCM.ResponseErrorWCM"]
+        },
+        {
+          "name": "mapping_status",
+          "possibleValues": ["success", "failure", "timeout"]
+        }
+      ],
+      "combinations": [
+        {
+          "inputs": {"lin_signal_received": "WCM_WCM_Status", "gateway_active": "true"},
+          "outputs": {"can_signal_transmitted": "STATUS_WCM.WCM_Status", "mapping_status": "success"},
+          "notes": "Normal status signal mapping"
+        },
+        {
+          "inputs": {"lin_signal_received": "WCM_IntErr_CoilOverTemp", "gateway_active": "true"},
+          "outputs": {"can_signal_transmitted": "STATUS_WCM.IntErr_CoilOverTemp", "mapping_status": "success"},
+          "notes": "Critical temperature error mapping"
+        },
+        {
+          "inputs": {"lin_signal_received": "WCM_CurrentFairWCM", "gateway_active": "true"},
+          "outputs": {"can_signal_transmitted": "STATUS_WCM.CurrentFairWCM", "mapping_status": "success"},
+          "notes": "Current measurement signal mapping"
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "ruleId": "RULE-001",
+      "ruleName": "Signal_Mapping_Validation",
+      "description": "All LIN signals must have corresponding CAN output mapping",
+      "condition": "FOR EACH lin_signal EXISTS corresponding can_signal",
+      "errorMessage": "Missing CAN mapping for LIN signal",
+      "severity": "critical"
+    },
+    {
+      "ruleId": "RULE-002",
+      "ruleName": "Error_Signal_Priority",
+      "description": "Error signals must have higher transmission priority",
+      "condition": "error_signals.priority > status_signals.priority",
+      "errorMessage": "Error signal priority configuration invalid",
+      "severity": "high"
+    }
+  ],
+  "parameterDependencies": [
+    {
+      "dependencyId": "DEP-001",
+      "sourceParameter": "WCM_IntErr_CoilOverTemp",
+      "targetParameter": "WCM_IntErr_ThmDisconnect",
+      "relationship": "related",
+      "description": "Temperature errors may indicate thermal sensor issues",
+      "rules": [
+        {"sourceValue": "active", "targetConstraint": "monitor_thermal_sensor"}
+      ]
+    },
+    {
+      "dependencyId": "DEP-002",
+      "sourceParameter": "WCM_KeepAliveWCM",
+      "targetParameter": "WCM_ResponseErrorWCM",
+      "relationship": "monitors",
+      "description": "Keep-alive signal monitors communication health",
+      "rules": [
+        {"sourceValue": "timeout", "targetConstraint": "set_response_error"}
+      ]
+    }
+  ],
+  "automotiveCompliance": [
+    {
+      "standard": "ISO_11898",
+      "compliance": "full",
+      "details": "CAN signal naming and structure follows ISO 11898 standard"
+    },
+    {
+      "standard": "ISO_17987",
+      "compliance": "full", 
+      "details": "LIN signal definitions comply with ISO 17987 standard"
+    },
+    {
+      "standard": "ISO_26262",
+      "compliance": "partial",
+      "details": "Safety-critical signals identified but ASIL levels need verification"
+    }
+  ],
+  "testableParameters": [
+    {
+      "parameterId": "GATEWAY_MAPPING_TEST",
+      "inputParameters": ["lin_signal_input", "gateway_status", "communication_health"],
+      "expectedOutputs": ["can_signal_output", "mapping_success", "error_flags"],
+      "testConditions": "Verify all LIN signals correctly map to corresponding CAN signals"
+    },
+    {
+      "parameterId": "ERROR_SIGNAL_PRIORITY_TEST",
+      "inputParameters": ["multiple_error_signals", "normal_signals"],
+      "expectedOutputs": ["transmission_order", "priority_handling", "error_escalation"],
+      "testConditions": "Verify error signals have higher transmission priority than status signals"
+    }
+  ],
+  "qualityMetrics": {
+    "extractionCompleteness": 1.0,
+    "parameterIdentificationConfidence": 0.98,
+    "relationshipMappingAccuracy": 0.95,
+    "validationRuleAccuracy": 0.90,
+    "missingDataFlags": ["none"]
+  },
+  "relatedRequirements": ["VEH-F663", "WCM-GATEWAY-001", "LIN-CAN-MAPPING-002"]
+}

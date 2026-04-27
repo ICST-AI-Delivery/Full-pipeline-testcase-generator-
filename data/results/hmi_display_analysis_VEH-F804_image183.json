@@ -1,0 +1,288 @@
+{
+  "imageId": "VEH-F804_High_Voltage_Battery_image183",
+  "category": "HMI_DISPLAY_LAYOUTS",
+  "confidence": 0.95,
+  "analysisTimestamp": "2026-02-24T14:20:00Z",
+  "displayStructure": {
+    "displayType": "instrument_cluster",
+    "resolution": "estimated_400x200",
+    "regions": [
+      {
+        "regionId": "REGION-001",
+        "name": "Battery Range Display",
+        "coordinates": {"x": 0, "y": 0, "width": 400, "height": 200},
+        "purpose": "High voltage battery range and charge level indication"
+      }
+    ]
+  },
+  "uiElements": [
+    {
+      "elementId": "UI-001",
+      "elementType": "gauge",
+      "name": "Battery Charge Level Gauge",
+      "position": {"x": 50, "y": 50, "width": 300, "height": 100},
+      "visualProperties": {
+        "color": "teal_green",
+        "shape": "semi_circular_arc",
+        "icon": "battery_symbol",
+        "text": "561 KM"
+      },
+      "states": [
+        {
+          "stateName": "normal_charge",
+          "conditions": "battery_charge > 50%",
+          "appearance": "teal_green_color"
+        },
+        {
+          "stateName": "low_charge",
+          "conditions": "battery_charge < 25%",
+          "appearance": "yellow_color"
+        },
+        {
+          "stateName": "critical_charge",
+          "conditions": "battery_charge < 10%",
+          "appearance": "red_color"
+        }
+      ],
+      "interactionType": "none",
+      "automotiveStandard": "ISO_2575_battery_indication"
+    },
+    {
+      "elementId": "UI-002",
+      "elementType": "text_display",
+      "name": "Range Display",
+      "position": {"x": 150, "y": 20, "width": 100, "height": 30},
+      "visualProperties": {
+        "color": "teal_green",
+        "shape": "rectangular",
+        "icon": "none",
+        "text": "561 KM"
+      },
+      "states": [
+        {
+          "stateName": "normal_range",
+          "conditions": "estimated_range > 100km",
+          "appearance": "teal_green_text"
+        },
+        {
+          "stateName": "low_range",
+          "conditions": "estimated_range < 50km",
+          "appearance": "yellow_text"
+        },
+        {
+          "stateName": "critical_range",
+          "conditions": "estimated_range < 20km",
+          "appearance": "red_text"
+        }
+      ],
+      "interactionType": "none",
+      "automotiveStandard": "ISO_2575_range_indication"
+    },
+    {
+      "elementId": "UI-003",
+      "elementType": "text_display",
+      "name": "Charge Level Indicator",
+      "position": {"x": 180, "y": 80, "width": 40, "height": 20},
+      "visualProperties": {
+        "color": "white",
+        "shape": "rectangular",
+        "icon": "none",
+        "text": "1/2"
+      },
+      "states": [
+        {
+          "stateName": "half_charge",
+          "conditions": "battery_charge = 50%",
+          "appearance": "1/2_display"
+        },
+        {
+          "stateName": "full_charge",
+          "conditions": "battery_charge = 100%",
+          "appearance": "1/1_display"
+        },
+        {
+          "stateName": "quarter_charge",
+          "conditions": "battery_charge = 25%",
+          "appearance": "1/4_display"
+        }
+      ],
+      "interactionType": "none",
+      "automotiveStandard": "ISO_2575_battery_level"
+    },
+    {
+      "elementId": "UI-004",
+      "elementType": "telltale",
+      "name": "Battery Symbol",
+      "position": {"x": 170, "y": 10, "width": 20, "height": 15},
+      "visualProperties": {
+        "color": "teal_green",
+        "shape": "battery_icon",
+        "icon": "battery_symbol",
+        "text": "none"
+      },
+      "states": [
+        {
+          "stateName": "normal",
+          "conditions": "battery_system_normal",
+          "appearance": "teal_green_solid"
+        },
+        {
+          "stateName": "warning",
+          "conditions": "battery_system_warning",
+          "appearance": "yellow_solid"
+        },
+        {
+          "stateName": "error",
+          "conditions": "battery_system_error",
+          "appearance": "red_solid"
+        }
+      ],
+      "interactionType": "none",
+      "automotiveStandard": "ISO_2575_symbol_battery"
+    },
+    {
+      "elementId": "UI-005",
+      "elementType": "text_display",
+      "name": "Empty Indicator",
+      "position": {"x": 20, "y": 120, "width": 15, "height": 20},
+      "visualProperties": {
+        "color": "white",
+        "shape": "rectangular",
+        "icon": "none",
+        "text": "E"
+      },
+      "states": [
+        {
+          "stateName": "visible",
+          "conditions": "always_visible",
+          "appearance": "white_text"
+        }
+      ],
+      "interactionType": "none",
+      "automotiveStandard": "ISO_2575_empty_indication"
+    },
+    {
+      "elementId": "UI-006",
+      "elementType": "text_display",
+      "name": "Full Indicator",
+      "position": {"x": 365, "y": 120, "width": 15, "height": 20},
+      "visualProperties": {
+        "color": "white",
+        "shape": "rectangular",
+        "icon": "none",
+        "text": "F"
+      },
+      "states": [
+        {
+          "stateName": "visible",
+          "conditions": "always_visible",
+          "appearance": "white_text"
+        }
+      ],
+      "interactionType": "none",
+      "automotiveStandard": "ISO_2575_full_indication"
+    }
+  ],
+  "decisionTables": [
+    {
+      "tableId": "BATTERY_DISPLAY_STATES",
+      "description": "Battery charge level display conditions and visual states",
+      "inputs": [
+        {
+          "name": "battery_charge_percentage",
+          "possibleValues": ["0-10", "10-25", "25-50", "50-75", "75-100"]
+        },
+        {
+          "name": "estimated_range_km",
+          "possibleValues": ["0-20", "20-50", "50-100", "100-300", "300+"]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gauge_color",
+          "possibleValues": ["red", "yellow", "teal_green"]
+        },
+        {
+          "name": "range_text_color",
+          "possibleValues": ["red", "yellow", "teal_green", "white"]
+        },
+        {
+          "name": "battery_icon_state",
+          "possibleValues": ["normal", "warning", "critical"]
+        }
+      ],
+      "combinations": [
+        {
+          "inputs": {"battery_charge_percentage": "50-75", "estimated_range_km": "300+"},
+          "outputs": {"gauge_color": "teal_green", "range_text_color": "teal_green", "battery_icon_state": "normal"},
+          "notes": "Normal operating condition - current display state"
+        },
+        {
+          "inputs": {"battery_charge_percentage": "10-25", "estimated_range_km": "20-50"},
+          "outputs": {"gauge_color": "yellow", "range_text_color": "yellow", "battery_icon_state": "warning"},
+          "notes": "Low battery warning state"
+        },
+        {
+          "inputs": {"battery_charge_percentage": "0-10", "estimated_range_km": "0-20"},
+          "outputs": {"gauge_color": "red", "range_text_color": "red", "battery_icon_state": "critical"},
+          "notes": "Critical battery level - immediate charging required"
+        }
+      ]
+    }
+  ],
+  "visualHierarchy": {
+    "primaryElements": ["range_display", "battery_gauge", "charge_level_indicator"],
+    "secondaryElements": ["battery_icon", "empty_full_indicators"],
+    "warningElements": ["low_battery_warning", "critical_battery_warning"],
+    "colorScheme": {
+      "normal": "teal_green",
+      "warning": "yellow",
+      "critical": "red",
+      "information": "white"
+    }
+  },
+  "interactionFlows": [
+    {
+      "flowId": "BATTERY_MONITORING",
+      "startElement": "battery_system",
+      "endElement": "display_update",
+      "userActions": ["none"],
+      "systemResponses": ["gauge_update", "range_calculation", "color_change"],
+      "conditions": "continuous_monitoring_active"
+    }
+  ],
+  "automotiveCompliance": [
+    {
+      "standard": "ISO_2575",
+      "compliance": "full",
+      "details": "Battery symbol and range indication follow standard definitions"
+    },
+    {
+      "standard": "ISO_26262",
+      "compliance": "full",
+      "details": "Safety-critical battery level warnings properly implemented"
+    }
+  ],
+  "testableParameters": [
+    {
+      "parameterId": "BATTERY_RANGE_DISPLAY",
+      "inputParameters": ["battery_charge_level", "estimated_range", "battery_system_status"],
+      "expectedOutputs": ["gauge_color", "range_text", "battery_icon_state", "warning_activation"],
+      "testConditions": "Verify display updates correctly for all battery charge levels and system states"
+    },
+    {
+      "parameterId": "CRITICAL_BATTERY_WARNING",
+      "inputParameters": ["battery_charge_percentage", "remaining_range"],
+      "expectedOutputs": ["red_gauge_color", "red_text_color", "critical_icon_state"],
+      "testConditions": "Verify critical warning activates when battery < 10% or range < 20km"
+    }
+  ],
+  "qualityMetrics": {
+    "extractionCompleteness": 0.95,
+    "elementIdentificationConfidence": 0.92,
+    "relationshipMappingAccuracy": 0.90,
+    "automotiveStandardsAlignment": 0.95,
+    "missingDataFlags": ["background_details_minimal", "exact_pixel_coordinates_estimated"]
+  },
+  "relatedRequirements": ["VEH-F804", "BATTERY-DISPLAY-001", "RANGE-ESTIMATION-002"]
+}

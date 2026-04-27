@@ -1,0 +1,101 @@
+# PHN-10 6.2.1.10  Decline Call Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.10 PHN-10 Decline Call
+
+- ID: 3407135
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3430931
+- Contents: IDC shall allow user to decline the incoming call on the secondary (BT) phone, while primary (projection) phone call is active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to decline incoming call on secondary phone during the active Primary projection call.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, decline, is active, call, phone" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3430925
+- Contents: IDC shall display an option to decline the call based on current call or incoming call
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC provide an option to decline the call during the incoming or active call.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3558174
+- Contents: IDC shall Decline Incoming Call when the user interacts with the dedicated "Decline call".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to decline incoming call.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Decline, interacts" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3558176
+- Contents: IDC shall allow user to decline or End-accept the incoming secondary phone call while Primary Projection phone call (CarPlay) is in progress.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to Decline or End-Accept secondary incoming call during the Primary projection call is in Progress.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to decline, accept, is active, call" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3620050
+- Contents: (see: image4.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image4.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image4.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-10 6.2.1.10  Decline Call Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

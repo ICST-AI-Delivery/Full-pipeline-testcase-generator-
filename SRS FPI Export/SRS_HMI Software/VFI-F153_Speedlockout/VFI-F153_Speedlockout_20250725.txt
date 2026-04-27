@@ -1,0 +1,81 @@
+# VFI-F153 6.2.2.25  Speedlockout Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.25 VFI-F153 Speedlockout
+
+- ID: 3880026
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3880126
+- Contents: IDC shall restrict the interaction with the menu items during:
+VehicleSpeedVSOSigFailSts="Fail_Present".
+VehicleSpeedVSOSig information is missing.
+VehicleSpeedVSOSig >0.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: check the restrict conditions
+
+NFR_SPEED.VehicleSpeedVSOSig
+NFR_SPEED.VehicleSpeedVSOSigFailSts
+- Grooming Status: Approved
+- Grooming Comments: please refer F244_MenuStructure_PI
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3940751
+- Contents: System shall keep speed lockout condition active as long as one of the triggering condition is present.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: check the speed lock out condition in triggering condition is present
+
+NFR_SPEED.VehicleSpeedVSOSig
+NFR_SPEED.VehicleSpeedVSOSigFailSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as long" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3880197
+- Contents: Speed lockout is a mechanism of blocking certain system functions, while the car is in motion to avoid unnecessary or dangerous driver distractions, depending on market and region restriction.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F153 6.2.2.25  Speedlockout Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,109 @@
+# PRK-0 6.2.4.1.12 : Surround View Management: Signals task Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.12 PRK-0: Surround View Management: Signals task
+
+- ID: 3845131
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3841135
+- Contents: The system shall manage the HMI views to greying information coming from rear camera based on the below conditions if  PROXI parameters "Rear_Camera_Position" = "Trunk" & "IDC_Vehicle_Type" correspond to a defined value.
+'CapoteSts != (Opened OR Closed) & (CapoteFailSts != “Fail Present”) & PROXI parameter NCP = present'.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+PROXI parameters "Rear_Camera_Position = Trunk & IDC_Vehicle_Type correspond to a defined value.
+
+Send the CAN signals CapoteSts != (Opened OR Closed) & (CapoteFailSts != “Fail Present”) & PROXI parameter NCP = present'.
+
+Verify that the information coming from the rear camera is greyed out
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 27.12.2024]: OK to approve
+
+Blocked,
+Ask ferrari:
+Asper the requirement, if front side (Hood) is not in a popper position , then why we are to grey out the rear camera information
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, greying, coming, based, correspond, defined, Opened, views, information, camera, conditions, parameters, Trunk, amp, value, CapoteSts, CapoteFailSts, Present #8221, parameter, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4661702
+- Contents: The system shall manage the HMI views in order to greying information coming from rear camera based on the below condition
+PROXI parameter Rear_Camera_Position = Trunk & PROXI parameter IDC_Vehicle_Type correspond to a defined value &  RHatchSts = Open
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Send the signal RHatchSts = Open
+
+Verify that the information coming from the rear camera is greyed out.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 27.12.2024]: OK to approve
+
+Blocked as per above comment
+- Expert Domains: System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3841120
+- Contents: - Below are listed all the signals received by the IDC for SW management and the task assigned:
+<VehicleSpeedVSOSIg>, <VehicleSpeedVSOSIgFailSts>, <FutureSyncGear> are used, together with
+timer, to manage different views
+<LwsAngle>, <LWSFailSts> are used to calculate the direction of front/rear dynamic parking lines
+<STS_DRS_DriverDoorSts> (and PROXI parameter Side Driver), <STS_DRS_PsngrDoorSts>,
+<STS_DRS_RearRightDoorSts>,
+<STS_DRS_RearLeftDoorSts> (if PROXI parameter Rear_Doors = present) are used to detect if a door
+is opened and manage the HMI view
+<HighBeamSts>, <LowBeamSts>, <NightDaySts> <BrakePedalSts> <turnIndicatorSts>
+<StopLightActRqt> <LHStopLightFailSts> <RHStopLightFailSts> <PLGSts> <HazardActRqt>
+<RechargeFlapSts> <Left_PL_Feedback> <Right_PL_Feedback> <LHParkTailLightSts>
+<RHPArkLLightSts> are used to update the HMI views
+<Alert_RCTA> is used by IDC to show the visual alert
+<FoldMirrorSts> is used by IDC to know the status of mirrors (open/closed)
+<STATUS_NSP2> is used by IDC to manage visualization of front/rear virtual walls
+<YRS_DATA> <ESP_WSS_Front> <ESP_WSS_Rear> are additional information for the Surround view
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3841122
+- Contents: The system has to manage signal related trunk and capote status if rear camera is mounted on trunk and capote system moves the trunk
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.12 : Surround View Management: Signals task Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

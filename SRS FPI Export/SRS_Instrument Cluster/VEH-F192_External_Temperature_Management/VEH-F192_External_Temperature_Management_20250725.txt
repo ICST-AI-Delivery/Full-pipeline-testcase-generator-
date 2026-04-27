@@ -1,0 +1,465 @@
+# VEH-F192 6.2.1.1.2.16  External Temperature Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.16 VEH-F192 External Temperature Management
+
+- ID: 3408581
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: OM: 10/03/2025: Feature Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3742633
+- Contents: System shall receive external temperature information from the signal STATUS_B_CAN.ExternalTemperature
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System recieives the External temperature using the CAN-Signal given below.
+
+CAN-Signal: STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3595955
+- Contents: System shall display External temperature indication when INFO_ShowOnDisplay_Time_Temparature is set to ON  an displayed in the A2 Binnacle Area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Parameter: INFO_ShowOnDisplay_Time_Temparature
+
+Verify that the External temperature of the vehicle   is displayed when parameter is ON  A2 Binnacle Area.
+
+
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature.
+
+Internal Interface:
+INFO_ShowOnDisplay_Time_Temp
+- Grooming Status: Approved
+- Grooming Comments: How set ON and OFF
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is set, indication, ON, area, areas" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3524839
+- Contents: System shall not  display external temperature information when the ShowOnDisplay_Time_Temperature parameteris set to off.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Parameter: INFO_ShowOnDisplay_Time_Temparature
+
+Verify that the External temperature  shall remain empty when the parameter is set to OFF in A2 Binnacle Area.
+
+
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature.
+
+Internal Interfaces:
+INFO_ShowOnDisplay_Time_Temp
+- Grooming Status: Approved
+- Grooming Comments: How set ON and OFF
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, set, to off, information" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3524840
+- Contents: System shall not display the positive sign in case of positive temperature values.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the temperature is displayed in the HMI specified areas are only values in case of Positive temperatures.
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "positive" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3524841
+- Contents: System shall not display positive or negative signs for  zero temperature.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify only Zero is displayed with the HMI Specified area A2 Binnacle Area , when zero temperature is monitored and ensure that no positive and negative values are displayed.
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, positive, signs, temperature" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3524853
+- Contents: System shall convert temperature Unit as per selected measurement unit through INFO_TemperatureUnit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the temperature unit is calculated and displayed as per the measurement unit selected by the driver through HMI setting.
+
+Parameter: INFO_TemperatureUnit
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 5036670
+- Contents: If system receives 'C as input then the value is calculated as:
+X [°C] = TRUNC algorithm ((<ExternalTemperature value> x 1/2 ) - 40 [°C] )
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the calculated value is displayed when 'C is received from the system using the Logic.
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "is, value" ) 
+Missing unit 
+ (Look for: "‘40’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is calculated" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5036685
+- Contents: System shall populate the internal signals as below:
+VEH_DisplayedTemperature = X[°C]
+VEH_DisplayedTemperatureSts = 1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Populated Internal Signals shall display as mentioned below:
+
+VEH_DisplayedTemperature is X['C]
+VEH_DisplayedTemperatureSts is 1.
+
+
+CAN-Signal:
+VEH_DisplayedTemperature
+VEH_DisplayedTemperatureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+9. ID: 5036847
+- Contents: If System receives 'F as input the value is calculated as:
+X [°F] = TRUNC algorithm ((<ExternalTemperature value> x 9/10 ) - 40 [°F] )
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the calculated value is displayed when 'F is received from the system using the Logic.
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 0
+- Issues Found by RQA: Compound requirement
+ (Look for: "is, value" ) 
+Missing unit 
+ (Look for: "‘10,40’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is calculated" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+10. ID: 5036848
+- Contents: System shall populate the internal signals as below:
+VEH_DisplayedTemperature = X[°F]
+VEH_DisplayedTemperatureSts = 1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Populated Internal Signals shall display as mentioned below:
+
+VEH_DisplayedTemperature is X['F]
+VEH_DisplayedTemperatureSts is 1.
+
+
+CAN-Signal:
+VEH_DisplayedTemperature
+VEH_DisplayedTemperatureSts
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3532686
+- Contents: System shall display external temperatures as  (--'C or --'F) in the absence of external temperature.
+Note: ExternalTemperatureFailSTS is 0x1. or external temperatureis unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays (--'C or --'F) in absence of external temperature.
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperatureFailSts
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, ExternalTemperatureFailSTS, display, detecting, is, temperatures, C, failure, temperature, temperatureis" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3911907
+- Contents: System shall populate  using the internal  signals:
+VEH_DisplayedTemperature= -40
+VEH_DisplayedTemperature= 0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Populated Internal Signals shall display as mentioned below:
+
+VEH_DisplayedTemperature is -40
+VEH_DisplayedTemperatureSts is 0.
+
+
+CAN-Signal:
+VEH_DisplayedTemperature
+VEH_DisplayedTemperatureSts
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3524879
+- Contents: System shall display temperature values in integers
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that only integer values are displayed for temperatures and ensure and no decimal values are displayed with in the HMI specified areas.
+
+CAN-Signal: 
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 3546556
+- Contents: System shall display external temperature after Key-Off event
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Reference document is missing to mention how long should it display.
+
+Document: SFS-F497
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+15. ID: 3536648
+- Contents: System shall display external temperature from Key-On event.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the external temperature is displayed for Key is ON
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3536440
+- Contents: System shall store last received value from INFO_TemperatureUnit and INFO_ShowOnDisplay_Time_Temperature  and use the values in case of missing information from internal interfaces.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the last last stored values were received in case of missing information from internal interfaces.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, store, received, use, last, value, values, interfaces" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3536609
+- Contents: System shall display Warning-1 Pop-Up and send the status to IVI   when external temperature less 3 degree Celsius as per Ferrari design
+Note:
+Warning shall perform D04 behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:Temperatue <=3 Degree Celsius.
+
+Verify that the Ice symbol warning is displayed when the external temperature detected is less than 3 degree Celsius.
+ 
+CAN-Signal:
+
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, temperature, warning, Temperature, display, less, be, perform, telltale, area, areas, behaviour" ) 
+Passive voice
+ (Look for: "be displayed" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3542158
+- Contents: Warning-1 Ice symbol shall repeat,
+if the temperatures increases from 3 degree celsius to 6 degree celsius and decreases to 3 degree celsius.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ice symbol is displayed only if  temperature is less than 3 degree celsius and turns off when the temperature reaches to 6 Degree celsius.
+
+CAN-Signal: 
+STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "symbol, temperatures, repeat, increases, decreases, celsius" ) 
+Missing limits
+ (Look for: "‘3 degree degreecelsius’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3542157
+- Contents: Warning-1 Ice symbol shall  disappear when the temperature reaches to greater than 6 degree celsius.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the ICE symbol turns off when the temperature reaches to 6 Degree Celsius.
+
+CAN-Signal: STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "symbol, temperature, disappear, reaches, celsius" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3536611
+- Contents: System shall display warning Text if the system detects the external temperature is less than or equal to 3 degrees Celsius or 38 degress Fahrenheit
+Note: Warning shall follow D04 behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning Icy Road text is displayed when the temperature is less than 3 degree Celsius or 38 degree Fahrenheit
+
+CAN-Signal: STATUS_NPG.ExternalTemperature
+- Grooming Status: Review
+- Grooming Comments: Warning Icon is TBD
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, Warning, follow, Text" ) 
+Missing unit 
+ (Look for: "‘38’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+21. ID: 5067985
+- Contents: If at Key-ON the external temperature is equal or less than 3°C (38°F), F192 Warning 1 visualization cycle shall immediately be performed.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Warning-1 is displayed immediately after Key-ON when Extrenal Temperature is less than or Equal to 3'C 0r 38'F.
+
+CAN-Signal:
+STATUS_B_CAN.ExternalTemperature
+STATUS_B_CAN.KeySTS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3,38,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be performed" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3547275
+- Contents: 6.2.1.1.2.16.1 External Temperature Management
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+2. ID: 3546168
+- Contents: System shall display external Temperature as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the External Temperature is displayed in the HMI in C2.8 Area.
+
+CAN-Siganl: STATUS_B_CAN.ExternalTemperature
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3547276
+- Contents: 6.2.1.1.2.16.2 External Temperature Management
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F192 6.2.1.1.2.16  External Temperature Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

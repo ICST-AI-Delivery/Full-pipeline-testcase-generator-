@@ -1,0 +1,78 @@
+# UnknownID 6.2.1.1.63 RSL Missing Message (0xD728, 0x87) -  Rear Seat Left Node Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.63 RSL Missing Message (0xD728, 0x87) -  Rear Seat Left Node
+
+- ID: 3845081
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3845083
+- Contents: The system shall detect RSL missing message fault upon detecting missing SETUP_RSL_V3 with maturation time of "2"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RSL missing message fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: IDC detects a missing SETUP_RSL_V2
+    Maturation Time: 2s
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: RSL does not send a scheduled message
+Vehicle Configuration: Proxi byte 36, bit 1 (RSL) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3845085
+- Contents: The system shall make the RSL missing message Fault inactive upon detecting he relative message from missing message
+condition with De-maturation time "1"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RSL missing message fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: IDC detects the relative message from missing message condition
+    De-Maturation Time: 1s
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "he" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: RSL does not send a scheduled message
+Vehicle Configuration: Proxi byte 36, bit 1 (RSL) == "Present"
+Fault Detection Conditions: Key-On
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.63 RSL Missing Message (0xD728, 0x87) -  Rear Seat Left Node Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

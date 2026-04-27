@@ -1,0 +1,95 @@
+# UnknownID 6.1.2.4.1.1 Bluetooth Core
+
+
+
+Bluetooth Core Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.4.1.1 Bluetooth Core
+
+
+
+Bluetooth Core
+
+- ID: 2353534
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353535
+- Contents: 6.1.2.4.1.1.1 The System shall support mandated features required by BT Specification v5.3 or...
+
+
+
+
+The System shall support mandated features required by BT Specification v5.3 or the latest version, including EDR (Enhanced Data Rate).
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Grooming Status: Review
+- Grooming Comments: Partially accepted and we will continue to support 5.2 core specifications. 
+BTSIG does not mandates 5.3 features for qualifying the product. Hence, we can proceed.
+
+2. ID: 2353536
+- Contents: 6.1.2.4.1.1.2 The BT functionality shall be available if the power state is ON.
+
+
+
+
+The BT functionality shall be available if the power state is ON.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Test Stage: System Qualification Test
+- Verification Criteria: When the Power state is ON. BT function shall be availabile to the user.
+- Grooming Status: Approved
+- Grooming Comments: Considered for implementation.
+- TestTeamComment: Hsutter [2024-04-16] It is possible to write a test case
+
+3. ID: 2353537
+- Contents: 6.1.2.4.1.1.3 In any other power state, BT functionality shall be disabled.
+
+
+
+
+In any other power state, BT functionality shall be disabled.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: When the power state is not ON then BT functionality should not be available to user.
+- Grooming Status: Approved
+- Grooming Comments: As per discussion this requirement owned by Systems team.Expert domain is assigned to BT.
+- TestTeamComment: Hsutter [2024-04-11] It is possible to write a test case
+
+4. ID: 2353538
+- Contents: 6.1.2.4.1.1.4 The System shall support channel classification and channel map selection.
+
+
+
+
+The System shall support channel classification and channel map selection.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.4.1.1 Bluetooth Core]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

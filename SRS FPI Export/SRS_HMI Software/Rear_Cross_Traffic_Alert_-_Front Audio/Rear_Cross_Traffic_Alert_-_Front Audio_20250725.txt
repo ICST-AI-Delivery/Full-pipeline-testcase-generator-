@@ -1,0 +1,120 @@
+# UnknownID 6.2.2.20.3.1 Rear Cross Traffic Alert - Front Audio Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.20.3.1 Rear Cross Traffic Alert - Front Audio
+
+- ID: 3713083
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3712922
+- Contents: IDC shall activate audio feedback when the rear cross traffic is detect for following directionality
+1. Left (Front)
+2. Right (Front)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if Audio feedback is play from front vehicle speakers when the presence of oncoming crossing traffic is detected in the rear area of the vehicle.
+
+STATUS_LBSS.BSS_LF_CHIME_RQSts
+STATUS_LBSS.BSS_LR_CHIME_RQSts
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "rear, activate, is detect, following, feedback, traffic, directionality, Front" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3712908
+- Contents: IDC shall provide a visual alert in the parking visualization through HMI when RCTA is activate.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to get visual alert through HMI indication in the parking visualization when RCTA is active.
+
+STATUS_NIT_V2.Alert_RCTA
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "RCTA, provide, is activate, alert, visualization, HMI" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3712909
+- Contents: IDC shall keep the visual warning as long as the acoustic warning is present.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to get visual warning until acoustic warning is present. 
+
+HMI_CAN:
+STATUS_LBSS.BSS_LF_CHIME_RQSts
+STATUS_LBSS.BSS_LR_CHIME_RQSts
+STATUS_LBSS.BSS_RF_CHIME_RQSts
+STATUS_LBSS.BSS_RR_CHIME_RQSts
+STATUS_LBSS.BSS_LT_Chime_TypeSts
+STATUS_RBSS.BSS_RT_Chime_TypeSts
+STATUS_RBSS.BSS_RT_CFG_STATSts
+STATUS_LBSS.BSS_LT_CFG_STATSts
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3712914
+- Contents: IDC shall wait until the audio file has finishes playing before deactivate the audio source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if audio file has finished playing before deactivating the audio source.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3712916
+- Contents: IDC shall play audio file if chime request is present.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Processing
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to get audio if chime request is present.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.20.3.1 Rear Cross Traffic Alert - Front Audio Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

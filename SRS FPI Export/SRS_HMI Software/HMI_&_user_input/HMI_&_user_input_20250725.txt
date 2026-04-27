@@ -1,0 +1,121 @@
+# UnknownID 6.1.1.1.1.1 HMI & user input
+
+
+
+HMI & user input Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.1.1.1.1 HMI & user input
+
+
+
+HMI & user input
+
+- ID: 2354645
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354646
+- Contents: 6.1.1.1.1.1.1 The User input function shall support the reception, handling and routing of inp...
+
+
+
+
+The User input function shall support the reception, handling and routing of input events from all input sources (e.g., touch, haptic control elements, multi-functional steering wheel, etc.) up to the application layer, including feedback handling (e.g., touch, haptic feedback, etc.).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+2. ID: 2354647
+- Contents: 6.1.1.1.1.1.2 The System shall route each user input event to the Performance Partition (Syste...
+
+
+
+
+The System shall route each user input event to the Performance Partition (System or IVI) and HMI applications considering:
+
+ 
+
+z-order of the displayed objects on the display
+
+registered touch input regions
+
+current display focus
+
+AA/CP/Navi/Streaming session focus and route events to connected streaming devices
+
+hard/soft keys status
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+3. ID: 2354648
+- Contents: 6.1.1.1.1.1.3 The System shall support at least the following functionality:
+
+touch gestures
+parallel touch control on the same display by several users
+HMI items overlapping touch control (a full-screen hand-writing enabler)
+gestures detected with an infrared-based sensor
+
+control via Rotary Button
+
+proximity detection
+
+haptic feedback in touch display & touch click
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+- Grooming Comments: [avaloor, Debo, Daniel Kirchner] Discuss with system Architect and add the responsible domain Virtualization can be an  expert domain.
+
+moving this req to system domain 
+
+only touch is handled in white label
+
+is touch for only IVI HMI or also for cluster screen
+
+adding DMS team for proximity
+- Expert Domains: DMS-OMS, Hardware, Virtualization
+
+4. ID: 2354649
+- Contents: 6.1.1.1.1.1.4 The System's implementation shall be optimized for minimum user input latency, f...
+
+
+
+
+The System's implementation shall be optimized for minimum user input latency, from touch device to end-application, so-called end-to-end latency.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+### Informational Items:
+
+1. ID: 2354650
+- Contents: 6.1.2 HMI Requirements
+
+
+
+HMI Requirements
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.1.1.1.1 HMI & user input]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

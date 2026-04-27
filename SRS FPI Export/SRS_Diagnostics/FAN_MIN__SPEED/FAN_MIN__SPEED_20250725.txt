@@ -1,0 +1,80 @@
+# UnknownID 6.2.4.4.1.5 FAN_MIN _SPEED Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.4.1.5 FAN_MIN _SPEED
+
+- ID: 3847715
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3847716
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241014: Only check to pos response in extended session. NRC in default.
+- State (Harman_Requirement): Approved
+
+2. ID: 3847718
+- Contents: The system shall have HEX Data type with 1 Byte dimension.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+ Dimension: 1 Byte
+ Data type: HEX
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘1 Byte’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241014: length info
+- State (Harman_Requirement): Approved
+
+3. ID: 3847720
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return the details about the FAN speed (in RPM) when Temperature = Tmin.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the FAN Speed in minimum temperature Tmin.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "return, about, details, FAN, RPM, Tmin" )
+- TestTeamComment: RWeber_DIAG_241014: Not possible to validate return values in diag response.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.4.1.5 FAN_MIN _SPEED Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

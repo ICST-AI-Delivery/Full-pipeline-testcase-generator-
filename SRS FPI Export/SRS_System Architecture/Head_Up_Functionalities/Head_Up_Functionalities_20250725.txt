@@ -1,0 +1,94 @@
+# UnknownID 6.1.6.1.2 Head Up Functionalities Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.6.1.2 Head Up Functionalities
+
+- ID: 2354080
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354081
+- Contents: 6.1.6.1.2.1 The HUD (Head-Up Display) shall be considered as 3rd display.       The HUD (Head-Up Display) shall be considered as 3rd display.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+2. ID: 2354082
+- Contents: 6.1.6.1.2.2 The System shall be able to drive the HUD.       The System shall be able to drive the HUD.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+3. ID: 2354083
+- Contents: 6.1.6.1.2.3 The System should manage warping directly on the IDC side to compensate for distortions of the projected virtual image arising according to the component and assembly tolerances (nice-to-have).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the warping set by using diagnostics.
+Verify that, the images warped as per the provided configuration.
+- Grooming Status: Approved
+- Grooming Comments: Abdul, Debojyoti Pal, Arndt Roger  Schneider 29.11.2023:: Changed the responsible domain to HMI Software.
+- TestTeamComment: JHaerig 08.12.23: Better Verification criteria needed
+
+4. ID: 2354084
+- Contents: 6.1.6.1.2.4 The System shall be able also to store different calibrations related to differe...       The System shall be able also to store different calibrations related to different models and apply them according to the requirements mentioned in the "Variant Handling" chapter.
+- Artifact Type: SRS Req
+- Responsible Domain: HMI Design
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: HMI Design
+- TestTeamComment: Hsutter [2024-04-10]  Send mail to Petracs, Zoltan   -> Information in Verification Criteria is missing
+
+
+[Hsutter, 2024-01-15]
+JHaerig: 
+30.10.2023: Mail sent by Saranya, no further update received
+
+20231108_Hsutter: General requirement. Has nothing to do with SystemTest
+
+5. ID: 2354085
+- Contents: 6.1.6.1.2.5 The System shall show the following contents on HUD that includes but are not li...       The System shall show the following contents on HUD that includes but are not limited by:   Car dynamic indicators (vehicle speed, gear, VDA information, etc.)   Sign info (speed limit, etc.)   ADAS info   Navigation map (independent instance)   Hybrid information   Race-oriented application HMI (trajectory, ghost car etc.)
+- Artifact Type: SRS Req
+- Responsible Domain: HMI Design
+- Grooming Status: Blocked
+- Grooming Comments: Check with Hans whether HUD is supported.
+- Expert Domains: HMI Design
+
+6. ID: 2354086
+- Contents: 6.1.6.1.2.6 The Supplier shall share and agree with Ferrari in advance a breakdown of each p...       The Supplier shall share and agree with Ferrari in advance a breakdown of each possible functionality of the System to fit Ferrari's expectations.
+- Artifact Type: SRS Req
+- Responsible Domain: HMI Design
+- Expert Domains: HMI Design
+
+7. ID: 2354087
+- Contents: 6.1.6.1.2.7 Specification of requirements by groups that includes but is not limited by: * H...       Specification of requirements by groups that includes but is not limited by:       HMI layouts of HUD and HMI frame structure   Screens, pops-up & control elements of HUD   HMI HUD navigation   Telltales, notification center & gauges: car dynamics   Gestures and special buttons to control   Safety and not-safety elements    Layer architecture overview   Communication architecture overview     Navi view   Driving strategy indications
+- Artifact Type: SRS Req
+- Responsible Domain: HMI Design
+- Grooming Status: Blocked
+- Grooming Comments: HUD is not supported.Please clarify.
+is it really a HUD or something different feature.
+- Expert Domains: HMI Design
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.6.1.2 Head Up Functionalities Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

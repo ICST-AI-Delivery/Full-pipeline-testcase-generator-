@@ -1,0 +1,146 @@
+# PHN-14 6.2.1.14  Call Informations Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.14 PHN-14 Call Informations
+
+- ID: 3713970
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: BT, Projections, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3714259
+- Contents: The system shall have call transition state for up to two concurrent calls.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall have call transition state for up to two concurrent calls. (Incoming call, Outgoing call, Active call)
+- Grooming Status: Approved
+- Expert Domains: BT, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "call" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3714260
+- Contents: When a call is incoming and active the system shall display:
+1)The contact's name if available.
+2)else the contact number, if not hidden
+3)else the "Unknown" label
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display
+
+1)The contact's name if available.
+
+2)else the contact number, if not hidden
+
+3)else the "Unknown" label
+
+When a call is incoming and active - Secondary phone
+- Grooming Status: Approved
+- Expert Domains: BT, Projections, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is, display, number, hidden, label" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3714261
+- Contents: When a call is Incoming, System shall display the type (direction) of the call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display the type (TEXT)(direction) of the call When a call is Incoming
+- Grooming Status: Approved
+- Expert Domains: BT, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "call, System, is Incoming, display, direction" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3714262
+- Contents: When a call is Active, System shall display the duration time of the call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall always display the duration time of the call during Active call.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "call, System, is Active, display, time" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3714432
+- Contents: System shall display a set of operations available for a call management depends on call status (Incoming and Active).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall provide a set of operations (Accept, Reject or Decline, End) available for a call management depending from it's current state (Incoming and Active).
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, depends, set, available, status, Active" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4571474
+- Contents: System shall display incoming call feedback inside the contextual switch when an incoming call is triggered while a call is active.
+(see: image5.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display incoming call feedback inside the contextual switch when an incoming call is triggered while a call is active.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, incoming, triggered, is active, feedback, switch, call" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image5.png
+
+7. ID: 4571476
+- Contents: System shall show call ongoing switcher timing (hh:mm:ss), If Call is less than an hour then mm:ss shall show
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show call ongoing switcher timing as hh:mm:ss,  If the call is lasting for less then 1 hour then "hh:" value is not shown and should be visualized only
+ "mm:ss"
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Call, ss, show, ongoing, is, mm" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image5.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-14 6.2.1.14  Call Informations Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

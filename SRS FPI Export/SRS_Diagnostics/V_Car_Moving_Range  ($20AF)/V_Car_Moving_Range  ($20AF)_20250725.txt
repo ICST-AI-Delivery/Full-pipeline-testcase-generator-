@@ -1,0 +1,110 @@
+# UnknownID 6.2.4.3.2.10 V_Car_Moving_Range  ($20AF) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.10 V_Car_Moving_Range  ($20AF)
+
+- ID: 3970174
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- Grooming Comments: As per MTA it is not applicable for current programe. Need to ceck with ferrari.
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3970175
+- Contents: The System shall have a Speed threshold range 0-250 default-100 for VF163 and Express in hm/h.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Speed threshold range 0-250 default 100 and Expressed in hm/h.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, range, Express, hm/h" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the speed threshold so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3970176
+- Contents: The System shall have RecordDataIdentifier ($20AF) to know the Car moving range.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20AF)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the speed threshold so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3970177
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the speed threshold so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3970178
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Data in Table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the speed threshold so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3970180
+- Contents: Whenever the (36)-V_CAR_MOVING_RANGE trigger, the Car moving range shall equal to 10Km/h
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the signal (36) V_CAR_MOVING_RANGE and speed 10 Km/h.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘10 Km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the speed threshold so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.10 V_Car_Moving_Range  ($20AF) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

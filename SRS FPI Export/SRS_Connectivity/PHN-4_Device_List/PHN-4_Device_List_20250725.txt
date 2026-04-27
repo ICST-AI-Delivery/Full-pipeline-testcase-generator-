@@ -1,0 +1,139 @@
+# PHN-4 6.2.1.4  Device List Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4 PHN-4 Device List
+
+- ID: 3407127
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag, Projections, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3430796
+- Contents: IDC shall show the BT paired device information (Device name) in the device list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC displays the BT device information in the device list.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4566958
+- Contents: System shall display "MY DEVICES" on repetition area,  when a CarPlay/AndroidAuto device connected, accessing to list of device already paired through a long press on the physical button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display "MY DEVICES" on repetition area, when a CarPlay/AndroidAuto device connected, accessing to list of device already paired through a long press on the physical button.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, connected, accessing, paired, DEVICES, area, CarPlay, device, list, already, press, button" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3430797
+- Contents: Device list shall include phones paired via BT and devices connected as projection.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the device list has phone paired via BT and the devices connected as projection.
+- Grooming Status: Approved
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Device list, devices, include, paired, connected, phones, BT, projection" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+4. ID: 3430795
+- Contents: System shall allow user to pair number of devices is <= DevicesListMaxCount items.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to pair less than or equal to DevicesListMaxCount items.
+
+Default count is 8
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+5. ID: 3430858
+- Contents: IDC shall show a popup to delete an already paired device when the device list reaches DeviceListMaxCount value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify shall show a popup to delete an already paired device when the device list reaches the max count 8.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "list, show, to delete, paired, reaches, popup, already, device, value" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: When user tries to add device when the device list reaches the DeviceListMaxCount value, then IDC shall show popup.
+
+6. ID: 4544202
+- Contents: System shall make an available interface to connect/remove the device, for each item of the device list
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall make an available interface to connect/remove the device, for each item of the device list
+- Grooming Status: Approved
+- Expert Domains: Projections
+- State (Harman_Requirement): Approved
+
+7. ID: 3481572
+- Contents: IDC shall store the previously paired device details in Persistency
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+- Verification Criteria: Verify that the system stores the previously paired details.
+- Grooming Status: Approved
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4544046
+- Contents: (see: image2.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image2.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image2.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-4 6.2.1.4  Device List Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,78 @@
+# UnknownID 6.2.1.1.56 NVO Node Absent (0xD704, 0x87)-Steering wheel node Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.56 NVO Node Absent (0xD704, 0x87)-Steering wheel node
+
+- ID: 3841757
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3841759
+- Contents: The system shall detect NVO Node Absent fault upon ignored by STATUS_NVO or NVO_INFO_V2 message at the instant.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NVO Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: STATUS_NVO or NVO_INFO_V2 message not received
+    Maturation Time: Immediate
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, ignored, fault, instant" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NVO does not send a scheduled message
+Vehicle Configuration: Proxi byte 26, bit 4 (NVO) == "Present"
+Fault Detection Conditions: Key-On
+
+2. ID: 3841760
+- Contents: The system shall make the NVO Node Absent Fault inactive upon receiving STATUS_NVO and NVO_INFO_V2 messages with De-maturation time "1"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NVO Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: STATUS_NVO and NVO_INFO_V2 messages received
+    De-Maturation Time: 1s
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, messages, make, receiving, STATUS, time" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Symptom Description: NVO does not send a scheduled message
+Vehicle Configuration: Proxi byte 26, bit 4 (NVO) == "Present"
+Fault Detection Conditions: Key-On
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.56 NVO Node Absent (0xD704, 0x87)-Steering wheel node Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

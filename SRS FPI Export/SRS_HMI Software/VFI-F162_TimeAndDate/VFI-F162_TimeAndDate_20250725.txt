@@ -1,0 +1,253 @@
+# VFI-F162 6.2.2.8  TimeAndDate Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.8 VFI-F162 TimeAndDate
+
+- ID: 3408222
+- Artifact Type: SRS Feature
+- Responsible Domain: Security
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Cluster SW, IOC_IOC, NavSens, System Infra
+- HB_Comment: 0502
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3497854
+- Contents: The System shall display the time retrieved from the RTC.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: IDC shall display the official time received from RTC
+- Grooming Status: Approved
+- Expert Domains: Security
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3851641
+- Contents: IDC shall update Time & Date via the CAN messages.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Time and date shall display via Rx messages followed by below mentioned messages TIME_E_DATE & TIME_E_DATE_2 
+(additional info about seconds shall display in TIME_E_DATE_2, not present in TIME_E_DATE message).
+- Grooming Status: Approved
+- Expert Domains: Security
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4692514
+- Contents: System shall include an internal Real-Time Clock providing the highest reliability and lowest power consumption.
+- Artifact Type: SRS Req
+- Responsible Domain: Security
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to provide the clock time with highest reliability and lower consumption.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, include, providing, reliability, consumption" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4692804
+- Contents: System shall provide Time and Date, via RTC, when GPS signal unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Security
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to provide time and date via RTC when GPS unavailable
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag, IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, Time, Date, signal unavailable" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4692812
+- Contents: System shall retrieve and synchronize time and date according to GPS signal available.
+- Artifact Type: SRS Req
+- Responsible Domain: Security
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the synchronization of time and date when GPS available
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrive, synchronize, according, signal, time, date" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3619883
+- Contents: System shall display Time and Date for KL (+30) the Key-Off event and within KL (+15) the Key-On event received.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify, System shall display time and date for KL(+30) after Key-off and system shall display time and date within KL(+15) after key on .
+
+
+Info: 
+KL30 is under battery voltage
+
+KL15 there is the battery voltage but also the key status is on ( physical key by wire:+15)
+- Grooming Status: Approved
+- Grooming Comments: Clarification from customer: 
+KL30 is under battery voltage
+KL15 there is the battery voltage but also the key status is on ( physical key by wire:+15)
+https://jira.harman.com/jira/browse/FQ-458
+
+Query: During the Key-on scenario displaying the time and date within 15sec? Need clarification by Ferrari.
+- Expert Domains: IOC_IOC, Security, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, received, Time, Date, 30s, event" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3497861
+- Contents: The system shall display the time and Date as per the time zone, and Day light saving in summers and winters.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall display time according to time zone, day light savings during summers and winters.
+- Grooming Comments: Need to get more information regarding the Responsible and Expert domains.
+[11.02.2025 JGrosshans]
+The secure time that comes from the S4 provides the UTC time. The adjustment to summer/winter time, display saving time, adjustment to time zones should come from upper application layers. 
+According to this Ticket: https://jira.harman.com/jira/browse/FQ-411
+And the information I have from Azamat System infra should be the right domain
+- Expert Domains: Security
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, saving, time, Date, zone, light, summers, winters" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3497902
+- Contents: The system shall display Time in HH : MM: SS format.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall display Time as mentioned format HH: MM: SS
+- Grooming Status: Approved
+- Expert Domains: Security
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3497905
+- Contents: The system shall display date DD / MM / YYYY format.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall display date DD / MM / YYYY format
+- Grooming Status: Approved
+- Expert Domains: Security
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 3497914
+- Contents: The system shall display time format 12h AM/PM or 24h depends on user selection.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to select 24hrs/12hrs time format through HMI
+
+HMI-CAN:
+NIT_VEHICLE_SETUP.HourMode
+
+12h AM/PM Format:
+00:00 <= Current time < 01:00 -> Current time + 12h + "AM"
+01:00 <= Current time < 12:00 -> Current time + "AM"
+12:00 <= Current time < 13:00 -> Current time + "PM"
+13:00 <= Current time <=23:59 -> Current time -12h + "PM"
+
+24h Format: Current time
+- Grooming Status: Approved
+- Expert Domains: Security
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, depends, format, selection" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3497935
+- Contents: System shall display current time in analog clock on central display
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display current time in analog clock on central display
+- Grooming Status: Approved
+- Grooming Comments: [Current time] Added in PI6
+
+[Devi Chandra: 02-Aug-2024]:
+Query: 
+How is External Temperature is related to TIME and DATE feature?
+Ans:
+This is a typo --> in the next version of spec we will update and correct. 
+
+What will be the criteria to the ICE warning what is the lowest temperature?
+Need more information from the customer.
+- Expert Domains: Security, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+12. ID: 4539944
+- Contents: System shall update current time measurement when system time format updated.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall update current time measurement (24Hrs/12Hrs AM/PM) when system time format updated.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, format, update, is update, measurement" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3619771
+- Contents: GPS time information shall be provided to RTC from 9 GPS satellites.
+- Artifact Type: Information
+- Responsible Domain: Security
+- Test Stage: Guaranteed by Design, System Qualification Test
+- Verification Criteria: Verify system time should be updated when time available from the GPS with 9 satellites in view and also pass the secure time algorithm criteria.
+
+Can be verified with (SOC)Trace logs - Exact trace log will be provided at the end of the development. 
+
+Can be test from Vehicle.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, NavSens
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘9’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be provided" )
+- TestTeamComment: [Devi Chandra 05-Aug-2024]:
+Comment by Suma J: We have idea to validate ,when we have >=9 Satellites are available.
+
+But ,what if lessthan9 satellites are available(i.e from 1 to 8),how do we check, we will be blocked from Validation Perspective, as of now we cannot approve it.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F162 6.2.2.8  TimeAndDate Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

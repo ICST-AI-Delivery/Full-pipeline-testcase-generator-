@@ -1,0 +1,138 @@
+# UnknownID 6.2.3.5.1.4 Popup Cascade Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.5.1.4 Popup Cascade
+
+- ID: 3792984
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3792985
+- Contents: System shall manage which specific ADAS settings shall be switch from active to inactive based on the selection of ADAS preset ALL OFF or custom.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the specific ADAS settings shall be switch from active to inactive based on the selection of ADAS preset "All OFF" or custom.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall manage, shall be" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3792986
+- Contents: IDC shall not perform the popup cascade If no "ADAS Ferrari" activation setting is requested to be deactivated by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up If no "ADAS Ferrari" activation setting is requested to be deactivated by the user.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not, no" ) 
+Passive voice
+ (Look for: "is requested, be deactivated" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3792987
+- Contents: System shall perform the popup cascade through HMI if at least one ADAS Ferrari activation setting is request to deactivate.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up if at least one ADAS Ferrari activation setting is requested to deactivate.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is request" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3792988
+- Contents: IDC shall terminate the Pop-up cascade If all ADAS deactivations are confirmed by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the termination pop up If all ADAS deactivations are confirmed by the user.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "all" ) 
+Passive voice
+ (Look for: "are confirmed" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3792989
+- Contents: System shall abort the cascade If speed lock out condition is detected during popup cascade.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the abort condition if speed lock out condition is detected.
+
+enable the speed limit settings
+for ref. set-49
+- Grooming Status: Approved
+- Grooming Comments: when user select preset off do, we need to show the individual pop up for all secondary items (TSA/LKA/DDA/DMS) one by one.
+
+Raised Jira ticket
+https://jira.harman.com/jira/browse/FQ-507
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is detected" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3792991
+- Contents: System shall restore the previous ADAS Preset If Popup cascade is aborted.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the previous restore ADAS preset If Popup cascade is aborted.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is aborted" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3981154
+- Contents: (see: image56.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image56.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image56.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.5.1.4 Popup Cascade Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

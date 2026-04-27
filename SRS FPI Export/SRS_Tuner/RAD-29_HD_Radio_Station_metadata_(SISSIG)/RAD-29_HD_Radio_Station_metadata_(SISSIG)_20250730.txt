@@ -1,0 +1,108 @@
+# RAD-29 6.2.1.1.30  HD Radio Station metadata (SIS/SIG) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.30 RAD-29 HD Radio Station metadata (SIS/SIG)
+
+- ID: 4083964
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4084197
+- Contents: System shall retrieve the SIG (Station Information Guide) and the SIS (Station Information Service) data about Now tuned-in station.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display data from retrived info from the SIG (Station Information Guide) and the SIS (Station Information Service) data about the currently tuned-in station.
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, about, tuned, Guide, data, station" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4084199
+- Contents: System shall display Radio station name when station name is available, frequency value will replace the name when station name is unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall display Radio station name if available, if not available, frequency value will replace the name
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, name, display, is available, will replace, is unavailable, value" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4084200
+- Contents: System shall prioritize and display SIS/SIG in place of RDS name and RDS text, when both RDS title/RDS text and SIS/SIG are available
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall prioritize and display SIS/SIG in place of RDS name and RDS text, when both RDS title/RDS text and SIS/SIG are available
+
+Refer: 3981269 SRS ID for RDS Text
+4084199, 3976151 SRS ID for RDS Name
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, prioritize, display, are available, SIS, SIG, name, text" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4084225
+- Contents: System shall applicable HD Radio Station metadata (SIS/SIG) feature for AM HD, FM HD Radio
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HD Radio Station metadata (SIS/SIG) is applicable for AM HD, FM HD Radio
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4084198
+- Contents: [Info]This function provides to the user information regarding current HD Radio Station
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4084224
+- Contents: (see: image12.png)
+- Artifact Type: Information
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): New
+- Visual Elements: image12.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image12.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-29 6.2.1.1.30  HD Radio Station metadata (SIS/SIG) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

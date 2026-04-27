@@ -1,0 +1,199 @@
+# RAD-7 6.2.1.1.8  Frequency selection Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.8 RAD-7 Frequency selection
+
+- ID: 3407906
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3539478
+- Contents: System shall display Analogic player screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display analog player screen when taping on frequency selection.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refern to 
+HMI-LF-7829 for Analogic Player screen
+
+2. ID: 3557183
+- Contents: System shall allow user to short press a frequency value on the scrollable frequency bar to tune to the selected frequency.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display either AM or FM scrollable frequency depends on active source and system shall gray out scrollable tuner of the inactive source.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall gray out" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4094005
+- Contents: System shall allow user to activate grayed-out frequency by short pressing on the greyout-out frequency tuner.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall allow user to activate grayed-out frequency by short pressing (Screen/Display touch) on the greyout-out frequency tuner.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4094013
+- Contents: System shall allow user to tune the radio by moving red line on the scrollable frequency scale.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall allow user to tune the radio by moving red line on the scrollable frequency scale.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Obsolete
+
+5. ID: 4094016
+- Contents: System shall update the frequency in real time as the user moves the red line on the tuner without requiring the user to release their finger to confirm the change.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall update the frequency in real time as the user moves the red line on the tuner without requiring the user to release their finger to confirm the change.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+6. ID: 3557185
+- Contents: System shall display player screen when the user drop down from scroll down screen area then the "Analogic player screen" shall close.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall close analogic player screen if the user drop down from the close down screen and player screen shall display.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, drop, close, screen, down" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: (RAD12)- Scroll down Screen
+
+7. ID: 3539531
+- Contents: IDC shall display Analogic player screen with the frequency ranges of radio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall display Analogic player screen with the frequency ranges of radio sources.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3539534
+- Contents: IDC shall display AM and FM frequency ranges based on country configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display AM and FM frequencies based on the countries.
+- Grooming Status: Approved
+- Grooming Comments: [Devi Chandra- 08-Jul-2024] Proxi architectural discussion is in Progress (Azmat, Shiva)
+- Expert Domains: AM_FM_HD, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, based, ranges, country" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer AD-04 document
+
+9. ID: 3539560
+- Contents: System shall tune to the frequency which is manualy selected by the user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to select the frequency by user and selected frequency shall tune.
+
+Note: Frequency selection by scrolling left or right in the frequency station list.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Selected frequency shall tune even if it doesn't match a strong station.
+
+10. ID: 3539572
+- Contents: System shall apply a resolution for frequency adjustment that is depends on the country and radio source.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall apply a resolution(Lower and upper limiit) for frequency adjustment that is based on the country and radio source.
+- Grooming Status: Approved
+- Grooming Comments: 9/3 : Ferrari Feedback : it means that the range of frequency can change based on the country (and there is also the dedicated resolution for some different countries) --> you can see the details in this file present in our package od spec: Ferrari_CountryCoding_and_Broadcasts_vXX
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, is depends, resolution, adjustment, country, source" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Frequency range interface : according to the logic defined in ICM-3)
+
+Country and radio source: Refer AD-04 document
+
+11. ID: 4094123
+- Contents: System shall tune on the nearest strong station available to the selected frequency once the scroll gesture has ended.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall tune on the nearest strong station available to the selected frequency once the scroll gesture has ended.
+- Grooming Status: Approved
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Tune, end, frequency, gesture" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3716134
+- Contents: System shall allow frequency selection for AM,FM, AM HD, FM HD, DAB+
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify System shall allow frequency selection for AM, FM, AM HD, FM HD, DAB+
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3583669
+- Contents: This function allows the user to manually select the frequency to tune in
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-7 6.2.1.1.8  Frequency selection Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

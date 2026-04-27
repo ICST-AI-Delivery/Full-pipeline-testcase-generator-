@@ -1,0 +1,89 @@
+# DMS-14 6.2.1.15.1 : Debug Info during development phase Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.15.1 DMS-14: Debug Info during development phase
+
+- ID: 4887250
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4641295
+- Contents: The system shall provide the DMS Debug information only during development phase.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS debug information on CAN is available only during the development phase
+Debug Information:
+MSG_DMS_EyePositionL
+MSG_DMS_EyePositionR
+MSG_DMS_GazeDirection
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+MSG_DMS_DebugInfo.SG_DMS_HeadTrackQuality
+MSG_DMS_DebugInfo.SG_DMS_EyeClosedQuality
+MSG_DMS_DebugInfo.SG_DMS_EyeGazeQuality
+MSG_DMS_DebugInfo.SG_DMS_AttWrnCount
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3762486
+- Contents: Network interfaces
+Outputs
+Oe_enu_HMIAttWrn
+Oa_Ien_3EyePositionL
+Oa_Ien_3EyePositionR
+Oa_Ien_3GazeDirection
+Oe_enu_DebugStsDMS
+Oe_pct_HeadTrackQuality
+Oe_pct_EyeClosedQuality
+Oe_pct_EyeGazeQuality
+Oe_t_AttWrnCount
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3762487
+- Contents: Internal interfaces
+Outputs
+Oe_enu_HMIAttWrn
+Oa_Ien_3EyePositionL
+Oa_Ien_3EyePositionR
+Oa_Ien_3GazeDirection
+Oe_enu_DebugStsDMS
+Oe_pct_HeadTrackQuality
+Oe_pct_EyeClosedQuality
+Oe_pct_EyeGazeQuality
+Oe_t_AttWrnCount
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-14 6.2.1.15.1 : Debug Info during development phase Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

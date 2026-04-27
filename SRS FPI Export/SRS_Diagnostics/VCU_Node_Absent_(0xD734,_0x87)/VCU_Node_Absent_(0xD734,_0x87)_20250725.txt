@@ -1,0 +1,96 @@
+# UnknownID 6.2.1.1.66 VCU Node Absent (0xD734, 0x87) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.66 VCU Node Absent (0xD734, 0x87)
+
+- ID: 3875903
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3875904
+- Contents: IF the System doesn't send a scheduled message, the System shall immediately detect VCU Node Absent fault when the Key-ON.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the Error in the cameras intrinsics parameters.
+-Set the Proxi byte 30, bit 5 (VCU) == "Present"
+-The VCU Node Absent fault should be identified immediately.
+-aLL of the periodic messages expected from the ECU is missing from CAN or has the wrong DLC: 
+
+PWT_STATUS_1 AND
+
+PWT_STATUS_2 AND
+
+BMS_LVB1 AND
+
+MOT1 AND
+
+STATUS_C_NCM AND 
+
+PWT_STATUS_3 AND
+
+PWT_STATUS_6 AND
+
+XEV_STS_HMI AND
+
+VCU_COOLING_INFO AND
+
+VCU_COOLING_PWT AND
+
+NCR_INFO AND
+
+STATUS_C_NCA_NCR AND
+
+GEAR_INFO
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "immediately" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+2. ID: 3875905
+- Contents: The system shall de-validate or clear the VCU Node Absent fault upon receiving the relative messages.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Send PWT_STATUS_1 or PWT_STATUS_2 or BMS_LVB1 or MOT1
+or STATUS_C_NCM or PWT_STATUS_3 or PWT_STATUS_6 or XEV_STS_HMI or VCU_COOLING or NCR_INFO
+or STATUS_C_NCA or GEAR_INFO messages.
+Timeout:2500ms
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, de, validate, clear, receiving, fault, messages" )
+- TestTeamComment: RWeber_DIAG_241025: IMHO "immediately" isn't correct. For this we need also a de-maturation time, otherwise we will get maybe some error state toggling (pass/fail)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.66 VCU Node Absent (0xD734, 0x87) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

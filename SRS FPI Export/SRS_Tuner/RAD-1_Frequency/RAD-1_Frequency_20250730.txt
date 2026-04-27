@@ -1,0 +1,214 @@
+# RAD-1 6.2.1.1.2  Frequency Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2 RAD-1 Frequency
+
+- ID: 3407902
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3534841
+- Contents: IDC shall allow the user to redirect to Analog Player Screen when pressing on "Radio Station frequency".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall display the analog player screen when user press on  radio Station frequency.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to redirect, pressing, Screen, frequency" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3536012
+- Contents: If Radio Station frequency is shown, pressing again on "Radio Station frequency" the user shall redirect to Player Screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify when system is in radio station frequency then again pressing of radio station frequency shall display the player screen
+- Grooming Status: Review
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, frequency, is, display, press, screen" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4572428
+- Contents: System shall show the range of visible values on the frequency scale starts from 500KHz to 1710 KHz for all markets for AM source.
+(see: image1.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show the range of visible values on the frequency scale starts from 500KHz to 1710 KHz for all markets for AM source.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image1.png
+
+4. ID: 4572467
+- Contents: System shall show the range of visible values on the frequency scale starts from 87MHZ to 108 MHZ for FM source for all markets, expect Japan market.
+(see: image2.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show the range of visible values on the frequency scale starts from 87MHZ to 108 MHZ for FM sources for all the markets, expect Japan market
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘87 MHZ’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image2.png
+
+5. ID: 4572547
+- Contents: System shall show the range of visible values on the frequency scale starts from 76MHz to 90Mhz for FM_Japan Market.
+(see: image3.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show the range of visible values on the frequency scale starts from 76MHz to 90Mhz for FM_Japan Market.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘76 MHz Mhz’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image3.png
+
+6. ID: 3535966
+- Contents: IDC shall display the frequency of the current radio station in playback.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall display frequency of the current radio station in playback
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3535976
+- Contents: System shall display frequency minimum and maximum tunable range limits depends on the country and radio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall display minimum and maximum frequency tunable range limits depends on the country and radio band
+- Grooming Status: Approved
+- Grooming Comments: Based on Tuner team input Country and radio bands will be listed. - Refer Ferrari country coding sheet- Radio broadcast
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, depends, country, sources" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to AD-04 document for Country and Radio Bands - Refer Radio Broadcast -Range
+
+8. ID: 3535997
+- Contents: IDC shall apply different resolution (step) variation for skip step based on the country and radio band
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Not ready for external grooming.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, apply, based, according, resolution, variation, step, country, band" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer to AD-04 document for Country and Radio Bands
+
+9. ID: 3536000
+- Contents: System shall display station frequency with the unit of measurement depends on the radio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall display station frequency in Now playing screen (Meta data) with the proper unit of measurement according to the radio band
+
+FM: MHz
+AM: kHz
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer to AD-04 document for Country and Radio Bands
+
+10. ID: 3536004
+- Contents: System shall display visualization logic, when the frequency can't evaluate or the antenna detached
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: When Antenna Disconnected, Corresponding Error message has to be shown on HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Devi Chandra]
+Not Ready for external grooming- Not Offered state.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, evaluate, detached, logic" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: visualization logic as prescribed in HMI Specification
+
+11. ID: 3593334
+- Contents: System shall allow user to access AM, FM, FM HD, AM HD Radio frequencies through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall allow user to access AM, FM, FM HD, AM HD Radio frequencies through HMI.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3583029
+- Contents: This function allows User to see frequency for the station chosen by the user
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image2.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image1.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image3.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-1 6.2.1.1.2  Frequency Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

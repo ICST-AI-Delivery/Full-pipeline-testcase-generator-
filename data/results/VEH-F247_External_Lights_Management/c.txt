@@ -1,0 +1,134 @@
+# VEH-F247_External_Lights_Management - ALL IMAGES INFORMATION CONSOLIDATED
+
+=== IMAGE 119 - AHB_CONFIGURATION_MATRIX ===
+Content: Configuration table showing Automatic High Beam (AHB) lighting control logic with conditional proxy settings
+Visual Elements:
+- Text shown: "If proxi (byte 146, bit 4) Automatic High Beam absent/present == 'Present'"
+- Color: Standard black text on white background
+- Shape: Rectangular table structure with 9 rows × 7 columns
+- Size: Approximately 1166x311 pixels
+- Signal names: "RearFogSts", "HighBeamSts", "LowBeamSts"
+- Technical values: "LGH005", "LGH006", "LGH007", "LGH008", "LGH009", "LGH011", "LGH0018", "LGH022"
+- Boolean states: "ON", "OFF", "n.a"
+- Header categories: "Signals", "DAY", "NIGHT" with sub-headers "Auto(Day)", "Manual(Day)", "Auto(Night)", "Manual(Night)"
+
+=== IMAGE 120 - LIGHTING_CONTROL_STATE_MATRIX ===
+Content: Multi-condition logic table showing lighting control combinations for Day/Night scenarios with Auto/Manual modes
+Visual Elements:
+- Text shown: "RearFogSts", "HighBeamSts", "LowBeamSts", "DAY", "NIGHT", "Auto(Day)", "Manual(Day)", "Auto(Night)", "Manual(Night)"
+- Color: Standard black text on white background - RGB approximately (0, 0, 0) on (255, 255, 255)
+- Shape: Rectangular table structure with multi-level headers
+- Size: Approximately 1165x468 pixels
+- Signal combinations: "(LGH007)+(LGH008)+(LGH005)", "(LGH008)+(LGH005)", "(LGH007)+(LGH008)", "(LGH007)+(LGH022)", "(LGH008)", "(LGH022)", "(LGH006)", "(LGH011)"
+- Boolean logic: "ON/OFF" combinations across 8 different lighting scenarios
+- Layout: 9 rows including 2-level headers, 7 columns with nested structure
+
+=== IMAGE 121 - HEADLIGHT_DISPLAY_CONFIGURATION ===
+Content: Configuration table showing headlight control matrix for Day/Night scenarios with Use Case definitions
+Visual Elements:
+- Text shown: "Signals", "Use Case 1 Display", "Use Case 1 Virtual Telltale", "Use Case 4 Display"
+- Color: Standard black text on white background
+- Shape: Rectangular table with 10 rows × 4 columns including multi-level headers
+- Size: Approximately 1200x800 pixels
+- Display states: "Manual LB", "Manual LB + HB", "Manual LB + Hb", "Not possible (only flash)", "Not possible (only flashing)", "Auto DRL", "Auto LB", "Auto LB + HB", "Manual DRL", "NO"
+- Telltale values: Consistently "NO" across all entries
+- Scenario divisions: "DAY" and "NIGHT" sections with 4 signal combinations each
+
+=== IMAGE 122 - AUTO_SYSTEM_WARNING_TELLTALE ===
+Content: Dashboard warning light icon for automatic system alert
+Visual Elements:
+- Color: Bright yellow/amber - RGB approximately (255, 191, 0)
+- Shape: Circular element containing letter "A" + three horizontal parallel lines + exclamation mark "!"
+- Size: Standard automotive telltale icon dimensions
+- Layout: Left to right arrangement - Circle with "A" → Motion lines → Warning "!"
+- Background: Black for high contrast visibility
+- Style: Clean, simplified automotive dashboard iconography
+- Technical meaning: Automatic system malfunction or alert indicator
+
+=== CONSOLIDATED VISUAL DATA SUMMARY ===
+
+COLORS IDENTIFIED:
+- Black: Text content, table borders, warning icon background (RGB: 0, 0, 0)
+- White: Table backgrounds, cell backgrounds (RGB: 255, 255, 255)
+- Yellow/Amber: Warning telltale icon color (RGB approximately: 255, 191, 0)
+
+TEXT ELEMENTS EXTRACTED:
+- Headers: "Signals", "DAY", "NIGHT", "Use Case 1 Display", "Use Case 1 Virtual Telltale", "Use Case 4 Display"
+- Sub-headers: "Auto(Day)", "Manual(Day)", "Auto(Night)", "Manual(Night)", "RearFogSts", "HighBeamSts", "LowBeamSts"
+- Signal Names: "LGH005", "LGH006", "LGH007", "LGH008", "LGH009", "LGH011", "LGH0018", "LGH022"
+- States: "ON", "OFF", "n.a", "NO", "YES"
+- Display Outputs: "Manual LB", "Manual LB + HB", "Manual LB + Hb", "Auto DRL", "Auto LB", "Auto LB + HB", "Manual DRL", "Not possible (only flash)", "Not possible (only flashing)"
+- Warning Icon: "A", "!"
+
+SHAPES AND LAYOUTS:
+- Rectangular Tables: Multi-level header structures with nested column organization
+- Circular Icon: Contains letter "A" for automatic system identification
+- Horizontal Lines: Three parallel lines indicating motion or system activity
+- Exclamation Mark: Warning symbol for system alerts
+- Grid Structure: Consistent table formatting across all configuration matrices
+
+TECHNICAL SPECIFICATIONS:
+- Image Dimensions: 1166x311px (Image 119), 1165x468px (Image 120), 1200x800px (Image 121)
+- Proxy Condition: "byte 146, bit 4" for AHB feature availability
+- CAN Signal Format: LGH### identifiers with addition operators "+"
+- Boolean Logic: ON/OFF state combinations determining output behaviors
+- State Matrix: 8 different input combinations across all scenarios
+
+TABLES EXTRACTED:
+
+- **IMAGE 119 - AHB_CONFIGURATION_TABLE**:
+  | RearFogSts | HighBeamSts | LowBeamSts | Auto(Day) | Manual(Day) | Auto(Night) | Manual(Night) |
+  |------------|-------------|------------|-----------|-------------|-------------|---------------|
+  | ON | ON | ON | n.a | (LGH007)+(LGH008)+(LGH005) | n.a | (LGH007)+(LGH008)+(LGH005) |
+  | ON | ON | OFF | n.a | n.a | n.a | n.a |
+  | ON | OFF | ON | n.a | (LGH008)+(LGH005) | n.a | (LGH008)+(LGH005) |
+  | ON | OFF | OFF | n.a | n.a | n.a | n.a |
+  | OFF | ON | ON | n.a | (LGH007)+(LGH008) | (LGH009)+(LGH011) | n.a |
+  | OFF | ON | OFF | (LGH007)+(LGH022) | n.a | n.a | (LGH007)+(LGH006) |
+  | OFF | OFF | ON | n.a | (LGH008) | (LGH022)+(LGH011) | n.a |
+  | OFF | OFF | OFF | (LGH0018)+(LGH022) | n.a | n.a | (LGH006) |
+
+  Configuration matrix for Automatic High Beam feature when proxy setting indicates "Present"
+
+- **IMAGE 120 - LIGHTING_CONTROL_STATE_MATRIX**:
+  | RearFogSts | HighBeamSts | LowBeamSts | Auto(Day) | Manual(Day) | Auto(Night) | Manual(Night) |
+  |------------|-------------|------------|-----------|-------------|-------------|---------------|
+  | ON | ON | ON | n.a | (LGH007)+(LGH008)+(LGH005) | n.a | (LGH007)+(LGH008)+(LGH005) |
+  | ON | ON | OFF | n.a | n.a | n.a | n.a |
+  | ON | OFF | ON | n.a | (LGH008)+(LGH005) | n.a | (LGH008)+(LGH005) |
+  | ON | OFF | OFF | n.a | n.a | n.a | n.a |
+  | OFF | ON | ON | n.a | (LGH007)+(LGH008) | (LGH007)+(LGH011) | n.a |
+  | OFF | ON | OFF | (LGH007)+(LGH022) | n.a | n.a | (LGH007)+(LGH006) |
+  | OFF | OFF | ON | n.a | (LGH008) | (LGH011) | n.a |
+  | OFF | OFF | OFF | (LGH022) | n.a | n.a | (LGH006) |
+
+  Extended lighting control matrix with slight variations in Auto(Night) column
+
+- **IMAGE 121 - HEADLIGHT_DISPLAY_MATRIX**:
+  | Signal_Combination | Use Case 1 Display | Use Case 1 Virtual Telltale | Use Case 4 Display |
+  |-------------------|-------------------|---------------------------|-------------------|
+  | **DAY SCENARIO** |
+  | HighBeamSts=ON, LowBeamSts=ON | Manual LB + HB | NO | Manual LB + Hb |
+  | HighBeamSts=ON, LowBeamSts=OFF | Not possible (only flash) | NO | Not possible (only flash) |
+  | HighBeamSts=OFF, LowBeamSts=ON | Manual LB | NO | Manual LB |
+  | HighBeamSts=OFF, LowBeamSts=OFF | NO | NO | Auto DRL |
+  | **NIGHT SCENARIO** |
+  | HighBeamSts=ON, LowBeamSts=ON | Manual LB + HB | NO | Auto LB + HB |
+  | HighBeamSts=ON, LowBeamSts=OFF | Not possible (only flashing) | NO | Only for flashing |
+  | HighBeamSts=OFF, LowBeamSts=ON | Not possible | NO | Auto LB |
+  | HighBeamSts=OFF, LowBeamSts=OFF | Manual DRL | NO | NO |
+
+  Display output matrix for different Use Cases across Day/Night scenarios
+
+CROSS-TABLE RELATIONSHIPS:
+- Signal Consistency: LGH007, LGH008, LGH005, LGH006 appear consistently across Images 119 and 120
+- State Logic: Same 8 input combinations (RearFog/HighBeam/LowBeam) used across all configuration tables  
+- Mode Dependencies: Day/Night and Auto/Manual modes create 4-way logic matrix in Images 119 and 120
+- Display Mapping: Image 121 translates signal combinations into user-visible display states
+- Warning Integration: Image 122 provides visual feedback for automatic system status
+
+DIMENSIONS AND QUALITY:
+- Size consistency: All tables maintain readable text size with clear cell boundaries
+- Quality assessment: High text clarity across all images with excellent OCR readability
+- Readability: All technical values, signal names, and boolean states clearly visible
+- Format consistency: Standardized table structure with multi-level headers maintained across images

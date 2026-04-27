@@ -1,0 +1,170 @@
+# VFI-F866 6.2.2.16  Statistics Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.16 VFI-F866 Statistics
+
+- ID: 4136848
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: 27
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4156574
+- Contents: IDC shall provide Overall statistics indications with the values:
+Average % brake
+Average throttle
+Average yaw angle
+External Temp Max
+External Temp Min
+% of Km for each gear status respect to the total trip Km - 1st gear
+% of Km for each gear status respect to the total trip Km - 2nd gear
+% of Km for each gear status respect to the total trip Km - 3rd gear
+% of Km for each gear status respect to the total trip Km - 4th gear
+G meter Absolut Max
+G meter average values
+User G meter temporary Max
+Maximum % brake
+Maximum yaw angle
+Maximum steering wheel angle
+Maximum throttle
+Travel Distance
+Total Average Power
+Total Average Speed
+Total Efficiency
+Total % E-manettino positions - RANGE
+Total % E-manettino positions - STANDARD
+Total % E-manettino positions - PERFO
+Total Energy Regen
+Total energy used
+Total % V-manettino positions used - ICE
+Total % V-manettino positions used - WET
+Total % V-manettino positions used - COMFORT
+Total % V-manettino positions used -SPORT
+Total % V-manettino positions used - ESC-OFF
+Total Maximum Speed
+Total time
+Travel Average Power
+Travel time
+Travel Maximum speed
+Travel % V-manettino positions used - ICE
+Travel % V-manettino positions used - WET
+Travel % V-manettino positions used - COMFORT
+Travel % V-manettino positions used - SPORT
+Travel % V-manettino positions used - ESC-OFF
+Travel Energy Used
+Travel Energy Regen
+Travel % E-manettino positions used - RANGE
+Travel % E-manettino positions used - STANDARD
+Travel % E-manettino positions used - PERFO
+Travel Efficiency
+Travel Average Speed
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able provide overall statics indications with the values.
+- Grooming Status: Review
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4156623
+- Contents: IDC shall provide indications for Profile statistics:
+Total User Average Speed
+Total User % V-manettino - ICE
+Total User % V-manettino - WET
+Total User % V-manettino - COMFORT
+Total User % V-manettino - SPORT
+Total User % V-manettino - ESC-OFF
+Total User time
+Last Travel user Distance
+AverageConsumption (Profiled)
+Max Lateral acceleration right
+Max Lateral acceleration left
+Max longitudinal acceleration forward
+Max longitudinal acceleration backward
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to provide indications for profile statics.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4730543
+- Contents: System shall hide the Profiled statistics visualization when proxi profile == 1("present") AND ActiveProfile = 0("Guest_Profile").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system able to hide the statics when 
+proxi profile == 1("present") AND ActiveProfile = 0("Guest_Profile").
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, hide, Profiled, proxi, visualization, profile, ActiveProfile" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4730544
+- Contents: System shall always provide the driver Statistics indication when proxi profile == 0("absent").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the driver statics induction when proxi profile == 0("absent").
+
+it wont show guest profile also
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4156634
+- Contents: (see: image38.png)
+(see: image39.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image38.png, image39.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image39.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image38.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F866 6.2.2.16  Statistics Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,99 @@
+# RAD-22 6.2.1.1.23  DAB MOT SLS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.23 RAD-22 DAB MOT SLS
+
+- ID: 3939621
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3979456
+- Contents: System shall present image in turn, new slide replacing the one already on the screen. Each slide shall appears on the display.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall display the slides on the IDC, system shall support JPEG and PNG images.
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall present, shall shall" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: JPEGs and PNGs may be formed by compositing graphics, photographs and text
+
+2. ID: 3980929
+- Contents: When the Slide Show function is available, visualization shall display in Digital Player context.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify slideshow shall applicable only for digital player context.
+- Grooming Status: Approved
+- Grooming Comments: DAB SLS supports only Digital player not analog.
+- Expert Domains: DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Slide Show, visualization, is available, display, function, context" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3980997
+- Contents: System shall visualize the audio programme by the means of the DAB SLS. Examples are:
+1. news programme items complemented by photos from the reported events;
+2. programme items with popular songs accompanied by photos of the favourite groups or the covers of the CD the songs take from;
+3. images for advertising, brand reinforcement or promotional purposes
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall display slideshow based on the tuned frequency.
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Examples, images, visualize, are, complemented, reported, programme, accompanied, take, advertising, means, SLS, items, photos, events, songs, groups, covers, reinforcement, purposes" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3981048
+- Contents: System shall allow DAB slide show for  DAB source.
+- Artifact Type: SRS Req
+- Responsible Domain: DAB_Cross Dev
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3979455
+- Contents: This function allows the user to visualize the DAB Slide Show. This function provides the user with a sequence of slides which carry information in the form of images.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-22 6.2.1.1.23  DAB MOT SLS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

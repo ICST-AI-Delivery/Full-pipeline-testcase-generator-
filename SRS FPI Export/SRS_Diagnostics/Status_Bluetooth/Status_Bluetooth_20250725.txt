@@ -1,0 +1,104 @@
+# UnknownID 6.2.4.3.1.5 Status Bluetooth Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.5 Status Bluetooth
+
+- ID: 3920344
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3920346
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and Dimension: 3 Bytes, Data type: HEX.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241129: RDBI in extended session, no info about, where to find the status info. I'm wonddering, that this will not be tested by space4 platform.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 2 Bytes
+
+2. ID: 3920352
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return the Bluetooth status as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned the Bluetooth status in table.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241129: RDBI in extended session, no info about, where to find the status info. I'm wonddering, that this will not be tested by space4 platform.
+- State (Harman_Requirement): Approved
+
+3. ID: 3920967
+- Contents: The System shall populate the Status Bluetooth parameter fields based on Accessible Mode OR Bluetooth.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the  Accessible Mode OR Bluetooth tables as per the Byte value.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241129: No BT expert to test BT applicative issues or know BT functionality. This REQ need to be tested by an expert.
+- State (Harman_Requirement): Approved
+
+4. ID: 3920972
+- Contents: The System shall support the Accessible mode values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Status Bluetooth parameter fields based on Accessible Mode values in the table.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241129: No BT expert to test BT applicative issues or know BT functionality. This REQ need to be tested by an expert.
+- State (Harman_Requirement): Approved
+
+5. ID: 3920973
+- Contents: The System shall support the Bluetooth values as follows
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Status Bluetooth parameter fields based on Bluetooth values in table.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241129: No BT expert to test BT applicative issues or know BT functionality. This REQ need to be tested by an expert.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.5 Status Bluetooth Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

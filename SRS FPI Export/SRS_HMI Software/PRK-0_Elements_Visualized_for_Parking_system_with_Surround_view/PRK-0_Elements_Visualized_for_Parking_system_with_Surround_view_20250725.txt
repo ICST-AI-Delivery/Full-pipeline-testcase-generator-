@@ -1,0 +1,162 @@
+# PRK-0 6.2.4.1.4  Elements Visualized for Parking system with Surround view Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.4 PRK-0 Elements Visualized for Parking system with Surround view
+
+- ID: 4613198
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3604111
+- Contents: The system shall display the following elements for the Parking system with Surround view:
+Classic View (Bird View, Frame view )
+Wide View (Frame view )
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Surround View
+Verify the below elements on the HMI screen
+
+Bird view
+Camera stream frame
+Controls
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4613202
+- Contents: For UK Version, the system shall display the mirrored version of the following views
+Classic View (Bird View, Frame view )
+Wide View (Frame view )
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking view is visible with the mentioned elements.
+
+1. Configure for UK Version
+2.Verify the mirrored version of the parking view
+- Grooming Status: Approved
+- Grooming Comments: [Sunil, Abdul 25.02.2025] Approved
+
+https://jira.harman.com/jira/browse/FQ-956
+
+How to enable/disable UK version?
+- Expert Domains: Android HMI, Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, mirrored, following, Version, version" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4884475
+- Contents: (see: image75.png)
+(see: image76.png)
+Figure  Classic View
+(see: image77.png)
+(see: image78.png)
+Figure: Wide View
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image75.png, image76.png, image77.png, image78.png
+
+2. ID: 4613203
+- Contents: The system shall visualize the below elements in Classic view of Parking system with Surround view:
+Bird view Area: it shows front and rear obstacles detection around the car model
+Views stream frame Area: it shows the rear/front/left/right/topfront/toprear camera view.
+Parking lines lines and maximum turning lines: they are shown inside the Views Stream
+Frame Area and the bird view Area                                                                      Flagging lines: they are shown inside the bird view area
+Info/popup area: it is positioned inside the Views Stream Frame Area, it shows the
+system information (e.g Rear Camera label, calibration failure, distance from closest
+obstacle, RCTA). It shall not cover the homologative area of the stream view.
+Controls: front parking sensors button and camera view buttons ( positioned inside the
+Bird view Area) and wide view bar (it is positioned inside Views stream Frame Area)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking system with Surround view is activated
+
+In 2D view, activate Classic View.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4613205
+- Contents: The system shall visualize the below elements in  Wide View of Parking system with Surround view:
+Views stream frame Area: it shows the rear/front/left/right camera in wide view.          Parking lines lines and maximum turning lines: they are shown inside the Views Stream
+Frame Area
+Info/popup area: it is positioned inside the Views Stream Frame Area, it shows the
+system information (e.g Rear Camera label, calibration failure, distance from closest
+obstacle, RCTA). It shall not cover the homologative area of the stream view.
+Controls: front parking sensors button and wide view bar (positioned inside Views
+stream Frame Area)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking system with Surround view is activated
+
+In 2D view, activate Classic View.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image77.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image76.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image78.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image75.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.4  Elements Visualized for Parking system with Surround view Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

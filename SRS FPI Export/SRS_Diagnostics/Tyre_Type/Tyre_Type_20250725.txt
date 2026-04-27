@@ -1,0 +1,82 @@
+# UnknownID 6.2.4.2.1.12 Tyre_Type Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.12 Tyre_Type
+
+- ID: 4615421
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- Grooming Comments: These are calibration parameter
+
+IDC-458387 - VIS-2 3D Model management is used by HMI
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4615422
+- Contents: The system shall support Tyre_Type in extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Verification Criteria: Verify the system is supporting Tyre_Type in extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250228: Only protocol test in def-&ext session for id 0x0549 read and write. No info about applicative system behavior or how to use.
+- State (Harman_Requirement): Approved
+
+2. ID: 4615424
+- Contents: (see: image144.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Verification Criteria: Verify the value from the given table
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- TestTeamComment: RWeber_DIAG_250228: Only protocol test in def-&ext session for id 0x0549 read and write. No info about applicative system behavior or how to use.
+- State (Harman_Requirement): Approved
+- Visual Elements: image144.png
+
+3. ID: 4615426
+- Contents: The system shall have Value '0' corresponds to Type1 &
+Value '1' corresponds to Type2 & 
+Value '2' corresponds to Type3
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Verification Criteria: Verify the system value.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘1 amp’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250228: Only protocol test in def-&ext session for id 0x0549 read and write. No info about applicative system behavior or how to use.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image144.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.12 Tyre_Type Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

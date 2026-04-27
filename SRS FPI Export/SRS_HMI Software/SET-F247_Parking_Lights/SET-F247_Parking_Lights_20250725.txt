@@ -1,0 +1,95 @@
+# SET-F247 6.2.3.7.8  Parking Lights Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.8 SET-F247 Parking Lights
+
+- ID: 3872905
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3872907
+- Contents: System shall activate parking lights when HMI ON condition only.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check parking lights are activate only when HMI ON. 
+
+HMI_CAN:
+COMMAND_HMI_TO_VEHICLE.ParkingLightCmd
+- Grooming Status: Review
+- Expert Domains: IOC_Networking, System Core
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3872912
+- Contents: System shall activate parking lights by a dedicated soft button on central display (Left Side, Right Side, Left and Right Side).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to press soft button on central display for activation of parking lights.
+
+HMI_CAN:
+COMMAND_HMI_TO_VEHICLE.ParkingLightCmd
+- Grooming Status: Review
+- Expert Domains: IOC_Networking, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, display, lights, button, Side, Left" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3872911
+- Contents: IDC shall deactivate parking lights when the user makes an HMI ON to Power ON transition.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if parking lights are deactivated when user makes an HMI ON to Power ON
+transition.
+
+
+HMI_CAN:
+COMMAND_HMI_TO_VEHICLE.ParkingLightCmd
+- Grooming Status: Review
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "deactivate, makes" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3872908
+- Contents: This setting allows the user to control rear and left parking lights turning ON/OFF.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-F247 6.2.3.7.8  Parking Lights Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

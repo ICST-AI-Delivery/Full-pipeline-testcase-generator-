@@ -1,0 +1,351 @@
+# PRK-3 6.2.4.4  VIRTUAL WALLS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.4 PRK-3 VIRTUAL WALLS
+
+- ID: 3939639
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4759656
+- Contents: HMI-LF-4402 - Surround View 2-D/3-D wall.
+HMI-LF-4131 - Parking sensor button behaviour on Surround View.
+HMI-LF-7871 - Rear Camera + Frontal and Rear sensors Buttons.
+- Artifact Type: SRS Req
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4523448
+- Contents: The Virtual Wall for Surround view & RVC shall tune all the distances(8 distances) & Colors mentioned in the table below.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: Software Qualification Test
+- Verification Criteria: 1. Verify the Arc color by changing the threshold in the configuration file.
+2.Verify that the Arc is displayed in different colors (based on the distance), Refer the table in the artifact Id 4754589.
+
+Note:
+The position and distance of the obstacles can be identified by using the signals LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance.
+- Grooming Status: Approved
+- Grooming Comments: Wei 21.11.2024: OK to approve. Only 3 Colors are Valid for Ferarri (red, Yellow, Green)
+
+[Prashant,Abdul 18.11.2024] Wei to provide the details
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: avaloor, saheel 12.12.2024
+This applicable for 3D view and Bird View
+
+Arcs will be used to display the virtual wall.
+
+The position and distance of the obstacles can be identified by using the signals LHLateralObstacleDistance, LHCentralObstacleDistance, RHLateralObstacleDistance, RHCentralObstacleDistance.
+
+3. ID: 4523459
+- Contents: The Virtual Wall for Surround View & RVC shall visualize the obstacle by Arcs that move inside each sectors (7 front and 7 rear).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the obstacles are shown by Arcs that move inside each sectors ((7 front and 7 rear).
+
+Note: Based on the Obstacle distance from the sensor, Each arcs will be represented with different colors. 
+
+The Obstacle information are coming from STATUS_NSP message.
+3 Colors are applicable for the Obstacles (Red, Green, Yellow).
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Surround View, visualize, move, obstacle, Arcs, sectors, front, rear" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: avaloor, saheel 12.12.2024
+This applicable for 3D view
+
+4. ID: 4523479
+- Contents: The Virtual Wall for surround view & RVC shall visualize the position of the Arcs(one per sector) on the basis of obstacle distance with multiple sectors "activated" at the "same" time.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Keep the obstacles in multiple sectors and at different distance.
+
+Verify all the obstacles which are in multiple sectors are shown by Arcs (one per sector)
+- Grooming Status: Approved
+- Grooming Comments: Wei: Ok to approve
+
+[Prashant 18.11.2024](resolution and number of arc for each Sector tbd -> This needs to confirmed by Wei
+- Expert Domains: Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "view, visualize, activated, position, sector, basis, distance, sectors" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5110467
+- Contents: The Virtual Wall for Surround View and RVC shall visualize 'a total of 14 sectors' ('7' on the front of the vehicle and '7' on the rear).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that a total of 14 sectors' ('7' on the front of the vehicle and '7' on the rear) are visualized.
+- Grooming Status: Approved
+- Grooming Comments: Wei: Walls and Arcs are same.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, visualize, total, front, vehicle, rear" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Walls and Arcs are same.
+
+6. ID: 5110494
+- Contents: The system shall show Virtual Walls both in bird view("2D walls") & camera stream frame ("3D walls").
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Virtual wall is available in Bird View (Top View) (2D Wall)) and in stream frame view (3D Wall)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "purpose, feedback, system, appear, is, is different, depending, Map, show, according, frame, walls, perpective, SRS, both, view, amp, specification" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4572682
+- Contents: The system shall disable the 3D walls by default.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Flash a new Software.
+Verify that the 3D walls are disabled by default
+- Grooming Status: Approved
+- Grooming Comments: [Prashant 29.11.2024] 
+OK to apporve.
+Ask Ferrari/Wei
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: avaloor, saheel 12.12.2024
+This applicable for 3D view
+
+8. ID: 4548193
+- Contents: The system shall activate/deactivate 3-D walls via the configuration file.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that, 3D walls can be activated/deactivated via configuration file.
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Wei, 21.11.2024]
+3D Walls can be activated/deactivated via configuration file during run time
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, deactivate, walls, file" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: avaloor, saheel 12.12.2024
+This applicable for 3D view
+
+9. ID: 3971158
+- Contents: The system shall display a Front Sensor button working as defined in Front Sensor Control in Settings document both in Sensor View (Rear Camera configuration) &  Bird View (Surround View configuration).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Front sensor (For Surround view and rear view) can be
+turned on/Off button via Front sensor button "in quick control settings and inside the Surround view and rear view".
+- Grooming Status: Approved
+- Grooming Comments: [21.11.2024 Wei, Abdul] Need to groom with HMI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC-452510 - SET-90 Front Sensor Control in Settings document.
+
+(CRS ID : 4352476: SET-90 Front Sensor Control)
+
+10. ID: 3971982
+- Contents: The graphical information for the Rear & Front sensors shall contain in the multi-frame message with the following logic (referring to signal's RAW values):
+With FrameNumber = '0', in the multi-frame message,  there are the information for the Rear sensors.
+With FrameNumber = '1', in the multi-frame message, there are the information for the Front sensors.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the Rear sensor values via frame number 0 and Front sensor values via  frame number 1
+
+Verify that the obstacles are properly displayed on HMI.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "information, contained, following, referring, are, sensors, message, values" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4523952
+- Contents: The system shall show the obstacle distances in "3" different colors in virtual walls as per the below table.
+(see: image104.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Obstacles are shown in 3 different colors as mentioned in the table.
+- Grooming Status: Approved
+- Grooming Comments: Wei 21.11.2024: Only 3 colors are applicable. OK to approve
+
+[18.11.2024 Prashant] Wei to confirm: 3 different colors are mentioned here, but 4 are there in the virtual walls diagram ?
+- Expert Domains: Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image104.png
+
+12. ID: 4548231
+- Contents: The system shall PLAY THE AUDIO for the 'obstacle  distances in Virtual Walls with visual acoustics as per the below table.
+(see: image105.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Obstacles are shown in 3 different colors as mentioned in the table xxx
+
+Verify the sensors sound frequencies corresponds to the distance from the obstacle.
+Verify the parking audio is working for both Surround and rear configuration
+- Grooming Status: Review
+- Grooming Comments: [13.02.2025, Yuanhang, Abdul] Audio feedback is based on different audio specific CAN signals mentioned in PRK-6
+
+12.02.2025. Wei Yuan, Abdul, Prashant
+Need get information form customer on the CAN signal for color.
+
+
+
+29.11.2024; 
+Audio is in FX9.
+display: Fx8 and need a requirement in this feature (add it is not tehre already)
+
+[18.11.2024 Prashant, Wei] Need grooming with Audio, Parking, Cluster SW
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image105.png
+
+### Informational Items:
+
+1. ID: 3964075
+- Contents: This function describes the management of obstacle detection visualization based on parking sensors information.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3970849
+- Contents: The system shall display the Virtual Walls as reported in: 
+HMI-LF-7855 - Parking Sensors Threshold
+HMI-LF-8001 - Parking buttons for each configuration
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, Walls, button behaviour, Camera, Buttons" )
+- State (Harman_Requirement): Review
+
+3. ID: 4754589
+- Contents: (see: image101.png)
+(see: image102.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image101.png, image102.png
+
+4. ID: 4523456
+- Contents: Sectors identify the position of the obstacle around the vehicle, Arcs identify the
+distance of the obstacle
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 4000589
+- Contents: (see: image103.png)
+Figure:  Virtual walls sectors (colors and graphics not representative)
+- Artifact Type: Information
+- State (Harman_Requirement): Review
+- Visual Elements: image103.png
+
+6. ID: 4572592
+- Contents: Walls 1-3-5-7-8-10-12-14 are based directly on the signals from parking sensors (NSP).
+Walls 2-4-6-9-11-13 are an interpolation given by the average value between the two walls next to it (e.g. wall 2 distance value is the average between wall 1 and 3 distance values)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 4523480
+- Contents: The system shall play all sensors sound frequencies corresponding to distances from the obstacles:
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Verification Criteria: Verify the sensors sound frequencies corresponds to the distance from the obstacle.
+Verify the parking audio is working for both Surround and rear configuration
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "approximate" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3970851
+- Contents: The system shall implement the logics of Virtual Walls according to:
+SFS F802 – Front and Rear Parking Camera Management 
+SFS F560 – Surround View Management 
+SFS F179 - Obstacle Proximity Signalling
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, according, logics, Walls, SFS, Management, Signalling" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image104.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image103.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image105.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image102.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image101.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-3 6.2.4.4  VIRTUAL WALLS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

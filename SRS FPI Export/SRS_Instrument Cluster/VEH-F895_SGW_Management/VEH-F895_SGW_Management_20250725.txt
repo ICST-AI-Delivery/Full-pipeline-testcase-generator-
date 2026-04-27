@@ -1,0 +1,106 @@
+# VEH-F895 6.2.1.1.1.42  SGW Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.42 VEH-F895 SGW Management
+
+- ID: 4009989
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4010846
+- Contents: During Key-ON system shall perform the dedicated  recovery visulaisation cycle when signals "SGW_Status" is missing for a time greater or equal to <tREC> (Time-out of the signals receveid for node recovery- 2500ms).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: During Key-ON Verify that the system performs dedicated recovery visualisation cycle when signal is missing for greater or equal to tREC.
+
+CAN-Signal: SGW_INFO.SGW_Status
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, perform, is missing, visulaisation cycle, signals, SGW_Status, greater, receveid, recovery" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4010868
+- Contents: During Steady State system shall perform the dedicated recovery visualisation cycle
+when signals "Travel Distance" is missing for a time greater or equal to <tREC>  (Time-out of the signals receveid for node recovery- 2500ms).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system performs dedicated recovery visualisation cycle when Travel distance is missing for greater or equal to tREC.
+
+CAN-Signal: VEHICLE_SPEED_E_ODOMETER.TravelDistanc
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "State system, signals, perform, is missing, visualisation, Distance, greater, receveid, recovery" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4010884
+- Contents: During Key-OFF and Network Active system shall perform the dedicated recovery visualisation cycle when signals "SGW_Status" is missing for a time greater or equal to <tREC>
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: During Key-OFF Verify that the system performs dedicated recovery visualisation cycle when signal is missing for greater or equal to tREC.
+
+CAN-Signal: SGW_INFO.SGW_Status
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, perform, is missing, visualisation cycle, signals, SGW_Status, greater" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4009999
+- Contents: System shall implement SGW Management as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+2. ID: 4010840
+- Contents: Recovery
+Node Recovery: the aim of this paragraph is to describe the behaviour of the function outputs in the event the information/inputs are missing for IDC.
+<tREC> is the activation time for the recovery, for further detail refer to the introduction chapter.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F895 6.2.1.1.1.42  SGW Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

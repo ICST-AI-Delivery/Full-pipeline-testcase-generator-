@@ -1,0 +1,395 @@
+# UnknownID 6.2.3.1.5 Video Output#3 ($5040) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.5 Video Output#3 ($5040)
+
+- ID: 3972161
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3972163
+- Contents: The system shall support Video Output#3 with an active extended diagnostic session.
+Protocol service: $2F
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall support output#3 with extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+2. ID: 3972169
+- Contents: The system shall Display RGB pattern as following (see: image77.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RGB pattern as per given table.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image77.png
+
+3. ID: 3972172
+- Contents: If the Control service is correctly activated, IDC shall apply the logics.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the Control service is correctly activated, IDC shall apply the logics.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "correctly" ) 
+Passive voice
+ (Look for: "activated" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+4. ID: 3972173
+- Contents: If the parameter Display RGB pattern == 0x00 ("No control") Then system shall continue to show or return to the current native screen on the Binnacle display
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x00 ("No control") Then system shall continue to show or return to the current native screen on the Binnacle display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, continue, to show, return, control, screen, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+
+5. ID: 3972174
+- Contents: If the parameter Display RGB pattern == 0x01 ("Pattern 1") Then system shall show the following image (white colour) on the NDR display (see: image63.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x01 ("Pattern 1") Then system shall show the following image (white colour) on the NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, colour, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image63.png
+
+6. ID: 3972175
+- Contents: If the parameter Display RGB pattern == 0x02 ("Pattern 2") Then system shall show the following image (black colour) on Binnacle display (see: image64.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x02 ("Pattern 2") Then system shall show the following image (black colour) on Binnacle display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, colour, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image64.png
+
+7. ID: 3972176
+- Contents: If the parameter Display RGB pattern == 0x03 ("Pattern 3") Then system shall show the following image (red colour) on NDR display (see: image65.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x03 ("Pattern 3") Then system shall show the following image (red colour) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, colour, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image65.png
+
+8. ID: 3972177
+- Contents: If the parameter Display RGB pattern == 0x04 ("Pattern 4") Then system shall show the following image (green colour) on NDR display (see: image66.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x04 ("Pattern 4") Then system shall show the following image (green colour) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, colour, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image66.png
+
+9. ID: 3972178
+- Contents: If the parameter Display RGB pattern == 0x05 ("Pattern 5") Then system shall show the following image (blue colour) on NDR display (see: image67.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x05 ("Pattern 5") Then system shall show the following image (blue colour) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, colour, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image67.png
+
+10. ID: 3972179
+- Contents: If the parameter Display RGB pattern == 0x06 ("Pattern 6") Then system shall show the following image (Horizontal chromatic scale from black to white colours) on NDR display (see: image68.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x06 ("Pattern 6") Then system shall show the following image (Horizontal chromatic scale from black to white colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, scale, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image68.png
+
+11. ID: 3972180
+- Contents: If the parameter Display RGB pattern == 0x07 ("Pattern 7") Then system shall show the following image (Horizontal chromatic scale from black to red colours) on NDR display (see: image69.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x07 ("Pattern 7") Then system shall show the following image (Horizontal chromatic scale from black to red colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, scale, black, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image69.png
+
+12. ID: 3972181
+- Contents: If the parameter Display RGB pattern == 0x08 ("Pattern 8") Then IDC shall show the
+following image (Horizontal chromatic scale from black to green colours) on NDR display (see: image70.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x08 ("Pattern 8") Then IDC shall show the
+following image (Horizontal chromatic scale from black to green colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, thefollowing, scale, black, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image70.png
+
+13. ID: 3972182
+- Contents: If the parameter Display RGB pattern == 0x09 ("Pattern 9") Then system shall show the following image (Horizontal chromatic scale from black to blue colours) on NDR display (see: image71.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x09 ("Pattern 9") Then system shall show the following image (Horizontal chromatic scale from black to blue colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, scale, black, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image71.png
+
+14. ID: 3972183
+- Contents: If the parameter Display RGB pattern == 0x0A("Pattern 10") Then IDC shall show the following image (Vertical chromatic scale from black to white colours) on NDR display (see: image72.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x0A("Pattern 10") Then IDC shall show the following image (Vertical chromatic scale from black to white colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, following, scale, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image72.png
+
+15. ID: 3972184
+- Contents: If the parameter Display RGB pattern == 0x0B ("Pattern 11") Then system shall show the following image (Vertical chromatic scale from black to red colours) on NDR display (see: image73.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x0B ("Pattern 11") Then system shall show the following image (Vertical chromatic scale from black to red colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, scale, black, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image73.png
+
+16. ID: 3972185
+- Contents: If the parameter Display RGB pattern == 0x0C ("Pattern 12") Then system shall show the following image (Vertical chromatic scale from black to green colours) on NDR display (see: image74.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x0C ("Pattern 12") Then system shall show the following image (Vertical chromatic scale from black to green colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, scale, black, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image74.png
+
+17. ID: 3972186
+- Contents: If the parameter Display RGB pattern == 0x0D ("Pattern 13") Then system shall show the following image (Vertical chromatic scale from black to blue colours) on NDR display (see: image75.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x0D ("Pattern 13") Then system shall show the following image (Vertical chromatic scale from black to blue colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, scale, black, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image75.png
+
+18. ID: 3972187
+- Contents: If the parameter Display RGB pattern == 0x0E ("Pattern 14") Then system shall show the following image (Vertical stripes of different colours) on NDR display (see: image76.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify If the parameter Display RGB pattern == 0x0E ("Pattern 14") Then system shall show the following image (Vertical stripes of different colours) on NDR display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, following, stripes, colours, display" )
+- TestTeamComment: RWeber_DIAG_250210: Only test to protocol if specified IO control param worked. NO applicative test to system behavior or dependencies. No Video expert at protocol cluster
+- State (Harman_Requirement): Approved
+- Visual Elements: image76.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image77.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image68.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image67.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image71.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image69.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image66.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image70.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image74.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image76.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image73.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image72.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image75.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image63.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image64.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image65.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.5 Video Output3 ($5040) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

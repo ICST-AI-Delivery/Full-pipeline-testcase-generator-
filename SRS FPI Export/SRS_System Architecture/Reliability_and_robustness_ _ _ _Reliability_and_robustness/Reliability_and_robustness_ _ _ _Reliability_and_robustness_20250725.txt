@@ -1,0 +1,67 @@
+# UnknownID 6.1.3.7.3 Reliability and robustness       Reliability and robustness Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.3.7.3 Reliability and robustness       Reliability and robustness
+
+- ID: 2354003
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354004
+- Contents: 6.1.3.7.3.1 The System software shall be designed and implemented in a way to meet extremely...       The System software shall be designed and implemented in a way to meet extremely high demands for robust operation.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+2. ID: 2354005
+- Contents: 6.1.3.7.3.2 The Suppliers shall provide design concepts for robustness and reliability of th...       The Suppliers shall provide design concepts for robustness and reliability of the System, planned ASIL certification for parts of the System.
+- Artifact Type: SRS Req
+- Responsible Domain: Development_Process
+
+3. ID: 2354006
+- Contents: 6.1.3.7.3.3 The Vehicle and Safety Compute Partitions shall not reset due to an SW failure b...       The Vehicle and Safety Compute Partitions shall not reset due to an SW failure but should be able to collect all necessary artifacts of an issue for further analysis if this happens.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Comments: [ASh 15112023]: Post mortem analysis for Linux and SFI, Does SP4 has a concept to store root causes of a failures that might lead to resets? Example, the location of postmortem data in Linux/SFI, how to read it out for further analysis?
+
+4. ID: 2354007
+- Contents: 6.1.3.7.3.4 The System shall store detected failure artifacts after detected software failur...       The System shall store detected failure artifacts after detected software failures that affect the robustness level of the System.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Comments: [ASh 15112023]: This is part of a bigger diagnostics concept, which included freezeframes, what they contains, where are they saved and how they shall be read out for further analysis. For IOC/SFI where Classic Autosar is used, this is taken care of by the Autosay Diag stack. How does SP4 does this in Linux?
+
+5. ID: 2354008
+- Contents: 6.1.3.7.3.5 Malfunctions on the Performance functional domains shall not cause any interfere...       Malfunctions on the Performance functional domains shall not cause any interference in any other domains.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+
+### Informational Items:
+
+1. ID: 2354009
+- Contents: 6.1.3.7.4 Operating environment       Operating environment
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.3.7.3 Reliability and robustness       Reliability and robustness Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,166 @@
+# PRK-0 6.2.4.1.7 : Normative boundaries: UNECE 158/KMVSS 111 regulations Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.7 PRK-0: Normative boundaries: UNECE 158/KMVSS 111 regulations
+
+- ID: 3604123
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3604124
+- Contents: The system shall always display the "rear camera stream frame" if the Reverse gear = engaged.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear camera stream frame is always visible if the Reverse gear is engaged.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This means that, whenever Reverse gear is inserted, no other information can overlap the portion of the screen dedicated to the stream frame of Camera view.
+
+2. ID: 3604119
+- Contents: The system shall not overlap the stream frame of RVC view with other information if "reverse gear" = engaged.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that no other information can overlap the RVC view if Reverse gear engaged.
+
+Note:
+Other information include Screen changes due to HMI buttons interaction;
+Screen changes due to other automatic or manual actions
+Any graphical element that overlaps the camera view (refer to HMI spec for further details)
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Sunil, Abdul 26.12.2024]: Ok to approve
+
+https://jira.harman.com/jira/browse/FQ-582
+
+#3
+
+As per the diagram mentioned in the CRS ID HMI-LF-7898, there is a label & Distance (This is an overlay) on the Camera stream view.
+Do we need to have regional; configuration or do we need display the overlay asper the HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, overlap, frame, view, information" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Other information includes Screen changes due to HMI buttons interaction;
+Screen changes due to other automatic or manual actions
+Any graphical element that overlaps the camera view (refer to HMI spec for further details)
+
+3. ID: 3784182
+- Contents: The system shall not allow to leave the Rear view visualization if Reverse gear is engaged.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Preconditoin:
+Reversers gear is engeged and Rear View visualization is active.
+Verify that no interface is available to leave the rear view visualization.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "is engaged" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3784191
+- Contents: The system shall disable the Rear view close button during the reverse view visualization with reverse gear engaged.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: rear view screen is visible with Reverse gear engaged
+
+Verify that rear view screen close button is disabled.
+- Grooming Status: Approved
+- Grooming Comments: [Sunil, Abdul 10.01.2024]
+Approved. Disabled means it is not accessible.
+
+[Wei, Abdul 26.12.2024] : Need Confirmation from HMI.
+
+
+https://jira.harman.com/jira/browse/FQ-582
+
+#4
+Ask Ferrari:
+
+disabled. Means:
+It is greyed out or completely hidden.
+- Expert Domains: Android HMI, Camera
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3624426
+- Contents: The system shall show a black screen in the Camera stream frame if it is impossible to visualize the content of Rear view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate Rear view.
+block the camera
+Verify that a black screen is visible on the camera stream frame.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Passive voice
+ (Look for: "is impossible" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3792181
+- Contents: The system shall "notify" the driver by 'popup' & an 'icon' when there's failure in the "Parking system".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Create a failure in the parking system (e.g camera over voltage/undervoltage)
+
+Verify the warning (popup & icon) on HMI
+- Grooming Status: Approved
+- Grooming Comments: [Saheel, Wei, Abdul ]Approved
+- Expert Domains: Camera, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, notify, 's, driver, popup, amp, icon, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The information for the driver shall be explained in the operator's manual.
+
+### Informational Items:
+
+1. ID: 3604129
+- Contents: The information for the driver shall be explained in the operator's manual.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.7 : Normative boundaries: UNECE 158/KMVSS 111 regulations Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

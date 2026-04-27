@@ -1,0 +1,142 @@
+# UnknownID 6.2.4.3.2.13 Oil Temp Threshold  ($20B5) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.13 Oil Temp Threshold  ($20B5)
+
+- ID: 3982482
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- Grooming Comments: Not applicable as per MTA. Need to check with Ferrari.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3982484
+- Contents: The System shall have the command manages oil temperature thresolds and temperature is in °C.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Temperature units should be in °C.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, temperature, have, manages, is, thresolds" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3982490
+- Contents: The System shall have RecordDataIdentifier ($20B5) to know the Oil Temp Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20B5)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3982492
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3982504
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Conversions in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3982536
+- Contents: (87) Oil_temp_red_on
+If the Temperature threshold over that is turn on, the “Engine Oil Too Hot” telltale and the background of the oil temperature indicator virtual (in the lowest size) shall becomes red.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the “Engine Oil Too Hot” telltale and the background of the oil temperature indicator should be in RED.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "background, is turn, becomes red, threshold, Oil Too Hot #8221, telltale, virtual, size" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3982542
+- Contents: (88) Oil_temp_red_off 
+If the Temperature threshold below that is turn off, the System shall allow the “Engine Oil Too Hot” telltale and the background of the oil temperature indicator virtual (in the lowest size) becomes yellow.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the “Engine Oil Too Hot” telltale and the background of the oil temperature indicator should change to Yellow from Red.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "background, allow, becomes, #8220, Oil Too Hot #8221, telltale, virtual" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3982546
+- Contents: (89) Oil_temp_yellow
+If the Temperature threshold for which the background of the oil temperature indicator, the system shall allow the oil temperature indicator virtual (in the lowest size) becomes yellow.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the oil temperature indicator virtual (in the minimum size) becomes yellow.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, becomes, threshold, indicator, temperature, virtual" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the oil temperature so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.13 Oil Temp Threshold  ($20B5) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

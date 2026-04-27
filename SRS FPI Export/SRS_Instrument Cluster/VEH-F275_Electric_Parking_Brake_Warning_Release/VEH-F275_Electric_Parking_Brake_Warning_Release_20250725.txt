@@ -1,0 +1,88 @@
+# VEH-F275 6.2.1.1.1.25  Electric Parking Brake Warning Release Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.25 VEH-F275 Electric Parking Brake Warning Release
+
+- ID: 3939900
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3998108
+- Contents: System shall display Info-1 Pop-up with Buzzer when EPB_BrakePedalPressIndicationReq is ON.
+Note: Info-1 follows D04 visualisation behaviour with Specific Priority - Deactivation  EPB warning message.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Info-1 Pop-Up is triggered when EPB_BrakePedalPressIndicationReq is ON.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, warning, Pop-up, Buzzer, Info-1, message" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3998099
+- Contents: System shall display the Electric Parking Brake Warning Release indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Review
+
+2. ID: 3998100
+- Contents: System shall continue to display Electric Parking Brake Warning Release indication for 5 seconds, when EPB button pull and Key-Off transition occur with-in 5 seconds from the button pulling.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, continue, to display, occur, pulling, indication, pull, transition" ) 
+Missing limits
+ (Look for: "‘5 Seconds’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3998103
+- Contents: After Key-On to Key-Off transition System shall stop displaying message about the Electric Parking Brake Warning Release.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F275 6.2.1.1.1.25  Electric Parking Brake Warning Release Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

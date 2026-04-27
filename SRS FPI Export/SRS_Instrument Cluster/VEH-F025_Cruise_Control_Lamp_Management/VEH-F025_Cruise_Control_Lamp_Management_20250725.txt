@@ -1,0 +1,357 @@
+# VEH-F025 6.2.1.1.2.1  Cruise Control Lamp Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.1 VEH-F025 Cruise Control Lamp Management
+
+- ID: 3406467
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3428618
+- Contents: System shall have F025 cruise lamp functionality when Cruise Control (CC) - proxi (byte 69, bit 6) Cruise Control absent/present is present
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the Cruise Control Lamp Functionality is enabled by setting Cruise Control Proxi to present.
+
+PROXI: Byte69, Bit-6
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3913667
+- Contents: System shall have F534 adaptivie cruise control functionality when Cruise Control (CC) - proxi (byte 69, bit 6) Cruise Control absent/present is present and Adaptive Cruise Control (ACC) - Byte 146, bit 0 ("Adaptive_Cruise_Control": Absent/Present) with F025 for indication and C1/C3 wireframe management by F534
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3913840
+- Contents: If proxi (byte_69, bit_6) Cruise Control absent/present == "Present" and proxi (byte_173, bit_5) "HDC" == "Present",
+then system shall display HDC and CC visualization priorities as explained in F395.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi values as per the bit and Byte and verify that the F025 Functional is Enabled.
+
+Proxi:
+byte 69, bit 6
+byte 173, bit 5
+Byte 146, bit 0
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, explained, priorities" ) 
+Unclear term
+ (Look for: "currently" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3917062
+- Contents: System shall store the last value received from DistanceUnit  and shall use if DistanceUnit not received.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays the last Distance unit incase of DistanceUnit not received. 
+
+Internal Interface:
+INFO_DistanceUnit
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "received" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3428544
+- Contents: System shall display Cruise Lamp in sync with CAN input in C1/C2 area as per table
+(see: image75.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Cruise Lamp is displayed in sync with CAN Inputs.
+
+CAN-Signal:
+PWT_STATUS_2.CruiseControlLampSts
+PWT_STATUS_2.TargetSpeed
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image75.png
+
+6. ID: 3914804
+- Contents: System shall display target-speed in km/h or mph based on unit selection following the INFO_DistanceUnit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify speed unit is displayed  as per INFO_DistanceUnit
+
+Intenal Interface:
+INFO_DistanceUnit.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, based, km, h, mph, selection" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3914807
+- Contents: System shall show the TargetSpeedindicata which correspond to the real TargetSpeedreale received from HMI-CAN TargetSpeed signal value increased by 4%.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre_condition:
+proxi (byte 69, bit 6) Cruise Control absent/present = present,
+
+
+
+Verify that the TargetSpeed visualization on display received from the CAN- TargetSpeedSignal is increased by 4%.
+
+
+CAN-Signal:
+PWT_STATUS_2.TargetSpeed
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "target" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5300171
+- Contents: System shall display TargetSpeedindicata = TargetSpeedreale * k_speed_error with TargetSpeedreale = TargetSpeed signal.
+If  INFO_DistanceUnit = km: TargetSpeedindicata [km/h] = TRUNC (TargetSpeedreale * k_speed_error)
+If  INFO_DistanceUnit = Miles:  TargetSpeedindicata [mph] = TRUNC (TargetSpeedreale* k_speed_error * 0,6215)
+(see: image77.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Target Speed is calculted as per the logic and displayed as km/h or mph based on unit selection.
+
+Verify that the TargetSpeed visualization on display received from the CAN- TargetSpeedSignal..
+
+Internal Interface:
+INFO_DistanceUnit
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+- Visual Elements: image77.png
+
+9. ID: 3917026
+- Contents: System shall turn off display related to cruise control functionality on CAN failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger CAN signal missing (CruiseControlLampSts and TargetSpeed signals)
+
+Verify cruise display turned off
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+10. ID: 5549283
+- Contents: System shall receive the HMICode_CC signal for future management of different types of pop-ups.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system receives the HMICode_CC signal for future management of Different types of Pop-UP's.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 3439338
+- Contents: System shall display F025 Feedback-1 Pop-Up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when (CruiseControlLampSts = cruise_on_not_engaged or cruise_on_ engaged)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+proxi (byte 69, bit 6) Cruise Control  = present
+
+Trigger_Condition:
+CruiseControlLampSts = cruise_on_not_engaged or cruise_on_ engaged
+
+Verify that the Feedback-1 is displayed when trigger Condition is met.
+
+Pop-Up iD: 00250001
+
+
+CAN-Signal:
+PWT_STATUS_2.CruiseControlLampSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Warning text not found in F244_HMI_POP.IND
+
+12. ID: 5300180
+- Contents: System shall display F025 Feedback-2 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when CruiseControLampSts = cruise_off
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (byte 69, bit 6) Cruise Control  = present
+
+Trigger_Condition:
+CruiseControlLampSts = cruise_off
+
+Verify that the Feedback-2 is displayed when trigger Condition is met.
+
+Pop-up iD: 00250002
+
+
+CAN-Signal:
+PWT_STATUS_2.CruiseControlLampSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Pop-up, status, IVI, INDICATOR_STATUS" )
+- State (Harman_Requirement): Approved
+
+13. ID: 5300182
+- Contents: System shall send the Warning-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS When CruiseControlLampSts = cruise_error
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (byte 69, bit 6) Cruise Control  = present
+
+Trigger_Condition:
+CruiseControlLampSts = cruise_error
+Verify that the Warning-1 is displayed when trigger Condition is met.
+
+Pop-up iD: 00250005
+
+
+CAN-Signal:
+PWT_STATUS_2.CruiseControlLampSts
+- Grooming Status: Approved
+- Grooming Comments: Check with system infra, How to verify VEH_INDICATOR_STATUS is received by IVI.
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 5300184
+- Contents: System shall display Info-1 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when CCSpeedWarning = CCSpeedReducedByEDrive.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (byte 69, bit 6) Cruise Control  = present
+
+Trigger_Condition:
+CCSpeedWarning = CCSpeedReducedByEDrive
+
+Verify that the Info-1 is displayed when trigger Condition is met.
+
+Pop-up iD: 00250003
+
+
+CAN-Signal:
+PWT_STATUS_1.CCSpeedWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Pop-up, status, IVI, INDICATOR_STATUS, CCSpeedReducedByEDrive" )
+- State (Harman_Requirement): Approved
+
+15. ID: 5300187
+- Contents: System shall display Info-2 Pop-up  send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when CCSpeedWarning = MaxCCSpeedReducedByEDrive
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (byte 69, bit 6) Cruise Control  = present
+
+Trigger_Condition:
+CCSpeedWarning = MaxCCSpeedReducedByEDrive
+
+Verify that the Info-2 is displayed when trigger Condition is met.
+
+Pop-up iD: 00250004
+
+
+CAN-Signal:
+PWT_STATUS_1.CCSpeedWarning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Pop-up, status, IVI, INDICATOR_STATUS, MaxCCSpeedReducedByEDrive" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3914793
+- Contents: When cruise control lamp status is an error, system shall
+stop displaying target speed/unit in C3 wireframe area
+transmit virtual telltale CCC003 in HMI_CAM
+display telltale icon CCC003 in C1 area
+CCC003 icon (see: image76.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "control lamp status, system, is, stop, displaying, transmit, display, error, speed, unit, area, icon CCC003" ) 
+Unclear term
+ (Look for: "target" )
+- State (Harman_Requirement): In Work
+- Visual Elements: image76.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image77.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image76.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image75.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F025 6.2.1.1.2.1  Cruise Control Lamp Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

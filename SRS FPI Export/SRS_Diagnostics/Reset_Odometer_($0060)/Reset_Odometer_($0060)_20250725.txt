@@ -1,0 +1,165 @@
+# UnknownID 6.2.3.1.9 Reset Odometer ($0060) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.9 Reset Odometer ($0060)
+
+- ID: 5073527
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5073530
+- Contents: The reset to default command ("0" km) is available by the first "500"km for two times.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify reset to default command ("0" km) is available by the first "500"km for two times
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- TestTeamComment: RWeber_DIAG_250306: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+
+2. ID: 5073660
+- Contents: The "Reset Odometer" command  is able to reset the init car date & the services.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify "Reset Odometer" command  is able to reset the init car date & the services.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- TestTeamComment: RWeber_DIAG_250306: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+
+3. ID: 5073662
+- Contents: The system shall perform a security access (Parameters) to write the activation is protected
+
+0x00 to Reset
+
+The write command isn't used.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall perform a security access (Parameters) to write the activation is protected
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is protected, isn't used" )
+- TestTeamComment: RWeber_DIAG_250306: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+
+4. ID: 5073545
+- Contents: The System shall have RecordDataIdentifier ($0060) to know the reset odometer.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify RecordDataIdentifier ($0060) to know the reset odometer
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 0060’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250306: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+
+5. ID: 5073554
+- Contents: (see: image81.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the protocol service from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250306: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image81.png
+
+6. ID: 5073577
+- Contents: ControlStates (zz) (see: image82.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control state from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250306: Only check that IO-Control 0x2F worked at protocol level. No applicative test validation for pattern TFT disp. and system functionality.
+- State (Harman_Requirement): Approved
+- Visual Elements: image82.png
+
+### Informational Items:
+
+1. ID: 5073581
+- Contents: controlStatusRecord - shortTermAdjustment (yy)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+2. ID: 5073586
+- Contents: no data assigned
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+3. ID: 5073588
+- Contents: controlStatusRecord - resetToDefault (xx)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+4. ID: 5073591
+- Contents: no data assigned
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image81.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image82.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.9 Reset Odometer ($0060) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

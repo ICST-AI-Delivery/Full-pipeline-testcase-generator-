@@ -1,0 +1,175 @@
+# VEH-F087 6.2.1.1.2.5  Alarm System Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.5 VEH-F087 Alarm System
+
+- ID: 3461823
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713188
+- Contents: System shall enable Alarm system when Proxi Alarm System is set to Present.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Alarm system functionality is enabled when PROXI AlarmSystem = Present (PROXI start Byte 64, from bit 0 to bit 0)
+
+CAN-Signal: NBC_VPS2.VPSAlarmFailCntrl
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, enable, is, system, Present" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer AlarmSystem Anti_theft_configuration_1_(internal_options) from 3712871: Proxi_NextGen_240419_rev463.xls
+
+2. ID: 3713190
+- Contents: After a disarming procedure, at next KEY-ON and a valid key recognized (TxpID.info = Transponder_X_Authenticated), the IDC shall receive the messages related to theft causes attempts.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Key-OFF
+
+Verify that the theft cause attempts messges were triggered by the system.
+
+
+CAN-Signal:
+NBC_VPS2.VPSDoorsAlarmCauseCntrl 
+NBC_VPS2.VPSTrunkAlarmCauseCntrl 
+NBC_VPS2.VPSBonnetAlarmCauseCntrl 
+NBC_VPS2.VPSUSAlarmCauseCntrl 
+NBC_VPS2.VPSAIAlarmCauseCntrl 
+NBC_VPS2.VPSElectricalAlarmCauseCntrl 
+NBC_VPS2.VPSAlarmFailCntrl 
+NBC_VPS2.VPSCIDNotFoundCntrl
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "recognized, Authenticated, receive, procedure, next, key, messages, attempts" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3713192
+- Contents: System shall display Theft causes Attempt Messages.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the theft cause Attempt Messages.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3713195
+- Contents: System shall display Fail-1 pop-up with buzzer in R1/R2/R3/R4/R5 wireframe area and send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when VPSAlarmFailCntrl = Fail_Present
+Note: Fail-1 follows D01 visualisation behaviour with Priority-2.
+Virtual telltale follows S02 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Fail-1 Pop-up is displayed when VPSAlarmFailCntrl = Fail_Present
+
+POPUPID: 00870001
+Buzzer:2B
+
+CAN-Signal:
+NBC_VPS2.VPSAlarmFailCntrl
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, PSAlarmFailCntrl, display, is, Fail, follows, pop-up, buzzer, area, Priority-2" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3713197
+- Contents: System Shall display Warning-1 Pop-up with Buzzer and Telltale in R1/R2/R3/R4/R5 wireframe area AND send the Warning-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+Door Alarm OR
+Trunk Alarm OR
+Bonnet Alarm OR
+US Alarm OR
+AI Alarm OR
+Electrical Alarm is equal to Active.
+Note: Warning-1 follows D01 visualisation behaviour with Priority-2.
+Virtual telltale follows S02 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Warning-1 is displayed  When (VPSDoorsAlarmCauseCntrl = Active OR VPSTrunkAlarmCauseCntrl = Active OR VPSBonnetAlarmCauseCntrl = Active OR
+VPSUSAlarmCauseCntrl = Active OR VPSAIAlarmCauseCntrl = Active OR VPSElectricalAlarmCauseCntrl = Active
+
+POP-UP ID: 00870002
+
+Buzzer:3C
+
+CAN-Signal:
+NBC_VPS2.VPSDoorsAlarmCauseCntrl 
+NBC_VPS2.VPSTrunkAlarmCauseCntrl 
+NBC_VPS2.VPSBonnetAlarmCauseCntrl 
+NBC_VPS2.VPSUSAlarmCauseCntrl 
+NBC_VPS2.VPSAIAlarmCauseCntrl 
+NBC_VPS2.VPSElectricalAlarmCauseCntrl
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Alarm, display, met, AI, is, follows, Pop-up, Buzzer, Telltale, area, OR, Active, Priority-2" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713184
+- Contents: System shall display Alarm System indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3977752
+- Contents: System shall use the mentioned CAN signals to display Alarm System as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F087 6.2.1.1.2.5  Alarm System Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

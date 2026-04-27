@@ -1,0 +1,207 @@
+# FAD-0 6.2.2.1.4 : Audio Source Definition & Channels Allocation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1.4 FAD-0: Audio Source Definition & Channels Allocation
+
+- ID: 3715662
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3524994
+- Contents: The system shall ensure that main audio sources are mutually-exclusive during concurrent reproduction of audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Try to play more than one main audio sources.
+
+Verify that only one main audio source is active at time.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, ensure, main, are, sources, reproduction" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3674768
+- Contents: The system shall reproduce the highest priority Main audio source if one or more Main audio sources are triggered while another Main audio source is playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play a main audio source and Try to play one or more main audio sources.
+
+Verify that only the highest priority audio is heard and lower priority audio is stopped (if it was active).
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "another" ) 
+Passive voice
+ (Look for: "are triggered" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3674769
+- Contents: The system shall reproduce the newly triggered Main audio source if two Main audio sources with the same priority are activated.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition : One main audio source is playing(e.g. Media, Radio and Bluetooth).
+
+Play another main audio source with same priority of the currently playing audio source.
+
+Verify that latest played audio is playing.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are activated" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3674774
+- Contents: The system shall mix Alternate sources & Early sources over the currently active Main source.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: 1.Play a main audio source and alternate audio source
+Verify that alternate audio sources are mixed with currently active main audio source.
+
+2. Play an early audio source and main Audio source
+Verify the Early audio Sources are mixed with main audio sources.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "currently" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3674771
+- Contents: The system shall activate Multiple Alternate/Early audio sources at the same time during concurrent reproduction of audio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play multiple Alternate/Early audio sources.
+
+Verify that audio from multiple alternate/Early audio sources are heard.at the same time.
+- Grooming Status: Approved
+- Grooming Comments: [18.07.2024 Xiongwei] : Volume level check is not needed here
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "same" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3646127
+- Contents: The system shall "manage the following volume database" & "allow to change their value independently".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Play an audio source.
+Verify that the volume level change is seen on HMI as per the artifact ID "3646128" on changing the volume by using different methods mentioned in the artifact ID: 3646128
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "their" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3646137
+- Contents: The system shall define a calibration parameter for each volume in the volume database to read/write the values by diagnostics.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that each Volume in the database can be read and modify by diagnostics. 
+
+Note: Volume type are mentioned in the artifact ID 3646128
+- Grooming Status: Approved
+- Grooming Comments: [Xiongwei, Abdul 31.12.2024]
+MaxSwitchOnVolume belongs to media.
+- Expert Domains: Media Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3716297
+- Contents: All audio sources managed by the system shall be collected into two categories: Main sources, Alternate sources and Early sources.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4002214
+- Contents: The priority is described with an integer natural number. The lowest number indicates the highest priority.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3646128
+- Contents: (see: image86.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image86.png
+
+4. ID: 3646129
+- Contents: For each volume in the volume database, the table in the artifact ID: 3646128 defines the following information:
+VOLUME: Name of the volume entry in the Volume Database
+VOLUME ID: Parameter to be used in the FAD_CTRL__setVolume() API
+RANGE: Allowed range of values
+ADJUSTABLE: Methods by which the volume value can be changed
+Rotary: both the physical interface on the NVO and the physical interface on the NDR can be used to adjust the volume
+Settings: a dedicated setting can be used to adjust the volume
+VOLUME SCALE: the volume scale used within FAD Library
+- Artifact Type: Information
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "range, define, following, Allowed, change, table, information, volume, values, value" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3646132
+- Contents: Rotary means both the physical interface on the NVO and the physical interface on the NDR to adjust the volume.
+Setting means the dedicated HMI setting to adjust the volume.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3732451
+- Contents: Calibration Parameters for each volume:
+Entertainment_Volume
+Ringtone_Volume
+Phone_Volume
+Voice_Volume
+Park_Volume
+Navigation_Volume
+General_Warning_Volume
+MaxSwitchOnVolume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image86.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-0 6.2.2.1.4 : Audio Source Definition & Channels Allocation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

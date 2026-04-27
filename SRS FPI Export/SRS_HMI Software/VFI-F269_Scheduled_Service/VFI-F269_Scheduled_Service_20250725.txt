@@ -1,0 +1,125 @@
+# VFI-F269 6.2.2.15  Scheduled Service Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.15 VFI-F269 Scheduled Service
+
+- ID: 4136849
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: ref VEH-F269 Scheduled Service Warning
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4153659
+- Contents: IDC shall display estimated remaining time before a maintenance session.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display the estimated remaining time.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4153660
+- Contents: IDC shall align its estimated remaining time to the received data in VEH_DaysToService.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to align to estimated time.
+
+VEH_DaysToService.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "its" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4153661
+- Contents: System shall replace the numerical value indication with a dedicated placeholder “- “in  invalid condition.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the value indication in not valid condition.
+
+
+VEH_DaysToServiceValidData == Not_Valid
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, replace, indication, placeholder  #8220;-  #8220, condition" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4153664
+- Contents: IDC shall display estimated remaining distance before a maintenance session.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display estimated remaining distance.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4153663
+- Contents: IDC shall align its estimated remaining distance to the received data in VEH_DistanceToService.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to align to estimated remaining distance.
+
+VEH_DistanceToService.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "its" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4153662
+- Contents: IDC shall replace the numerical value indication with a dedicated placeholder “-“in Not valid condition.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the value indication in not valid condition.
+
+
+VEH_DistanceToServiceValidData == Not_Valid.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F269 6.2.2.15  Scheduled Service Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

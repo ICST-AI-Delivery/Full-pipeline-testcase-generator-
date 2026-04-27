@@ -1,0 +1,160 @@
+# UnknownID 6.1.2.3.6 Association
+
+
+
+Association Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.3.6 Association
+
+
+
+Association
+
+- ID: 2353397
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353398
+- Contents: 6.1.2.3.6.1 The System shall not try to connect to any WLAN network via STA mode unless the...
+
+
+
+The System shall not try to connect to any WLAN network via STA mode unless the User deliberately selects a WLAN network to connect. Or The System shall have saved WLAN profiles that match available networks in the range.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353399
+- Contents: 6.1.2.3.6.2 The System shall associate to the WLAN network that the user selects on the HMI.
+
+
+
+The System shall associate to the WLAN network that the user selects on the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+3. ID: 2353400
+- Contents: 6.1.2.3.6.3 The System shall not allow connecting to a hidden network.
+
+
+
+The System shall not allow connecting to a hidden network.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall not allow user to connect hidden network.
+- Grooming Status: Approved
+- Grooming Comments: To be discussed with HMI regarding adding an option "Add network" for manual input.
+- TestTeamComment: Hsutter [2024-04-16] It is possible to write a test case
+
+4. ID: 2353401
+- Contents: 6.1.2.3.6.4 The System shall connect to the network in 5 GHz if the selected WLAN network is...
+
+
+
+The System shall connect to the network in 5 GHz if the selected WLAN network is available on 2.4 and 5 GHz.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+5. ID: 2353402
+- Contents: 6.1.2.3.6.5 The System shall associate the AP within that ESSID with the strongest signal if...
+
+
+
+The System shall associate the AP within that ESSID with the strongest signal if the WLAN network that the user selects on the HMI belongs to an ESSID.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+6. ID: 2353403
+- Contents: 6.1.2.3.6.6 The System shall store the passwords for all trusted networks.
+
+
+
+The System shall store the passwords for all trusted networks.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+7. ID: 2353404
+- Contents: 6.1.2.3.6.7 The System shall display a prompt for WLAN credentials if the association to a n...
+
+
+
+The System shall display a prompt for WLAN credentials if the association to a network fails due to authentication issues.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+8. ID: 2353405
+- Contents: 6.1.2.3.6.8 The System shall update credentials in the known networks list with the updated...
+
+
+
+The System shall update credentials in the known networks list with the updated ones if an association is successful after authentication issues.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+9. ID: 2353406
+- Contents: 6.1.2.3.6.9 The System shall ask the User for credentials if the selected network is not alr...
+
+
+
+The System shall ask the User for credentials if the selected network is not already in the known networks list.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+10. ID: 2353407
+- Contents: 6.1.2.3.6.10 The System shall make the second association attempt automatically if fails due...
+
+
+
+The System shall make the second association attempt automatically if fails due to any other than authentication issues.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+11. ID: 2353408
+- Contents: 6.1.2.3.6.11 The System shall save the network at the top of the know networks list if the as...
+
+
+
+The System shall save the network at the top of the know networks list if the association is successful.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+12. ID: 2353409
+- Contents: 6.1.2.3.6.12 The System shall prompt the warning if the user tries to connect to a WLAN netwo...
+
+
+
+The System shall prompt the warning if the user tries to connect to a WLAN network with an SSID containing non-ASCII characters.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Try to connect to a Wifi hotspot with non ASCII character as SSID  and expect a warning message.
+- Grooming Status: Blocked
+- Grooming Comments: will connectivity filter the network or directly give to the HMI
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.3.6 Association]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

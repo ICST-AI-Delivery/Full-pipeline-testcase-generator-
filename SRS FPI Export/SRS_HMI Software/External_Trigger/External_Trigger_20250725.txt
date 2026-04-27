@@ -1,0 +1,127 @@
+# UnknownID 6.1.2.5 External Trigger
+
+
+
+External Trigger Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.5 External Trigger
+
+
+
+External Trigger
+
+- ID: 2354657
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354658
+- Contents: 6.1.2.5.1 External trigger shall influence the HMI.
+
+
+
+External trigger shall influence the HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify if the HMI changes with respect to different external triggers
+- Grooming Status: Approved
+- Grooming Comments: 02/08/23:
+- Expert Domains: HMI Design
+- TestTeamComment: [Hsutter, 2024-01-15] TestTeamApproval was removed because "System Qualification Test" was removed from the Test Stage
+
+Verification criteria is unsufficient. Details missing about what the external trigger is and what the reaction to that trigger shall be.
+- State (Harman_Requirement): Approved
+
+2. ID: 2354659
+- Contents: 6.1.2.5.2 The list of the external triggers shall include but not be limited by: * sensors...    The list of the external triggers shall include but not be limited by: a condition of the driverviewing direction of the driver
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the HMI changes with respect to different external triggers
+- Grooming Status: Blocked
+- Grooming Comments: [26th Sep 2023]
+Based on wei jin comment:
+the viewing direction of driver should be provide by DMS
+
+02/08/23: Responsible domain should be IOC - sensors, car-data, position, lightdomain. 
+
+condition, driver direction -  Resp domain: ADAS
+
+connected services, online features, vehicle access - Need to identify Resp domain
+
+Need to check internally : What is the scope of connected services and online features - Refer if its available in documents
+- State (Harman_Requirement): In Work
+
+3. ID: 2810569
+- Contents: 6.1.2.5.3 The list of the external triggers shall include but not be limited by:
+
+
+sensors of the car
+
+car-data
+
+position of the car
+
+ambient light
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the HMI changes with respect to different external triggers
+- Grooming Status: Approved
+- Grooming Comments: avaloor, Rafal 01.12.2023
+HMI is responsible, IOC is expert
+
+02/08/23: Responsible domain should be IOC - sensors, car-data, position, lightdomain. 
+
+condition, driver direction -  Resp domain: ADAS
+
+connected services, online features, vehicle access - Need to identify Resp domain
+
+Need to check internally : What is the scope of connected services and online features - Refer if its available in documents
+- TestTeamComment: [Hsutter, 2024-01-15]
+JHaerig: 
+26.10.2023: Mail sent to Saranya, Swetha, etc. Status pending
+
+Verification criteria is unsufficient. Details missing about what the external trigger is and what the reaction to that trigger shall be.
+- State (Harman_Requirement): Approved
+
+4. ID: 2810570
+- Contents: 6.1.2.5.4 The list of the external triggers shall include but not be limited by: * sensors...    The list of the external triggers shall include but not be limited by: connected servicesonline featuresvehicle access
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if the HMI changes with respect to different external triggers
+- Grooming Status: Blocked
+- Grooming Comments: 02/08/23: Need to check internally with network team, connectivity.
+
+connected services, online features, vehicle access - Need to identify Resp domain
+
+Need to check internally : What is the scope of connected services and online features - Refer if its available in documents
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.5 External Trigger]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

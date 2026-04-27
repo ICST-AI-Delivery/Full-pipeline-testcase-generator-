@@ -1,0 +1,195 @@
+# DMS-6 6.2.1.7  FACE LANDMARK LOCATION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7 DMS-6 FACE LANDMARK LOCATION
+
+- ID: 3733145
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3733269
+- Contents: The system shall 'detect & track' the head and face of the driver when it is in field of camera-view.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Driver's head and face is visible on camera view in Engineering app.
+
+Verify the Driver presence using CAN signal DMS_DriverPresent.
+
+Note:
+ If Driver is detected DMS_DriverPresent = 0x2.
+If Driver is not detected DMS_DriverPresent = 0x1.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, track, is, amp, head, face, driver, field" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3733274
+- Contents: The system shall detect and track multiple-landmarks of the driver-face including eyes, nose & mouth.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Eye position by using the CAN messages MSG_DMS_EyePositionL & MSG_DMS_EyePositionR.
+
+Verify the Eye direction by using CAN message MSG_DMS_GazeDirection
+
+Verify the Landmarks using the engineering app.
+- Grooming Status: Approved
+- Grooming Comments: Ticket:
+https://jira.harman.com/jira/browse/FQ-696
+
+Ferrari
+Does it make sense it to verify the not usable features (nose and mouth landmark)
+?
+
+To Antonio:
+  CIPIA give us the nose and mouth land mark)
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, track, including, landmarks, eyes, amp" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3733279
+- Contents: The system shall determine the position of eyes as 3D coordinates within the vehicle coordinate system with the origin in the center of the front wheel axis.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : 
+system status = Running.
+
+Verify when the driver moves his eyes then the eyes coordinates should be updated in DMS_EyePositionL.X, DMS_EyePositionL.Y,DMS_EyePositionL.Z
+
+DMS_EyePositionR.X, DMS_EyePositionR.Y,DMS_EyePositionR.Z
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-696
+
+Comment to Ferrari:
+
+How to verify 3D coordinates for head?
+
+Is it Ok to verify 3D coordinates for head internally? or is there any signal available to verify the 3D coordinates for head externally? 
+
+[Antonio, Saheel_04.03.2025] Remove Head from SRS
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "all" ) 
+Passive voice
+ (Look for: "is defined" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3733280
+- Contents: System shall be able to determine the presence of the driver in the vehicle cabin based on the previous information.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3733316
+- Contents: The system shall send the quality of head-tracking over CAN.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the quality of head tracking by using SG_DMS_HeadTrackQuality.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3733317
+- Contents: The system shall send the quality of eye-opening estimation over CAN.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify quality of Eye opening estimation by using SG_DMS_EyeClosedQuality.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3733319
+- Contents: The system shall send the information on eyes position over CAN        .
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the information of Eyes opening using  MSG_DMS_EyePositionR and MSG_DMS_EyePositionL.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-874
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, messages, information, position" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3733320
+- Contents: The system shall accurately estimate face & eye-landmarks in case of partial face covering.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Mouth and Nose are covered with a face mask.
+
+verify that DMS.Info.Nonnominal = True is set when face is partially covered.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-696
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "accurately" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Non-Nominal Condition Determination is provided  in the artifact ID 3788603: DMS-8 NON-NOMINAL CONDITION DETERMINATION
+
+### Informational Items:
+
+1. ID: 3733268
+- Contents: This function explains the driver's face detection and position logic.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3733355
+- Contents: Diagnosis
+Oa_Ien_3EyePositionL
+Oa_Ien_3EyePositionR
+Oe_enu_DrvrPresent
+Oe_pct_HeadTrackQuality
+Oe_pct_EyeClosedQuality
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3733356
+- Contents: Outputs
+Oa_Ien_3EyePositionL
+Oa_Ien_3EyePositionR
+Oe_enu_DrvrPresent
+Oe_pct_HeadTrackQuality
+Oe_pct_EyeClosedQuality
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-6 6.2.1.7  FACE LANDMARK LOCATION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

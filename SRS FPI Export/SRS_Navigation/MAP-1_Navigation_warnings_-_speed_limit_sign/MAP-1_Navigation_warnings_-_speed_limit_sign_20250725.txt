@@ -1,0 +1,121 @@
+# MAP-1 6.2.1.1  Navigation warnings - speed limit sign Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1 MAP-1 Navigation warnings - speed limit sign
+
+- ID: 3408259
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3715371
+- Contents: System shall publish information about traffic sign type based on geolocalization and ADAS Map information on NIT_TSR_01.TSRSignType and INFO_TSRSignType as follows:
+0 which is Information  unavailable
+1 which is ViennaConvention or UK Areas
+2 which is US or Ireland  Areas
+3 which is Canada or Singapore areas
+4 which is China or Japan areas
+5 which is Korea or Malaysia areas
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify that traffic sign type is published according to geolocalization and ADAS Map info.
+- CAN: NIT_TSR_01.TSRSignType
+- INFO_TSRSignType: tbd, cf. FQ-460
+NIT_TSR_01.TSRSpdLimitUnits
+INFO_TSRMainSign1
+INFO_TSRHandOfTraffic
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, publish, about, based, follows, is, is Korea, information, type, geolocalization, Information, ViennaConvention, Areas, Canada, areas, China" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+2. ID: 3715374
+- Contents: IDC shall publish information about Hand Of Traffic according to geolocalization and ADAS Map data on INFO_TSRHandOfTraffic as follows:
+0 which is "Vehicle is in areas with Left Hand traffic"
+1 which is "Vehicle is in areas with Right Hand traffic"
+2 which is "information unavailable"
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify the information about Hand Of Traffic according to geolocalization and ADAS Map data.
+
+(Output interface tbd, cf. FQ-460)
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "data, Vehicle, publish, according, follows, is, information, geolocalization, INFO_TSRHandOfTraffic, traffic" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+3. ID: 3715373
+- Contents: IDC shall publish information about speed limit according to geolocalization and ADAS Map data on INFO_TSRMainSign1 as follows:
+0which is "Information unavailable"
+1which is " No speed limit is present"
+(speed limit value/5)+1 which is "A speed limit present"
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify that speed limit information is correctly published based on geolocalization and ADAS Map data.
+
+(Output interface tbd, cf. FQ-460)
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "data, publish, according, follows, is, is present, speed, limit, geolocalization, Information, present" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+4. ID: 3715372
+- Contents: IDC shall publish the units for speed limit according to geolocalization and ADAS Map data on NIT_TSR_01.TSRSpdLimitUnits and INFO_TSRSpdLimitUnits as follows:
+0which is "Information unavailable"
+1which is "Speed measurement unit km/h".
+2which is "Speed measurement unit mph".
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify that speed limit units are published according to geolocalization and ADAS Map data.
+- CAN: NIT_TSR_01.TSRSpdLimitUnits
+- INFO_TSRSpdLimitUnits: tbd, cf. FQ-460
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "data, publish, according, follows, is, units, limit, geolocalization, Information, unit km/h, measurement unit mph" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of MAP-1 6.2.1.1  Navigation warnings - speed limit sign Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

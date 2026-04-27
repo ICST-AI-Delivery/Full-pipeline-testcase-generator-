@@ -1,0 +1,1619 @@
+# VEH-F135 6.2.1.1.2.9  Tyre Pressure and Temperature Monitoring System Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.9 VEH-F135 Tyre Pressure and Temperature Monitoring System
+
+- ID: 3406513
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3667847
+- Contents: System shall store the last valid value received of INFO_PressureUnit
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system stores the last valid value received of INFO_Pressure Unit.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3667848
+- Contents: IDC_VEH shall use the stored value of INFO_PressureUnit in case of missing information from IDC_INFO.
+Note: IDC_VEH, IDC_INFO shall be IDC SW blocks
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the IDC_VEH uses stored value of Pressure unit  incase of Missing Information from IDC_INFO.
+- Grooming Status: Approved
+- Grooming Comments: How to test the missing information, from tester point of view?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3667849
+- Contents: System shall display the TPMS graphical visualizations on the Status Car model in the Right Dial.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TPMS graphical visualisations on the Status car model in the Right dial.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3667886
+- Contents: System shall dispaly the pressure label, the tyre elements and the label of the pressure measuring unit having two possible graphical states:
+Not highlighted (default state) if XHYTyrePressureSts == Fail_Not_Present
+Yellow highlighted (e.g. in case of a flat tire) if XHYTyrePressureSts == (Low_Pressure_Soft_warning OR Flat_Tyre_Hard_warning) with X (left/right) and Y (front/rear).
+(see: image88.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: 
+Not highlighted (default state) if XHYTyrePressureSts == Fail_Not_Present
+Yellow highlighted (e.g. in case of a flat tire) if XHYTyrePressureSts == (Low_Pressure_Soft_warning OR Flat_Tyre_Hard_warning) with X (left/right) and Y (front/rear).
+
+
+Verify that the 2 graphical states were displayed when necessary conditions are met.
+X-is for Right /Left
+Y-is for Front/Rear
+
+CAN-Signal:
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+- Grooming Status: Approved
+- Grooming Comments: Need to confirm with the highlighted colour, on the text in the contents attribute.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, dispaly, measuring, having, highlighted, warning, left, label, elements, unit, states, state, tire, right, front, rear" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image88.png
+
+5. ID: 3667894
+- Contents: System shall highlight both the elements (pressure label and tire model) corresponding to the same tire and the label of the pressure-measuring unit simultaneously.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system highlights  both Pressure label and tire model corresponding to the same tire and the 
+pressure mesauring unit simultaneously.
+
+CAN-Signal:
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, highlight, corresponding, measuring, label, tire, unit simultaneously" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3667895
+- Contents: System shall continue to show the highlighted element until the relative activation condition is verified
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System continues to show thw highlighted element until the realative activation condition is verified.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "until" ) 
+Passive voice
+ (Look for: "is verified" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3667897
+- Contents: IDC shall display non-highlighted tire elements  as “transparent” in order to allow the visualization of the Status Car tires color.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the In case of one, or more, non-highlighted tire elements then system shall display them as “transparent” in order to allow the visualization of the Status Car tires color.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as  #8220, in order to" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3669881
+- Contents: In the case of one, or more, yellow highlighted tire visualization, system shall display the yellow tires over the Status Car tire elements
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the In the case of one, or more, yellow highlighted tire visualization, system shall display these yellow tires over the Status Car tire elements
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, highlighted, display, visualization, tires, elements" ) 
+Unclear term
+ (Look for: "more" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3669883
+- Contents: System shall prioritise the highlighted elements of the TPMS over the Status Car elements visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the The highlighted elements of the TPMS have the priority over the Status Car elements visualization.
+- Grooming Status: Approved
+- Grooming Comments: OM-17/04/25: Status car is not applicable for F244 ,Hence marking the Requreiment as Obsolete.
+
+refer Jira: FQ-1079
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 3669895
+- Contents: System shall display actual tire pressure , pressure unit accoringly when the corresponding signal value is in the range from 00h to D7h.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the actual tire pressure and presure unit is displayed when the signal range is from 00h to D7h. 
+
+CAN-Signal:
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, corresponding, is, pressure, unit accoringly, value, range" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3859166
+- Contents: System shall display "--" when the corresponding signal value is out of the range of 00h to D7h.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the actual tire pressure and presure unit is displayed when the signal range is not in the range from 00h to D7h. 
+
+CAN-Signal:
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, corresponding, is out, value, range" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3670166
+- Contents: System shall approximate the tire pressure values acquired via CAN signal as follow:
+CAN signals value table ---> values to be visualized
+(see: image89.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system approximates the tire pressure values acquired via CAN using the logic
+
+Logic:
+ CAN signals value table ---> values to be visualized
+- Grooming Status: Approved
+- Grooming Comments: Clarification on the requirement logic
+
+
+What  is the CAN signals value table? 
+
+"CAN signals value table ---> values to be visualized"
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image89.png
+
+13. ID: 3670167
+- Contents: System shall convert and display the Tire pressure values as bars using the Conversion Algorithm:
+X [psi] = X [bar] * 14.5038
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System pressure units were converted into bars using the conversion Algorithm.
+
+Conversion Algorithm: X [psi] = X [bar] * 14.5038 
+
+Note: Change unit settings to calculate the values
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, convert, display, using, values, Algorithm" ) 
+Missing unit 
+ (Look for: "‘14.5038’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3670168
+- Contents: System shall approximate the converted value applying to obtain an integer value of pressure in psi as follows
+The ceiling method if the decimal part is > 0.5
+the floor method if the decimal part is <= 0.5
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verfy that the decimal values of the tire pressure are converted into integers by following the logic.
+
+Logic:
+ the ceiling method if the decimal part is > 0.5
+the floor method if the decimal part is <= 0.5
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, part, approximate, converted, applying, obtain, follows, is, value, pressure, method" ) 
+Missing unit 
+ (Look for: "‘0.5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3673567
+- Contents: System shall display "--" in four pressure labels in the default state of the TPMS graphic when :
+NTPTempNotActiveSts == “TemporarilyNotActive” OR
+TyrePressureSysCalibrationSts == “SystemNotCalibrated” OR
+TyrePressureSystemFailSts == “Fail_present” OR
+TyrePressureSystemSts == “Disable”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays "--" in all four pressure labels in the default state of all the TPMS graphic when:
+
+* NTPTempNotActiveSts== "TemporarilyNotActive" OR
+*TyrePressureSysCalibrationSts=="SystemNotCalibrated" OR
+*TyrePressureSystemFailSts=="Fail_present" OR
+*TyrePressureSystemSts=="Disabled"
+
+CAN-Signals:
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, NTPTempNotActiveSts, SystemNotCalibrated, present, labels, state, #8221" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3673568
+- Contents: The visualization of the warnings shall depend by the PROXI bit Run Flat (absent or present).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning visualisation is dependent on PROXI bit Run Flat. 
+
+PROXI : Byte 68, bit 2 ("Run Flat": absent/present)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualization, depend, present, warnings, absent" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3673569
+- Contents: System shall display Warning-1, Warning-2(without to evaluate the D_FlatTyre parameter), Warning-7, Warning-8, Warning-9, Warning-10, Warning-11, Fail-1 and Feedback-1 in case of Run Flat is equal to absent.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre- Condition: PROXI Run Flat == absent 
+
+Trigger each warning's which are mentioned in the Requirement.
+
+Verify that the Mentioned warnings are triggered when PROXI Run Flat is absent
+- Grooming Status: Approved
+- Grooming Comments: Expert Domains need to be checked with F.O bcause the warnings were added here.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to evaluate, to absent, Feedback-1" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3673570
+- Contents: In case of Run Flat present,system shall display Warning-1, Warning-2(with the D_FlatTyre parameter), Warning-3 (proxi km), Warning-4(proxi mi), Warning-5(proxi km), Warning-6(proxi mi), Warning-7, Warning-8,
+Warning-9, Warning-10, Warning-11, Fail-1 and Feedback .
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: PROXI Run Flat == present
+
+Proxi: Byte 68, bit 3 ("km/mi": km/mi)
+
+Verify that the Mentioned warnings are triggered when PROXI Run Flat is present
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, Warning-2, km, mi, Feedback" )
+- State (Harman_Requirement): Approved
+
+19. ID: 3673571
+- Contents: System shall continue to display Warning-3 , Warning-4 , Warning-5 and Warning-6 and shall not be reset D_FlatTyre Counter in case of second or more signalling.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system continues to display the Warning-3,4,5 and Warning-6 and shall not reset the D_FlatTyreCounter in-case of second or More signalling.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, D_FlatTyre, counter, distance, performed.Note, input" )
+- State (Harman_Requirement): Approved
+
+20. ID: 3673573
+- Contents: ADD req here - IDC-454251
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3673574
+- Contents: System shall continue the calculation with-out reset in the case of a  second or longer signalling.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall continue the calculation with-out reset in the case of a second or more signalling.
+- Grooming Status: Approved
+- Grooming Comments: What is Second or More signalling , Need to Create JIra Ticket for this.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, continue, reset, signalling, calculation, case" )
+- State (Harman_Requirement): Approved
+
+22. ID: 3673575
+- Contents: System shall update the tyres temperature every 2-seconds and store the temperature in the memory for 2-seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: System shall update the tyre temperature for every 2Seconds and store it in the memory for 2Seconds.
+- Grooming Status: Blocked
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, seconds, update, store, temperature, memory" )
+- State (Harman_Requirement): Obsolete
+
+23. ID: 3673576
+- Contents: The temperature of tyres shall display as per the request of user
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the temperature of tyres can be displayed as per the request of a user.
+- Grooming Status: Blocked
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "as per" )
+- State (Harman_Requirement): Obsolete
+
+24. ID: 3673577
+- Contents: The user can display the tyres pressure by a suitable command
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user display the tyre pressure by a suitable command.
+- Grooming Status: Blocked
+- Grooming Comments: What is the Suitable command here!
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+25. ID: 3673578
+- Contents: 6.2.1.1.2.9.1 Indicator Status Overview visualization (Classic layout)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+26. ID: 3673579
+- Contents: System shall display the TPMS graphical visualization in “F” visualization area.
+(see: image90.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TPMS graphical visualisation is  displayed in F area.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: How to move Change the Right Dial Content?
+- State (Harman_Requirement): Approved
+- Visual Elements: image90.png
+
+27. ID: 3673580
+- Contents: The graphical visualization shall compose of:
+Four labels, one for each tire reporting the instantaneous tire pressure (e.g. for the Front Left tire (F.L.).
+four tires, shared with the Status Car model
+one label for the tire pressure measuring unit
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the visualisation is composed of 
+
+*Four Labels
+*Four tires
+*one label for the tire pressure measuring unit.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualization, compose, reporting, shared, measuring, tire, pressure, Left, Status, model, label, unit" ) 
+Unclear term
+ (Look for: "instantaneous" )
+- State (Harman_Requirement): Approved
+
+28. ID: 3673581
+- Contents: System shall use the following signals for display the four pressure labels:
+Front left pressure label: LHFPressureSts
+Front right pressure label: RHFPressureSts
+Rear left pressure label: LHRPressureSts
+Rear right pressure label: RHRPressureSts
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the Four pressure labels as per the signals mentioned:
+
+
+
+CAN-Signal:
+STATUS_NTP.LHFPressureSts
+STATUS_NTP.RHFPressureSts
+STATUS_NTP.LHRPressureSts
+STATUS_NTP.RHRPressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "right" )
+- State (Harman_Requirement): Approved
+
+29. ID: 3673582
+- Contents: System shall use the following signals for display the four tires TPMS status:
+Front left tire: LHFTyrePressureSts
+Front right tire: RHFTyrePressureSts
+Rear left tire: LHRTyrePressureSts
+Rear right tire: RHRTyrePressureSts
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the tire TPMS status is is displayed by the system as per the below mentioned signals:
+
+CAN-Signal:
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+30. ID: 3673583
+- Contents: System shall display the value of PressureUnit in the label of the tire pressure measuring unit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system display the value of PressureUnit in the label of tire pressure measuring unit.
+
+Note: Set the value in Android HMI.
+- Grooming Status: Approved
+- Grooming Comments: Not Implemented.
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+31. ID: 5504910
+- Contents: System shall display TPMS pressure Indicator with minimum and maximum for each tyre based on the following values:
+Min_pressure_value_indicator parameter value.
+Max_pressure_value_indicator parameter value.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the minimum and maximum values of the each tyre is displayed using the following Parameter value.
+
+Min_pressure_value_indicator
+Max_pressure_value_indicator
+- Grooming Status: Approved
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, based, following, Indicator, tyre, values, value" ) 
+Unclear term
+ (Look for: "minimum, maximum" )
+- State (Harman_Requirement): Approved
+
+32. ID: 5504943
+- Contents: System shall display the Status of each tyre and color as below:
+If XHYTyrePressureSts OR UnknownTyrePressureSts="Flat tyre" then Pressure value is displayed in red as FLAT.
+If XHYTyrePressureSts OR UnknownTyrePressureSts="Low pressure" then Pressure value is displayed in yellow as LOW.
+If XHYTyrePressureSts =."High_pressure_value" then Pressure value is displayed in red as High.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+XHYTyrePressureSts OR UnknownTyrePressureSts is Flat tyre (or) High_pressure_value (or) Low Pressure.
+
+Verify that the Red colur tyre status is displayed when Tyrepresuusre value is Flat tyre or HighPressure, And verify that the Yellow colour tyre status is displayed for Low Pressure value.
+
+Note: Please check status car in the Right Dial contents.
+
+
+CAN-Signal:
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, XHYTyrePressureSts, value, display, Status, tyre, color, UnknownTyrePressureSts, FLAT, pressure, LOW, High" ) 
+Passive voice
+ (Look for: "is displayed" )
+- State (Harman_Requirement): Approved
+
+33. ID: 5504948
+- Contents: System shall display as CALIBRATING , when  NTPCalibrationReqACK = Calibration Request Acknowledged is received.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the CALIBARTING text is displayed in the HMI when NTPCalibrationReqACK value is set to Calibration Request Acknowledged.
+
+CAN-Signal:
+STATUS_NTP.NTPCalibrationReqAck
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, Acknowledged" )
+- State (Harman_Requirement): Approved
+
+34. ID: 5504952
+- Contents: System shall display minimum and maximum indicator on scale when Pressure Value(XHYPressureSts)=<Min_pressure_value_indicator for Minimum. and  Pressure Value(XHYPressureSts)=>Max_pressure_value_indicator for Maximum.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Any of the Tyre pressure is Displayed as Minimum and Maximum based on the below Condition.
+
+Condition:
+For Minimum: Value(Any Tyre Pressure) is lessthan or equal to Min_pressure_value-Indicator.
+
+For Maximum:Value(Any Tyre Pressure) is Greaterthan or equal to Min_pressure_value-Indicator.
+
+CAN-Signal:
+STATUS_NTP.RHFPressureSts
+STATUS_NTP.LHFPressureSts
+STATUS_NTP.RHRPressureSts
+STATUS_NTP.LHRPressureSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, indicator, ValueXHYPressureSts, Maximum" ) 
+Unclear term
+ (Look for: "minimum, maximum" )
+- State (Harman_Requirement): Approved
+
+35. ID: 3673775
+- Contents: System shall display Warning-1 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when tyre pressure status is Low pressure.
+Note: Warning-1 follows D01 visualisation behaviour with priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts == Low Pressure OR UnknowTyrePressureSts == Low Pressure
+
+Verify that the Warning-1 Pop-up with buzzer is displayed when tyre pressure status is Low Pressure. 
+
+POP-UP ID : 13501
+Buzzer Audio: 2B
+
+CAN-Signals:
+Input:
+ STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+Output:
+NQS_Visualization_cycle.Main_AreaPopUp
+NQS_Visualization_cycle.Buzzer2B
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, Warning, follows, pop-up, buzzer, pressure, Low" )
+- State (Harman_Requirement): Approved
+
+36. ID: 3673784
+- Contents: System shall send TPMS_screen_required is Active when UnknownTyrePressureSts is Fail_Not_Present.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Algorithm:
+UnknowTyrePressureSts == Fail_Not_Present
+
+Verify that the system sends TPMS_screen_required is Active when TyrePressureSts is Fail_Not_Present.
+
+CAN-Signal:
+
+STATUS_NTP.UnknownTyrePressureSts
+
+NQS_Visualization_cycle.VEH_TPMS_screen_required_cntrl
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, required, is Active, is, UnknownTyrePressureSts" )
+- State (Harman_Requirement): Approved
+
+37. ID: 3943863
+- Contents: System shall change the value of the TPMS_screen_required  Active to Not_Active when
+Escape_Function is Active AND
+After T_Warning (20 Seconds-Time of visualization of warning message)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Value of the TPMS_screen_required signal value from Active to Not_Active when Escape_Function is Active AND After T_Warning( Wait for 20 Seconds)
+
+CAN-Signal:
+NQS_Visualization_cycle.VEH_TPMS_screen_required_cntrl
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Function, change, required, Escape, is, Warning, warning, value, Active, Not_Active, AND, message" )
+- State (Harman_Requirement): Approved
+
+38. ID: 3673803
+- Contents: System shall send TPMS_screen_required_control is Not_active when UnknowTyrePressureSts is Low Pressure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-condition:
+UnknowTyrePressureSts == Low Pressure
+
+Verify that the TPMS screen is Not Active when Unknown Tyre Pressure Status is Low  Pressure.
+
+CAN-Signal: STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, control, UnknowTyrePressureSts, send, required, is, Pressure" )
+- State (Harman_Requirement): Approved
+
+39. ID: 5034113
+- Contents: System shall send the indication status to IVI using VEH_3dModelXXX and display the indications as described below:
+(see: image91.png)
+(see: image92.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Indications are displayed in the CENTRAL display as per the Proxi and the Input CAN signal.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, using, display, described, status, indications" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image91.png, image92.png
+
+40. ID: 3674017
+- Contents: System shall display Warning-2 Pop-Up with Buzzer and Telltale , send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when tyre pressure status is Flat Tyre AND D_FlatTyre is 80km (49mi))
+Note: Warning-2 follows D01 visualisation behaviour with priority 0
+CAN input dedicated Virtual Telltale TPM001 with S18 Behaviour
+(see: image93.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts == Flat Tyre OR UnknowTyrePressureSts == Flat Tyre [AND
+D_FlatTyre==80km (49mi)
+
+Verify that the system display's Warning-2 Pop-up with Buzzer and Telltale when Tyre Pressure status is Flat Tyre AND D_FlatTyre is 80KM(49mi).
+
+Pop-Up ID: 13516
+
+Telltale ID: TPM001 
+
+Telltale Reference ID: 00670
+
+Audio Buzzer: Buzzer 2A
+
+CAN-Signal: 
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+OR
+
+STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, send, using, is, follows, input, Pop-Up, Buzzer, Telltale, IVI, INDICATOR_STATUS, Tyre AND, behaviour, priority" ) 
+Missing limits
+ (Look for: "‘80 km mi’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image93.png
+
+41. ID: 3674420
+- Contents: When UnknowTyrePressureSts is Fail_Not_Present system shall send VEH_TPMS_screen_required as Active and remains until Escape_Function Active received.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+UnknowTyrePressureSts == Fail_Not_Present.
+
+Verify that the system sends VEH_TPMS_screen_required as Active and  remains same until Escape_Function Active is received when UnknowTyrePressureStatus is Fail_Not_Present
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, UnknowTyrePressureSts, send, required, remains, receive, is, Escape_Function" )
+- State (Harman_Requirement): Approved
+
+42. ID: 3674421
+- Contents: After T_Warning(20S) ,the TPMS_screen_required_cntrl signal value will change from “Active” to “Not_Active
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the T_Warning, TPMS_Screen_required_cntrl signal value changes from "Active" to "Not_Active".
+
+T_Warning= 20S
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+43. ID: 3674423
+- Contents: System shall send TPMS_screen_required_cntrl as Not_active when UnknowTyrePressureSts is Flat_Tyre
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System sends the TPMS_screen_required_cntrl as Not_active when UnknownTyrePressureStatus is Flat_Tyre.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+44. ID: 3674426
+- Contents: System shall display Warning-3 pop-up with buzzer and telltale in B5 Wireframe Area send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Tyre pressure status is Flat tyre if Proxi Run flat is present.
+Note: Warning-3 follows D01 Visualisation behaviour with priority-2.
+CAN input dedicated Virtual Telltale TPM001 with S18 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts == Flat Tyre OR UnknowTyrePressureSts == Flat Tyre
+
+Pre-Condition:
+"Run Flat" == Present
+
+
+Verify that the Warning-3 pop-up with buzzer and Telltale when Tyre pressure status is Flat tyre if Proxi Run flat is present.
+
+Buzzer;2B
+
+CAN-Signals:
+CAN-Signal: 
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+OR
+
+STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, follows, input, pop-up, buzzer, telltale, Area, tyre, Telltale" )
+- State (Harman_Requirement): Approved
+
+45. ID: 3674471
+- Contents: System shall repeat Warning-3 pop-up ,when D_Flat Tyre equal to 40 KM
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system repeats Warning-3 when D_Flat Tyre is equal to 40KM.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘40 KM mi’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+46. ID: 3674473
+- Contents: System shall send TPMS_screen_required_control is Active.when UnknowTyrePressureStatus  equal to Fail_Not_Present
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system sends TPMS_screen_required_control is Active. when UnknownTyrePressureStatus equal to  Fail_Not_Present
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+47. ID: 3674478
+- Contents: WhenTPMS_Screen_required_control is Active and UnknownTyrePressureStatus is Fail_Not_Present TPMS_screen_required_cntrl shall remain “Active” until  following the C2 attributes combination:
+If system receives Escape_Function=Active, TPMS_screen_required_cntrl signal value changes from “Active” to “Not_Active”.
+After T_Warning, TPMS_screen_required_cntrl signal value changes from “Active” to “Not_Active” .
+(see: image94.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TPMS_screen_required_cntrl signal value changes from  "Active to Not_Active" when system TPMS_screen_required_cntrl changes from Active to Not_Active after T_Warning.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image94.png
+
+48. ID: 3674482
+- Contents: System shall send TPMS_screen_required_cntrl = Not_active. when UnknowTyrePressureSts == Flat Tyre
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System sends TPMS_screen_required_cntrl is Not_active when UnknowTyrePressureSts is Falt Tyre.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, required, cntrl, Tyre" )
+- State (Harman_Requirement): Approved
+
+49. ID: 5499040
+- Contents: System shall stop and reset the D_FlatTyre Counter when (LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts = Flat Tyre OR UnknownTyrePressureSts = Flat Tyre) becomes false.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts ==! Flat Tyre OR UnknowTyrePressureSts ==! Flat Tyre
+
+Pre-Condition:
+"Run Flat" == Present
+
+
+Verify that the D_Flattyre counter is stopped and reset.
+
+Information:
+
+-> If Warning-3 is up and the D_Flat tyre counter is started , After reaching the 40 KMS if the tyre pressure is not increased system shall display warning-3.
+
+-> When Warning-3 is active and if the warning-3 activation condition is false then the counter value of the  D_Flat tyre  is stopped and Reset.
+
+
+CAN-Signals:
+CAN-Signal: 
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+OR
+
+STATUS_NTP.UnknownTyrePressureSts
+
+VEHICLE_SPEED_E_ODOMETER.TravelDistance
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, reset, becomes, LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts" )
+- State (Harman_Requirement): Approved
+
+50. ID: 3674484
+- Contents: System shall display Warning-4 pop-up with buzzer and telltale in B5 wireframe Area and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUSwhen tyre pressure status is Flat tyre if Proxi Run flat is present.
+Note: Warning-4 follows D01 visualisation with priority 2
+CAN input dedicated Virtual Telltale TPM001 with S18 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger -Condition:
+("Run Flat" == Present)
+(LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts == Flat Tyre OR UnknowTyrePressureSts == Flat Tyre)
+
+Verify that the Warning-4 Pop-Up with Buzzer and Telltale in B5 wireframe Area when tyre pressure status is Flat tyre if Proxi Run flat is present. 
+
+Buzzer:2B
+
+CAN-Signals:
+CAN-Signals:
+CAN-Signal: 
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+OR
+
+STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, follows, input, pop-up, buzzer, telltale, tyre, visualisation, priority, Telltale" )
+- State (Harman_Requirement): Approved
+
+51. ID: 3674486
+- Contents: System shall repeat Warning-4 popup ,when D_Flat Tyre equal to 24mi.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system is repeat Warning-4 when D_Flat Tyre is equal to 24mi.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘40 KM mi’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+52. ID: 3674487
+- Contents: System shall send TPMS_screen_required_control is Active.when UnknowTyrePressureStatus  equal to Fail_Not_Present
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System sends TPMS_screen_required_control id Active when UnknownTyrePressureStatus equal to  Fail_Not_Present.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+53. ID: 3674488
+- Contents: When TPMS_screen_required_control is Active and UnkowTyrePressureStatus is equal to Fail_Not_Present , TPMS_screen_required_cntrl shall remain “Active” following the C2 attributes combination:
+If system receives Escape_Function=Active, TPMS_screen_required_cntrl signal value changes from “Active” to “Not_Active”.
+After T_Warning, TPMS_screen_required_cntrl signal value changes from “Active” to “Not_Active”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TPMS_screen_required_cntrl signal value changes from  "Active to Not_Active" when system TPMS_screen_required_cntrl changes from Active to Not_Active after T_Warning.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" )
+- State (Harman_Requirement): Approved
+
+54. ID: 3674491
+- Contents: System shall send TPMS_screen_required_cntrl = Not_active. when UnknowTyrePressureSts == Flat Tyre
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System sends TPMS_screen_required_cntrl is Not_active when UnknowTyrePressureSts is Falt Tyre.
+- Grooming Status: Approved
+- Expert Domains: HMI Design, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, send, required, cntrl, Tyre" )
+- State (Harman_Requirement): Approved
+
+55. ID: 3674485
+- Contents: System shall display Warning-5 pop-up with buzzer and telltale in B5 Wireframe area and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when tyre pressure status is Flat tyre AND Vindicata[km/h] greater than 80 mph if Proxi Run flat is present.
+Note: Warning-5 follows D01 visualisation with priority 0
+CAN input dedicated Virtual Telltale TPM001 with S18 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-5 Pop-Up with buzzer and telltale when tyre pressure status is Flat tyre AND Vindicata[km/h] greater than 80 mph when Proxi Run flat is Present.
+
+Buzzer: 2A
+
+CAN-Signal: 
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+OR
+
+STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, follows, input, pop-up, buzzer, telltale, tyre, km, h, visualisation, priority, Telltale" )
+- State (Harman_Requirement): Approved
+
+56. ID: 3674500
+- Contents: System shall send TPMS_screen_required is Active.when UnknowTyrePressureStatus  equal to Fail_Not_Present
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system System sends TPMS_screen_required is Active when UnknownTyrePressureStatus equal to Fail_Not_Present.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+57. ID: 3674501
+- Contents: When TPMS_screen_required is Active when UnknownTyrePressureStatus equal to Fail_Not_Present, TPMS_screen_required_cntrl , then system shall remain “Active” following the C2 attributes combination:
+If system receives Escape_Function=Active, TPMS_screen_required_cntrl signal value changes from “Active” to “Not_Active”.
+After T_Warning, TPMS_screen_required signal value changes from “Active” to “Not_Active”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the TPMS_screen_required_cntrl signal value changes from  "Active to Not_Active" when system TPMS_screen_required_cntrl changes from Active to Not_Active after T_Warning.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, required, is Active, remain, following, attributes, to  #8220, #8221, combination, changes, Not_Active" )
+- State (Harman_Requirement): Approved
+
+58. ID: 3674504
+- Contents: System shall send TPMS_screen_required value as Not_active when UnknowTyrePressureSts equal to Flat Tyre AND Vindicata[km/h]>80 km/h
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System send TPMS_screen_requires is Not_active when Unknown TyrePressureStatus equal to Flat Tyre AND Vinidcata[km/h]greater than 80 km/h.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "send, equal" ) 
+Missing limits
+ (Look for: "‘80 km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+59. ID: 3674510
+- Contents: System shall perform Warning-3  in Same time. when active, warning-5 turn off if the vehicle speed is equal / below to the value of 75 km/h.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System performs Warning-3 when Warning-5 is turned Off when the speed is equal or below the value of 75km/h and contemporary.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, speed, perform, turn, is, active, value, h, contemporary" )
+- State (Harman_Requirement): Approved
+
+60. ID: 3674517
+- Contents: System shall display Warning-6 pop-up with buzzer and telltale when tyre pressure status is Flat tyre AND Vindicata[km/h] greater than 50mph if Proxi Run flat is present.
+Note: Warning-6 follows D01 visualisation with priority 0
+CAN input dedicated Virtual Telltale TPM001 with S18 Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the warning-6 is triggered when 
+LHFTyrePressureSts, RHFTyrePressureSts, LHRTyrePressureSts, RHRTyrePressureSts = Flat Tyre OR UnknownTyrePressureSts = Flat Tyre AND Vindicata[mph] >
+50 mph
+
+Proxi: "Run Flat" = Present
+
+Buzzer:2A
+
+CAN-Signal: 
+STATUS_NTP.RHFTyrePressureSts
+STATUS_NTP.LHFTyrePressureSts
+STATUS_NTP.RHRTyrePressureSts
+STATUS_NTP.LHRTyrePressureSts
+
+OR
+
+STATUS_NTP.UnknownTyrePressureSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, follows, input, pop-up, buzzer, telltale, tyre, km, h, visualisation, priority, Telltale" )
+- State (Harman_Requirement): Approved
+
+61. ID: 3674518
+- Contents: System shall send TPMS_screen_required is Active.when UnknowTyrePressureStatus  equal to Fail_Not_Present. In this case, TPMS_screen_required_cntrl shall remain “Active” following the C2 attributes combination
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if TPMS_screen_requires = Active signal is sent to Android HMI.
+
+Internal Interface:
+VEH_TPMS_screen_required
+- Grooming Status: Approved
+- Grooming Comments: How to verify if the signal is sent?
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+62. ID: 3674520
+- Contents: If system receives Escape_Function=Active,
+TPMS_screen_required_cntrl signal value shall change from “Active” to “Not_Active”.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+TPMS_screen_required = Active
+
+TriggerCondition:
+Escape_Function = Active.
+
+
+
+Verify if the Signal Staus is Changed to Not-Active when System receives Escape_Function is Active.
+- Grooming Status: Approved
+- Grooming Comments: How to verify TPMS screen required state is Changed to Not Active?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "value, required, change, to  #8220, #8221, Not_Active" )
+- State (Harman_Requirement): Approved
+
+63. ID: 3674521
+- Contents: After T_Warning(20Sec), the TPMS_screen_required_cntrl signal value will change from “Active” to “Not_Active”
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+TPMS_screen_required_cntrl is Active
+
+Trigger Condition:
+T_Warning time-out(20Sec)
+
+Verify that theTPMS_screen_required_cntrl is set to Not_Active after T_Warning(20Sec)
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+64. ID: 3674522
+- Contents: System shall send the TPMS_screen_required_cntrl as Not_active.
+when UnknowTyrePressureSts == Flat Tyre
+AND
+Vindicata[km/h]>50 km/h
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if TPMS_screen_requires = Active signal is sent to Android HMI. when UnknownTyrePressureSts == Flat Tyre
+
+Internal Interface:
+VEH_TPMS_screen_required
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘50 km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+65. ID: 3674523
+- Contents: System shall perform Warning-4 When active, warning-6 turn off when the speed is equal / below to the value of 46 mph and contemporary.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-4 is activated when speed is equal or below the value of 46mph and contemporary.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, speed, perform, turn, is, active, off, value, contemporary" )
+- State (Harman_Requirement): Approved
+
+66. ID: 3674513
+- Contents: System shall display Warning-7 pop-up in B5 wireframe area with buzzer and telltale when NTPTTemp Not-Active Status is equal to Temporarily Not-Active.
+Note: Warning-7 follows D01 visualisation cycle with priority-2.
+System shall set TPMS screen required inhibited.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+NTPTempNotActiveSts == TemporarilyNotActive
+
+Verify that the Warning-7 is displayed when NTPTTemp Not Active Status is equal to Temporarily Not Active.
+
+CAN-Signal:
+STATUS_NTP.NTPTempNotActiveSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, send, pop-up, area, buzzer, telltale, Status, Not-Active, screen" ) 
+Passive voice
+ (Look for: "required inhibited" )
+- State (Harman_Requirement): Approved
+
+67. ID: 3674555
+- Contents: System shall display Warning-8 pop-up in B5 wireframe area with buzzer and telltale when Tyre Pressure System status is equal to disabled.
+Note: Warning-8 follows D01 visualisation cycle with priority-2.
+System shall send TPMS screen required inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(TyrePressureSystemSts == Disabled)
+
+Verify that the Warning-8 is displayed when TyrePressureSystem status is equal to disabled.
+
+CAN-Signal:
+STATUS_NTP.TyrePressureSystemSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, to disabled, follows, send, required, inhibit, pop-up, area, buzzer, telltale, status, screen" )
+- State (Harman_Requirement): Approved
+
+68. ID: 3674556
+- Contents: System shall display Warning-9 pop-up in B5 wireframe area with buzzer and telltale when Tyre Pressure System Calibration status is equal to System Not Calibrated.
+Note: Warning-9 follows D01 visualisation cycle with priority-2.
+System shall send TPMS screen required inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+TyrePressureSysCalibrationSts = SystemNotCalibrated
+
+
+
+Verify that the Sytsem displays Warning-9 when TyrePressure system Calibaration is equal to System Not Calibrated.
+
+CAN-Signal:
+STATUS_NTP.TyrePressureSysCalibrationSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, Calibrated, follows, send, required, inhibit, pop-up, area, buzzer, telltale, status, Not, screen" )
+- State (Harman_Requirement): Approved
+
+69. ID: 3674557
+- Contents: System shall display Warning-9 After a tyre replacement OR If the TPMS system is not calibrated.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-9 Telltale blinks at 1Hz with DC at 50%, for 90 seconds managed by NTP. And shall remain Permanently ON until the TPMS system is calibrated.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "calibrated" )
+- State (Harman_Requirement): Approved
+
+70. ID: 3674558
+- Contents: The specific telltale shall turn ON in blinking way (at 1Hz with D.C. at 50%), for a maximum time of 90 seconds managed by NTP, after which the telltale shall remain
+permanently ON before the TPMS system calibrated
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+(TyrePressureSysCalibrationSts = SystemNotCalibrated)
+
+Verify that the TPM001 telltale should blink with a freq of 1HZ with D.C at 50% for a maximum of 90 seconds and also verify that the Trelltale reamins blinking after 90 seconds till the next Key Cycle.
+- Grooming Status: Approved
+- Grooming Comments: What is 50% DC in the REQ?
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall turn, shall remainpermanently" )
+- State (Harman_Requirement): Approved
+
+71. ID: 3674561
+- Contents: System shall display Warning-10 telltale in a Blinking way with a frequency of 1Hz and 50% DC in B5 wireframe area when TPMS Telltale status is equal to Blink - Malfunctioning.
+Note: Visualisation behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+TPMSTelltaleSts = Blink - Malfunctioning
+
+Verify that the Warning-10 is displayed in a blinking way when trigger condition is met.
+
+CAN-Signal: 
+STATUS_NTP.TPMSTelltaleSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TPMS, status, display, is, Blink, telltale, area" )
+- State (Harman_Requirement): Approved
+
+72. ID: 3674563
+- Contents: If F135 warning-10 active ,the Virtual Telltale TPM001 shall manage only by F135 warning-10
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the blinking telltale remains after permanently telltale warning was activated.
+
+Note: Example Warning-7.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+73. ID: 3674567
+- Contents: System shall display Warning-11 telltale in B5 area  when TPMS Telltale status is equal to ON-Puncture/Malfunctioning.
+Note: Visualisation Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+TPMSTelltaleSts = ON - Puncture/Malfunctioning
+
+Verify that the Warning-11 is triggered based on  the Trigger Condition.
+
+CAN-Signal:
+STATUS_NTP.TPMSTelltaleSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, TPMS, status, display, is, telltale, Malfunctioning" )
+- State (Harman_Requirement): Approved
+
+74. ID: 3674570
+- Contents: If F135 warning-11 active, the Virtual Telltale TPM001 shall manage only by F135 warning-11.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale remains after blinking permanently telltale warning was activated.
+
+Note: Example Warning-10.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+75. ID: 3674579
+- Contents: System Shall Display Fail-1 pop-up with buzzer and telltale in a blinking way with 1hz Freq with DC50% for 90 second and shall display completely with-out blinking when Tyre pressure status Fail Status is equal to Fail Present..
+Note: Fail follows D01 Visualisation behaviour. with Priority2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+TyrePressureSystemFailSts = Fail Present
+
+Verify that the Fail-1 is triggered when necessary conditions are met.
+
+CAN-Signal:
+STATUS_NTP.TyrePressureSystemFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, Display, is, follows, pop-up, buzzer, telltale, Status, Present" )
+- State (Harman_Requirement): Approved
+
+76. ID: 3674587
+- Contents: System shall display Feedback-1 pop-up when NTPCalibrationReqACK is equal to Calibration Request Acknowledged.
+Note: Feedback-1 follows D01 behaviour with Priority3
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: ALGO: (NTPCalibrationReqACK == Calibration Request Acknowledged)
+
+Verify that the System shall display Feedback-1 pop-up when activation conditions met.
+
+CAN-Signal: STATUS_NTP.NTPCalibrationReqAck
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, pop-up, NTPCalibrationReqACK, Request" )
+- State (Harman_Requirement): Approved
+
+77. ID: 3931163
+- Contents: System shall display a message as calibration accepted when NTPCalibratinReqAck is one.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, accepted, is, message, NTPCalibratinReqAck" )
+- State (Harman_Requirement): Obsolete
+
+78. ID: 4756843
+- Contents: Service for Parameter calibration of:
+Min_pressure_value_indicator parameter
+Max_pressure_value_indicator parameter
+High_pressure_value parameter
+(see: image95.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the values are calibrated and the corresponding warnings are shown.
+
+* Min_pressure_value_indicator 
+* Max_pressure_value_indicator 
+* High_pressure_value
+- Grooming Status: Approved
+- Grooming Comments: How to verify the calibration is done?
+- Expert Domains: IOC_Diag
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image95.png
+
+79. ID: 3935764
+- Contents: System shall use the mentioned CAN signals to display Tyre Pressure and Temperature Monitoring System as per the Ferrari Design.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 0
+- Issues Found by RQA: Negative statement
+ (Look for: "usage not clear" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3667832
+- Contents: System shall display Tyre Pressure and Temperature Monitoring System indications as per the Ferrari design.
+(see: image87.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Tyre Pressure and Temperature Monitoring System indications are displayed as per the Ferrari design.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Pressure, indications, design" )
+- State (Harman_Requirement): Review
+- Visual Elements: image87.png
+
+2. ID: 3903514
+- Contents: System shall use below mentioned PROXI values to enable and disable the Functionality and Warnings of the TPMS.
+Byte 29, bit 4 ("NTP" absent/present)
+Byte 68, bit 3 ("km/mi": km/mi)
+Byte 68, bit 2 ("Run Flat": absent/present)
+Byte 58, bit 1 ("Type": coupe/spider)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 0
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3673584
+- Contents: 6.2.1.1.2.9.2 Visualisation Cycle
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- State (Harman_Requirement): Review
+
+4. ID: 3674585
+- Contents: System shall display F135 Fail1 when
+Malfunction in the ECU system/wiring
+No signal reception by one or more sensors due to malfunctioning, broken or flat battery.
+TPMS ECU malfunction
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, wiring, broken, system, reception, sensors, malfunctioning, battery, malfunction" )
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image91.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image95.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image88.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image92.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image90.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image93.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image89.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image87.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image94.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F135 6.2.1.1.2.9  Tyre Pressure and Temperature Monitoring System Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

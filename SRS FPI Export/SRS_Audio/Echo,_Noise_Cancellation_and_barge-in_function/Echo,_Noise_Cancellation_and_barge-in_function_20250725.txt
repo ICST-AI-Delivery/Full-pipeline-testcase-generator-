@@ -1,0 +1,93 @@
+# UnknownID 6.1.2.1.3 Echo, Noise Cancellation and barge-in function Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.1.3 Echo, Noise Cancellation and barge-in function
+
+- ID: 2357056
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2357057
+- Contents: 6.1.2.1.3.1 The ECU shall be equipped with echo cancellation and noise cancellation (EC/NR) module to be used for BT-HFP call, Car Play, Android Auto and other Smartphone Mirroring application where this component is required
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+2. ID: 2357058
+- Contents: 6.1.2.1.3.2 The EC/NR shall support multi-microphone configurations to improve the audio quality in noisy environments
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+3. ID: 2357059
+- Contents: 6.1.2.1.3.3 The EC/NR shall be integrated in the core processor or DSP of SoC  and shall meet recommendations and criteria of ITU 1100 (Narrow-band hands-free communication in motor vehicles) ,  ITU 1110 (Wideband hands-free communication in motor vehicles) and ITU 1120 (Super-wideband and fullband hands-free communication in motor vehicles)
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Use logs to verify this requirement
+- Grooming Status: Approved
+- TestTeamComment: Hsutter [2024-04-09] Send mail to Ahmed Elhamouly: Information in Verification Criteria is missing
+
+4. ID: 2357060
+- Contents: 6.1.2.1.3.4 The EC/NR shall be compliant to requirements for Apple CarPlay and Android Auto Certification
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+5. ID: 2357061
+- Contents: 6.1.2.1.3.5 The EC/NR shall be able to manage multiple speaker references to be ready for the adaptive nonlinear control speaker algorithms, bubble zone processing and any other features that require that any speaker has a dedicated post-processing.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+
+6. ID: 2357062
+- Contents: 6.1.2.1.3.6 Tuning session to calibrate noise reduction and echo cancellation shall be foreseen in overall plan and in development cost by Supplier.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+7. ID: 2357063
+- Contents: 6.1.2.1.3.7 Preprocessing for Speech Recognition with speaker separation, barge in, keyword detection to be used with internal Speech Recognition, CarPlay, Android Auto and other Smartphone Integrations. The preprocessing shall use multiple-microphone in order to improve performances of any Speech Recognition engine used (native SR, Siri, Alexa Auto, Google Assistant, etc.).
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+
+8. ID: 2357064
+- Contents: 6.1.2.1.3.8 The barge-in shall be able to manage multi-channel signals and multiple speaker references to be able to manage at least stereo signal, and to be ready for the adaptive nonlinear control speaker algorithms as well.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Blocked
+
+9. ID: 2357065
+- Contents: 6.1.2.1.3.9 Measured values: Noise Level, Speaker Level / Activity, Music Level
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Use logs to verify this feature.
+- Grooming Status: Approved
+- Grooming Comments: It will be covered in APQM.
+- TestTeamComment: Hsutter [2024-04-09] Send mail to Ahmed Elhamouly: Information in Verification Criteria is missing
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.1.3 Echo, Noise Cancellation and barge-in function Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

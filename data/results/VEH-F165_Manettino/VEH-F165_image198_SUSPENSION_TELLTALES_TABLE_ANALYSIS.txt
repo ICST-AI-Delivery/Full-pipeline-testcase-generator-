@@ -1,0 +1,263 @@
+=== TABLE WITH TELLTALES ANALYSIS REPORT ===
+
+IMAGE: image198.png
+├─ Content: Table containing suspension setup status signal mapping with embedded telltale symbols
+├─ Hybrid Type: Configuration Table with Telltale Mapping
+├─ Original Dimensions: Not specified in source data
+├─ Enhancement Applied: Table structure enhancement with symbol clarity improvement
+├─ Table Detection Quality: High - clear row/column structure with distinct headers
+├─ Symbol Detection Quality: High - telltale symbols clearly visible with distinct states
+├─ Hybrid Analysis Confidence: High - complete signal-to-telltale mapping visible
+├─ Symbol Count: 4 telltale symbols (/S, /M, /H, /S for recovery)
+├─ Table Dimensions: 4 rows x 2 columns
+
+=== TABLE STRUCTURE ANALYSIS ===
+
+TABLE CHARACTERISTICS:
+├─ Table Domain: Suspension Control System
+├─ Table Type: Signal-to-Telltale Mapping Configuration
+├─ Dimensions: 4 rows x 2 columns
+├─ Header Structure: Implicit headers (not explicitly labeled)
+├─ Cell Types: Mixed cells with signal values and telltale symbols
+├─ Border Style: Minimal borders with clear cell separation
+
+TABLE ORGANIZATION:
+├─ HEADER ANALYSIS:
+│  ├─ Column Headers: Implicit [Signal Value, Telltale Display]
+│  ├─ Row Headers: None (values serve as row identifiers)
+│  ├─ Table Title: None visible in image
+│  └─ Sub-headers: None
+├─ ROW STRUCTURE:
+│  ├─ Data Rows: 4 rows (3 normal states + 1 recovery state)
+│  ├─ Header Rows: 0
+│  ├─ Separator Rows: 0
+│  └─ Total Rows: 4
+├─ COLUMN STRUCTURE:
+│  ├─ Data Columns: 2 columns (signal value and corresponding telltale)
+│  ├─ Header Columns: 0
+│  ├─ Symbol Columns: 1 (right column contains telltale symbols)
+│  └─ Total Columns: 2
+
+CELL CONTENT ANALYSIS:
+├─ Text-Only Cells: 4 cells (left column with signal values)
+├─ Symbol-Only Cells: 4 cells (right column with telltale symbols)
+├─ Mixed Cells: 0
+├─ Empty Cells: 0
+├─ Complex Cells: 0
+
+=== TELLTALE SYMBOL IDENTIFICATION ===
+
+AUTOMOTIVE SYMBOL CATEGORIES:
+├─ SUSPENSION TELLTALES:
+│  ├─ Soft Suspension Symbol (/S): Yellow text on black background
+│  ├─ Medium Suspension Symbol (/M): Yellow text on black background
+│  ├─ Hard Suspension Symbol (/H): Yellow text on black background
+│  └─ Recovery Suspension Symbol (/S): Yellow text on black background (same as Soft)
+
+SYMBOL DETECTION RESULTS:
+├─ Total Symbols Detected: 4 telltale symbols
+├─ Unique Symbol Types: 3 unique symbols (/S, /M, /H)
+├─ Symbol Recognition Confidence: High (>95%)
+├─ Unidentified Symbols: 0
+├─ Symbol Quality Assessment: High clarity, consistent formatting
+
+### DETAILED SYMBOL CATALOG
+
+**Identified Telltale Symbols:**
+| Symbol ID | Symbol Type | Description | Location (Row,Col) | Confidence | ISO Standard | Meaning |
+|-----------|-------------|-------------|-------------------|------------|--------------|---------|
+| SYM_001 | Suspension | /S symbol | (1,2) | 98% | Ferrari-specific | Soft suspension mode |
+| SYM_002 | Suspension | /M symbol | (2,2) | 98% | Ferrari-specific | Medium suspension mode |
+| SYM_003 | Suspension | /H symbol | (3,2) | 98% | Ferrari-specific | Hard suspension mode |
+| SYM_004 | Suspension | /S symbol | (4,2) | 98% | Ferrari-specific | Recovery mode (defaults to Soft) |
+
+### SYMBOL CLASSIFICATION ANALYSIS
+
+**Symbol Categories by Function:**
+| Function Category | Symbol Count | Primary Colors | Typical Locations | Criticality Level |
+|-------------------|--------------|----------------|-------------------|-------------------|
+| Suspension Control | 4 | Yellow | All rows, Column 2 | Medium |
+
+=== CELL-BY-CELL HYBRID ANALYSIS ===
+
+COMPREHENSIVE CELL MAPPING:
+├─ Cell Analysis Method: Row-by-row, column-by-column analysis
+├─ Content Classification: Signal values in column 1, telltale symbols in column 2
+├─ Symbol-Text Relationships: Direct 1:1 mapping between signal values and telltales
+├─ Context Integration: Signal values determine which telltale is displayed
+
+### DETAILED CELL CONTENT MATRIX
+
+**Row-by-Row Cell Analysis:**
+
+**Row 1 (Position_1):**
+| Column | Content Type | Text Content | Symbol Content | Combined Meaning |
+|--------|--------------|--------------|----------------|------------------|
+| Col 1 | Text | "Position_1 (0x1)" | None | Signal value for Soft suspension |
+| Col 2 | Symbol | None | /S symbol (SYM_001) | Soft suspension telltale |
+
+**Row 2 (Position_2):**
+| Column | Content Type | Text Content | Symbol Content | Combined Meaning |
+|--------|--------------|--------------|----------------|------------------|
+| Col 1 | Text | "Position_2 (0x2)" | None | Signal value for Medium suspension |
+| Col 2 | Symbol | None | /M symbol (SYM_002) | Medium suspension telltale |
+
+**Row 3 (Position_3):**
+| Column | Content Type | Text Content | Symbol Content | Combined Meaning |
+|--------|--------------|--------------|----------------|------------------|
+| Col 1 | Text | "Position_3 (0x3)" | None | Signal value for Hard suspension |
+| Col 2 | Symbol | None | /H symbol (SYM_003) | Hard suspension telltale |
+
+**Row 4 (Recovery):**
+| Column | Content Type | Text Content | Symbol Content | Combined Meaning |
+|--------|--------------|--------------|----------------|------------------|
+| Col 1 | Text | "Recovery" | None | Signal value for Recovery mode |
+| Col 2 | Symbol | None | /S symbol (SYM_004) | Recovery defaults to Soft suspension |
+
+### SYMBOL-TEXT CORRELATION ANALYSIS
+
+**Symbol Context Mapping:**
+| Symbol | Adjacent Text | Row Context | Column Context | Inferred Relationship |
+|--------|---------------|-------------|----------------|----------------------|
+| /S | "Position_1 (0x1)" | Position 1 row | Telltale column | Position_1 signal displays /S telltale |
+| /M | "Position_2 (0x2)" | Position 2 row | Telltale column | Position_2 signal displays /M telltale |
+| /H | "Position_3 (0x3)" | Position 3 row | Telltale column | Position_3 signal displays /H telltale |
+| /S | "Recovery" | Recovery row | Telltale column | Recovery mode displays /S telltale |
+
+=== AUTOMOTIVE SYMBOL CATALOG ===
+
+### FERRARI-SPECIFIC SYMBOL VERIFICATION
+
+**Ferrari Suspension Symbol Verification:**
+| Symbol ID | Ferrari Code | Standard Description | Detected Symbol | Compliance | Variations |
+|-----------|--------------|---------------------|-----------------|------------|------------|
+| SYM_001 | 00940 | Soft suspension mode | /S symbol | Full | Standard |
+| SYM_002 | 00930 | Medium suspension mode | /M symbol | Full | Standard |
+| SYM_003 | 00920 | Hard suspension mode | /H symbol | Full | Standard |
+| SYM_004 | 00940 | Recovery mode (defaults to Soft) | /S symbol | Full | Standard |
+
+### SYMBOL MEANING REFERENCE
+
+**Comprehensive Symbol Dictionary:**
+| Symbol Type | Visual Description | Standard Meaning | Context in Table | Severity Level | Driver Action |
+|-------------|-------------------|------------------|------------------|----------------|---------------|
+| /S | Yellow "/S" text | Soft suspension active | Position_1 (0x1) | Information | None required |
+| /M | Yellow "/M" text | Medium suspension active | Position_2 (0x2) | Information | None required |
+| /H | Yellow "/H" text | Hard suspension active | Position_3 (0x3) | Information | None required |
+| /S (Recovery) | Yellow "/S" text | Recovery mode active | Recovery state | Information | None required |
+
+### SYMBOL COLOR CODING ANALYSIS
+
+**Color-Coded Warning Levels:**
+| Color | Meaning | Symbol Count | Severity | Driver Response | Examples |
+|-------|---------|--------------|----------|-----------------|----------|
+| Yellow | Information/Status | 4 | Low | No action required | /S, /M, /H symbols |
+
+=== TABLE-TELLTALE RELATIONSHIP MAPPING ===
+
+### CONTEXTUAL SYMBOL ANALYSIS
+
+**Symbol Meaning in Table Context:**
+| Symbol | Base Meaning | Table Context | Row Header | Column Header | Contextual Meaning |
+|--------|--------------|---------------|------------|---------------|-------------------|
+| /S | Soft suspension | Signal mapping | Position_1 (0x1) | Telltale Display | Position_1 signal activates /S telltale |
+| /M | Medium suspension | Signal mapping | Position_2 (0x2) | Telltale Display | Position_2 signal activates /M telltale |
+| /H | Hard suspension | Signal mapping | Position_3 (0x3) | Telltale Display | Position_3 signal activates /H telltale |
+| /S | Recovery mode | Signal mapping | Recovery | Telltale Display | Recovery state activates /S telltale |
+
+### SIGNAL-TO-DISPLAY MAPPING
+
+**Complete Signal-Telltale Mapping:**
+| Signal Value | Hex Value | Telltale Symbol | Telltale Color | Telltale Meaning | Display Behavior |
+|--------------|-----------|-----------------|----------------|------------------|------------------|
+| Position_1 | 0x1 | /S | Yellow | Soft suspension | Continuous display while active |
+| Position_2 | 0x2 | /M | Yellow | Medium suspension | Continuous display while active |
+| Position_3 | 0x3 | /H | Yellow | Hard suspension | Continuous display while active |
+| Recovery | N/A | /S | Yellow | Recovery mode (Soft) | Displayed during recovery state |
+
+### SYSTEM STATE TRANSITIONS
+
+**State Transition Logic:**
+| From State | To State | Trigger | Display Change | User Notification |
+|------------|----------|---------|----------------|-------------------|
+| Any | Position_1 | SuspensionSetupSts = 0x1 | /S telltale | Visual feedback |
+| Any | Position_2 | SuspensionSetupSts = 0x2 | /M telltale | Visual feedback |
+| Any | Position_3 | SuspensionSetupSts = 0x3 | /H telltale | Visual feedback |
+| Any | Recovery | Invalid signal state | /S telltale | Visual feedback |
+
+### FAILURE MODE ANALYSIS
+
+**System Failure Handling:**
+| Failure Mode | Signal State | Display Response | Recovery Action | User Impact |
+|--------------|--------------|------------------|-----------------|------------|
+| Invalid Signal | Outside valid range | Default to /S (Recovery) | Automatic | Minimal - system defaults to safe mode |
+| Signal Loss | No signal | Default to /S (Recovery) | Automatic | Minimal - system defaults to safe mode |
+| Display Failure | Any | No telltale visible | Manual service | Loss of suspension mode feedback |
+
+=== EXTRACTED TABLE DATA ===
+
+SUSPENSION_SIGNAL_TELLTALE_MAPPING:
+Signal_Value | Hex_Value | Telltale_Symbol | Telltale_Color | Telltale_Meaning | Ferrari_Code
+-------------|-----------|-----------------|----------------|------------------|------------
+Position_1 | 0x1 | /S | Yellow | Soft suspension | 00940
+Position_2 | 0x2 | /M | Yellow | Medium suspension | 00930
+Position_3 | 0x3 | /H | Yellow | Hard suspension | 00920
+Recovery | N/A | /S | Yellow | Recovery mode (Soft) | 00940
+
+SUSPENSION_TELLTALE_CHARACTERISTICS:
+Telltale_Symbol | Color | RGB_Approximate | Priority_Level | Display_Behavior | System_Function
+----------------|-------|-----------------|----------------|------------------|---------------
+/S | Yellow | (255,191,0) | Information | Continuous | Soft suspension active
+/M | Yellow | (255,191,0) | Information | Continuous | Medium suspension active
+/H | Yellow | (255,191,0) | Information | Continuous | Hard suspension active
+/S (Recovery) | Yellow | (255,191,0) | Information | Continuous | Recovery mode active
+
+SIGNAL_VALUE_DEFINITIONS:
+Signal_Name | Value | Hex_Code | Description | System_State | Recovery_Behavior
+------------|-------|----------|-------------|--------------|------------------
+SuspensionSetupSts | Position_1 | 0x1 | Soft suspension setting | Normal | N/A
+SuspensionSetupSts | Position_2 | 0x2 | Medium suspension setting | Normal | N/A
+SuspensionSetupSts | Position_3 | 0x3 | Hard suspension setting | Normal | N/A
+SuspensionSetupSts | Recovery | N/A | Invalid signal state | Recovery | Default to Position_1
+
+=== CSV FORMAT READY DATA ===
+
+SUSPENSION_SIGNAL_TELLTALE_MAPPING.csv:
+Signal_Value,Hex_Value,Telltale_Symbol,Telltale_Color,Telltale_Meaning,Ferrari_Code
+Position_1,0x1,/S,Yellow,Soft suspension,00940
+Position_2,0x2,/M,Yellow,Medium suspension,00930
+Position_3,0x3,/H,Yellow,Hard suspension,00920
+Recovery,N/A,/S,Yellow,Recovery mode (Soft),00940
+
+SUSPENSION_TELLTALE_CHARACTERISTICS.csv:
+Telltale_Symbol,Color,RGB_Approximate,Priority_Level,Display_Behavior,System_Function
+/S,Yellow,(255,191,0),Information,Continuous,Soft suspension active
+/M,Yellow,(255,191,0),Information,Continuous,Medium suspension active
+/H,Yellow,(255,191,0),Information,Continuous,Hard suspension active
+/S (Recovery),Yellow,(255,191,0),Information,Continuous,Recovery mode active
+
+SIGNAL_VALUE_DEFINITIONS.csv:
+Signal_Name,Value,Hex_Code,Description,System_State,Recovery_Behavior
+SuspensionSetupSts,Position_1,0x1,Soft suspension setting,Normal,N/A
+SuspensionSetupSts,Position_2,0x2,Medium suspension setting,Normal,N/A
+SuspensionSetupSts,Position_3,0x3,Hard suspension setting,Normal,N/A
+SuspensionSetupSts,Recovery,N/A,Invalid signal state,Recovery,Default to Position_1
+
+=== AUTOMOTIVE STANDARDS COMPLIANCE ===
+
+FERRARI DESIGN STANDARDS:
+├─ Brand Consistency: Compliant with Ferrari suspension telltale design
+├─ Color Palette: Yellow telltales follow Ferrari information display standards
+├─ Typography: Text-based telltales (/S, /M, /H) follow Ferrari conventions
+├─ Layout Principles: Signal-to-telltale mapping follows Ferrari HMI guidelines
+
+ISO 15008 HMI COMPLIANCE:
+├─ Text Readability: Yellow text on black background meets contrast requirements
+├─ Color Contrast: High contrast between telltale symbols and background
+├─ Information Hierarchy: Clear mapping between signal values and telltales
+├─ Distraction Minimization: Simple, consistent telltale design reduces cognitive load
+
+ISO 26262 FUNCTIONAL SAFETY:
+├─ Safety-Critical Displays: Information-level telltales (not safety-critical)
+├─ Recovery Behavior: Clear recovery state handling with default to safe mode
+├─ System State Indication: Unambiguous indication

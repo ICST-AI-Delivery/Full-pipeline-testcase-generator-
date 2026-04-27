@@ -1,0 +1,70 @@
+# UnknownID 6.2.1.5.19 SVS - Invalid HMI Call (0x911B, 0x00) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.19 SVS - Invalid HMI Call (0x911B, 0x00)
+
+- ID: 4445675
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4445676
+- Contents: IF the SV is in active state & HMI call failure is detect within 1s, the SVS system shall show SVS-Invalid HMI Call.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the HMI call failure is detected by the surround view system.
+- Set the vehicle configuration as Always.
+- HMI call failure should be identified within 1s.
+-Verify (0x911B,0x00) DTC shall trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "SV, failure, system, is, is detect, show, state  amp, SVS, Call" )
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. No info in diag spec about "HMI call failure" state or use case. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+2. ID: 4445681
+- Contents: The System shall resolve the Invalid HMI Call within 1s.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the De-Maturation Time does not exceed 1s.
+-Verify (0x911B,0x00) DTC shall clear.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. No info in diag spec about "HMI call failure" state or use case. Applicative test not possible.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.19 SVS - Invalid HMI Call (0x911B, 0x00) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

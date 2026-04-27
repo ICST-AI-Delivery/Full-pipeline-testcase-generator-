@@ -1,0 +1,96 @@
+# UnknownID 6.2.4.2.1.10 3D Car Model Color - Interior ($FE79) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.10 3D Car Model Color - Interior ($FE79)
+
+- ID: 3889657
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3889658
+- Contents: The system shall support Read access for 3D Car Model Color - Interior with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the ECU can able to Read 3D Car Model color- Interior in active Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241121: Only check that the RDBI worked at ExtSession. No applicative check, that the return value is valide, shows the real system state. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+2. ID: 3889671
+- Contents: The system shall support Write access for 3D Car Model Color - Interior with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the ECU can able to Write 3D Car Model color- Interior in active Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241121: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 3Bytes
+Data type: HEX(RGB)
+
+3. ID: 3889673
+- Contents: When requesting data identifier with the Read Data by Identifier “diagnostic session”, the ECU shall return the saved RGB value of the color Interior vehicle of 3-D model.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned  RGB value of the color Interior vehicle of 3-D model.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ECU, requesting, return, saved, identifier, Data, session, value, vehicle, model" )
+- TestTeamComment: RWeber_DIAG_241121: Only check that the RDBI worked at ExtSession. No applicative check, that the return value is valide, shows the real system state. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+4. ID: 3889674
+- Contents: When requesting data identifier with a specific value via “diagnostic session Write Data by Identifier”, the ECU shall update the Vehicle 3-D model Interior color with the corresponding value and save in No-volatile Memory(NVM).
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the saved value of Vehicle 3D model Interior color in NVM.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ECU, requesting, update, save, identifier, value, Data, Vehicle, model, color, MemoryNVM" )
+- TestTeamComment: RWeber_DIAG_241121: Only check that the WDBI worked at ExtSession. No applicative check, that the written data change system behavior like expected. This kind of test should handle by other department.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.10 3D Car Model Color - Interior ($FE79) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

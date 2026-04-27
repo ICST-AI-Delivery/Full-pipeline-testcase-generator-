@@ -1,0 +1,87 @@
+# UnknownID 6.2.1.1.47 NCL - Node Absent (0xD708, 0x87) - Climate Node Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.47 NCL - Node Absent (0xD708, 0x87) - Climate Node
+
+- ID: 3733751
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3733759
+- Contents: The system shall detect NCL Node absent fault when the periodic messages expected from the ECU are missing or has the wrong DLC within 9s.
+STATUS_NCL AND
+SETUP_NCL AND
+SETUP_NCL_REA AND
+NCL_INFO AND
+ 
+NCL_TO_AUDIO_MSG1 AND
+NCL_TO_AUDIO_MSG2
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NCL Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    Maturation Failure Threshold: all the periodic messages expected from the ECU are missing or has the wrong DLC.
+    Maturation Time: 9s
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, expected, are missing, has, fault, messages, ECU, DLC, time" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Proxi byte 27, bit 2 (NCL) == "Present" [ Reviewed ]
+	       Fault Detection Conditions: Two conditions:
+	       1. at transition from Key-Off to Key-On
+	       2. at steady state
+
+2. ID: 3733761
+- Contents: The system shall make the NCL Node Absent Fault inactive upon DTC devalidation when the periodic messages from the ECU is present on CAN (with DLC compliant with message map) with De-maturation time "2"s.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NCL Node Absent fault under the following conditions:
+    Fault Detection Conditions: Key-ON
+    De-Maturation Failure Threshold: DTC is devalidated as soon as all periodic messages expected from the ECU is present on CAN (with DLC compliant with message map)
+    De-Maturation Time: 2s
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, make, is present, Fault, devalidation, messages, ECU, compliant, map, time" )
+- TestTeamComment: RWeber_DIAG_250203: Protocol test will be possible to check DTc with UDS 0x1906xxx.
+Assumption: To simulate error/okay state, we need a running CANoe simu.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Proxi byte 27, bit 2 (NCL) == "Present" [ Reviewed ]
+	       Fault Detection Conditions: Two conditions:
+	       1. at transition from Key-Off to Key-On
+	       2. at steady state
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.47 NCL - Node Absent (0xD708, 0x87) - Climate Node Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

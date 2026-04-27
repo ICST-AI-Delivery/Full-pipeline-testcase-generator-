@@ -1,0 +1,153 @@
+# UnknownID 6.2.3.1.13 Service coupon  ($2024) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.13 Service coupon  ($2024)
+
+- ID: 3972321
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: It refers to vehicle function 269.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3972324
+- Contents: The Service coupon function shall allow to read the number of service.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: The system shall allow the user to read the number of service.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This value is incremented every time the Service executes a Service information reset (reset manutenzione programmata), with the command InputLocalIdentifier:61h.
+The write command is useful in case of cluster substitution.
+The range used is [0x00 - 0x14]
+The writing is protected: to write this data it is necessary to perform a Security Access (Parameters).
+
+2. ID: 3972332
+- Contents: The System shall have RecordDataIdentifier ($2024) to know the Service coupon
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the identifier RecordDataIdentifier ($2024)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2024’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+3. ID: 3976329
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+4. ID: 3976352
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip, implement, see, values, Services-Overview" )
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+5. ID: 3976359
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the data record from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+6. ID: 3976418
+- Contents: The System shall support the following NRC's
+Read NR (see: image90.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NRC read NR from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+- Visual Elements: image90.png
+
+7. ID: 3976459
+- Contents: The System shall support the following NRC's
+Write NR (see: image91.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the NRC write NR from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+- Visual Elements: image91.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image91.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image90.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.13 Service coupon  ($2024) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

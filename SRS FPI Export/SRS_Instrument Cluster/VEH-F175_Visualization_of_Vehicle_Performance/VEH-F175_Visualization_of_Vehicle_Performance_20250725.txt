@@ -1,0 +1,236 @@
+# VEH-F175 6.2.1.1.1.22  Visualization of Vehicle Performance Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.22 VEH-F175 Visualization of Vehicle Performance
+
+- ID: 3939898
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Please refer:
+
+https://jira.harman.com/jira/browse/FQ-1079
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4003595
+- Contents: Syste shall display Visualization of Vehicle Performance in Right Dial  as:
+During KEY-OFF Grey car model display and stops highlighting element.
+During KEY-ON / Steady state behaviour if StatusCarIndexValidData = Not_Valid then system shall stop showing the label and the Status Car model shall remain colored in grey without highlighted element
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Right Dial indications are performed accroding in sync with the Key-Status.
+
+CAN-Signal:
+STATU_B_CAN.KeySTS.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "Syste, system, display, stops, highlighting, stop, showing, remain, colored, highlighted, Visualization, Performance, TBD, model display, element, behaviour, label, model, grey" ) 
+Negative statement
+ (Look for: "Not" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4003711
+- Contents: The status overview visualisation shall compose of :
+a label for StatusIndex (Right Dial )
+a car model for the Status Car (Right Dial )
+(see: image58.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify CAR status is displayed according to specified content .
+
+CAN-Signal:
+STATUS_CAR.StatusCarIndexValidData 
+STATUS_CAR.StatusIndex
+
+Note: Please refer to FQ-1079
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image58.png
+
+3. ID: 4003765
+- Contents: System shall posses 3 possible labels for the StatusIndex:
+if StatusIndex= -1 WARM-UP label displayed
+if StatusIndex=0 the label hidden
+if StatusIndex=1  OVER label disppayed
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+StatusIndex= [-1 to 1]
+
+Verify CAR status is displayed according to specified content .
+
+CAN-Signal:
+STATUS_CAR.StatusCarIndexValidData 
+STATUS_CAR.StatusIndex
+
+Note: Please refer to FQ-1079
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘3,0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4003788
+- Contents: Sytem shall display the Status Car model elements shall visualized depending on the values of CAN signals:
+Front Tires temperature: Index_TempIntFront
+Rear Tires temperature: Index_TempIntRear
+Front Brake Disks temperature: Index_FrontRefExternalTemp
+Rear Brake Disks temperature: Index_RearRefExternalTemp
+HVB temperature :Index_Hybrid
+Front Right Motor temperature:Index_P4FR_Temperature
+Front Left Motor temperature:Index_P4FL_Temperature
+Rear Right Motor temperature:Index_P4RR_Temperature
+Rear Left Motor temperature: Index_P4FRL_Temperature
+The values of the signals determine the highlight color that shall apply to the corresponding graphical elements:
+Signal value = -1 -> blue highlight
+Signal value = 0 -> no highlight
+Signal value = 1 -> red highlight
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+Change the CAN-Signal values of Range[-1 to 1]
+
+Verify that the CAR Status ois displayed according to received CAN -Signals values.
+
+CAN-Signal:
+STATUS_CAR.Index_Hybrid 
+STATUS_CAR.Index_RearRefExternalTemp 
+STATUS_CAR.Index_FrontRefExternalTemp 
+STATUS_CAR.Index_TempIntFront 
+STATUS_CAR.Index_TempIntRear 
+STATUS_CAR.Index_P4RLTemp
+STATUS_CAR.Index_P4FLTemp
+STATUS_CAR.Index_P4FRTemp
+STATUS_CAR.Index_P4RRTemp
+STATUS_CAR.Index_FrontLeftBrakeDiskExtTemp 
+STATUS_CAR.Index_FrontRightBrakeDiskExtTemp 
+STATUS_CAR.Index_RearLeftBrakeDiskExtTemp 
+STATUS_CAR.Index_RearRightBrakeDiskExtTemp 
+STATUS_CAR.Index_TempExtFrontLeft 
+STATUS_CAR.Index_TempExtFrontRight 
+STATUS_CAR.Index_TempExtRearLeft 
+STATUS_CAR.Index_TempExtRearRight 
+STATUS_CAR.Index_LHFPressureSts 
+STATUS_CAR.Index_RHRPressureSts 
+STATUS_CAR.Index_RHFPressureSts 
+STATUS_CAR.Index_LHRPressureSts 
+STATUS_CAR.TempIntFront_mean
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall shall" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4003955
+- Contents: In the case of a “no highlight” element ,
+IDC shall display the four tire elements in color grey(default state).
+The graphical elements (the motors, the front and the rear disk brakes) shall hidden.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the grey status car is displayed  in the case of a no-hightlight element.
+
+CAN-Signal:
+ STATUS_CAR.Index_TempExtFrontLeft 
+STATUS_CAR.Index_TempExtFrontRight 
+STATUS_CAR.Index_TempExtRearLeft 
+STATUS_CAR.Index_TempExtRearRight
+- Grooming Status: Approved
+- Grooming Comments: Jira Created:
+ FQ-1110
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall shall" ) 
+Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4004024
+- Contents: System shall display Warning-1 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when ibelow conditions met:
+index_TempIntFront = -1 OR Index_TempIntRear = -1] AND
+StatusCarIndexValidData = Valid
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+([Index_TempIntFront = -1 OR Index_TempIntRear = -1] AND StatusCarIndexValidData = Valid)
+
+Verify that the Warning-1 is displayed when trigger condition is met.
+
+Pop-Up iD:01750001
+
+CAN-Signal:
+STATUS_CAR.Index_TempIntFront
+STATUS_CAR.Index_TempIntRear
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, Index, Pop-up, Telltale" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4003548
+- Contents: System shall display Visualization of Vehicle Performance indications as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+2. ID: 3998340
+- Contents: System shall display Visusalization of Vehicle Performance as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image58.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F175 6.2.1.1.1.22  Visualization of Vehicle Performance Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,87 @@
+# MAP-3 6.2.1.3  Dead reckoning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3 MAP-3 Dead reckoning
+
+- ID: 3408262
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, IOC_Networking, System Infra
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3645557
+- Contents: IDC shall predict the trajectory of the car in case of absence of positioning signal.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Test drive through tunnels (with no sight of GNSS satellites) does not lead to loss of vehicle position.
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+2. ID: 4638815
+- Contents: IDC shall calculate driven distance based on the
+R_OdometerPulseCounterFailSts,
+L_OdometerPulseCounter,
+L_OdometerPulseCounterFailSts,
+R_OdometerPulseCounter and
+The value of proxi parameter Front_Tire_type
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Driven distance.
+
+Start Byte 62, start bit 0 - Front_tyre_type
+STATUS_C_NFR.R_OdometerPulseCounterFailSts
+
+STATUS_C_NFR.L_OdometerPulseCounter
+
+STATUS_C_NFR.L_OdometerPulseCounterFailSts
+
+STATUS_C_NFR.R_OdometerPulseCounter
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "value, calculate, driven, based, distance, parameter" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3645556
+- Contents: IDC shall predict the trajectory of the car in case of absence of GPS signal (e.g. inside the tunnels) based on latest known car state and by using available sensors' information like accelerometers and gyro sensors.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of MAP-3 6.2.1.3  Dead reckoning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

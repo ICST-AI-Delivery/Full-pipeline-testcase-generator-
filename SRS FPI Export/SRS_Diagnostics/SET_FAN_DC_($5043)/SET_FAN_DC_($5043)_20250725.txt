@@ -1,0 +1,126 @@
+# UnknownID 6.2.3.1.8 SET_FAN_DC ($5043) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.8 SET_FAN_DC ($5043)
+
+- ID: 4006003
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4006005
+- Contents: The system shall read SET_FAN_DC with an active extended diagnostic session
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the user is able to read the SET_FAN_DC with an extended diagnostic session.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+
+2. ID: 4006006
+- Contents: The system shall support protocol service of  $2F
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system shall support protocol service of  $2F
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2028’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+
+3. ID: 4006051
+- Contents: The System shall support the IDC fan Duty Cycle as follows
+SET_FAN_DC (see: image80.png)
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the SET_FAN_DC from the given table.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+- Visual Elements: image80.png
+
+4. ID: 4006014
+- Contents: The system shall force the FAN speed to the required value corresponding to the setted duty cycle for a given period of time
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall force the FAN speed to the required value corresponding to the setted duty cycle for a given period of time
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Info] The given period of time is by default 20 minutes
+
+5. ID: 4006015
+- Contents: After a given period of time, the system shall restore the FAN automatic logic.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall restore the FAN automatic logic.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, given, restore, period, logic" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Info] Duty cycle is capped at 100%
+
+### Informational Items:
+
+1. ID: 4096902
+- Contents: [Info] The given period of time is by default 20 minutes
+- Artifact Type: Information
+- Grooming Status: Approved
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+
+2. ID: 4096903
+- Contents: [Info] Duty cycle is capped at 100%
+- Artifact Type: Information
+- Grooming Status: Approved
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for fan system/HMI functionality. This applicative test should be handle in other department like HW quali to check real rpm.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image80.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.8 SET_FAN_DC ($5043) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

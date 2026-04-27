@@ -1,0 +1,276 @@
+# VEH-F051 6.2.1.1.1.9  Turn Indicators and Hazard Lights Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.9 VEH-F051 Turn Indicators and Hazard Lights
+
+- ID: 3405884
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3422171
+- Contents: In key on and steadystate, System shall activate turn on left indicator  in sync with turn left indicator CAN input
+(see: image16.png)
+Note: Telltale shall follow
+S13 Behaviour if it is used for direction indication 
+S14 Behaviour if it is used for hazard function
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger turn left on. Verify turn left indicator on.  (LHTurnSignalSts=ON)
+Trigger turn left off. Verify turn left indicator off.
+
+Verify visualization behaviour refering 3494875: CAN input Virtual Telltales behavior codes
+
+CAN-Signals: VEHSTAT_V2.LHTurnSignalSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, left, input, indicator" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00630
+- Visual Elements: image16.png
+
+2. ID: 3422173
+- Contents: In key on and steadystate, System shall activate turn on right indicator in sync with turn right indicator CAN input
+(see: image17.png)
+Note: Telltale shall follow
+S13 Behaviour if it is used for direction indication 
+S14 Behaviour if it is used for hazard function
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger turn right on. Verify turn right indicator on.
+Trigger turn right off. Verify turn right indicator off.
+RHTurnSignalSts=ON)
+
+Verify visualization behaviour refering 3494875: CAN input Virtual Telltales behavior codes
+
+
+CAN-Signal: VEHSTAT_V2.RHTurnSignalSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 01550
+- Visual Elements: image17.png
+
+3. ID: 3422175
+- Contents: In Key-OFF state and Key-ON state, System shall activate hazard light telltale send the  status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when in sync with hazard light CAN input
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger hazard light on. Verify hazard indicator on.
+RHTurnSignalSts=ON): && LHTurnSignalSts=ON):
+
+Turn hazard light off. Verify hazard indicator off.
+
+CAN-Signal: STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Cluster SW, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, input, state, light telltale" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3422274
+- Contents: System shall play Direction indicators and hazard function buzzer in sync with Direction indicators and hazard telltale
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify buzzer in sync with telltale.
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, Cluster SW, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, indicators, buzzer, telltale" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3.xlsx(F051)
+
+5. ID: 3422275
+- Contents: System shall indicate turn indicator and hazard light failure by master light fail  telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.
+(see: image10.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger turn indicator/ hazard failure. 
+(RHFTurnLightFailSts or LHFTurnLightFailSts or RHRTurnLightFailSts or LHRTurnLightFailSts = Fail present):
+Verify failure telltale on <00740 telltale code>
+
+Verify that the turn indicator and hazard light faIlure is indicaied when Master Light fail telltale is detected
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, indicator, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code ref. 00740
+- Visual Elements: image10.png
+
+6. ID: 4686263
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values:
+(see: image18.png)
+(see: image19.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays the related Pop-Up's were displayed in the Central Display Based on the Proxi and the CAN Inputs.
+- Grooming Status: Approved
+- Grooming Comments: In the 00510008 from the HMI.POP.IND the Condition and the 3D graphical items were not matcing and the below to this also not matching with the 3D visualisation and the Condition.
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+- Visual Elements: image18.png, image19.png
+
+7. ID: 4687040
+- Contents: System shall display F051 Fail 1 , when IDC detect a Message Counter or Checksum error on VEHSTAT_V2 message is more than MC_CRC_error_counter samples(5)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system F051 Fail-1 is displayed when System detects a message counter or CRC error on VEHSTAT_V2 message more than MC_CRC_error.
+
+Note: MC_CRC_Error values is 5
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, message, display, detect, is, samples, Fail, Counter, error" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3976618
+- Contents: System shall indicate turn-light and hazard-light status using 2-D/3-D model.
+note:proxi Byte58, bit1 '(Coupe/spider): car configuration for 2-D/3-D graphical indication' present
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Byte 58, bit 1 (Coupe/spider): car configuration for 2D/3D graphical indication Present.
+
+Verify car model displayed with turn light status
+
+Byte 58, bit 1 (Coupe/spider): car configuration for 2D/3D graphical indication absent
+
+Verify turn indicators not indicated via car status
+
+Trigger by signals RHTurnSignalSts=ON): && LHTurnSignalSts=ON):
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, indicate, hazard, using, status, model, Coupe, spider, configuration, indication, present" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3977182
+- Contents: System shall blink turnlight telltales with +3Hz frequency on detecting MC or CRC error for EXT_LIGTH duration for message EXTERNAL_LIGHT.
+(see: image20.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the turning lights shall display with 3Hz frequency on detecting MC or CRC error threshold for EXT_LIGHT.
+
+CAN-Signal:
+NQS_Virtual_Telltales.Virtual_Telltale_LGH001
+- Grooming Status: Approved
+- Grooming Comments: Please Refer : F244-FUSA-7440
+
+04/03/2025: 18-30:
+
+3997182:
+What is the time to blink this EXTERNAL_LIGHTS?
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, blink, detecting, telltales, frequency, MC, error, duration, EXTERNAL_LIGHT" ) 
+Missing limits
+ (Look for: "‘3 Hz’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image20.png
+
+10. ID: 3976629
+- Contents: System shall provide active diagnostic service on MC_CRC_error_counter.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verfiy that the MC_CRC_error is a diagnostic service .
+
+Note:
+MC_CRC_error is a value of 5.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, service, MC" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3976616
+- Contents: 6.2.1.1.1.9.1 F051 Calibration and Proxi
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image10.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image19.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image16.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image17.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image18.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image20.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F051 6.2.1.1.1.9  Turn Indicators and Hazard Lights Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

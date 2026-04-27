@@ -1,0 +1,155 @@
+# PRK-4 6.2.4.5  CAMERA FAILURE MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.5 PRK-4 CAMERA FAILURE MANAGEMENT
+
+- ID: 3939640
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Grooming Comments: FX9
+- Expert Domains: Android HMI, Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3964222
+- Contents: The system shall display the CAMERA_FAIL" indication failure status to 'Fail_Present' if one of the following fail that impacts rear-camera visualization.
+Rear Camera - Power Off
+Rear Camera - Over Temperature
+Rear Camera - Over Voltage
+Rear Camera - Image Freeze
+Rear Camera - Image Delay
+Rear Camera - Image Out of Order
+SVS - Config File Error
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the warning message on HMI in case of any errors.
+
+Create any of the below fault
+Verify the failure status by checking NDR info CAN message (NDR_RCVSFailSts = Fail_Present)
+
+Rear Camera - Power Off
+Rear Camera - No Stream
+Rear Camera - Over Temperature
+Rear Camera - Over Voltage
+Rear Camera- Image Freeze
+Rear Camera - Image Delay
+Rear Camera - Image Out of Order
+SVS - Config File Error.
+- Grooming Status: Approved
+- Grooming Comments: [14.02.2025 Wei, Abdul] DTC requirement should come through Diagnostics Specification.
+
+29.01.2025
+The Visualization part is not clear, Need to show in info/popup area of the parking view or how it should be done?
+2  Camera failure can happen while displaying parking screen or IDC scree,
+ In both of these scenarios how the visualization needs to be handled?
+https://jira.harman.com/jira/browse/FQ-593
+
+IDC-458592 - Maturation Time: 1 s ?
+
+
+Wei-> Ok to approve
+Wei: This is different from F179_Vf29_R3_ObstacleProximitySignalling  F244-100649
+- Expert Domains: IOC_Diag, Kernel, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, Fail, activate, amp, DTC, Temperature, Voltage, Freeze, Delay, Error" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3964092
+- Contents: This function allows to notify a video stream fault on parking system in order to show an indication to user as well as for diagnostic purposes.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4613633
+- Contents: The system shall display the Camera Failure Management as reported in: 
+HMI-LF-7928 - Failure and malfunctioning 
+HMI-LF-7933 - Normative boundaries 
+HMI-LF-10566 - Info/popups Area
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, malfunctioning, Management, Failure, HMI-LF-7933, boundaries HMI-LF-10566 - Info/popups Area" )
+- State (Harman_Requirement): Review
+
+3. ID: 3964216
+- Contents: The system shall implement the logics of Camera Failure Management according to: 
+SFS F802 – Front and Rear Parking Camera Management 
+SFS F560 – Surround View Management 
+SFS F179 - Obstacle Proximity Signalling
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: Android HMI, Kernel
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, according, logics, Management, SFS, Signalling" )
+- State (Harman_Requirement): Review
+
+4. ID: 3964217
+- Contents: The system shall detect internal errors & failures of the parking system related to Surround view & rear camera SW as well as parking cameras HW.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, Kernel, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, detect, related, errors  amp, failures, amp, camera SW, HW" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The system shall raise the dedicated DTC according to IDC Diagnosis Specification for each detected fail.
+
+5. ID: 4408898
+- Contents: For more information refer to IDC Diagnosis Specification.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3964226
+- Contents: DTCs
+Rear Camera - Power Off ( IDC-458607 - Rear Camera - Power Off (0x9104, 0x31) )
+Rear Camera - No Stream ( IDC-458690 - Rear Camera - No Stream (0x9104, 0x06) )
+Rear Camera - Over Temperature ( IDC-458649 - Rear Camera - Over Temperature(0x9104, 0x98) )
+Rear Camera - Over Voltage ( IDC-458695 - Rear Camera - Over Voltage (0x9104, 0x17) )
+Rear Camera - Image Freeze ( IDC-494720 - Rear Camera - Image Freeze (TBD) )
+Rear Camera - Image Delay ( IDC-494754 - Rear Camera - Image Delay (TBD))
+Rear Camera - Image Out of Order ( IDC-494799 - Rear Camera - Image Out of Order (TBD) )
+SVS - Config File Error ( IDC-458831 - SVS - Config File Error (0x9110, 0x56) )
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 3964227
+- Contents: Outputs
+Oe_bol_RCVSFailSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-4 6.2.4.5  CAMERA FAILURE MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

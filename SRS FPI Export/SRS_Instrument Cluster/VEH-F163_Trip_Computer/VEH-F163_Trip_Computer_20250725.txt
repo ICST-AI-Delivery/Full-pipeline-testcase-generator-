@@ -1,0 +1,594 @@
+# VEH-F163 6.2.1.1.2.14  Trip Computer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.14 VEH-F163 Trip Computer
+
+- ID: 3408579
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3624491
+- Contents: System shall receive the signal TripDistance at Key-ON and Trip distance indicates the distance covered from the beginning of car mission.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trip distance is displyaed after KEY-ON 
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+TRIP_INFORMATION.TripDistance
+- Grooming Status: Approved
+- Grooming Comments: No visualisation verifcation is available , Logging or someother verification is needed.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3645726
+- Contents: When the maximum Trip Distance is reached, the visualization of the km (or mi) must automatically be reset and contemporarily a total reset of the TRIP must be foreseen, with exception of the voice of Range.
+(see: image107.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the trip distance is reset after the maximum trip distance.
+
+CAN-Signal: TRIP_INFORMATION.TripDistance
+- Grooming Status: Blocked
+- Grooming Comments: No visualisation verifcation is available , Logging or someother verification is needed.
+
+07/03/25 : OM: IDC-425790 is an Obsolete from the JIRA Ticket.
+
+Ticket ID: FQ-871 
+(https://jira.harman.com/jira/browse/FQ-871)
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, receive, perform, TRIP_INFORMATION.TripDistance, visualization, F" )
+- State (Harman_Requirement): Obsolete
+- Visual Elements: image107.png
+
+3. ID: 5298685
+- Contents: System shall indicate "--km/h" or "--mph" in case of a missing message.
+Resolution:1 km(mi) or 0.1 km(mi)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify if "--.-km/h" or "--.-mph" is displayed  in case of a missing message.
+
+CAN-Signal:
+TRIP_INFORMATION.TripDistance
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘0.1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3645730
+- Contents: The indication shall be congruent(Same size) with total odometer indication
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the indication shall be congruent(same size) with total
+- Grooming Status: Blocked
+- Grooming Comments: Do check with HMI team
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3645754
+- Contents: Distance indication shall agree with the following features:
+range between 0 and 99999,9 km (or between 0 and 62137,1 mi)
+resolution: 0,1 km (or mi)
+precision: as defined on NP 80062 / Cap. Fiat 9.96102
+updating on the display: every 0,1 km (or mi)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trip computer indication agree and indicate with the followiing features:
+
+# range from 0 to 99999.9( 0 to 62137.1 mi)
+# resolution: 0.1km( or mi)
+#precision: as defined on NP 80062/ Cap.Fiat 9.96102
+updating on the display: every 0.1 km( or mi)
+- Grooming Status: Blocked
+- Grooming Comments: Do check with HMI team
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "indication, agree, following, range, defined, updating, features, km, NP, Cap, display, mi" ) 
+Missing unit 
+ (Look for: "‘0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3645755
+- Contents: The Trip distance function shall ensure the functionality as defined in paragraph 7.2 of Fiat Norm 80062
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trip distance function ensures the functinality as defined in paragraph 7.2 of Fiat Norm 80062.
+- Grooming Status: Blocked
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘7.2,80062’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3645815
+- Contents: Systen shall display the Trip Time and the time passed from the vehicle start.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trip Time shall indicate the time passed from the vehicle start.
+
+CAN-Signal : TRIP_INFORMATION.TripTime signal
+- Grooming Status: Approved
+- Grooming Comments: No visualisation verifcation is available , Logging or someother verification is needed.
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: How to switch between  right dial content?
+- State (Harman_Requirement): Approved
+
+8. ID: 3645930
+- Contents: System shall receive TRIP_INFORMATION.TripTime at Key-ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall receive Trip Information Trip Tim at Key-On.
+
+CAN-Signal:
+STATUS_B_CAN.KeySTS
+TRIP_INFORMATION.TripTime
+- Grooming Status: Approved
+- Grooming Comments: No visualisation verifcation is available , Logging or someother verification is needed.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, receive, perform, TRIP, visualization, F" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3645947
+- Contents: System shall display travel time with  Travel Time [mm,ss], after 60 minutes [hh:mm], after 24h [dd:hh]
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trip time is displayed as per the resolution of Minutes [mm,ss] , after 60 minutes [hh:mm], after 24h [dd:hh].
+
+CAN-Signal: 
+TRIP_INFORMATION.TripTime
+- Grooming Status: Approved
+- Grooming Comments: Do check with HMI team
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, data, display, defined, updating, time, Cap" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3645956
+- Contents: System shall receive TRIP_INFORMATION.TripAverageSpeed at Key-ON and perform visualization in Binnacle area .
+(see: image108.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall receive TRIP_INFORMATION.TripAverageSpeed at Key-ON and perform visualization in area F
+
+CAN-Signal:TRIP_INFORMATION.TripAverageSpeed
+STATUS_B_CAN.KeySTS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, receive, INFORMATION.TripAverageSpeed, perform, TRIP, visualization, F" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image108.png
+
+11. ID: 3645960
+- Contents: System shall display average speed with resolution: 1km/h (or mph).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the The Average speed shall agree's the Following resolution: 1 km/h(or mph)
+
+CAN-Signal:
+TRIP_INFORMATION.TripAverageSpeed
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, update, speed, h" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3646662
+- Contents: System shall receive TRIP_INFORMATION.TripMaximumSpeed at Key-ON and perform visualization in area F
+(see: image109.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall receive TRIP_INFORMATION.TripMaximumSpeed at Key-ON and perform visualization in area F
+
+CAN-Signal:
+TRIP_INFORMATION.TripAverageSpeed
+STAUS_B_CAN.KeySTS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, receive, INFORMATION.TripMaximumSpeed, perform, TRIP, visualization, F" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image109.png
+
+13. ID: 3646664
+- Contents: System shall display maximum speed with
+resolution: 1km/h (or mph).
+Max speed: 350km/h (or 217 mph)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that The maximum speed shall agree with the following features.
+
+* resolution: 1 km/h (or mph).
+*  Max speed: 350km/h (or 217 mph)
+
+CAN:
+TRIP_INFORMATION.TripMaximumspeed
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, updating, round, update, speed, h, mph, every 2s  #177" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3646804
+- Contents: System shall visualize "Maximum_speed" as "-- " km/h (or mph), if message missing
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Maximum speed as "--" km/h (or mph) if message is missing. 
+
+CAN-Signal:
+TRIP_INFORMATION.TripMaximumspeed
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, Maximum_speed, km/h, mph, missing" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3751393
+- Contents: The Maximum speed values (respectively of Trip A or B) shall be outputted with the corresponding signals: VehicleSpeedMaxA and VehicleSpeedMaxB. - IDC-438461
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "B, corresponding, values, signals, VehicleSpeedMaxA, VehicleSpeedMaxB" ) 
+Unclear term
+ (Look for: "Maximum" ) 
+Passive voice
+ (Look for: "be outputted" )
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3646831
+- Contents: Average consumption is the average electric energy consumed every 100 km (kWh/100km) OR (Wh/km)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Average cosnusmption is the average electric charge consumed every 100KM (kWh/100km) OR (Wh/km)
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+17. ID: 3931301
+- Contents: System shall visualise Average consumption of Energy using the signal ElectricConsumption_Trip.
+(see: image110.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Average consumption is displayed using the CAN-Signal.
+
+CAN-Signal:
+xEV_NAV_INFO.ElectricConsumption_Trip
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image110.png
+
+18. ID: 5299901
+- Contents: System shall display "--- Wh/km (orWh/mi)" in case of missing message
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the "---Wh/km)orWh/mi)' is displayed incase of a missing message.
+
+CAN-Signal:
+xEV_NAV_INFO.ElectricConsumption_Trip
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+19. ID: 3646835
+- Contents: System shall receive  Avarage Consumptionat Key-ON and perform visualization in area F.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall receive xEV_RANGE_HMI.ElectricRangeHMI_BEV at Key-ON and perform visualization in area F.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, receive, perform, refer, to F, visualization, documentation" )
+- State (Harman_Requirement): Obsolete
+
+20. ID: 3646837
+- Contents: The average energy shall agree with the following features:
+resolution
+accuracy
+updating
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify tha the average energy shall agree with the following features:
+
+resolution
+accuracy
+updating
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3646840
+- Contents: System shall display trip energy consumed using the signal TripEnergyUsed during Key-ON.
+(see: image111.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Energy Used is displayed by using the CAN-sinal after Key-ON.
+
+CAN-Signal:
+MY_DRIVE_INFO_3.TripEnergyUsed
+STATUS_B_CAN.KeySTS.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image111.png
+
+22. ID: 3926301
+- Contents: System shall display TotalEnergyUsed_Profile during Key-ON in resolution of 1 / 0.1 KWh.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify total energy used displayed in F area with resolution, accuracy as per CAN signals.
+
+Resolution: 1/0.1KWh
+
+CAN-Signal:
+TotalEnergyUsed_Profile
+- Grooming Status: Approved
+- Grooming Comments: Clarify whether this signal to be added to Input signal.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3646852
+- Contents: The TRIP COMPUTER is composed by the following contents related to the car functioning status:
+(see: image112.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify tha the trip computer composes the contents according to the table.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+- Visual Elements: image112.png
+
+24. ID: 3646855
+- Contents: System shall display the TRIP information in the “F” visualization area.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall display the TRIP information in the “F” visualization area.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+25. ID: 3646858
+- Contents: System shall display TRIP information for metric and imperial system as per unit selection
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: The TRIP information displayed for the Metric System shall be the same as for the Imperial System: only the measurement unit used shall change.
+
+Internal Signal:
+INFO_DistanceUnit
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, information, system, selection" )
+- State (Harman_Requirement): Approved
+
+26. ID: 3646861
+- Contents: System shall suppress zeros on left of most significant disgit for the visualization of a value.
+(see: image113.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: For the visualization of a value, all the zeros on the left of the most significant digit shall be suppressed
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "most, significant" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image113.png
+
+27. ID: 4759480
+- Contents: System shall change the measurement units from Metric Decimal System to Imperial System depending on the INFO_DistanceUnit value.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Units changed depending on the INFO_DistanceUnit.
+
+Internal Interfaces:
+INFO_DistanceUnit
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3624489
+- Contents: System shall display Trip Computer indications as per the  Ferrari Design.
+(see: image106.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Trip Computer is displayed as per the Ferrari design.
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Visual Elements: image106.png
+
+2. ID: 3645808
+- Contents: 6.2.1.1.2.14.1 Trip Distance
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+3. ID: 3645806
+- Contents: 6.2.1.1.2.14.2 Trip Time
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+4. ID: 3645952
+- Contents: 6.2.1.1.2.14.3 Average Speed
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+5. ID: 3646650
+- Contents: 6.2.1.1.2.14.4 Maximum Speed
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+6. ID: 3646652
+- Contents: 6.2.1.1.2.14.5 Average Energy (Average Consumption)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+7. ID: 3646660
+- Contents: 6.2.1.1.2.14.6 Energy Used [kWh] or [MWh] or [GWh]
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image108.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image110.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image112.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image109.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image107.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image111.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image106.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image113.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F163 6.2.1.1.2.14  Trip Computer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

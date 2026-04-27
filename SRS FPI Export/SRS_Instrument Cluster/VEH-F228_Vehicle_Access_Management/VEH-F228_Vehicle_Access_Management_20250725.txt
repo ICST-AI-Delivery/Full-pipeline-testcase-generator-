@@ -1,0 +1,458 @@
+# VEH-F228 6.2.1.1.2.17  Vehicle Access Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.17 VEH-F228 Vehicle Access Management
+
+- ID: 3408583
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3715396
+- Contents: PROXI
+CAR_Configuration_16 : Byte 123, bit 2 (Rear_Doors Present/Absent)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the F175 Functionality is Enabled and Disabled using the Proxi Parameter.
+
+Proxi Value:
+Byte 123, Bit2.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 0
+- Issues Found by RQA: Compound requirement
+ (Look for: "disable, enable, Driver, left, bit 5 Buzzer, open, coup #232, Doors, present, bit, CinchPowerRearDoors, present/absent" ) 
+Missing unit 
+ (Look for: "‘4,2,0’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘Byte 6			 ELL’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3715403
+- Contents: System shall display Child Lock telltale as per the Ferrari design in B22 area
+(see: image116.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the child lock telltales are triggered and displayed as per the Ferrari design.
+Algo
+({[STS_LV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”] AND STS_LV_ChildLockFailSts = “Not_Active” AND STS_RV_ChildLock_Feedback = “Enabled” AND
+STS_RV_ChildLockFailSts = “Not_Active”}
+OR
+{STS_LV_ChildLock_Feedback = “Enabled” AND STS_LV_ChildLockFailSts = “Not_Active” AND [STS_RV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”] AND
+STS_RV_ChildLockFailSts = “Not_Active”}
+OR
+{[STS_LV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”] AND STS_LV_ChildLockFailSts = “Not_Active” AND [STS_RV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”]
+AND STS_RV_ChildLockFailSts = “Not_Active”}
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image116.png
+
+3. ID: 3715411
+- Contents: System shall display 'Child Lock only left' telltale as per the Ferrari design in B22 area
+(see: image117.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the child lock only left telltales are triggered and displayed as per the Ferrari design.
+Algo
+(STS_LV_ChildLock_Feedback = “Not_Enabled” -> “Enabled” AND STS_LV_ChildLockFailSts = “Not_Active” AND [STS_RV_ChildLock_Feedback = “Not_Enabled”
+OR STS_RV_ChildLockFailSts = “Active”]) [
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image117.png
+
+4. ID: 3715412
+- Contents: System shall display 'Child Lock only right' telltale as per the Ferrari design in B22 area
+(see: image118.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the child lock only right telltales are triggered and displayed as per the Ferrari design.
+Algo
+(STS_RV_ChildLock_Feedback = “Not_Enabled” -> “Enabled” AND STS_RV_ChildLockFailSts = “Not_Active” AND [STS_LV_ChildLock_Feedback = “Not_Enabled”
+OR STS_LV_ChildLockFailSts = “Active”]):
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image118.png
+
+5. ID: 3715427
+- Contents: System shall perform F228 feedback1 Pop-up with Buzzer 2B send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when rear door child locks gets engaged
+D01 visualization cycle and
+priority 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the feedback 1 is triggered at the moment when both child locks are engaged.
+Verify feedback 1 visualized (D01 cycle) when different combination (RL door engaged, RR door not engaged-> engaged; RL and RR childlock engaged simultaneously; RR door engaged, RL door not engaged-> engaged)
+Verify feedback1 priority
+
+Algo:
+({[STS_LV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”] AND STS_LV_ChildLockFailSts = “Not_Active” AND STS_RV_ChildLock_Feedback = “Enabled” AND
+STS_RV_ChildLockFailSts = “Not_Active”}
+OR
+{STS_LV_ChildLock_Feedback = “Enabled” AND STS_LV_ChildLockFailSts = “Not_Active” AND [STS_RV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”] AND
+STS_RV_ChildLockFailSts = “Not_Active”}
+OR
+{[STS_LV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”] AND STS_LV_ChildLockFailSts = “Not_Active” AND [STS_RV_ChildLock_Feedback = “Not_Enabled” -> “Enabled”]
+AND STS_RV_ChildLockFailSts = “Not_Active”}
+
+CAN-Signal: STATUS_ERR_V2.STS_RV_ChildLockFailSts
+STATUS_ERL_V2.STS_LV_ChildLockFailSts
+STATUS_ERR_V2.STS_RV_ChildLock_Feedback
+STATUS_ERL_V2.STS_LV_ChildLock_Feedback
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+6. ID: 3715428
+- Contents: System shall perform feedback-2 Pop-Up with Buzzer 2B send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Rear Left child lock change to enabled while Rear Right childlock disabled
+D01 visualization cycle and
+priority 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition  :Both rear child locks disengaged
+Verify that the feedback 2 is visualized in Cluster display when RL child lock engaged..
+Verify D01 visualization cycle.
+Verify priority (2)
+
+Algo:
+(STS_RV_ChildLock_Feedback = “Not_Enabled” -> “Enabled” AND STS_RV_ChildLockFailSts = “Not_Active” AND [STS_LV_ChildLock_Feedback = “Not_Enabled”
+OR STS_LV_ChildLockFailSts = “Active”]):
+
+Pop-Up iD: 02280002
+
+
+CAN-Signal: STATUS_ERR_V2.STS_RV_ChildLockFailSts
+STATUS_ERL_V2.STS_LV_ChildLockFailSts
+STATUS_ERR_V2.STS_RV_ChildLock_Feedback
+STATUS_ERL_V2.STS_LV_ChildLock_Feedback
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+7. ID: 3715447
+- Contents: System shall perform feedback-3 Pop-Up with Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Rear Right child lock change to enabled while Rear Left childlock disabled
+D01 visualization cycle and
+priority 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition  :Both rear child locks disengaged
+Verify that the feedback 3 is visualized in Cluster display when RR child lock engaged..
+Verify D01 visualization cycle.
+Verify priority (2)
+
+Algo:
+(STS_LV_ChildLock_Feedback = “Not_Enabled” -> “Enabled” AND STS_LV_ChildLockFailSts = “Not_Active” AND [STS_RV_ChildLock_Feedback = “Not_Enabled”
+OR STS_RV_ChildLockFailSts = “Active”]) [
+
+
+Pop-Up iD: 02280003
+
+Buzzer:2B
+
+
+CAN-Signal: STATUS_ERR_V2.STS_RV_ChildLockFailSts
+STATUS_ERL_V2.STS_LV_ChildLockFailSts
+STATUS_ERR_V2.STS_RV_ChildLock_Feedback
+STATUS_ERL_V2.STS_LV_ChildLock_Feedback
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+8. ID: 4710631
+- Contents: System shall display Feedback-4 with Pop-Up and Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when rear passenger door child lock transition from Enabled to Not-Enabled.
+Note: Feedback-4 follows D01 visualisation with Priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify Feedback-4 is displayed  when trigger condition is met
+
+Trigger Condition:
+([STS_LV_ChildLock_Feedback =“Enabled” -> “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Not_Enabled”]
+OR
+[STS_LV_ChildLock_Feedback = “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Enabled” -> “Not_Enabled”]
+OR
+[STS_LV_ChildLock_Feedback = “Enabled” -> “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Enabled” -> “Not_Enabled”]
+OR (STS_LV_ChildLockFailSts = “Active” AND STS_RV_ChildLockFailSts = “Active”))
+
+Pop-Up ID:02280004
+
+Buzzer:2B
+
+CAN-Signal:
+CAN-Signal: STATUS_ERR_V2.STS_RV_ChildLockFailSts
+STATUS_ERL_V2.STS_LV_ChildLockFailSts
+STATUS_ERR_V2.STS_RV_ChildLock_Feedback
+STATUS_ERL_V2.STS_LV_ChildLock_Feedback
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, Enabled, follows, Pop-Up, Buzzer, status, IVI, INDICATOR_STATUS, passenger, transition, Priority-2" ) 
+Passive voice
+ (Look for: "Enabled" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3715640
+- Contents: If F228 Feedback-1 is active, system shall not visualize  Feedback-3
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Feedback1, verify feedback1 visualization active. Trigger feedback2/feedback3.
+Verify feedback1 continues to completion
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+10. ID: 3715642
+- Contents: During Feedback-3 Visualisation cycle , If new visualisation Feedback-1 is triggered then Feedback-1 displays with out Pop-Up Animation Only buzzer.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: rigger feedback2/feedback3. verify feedback visualization active.
+Trigger Feedback1, verify feedback1 visualization active.Verify no  popup warning showed for feedback1
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+11. ID: 3715464
+- Contents: System shall perform feedback-5 pop-up with Buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Rear Left child lock change to disabled while Rear Right childlock enabled
+D01 visualization cycle and
+priority 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition  :Both rear child locks engaged
+Verify that the feedback 5 is visualized in Central display when RL child lock disengaged..
+Verify D01 visualization cycle.
+Verify priority (2)
+
+Pop_up ID:02280005
+
+
+Buzzer:2B
+
+Algo:
+([STS_RV_ChildLock_Feedback = “Enabled” -> “Not_Enabled” AND STS_LV_ChildLock_Feedback = “Enabled”] OR STS_RV_ChildLockFailSts = “Active”):
+
+CAN-Signal: STATUS_ERR_V2.STS_RV_ChildLockFailSts
+
+STATUS_ERR_V2.STS_RV_ChildLock_Feedback
+STATUS_ERL_V2.STS_LV_ChildLock_Feedback
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+12. ID: 3715465
+- Contents: System shall perform feedback-6 Pop-Up with Buzzer2B send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUSwhen Rear Right child lock change to disabled while Rear Left childlock enabled
+D01 visualization cycle and
+priority 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition  :Both rear child locks disengaged
+Verify that the feedback 6 is visualized in Central display when RR child lock disengaged..
+Verify D01 visualization cycle.
+Verify priority (2)
+
+Algo:
+([STS_LV_ChildLock_Feedback = “Enabled” -> “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Enabled”] OR STS_LV_ChildLockFailSts = “Active”)
+
+Pop-Up ID:02280006
+
+Buzzer:2B
+
+CAN-Signal: 
+STATUS_ERL_V2.STS_LV_ChildLockFailSts
+STATUS_ERR_V2.STS_RV_ChildLock_Feedback
+STATUS_ERL_V2.STS_LV_ChildLock_Feedback
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+13. ID: 3715643
+- Contents: If F228 Feedback-4 is active, system shall not visualize F228 Feedback-5, Feedback-6
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Feedback4, verify feedback4 visualization active. Trigger feedback5/feedback6.
+Verify feedback4 continues to completion
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+14. ID: 4705664
+- Contents: If System detects a Message Counter or Checksum error on STATUS_ERL_V2 message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F228 Feedback 5.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays F228 Feedback-5 when STATUS_ERL_V2 messages is missing more than 5 times.
+
+Note: MC_CRC_error is 5
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, error, STATUS, visualization" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4705665
+- Contents: If System detects a Message Counter or Checksum error on STATUS_ERR_V2 message for more than MC_CRC_error_counter samples THEN IDC shall show the visualization cycle F228 Feedback 5.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays F228 Feedback-5 when STATUS_ERR_V2 messages is missing more than 5 times.
+
+Note: MC_CRC_error is 5
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, show, error, STATUS, visualization" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3715476
+- Contents: System shall perform F228 feedback4 when rear door child locks gets disengaged
+D01 visualization cycle and
+priority 2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the feedback 4 is triggered at the moment when both child locks are engaged.
+Verify feedback 4 visualized (D01 cycle) when different combination (RL door engaged, RR door dis engaged-> engaged; RL and RR childlock disengaged simultaneously; RR door engaged, RL door disengaged-> engaged)
+Verify feedback4 priority
+Algo:
+[STS_LV_ChildLock_Feedback =“Enabled” -> “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Not_Enabled”]
+OR
+[STS_LV_ChildLock_Feedback = “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Enabled” -> “Not_Enabled”]
+OR
+[STS_LV_ChildLock_Feedback = “Enabled” -> “Not_Enabled” AND STS_RV_ChildLock_Feedback = “Enabled” -> “Not_Enabled”]
+OR (STS_LV_ChildLockFailSts = “Active” AND STS_RV_ChildLockFailSts = “Active”)):
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "perform, open" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI POP IND F228 Feedback1
+
+### Informational Items:
+
+1. ID: 3715399
+- Contents: 6.2.1.1.2.17.1 VEH-F228 - Telltale
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+2. ID: 3715426
+- Contents: 6.2.1.1.2.17.2 VEH-F228 - Feedback1,2,3,5,6
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+3. ID: 3715457
+- Contents: 6.2.1.1.2.17.3 VEH-F228 - Feedback4
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image116.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image117.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image118.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F228 6.2.1.1.2.17  Vehicle Access Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

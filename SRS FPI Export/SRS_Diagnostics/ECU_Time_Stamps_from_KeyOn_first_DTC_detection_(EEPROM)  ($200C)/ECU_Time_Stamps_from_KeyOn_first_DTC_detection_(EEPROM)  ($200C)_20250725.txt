@@ -1,0 +1,63 @@
+# UnknownID 6.2.4.3.2.31 ECU Time Stamps from KeyOn first DTC detection (EEPROM)  ($200C) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.31 ECU Time Stamps from KeyOn first DTC detection (EEPROM)  ($200C)
+
+- ID: 4011761
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- TestTeamComment: RWeber_DIAG_250212: looks okay
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4012240
+- Contents: The System shall have RecordDataIdentifier ($200C) to know the ECU Time Stamps from KeyOn first DTC detection (EEPROM).
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($200C)
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 200’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250212: looks okay
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4012237
+- Contents: See to TFO 09009/02 for further details.
+- Artifact Type: Information
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- TestTeamComment: RWeber_DIAG_250212: looks okay
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.31 ECU Time Stamps from KeyOn first DTC detection (EEPROM)  ($200C) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

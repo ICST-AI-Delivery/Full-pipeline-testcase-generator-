@@ -1,0 +1,85 @@
+# RAD-10 6.2.1.1.11  DAB Alert Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.11 RAD-10 DAB Alert
+
+- ID: 3939603
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Grooming Comments: Clarification from customer- The announcement which we refer to in this requirement you mentioned is type "Alarm"
+
+Quey:
+Need clarity on DAB Alerts - Disaster announcements.
+
+More details on disaster announcements and further actions?
+Disaster announcements are all the announcements (Alarm, warning, TA)?
+- Expert Domains: DAB_Cross Dev
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3969142
+- Contents: System shall tune to DAB announcement station upon receiving a disaster announcement signal with indication.
+- Artifact Type: SRS Req
+- Responsible Domain: DAB_Cross Dev
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall tune to DAB announcement station upon receiving a disaster (Alarm) announcement signal with indication.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, tune, receiving, signal, station, indication" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3969256
+- Contents: System shall display visual indication for the disaster announcement, regardless of the current value of the DAB announcement enabling option.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display visual indication for the disaster(Alarm) announcement, regardless of the current value of the DAB announcement enabling option.
+- Grooming Status: Approved
+- Grooming Comments: More details on disaster announcements and further actions?
+Disaster announcements are all the announcements (Alarm, warning, TA)?
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3969263
+- Contents: System shall save the last tuned frequency when the DAB Alert starts to recover frequency after DAB alert ends.
+- Artifact Type: SRS Req
+- Responsible Domain: DAB_Cross Dev
+- Test Stage: System Integration Test
+- Verification Criteria: Verify System shall save the last tuned frequency when the DAB Alert starts to recover frequency after DAB alert ends.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, save, starts, to recover, ends, last, frequency" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-10 6.2.1.1.11  DAB Alert Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

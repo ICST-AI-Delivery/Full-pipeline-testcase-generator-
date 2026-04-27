@@ -1,0 +1,170 @@
+# UnknownID 6.2.1.2.1.1 Displays Physical Commands for Central Display - Climate Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.1.1 Displays Physical Commands for Central Display - Climate
+
+- ID: 3601247
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3601250
+- Contents: System shall support Driver Seat thermal comfort command to control driver seat heating and ventilation with gestures available as touch, pressure, short press, continuous press, long pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Driver Seat Thermal Comfort button functionality with the mentioned gestures
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, to control, command, driver, heating, ventilation, gestures, touch, pressure, press" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4611555
+- Contents: System shall trigger the action related to the interacted command after  T3_DCONT seconds when the pressure of the physical button detect for t > n_times*T2_DCONT{X} seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: verify interaction command every T3_DCONT seconds when the pressure of the physical button detect for t > n_times*T2_DCONT{X} seconds.
+
+ NVO_INFO_V2.ContentsCommand
+T3_NVOCONT
+T4_NVOCONT
+ n_press
+
+
+t2=500msec
+t3=200msec
+t4=150msec
+
+T3_D_Cont  IDC-428619 - GESTURE_TIME_D ($0501) 
+
+n_times  IDC-428619 - GESTURE_TIME_D ($0501)
+- Grooming Status: Approved
+- Grooming Comments: [AR 09.04.2025]: Moving back to red label as S4 do not offer the requirement
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, interacted, detect, action, command, seconds, pressure" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4611557
+- Contents: System shall trigger the action related to the interacted command after T4_DCONT seconds when the pressure of the physical button detect for t > (n_times*T2_DCONT{X} + n*T3_DCONT) seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: verify interaction command every T4_DCONT seconds when the pressure of the physical button detect for t > (n_times*T2_DCONT{X} + n*T3_DCONT) seconds.
+
+
+ NVO_INFO_V2.ContentsCommand
+T3_NVOCONT
+T4_NVOCONT
+ n_press
+
+
+t2=500msec
+t3=200msec
+t4=150msec
+
+T4_D_Cont  IDC-428619 - GESTURE_TIME_D ($0501)
+- Grooming Status: Approved
+- Grooming Comments: [AR 09.04.2025]: Moving back to red label as S4 do not offer the requirement
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, interacted, detect, action, command, seconds, pressure" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3601251
+- Contents: System shall support Front Passenger Seat thermal comfort command to control front passenger seat heating and ventilation with gestures available as  touch, pressure, short press, continuous press, long pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Front Passenger Seat Thermal Comfort button functionality with the mentioned gestures
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, to control, command, passenger, heating, ventilation, gestures, touch, pressure, press" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3601252
+- Contents: System shall support  Driver Temperature adjustment command to control the driver temperature with gestures available as  touch, pressure, short press, continuous press, long pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Driver Temperature adjustment button functionality with the mentioned gestures
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, to control, command, temperature, gestures, touch, pressure, press" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3601253
+- Contents: System shall support Front Passenger temperature adjustment command to control the front passenger temperature with gestures available as touch, pressure, short press, continuous press, long pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Front Passenger temperature adjustment command button functionality with the mentioned gestures
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, to control, command, temperature, gestures, touch, pressure, press" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3601254
+- Contents: System shall support Front Fan Speed command to control the front fan speed with gestures available as touch, pressure, short press, continuous press, long pressure.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the  Front Fan Speed command functionality with the mentioned gestures
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, to control, command, speed, gestures, touch, pressure, press" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3601255
+- Contents: System shall support Climate command that manages the climate with gestures available as Pressure, Short Pressure, Long pressure, continuous pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Climate command functionality with the mentioned gestures
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, manages, command, climate, gestures, Pressure, pressure" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.2.1.1 Displays Physical Commands for Central Display - Climate Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

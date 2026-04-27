@@ -1,0 +1,187 @@
+# PHN-2 6.2.1.2  Search Devices Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2 PHN-2 Search Devices
+
+- ID: 3405761
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: BT, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3405762
+- Contents: IDC shall allow the user to search the available Bluetooth Devices by pressing on "Add device" animation.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HMI is provided with an option to search for a device.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+2. ID: 3427683
+- Contents: At searching procedure start, IDC shall clear previous search result list.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify whether HMI clear off the previous search list during the beginning of search procedure start.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+3. ID: 3427678
+- Contents: IDC shall display all the available Bluetooth devices up on search.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify whether the HMI displays available devices in the search list.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+4. ID: 3405763
+- Contents: IDC shall populate the list of available devices in an interactive list using their BT names.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify whether the HMI displays the available BT devices with their names.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "their" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+5. ID: 3405764
+- Contents: IDC shall allow user to interrupt the ongoing search with an option on HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: To verify whether selecting an option on HMI interrupts the ongoing search by swipe/press on back Icon in the searching screen.
+- Grooming Status: Approved
+- Grooming Comments: Back Icon
+
+Grooming session [18-04-2024]:
+Need to know the icon or button which interrupts the searching?
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to interrupt, search, option, HMI" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3427684
+- Contents: If searching procedure starts and speed greater than zero then System shall apply condition:
+1)If the target market disallows to search devices at speed greater than zero, then system interrupt the searching procedure providing the dedicated visualization cycle
+2)If the target market allows to search devices at speed greater than zero, then system perform the pairing procedure after the user confirmation on a dedicated popup.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Usecase1: If the country does not allow pairing when the vehicle speed exceeds >0.
+
+Verify whether IDC interrupts the searching procedure.
+
+Usecase2: If the country allows pairing when the vehicle speed exceeds >0.
+
+Verify whether HMI displays a popup for confirmation to proceed with the searching procedure.
+
+CAN info:
+VehicleSpeed
+VSOSig
+
+Country configurations need to set via PROXI.
+- Grooming Status: Approved
+- Grooming Comments: [15/10-2024]:
+
+To be reviewed with Systems team.
+OPL:
+1)Which scenarios the driving lockout conditions are applied and need information   on HMI popup?
+2)To be checked with Systems:
+How to handle the country restrictions for speed lock out.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, system, searching, apply, market, disallows, interrupt, providing, allows, perform, starts, speed, condition, devices, procedure, visualization, confirmation, popup" ) 
+Unclear term
+ (Look for: "target" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+7. ID: 3481578
+- Contents: if searching/pairing procedure starts and speed is > zero, the procedure shall interrupt in markets where it allows to pair, then user shall accept a popup to start the procedure again.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify whether IDC interrupts the searching/pairing procedure when the speed >0.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 50
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Compound requirement
+ (Look for: "procedure, interrupt, allows, pair, accept, to start, markets, popup, again" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3481581
+- Contents: During device searching (pairing) or after searching has been completed and the user presses on a Device found, the pairing procedure will start for that device
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify During device searching (pairing) or after searching has been completed and the user presses on a Device found, the pairing procedure will start for that device
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, remove, search, devices" )
+- TestTeamComment: Hsutter [2024-04-19] It is possible to write a test case
+- State (Harman_Requirement): Approved
+
+9. ID: 3886109
+- Contents: System shall inform the user about a speed inhibition while search is ongoing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify System shall inform the user when a speed increase (inhibition) while search is ongoing.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, search, inform, about, is ongoing, inhibition" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-2 6.2.1.2  Search Devices Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

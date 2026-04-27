@@ -1,0 +1,461 @@
+# VEH-F027 6.2.1.1.1.7  Position Lights DRL and Parking Lights Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.7 VEH-F027 Position Lights DRL and Parking Lights Management
+
+- ID: 3405879
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Infomation missing in customer doc
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4686241
+- Contents: System shall display a Pop-Up Lights switch On/Off on the binnacle.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system display a Pop-Up switch On/Off on the Binnacle.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4686242
+- Contents: When Rear Fog Lights has a Transition then System shall show the relative indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify system shall display relative indicaion When Rear Fog Lights has a Transition.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Rear Fog Lights, System, has, show, Transition, indication" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4686243
+- Contents: System shall display the classic VTT visualisation  if signals have no transition within_t_Popup_Lights.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system display classic Virtual Telltale if signals have no transition within_t_popup_lights.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3498336
+- Contents: During keyon, steadystate and key off, system shall display Info-1 With Telltale and Send the Status to IVI when ([RHParkTailLightSts = ON and LHParkTailLightSts = ON] and KeySts ≥ 4)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+KeySts ≥ 4
+
+Trigger Condition:
+([RHParkTailLightSts = ON and LHParkTailLightSts = ON]
+
+
+Turn both left and right parklight on.
+Verify telltale on.
+
+
+POP-UP ID:  00270001
+
+
+CAN-Signal: VEHSTAT_V2.RHParkTailLightSts
+
+VEHSTAT_V2.LHParkTailLightSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, steadystate, key, indicate, left, turn, off, position, telltale, right, lights, 4" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: ([RHParkTailLightSts = ON and LHParkTailLightSts = ON] and KeySts ≥ 4):
+
+([RHParkTailLightSts = ON and LHParkTailLightSts = ON] and KeySts < 4):
+
+5. ID: 3498357
+- Contents: System shall display Info-2 Pop-Up and send the Status to IVI when ([RHParkTailLightSts = ON xor LHParkTailLightSts = ON] and (KeySts<4))
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+KeySts < 4
+
+Trigger Condition:
+([RHParkTailLightSts = ON XOR LHParkTailLightSts = ON]
+
+
+Verify INFO-2 Pop-up is displayed when Trigger condition is met.
+
+POP-UP ID:  00270002
+
+
+CAN-Signal: VEHSTAT_V2.RHParkTailLightSts
+
+VEHSTAT_V2.LHParkTailLightSts
+- Grooming Status: Approved
+- Grooming Comments: What is Partial parking , how do we determine it is a partial parking.
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: ([RHParkTailLightSts = ON xor LHParkTailLightSts = ON] and (KeySts<4)):
+
+6. ID: 5110849
+- Contents: System shall perform Info-2 when Partial Parking is active, which is a 2D or3D graphical indication consists of the car symbol with graphical elements corresponding to the active partial parking lights.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the 2D or 3D graphical contents relevant to the partial parking lights.
+- Grooming Status: Approved
+- Grooming Comments: What is partial Parking? Raise a JIRA
+
+25/03/2025-Omprakash Please refer FQ-1060
+
+response from the customer says that this needs to be shown on the central display.
+- Expert Domains: Android HMI, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Parking, perform, is, consists, corresponding, symbol, elements, lights" ) 
+Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is active" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4686246
+- Contents: "System shall send the internal signals INDICATOR_STATUS and VEH_3dModel_XXX with the specified values, ensuring that each signal is transmitted accurately and in accordance with the defined conditions."
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Grooming Comments: Which condition should be on and which condition should be off to simulate the Lights.
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signal, send, specified, ensuring, defined, INDICATOR_STATUS, values, conditions" ) 
+Unclear term
+ (Look for: "accurately" ) 
+Passive voice
+ (Look for: "is transmitted" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5110908
+- Contents: System shall display Info-3 Telltale and Send the Status to IVI when ([RHParkTailLightSts = ON and LHParkTailLightSts = ON] and KeySts<4)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+KeySts < 4
+
+Trigger Condition:
+([RHParkTailLightSts = ON XOR LHParkTailLightSts = ON]
+
+
+Verify INFO-3 Pop-up is displayed when Trigger condition is met.
+
+POP-UP ID:  00270023
+
+Telltale: LGH006
+
+
+CAN-Signal: VEHSTAT_V2.RHParkTailLightSts
+
+VEHSTAT_V2.LHParkTailLightSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Send, to IVI, Telltale, Status, RHParkTailLightSts, LHParkTailLightSts, KeySts" ) 
+Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3498430
+- Contents: System shall display info-4 Telltale  with buzzer send the info-4 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.  At keyoff, when parking light feedback LED ON and driver door opens, System shall indicate  position light DRL and parking light ON by chime
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : Parking light feedback led on and key off
+
+Turn parklight on.
+Open driver door.
+([(LHParkTailLightSts = ON or RHParkTailLightSts=ON) and ParkingFeedbackLed = "State_Led_ON"] and KeySts<4 and STS_DRS_DriverDoorSts=[Open or Ajar]):
+
+Verify that the info-4 display's Pop-Up with Buzzer when condition is met.
+
+Verify chime audible as per configured chime in chime table
+
+CAN-Signal: VEHSTAT_V2.ParkingFeedbackLed
+- Grooming Status: Approved
+- Grooming Comments: Info-4 Is not available in HMI.POP.IND document need to create Jira
+
+ORasani: RMF240 Package dependency requirements.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, parking, LED, opens, indicate, feedback, ON, position light DRL, light, chime" )
+- TestTeamComment: We need to wait for RMF240 Import , From there we need to check and Validate the req.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3
+
+([(LHParkTailLightSts = ON or RHParkTailLightSts=ON) and ParkingFeedbackLed = "State_Led_ON"] and KeySts<4 and STS_DRS_DriverDoorSts=[Open or Ajar]):
+
+10. ID: 3498457
+- Contents: System shall visualize F027 Info5 send the info-5 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when parking feedback led active and key status less than four with
+D05 visualization behaviour
+Priority2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition :
+(ParkingFeedbackLed = 1 and (KeySts<4)
+
+Verify F027 Info-5 is triggered when necessary conditions are met.
+
+Pop-UP ID: 00270001
+
+CAN-Signal: VEHSTAT_V2.ParkingFeedbackLed
+- Grooming Status: Approved
+- Grooming Comments: FQ-413
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, parking, led, active, status" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4686247
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image11.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Core, System Infra
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signals, send, following, input, INDICATOR_STATUS, values, Proxi, INDICATOR, Controls, interfaces 0   Not_Active, KeySts" ) 
+Missing unit 
+ (Look for: "‘0,1,4,00270025’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image11.png
+
+12. ID: 3415387
+- Contents: System shall display Fail-1 Pop-up with buzzer and send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when left and right DRL failure detected.
+Note: Fail-1 warning follows D01 visualisation behaviour.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger DRL fail by CAN
+Verify lamp failure Pop-Up is  displayed
+and Buzzer is played.
+
+(Right_DRL_FailSts = Fail_present or Left_DRL_FailSts = Fail_present):
+
+Verify D01 behaviour  : CAN input Visualization Cycle behavior codes
+
+CAN-Signal:
+STATUS_C_LCU.Right_DRL_FailSts
+STATUS_C_LCU.Left_DRL_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, left, follows, Pop-up, buzzer, Telltale, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (Right_DRL_FailSts = Fail_present or Left_DRL_FailSts = Fail_present):
+
+13. ID: 4686252
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image12.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signals, send, following, input, INDICATOR_STATUS, values, Proxi, INDICATOR, Controls, interfaces 0   Not_Active, Right, Left" ) 
+Missing unit 
+ (Look for: "‘0,1,00270005,00270006,00270007’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image12.png
+
+14. ID: 3498486
+- Contents: System shall indicate Fail-2 send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when parklight failure when parklight failure detected
+Note: Fail-2 shall  follow D01 visualization Behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+Right_DRL_FailSts = Fail_present or Left_DRL_FailSts = Fail_present
+
+Verify that the Fail-2 Pop-up is displayed when trigger conditions are met
+
+CAN-Signals:
+
+STATUS_C_LCU.Right_DRL_FailSts
+STATUS_C_LCU.Left_DRL_FailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Control, Audio Processing, IOC_Autosar, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, failure, Telltale, indicate, detected, follow" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: (Left_PL_FailSts= Fail present or Right_PL_FailSts= Fail present or RHRParkTailLightFailSts=Fail present or LHRParkTailLightFailSts=Fail present):
+
+15. ID: 4686253
+- Contents: System shall send the INDICATOR_STATUS and the VEH_3dModel_XXX internal signals with the following values: (see: image13.png)
+(see: image14.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Pop-Up is displayed as per the Pop up ids mentioned in the requirement.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+- Visual Elements: image13.png, image14.png
+
+16. ID: 3498497
+- Contents: System shall indicate lamp failure by 'Position Light with Indication' chime
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify chime audible in park light/ DRL failure
+
+Trigger Condition:
+Right_DRL_FailSts = Fail_present or Left_DRL_FailSts = Fail_present
+
+Verify that the Fail-2 Pop-up is displayed when trigger conditions are met
+
+CAN-Signals:
+
+STATUS_C_LCU.Right_DRL_FailSts
+STATUS_C_LCU.Left_DRL_FailSts
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3
+
+17. ID: 4686254
+- Contents: System shall display F027 Fail 2, When  Message Counter or CRC error is detected by system ,for VEHSTAT_V2 message more than MC_CRC_error_counter samples(5)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: When System detects a Message counter or CRC Error onVEHSTAT_V2 message for more than MC_CRC_error_counter , Then the Fail-2 warning has to be displayed.
+
+Message: VEHSTAT_V2
+
+Threshold Value: 250 ms
+
+Refrerence: FuSa: F244-FUSA-7068
+
+Note:
+MC_CRC_Error count is 5
+- Grooming Status: Approved
+- Expert Domains: IOC_Autosar
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, samples, Fail, Message Counter, error, system" ) 
+Passive voice
+ (Look for: "is detected" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3415390
+- Contents: System shall indicate active parking light position by visualization as per Ferrari Design
+(see: image9.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify telltale displayed as per Ferrari design HMI_LF_Binnacle_Telltales
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: HMI part
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code 00780
+- Visual Elements: image9.png
+
+2. ID: 3415380
+- Contents: System shall display master light failure telltale on position light DRL or parking light failure
+(see: image10.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify telltale displayed as per Ferrari design HMI_LF_Binnacle_Telltales
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, parking, position, DRL, telltale, light DRL, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Telltale code 00740
+- Visual Elements: image10.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image11.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image10.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image9.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image12.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image14.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image13.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F027 6.2.1.1.1.7  Position Lights DRL and Parking Lights Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

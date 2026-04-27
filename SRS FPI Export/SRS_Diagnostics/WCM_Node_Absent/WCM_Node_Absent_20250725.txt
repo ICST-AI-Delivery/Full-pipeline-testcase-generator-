@@ -1,0 +1,91 @@
+# UnknownID 6.2.1.1.8 WCM Node Absent Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.8 WCM Node Absent
+
+- ID: 3890126
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3890127
+- Contents: The system shall be able to detect WCM node absent fault during key ON.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Proxi byte 122, bit 1 (“WirelessChargerModule")  = "Present".
+-Set WCM Node Absent or disconnected messages.
+-Or do not send WCM LIN messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit 1  #8220, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg and DTC ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+2. ID: 3890128
+- Contents: The system shall trigger the WCM node absent fault for 180 ms (if "WirelessChargerModule" = "Absent")
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered during key  Key ON transition.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "able to" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg and DTC ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+3. ID: 3890129
+- Contents: The system shall trigger the WCM node absent fault for   240 ms (if "WirelessChargerModule" = "Present")
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Check if the fault is triggered during key  Key ON transition.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘180’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg and DTC ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+4. ID: 3890130
+- Contents: The IDC shall immediately de-validate/clear the fault if the WCM LIN messages are received.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send WCM LIN messages.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘240’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241127: Missing CAN msg and DTC ID. Also this info "Off to Key On" make for me no sense. With this less info, it isn't possible to make a test for active/passive DTC. Only protocol test possible (state PI6 diag).
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.8 WCM Node Absent Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

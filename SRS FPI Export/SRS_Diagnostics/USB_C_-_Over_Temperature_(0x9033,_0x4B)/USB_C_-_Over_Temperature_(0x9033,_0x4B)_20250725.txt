@@ -1,0 +1,68 @@
+# UnknownID 6.2.1.1.80 USB C - Over Temperature (0x9033, 0x4B) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.80 USB C - Over Temperature (0x9033, 0x4B)
+
+- ID: 3854102
+- Artifact Type: SRS Feature
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3854104
+- Contents: The System shall detect Over Temperature Fault in USB C within 1s after key-ON, if Over temperature on the USB C port detected.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Over temperature on the USB C port should detected.
+-Over Temperature Fault in USB C should detect within 1s after key-ON.
+-Verify (0x9033, 0x4B) DTC will trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, temperature, detect, detected, Fault, C, port" )
+- TestTeamComment: RWeber_DIAG_241213: Only protocol test for this DTC (check to pos. response). We have no climate chamber. Also we have no other info, how to set this temperature. maybe possible at HW-quali.
+- State (Harman_Requirement): Approved
+
+2. ID: 3854122
+- Contents: The System shall clear the Over Temperature Fault in USB C within 1s, if Nominal temperature on the USB C port detected.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Nominal temperature on the USB C port.
+-Verify (0x9033, 0x4B) DTC will clear within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241213: Only protocol test for this DTC (check to pos. response). We have no climate chamber. Also we have no other info, how to set this temperature. maybe possible at HW-quali.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.80 USB C - Over Temperature (0x9033, 0x4B) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,229 @@
+# SWU-1 6.2.1.6  IDC Software Update Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.6 SWU-1 IDC Software Update
+
+- ID: 3408170
+- Artifact Type: SRS Feature
+- Responsible Domain: SW Update
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3441027
+- Contents: IDC Software update shall be performed via USB support.
+- Artifact Type: SRS Req
+- Responsible Domain: SW Update
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the SWU perform via USB
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be performed" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4572989
+- Contents: IDC shall detect the software update package when the USB support is connect.
+- Artifact Type: SRS Req
+- Responsible Domain: SW Update
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when USB connect to the system
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "support, detect, update, is connect, software, package" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4573005
+- Contents: IDC shall allow the user to start or cancel the software update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that start/cancel the SWU
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to start, cancel, update" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4575679
+- Contents: IDC shall abort the SWU procedure when user decalin the SWU.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to abort SWU when user decalin
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3441029
+- Contents: IDC shall allow the user to start the Software update procedure via HMI option.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to perform SWU through HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3945638
+- Contents: IDC shall inform the user with a dedicated HMI interface an applicable update is available.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the popup that inform user to update is available
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "applicable" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3441030
+- Contents: IDC shall start the Software update procedure through HMI when the user confirms the Software update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that the user able to confirm the SWU through HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, start, provide, procedure, indication" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3441031
+- Contents: System shall download, validate the SWU package when user confirms the activation.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to download and validate SWU when user confirms
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, download, validate, install, package" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3441032
+- Contents: During the SW update IDC shall display the progress installation status of the current Software update package and min progress shall be 1%.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the progress installation status through HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, progress, status, package" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3441034
+- Contents: IDC shall show the installation result at the end of the SW installation procedure after reboot .
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the installation status at the end of SWI after reboot
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3441035
+- Contents: If even one Software package was not installed correctly, then IDC shall provide a proper error popup
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the error pop up when even one SWU  not installed
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "correctly, proper" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3441036
+- Contents: IDC shall display a popup and system shall reboot when the software packages are install.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to reboot after SWU install
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, packages, display, reboot, are, install, popup" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3441040
+- Contents: System shall activate the new Software version for components after the reboot and shall check in system info when components update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the system info for new SW version after reboot
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, activate, check, update, version, components, reboot, info" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3441041
+- Contents: System shall recover and activate the previous Software version(rollback) when even one component update fails after the reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, update, fails, recover, activate, uploaded, reboot, previous" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3441028
+- Contents: IDC's software update procedure shall be compliant to UNECE R156
+SWU package shall include:
+Software for IVI (Soc Flash Update Installer)
+Software for Cluster (Cluster installer)
+Software for Peripherals (Peripheral Firmware Agent)
+IOC Update Agent
+- Artifact Type: Information
+- Test Stage: System Integration Test
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SWU-1 6.2.1.6  IDC Software Update Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

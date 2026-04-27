@@ -1,0 +1,195 @@
+# VEH-F023 6.2.1.1.1.6  Total Odometer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.6 VEH-F023 Total Odometer
+
+- ID: 3405878
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Figma : https://www.figma.com/design/fJYc1AZBDeWbFMzoievzgy/F244-BASELINE-(PI03---S2)---IPC?node-id=2290-15222&t=T494SegdNXZUOkCg-0
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_Autosar, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3492309
+- Contents: During key off, system shall display odometer indication
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: During key off, key on and steady state
+Verify Odometer display in F area  as per figma design
+- Grooming Status: Approved
+- Grooming Comments: Where to display this odometer? need to check with HMI team.
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3415325
+- Contents: During key on, system shall display last saved odometer value.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: During key key on,
+Verify Odometer display in F area  as per HMI
+Verify odometer show last stored value
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3492316
+- Contents: During steadystate, system shall increment odometer value with respect to distance travelled.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: During steady state
+Verify Odometer display in F area as per HMI
+Verify odometer increments with distance travelled
+
+CAN Signal : STATUS_NBC.TravelDistance
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3491947
+- Contents: System shall perform odometer reset when requested if below conditions are met
+Odometer reset count < 3
+Distance travelled <= 500km
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+1. Odometer reset count <3
+2. Total distance travelled <=500km
+Request odometer reset via diagnostic command
+Verify odometer value reset to zero via dial
+
+Precondition :
+Odo reset count = 3 Or distance travelled >500km
+Request odometer reset.
+Verify odometer value remain unchanged
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3476254
+- Contents: When odometer stored value read at startup fail, system shall indicate odometer failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: Software Qualification Test, Unit Verification
+- Verification Criteria: Trigger odometer read failure.
+Verify Fo23 Warning 1 displayed as per F244_HMI_POP.IND
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "odometer, system, stored, read, indicate, fail, failure" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3476256
+- Contents: When odometer input signal missing for predefined time <tREC>, system shall display last stored odometer value
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger odometer input loss by CAN <Travel Distance>
+Verify Odometer continues to display last stored value
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, odometer, missing, predefined, display, stored, tREC, last, value" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3847759
+- Contents: When power supply malfunction, system shall ensure odometer accuracy
+Note : Not more than 2km tolerance
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Continuously inclreas travel distance via CAN signal Travel Distance
+Trigger power supply loss after noting odo value = X
+Verify Odometer display between range X-2 to X once power supply is back
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, ensure, Note, malfunction, odometer, tolerance" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3935747
+- Contents: Diagnostic services for:
+Total odometer reading(1 byte:Odometer high byte; 1byte: Odometer middle byte; 1 byte Odometer low byte).
+Total odometer reading(3 byte: Odometer)
+Writing operation to increment the total odometer value.
+Total Odometer reset routine if the travelled distance is with -in a specific range.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if Diagnostic parametrs / Data is sent according to specified rules.
+- Grooming Status: Approved
+- Grooming Comments: Omprakash: 17/04/2025 Satisfies Link provided to the Diagnostic Feature and Marking it as Approved.
+- Expert Domains: IOC_Diag
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "services, operation, distance, reading, Writing, to increment, is, byte, value, routine, range" ) 
+Missing limits
+ (Look for: "‘1 byte’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+9. ID: 5288700
+- Contents: If signals "Travel Distance" is missing for a time greater or equal to <tREC> then system shall display the last value stored in memory.
+(see: image8.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the system displays the last value stored from the Memory if the Travel Distance is missing for Greater than or equal to tREC.
+
+CAN-Signal:
+EHICLE_SPEED_E_ODOMETER.TravelDistance
+- Grooming Status: Approved
+- Grooming Comments: Need to check what is on the Display and the Last stored value.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, stored, value" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+- Visual Elements: image8.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image8.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F023 6.2.1.1.1.6  Total Odometer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

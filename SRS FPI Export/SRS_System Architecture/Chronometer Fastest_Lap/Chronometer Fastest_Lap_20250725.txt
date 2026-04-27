@@ -1,0 +1,113 @@
+# UnknownID 6.2.6.3.1 Chronometer Fastest Lap Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.3.1 Chronometer Fastest Lap
+
+- ID: 4886208
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Comments: [28/04/2025]:
+Muthuraj:
+Invalid requirements as per custumer comments https://jira.harman.com/jira/browse/FQ-1022
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4886206
+- Contents: system shall implement an algorithm to evaluate the minimum chrono time (fastest lap).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Comments: [28/04/2025]:
+Muthuraj:
+Invalid requirements as per custumer comments https://jira.harman.com/jira/browse/FQ-1022
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "minimum" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4886210
+- Contents: system shall reserve a memory portion for the minimum chrono time.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Comments: [28/04/2025]:
+Muthuraj:
+Invalid requirements as per custumer comments https://jira.harman.com/jira/browse/FQ-1022
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "minimum" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4886211
+- Contents: system shall compare the newly registered time with the value stored as minimum chrono time at each subsequent chronometer deactivation.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Comments: [28/04/2025]:
+Muthuraj:
+Invalid requirements as per custumer comments https://jira.harman.com/jira/browse/FQ-1022
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, compare, registered, stored, time, value, subsequent, deactivation" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4886212
+- Contents: If last_value ≤  min_time, then system shall store last_value as min_time else no update on min_time value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Comments: [28/04/2025]:
+Muthuraj:
+Invalid requirements as per custumer comments https://jira.harman.com/jira/browse/FQ-1022
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, store, update, value" ) 
+Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 4886214
+- Contents: system shall store the value of the minimum chrono (fastest lap) and last lap in persistence memory.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Comments: [28/04/2025]:
+Muthuraj:
+Invalid requirements as per custumer comments https://jira.harman.com/jira/browse/FQ-1022
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, store, value, lap, persistence" ) 
+Unclear term
+ (Look for: "minimum" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.6.3.1 Chronometer Fastest Lap Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

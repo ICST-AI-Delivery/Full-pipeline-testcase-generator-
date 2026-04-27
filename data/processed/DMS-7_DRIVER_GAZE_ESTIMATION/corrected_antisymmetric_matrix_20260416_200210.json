@@ -1,0 +1,2361 @@
+{
+  "timestamp": "2026-04-16T20:02:17.560629",
+  "main_fpi": "DMS-7_DRIVER_GAZE_ESTIMATION",
+  "methodology": "Antisymmetric Matrix with Upstream/Downstream Differentiation",
+  "total_features_analyzed": 1426,
+  "non_zero_dependencies": 161,
+  "antisymmetric_matrix": {
+    "AUD-2_A2B_Network_2_configuration_via_diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/AUD-2_A2B_Network_2_configuration_via_diagnostics/"
+    },
+    "AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics/"
+    },
+    "Diagnostics_Test_Tone_Generator": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/Diagnostics_Test_Tone_Generator/"
+    },
+    "ESE-1_ESE_BEV_Management_Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Audio/ESE-1_ESE_BEV_Management_Diagnostics/"
+    },
+    "FAD-1_Calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-1_Calibration/"
+    },
+    "FAD-2_Calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-2_Calibration/"
+    },
+    "FAD-2 Calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-2 Calibration/"
+    },
+    "FAD-4_Proxi_Parameters": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-4_Proxi_Parameters/"
+    },
+    "FAD-7_Flat_Audio_Calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Audio/FAD-7_Flat_Audio_Calibration/"
+    },
+    "Speech_Dialog_and_Readout_Sources": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Speech_Dialog_and_Readout_Sources testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Audio/Speech_Dialog_and_Readout_Sources/"
+    },
+    "Engineering_Test_Parameters": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/Engineering_Test_Parameters/"
+    },
+    "Power_Management": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Power_Management/"
+    },
+    "Quality_of_Service": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Quality_of_Service testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Connectivity/Quality_of_Service/"
+    },
+    "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)/"
+    },
+    "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)/"
+    },
+    "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)/"
+    },
+    "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)/"
+    },
+    "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)/"
+    },
+    "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)/"
+    },
+    "Active_suspension_parameters  ($2032)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Active_suspension_parameters  ($2032)/"
+    },
+    "AIRQUALITY($052D)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "AIRQUALITY($052D) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/AIRQUALITY($052D)/"
+    },
+    "Authenticated_Diagnostics_-_Active_Roles": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Authenticated_Diagnostics_-_Active_Roles/"
+    },
+    "Authenticated_Diagnostics_-_Disallowed_Certificate_List": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Authenticated_Diagnostics_-_Disallowed_Certificate_List/"
+    },
+    "Authenticated_Diagnostics_-_Previous_Access": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Authenticated_Diagnostics_-_Previous_Access/"
+    },
+    "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)/"
+    },
+    "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)/"
+    },
+    "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)/"
+    },
+    "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)/"
+    },
+    "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)/"
+    },
+    "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)/"
+    },
+    "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)/"
+    },
+    "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)/"
+    },
+    "Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Diagnostics/"
+    },
+    "DMS_-_Ce_pct_EyeClosedQualityDegTh_($FE43)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "DMS_-_Ce_pct_EyeClosedQualityDegTh_($FE43) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_pct_EyeClosedQualityDegTh_($FE43)/"
+    },
+    "DMS_-_Ce_pct_EyeClosedQualityNNTh_($FE4C)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "DMS_-_Ce_pct_EyeClosedQualityNNTh_($FE4C) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_pct_EyeClosedQualityNNTh_($FE4C)/"
+    },
+    "DMS_-_Ce_pct_EyeGazeQualityDegTh ($FE41)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "DMS_-_Ce_pct_EyeGazeQualityDegTh ($FE41) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_pct_EyeGazeQualityDegTh ($FE41)/"
+    },
+    "DMS_-_Ce_pct_EyeGazeQualityNNTh_($FE4A)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "DMS_-_Ce_pct_EyeGazeQualityNNTh_($FE4A) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_pct_EyeGazeQualityNNTh_($FE4A)/"
+    },
+    "DMS_-_Ce_pct_HeadTrackQualityDegTh_($FE42)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "DMS_-_Ce_pct_HeadTrackQualityDegTh_($FE42) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_pct_HeadTrackQualityDegTh_($FE42)/"
+    },
+    "DMS_-_Ce_pct_HeadTrackQualityNNTh_($FE4B)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "DMS_-_Ce_pct_HeadTrackQualityNNTh_($FE4B) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_pct_HeadTrackQualityNNTh_($FE4B)/"
+    },
+    "DMS_-_Ce_t_DebounceTimeDTC_($FE48)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_Ce_t_DebounceTimeDTC_($FE48)/"
+    },
+    "DMS_-_DEBUG_MESSAGES_ACTIVATION_STATUS ($FE50)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_DEBUG_MESSAGES_ACTIVATION_STATUS ($FE50)/"
+    },
+    "DMS_-_DMS_SETTINGS_ACTIVATION_STATUS_($FE51)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_DMS_SETTINGS_ACTIVATION_STATUS_($FE51)/"
+    },
+    "DMS_-_POWER-RELATED_ERRORS_(0xD90001)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state",
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DMS_-_POWER-RELATED_ERRORS_(0xD90001)/"
+    },
+    "DTCFailureType  ($6082)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/DTCFailureType  ($6082)/"
+    },
+    "ECU_Time_first_DTC_detection_(EEPROM)  ($200B)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/ECU_Time_first_DTC_detection_(EEPROM)  ($200B)/"
+    },
+    "ECU_time_stamps_from_KeyOn_(EEPROM)  ($2009)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/ECU_time_stamps_from_KeyOn_(EEPROM)  ($2009)/"
+    },
+    "ECU_time_stamps_from_KeyOn_(RAM)_($1009)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/ECU_time_stamps_from_KeyOn_(RAM)_($1009)/"
+    },
+    "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)/"
+    },
+    "EOL_Calibration_Pattern_Height_-_FL_($FE7A)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/EOL_Calibration_Pattern_Height_-_FL_($FE7A)/"
+    },
+    "EOL_Calibration_Pattern_Height_-_FR_($FE7B)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/EOL_Calibration_Pattern_Height_-_FR_($FE7B)/"
+    },
+    "EOL_Calibration_Pattern_Height_-_RL_($FE7C)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/EOL_Calibration_Pattern_Height_-_RL_($FE7C)/"
+    },
+    "EOL_Calibration_Pattern_Height_-_RR_($FE7D)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/EOL_Calibration_Pattern_Height_-_RR_($FE7D)/"
+    },
+    "Flat_Audio_Calibration_($0529)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Flat_Audio_Calibration_($0529)/"
+    },
+    "Flat_Audio_Calibration_(0xD85054)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Flat_Audio_Calibration_(0xD85054)/"
+    },
+    "Front_Camera_-_Intrinsics_parameters_($FE64)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Camera system configuration and status"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Front_Camera_-_Intrinsics_parameters_($FE64)/"
+    },
+    "GRAPH_PARAMETERS_($052E)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/GRAPH_PARAMETERS_($052E)/"
+    },
+    "HMI_CAN_Bus-off_(0xD001,_0x88)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "CAN bus communication status"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/HMI_CAN_Bus-off_(0xD001,_0x88)/"
+    },
+    "HMI_CAN_Missing_Message_(0xD001,_0x87)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "CAN bus communication status"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/HMI_CAN_Missing_Message_(0xD001,_0x87)/"
+    },
+    "INTERIOR_BUTTON_LIGHTS_($0508)": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/INTERIOR_BUTTON_LIGHTS_($0508)/"
+    },
+    "KeyOn_counter_(EEPROM)  ($200A)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/KeyOn_counter_(EEPROM)  ($200A)/"
+    },
+    "KeyOn_Counter_Status_(EEPROM)  ($200F)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/KeyOn_Counter_Status_(EEPROM)  ($200F)/"
+    },
+    "Left_Camera_-_Intrinsics_parameters_($FE70)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Camera system configuration and status"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Left_Camera_-_Intrinsics_parameters_($FE70)/"
+    },
+    "Logic": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Logic testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Logic/"
+    },
+    "Logistic_Mode": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Logistic_Mode testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Logistic_Mode/"
+    },
+    "Rear_Camera_-_Intrinsics_parameters_($FE6A)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Camera system configuration and status"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Rear_Camera_-_Intrinsics_parameters_($FE6A)/"
+    },
+    "Right_Camera_-_Intrinsics_parameters_($FE76)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Camera system configuration and status"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Right_Camera_-_Intrinsics_parameters_($FE76)/"
+    },
+    "Routine_Output_Data_parameters": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Routine_Output_Data_parameters/"
+    },
+    "S2R_calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/S2R_calibration/"
+    },
+    "SVS_-_Intrinsics_Parameter_Fail_(0x9110,_0x91)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/SVS_-_Intrinsics_Parameter_Fail_(0x9110,_0x91)/"
+    },
+    "SVS_-_Missing_Calibration_(0x9110,_0x54)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/SVS_-_Missing_Calibration_(0x9110,_0x54)/"
+    },
+    "SVS_- Calibration_Fail_(0x9110,_0x46)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/SVS_- Calibration_Fail_(0x9110,_0x46)/"
+    },
+    "SVS_EOL_Calibration_($F001)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/SVS_EOL_Calibration_($F001)/"
+    },
+    "SXM_CALIBRATION($TBD)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/SXM_CALIBRATION($TBD)/"
+    },
+    "Telemetry_parameters_configuration  ($20BA)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Telemetry_parameters_configuration  ($20BA)/"
+    },
+    "Trip_Parameters  ($20B0)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Trip_Parameters  ($20B0)/"
+    },
+    "T_POWER_MANAGEMENT_($0503)": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/T_POWER_MANAGEMENT_($0503)/"
+    },
+    "Yaw_rate_sensor_parameters  ($2033)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Diagnostics/Yaw_rate_sensor_parameters  ($2033)/"
+    },
+    "DMS-14_Debug_Info_during_development_phase": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Gaze estimation debug information and quality metrics"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "DMS-14_Debug_Info_during_development_phase testcase enhanced by DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-14_Debug_Info_during_development_phase/"
+    },
+    "DMS-14__Debug_Info_during_development_phase": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Gaze estimation debug information and quality metrics"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "DMS-14__Debug_Info_during_development_phase testcase enhanced by DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-14__Debug_Info_during_development_phase/"
+    },
+    "DMS-1_DMS_ACTIVATION_STATES_MANAGEMENT": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_DMS_ACTIVATION_STATES_MANAGEMENT/"
+    },
+    "DMS-1_DMS_State_Active": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_DMS_State_Active/"
+    },
+    "DMS-1_DMS_State_INIT": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_DMS_State_INIT/"
+    },
+    "DMS-1_DMS_State_USER_PRESENCE": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_DMS_State_USER_PRESENCE/"
+    },
+    "DMS-1_Running_State": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_Running_State/"
+    },
+    "DMS-1_State_DEGRADED": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_State_DEGRADED/"
+    },
+    "DMS-1_Warning_State": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1_Warning_State/"
+    },
+    "DMS-1__DMS_State_Active": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1__DMS_State_Active/"
+    },
+    "DMS-1__DMS_State_INIT": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1__DMS_State_INIT/"
+    },
+    "DMS-1__DMS_State_USER_PRESENCE": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1__DMS_State_USER_PRESENCE/"
+    },
+    "DMS-1__Running_State": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1__Running_State/"
+    },
+    "DMS-1__State_DEGRADED": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1__State_DEGRADED/"
+    },
+    "DMS-1__Warning_State": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS-1__Warning_State/"
+    },
+    "DMS_1_ERROR State": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS_1_ERROR State/"
+    },
+    "DMS_system_calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "DMS system status and operational state",
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_DMS/DMS_system_calibration/"
+    },
+    "6.3.2.2.4_S.W._Driver_action_HMI_inhibition": {
+      "score": 3,
+      "direction": "Downstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "ExpectedResult",
+        "Verification"
+      ],
+      "extracted_context": [
+        "Gaze direction visualization and cabin area status"
+      ],
+      "justification": "Critical downstream dependency for verification",
+      "evidence": "6.3.2.2.4_S.W._Driver_action_HMI_inhibition testcase requires DMS-7_DRIVER_GAZE_ESTIMATION context for verification",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/6.3.2.2.4_S.W._Driver_action_HMI_inhibition/"
+    },
+    "Adaptive Front_Lighting_System -_HMI_settings": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Adaptive Front_Lighting_System -_HMI_settings/"
+    },
+    "Air_Quality": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Air_Quality testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Air_Quality/"
+    },
+    "Ambient_Light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Ambient_Light/"
+    },
+    "AUS-0_Audio_settings_via_Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0_Audio_settings_via_Diagnostics/"
+    },
+    "AUS-0__Audio_settings_via_Diagnostics": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/AUS-0__Audio_settings_via_Diagnostics/"
+    },
+    "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)/"
+    },
+    "Availability_based_on_Key_Presence_in_cabin": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Availability_based_on_Key_Presence_in_cabin/"
+    },
+    "Brightness_-Central_Display_-_HMI_settings": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "Gaze direction visualization and cabin area status"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Brightness_-Central_Display_-_HMI_settings testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Brightness_-Central_Display_-_HMI_settings/"
+    },
+    "Chill_Mode_Or_All_Ambient_Light_-_HMI_settings": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Chill_Mode_Or_All_Ambient_Light_-_HMI_settings/"
+    },
+    "Driver_Positions_Memories_Saving_logic": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Driver_Positions_Memories_Saving_logic testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Driver_Positions_Memories_Saving_logic/"
+    },
+    "Driver_Seat_- Behavior_at_wake_up": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "Driver_Seat_- Behavior_at_wake_up testcase enhanced by DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Driver_Seat_- Behavior_at_wake_up/"
+    },
+    "ENG-1_Logic_of_access": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "ENG-1_Logic_of_access testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/ENG-1_Logic_of_access/"
+    },
+    "ENG-3_Download_log": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "ENG-3_Download_log testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/ENG-3_Download_log/"
+    },
+    "ExternalLightSensorLevel_-_HMI_settings": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/ExternalLightSensorLevel_-_HMI_settings/"
+    },
+    "Keyboard": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Keyboard/"
+    },
+    "Keyboards": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Keyboards/"
+    },
+    "Performance": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Performance testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Performance/"
+    },
+    "PFL-2_Profile-Key_Pairing": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PFL-2_Profile-Key_Pairing/"
+    },
+    "PFL-8_Profile_Disconnection_from_key": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PFL-8_Profile_Disconnection_from_key/"
+    },
+    "PRK-0_Surround_View_Management_EOL_Configuration_Parameters": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0_Surround_View_Management_EOL_Configuration_Parameters/"
+    },
+    "PRK-0__Surround_View_Management_EOL_Configuration_Parameters": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-0__Surround_View_Management_EOL_Configuration_Parameters/"
+    },
+    "PRK-17_EOL_CALIBRATION_MANAGEMENT": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-17_EOL_CALIBRATION_MANAGEMENT/"
+    },
+    "PRK-18_ONLINE_CALIBRATION": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-18_ONLINE_CALIBRATION/"
+    },
+    "PRK-4_Camera_View_Warning_calibration_(only_for_Surround_View)": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Camera system configuration and status",
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/PRK-4_Camera_View_Warning_calibration_(only_for_Surround_View)/"
+    },
+    "SET-30_Cabin_Ambient_Light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-30_Cabin_Ambient_Light/"
+    },
+    "SET-31_Interior_button_lights": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-31_Interior_button_lights/"
+    },
+    "SET-32_Cabin_Footwell_Lights": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-32_Cabin_Footwell_Lights/"
+    },
+    "SET-33_Attenuation_Light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-33_Attenuation_Light/"
+    },
+    "SET-34_Rear_dome_light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-34_Rear_dome_light/"
+    },
+    "SET-35_Courtesy_Light_at_door_opening": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-35_Courtesy_Light_at_door_opening/"
+    },
+    "SET-4_Light_(dusk)_sensor_sensibility": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-4_Light_(dusk)_sensor_sensibility/"
+    },
+    "SET-67-Long_Parking_- SOMEIP_Service_Logic": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "SET-67-Long_Parking_- SOMEIP_Service_Logic testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-67-Long_Parking_- SOMEIP_Service_Logic/"
+    },
+    "SET-67-L_ong_Parking_- SOMEIP_Service_Logic": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "SET-67-L_ong_Parking_- SOMEIP_Service_Logic testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-67-L_ong_Parking_- SOMEIP_Service_Logic/"
+    },
+    "SET-7_Keyboard_Layout": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-7_Keyboard_Layout/"
+    },
+    "SET-8_Chill_Mode_Or_All_Ambient_Light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-8_Chill_Mode_Or_All_Ambient_Light/"
+    },
+    "SET-F135_TPMS_Calibration": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Calibration parameters and tolerances"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-F135_TPMS_Calibration/"
+    },
+    "SET-F247_Parking_Lights": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/SET-F247_Parking_Lights/"
+    },
+    "Settings_Logic": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Settings_Logic testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/Settings_Logic/"
+    },
+    "VFI-f067-Driver_Seat_&_Steering_wheel_position_-_Sound_logic": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "VFI-f067-Driver_Seat_&_Steering_wheel_position_-_Sound_logic testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/VFI-f067-Driver_Seat_&_Steering_wheel_position_-_Sound_logic/"
+    },
+    "VFI-F200_Dependence_on_vehicle_state_conditions": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Vehicle state and operational mode"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/VFI-F200_Dependence_on_vehicle_state_conditions/"
+    },
+    "VFI-F601_Logistic_Mode": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "VFI-F601_Logistic_Mode testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_HMI Software/VFI-F601_Logistic_Mode/"
+    },
+    "VEH-F027_Position_Lights_DRL_and_Parking_Lights_Management": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F027_Position_Lights_DRL_and_Parking_Lights_Management/"
+    },
+    "VEH-F030_Plate_Light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F030_Plate_Light/"
+    },
+    "VEH-F033_Rear_Fog_Light": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F033_Rear_Fog_Light/"
+    },
+    "VEH-F040_Key_Status": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F040_Key_Status/"
+    },
+    "VEH-F042_Low_Beam_Lights": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F042_Low_Beam_Lights/"
+    },
+    "VEH-F047_High_Beam_Lights": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F047_High_Beam_Lights/"
+    },
+    "VEH-F051_Turn_Indicators_and_Hazard_Lights": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F051_Turn_Indicators_and_Hazard_Lights/"
+    },
+    "VEH-F057_Rear_LR_Stop_Lights_and_Third_Stop_Management": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F057_Rear_LR_Stop_Lights_and_Third_Stop_Management/"
+    },
+    "VEH-F175_Visualization_of_Vehicle_Performance": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "VEH-F175_Visualization_of_Vehicle_Performance testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F175_Visualization_of_Vehicle_Performance/"
+    },
+    "VEH-F231_Key_Indentification_Managment": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F231_Key_Indentification_Managment/"
+    },
+    "VEH-F247_External_Lights_Management": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F247_External_Lights_Management/"
+    },
+    "VEH-F516_Keyless_Ignition_Management": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F516_Keyless_Ignition_Management/"
+    },
+    "VEH-F532_Driver_Drowsiness_and_Attention_Monitoring": {
+      "score": 2,
+      "direction": "Downstream",
+      "necessity": "High",
+      "context_usage": [
+        "Verification"
+      ],
+      "extracted_context": [
+        "Gaze direction and cabin division data",
+        "Eye gaze quality and direction accuracy"
+      ],
+      "justification": "High priority downstream dependency",
+      "evidence": "VEH-F532_Driver_Drowsiness_and_Attention_Monitoring testcase enhanced by DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F532_Driver_Drowsiness_and_Attention_Monitoring/"
+    },
+    "VEH-F601_Logistic_Mode_Power_Supply": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "VEH-F601_Logistic_Mode_Power_Supply testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F601_Logistic_Mode_Power_Supply/"
+    },
+    "VEH-F858_Light_Sensor_Management": {
+      "score": -1,
+      "direction": "Upstream",
+      "necessity": "Low",
+      "context_usage": [
+        "Constraint"
+      ],
+      "extracted_context": [
+        "General system context"
+      ],
+      "justification": "Optional upstream dependency",
+      "evidence": "Supporting context for DMS-7_DRIVER_GAZE_ESTIMATION testcase",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-F858_Light_Sensor_Management/"
+    },
+    "VEH-PN001_Physical_needleAnalog_needle_management_on_Binnacle_(NQS)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "VEH-PN001_Physical_needleAnalog_needle_management_on_Binnacle_(NQS) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Instrument Cluster/VEH-PN001_Physical_needleAnalog_needle_management_on_Binnacle_(NQS)/"
+    },
+    "MAP-6_Air_Quality_System_(AQS)": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "MAP-6_Air_Quality_System_(AQS) testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Navigation/MAP-6_Air_Quality_System_(AQS)/"
+    },
+    "KEY-1_Keyboard": {
+      "score": -2,
+      "direction": "Upstream",
+      "necessity": "High",
+      "context_usage": [
+        "Setup",
+        "Activation"
+      ],
+      "extracted_context": [
+        "Ignition status and key position"
+      ],
+      "justification": "High priority upstream dependency",
+      "evidence": "Important for DMS-7_DRIVER_GAZE_ESTIMATION testcase activation",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/KEY-1_Keyboard/"
+    },
+    "Network_Topology_ _ _ _Network_Topology": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "Network_Topology_ _ _ _Network_Topology testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Network_Topology_ _ _ _Network_Topology/"
+    },
+    "PMN-1_IDC_Power_Management": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/PMN-1_IDC_Power_Management/"
+    },
+    "Power_Management_-_Power_State_IDC_OFF": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_OFF/"
+    },
+    "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_Off_-_Full_Sleep/"
+    },
+    "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM/"
+    },
+    "Power_Management_-_Power_State_IDC_ON": {
+      "score": -3,
+      "direction": "Upstream",
+      "necessity": "Critical",
+      "context_usage": [
+        "Precondition",
+        "Setup"
+      ],
+      "extracted_context": [
+        "Power state and voltage requirements"
+      ],
+      "justification": "Critical upstream dependency for testcase preconditions",
+      "evidence": "Required for DMS-7_DRIVER_GAZE_ESTIMATION testcase setup",
+      "path": "SRS Export/SRS Export/SRS_System Architecture/Power_Management_-_Power_State_IDC_ON/"
+    },
+    "RAD-21_Station_LogoAlbum_Cover_Art": {
+      "score": 1,
+      "direction": "Downstream",
+      "necessity": "Low",
+      "context_usage": [
+        "FailureCheck"
+      ],
+      "extracted_context": [
+        "General gaze estimation context"
+      ],
+      "justification": "Optional downstream dependency",
+      "evidence": "RAD-21_Station_LogoAlbum_Cover_Art testcase optionally uses DMS-7_DRIVER_GAZE_ESTIMATION context",
+      "path": "SRS Export/SRS Export/SRS_Tuner/RAD-21_Station_LogoAlbum_Cover_Art/"
+    }
+  },
+  "mathematical_properties": {
+    "antisymmetric": true,
+    "zero_diagonal": true,
+    "score_range": [
+      -3,
+      3
+    ],
+    "upstream_downstream_differentiation": true
+  }
+}

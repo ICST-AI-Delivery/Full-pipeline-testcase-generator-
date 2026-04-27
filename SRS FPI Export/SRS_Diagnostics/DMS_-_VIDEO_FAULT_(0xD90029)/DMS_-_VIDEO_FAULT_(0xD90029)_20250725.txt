@@ -1,0 +1,80 @@
+# UnknownID 6.2.1.4.3 DMS - VIDEO FAULT (0xD90029) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4.3 DMS - VIDEO FAULT (0xD90029)
+
+- ID: 3754937
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3754940
+- Contents: The System shall detect Fault on DMS video streaming signal with the threshold and Maturation time.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS VIDEO FAULT with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+Maturation Failure Threshold: Fault is detected on DMS video streaming signal.
+
+Maturation Time: TBD
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, streaming, Fault, signal, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Check only to pos response for request 0x1906... Not really specified how to trigger the error state. the only idea is, to disconnect the camera -> maybe this trigger the error. Also no coding dependencies listen, maybe relevant.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+2. ID: 3754941
+- Contents: The System shall unable to detect Fault on DMS video streaming signal within the threshold and De-Maturation time 1sec.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DMS VIDEO FAULT with the below conditions: 
+
+Fault Detection Conditions: Key-ON
+
+De-Maturation Failure Threshold: Fault condition is not present anymore.
+
+De-Maturation Time: 1 s
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, unable, to detect, streaming, Fault, signal, threshold, time" )
+- TestTeamComment: RWeber_DIAG_250110: Check only to pos response for request 0x1906... Not really specified how to trigger the error state. the only idea is, to disconnect or connect the camera -> maybe this un-/trigger the error. Also no coding dependencies listen, maybe relevant.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Vehicle Configuration: Permanent evaluation
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.4.3 DMS - VIDEO FAULT (0xD90029) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

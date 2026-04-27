@@ -1,0 +1,1814 @@
+# VEH-F249 6.2.1.1.2.21  Lift Movement Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.21 VEH-F249 Lift Movement Management
+
+- ID: 3408587
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3793042
+- Contents: System shall display different type of Lifter based on the Proxi.
+Byte 130, bit 1 (VehicleLifterFunctionality_ActiveSuspension: Not Active/Active)
+Byte 130, bit 4 (VehicleLifterFunctionality_Hydraulic: Not Active/Active)
+Byte 58, bit 1 (Type: coupè/spider)
+Byte 113, bit 6 (Lift_type: lift / front lift)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays the different type of Lifter based on the Proxi.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3793043
+- Contents: If Proxi VehicleLifterFunctionality_Hydraulic is Active then system shall display Lifter Plus with No activation time Limitation.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Lifter Plus functionality is activated or enabled when Proxi VehicleLifterFunctionality_Hydraulic is Active.
+
+Proxi Info: Byte:130 and Bit 4
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "No" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3793044
+- Contents: If Proxi VehicleLifterFunctionality_Active Suspension  is Active then system shall display Lifter with activation time Limitation.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Vehicle Lifter Functionality is activated when Proxi VehicleLifterFunctionality_Active Suspension is Active. 
+
+Proxi Info: Byte-130 , Bit-1
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, Lifter, Limitation" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3793046
+- Contents: System shall display Info-1  Telltale when below conditions met:
+Proxi Lift type is front lift
+LifterInfoForDisplay is (Moving_Up)
+Note: Info-1 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-1  with telltale when Proxi Lift Type is Front Lift , LifterInfoForDisplay is (Moving_Up 
+
+Pop-Up ID;02490001
+
+
+ CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is, Moving, Follows, inhibit, Pop-up, Telltale, lift, Priority, LIFT/FRONT, state" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3793047
+- Contents: System shall follow S22 behaviourfor Info-1 Virtual Telltale with a blinking Frequency of +1Hz and DC at_50% until the cycle is complete
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System follows S22 behaviour Info-1 virtual Telltale with a blink frequency of 1HZ and D.C at 50% until the cycle is complete.
+
+Telltale ID: SSP004
+
+ CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Telltale, cycle, follow, is complete, Frequency, DC" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing limits
+ (Look for: "‘1 Hz %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3793048
+- Contents: System shall display Info-2  with Telltale when below conditions met:
+Proxi Lift type is lift
+LifterInfoForDisplay is ( Moving_Down)
+Note: Info-2 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-2 with telltale when Proxi Lift Type is Lift , LifterInfoForDisplay is OR Moving_Down).
+
+Pop-Up ID: 2490002 
+
+
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is, Moving, Follows, inhibit, Pop-up, Telltale, lift, Priority, LIFT/FRONT, state" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3793049
+- Contents: Info-2 Virtual Telltale  shall follow S22 behaviour with a blinking Frequency of 1Hz and D.C. at 50% until the cycle is complete
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System follows S22 behaviour Info-2 virtual Telltale with a blink frequency of 1HZ and D.C at 50% until the cycle is complete.
+
+Pop-Up ID: 24902 , 24903
+
+Telltale ID: SSP008 , SSP004
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, cycle, follow, blinking, is complete, Frequency" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing limits
+ (Look for: "‘1 Hz %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3793050
+- Contents: System shall display Info-3 with Telltale  and send the Status to IVI when below conditions met:
+Proxi Lift type is front lift
+LifterInfoForDisplay is Up
+Note: Info-3 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-3 Pop-up with telltale when Proxi Lift Type is  Lift , LifterInfoForDisplay is Up.
+
+Pop-UpID:02490002
+
+
+Telltale ID: SSP004
+
+
+CAN-Signal: 
+LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is, is Up, Follows, inhibit, Pop-up, Telltale, lift, Priority, LIFT/FRONT, state" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3793051
+- Contents: the Info-3 Virtual Telltale  follows S22 behaviour and
+the telltale shall activate until activation condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System follows S22 behaviour for Info-3  , Telltale shall be active   until activation condition is valid.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "telltale, follows, activate, is valid, condition" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3793052
+- Contents: System shall display Info-4 Buzzer with Telltale when below conditions met:
+Proxi VehicleLifterFunctionality_ActiveSuspension is Active.
+LifterInfoForDisplay is Down_Sys_Enabled.
+Note: Info-4 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-4 Pop-up with telltale when Proxi Lift Type is Front Lift , LifterInfoForDisplay is Up.
+
+Pop-Up ID: 2490004
+
+Telltale ID: SSP008
+
+ CAN-Signal:
+LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is lift, is Up, Follows, inhibit, Pop-up, Telltale, Priority, LIFT/FRONT, state" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3793053
+- Contents: the Info-4 Virtual Telltale  follows S22 behaviour and
+the telltale shall be active until activation condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System follows S22 behaviour for Info-4  , Telltale shall be active   until activation condition is valid.
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "telltale, follows, be active, is valid, condition" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3793054
+- Contents: System shall display Info-5 Pop-up with Telltale when below conditions met:
+Proxi Lift type is Front lift
+LifterInfoForDisplay is Waiting at Key Off
+Note: Info-5 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-5 Pop-up with telltale when Proxi Lift Type is Front Lift , LifterInfoForDisplay is Waiting at Key Off.
+
+Pop-Up ID: 2490005
+
+
+Telltale ID: SSP004
+
+ CAN-Signal:
+LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, LifterInfoForDisplay, display, met, is, Waiting, Follows, inhibit, Pop-up, Telltale, lift, Off, Priority, LIFT/FRONT, state" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3793055
+- Contents: Info-5 Virtual Telltale SSP019  follows S22 behaviour and
+the telltale shall remain activate until activation condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System follows S22 behaviour for Info-5  , Telltale shall be active   until activation condition is valid.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "telltale, follows, keep, is valid, active, condition" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3793056
+- Contents: System shall display Info-6 Pop-up with Telltale when below conditions met:
+Proxi Lift type is lift
+LifterInfoForDisplay is Waiting at Key Off
+Note: Info-6 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Info-5 Pop-up with telltale when Proxi Lift Type is Lift , LifterInfoForDisplay is Waiting at Key Off.
+
+Pop-Up ID: 2490005
+
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, LifterInfoForDisplay, display, met, is lift, is, Waiting, Follows, inhibit, Pop-up, Telltale, Off, Priority, LIFT/FRONT, state" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3793057
+- Contents: the Info-6 Virtual Telltale  Follows S22 behaviour and
+the telltale shall remain  active until activation condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System follows S22 behaviour for Info-6  , Telltale shall be active   until activation condition is valid.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "telltale, Follows, activate, is valid, condition" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4705672
+- Contents: System shall Display Info-7 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = front lift)
+(LifterInfoForDisplay = Waiting_at_Key_OFF)
+Note: Info-7 Follows D05 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Info-7 Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Waiting_at_Key_OFF
+
+POp-upID: 2490006
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, type, Follows, Pop-up, Telltale, conditions, Active, lift, LIFT" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4705673
+- Contents: System shall Display Info-8 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = lift)
+(LifterInfoForDisplay = Waiting_at_Key_OFF)
+Note: Info-8 Follows D05 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Info- Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Waiting_at_Key_OFF
+
+POp-upID: 2490007
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Pop-up, Telltale, conditions, Active, LIFT" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4705674
+- Contents: System shall Display Info-9 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = front lift)
+(LifterInfoForDisplay = Limited_UP)
+Note: Info-9 Follows D05 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Info-9 Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Limited_UP
+
+POp-upID: 2490008
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, type, Follows, Pop-up, Telltale, conditions, Active, lift, LIFT" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+19. ID: 4705675
+- Contents: System shall Display Info-10 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = lift)
+(LifterInfoForDisplay = Limited_UP)
+Note: Info-10 Follows S22 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = lift)
+
+Verify that the Info- Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Limited_UP
+
+POp-upID: 2490009
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Telltale, conditions, Active, LIFT" ) 
+Missing unit 
+ (Look for: "‘10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+20. ID: 4705676
+- Contents: System shall Display Info-11 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = front lift)
+(LifterInfoForDisplay = Waiting_at_Key_ON)
+Note: Info-11 Follows S22 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type =front lift)
+
+Verify that the Info- Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Waiting_at_Key_ON
+
+POp-upID: 2490010
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, type, Follows, Pop-up, Telltale, conditions, Active, lift, LIFT" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+21. ID: 4705677
+- Contents: System shall Display Info-12 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type =  lift)
+(LifterInfoForDisplay = Waiting_at_Key_ON)
+Note: Info-12 Follows S22 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = lift)
+
+Verify that the Info- Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Waiting_at_Key_ON
+
+POp-upID: 2490011
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Pop-up, Telltale, conditions, Active, LIFT" ) 
+Missing unit 
+ (Look for: "‘12’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+22. ID: 4705678
+- Contents: System shall Display Info-13 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type = front lift)
+(LifterInfoForDisplay = Waiting_at_Key_ON)
+Note: Info-13 Follows S22 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type =front lift)
+
+Verify that the Info- Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Waiting_at_Key_ON
+
+POp-upID: 2490011
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, type, Follows, Pop-up, Telltale, conditions, Active, lift, LIFT" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+23. ID: 4705679
+- Contents: System shall Display Info-14 Pop-up and Telltale when below conditions are met:
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type =  lift)
+(LifterInfoForDisplay = Waiting_at_Key_ON)
+Note: Info-14 Follows S22 Visualisation Behaviour with Specific Priority LIFT/FRONT LIFT
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type =front lift)
+
+Verify that the Info- Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Waiting_at_Key_ON
+
+POp-upID: 2490013
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Pop-up, Telltale, conditions, Active, LIFT" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+24. ID: 4705680
+- Contents: System shall Display Fail-1 Pop-up  when below conditions are met:
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type = front lift)
+(LifterInfoForDisplay = Failure and KeySts=4)
+Note: Fail-1 Follows D01 Visualisation Behaviour with Priority 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type =front lift)
+
+Verify that the Fail-1 Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Failure and KeyStatus is 4.
+
+POp-upID: 2490015
+
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, type, Follows, Pop-up, conditions, Active, lift, KeySts, Priority 1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+25. ID: 4705681
+- Contents: System shall Display Fail-2 Pop-up  when below conditions are met:
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type =  lift)
+(LifterInfoForDisplay = Failure and KeySts=4)
+Note: Fail-2 Follows D01 Visualisation Behaviour with Priority 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type = lift)
+
+Verify that the Fail-2 Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Failure and KeyStatus is 4.
+
+POp-upID: 2490016
+
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Pop-up, conditions, Active, KeySts, Priority 1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+26. ID: 4705682
+- Contents: System shall Display Fail-3 Pop-up  when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type =  front lift)
+(LifterInfoForDisplay = Failure and KeySts=4)
+Note: Fail-3 Follows D01 Visualisation Behaviour with Priority 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+
+proxi (VehicleLifterFunctionality_Hydraulic = Active) and (Lift_type =front lift)
+
+Verify that the Fail-3 Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Failure and KeyStatus is 4.
+
+POp-upID: 2490015
+
+Please Refer : 4886133 Requirement ID for HMI.POP.IND Document.
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, type, Follows, Pop-up, conditions, Active, lift, KeySts, Priority 1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+27. ID: 4705738
+- Contents: System shall Display Fail-4 Pop-up  when below conditions are met:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type =  lift)
+(LifterInfoForDisplay = Failure and KeySts=4)
+Note: Fail-4 Follows D01 Visualisation Behaviour with Priority 1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+
+proxi proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type =lift)
+
+Verify that the Fail-4 Pop-Up is triggered with Pop-u p and Telltale when necessary conditions are met.
+
+Trigger Condition:(LifterInfoForDisplay = Failure and KeyStatus is 4.
+
+POp-upID: 2490018
+
+Please Refer : 4886133 Requirement ID for HMI.POP.IND Document.
+
+CAN-Signal:LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Display, Follows, Pop-up, conditions, Active, KeySts, Priority 1" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "are met" )
+- State (Harman_Requirement): Approved
+
+28. ID: 3793058
+- Contents: System shall display Warning-1 Pop-up  when below conditions met:
+Proxi Lift type is Front lift
+LifterInfoForDisplay is Inhibit
+Note: Warning-1 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibited and Specific attribute combination.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-1 Pop-up with telltale when Proxi Lift Type is Front Lift , LifterInfoForDisplay is Inhibit.
+
+Pop-Up ID: 24916
+
+Telltale ID: SSP007
+
+Please Refer : 4886133 Requirement ID for HMI.POP.IND Document.
+
+ CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is, is Inhibit, Follows, inhibited, Pop-up, Telltale, lift, Priority, LIFT/FRONT, state, combination" )
+- State (Harman_Requirement): Approved
+
+29. ID: 3793097
+- Contents: System shall display the Warning-1 with following characteristics:
+Warning-1 shall be active until activation condition is valid.
+no ESCAPE function shall be available.
+During warning-1 if system receives LifterInfoForDisplay not equal  Inhibit then IDC shall perform F870 Warning 1 visualization cycle for  5 additional seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-1 is displayed with mentioned characteristics.
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, function, display, Warning, be active, is valid, be available, perform, Warning-1, characteristics, condition, visualization cycle" ) 
+Negative statement
+ (Look for: "no, LifterInfoForDisplay not equal" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+30. ID: 3793103
+- Contents: System shall display Warning-2 Pop-up with Telltale when below conditions met:
+Proxi Lift type is lift
+LifterInfoForDisplay is Inhibit
+Note: Warning-2 Follows D01 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibited and Specific attribute combination.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-2 Pop-up with telltale when Proxi Lift Type is Lift , LifterInfoForDisplay is Inhibit.
+
+Pop-Up ID: 24917
+
+Telltale ID: SSP007
+
+ Please Refer: 4886133 Req IDfor HMI.POP.IND doc.
+
+CAN_signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is lift, is Inhibit, Follows, inhibited, Pop-up, Telltale, Priority, LIFT/FRONT, state, combination" )
+- State (Harman_Requirement): Approved
+
+31. ID: 3793104
+- Contents: System shall display the Warning-2 with follow characteristics:
+Warning-2 shall be active until activation condition is valid.
+no ESCAPE function shall be available.
+During warning-2 if system receives LifterInfoForDisplay not equal  Inhibit then IDC shall perform F870 Warning 2 visualization cycle for 5 additional
+ seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-2 is displayed with mentioned characteristics.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, function, display, Warning, is valid, be available, perform, characteristics, condition, visualization cycle" ) 
+Negative statement
+ (Look for: "no, LifterInfoForDisplay not equal" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be active" )
+- State (Harman_Requirement): Approved
+
+32. ID: 3793105
+- Contents: System shall play Warning-3 Pop-Up and send the status to IVI when
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type =front lift)
+(LifterInfoForDisplay = Inhibited)
+Note: Warning-3 shall active until the trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-3 Buzzer when LifterBuzzerReq equal to Vehicle_lifter_failure and KeySts equal to 4.
+
+Pop-Up ID: 24917
+
+Audio Buzzer: Buzzer 2A
+
+Telltale ID: SSP007
+
+CAN-Signal: LIFTER_INFO.LifterBuzzerReq
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, failure, condition, play, active, is valid, buzzer" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+33. ID: 5076601
+- Contents: System shall display the Warning-3 with follow characteristics:
+Warning-3 shall be active until activation condition is valid.
+no ESCAPE function shall be available.
+During warning-3 if system receives LifterInfoForDisplay not equal  Inhibit then IDC shall perform F249 Warning 3 visualization cycle for 5 additional seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Warning-3 is displayed with mentioned characteristics.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, function, display, Warning, is valid, be available, perform, characteristics, condition, visualization cycle, seconds" ) 
+Negative statement
+ (Look for: "no, LifterInfoForDisplay not equal" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be active" )
+- State (Harman_Requirement): Approved
+
+34. ID: 3793107
+- Contents: System shall play Warning-4 Pop-Up and send the status to IVI when :
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active) and (Lift_type = lift)
+(LifterInfoForDisplay = Inhibited)
+Note: Warning-4 shall active until the trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-4  when LifterBuzzerReq equal to Vehicle_lifter_failure and KeySts equal to 4.
+
+Pop-Up ID: 24912
+
+
+
+Telltale ID: SSP007
+
+CAN-Signal: LIFTER_INFO.LifterBuzzerReq
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, failure, play, Warning, active, is valid, buzzer, condition" ) 
+Missing unit 
+ (Look for: "‘4,-4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+35. ID: 4705739
+- Contents: System shall play Warning-5 Buzzer when LifterBuzzerReq is Vehicle_lifter_failure and Keysts is 4.
+Note:
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(LifterBuzzerReq = Vehicle_lifter_failure and KeySts = 4)
+
+Verify that the Warning-5 buzzer is played when Trigger conditions are met.
+
+Note: No pop-up or telltale to be displayed for this warning
+
+Buzzer:2A
+
+CAN-Signal:
+LIFTER_INFO.LifterBuzzerReq
+- Grooming Status: Approved
+- Grooming Comments: Pop-Up ID is not available in the HMI.POP.IND DOC.
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, failure, play, is, Buzzer, Keysts" ) 
+Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+36. ID: 4705740
+- Contents: System shall play Warning-6 Buzzer when LifterBuzzerReq is Lifter_inhibited_or_end_lowering.
+Note:
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(LifterBuzzerReq = Lifter_inhibited_or_End_lowering
+
+Verify that the Warning-6 buzzer is played when Trigger conditions are met.
+
+Buzzer:2B
+
+Note: No pop-up or telltale to be displayed for this warning
+
+CAN-Signal:
+LIFTER_INFO.LifterBuzzerReq
+- Grooming Status: Approved
+- Grooming Comments: Pop-Up ID is not available in the HMI.POP.IND DOC.
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, inhibited, lowering, Buzzer" )
+- State (Harman_Requirement): Approved
+
+37. ID: 4705741
+- Contents: System shall display Warning-7 Buzzer when below conditions met:
+proxi ( VehicleLifterFunctionality_ActiveSuspension = Active )
+(LifterBuzzerReq = (Vehicle_lifter_failure OR Limited_UP) OR
+ [(LifterInfoForDisplay = (Moving_Down_Sys_Disabled OR Waiting_at_Key_OFF) AND
+ LifterBuzzerReq = Waiting_at_Key_OFF]
+Note:
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active)
+
+Verify that the Warning-7 pop-up is triggered when conditins met.
+
+Trigger Conditin:
+(LifterBuzzerReq = (Vehicle_lifter_failure OR Limited_UP) OR
+[(LifterInfoForDisplay = (Moving_Down_Sys_Disabled OR Waiting_at_Key_OFF) AND
+LifterBuzzerReq = Waiting_at_Key_OFF])
+
+CAN-Signal:
+LIFTER_INFO.LifterBuzzerReq
+LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, Disabled, Waiting, Pop-up" )
+- State (Harman_Requirement): Approved
+
+38. ID: 4705742
+- Contents: System shall display Warning-8 Buzzer when below conditions met:
+proxi ( VehicleLifterFunctionality_ActiveSuspension = Active )
+LifterInfoForDisplay = Moving_Down_Sys_Disabled AND
+ ASCLifterBuzzerReq = (Waiting_at_Key_ON OR Lifter_Suppressed
+Note:
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:
+proxi (VehicleLifterFunctionality_ActiveSuspension = Active)
+
+Verify that the Warning-8pop-up is triggered when conditins met.
+
+Trigger Conditin:
+LifterInfoForDisplay = Moving_Down_Sys_Disabled AND
+ASCLifterBuzzerReq = (Waiting_at_Key_ON OR Lifter_Suppressed
+
+CAN-Signal:
+LIFTER_INFO.LifterBuzzerReq
+LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, Disabled, Waiting, Pop-up" )
+- State (Harman_Requirement): Approved
+
+39. ID: 4705743
+- Contents: System shall play Feedback-1 Buzzer when LifterBuzzerReq is End_of_raising_sequence.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+LifterBuzzerReq = End_of_raising_sequence
+
+Verify that the Feedback-1 is triggered when LifterBuzzerReq is set to End_of_raising_sequence.
+
+CAN-Signal:
+LIFTER_INFO.LifterBuzzerReq
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "play, is" ) 
+Passive voice
+ (Look for: "is End" )
+- State (Harman_Requirement): Approved
+
+40. ID: 3793106
+- Contents: System shall display Fail-1 Pop-up when below conditions met:
+proxi (Lift_type =front lift)
+LifterInfoForDisplay = Failure and KeySts = 4
+Note: Fail-1 Follows D01 visualisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Fail-1 Pop-up when Lift_type is FrontLift , LifterInfoForDisplay is Failure AND KeyStatus is 4. 
+
+Pop-Up ID: 24914
+
+Telltale ID: WRM027
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, type, Follows, Pop-up, lift, KeySts, Priority-1" )
+- State (Harman_Requirement): Approved
+
+41. ID: 3793108
+- Contents: System shall display Fail-2 Pop-up when below conditions met:
+proxi (Lift_type = lift)
+LifterInfoForDisplay = Failure and KeySts = 4
+Note: Fail-2 Follows D01 visualisation behaviour with Priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Fail-2 Pop-up when Lift_type is Lift , LifterInfoForDisplay is Failure AND KeyStatus is 4. 
+
+Pop-Up ID: 24915
+
+Telltale ID: WRM027
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, Follows, Pop-up, KeySts, Priority-1" )
+- State (Harman_Requirement): Obsolete
+
+42. ID: 3793109
+- Contents: System shall give feedback-1 Audio Buzzer when  LifterBuzzerReq equal to End_of_raising_sequence.
+Note: Feedback-1 shall be active until trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Feedback-1 Audio buzzer is triggered when LifterBuzzerReq equal to End_of_raising_sequence.
+
+Audio Buzzer: Buzzer 4A.
+
+CAN-Signal: LIFTER_INFO.LifterBuzzerReq
+- Grooming Status: Approved
+- Grooming Comments: No Feedback 1 present in the Pop up excel
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, give, be active, is valid, Buzzer, condition" ) 
+Escape clause
+ (Look for: "until" )
+- State (Harman_Requirement): Approved
+
+43. ID: 3793119
+- Contents: During the Info-3 warning system shall display Lifter remaining activation time information in the Area specified.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Lifter remaining activation time information in the Area specified during   Info-3 warning visualisation.
+
+Trigger Condition: VehicleLifterFunctionality_ActiveSuspension = Active AND (Proxi = Lift OR Front Lift)
+- Grooming Status: Approved
+- Grooming Comments: The remainig info has to be displayed in which area!
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, remaining, specified, Info-9, Lifter, information, Area" )
+- State (Harman_Requirement): Approved
+
+44. ID: 3793115
+- Contents: All the “LiftXXThrsd” and “LiftHysteresis” variables are parameters that shall be calibrated via diagnosis
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Lowest Value and HighetsValue of Threshold and check the changes in the Visualisation.
+- Grooming Status: Approved
+- Grooming Comments: What is the DTC for this Lift Threshold Parameters?
+- Expert Domains: IOC_Diag, IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "variables, are, LiftHysteresis, parameters, diagnosis" ) 
+Unclear term
+ (Look for: "All" ) 
+Passive voice
+ (Look for: "be calibrated" )
+- State (Harman_Requirement): Approved
+
+45. ID: 3793118
+- Contents: The Lifter indicator shall display as white 10-bars when active(ON) and as grey when inactive(OFF).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the 10-white bars when active (ON) and Grey when in active(OFF) by the Lifter Indicator.
+- Grooming Status: Approved
+- Grooming Comments: What to be displayed , Like Figma design.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "indicator, display, white, bars, activeON, grey" )
+- State (Harman_Requirement): Approved
+
+46. ID: 3793127
+- Contents: behaviour of each bar of the indicator at the beginning of the visualization cycle of F249 Info-3 and during the visualization cycle is show in the
+table below:
+(see: image123.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-3 is visualised cycle as per the table
+- Grooming Status: Approved
+- Grooming Comments: Check the CAN signal mentioned in req and  DBC.
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "cycle, bar, indicator, beginning, Info" ) 
+Missing unit 
+ (Look for: "‘9,10’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is show" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image123.png
+
+47. ID: 3793131
+- Contents: System shall display Info-7 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =front lift)
+LifterInfoForDisplay =(Moving_Up OR Moving_Down)
+Note: Info-7 Follows  D11 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Info-7 Pop-Up and Telltale when necessary conditions are met.
+
+Pop-Up ID: 24919 , 24920.
+
+Telltale ID: SSP004 , SSP008.
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, type, Follows, inhibit, Pop-up, Telltale, lift, state" )
+- State (Harman_Requirement): Approved
+
+48. ID: 3793143
+- Contents: Info-7 Telltale shall follow S22 visualisation  behaviour with a blink frequency of 1Hz and D.C. at 50% until the cycle is complete.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-7 Telltale follows S22 visualisation behaviour with a blink frequency of 1Hz and D.C at 50% until the cycle is complete.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, cycle, follow, is complete, visualisation, frequency" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing limits
+ (Look for: "‘1 Hz %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+49. ID: 3793146
+- Contents: System shall display Info-8 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =lift)
+LifterInfoForDisplay =(Moving_Up OR Moving_Down)
+Note: Info-8 Follows  D11 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Info-8 Pop-Up and Telltale when necessary conditions are met.
+
+Pop-Up ID: 24919 , 24920.
+
+Telltale ID: SSP004 , SSP008.
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, met, inhibit" )
+- State (Harman_Requirement): Approved
+
+50. ID: 3793147
+- Contents: Info-8 Telltale shall follow S22 visualisation behaviour with a blink frequency of 1Hz and D.C. at 50% until the cycle is complete.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-8 Telltale follows S22 visualisation behaviour with a blink frequency of 1Hz and D.C at 50% until the cycle is complete.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, cycle, follow, is complete, visualisation, frequency" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing limits
+ (Look for: "‘1 Hz %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+51. ID: 3793149
+- Contents: System shall display Info-9 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =front lift)
+LifterInfoForDisplay =Up
+Note: Info-9 Follows  D01 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Info-9 Pop-Up and Telltale when necessary conditions are met.
+
+Pop-Up ID: 24923
+
+Telltale ID: SSP004 , SSP008.
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, met, inhibit" )
+- State (Harman_Requirement): Approved
+
+52. ID: 3793150
+- Contents: the Info-9 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-9 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Approved
+
+53. ID: 3793151
+- Contents: System shall display Info10 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type = lift)
+LifterInfoForDisplay =Up
+Note: Info10 Follows  D01 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-10 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24924
+
+Telltale ID: SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, met, inhibit" )
+- State (Harman_Requirement): Approved
+
+54. ID: 3793152
+- Contents: the Info-10 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-10 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Approved
+
+55. ID: 3793153
+- Contents: System shall display Info-11 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type = Front Lift )
+LifterInfoForDisplay = Waiting at key OFF
+Note: Info-11 Follows  D05 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-11 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24925
+
+Telltale ID: SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, type, Waiting, Follows, inhibit, Pop-up, Telltale, Lift, OFF, state" )
+- State (Harman_Requirement): Approved
+
+56. ID: 3793154
+- Contents: the Info-11 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-11 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Approved
+
+57. ID: 3793155
+- Contents: System shall display Info12 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type = Lift )
+LifterInfoForDisplay = Waiting at key OFF
+Note: Info12 Follows  D05 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-12 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24926
+
+Telltale ID: SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, Waiting, Follows, inhibit, Pop-up, Telltale, OFF, state" )
+- State (Harman_Requirement): Approved
+
+58. ID: 3793156
+- Contents: the Info-12 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-12 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Approved
+
+59. ID: 3793157
+- Contents: System shall display Info-13 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =Front Lift )
+LifterInfoForDisplay = Limited_UP
+Note: Info-13 Follows  D04 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-13 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24927
+
+Telltale ID: SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, type, Follows, inhibit, Pop-up, Telltale, Lift, state" )
+- State (Harman_Requirement): Approved
+
+60. ID: 3793158
+- Contents: the Info-13 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-13 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Approved
+
+61. ID: 3793159
+- Contents: System shall display Info-14 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =Lift )
+LifterInfoForDisplay = Limited_UP
+Note: Info-14 Follows  D04 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-14 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24928
+
+Telltale ID: SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, Follows, inhibit" )
+- State (Harman_Requirement): Approved
+
+62. ID: 3793160
+- Contents: the Info-14 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-14 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Approved
+
+63. ID: 3793161
+- Contents: System shall display Info-15 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =Front Lift )
+LifterInfoForDisplay = Down_Sys_Enabled
+Note: Info-15 Follows  D04 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-15 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 
+
+Telltale ID: 
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, type, Enabled, Follows, inhibit, Pop-up, Telltale, Lift, state" )
+- State (Harman_Requirement): Obsolete
+
+64. ID: 3793162
+- Contents: System shall display Info-16 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =Lift )
+LifterInfoForDisplay = Down_Sys_Enabled
+Note: Info-16 Follows  D04 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-16 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 
+
+Telltale ID:
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, Follows, inhibit" )
+- State (Harman_Requirement): Obsolete
+
+65. ID: 3793170
+- Contents: System shall display Info-17 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =Front Lift )
+LifterInfoForDisplay = Waiting_at_Key_ON
+Note: Info-17 Follows  D04 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-17 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24931
+
+Telltale ID:SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, met, type, Follows, inhibit, Pop-up, Telltale, Lift, state" )
+- State (Harman_Requirement): Obsolete
+
+66. ID: 3793172
+- Contents: the Info-17 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-17 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Obsolete
+
+67. ID: 3793175
+- Contents: System shall display Info-18 Pop-up with Telltale when below conditions met:
+If proxi (Lift_type =Lift )
+LifterInfoForDisplay = Waiting_at_Key_ON
+Note: Info-18 Follows  D04 visualisation behaviour with specific priority LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibit)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-18 Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24932
+
+Telltale ID:SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, Follows, inhibit" )
+- State (Harman_Requirement): Obsolete
+
+68. ID: 3793176
+- Contents: the Info-18 Telltale shall follow S22 visualisation behaviour and will display when the activation conditions met.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Info-18 Telltale follows S22 visualisation behaviour when activation conditions are met.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Telltale, follow, will display, met, behaviour, conditions" )
+- State (Harman_Requirement): Obsolete
+
+69. ID: 3793178
+- Contents: System shall display Warning-5 Pop-up with Telltale when below conditions met:
+Proxi Lift type is Front lift
+LifterInfoForDisplay is Inhibit
+Note: Warning-5 Follows D04 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibited and Specific attribute combination.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Warning-5  is displayed Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24933
+
+Telltale ID:SSP004
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is, is Inhibit, Follows, inhibited, Pop-up, Telltale, lift, Priority, LIFT/FRONT, state, combination" )
+- State (Harman_Requirement): Approved
+
+70. ID: 3793180
+- Contents: System shall display the Warning-5 with follow characteristics:
+Warning-5 shall be active until activation condition is valid.
+no ESCAPE function shall be available.
+Minimum time to display warning-5 is 2 seconds.
+During warning-2 if system receives LifterInfoForDisplay not equal  Inhibit then IDC shall perform F870 Warning 2 visualization cycle for 5 additionalseconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-6 shall be displayed with the mentioned characteristics.
+- Grooming Status: Review
+- RQA Score: 20
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, function, display, Warning, is valid, be available, to display, warning, perform, Warning-5, characteristics, condition, time, is, visualization cycle" ) 
+Negative statement
+ (Look for: "no, LifterInfoForDisplay not equal" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "be active" )
+- State (Harman_Requirement): Obsolete
+
+71. ID: 3793182
+- Contents: System shall display Warning-6 Pop-up with Telltale when below conditions met:
+Proxi Lift type is lift
+LifterInfoForDisplay is Inhibit
+Note: Warning-6 Follows D04 Visualisation behaviour with Specific Priority: LIFT/FRONT LIFT (Moving UP-DOWN, ON state, inhibited and Specific attribute combination.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Warning- 6 is displayed Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24934
+
+
+Telltale ID:SSP007
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, type, display, met, is lift, is Inhibit, Follows, inhibited, Pop-up, Telltale, Priority, LIFT/FRONT, state, combination" )
+- State (Harman_Requirement): Approved
+
+72. ID: 3793183
+- Contents: System shall display the Warning-6 with following characteristics:
+Warning-6 shall be active until activation condition is valid.
+no ESCAPE function shall be available.
+Minimum time to display warning-6 is 2 seconds.
+During warning-2 if system receives LifterInfoForDisplay not equal  Inhibit then IDC shall perform F870 Warning 2 visualization cycle for 5 additionalseconds.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-6 shall be displayed with the mentioned characteristics.
+- Grooming Status: Review
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, function, display, following, Warning, be, is valid, be available, to display, warning, perform, Warning-6, characteristics, condition, time, visualization cycle" ) 
+Negative statement
+ (Look for: "no, LifterInfoForDisplay not equal" ) 
+Escape clause
+ (Look for: "until" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+73. ID: 3793185
+- Contents: System shall play Warning-7 audio buzzer  when (LifterBuzzerReq equal to Vehicle_lifter_failure and KeySts is 0x4.
+Note: Warning-7 buzzer shall play untill trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Warning- 7 is displayed Pop-up with Telltale when necessary conditions are met.
+
+Audio Buzzer: Buzzer 2A
+
+CAN-Signals: LIFTER_INFO.LifterBuzzerReq
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, failure, KeySts, buzzer, play, is, is valid, condition" ) 
+Unclear term
+ (Look for: "untill" )
+- State (Harman_Requirement): Approved
+
+74. ID: 3793187
+- Contents: System shall play Warning-8 audio buzzer  when below conditions met:
+Vehicle_lifter_failure OR Limited_UP) OR
+(LifterInfoForDisplay = (Moving_Down_Sys_Disabled OR Waiting_at_Key_OFF) AND
+LifterBuzzerReq = Waiting_at_Key_OFF
+Note: Warning-8 buzzer shall play untill trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Warning- 6 is displayed Pop-up with Telltale when necessary conditions are met.
+
+Pop-Up ID: 24934
+
+
+Telltale ID:SSP007
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, buzzer, play, met, Disabled, Waiting, is valid, condition" ) 
+Unclear term
+ (Look for: "untill" )
+- State (Harman_Requirement): Approved
+
+75. ID: 3793188
+- Contents: System shall play Warning-9 audio buzzer  when below conditions met:
+LifterInfoForDisplay = Moving_Down_Sys_Disabled AND
+ASCLifterBuzzerReq = (Waiting_at_Key_ON OR
+Lifter_Suppressed
+Note: Warning-9 buzzer shall play untill trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Warning- 9 is displayed Pop-up with Telltale when necessary conditions are met.
+
+Audio Buzzer: Buzzer 2B
+
+CAN-Signals: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, buzzer, play, met, Disabled, Suppressed, is valid, condition" ) 
+Unclear term
+ (Look for: "untill" )
+- State (Harman_Requirement): Obsolete
+
+76. ID: 3793191
+- Contents: System shall display Fail-3 Pop-up when below conditions met:
+proxi is Lift_type equal to front lift and
+LifterInfoForDisplay Equal toFailure and
+KeyStatus is 4
+Note: Fail-3 Follows D01 visulaisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the display Fail-3 Pop-up when necessary conditions met.
+
+Pop-Up ID: 24935
+
+Telltale ID: WRM027
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, proxi, display, met, is, to front, Follows, Pop-up, lift, priority-1" )
+- State (Harman_Requirement): Approved
+
+77. ID: 3793192
+- Contents: System shall display Fail-4 Pop-up when below conditions met:
+proxi is Lift_type equal to lift and
+LifterInfoForDisplay Equal toFailure and
+KeyStatus is 4
+Note: Fail-4 Follows D01 visulaisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the display Fail-4 Pop-up when necessary conditions met.
+
+Pop-Up ID: 24936
+
+Telltale ID: WRM027
+
+CAN-Signal: LIFTER_INFO.LifterInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, proxi, display, met, is, lift, Follows, Pop-up, priority-1" )
+- State (Harman_Requirement): Approved
+
+78. ID: 3793193
+- Contents: System shall play Feedback-2 audio buzzer  when (LifterBuzzerReq = End_of_raising_sequence
+Note: Feedback-2 buzzer shall play untill trigger condition is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Feedback-2 system plays audio buzzer when LifterBuzzerReq is End_of_raising_sequence
+
+Audio Buzzer: Buzzer 4A
+
+CAN-Signals: LIFTER_INFO.LifterBuzzerReq
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, is valid, buzzer, condition" ) 
+Unclear term
+ (Look for: "untill" )
+- State (Harman_Requirement): Approved
+
+79. ID: 3931334
+- Contents: Service for parameters calibration of: LiftXXThrsd (with XX from 00 to 09)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 0
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘00,09’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+80. ID: 3931364
+- Contents: Service for Parameter calibration of LiftHysteresis.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Diagnostic parameters with default values and also verify that the they can be tuned as per the Diagnostics tables.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3793045
+- Contents: System shall display the Lift Movement Management indications as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+2. ID: 3911940
+- Contents: System shall use the mentioned CAN signals to display Lift Movement Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3793112
+- Contents: 6.2.1.1.2.21.1 Logic - Lifter
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+4. ID: 3793123
+- Contents: E.g. when ASCLifterAutonomy > (LiftLev09Thrsd + LiftHysteresis) all the bars are turned ON.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+5. ID: 3793124
+- Contents: E.g. when ASCLifterAutonomy decrease, the corresponding bars (refer to the table below) shall turn OFF in sequence from right to left
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image123.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F249 6.2.1.1.2.21  Lift Movement Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

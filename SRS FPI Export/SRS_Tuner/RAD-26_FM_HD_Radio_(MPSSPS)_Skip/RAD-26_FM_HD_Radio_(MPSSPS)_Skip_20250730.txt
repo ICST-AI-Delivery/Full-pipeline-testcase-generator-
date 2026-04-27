@@ -1,0 +1,269 @@
+# RAD-26 6.2.1.1.27  FM HD Radio (MPS/SPS) Skip Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.27 RAD-26 FM HD Radio (MPS/SPS) Skip
+
+- ID: 4083958
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5074446
+- Contents: System shall allow user to skip the radio stations by short press on SWC button of Radio player.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the radio station is skipped by short press on swc button
+
+Skip down: command triggers next station (major frequency)
+Skip up: command triggers previous station (major frequency).
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 5074449
+- Contents: System shall allow user to set the next favourite frequency available in Radio Favourite list by short press on skip buttons when favourite station is playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the user can set the next favourite available frequency from favaourites list by pressing on SWC buttons
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, station, allow, to set, is, playing, frequency, list, press, buttons" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5074450
+- Contents: System shall play the next frequency available sorted by frequency order in stations and favourites list by pressing skip buttons for AM Radio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the available frequencies in station/favaourite list are playing in frequency order by pressing the skip buttons for AM Radio sources.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, sorted, favourites, pressing, frequency, stations, list, buttons, sources" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5074451
+- Contents: System shall play the next frequency available sorted by alphabetical order in  station and favourites list by pressing skip buttons for FM Radio sources.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the available frequencies in station/favaourite list are playing in alphabetical order by pressing the skip buttons for FM Radio sources.
+
+Note: If User in the No Playing Screen , the sorting will be in frequency based  and in other screens it will bve based on alphabetical order.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, sorted, favourites, pressing, frequency, station, list, buttons, sources" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5074470
+- Contents: User shall have the option for disabling HD Radio technology then HD Radio features option shall grayed out
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the HD Radio feature is grayed out by  disabling the HD Raido Technology
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall have, shall grayed out" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5074452
+- Contents: FM HD Radio Tune Up/Down Functionality shall implemented according to HD radio guidelines RD_HD-05
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: Software Qualification Test
+- Verification Criteria: Whitelabel will be handled this requirement
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Functionality, implemented, according, Up, guidelines" )
+- State (Harman_Requirement): Approved
+
+7. ID: 5074453
+- Contents: The Radio skip functionality shall performed for managing Analog and Hybrid stations.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through analog and digital(HD) ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "skip functionality, performed, managing, stations" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5074454
+- Contents: The radio tune up/down strategy shall managed for the hybrid stations, main station MPS and multicast channel with supplementary Services SPS (which are part of the radio  band), as indicated HD2/HD3
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "strategy, managed, are part, indicated, up, stations, MPS, channel, SPS, band" )
+- State (Harman_Requirement): Approved
+
+9. ID: 5074455
+- Contents: The main tune flow shall exemplified in the following figure: (see: image11.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image11.png
+
+10. ID: 5074457
+- Contents: Tune UP logic shall performed to change between HD radio channels and subchannels when Skip down command triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "logic, Tune, performed, to change, triggered, channels, subchannels, command" )
+- State (Harman_Requirement): Approved
+
+11. ID: 5074458
+- Contents: When User triggered the skip down action then tuner shall pass through the subsequent subchannels if available else to the channels.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "triggered, pass" )
+- State (Harman_Requirement): Approved
+
+12. ID: 5074459
+- Contents: Tune DOWN logic shall performed to change between HD radio channels and subchannels when Skip Up command triggered.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "logic, Tune, performed, to change, triggered, channels, subchannels" )
+- State (Harman_Requirement): Approved
+
+13. ID: 5074460
+- Contents: When user triggered the skip down action then tuner shall pass over the previous available station.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS ststions.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "tuner, triggered, pass, skip, station" )
+- State (Harman_Requirement): Approved
+
+14. ID: 5074461
+- Contents: Tuner shall change to the previous subchannel of the current station when the current channel is a SPS channel.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip function will go through available digital(HD) stations which includes MPS and SPS stations.
+
+Note: IF SPS ststions are available
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "channel, change, is, subchannel, station" )
+- State (Harman_Requirement): Approved
+
+15. ID: 5074462
+- Contents: Once reached the HD1, the tune down shall move to the previous channel(i.e. not subchannel).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: When Skip done on HD1, it needs to go previous/next frequency
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+16. ID: 5107490
+- Contents: when the antenna is detached from the radio then functionality shall unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall disable the strong list functionality when antena is detached.
+
+In Now playing Screen, No Station available will be displayed.
+
+Reconnect the antenna will solve it of the active scan of available station.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is detached" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5074445
+- Contents: This function allows user to skip FM HD Radio station and find desired one by surfing using MPS/SPS logic.
+- Artifact Type: Information
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image11.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-26 6.2.1.1.27  FM HD Radio (MPS/SPS) Skip Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

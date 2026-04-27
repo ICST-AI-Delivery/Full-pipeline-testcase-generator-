@@ -1,0 +1,117 @@
+# VAS-1 6.2.4.1.1 A: AVAS Recovery Strategy Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.1 AVAS-1: AVAS Recovery Strategy
+
+- ID: 3713036
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3619386
+- Contents: IOC shall stop sending the 'GasPedalPosition' to DSP if the CAN signal GasPedalPositionValidData= 'Not Valid'
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the signal VehicleSpeedVSOSigFailSts= "FailPresent
+
+Verify that VehicleSpeedVSOSig is not sent to DSP
+
+Use SFI log (DLT log) for verification
+- Grooming Status: Approved
+- Grooming Comments: [Xiongwei, Abdul 02.01.2025]: Approved
+
+[17.06.2024]: Ahmed to provide a recovery strategy for this requirement as Harman to provide this strategy to Ferrari.
+
+Jira Ticket:
+https://jira.harman.com/jira/browse/FQ-396
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3645750
+- Contents: IOC shall stop sending the VehicleSpeedVSOSig to DSP if the CAN signal VehicleSpeedVSOSigFailSts= "FailPresent
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the CAN signal VehicleSpeedVSOSigFailSts= "FailPresent
+
+Verify that VehicleSpeedVSOSig is not sent to DSP
+
+Use SFI log (DLT log) for verification
+- Grooming Status: Approved
+- Grooming Comments: [17.06.2024]: Ahmed to provide a recovery strategy for this requirement as Harman to provide this strategy to Ferrari.
+
+Jira Ticket:
+https://jira.harman.com/jira/browse/FQ-396
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4598964
+- Contents: The system shall use the the last valid value of the CAN signal 'NFR_SPEED.VehicleSpeedVSOSig' as the current value if 'NFR_SPEED.VehicleSpeedVSOSigFailSts' = "FailPresent".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the signal "NFR_SPEED.VehicleSpeedVSOSig" with a valid value
+
+Send NFR_SPEED.VehicleSpeedVSOSigFailSts' = "FailPresent
+
+Verify the current value of the speed signal   in HU is the last valid value of the signal.
+
+Use SFI log (DLT log) for verification
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, last, value, FailPresent" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4598966
+- Contents: The system shall use the the last valid value of the CAN signal 'PWT_STATUS_3.GasPedalPosition' as the current value if 'PWT_STATUS_3.GasPedalPositionValidData' = "Not Valid".
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Send the signal PWT_STATUS_3.GasPedalPosition with a valid value
+
+Send PWT_STATUS_3.GasPedalPositionValidData' = "Not Valid".
+Verify the current value of the signal (GasPedalPosition) in HU is the last valid value of the signal.
+
+Use SFI log (DLT log) for verification
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, value, PWT" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VAS-1 6.2.4.1.1 A: AVAS Recovery Strategy Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

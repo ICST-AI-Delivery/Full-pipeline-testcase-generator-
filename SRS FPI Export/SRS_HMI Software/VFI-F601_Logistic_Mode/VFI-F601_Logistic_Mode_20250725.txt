@@ -1,0 +1,99 @@
+# VFI-F601 6.2.2.28  Logistic Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.28 VFI-F601 Logistic Mode
+
+- ID: 4035493
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_Networking
+- HB_Comment: 03
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4035535
+- Contents: System shall set "Logistic_Mode_ON" when input signal PowerModeSts ==1.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set logistic mode ON.
+
+Input
+HMI_CAN:
+STATUS_B_CAN.PowerModeSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, input, PowerModeSts" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4035537
+- Contents: System shall set "Standard_Power" when input signal PowerModeSts!=1.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set standard power when input signal recived.
+
+Input
+HMI_CAN:
+STATUS_B_CAN.PowerModeSts
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, input, PowerModeSts, Standard_Power" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4035536
+- Contents: System shall reduce performances applying the following logics when Logistic_Mode_On:
+Mute all Audio source
+set "Display_Off_request" on NDR.
+set "Display_Off_request" on NDRR
+Actuate performance reduction to prevent battery discharge.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to reduce performances conditions when logistic mode on.
+
+verify that the audio in mute condition.
+verify the NDR and NDRR pop ups.
+verify that the system able to prevent battery discharge.
+
+HMI_CAN:
+COMMAND_HMI_TO_VEHICLE.PowerModeSts
+IDC_Display.Display_ON_IDC_To_NDR
+IDC_Display.Display_ON_IDC_To_NDRR
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, reduce, applying, following, set, Actuate, to prevent, performances, logics, reduction, discharge" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F601 6.2.2.28  Logistic Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

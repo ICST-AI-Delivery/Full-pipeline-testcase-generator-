@@ -1,0 +1,162 @@
+# UnknownID 6.2.4 Smart USB - C Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4 Smart USB - C
+
+- ID: 4090847
+- Artifact Type: SRS Feature
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, Projections, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4090875
+- Contents: System shall provide HW pin to enable and to disable connected smart USB hub.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the enable and disable of smart usb hub
+
+Usb team will provide the command.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, to disable, connected, enable, hub" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4090881
+- Contents: IDC shall detect when a user plugs an iPhone with power delivery to change the communication protocol.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System is able to detect an iPhone connected via power delivery and changing the communication protocol.
+
+Above 8 version iPhone can support the charging
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "detect, plugs, to change, delivery, protocol" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4090880
+- Contents: IDC shall provide smart USB port to enable the power delivery.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to provide smart USB port to enable the power delivery.
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4090879
+- Contents: IDC shall send a command to the smart USB to require a role swap from a USB host to a USB device to initialize smartphone projection session.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the role swap from USB host to USB device has successfully occurred for initializing a smartphone projection session
+
+usb will provide test tool to verify the role swap
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4090877
+- Contents: System shall set/clear/read DTC base on faults reported by the smart USB hub.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system can set, clear, and read DTC based on faults reported by the smart USB hub
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, USB
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, read, reported, base, faults, hub" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4090876
+- Contents: The smart USB - C system shall display one or two type -C receptacles depending on the installed configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the smart USB system displays the correct number of Type-C receptacles based on the installed configuration.
+- Grooming Status: Approved
+- Grooming Comments: 1 type-C receptacle approved by customer
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "smart USB, system, display, depending, installed, receptacles, configuration" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4698942
+- Contents: IDC shall provide Bordeaux HSD type connector to connect Smart USB Hub.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the Bordeaux HSD provide connector to connect Smart USB.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4698941
+- Contents: System shall control FWC and enable the Smart USB C.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: verify FWC enable the smart USB C
+- Grooming Status: Approved
+- Expert Domains: Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, control, enable, USB C" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4093037
+- Contents: The Smart USB C is available in two configurations:
+1p-SMART: one type C receptacle.
+2p-SMART: two type C receptacle.
+(see: image4.png)
+- Artifact Type: Information
+- State (Harman_Requirement): In Work
+- Visual Elements: image4.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image4.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4 Smart USB - C Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

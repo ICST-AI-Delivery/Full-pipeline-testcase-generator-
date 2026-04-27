@@ -1,0 +1,78 @@
+# UnknownID 6.2.4.1.1.16 HW Version Number String Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.1.16 HW Version Number String
+
+- ID: 4009042
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4009044
+- Contents: The system shall read HW Version number string with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can be able to Read the data in extended diagnostic session.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 11 bytes. No applicative test with correct values for each byte possible, because no info about structure or info, where it could be listen at HW (label).
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 11 Bytes
+Data type: ASCII
+
+2. ID: 4009051
+- Contents: Whenever the user requesting data identifier with the diagnostic service Read Data By Identifier , the ECU shall return the control unit hardware version assign by the same Supplier
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the control unit hardware version.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 11 bytes. No applicative test with correct values for each byte possible, because no info about structure or info, where it could be listen at HW (label).
+- State (Harman_Requirement): Approved
+
+3. ID: 4009078
+- Contents: The System shall have a parameter which enter in EEprom in a permanent manner in the Supplier’s End Of Line & the content must be rewritable in a utmost manner including the reprogramming operation.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Supplier’s End Of Line parameter content in a utmost manner including the reprogramming operation.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall have, must be rewritable" )
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 11 bytes. No applicative test with correct values for each byte possible, because no info about structure or info, where it could be listen at HW (label).
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.1.1.16 HW Version Number String Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

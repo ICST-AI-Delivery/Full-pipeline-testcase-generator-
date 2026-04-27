@@ -1,0 +1,301 @@
+# PRK-0 6.2.4.1.11 : Surround View management: State Machine_KMVSS OR UNECE_R158 Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.11 PRK-0: Surround View management: State Machine_KMVSS OR UNECE_R158
+
+- ID: 4656270
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4661699
+- Contents: The systems shall allow to configure KMVSS OR UNECE_R158 Norms based on the proxi parameter IDC_SurroundView_Compliance_Norm.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to configure KMVSS OR UNECE_R158 Norm based on the Proxi parameter IDC_SurroundView_Compliance_Norm.
+
+Verify this by using Android log.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 26.12.2024] Approved
+
+Need one more groomig session  separately with IOC, Audio and Parking , camera HMI, System team
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, follow, described, provided, FMVSS, SW, diagram" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4703269
+- Contents: The system shall 'switch to SW_Ready state in the below conditions.
+Switch from SW_Off state on Ignition On
+Switch from SW_On_3 state on short Pressing the Camera button or close button press.
+Switch from SW_Sens_2 state on Sens (parking sensors button single short press & Based on NSPControlSts and NSPFailSts)
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system is  switched to SW_Ready state in the mentioned conditions
+.
+Verify the below behavior in SW_Ready state.
+Sensors Off (Front sensor button is not highlighted)
+
+Audio Off
+Video Off
+Gear != Rear
+
+.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 26.12.2024]: Approved. No need to print the state in the log, this can be verify by checkig the behavior of the state.
+
+[Sunil]: OK to apporve.
+
+How to verfiy the stae here,,
+Sudarsan/Siva to provide the details.
+- Expert Domains: Android HMI, Camera, IOC_IOC, Parking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4656277
+- Contents: The system shall switch to SW_On_1 state in the below conditions.
+Switch from SW_Ready, SW_Sens_2, SW_On_3, SW_On_4 states on inserting the reverse gear
+Switch from SW_On_2 state on sens (parking sensors button single short pressure & Based on NSPControlSts and NSPFailSts)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the state is switched to SW_On_1 as mentioned.
+
+Verify the behavior as below.
+Sensors = ALL (Both Front & Rear Sensors are active)
+Audio On
+Video On
+Gear = Rear
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4656272
+- Contents: The system shall switch to SW_Sens_2 state in the below conditions.
+Switch from SW_On_4 on short Pressing the Camera button or on pressing the close button
+Switch from SW_Ready state on sens (parking sensors button single short press & Based on NSPControlSts and NSPFailSts)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the state is switched to SW_Sens_2 State as mentioned.
+
+Verify the behavior as below.
+Sensors = Front (Front Sensors are active)
+Audio On
+Video Off
+Gear != Retro
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3980957
+- Contents: The system shall switch to SW_On_2 state in the below conditions.
+Switch from SW_On_1  state on sens (parking sensors button single short press & Based on NSPControlSts and NSPFailSts)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the state is switched to SW_On_2 State as mentioned.
+
+Verify the behavior as below.
+Sensors = Rear (Rear Sensors are active)
+Audio On
+Video On
+Gear = Rear
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-587
+
+# 8
+Question to ferrari:
+Sens = parking sensors button single short pressure
+
+1. Which is the sensor button here (button in the quick control or  button in the parking system view (OR Both buttons))
+
+Ferarri: answer here is both buttons
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: button in the quick control AND button in the parking system
+
+6. ID: 4656274
+- Contents: The system shall switch to SW_On_3 state in the below conditions.
+Switch from SW_Ready state on camera button short press.
+Switch from SW_On_2  state on disengaging the reverse gear.
+Switch from SW_On_4  state on sens (parking sensors button single short press & Based on NSPControlSts and NSPFailSts)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the state is switched to SW_On_3 State as mentioned.
+
+Verify the behavior as below.
+Sensors =OFF
+Audio = OFF
+Video = On
+Gear != Retro
+.
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4656275
+- Contents: The system shall switch to SW_On_4 state in the below conditions.
+Switch from SW_Ready state on receiving the CAN signals 'Stop_GoEnable' = Enable & 'VehicleSpeedVSOSig' <= 'Speed_Thresh_SW' AND Front sensors detect an obstacle
+Switch from SW_Sens_2 state on camera button short press or Condition of obstacle detection by front sensors
+Switch from SW_On_3 state on sens (parking sensors button single short press & Based on NSPControlSts and NSPFailSts)
+Switch from SW_On_1 state on disengaging the reverse gear.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the state is switched to SW_On_4 State as mentioned.
+
+Verify the behavior as below.
+Sensors = Front (Front Sensors are active)
+Audio On
+Video On
+Gear != Retro
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4887402
+- Contents: The system shall switch to SW_Off on doing the Key Off from any state.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precodntion:
+Parking system is in any state.
+
+Do ignition cycle
+Verify that the system is in SW_Ready state 
+
+Verify the below behavior in SW_Ready state.
+Sensors Off (Front sensor button is not highlighted)
+
+Audio Off
+Video Off
+.
+- Grooming Status: Approved
+- Expert Domains: Camera
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4895686
+- Contents: The system shall switch to 'SW_Ready' state from "other" states during the below condition.
+'VehicleSpeedVSOSig > Speed_Thresh_SW' & 'Gear != R' & 'Timer > T_MAX '.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the state is switched to SW_Ready state in the mentioned conditions.
+Note:
+The timer (T_MAX set to 1 second) is used to have a small time hysteresis in the disabling the button after speed threshold is reached
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "other" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4887403
+- Contents: The system shall ignore the camera button input if the condition 'VehicleSpeedVSOSig> Speed_Thresh_SW' & 'Gear != R' & 'Timer > T_MAX is TRUE'.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the camera button is not visible in HMI in the mentioned conditions.
+
+Note:
+The timer (T_MAX set to 1 second) is used to have a small time hysteresis in the disabling the button after speed threshold is reached
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-588
+Ferrari:
+The timer (T_MAX set to 1 second) is used to have a small time hysteresis in the disabling the button after speed threshold is reached
+- Expert Domains: Camera, IOC_IOC, Parking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, ignore, input, button, condition, amp, Gear, TRUE" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3604197
+- Contents: If PROXI parameter IDC_SurroundView_Compliance_Norm = (KMVSS OR UNECE_R158), the system shall follow the Surround View (SW) as described in the state diagram provided below
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: PROXI parameter IDC_SurroundView_Compliance_Norm = (KMVSS OR UNECE_R158))
+
+Verify that Surround View system is working as per the diagram mentioned below.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, follow, described, provided, SW, diagram" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3841030
+- Contents: (see: image80.png)
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Requirement Rationale: State Transition condition notes are provided in the below artifact ID 3841035
+- Visual Elements: image80.png
+
+3. ID: 4661901
+- Contents: Transition condition notes:
+Retro = reverse insertion --> FutureSyncGear = R
+!Retro = reverse disarming --> FutureSyncGear != R
+Cam = camera button single short pressure
+Sens = parking sensors button single short pressure --> Based on NSPControlSts and NSPFailSts
+Home = Close button touchscreen
+(1) Condition of obstacle detection by rear or front sensor
+(2) Condition of obstacle detection by front sensors
+(3) Condition of obstacle detection by rear sensors
+(4) Stop_GoEnable = Enable AND VehicleSpeedVSOSig <= Speed_Thresh_SW AND Front sensors
+detect an obstacle
+For information about (1), (2), (3) and (4) conditions, please refer to "IDC Finalized Document".
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image80.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.11 : Surround View management: State Machine_KMVSS OR UNECE_R158 Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

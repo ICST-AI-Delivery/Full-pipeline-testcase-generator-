@@ -1,0 +1,116 @@
+# UnknownID 6.2.6.4.1  Profile Activation - Profile cards Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.4.1  Profile Activation - Profile cards
+
+- ID: 4727811
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4727819
+- Contents: IDC shall allow user to manage the current active profile or switch to other profile (if already created) short pressing on a "profile card" or create a new profile short pressing on the "ADD profile card"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to create profile card by short press on add profile card
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to manage, to profile, created, pressing, create, ADD, profile, switch, card" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4727825
+- Contents: IDC shall highlight the current active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify System able to highlight the active profile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4727832
+- Contents: IDC shall allow user to press on add button when max number ("8" profiles and "1" guest profile) of profiles is't   reach.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to access add button until max num reached. (8 profiles and 1 guest profile)
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to press, add, is, button, number, profiles, profile" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4727834
+- Contents: If speed >0the "add" button shall not shown.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify system shall not show add button in speed > 0
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4727840
+- Contents: System shall not show the add button when max profiles are reach.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user not able to access add button when max num reached
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, are reach, button, profiles" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4728017
+- Contents: (see: image129.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image129.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image129.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.6.4.1  Profile Activation - Profile cards Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,86 @@
+# UnknownID 6.2.3.2.6.1 Chill Mode Or All Ambient Light - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.2.6.1 Chill Mode Or All Ambient Light - HMI settings
+
+- ID: 3557194
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4095187
+- Contents: IDC shall manage this function when proxi parameter Cabin_Light==1("Present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+Cabin_Light == 1 ("Present")
+
+Start byte 185, start bit 1 - Cabin_Light (0 = "Absent", 1 = "Present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3557198
+- Contents: IDC shall allow user to enable/disable cabin light door panel through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to enable/disable the cabin lights door panel through shortpress.
+
+HMI-CAN:
+NIT_VEHICLE_SETUP_3.CabinLight_DoorPanel_Enable
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to enable, disable, lights, HMI" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4095188
+- Contents: IDC shall allow user to enable/disable cabin footwell lights through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to enable/disable the cabin footwell lights through shortpress.
+
+NIT_VEHICLE_SETUP_3.CabinLight_Feet_Enable
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to enable, disable, cabin, lights, HMI" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.2.6.1 Chill Mode Or All Ambient Light - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

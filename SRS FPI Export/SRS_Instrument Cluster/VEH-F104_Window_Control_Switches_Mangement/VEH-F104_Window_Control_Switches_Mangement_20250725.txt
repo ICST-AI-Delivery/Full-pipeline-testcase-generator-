@@ -1,0 +1,247 @@
+# VEH-F104 6.2.1.1.2.7  Window Control Switches Mangement Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.7 VEH-F104 Window Control Switches Mangement
+
+- ID: 3406511
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713050
+- Contents: System shall display Fail-1 Pop-up with Buzzer send the Fail-1 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when Driver Anti pinch Fail status is Fail Present.
+Note: Fail-1 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Fail-1 is triggered when Driver Anti Pinch fail is present.
+
+Pop-Up ID:01040001
+
+
+Buzzer:2B
+
+CAN-Signal:STATUS_NPG.DriverAntiPinchFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, Follows, Pop-up, Buzzer, pinch, Present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3893785
+- Contents: System shall visualize Fail1 driver anti pinch fail based on proxi 'Right/left-hand side driving position (byte58, bit4)' for driver side
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3713051
+- Contents: System shall display Fail-2 Pop-up with Buzzer and send the Fail-2 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.whenwhen Passenger Anti pinch Fail status is Fail Present.
+Note: Fail-2 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-2 Pop-Up and verify pop-up and Buzzer is played.
+
+Pop-Up ID: 01040002
+
+Buzzer: 2B
+
+CAN-Signal: STATUS_NPP.PsngrAntiPinchFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, Follows, Pop-up, Buzzer, pinch, Present" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3893786
+- Contents: System shall visualize Fail2 passenger anti pinch fail based on proxi Right/left-hand side driving position (byte58, bit4) for passenger side
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System shall visualize Fail2 passenger anti pinch fail based on proxi Right/left-hand side driving position (byte58, bit4) for passenger side.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, visualize, based, left, driving, fail, Right, position, side" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3713052
+- Contents: System shall display Fail-3 Pop-up with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when WLM Driver Fail status is Fail Present.
+Note: Fail-3 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-3 Pop-Up and verify pop-up and Buzzer is played.
+
+Pop_up iD:01040003
+Buzzer:2B
+
+CAN-Signal:  STATUS_NPG. WLMDriverFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3713053
+- Contents: System shall display Fail-4 Pop-up with Buzzer send the Fail-4 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when WLM Passenger Fail status is Fail Present.
+Note: Fail-4 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-4 Pop-Up and verify pop-up and Buzzer is played.
+
+Pop-UP ID: 01040004
+
+Buzzer: 2B
+
+CAN-Signal: STATUS_NPP.WLMPsngrFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3713055
+- Contents: If proxi rear doors management (byte 123, bit 2) true, system shall display Fail-5 Pop-up with Buzzer send the Fail-5 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when Rear Left Anti Pinch Fail status is Fail Present.
+Note: Fail-5 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-5 Pop-Up and verify pop-up and Buzzer is played.
+
+Buzzer:2B
+
+Pop-Up ID:01040005
+
+
+CAN-Signal: REAR_SIDE_STS.RearLeftAntiPinchFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3713056
+- Contents: If proxi rear doors management (byte 123, bit 2) true, system shall display Fail-6 Pop-up with Buzzer send the Fail-6 Pop-Up status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when Rear Right  Anti Pinch Fail Status is Fail Present.
+Note: Fail-6 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-6 Pop-Up and verify pop-up and Buzzer is played.
+
+Pop-Up ID: 01040006
+
+Buzzer:2B
+
+Proxi: Byte-123, Bit-2
+
+CAN-Signal:
+REAR_SIDE_STS.RearRightAntiPinchFailSts
+- Grooming Status: Approved
+- Grooming Comments: Need to check the Pop-up text against the Signal name. Need jira to clarify.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3713057
+- Contents: System shall display Fail-7 Pop-up with Buzzer and send the Fail-7 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when WMRL Fail Status is Fail Present.
+Note: Fail-7 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-7 Pop-Up and verify pop-up and Buzzer is played.
+
+POP-UPID:01040007
+Buzzer:2B
+
+CAN-Signal: REAR_SIDE_STS.WMRLFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 3713058
+- Contents: System shall display Fail-8 Pop-up with Buzzer and send the Fail-8 status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when WMRR Fail Status is Fail Present.
+Note: Fail-8 Follows D01 Visualisation behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Fail-8 Pop-Up and verify pop-up and Buzzer is played.
+
+POP-UP ID: 01040008
+Buzzer:2B
+
+CAN-Signal: REAR_SIDE_STS.WMRRFailSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+11. ID: 4698762
+- Contents: System shall use car Configuration Rear doors management Proxi (byte 123 , bit 2) for Rear doors and  byte 58, bit 4 for Right /Left hand side driving position.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Feature is Enabled according to the Proxi configuration.
+
+PROXI:
+Byte:123 , Bit-2(Rear Doors Management)
+Byte 58 , Bit-4( Right/Left side driving position)
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, use, driving, byte, bit 2, doors, position" ) 
+Missing unit 
+ (Look for: "‘2,4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713049
+- Contents: System shall display Window Control Switches Management as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F104 6.2.1.1.2.7  Window Control Switches Mangement Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,545 @@
+# PRK-10 6.2.4.11  3D MODEL RENDERING Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.11 PRK-10 3D MODEL RENDERING
+
+- ID: 3939650
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 27.02.2025] Animation feature is in discussion, Not OK to groom now
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4003638
+- Contents: The system shall display the '3-D' model of vehicle in all the '3-D' views & Bird View.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the 3D' model of the vehicle is supported in all the '3-D' views (Top front and Top Rear ) & Bird View
+- Grooming Status: Approved
+- Grooming Comments: 18.03.2025
+Red label.
+Art,Bird View: platform offered Only 2D image rendering 
+3D View: 3platform offered 3D model rendering.
+
+[Prashant, Abdul 16.12.2024] 3D view is not Offereed., here only Bird view is applicable
+Wei to confirm with customer
+
+Need Clarity in 3D model in bird view for RVC/SVS
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3979547
+- Contents: The system shall display a 2D representation (seen from the top) of the 3D model of the vehicle in Sensor View.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Rear view configuration.
+
+Launch the  (Sensor view)
+Verify the  2D representation(seen from the top) of the 3D model of the vehicle.
+Note:
+the model will be 3D with all animations requested in the specification. The 2D reference is just the feel of the model
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1094
+
+18.03.2025; Art: red label, Platform doesn't  offer sensor view, only Bird view.
+
+To Ferrari:
+3D Model  animation will not be supported if we use 2 D images in sensor  view
+
+
+I team on the feasibility of this requirement (2D representation of 3D car model)
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: the model will be 3D with all animations requested in the specification. The 2D reference is just the feel of the model because we see it only from the top so it will look as a 2D projection but is actually is 3D.
+
+3. ID: 3979582
+- Contents: The 3D model of the vehicle shall be an optimized reproduction of the actual vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Launch bird view.
+
+Verify this by visual verification of vehicle 3D model i bird view
+- Grooming Status: Approved
+- Grooming Comments: Art 18.03.2025: 
+Art 18.03.2025: red label. Default platform offering For Bird view is 2D image of the vehicle.
+
+[Prashant, Abdul 16.12.2024] 
+3D model in Bird view is applicable.
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3979585
+- Contents: The system shall show the 3D model of the vehicle from the same point of view of the current 3D view displayed.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Auto Button is enabled in bird view.
+3D view (Top front and Rear) is launched
+Verify the 3D model of the vehicle is displayed from the same point of view of the current 3D view.
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Abdul 16.12.2024] We don't have 3D view. Can be Not offered in CRS.
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3979588
+- Contents: The system shall show the color of the 3D vehicle model in bird view, stream frame view (top front & top rear) as same as the color of the real vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Launch the Surround View
+
+Verify that the color of the 3D vehicle model  in bird view, stream frame view (top rear and top front) is same as the color of the real vehicle.
+- Grooming Status: Approved
+- Grooming Comments: Prashant 17.12.2024:
+
+1. Need clarification about showing the color of the car  in case of RVC.
+
+2. Is it relevant for both 3D/Bird view
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3980558
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Front Doors opening/closing with the following logic.
+3-D model shall open the driver door when 'STATUS_DOORS.STS_DRS_DriverDoorSts' from "close" to "Open".
+3-D model shall close the driver door when 'STATUS_DOORS.STS_DRS_DriverDoorSts'' from "Open" to "close"
+3-D model shall open the passenger door when 'STATUS_DOORS.STS_DRS_PsngrDoorSts from "close" to "Open"
+3-D model shall close the passenger door when 'STATUS_DOORS.STS_DRS_PsngrDoorSts' from "Open" to "close"
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3d model animations are visible in 3D views, sensor view and bird view "for Front Doors opening/closing with the mentioned logic'.
+- Grooming Status: Approved
+- Grooming Comments: Prashant, Art, Abdul 17.12.2024: Blocked.
+Internal Clarification is needed:
+1. Need clarification about 3D model  in case of RVC (sensor view)
+
+2.Need Internal confirmation on the applicability of 3D view.
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3980562
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Rear Doors opening/closing with the following logic:
+STATUS_DOORS.STS_DRS_RearRightDoorSts from "close" to "Open" then 3-D model shall open the rear right door
+STATUS_DOORS.STS_DRS_RearRightDoorSts from "Open" to "close" then 3-D model shall close the rear right door
+STATUS_DOORS.STS_DRS_RearLeftDoorSts from "close" to "Open" then 3-D model shall open the rear right door
+STATUS_DOORS.STS_DRS_RearLeftDoorSts from "Open" to "close" then 3-D model shall close the rear right door
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3d model animations are visible in 3D views, sensor view and bird view "for Rear Doors opening/closing with the mentioned logic'.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3980567
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for PLG opening/closing with the following logic:
+'STATUS_PLG.PLGSts' goes to 'Open' or 'GaragePosition' or 'UpperEndPosition' then 3-D model shall open the power lift gate
+'STATUS_PLG.PLGSts' goes to 'Close' then 3-D model shall close the power lift gate.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3d model animations are visible in 3D views, sensor view and bird view "for PLG opening/closing with the mentioned logic'.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall open, shall close" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3980571
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Charging Flap opening/closing with the following logic.
+STATUS_B_CAN2.RechargeFlapSts from "Closed" to "Open" then 3-D model shall open the charging flap
+STATUS_B_CAN2.RechargeFlapSts from "Open" to "Closed" then 3-D model shall close the charging flap
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [22.05.2025]: FPI will be blocked if Ferrari do not reply on the animations.
+
+18.03.2025:
+FO to finalize the applicability in CRS 
+
+[17.12.2024 Art, Abdul] This can be not offered in CRS. Reason: This will increase the size of the model.
+
+[Wei_15-04-2025]Need clarification about the 3D model animation from Ferrari.
+
+[Wenwei_28-04-2025]The charging flap animation is not supported in current 3D model.
+
+[Jin Wei_28-04-2025]Ongoing discussion for Animations, will be clarified on upcoming Wednesday.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall open, shall close" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3980572
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Front Tyres steering with the following logic:
+front wheels shall steer according to the angle "GE.LWS_Angle" converted through the steering ratio when GE.LWSFailSts = "Fail_not_Present"
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3d model animations are visible in 3D views, sensor view and bird view "for Front Tyres steering with the mentioned logic'.
+- Grooming Status: Approved
+- Grooming Comments: Prashant, Art, Abdul 17.12.2024: Blocked.
+Internal Clarification is needed:
+1. Need clarification about 3D model  in case of RVC (sensor view)
+
+2.Need Internal confirmation on the applicability of 3D view.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "wheels, steering, following, steer, according, converted, Tyres, logic, angle, ratio" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3980574
+- Contents: Tyres rotation according to speed with the following logic:
+front left wheel shall rotate according to speed Ie_v_WheelSpdFL when Ie_bol_ValWheelSpdFL = "Valid"
+front right wheel shall rotate according to speed Ie_v_WheelSpdFR when Ie_bol_ValWheelSpdFR = "Valid"
+rear left wheel shall rotate according to speed Ie_v_WheelSpdRL when Ie_bol_ValWheelSpdRL = "Valid"
+rear right wheel shall rotate according to speed Ie_v_WheelSpdRR when Ie_bol_ValWheelSpdRR = "Valid"
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "rotation, wheel, according, to speed, following, left, rotate, speed, logic" )
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3980604
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for External Mirrors opening/closing with the following logic:
+'STATUS_NPG.FoldMirrorSts' from "Unfolded" to 'Folded' then '3-D' model shall open external rear view mirrors
+'STATUS_NPG.FoldMirrorSts' from 'Folded' to 'Unfolded' then '3-D' model shall close external rear view mirrors
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3d model animations are visible in 3D views, sensor view and bird view "for External Mirrors opening/closing with the mentioned logic'.
+- Grooming Status: Approved
+- Grooming Comments: Prashant, Art, Abdul 17.12.2024: Blocked.
+Internal Clarification is needed:
+1. Need clarification about 3D model  in case of RVC (sensor view)
+
+2.Need Internal confirmation on the applicability of 3D view.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall open, shall close" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3980671
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Hazard Lights with the following logic:
+ASR_PEDAL_PRESS.HazardActRqt = "Hazard_On" then 3-D model shall activate hazard lights
+ASR_PEDAL_PRESS.HazardActRqt = "Hazard_Off" then 3-D model shall deactivate hazard lights
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3 D model animation in 3D views, Sensors view and bird view for Hazard lights. 
+
+ASR_PEDAL_PRESS.HazardActRqt = "Hazard_On" then 3-D model shall activate hazard lights
+ASR_PEDAL_PRESS.HazardActRqt = "Hazard_Off" then 3-D model shall deactivate hazard lights
+- Grooming Status: Approved
+- Grooming Comments: 18.03.2025:
+Wei need to confirm the applicability in CRS level (e.g. which light)
+
+Prashant, Art, Abdul 17.12.2024: Blocked.
+Internal Clarification is needed:
+1. Need clarification about 3D model  in case of RVC (sensor view)
+
+2.Need Internal confirmation on the applicability of 3D view.
+
+Need confirmation on the applicability of the light
+
+[Wei_15-04-2025]Need clarification about the 3D model animation from Ferrari.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall activate, shall deactivate" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3980678
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Turn Indicator Lights with the following logic:
+VEHSTAT_V2.TurnIndicatorSts = "Left" then 3-D model shall activate left turn indication
+VEHSTAT_V2.TurnIndicatorSts = "Right" then 3-D model shall activate right turn indication
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3 D model animation in 3D views, Sensors view and bird view for Turn indicator lights. 
+
+VEHSTAT_V2.TurnIndicatorSts = "Left"
+VEHSTAT_V2.TurnIndicatorSts = "Right"
+- Grooming Status: Approved
+- Grooming Comments: 18.03.2025:
+Wei need to confirm the applicability in CRS level
+Prashant, Art, Abdul 17.12.2024: Blocked.
+Internal Clarification is needed:
+1. Need clarification about 3D model  in case of RVC (sensor view)
+
+2.Needl confirmation on the applicability of 3D view from customer
+
+
+Need confirmation on the applicability of the light
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall activate" )
+- State (Harman_Requirement): Approved
+
+15. ID: 3980681
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Stop Lights with the following logic:
+ASR_PEDAL_PRESS.StopLightActRqt from "Stop_Light_switched_OFF" to "Stop_Light_switched_ON" then 3-D model shall turn on stop lights
+ASR_PEDAL_PRESS.StopLightActRqt from "Stop_Light_switched_ON" to "Stop_Light_switched_OFF" then 3-D model shall turn off stop lights
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3 D model animation in 3D views, Sensors view and bird view for Stop lights.
+
+- ASR_PEDAL_PRESS.StopLightActRqt from "Stop_Light_switched_OFF" to "Stop_Light_switched_ON" then 3-D model shall turn on stop lights
+
+- ASR_PEDAL_PRESS.StopLightActRqt from "Stop_Light_switched_ON" to "Stop_Light_switched_OFF" then 3-D model shall turn off stop lights
+- Grooming Status: Approved
+- Grooming Comments: 18.03.2025:
+Wei need to confirm the applicability in CRS level.
+
+Prashant, Art, Abdul 17.12.2024: Blocked.
+Internal Clarification is needed:
+1. Need clarification about 3D model  in case of RVC (sensor view)
+
+2.Need confirmation on the applicability of 3D view from customer
+
+
+Need confirmation on the applicability of the light
+
+[Wei_15-04-2025]Need clarification about the 3D model animation from Ferrari.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall turn, shall turn off" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3980695
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for Position Lights with the following logic:
+STATUS_C_LCU.Left_PL_Feedback from "OFF" to "ON" then 3-D model shall turn on front left position light
+STATUS_C_LCU.Left_PL_Feedback from "ON" to "OFF" then 3-D model shall turn off front left position light
+STATUS_C_LCU.Right_PL_Feedback from "OFF" to "ON" then 3-D model shall turn on front right position light
+STATUS_C_LCU.Right_PL_Feedback from "ON" to "OFF" then 3-D model shall turn off front right position light
+VEHSTAT_V2.LHParkTailLightSts from "OFF" to "ON" then 3-D model shall turn on rear left position light
+VEHSTAT_V2.LHParkTailLightSts from "ON" to "OFF" then 3-D model shall turn off rear left position light
+VEHSTAT_V2.RHParkTailLightSts from "OFF" to "ON" then 3-D model shall turn on rear right position light
+VEHSTAT_V2.RHParkTailLightSts from "ON" to "OFF" then 3-D model shall turn off rear right position light
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: [22.05.2025]: FPI will be blocked if Ferrari do not reply on the animations.
+
+18.03.2025:
+Wei need to confirm the applicability in CRS level (e.g. which light)
+
+Need confirmation on the applicability of the light
+
+[Wei_15-04-2025]Need clarification about the 3D model animation from Ferrari.
+
+[Wenwei_28-04-2025]The Position lights is not supported.
+
+[Jin Wei_28-04-2025]Ongoing discussion for Animations, will be clarified on upcoming Wednesday.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, shall turn, shall turn off" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3980703
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for for Low Beam Lights with the following logic:
+EXTERNAL_LIGHTS.LowBeamSts from "OFF" to "ON" then 3-D model shall turn on low beam lights
+EXTERNAL_LIGHTS.LowBeamSts from "ON" to "OFF" then 3-D model shall turn off low beam lights
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3 D model animation in 3D views, Sensors view and bird view for Low beam lights. 
+
+EXTERNAL_LIGHTS.LowBeamSts from "OFF" to "ON" then 3-D model shall turn on low beam lights
+EXTERNAL_LIGHTS.LowBeamSts from "ON" to "OFF" then 3-D model shall turn off low beam lights
+- Grooming Status: Approved
+- Grooming Comments: 18.03.2025:
+Wei need to confirm the applicability in CRS level 
+Need confirmation on the applicability of the light
+
+[Wei_15-04-2025]Need clarification about the 3D model animation from Ferrari.
+
+[Wenwei_28-04-2025] Space4 : The 3 D animations will be implemented by Space4.
+
+CAN signals for this animation will be from Ferrari.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall turn, shall turn off" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3980697
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view for High Beam Lights with the following logic:
+'EXTERNAL_LIGHTS.HighBeamSts' from "OFF" to "ON" then 3-D model shall turn on high beam lights.
+'EXTERNAL_LIGHTS.HighBeamSts' from "ON" to "OFF" then 3-D model shall turn off high beam lights.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3 D model animation in 3D views, Sensors view and bird view for High beam lights.
+
+'EXTERNAL_LIGHTS.HighBeamSts' from "OFF" to "ON" then 3-D model shall turn on high beam lights.
+'EXTERNAL_LIGHTS.HighBeamSts' from "ON" to "OFF" then 3-D model shall turn off high beam lights.
+- Grooming Status: Approved
+- Grooming Comments: 18.03.2025:
+Wei need to confirm the applicability in CRS level.
+Need confirmation on the applicability of the light
+
+[Wenwei_28-04-2025] Space4 : The 3 D animations will be implemented by Space4.
+
+CAN signals for this animation will be from Ferrari.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall turn, shall turn off" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3979461
+- Contents: This function describes the visualization of 3D model of the vehicle.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3979482
+- Contents: The system shall display the '3D' Model Rendering as reported in:
+HMI-LF-7875 - Car model’s animations
+HMI-LF-7873 - Vehicle colours and Components.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+3. ID: 3979487
+- Contents: The system shall implement the logics of 3D Views according to:
+SFS F560 – Surround View Management
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+4. ID: 3979599
+- Contents: The system shall configure color of the model through 2 RGB values:
+Internals color RGB
+Externals color RGB
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Verification Criteria: The system shall configure color of the mohrough 2 RGB values:
+
+Internals color RGB
+Externals color RGB
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+5. ID: 3980552
+- Contents: The system shall configure '2' RGB color values through RDI diagnostic service in order to set in the end of line.
+3D Car Model Color - Exterior(IDC-460817 - 3D Car Model Color - Exterior($FE78))
+3D Car Model Color - Interior(IDC-460826 - 3D Car Model Color - Interior ($FE79))
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" ) 
+Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+- Requirement Rationale: (refer to IDC Diagnosis Specification)
+
+6. ID: 3980554
+- Contents: The system shall show 3-D model animations in 3-D view, Sensors view & Bird view as follows as per the signals
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, view, follows, animations, signals" )
+- State (Harman_Requirement): New
+
+7. ID: 3980707
+- Contents: Inputs
+Ie_enu_DrvrDoorSts
+Ie_enu_PsngrDoorSts
+Ie_bol_RearRightDoor
+Ie_bol_RearLeftDoor
+Ie_bol_PLGSts
+Ie_bol_ChargeFlapSts
+Ie_ang_LWSAngle
+Ie_bol_LWSOK
+Ie_v_WheelSpdFL
+Ie_bol_ValWheelSpdFL
+Ie_v_WheelSpdFR
+Ie_bol_ValWheelSpdFR
+Ie_v_WheelSpdRL
+Ie_bol_ValWheelSpdRL
+Ie_v_WheelSpdRR
+Ie_bol_ValWheelSpdRR
+Ie_bol_FldMrrSts
+Ie_bol_HazardLightsSts
+Ie_enu_TurnIndSts
+Ie_bol_StopLightReq
+Ie_bol_PosLightFL
+Ie_bol_PosLightFR
+Ie_bol_PosLightRL
+Ie_bol_PosLightRR
+Ie_bol_LowBeamSts
+Ie_bol_HighBeamSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-10 6.2.4.11  3D MODEL RENDERING Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

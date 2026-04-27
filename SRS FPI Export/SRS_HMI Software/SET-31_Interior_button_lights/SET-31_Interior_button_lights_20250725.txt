@@ -1,0 +1,172 @@
+# SET-31 6.2.3.4.2  Interior button lights Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.4.2 SET-31 Interior button lights
+
+- ID: 3939849
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: HMI_CAN:
+NIT_VEHICLE_SETUP_3.InternalLightEnable
+STATUS_NQS.InternalLightLevel
+STATUS_NQS.InternalLightLevelForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5947492
+- Contents: System shall set the output signals for thr following when "Day_Brightness_Adj" == "OFF"
+AND
+IF input signal NightDaySts == 0 (“Day”)
+THEN
+IDC shall set the output signals:
+- InternalLightEnable = 0 ("Not_Enable")
+- InternalLightLevel = "Fixed_Day_Brightness_Level"
+- InternalLightLevelForDisplay = "Fixed_Day_Brightness_Level"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signals when "Day_Brightness_Adj" == "OFF" and input signal NightDaySts == 0 (“Day”)
+
+Calibration parameters
+Day_Brightness_Adj IDC-432636 - INTERIOR_BUTTON_LIGHTS ($0508)
+Fixed_Day_Brightness_Level IDC-432636 - INTERIOR_BUTTON_LIGHTS ($0508)
+
+tool is dianalyzer.
+
+InternalLightEnable = 0 ("Enable")
+InternalLightLevel = "Fixed_Day_Brightness_Level"
+InternalLightLevelForDisplay = "Fixed_Day_Brightness_Level"
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): New
+
+2. ID: 3979315
+- Contents: System shall set the output signals for the following when "Day_Brightness_Adj" == "Fixed" and input signal NightDaySts == 0 (“Day”)
+InternalLightEnable = 1 ("Enable")
+InternalLightLevel = "Fixed_Day_Brightness_Level"
+InternalLightLevelForDisplay = "Fixed_Day_Brightness_Level"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signals when "Day_Brightness_Adj" == "Fixed" and input signal NightDaySts == 0 (“Day”)
+
+Calibration parameters
+Day_Brightness_Adj IDC-432636 - INTERIOR_BUTTON_LIGHTS ($0508)
+Fixed_Day_Brightness_Level IDC-432636 - INTERIOR_BUTTON_LIGHTS ($0508)
+
+tool is dianalyzer.
+
+InternalLightEnable = 1 ("Enable")
+InternalLightLevel = "Fixed_Day_Brightness_Level"
+InternalLightLevelForDisplay = "Fixed_Day_Brightness_Level"
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, following, Fixed, signals, signal NightDaySts, Day #8221, Enable" )
+- TestTeamComment: configuration file missing and we need to get from Ferrari.
+- State (Harman_Requirement): Approved
+
+3. ID: 3979318
+- Contents: System shall set the output signals as below when Day_Brightness_Adj==Not_Fixed and input signal NightDaySts == 0 (“Day”)
+InternalLightEnable=1(Enable)
+InternalLightLevel=HMI_Level-1
+InternalLightLevelForDisplay=HMI_Level-1
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal when Day_Brightness_Adj==Not_Fixed
+
+input signal NightDaySts==0(Day):
+
+InternalLightEnable=1(Enable)
+InternalLightLevel=HMI_Level-1
+InternalLightLevelForDisplay=HMI_Level-1
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, Fixed, signals, HMI_Level-1" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3979317
+- Contents: System shall set the output signals as below when Day_Brightness_Adj == Not_Fixed and  input signal NightDaySts == 1 (“Night")
+InternalLightEnable=1(Enable)
+InternalLightLevel=HMI_Level-1
+InternalLightLevelForDisplay=HMI_Level-1
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signals when Day_Brightness_Adj == Not_Fixed
+
+input signal NightDaySts == 1(“Night")
+HMI_CAN:
+EXTERNAL_LIGHTS.NightDaySts
+
+
+InternalLightEnable=1(Enable)
+InternalLightLevel=HMI_Level-1
+InternalLightLevelForDisplay=HMI_Level-1
+- Grooming Status: Approved
+- Grooming Comments: Response from Ferrari: 
+
+In the case where the RDI parameter Day_Brightness_Adj = Not_Fixed, IDC applies the same logic for Day and Night for the brightness level of interior buttons.
+
+In the other case, where the RDI parameter Day_Brightness_Adj  = Fixed, then based on the value of input signal NightDaySts, IDC shall consider a different logic for Day (fixed value of interior button brightness) and for Night (depending on the level selected by the user) as defined in SET-31 in IDC Finalized specification and in Vehicle function SFS F041.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, Fixed, signals, HMI_Level-1" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3979316
+- Contents: System shall update the output signal at the end of user interaction set via slider.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that system able to update the output signal at the end of user interaction set via slider.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.InternalLightEnable
+STATUS_NQS.InternalLightLevel
+STATUS_NQS.InternalLightLevelForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, update, set, signal, end, interaction" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3979319
+- Contents: This function allows the user to adjust "Interior button lights" setting for commands' backlights.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-31 6.2.3.4.2  Interior button lights Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

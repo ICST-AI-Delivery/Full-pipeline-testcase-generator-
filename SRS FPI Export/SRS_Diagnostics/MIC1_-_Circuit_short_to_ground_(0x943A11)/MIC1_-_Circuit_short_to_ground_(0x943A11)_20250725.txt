@@ -1,0 +1,88 @@
+# UnknownID 6.2.1.3.100 MIC1 - Circuit short to ground (0x943A11) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.3.100 MIC1 - Circuit short to ground (0x943A11)
+
+- ID: 4085370
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4599109
+- Contents: The System Shall detect a Circuit short-to-ground fault of MIC1 within 0.5s, if at least one wire (or both) is short to Ground in a Permanent Evaluation condition.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set Proxi parameter ESE_Functionality == 1 ("Present")
+-Verify At least one wire (or both) is shorted to Ground and should be in Permanent Evaluation condition.
+-Circuit short to ground fault should be detect within 0.5s.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, detect, ground, fault" )
+- TestTeamComment: RWeber_DIAG_250124: What are the threshold values?
+- State (Harman_Requirement): Approved
+
+2. ID: 4599112
+- Contents: The System shall clear the fault within 0.5s, if Circuit short to ground is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify the fault is no more detected.
+- Fault should be clear within 0.5s.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250124: okay
+- State (Harman_Requirement): Approved
+
+3. ID: 4654442
+- Contents: If the IDC set the signal IDC_AudioStreams.ESEFailSts =1("Fail_Present"), the MIC1 shall get recovery from circuit short to ground.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the signal IDC_AudioStreams.ESEFailSts =1("Fail_Present").
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "get, ground, IDC_AudioStreams.ESEFailSts, recovery, circuit short" )
+- TestTeamComment: RWeber_DIAG_250124: Which signal CAN/A2B…
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4654443
+- Contents: MIC1 - Circuit open DTC is not applicable for F244 application.
+- Artifact Type: Information
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.3.100 MIC1 - Circuit short to ground (0x943A11) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

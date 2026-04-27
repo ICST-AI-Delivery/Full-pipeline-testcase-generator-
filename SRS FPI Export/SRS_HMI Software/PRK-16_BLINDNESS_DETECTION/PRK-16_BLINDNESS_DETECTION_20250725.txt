@@ -1,0 +1,117 @@
+# PRK-16 6.2.4.17  BLINDNESS DETECTION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.17 PRK-16 BLINDNESS DETECTION
+
+- ID: 3939658
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Camera, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3974966
+- Contents: The system shall implement a dirt & blockage detection algorithm to detect partial or full blockage of the camera lens and report to the driver.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify when the camera has a blockage with Dirt, Water drop and Glare, Indication is given to the driver on which camera  the blockage is present.
+For Ex.: LIMITED FUNCTIONALITY, CLEAN LEFT CAMERA.
+- Grooming Status: Approved
+- Expert Domains: Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, to detect, report, amp, algorithm, partial, blockage, lens, driver" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3975002
+- Contents: The Dirt & Blockage algorithm shall detect at least the following cases:
+Dirt :
+Thick occluders: dust, soil, dirt, paint, oil, grease.
+Tape, film, plastic bags & foreign material on the lens.
+Water drop :
+Water / water vapour accumulation inside the camera assembly.
+Water droplets.
+Glare.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify when the camera has a blockage with Dirt, Water drop and Glare, Indication is given to the driver on which camera  the blockage is present.
+For Ex.: LIMITED FUNCTIONALITY, CLEAN LEFT CAMERA.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "algorithm, detect, following, amp, cases, dust, soil, dirt, paint, oil, bags  amp, material, lens, accumulation, assembly, droplets" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3975003
+- Contents: The system shall warn the driver with an indication of which camera is partially or fully blocked & raise the dedicated DTC.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify when the camera has a blockage with Dirt, Water drop and Glare, Indication is given to the driver on which camera  the blockage is present.
+For Ex.: LIMITED FUNCTIONALITY, CLEAN LEFT CAMERA.
+
+Verify the DTC based on the camera which is blinded :
+Front Camera - Blinded(IDC-460238 - Front Camera - Blinded (0x9103, 0x86))
+Rear Camera - Blinded(IDC-460230 - Rear Camera - Blinded (0x9104, 0x86))
+Left Camera - Blinded(IDC-460223 - Left Camera - Blinded (0x9105, 0x86))
+Right Camera - Blinded(IDC-460240 - Right Camera - Blinded (0x9106, 0x86))
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, warn, is, blocked, raise, driver, indication, camera, amp, DTC" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3974960
+- Contents: This function describes the camera blindness detection functionality of the system.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3974962
+- Contents: The system shall display the Blindness Detection as reported in: 
+HMI-LF-7928 - Failure and malfunctioning
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, malfunctioning, Detection, Failure" )
+- State (Harman_Requirement): New
+
+3. ID: 3975007
+- Contents: DTCs
+Front Camera - Blinded(IDC-460238 - Front Camera - Blinded (0x9103, 0x86))
+Rear Camera - Blinded(IDC-460230 - Rear Camera - Blinded (0x9104, 0x86))
+Left Camera - Blinded(IDC-460223 - Left Camera - Blinded (0x9105, 0x86))
+Right Camera - Blinded(IDC-460240 - Right Camera - Blinded (0x9106, 0x86))
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-16 6.2.4.17  BLINDNESS DETECTION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

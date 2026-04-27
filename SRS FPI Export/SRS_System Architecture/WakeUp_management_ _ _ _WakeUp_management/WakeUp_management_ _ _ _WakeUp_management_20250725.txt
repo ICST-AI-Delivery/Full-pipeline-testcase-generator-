@@ -1,0 +1,105 @@
+# UnknownID 6.1.4.1.1 WakeUp management       WakeUp management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.4.1.1 WakeUp management       WakeUp management
+
+- ID: 2354025
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354026
+- Contents: 6.1.4.1.1.1 The ECU shall implement advanced power management strategies allowing the possib...       The ECU shall implement advanced power management strategies allowing the possibility to perform a normal boot, fast boot and silent boot.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+- Grooming Comments: ***Check with Daniel K if the PRD is under development in space4.
+
+Silent boot: Scheduled pre-programmed reset(daily) of the Unit when the vehicle is not in use.
+
+2. ID: 2354027
+- Contents: 6.1.4.1.1.2 The ECU shall be designed to wake up through different triggers, e.g., key, vehi...       The ECU shall be designed to wake up through different triggers, e.g., key, vehicle network, Bluetooth trigger, etc.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Grooming Comments: Wakeup is through key, Vehicle network and Ethernet
+
+Wakeup through the BT is not supported by HARMAN.
+
+Need CAN signals to get the verificaiton criteria and Test stage. Need further look into the requirement in detail.
+- State (Harman_Requirement): New
+
+3. ID: 2354028
+- Contents: 6.1.4.1.1.3 The ECU shall be designed to complete the boot of all its functionalities (e.g.,...       The ECU shall be designed to complete the boot of all its functionalities (e.g., Firmware, Operating System, Apps, etc.) within 5 s, starting from Sleep Mode (normal or cold boot).
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+- Grooming Comments: [Pritam]: Not possible for in cold boot
+
+4. ID: 2354029
+- Contents: 6.1.4.1.1.4 The ECU shall be designed to implement a fast boot (e.g., suspend to disk or sus...       The ECU shall be designed to implement a fast boot (e.g., suspend to disk or suspend to RAM strategy) to complete the boot of all its functionalities within 2 s, starting from the low power mode.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+- Grooming Comments: Cannot be achieved without precondition as early wakeup.
+
+5. ID: 2354030
+- Contents: 6.1.4.1.1.5 The ECU shall also implement a “distributed wake-up”, i.e., a progressive wake-u...       The ECU shall also implement a “distributed wake-up”, i.e., a progressive wake-up of all the system components to prioritize the one related to user experience.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Comments: [ASh 151123]: SW component boot sequence manager, e.g. systemd on Linux
+
+6. ID: 2354031
+- Contents: 6.1.4.1.1.6 The Supplier shall provide the boot timing of each SW domain.       The Supplier shall provide the boot timing of each SW domain.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+- Grooming Comments: [Pritam]: Need more info about the SW domain(IVI, Cluster etc.,)
+
+7. ID: 2354032
+- Contents: 6.1.4.1.1.7 The Supplier shall share and agree with Ferrari in advance the functionalities p...       The Supplier shall share and agree with Ferrari in advance the functionalities prioritization during the boot phase to achieve the Ferrari requirements.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+
+8. ID: 2354033
+- Contents: 6.1.4.1.1.8 The Supplier shall share with Ferrari the supported fast boot strategies.       The Supplier shall share with Ferrari the supported fast boot strategies.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+
+9. ID: 2354034
+- Contents: 6.1.4.1.1.9 The Supplier shall detail the impact of the secure boot strategy on the overall...       The Supplier shall detail the impact of the secure boot strategy on the overall boot timing.
+- Artifact Type: SRS Req
+- Responsible Domain: Security
+- Grooming Comments: [09/07/2023 ShHolla]:
+Based on Yosri's Comment:
+Secure boot is white label feature. Impact of secure boot on the boot timing as part of that.
+
+### Informational Items:
+
+1. ID: 2354035
+- Contents: 6.1.4.2 Audio and Video Streaming       Audio and Video Streaming
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.4.1.1 WakeUp management       WakeUp management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

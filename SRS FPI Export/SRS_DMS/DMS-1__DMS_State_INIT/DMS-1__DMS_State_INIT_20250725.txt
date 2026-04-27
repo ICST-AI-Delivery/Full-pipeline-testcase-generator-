@@ -1,0 +1,119 @@
+# DMS-1 6.2.1.2.1 _DMS State: INIT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.1 DMS-1_DMS State: INIT
+
+- ID: 3722710
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538815
+- Contents: On wakeup, the DMS system shall switch to INIT state from OFF State by default.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the wakeup signal WAKE_C_NBC:MainWakeSts_BCM to 1.
+Turn On the Ignition.
+
+verify that DMS system is in INIT state ( the value of the CAN signal DMS_INFO.DMSSystemStatus is Init”.)
+
+Verify the value of the CAN signal MSG_DMS_DebugInfo.SG_DMS_DebugStatus is 0
+- Grooming Status: Approved
+- Grooming Comments: [Lakshmi, Mayank, Abdul 24.07.2024]: Space 2 will provide the API about the current state of the DMS alogorithm
+
+[Rafal 19.07.2024]: DMS is embedded in SOC and wakeup strategy is controlled by IOC via network management together with power management running on IOC and SOC.
+
+So this CRS is invalid.
+DC-451369 - In OFF state, DMS shall manage the wake up strategy according to SFS F702.
+
+2. In Driver Monitoring system,No Can signal mentioned here (n IDC_Master_Specification_DMS_Ed2.0_PI4), but it is available in IDC_Master_Specification_Settings_Ed.3.0_PI4 
+Name: Ie_enu_NITDMSEnable
+IDC internal signal: NIT_ADAS_SETUP2.DMS_Enable
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer SFS F702
+
+2. ID: 4642698
+- Contents: The system shall send the below 'CAN signals & values'  for DMS INIT state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus is Init (0x0)
+DMS_INFO.DMSSystemStatus = Init
+DMS_INFO.HMICode_DMS = not_active
+DMS_INFO.DMS_Attentiveness = Status_not_available
+DMS_INFO.DMS_DriverPresent = Status_not_available
+DMS_INFO.Nominal_condition = Status_not_available
+DMS_INFO.DMSSystemFail according to Failure Management
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in INIT state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3538914
+- Contents: The DMS shall not exceed the Maximum Init time in INIT state.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to INIT state.
+Verify that DMS is switched to next state witin Ce_t_InitTimeMax (1 minute)
+
+Note: If no error condition, DMS will switched to User presence state from INIT state.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3538816
+- Contents: The System shall configure the basic software components and shall conduct a diagnostic check to identify any hardware failures that could affect system functionality.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Verification Criteria: Turn on the system 
+Verify that the DMS is in INIT state (Value of the signal Le_enu_StatusDMS =0 )
+Verify the system is able to detect the DMS Hardware failure
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall configure, shall conduct, could affect, shall switch" ) 
+Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-1 6.2.1.2.1 _DMS State: INIT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

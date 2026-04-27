@@ -1,0 +1,96 @@
+# DMS-1 6.2.1.2.4 _Running State Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.4 DMS-1_Running State
+
+- ID: 3784384
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3538881
+- Contents: In the RUNNING state, the DMS shall actively monitor the driver.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+-Set the system to be in RUNNING state.
+
+-Speed>=20km/h
+
+Conditions:
+-Use the engineering app to verify that the system is able to track the face and gaze.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "actively" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4642800
+- Contents: The system shall send the below CAN signal values in DMS 'RUNNING' state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = '4' (RUNNING)
+ActiveDMS_INFO.DMSSystemStatus according to Settings Management
+DMS_INFO.HMICode_DMS not_active
+DMS_INFO.DMS_Attentiveness  according to Attentiveness Estimation
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+DMS_INFO.Nominal_condition according to Non-Nominal Condition Determination
+DMS_INFO.DMSSystemFail = not_fail
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in 'RUNNING' state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3766394
+- Contents: The system shall switch to Active state from Running state according to the HMI Settings or vehicle speed.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in running state.
+Set the HMI setting DMS_Enable to Disable or Vehicle < threshold Value.
+
+Verify that the DMS is switched to Active state from Running state.
+- Grooming Status: Approved
+- Grooming Comments: Approved.
+Red label only
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, according, state, HMI Settings, speed" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-1 6.2.1.2.4 _Running State Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

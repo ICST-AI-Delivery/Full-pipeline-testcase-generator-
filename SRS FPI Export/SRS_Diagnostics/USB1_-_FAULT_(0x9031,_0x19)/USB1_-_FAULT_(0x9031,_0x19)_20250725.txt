@@ -1,0 +1,68 @@
+# UnknownID 6.2.1.1.76 USB1 - FAULT (0x9031, 0x19) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.76 USB1 - FAULT (0x9031, 0x19)
+
+- ID: 3852899
+- Artifact Type: SRS Feature
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3852901
+- Contents: The System shall detect Fault in USB1 within 1s after key-ON, if Over Voltage on Port#1 detected.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Over Voltage on Port#1 should detected.
+-Fault in USB1 should detect within 1s after key-ON.
+-Verify (0x9031, 0x19) DTC will trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. Restrictions: We have no modified USB port to trigger this DTC. No info about how to set this over voltage to which value…
+- State (Harman_Requirement): Approved
+
+2. ID: 3852907
+- Contents: The System shall clear the Fault in USB1 within 1s, if Nominal Voltage detected on Port#1
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Nominal Voltage should detected on Port#1.
+-Verify (0x9031, 0x19) DTC will clear within 1s.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241211: Only possible to check that DTC send a positive response. Restrictions: We have no modified USB port to trigger this DTC. No info about how to set this over voltage to which value…
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.76 USB1 - FAULT (0x9031, 0x19) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

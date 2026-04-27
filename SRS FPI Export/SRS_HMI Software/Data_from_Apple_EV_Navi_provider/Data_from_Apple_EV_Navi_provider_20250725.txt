@@ -1,0 +1,126 @@
+# UnknownID 6.2.2.31.2.2 Data from Apple EV Navi provider Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.31.2.2 Data from Apple EV Navi provider
+
+- ID: 4730564
+- Artifact Type: SRS Feature
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4730566
+- Contents: System shall retrieve the distance to next available Waypoint and sent back to CAN Network.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the waypoint1 signal messages
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, to next, sent, Network, distance, Waypoint" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4730568
+- Contents: system shall retrieve the estimated time of arrival to the next  Waypoint and sent back to CAN Network.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the WaypointETA1signal message
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, retrieve, estimated, sent, Network, time, Waypoint" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4730572
+- Contents: system shall retrieve the maximum rated power of the charging station at Waypoint and sent back to CAN Network.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the WaypointPwrCharge1 signal message
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, retrieve, rated, sent, Network, station, Waypoint" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4730579
+- Contents: System shall retrieve the requested recharge time at Waypoint and sent back to CAN Network.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the WaypointTimeToCharge1 signal message
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, requested, sent, Network, time, Waypoint" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4730582
+- Contents: System shall retrieve the arrival SOC at next Waypoint and sent back to CAN Network.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the WaypointArrivalSOC1signal message
+SOC - State of Charge
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, sent, Network, SOC, Waypoint" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4730583
+- Contents: System shall retrieve the suggested departure SOC from Waypoint and sent back to CAN Network.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the WaypointDepartureSOC1signal message
+SOC - State of Charge
+Note : Apple or Google test app(currently not Available) may be required  explicitly trigger this user scenerio
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retrieve, suggested, sent, Network, departure, Waypoint" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.31.2.2 Data from Apple EV Navi provider Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

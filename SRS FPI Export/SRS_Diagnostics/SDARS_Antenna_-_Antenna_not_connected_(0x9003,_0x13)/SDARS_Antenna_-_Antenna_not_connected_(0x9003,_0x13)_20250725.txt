@@ -1,0 +1,92 @@
+# UnknownID 6.2.1.1.39 SDARS Antenna - Antenna not connected (0x9003, 0x13) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.39 SDARS Antenna - Antenna not connected (0x9003, 0x13)
+
+- ID: 3922253
+- Artifact Type: SRS Feature
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- State (Harman_Requirement): In Work
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3922254
+- Contents: If No signal reception from SDARS Antenna ,the system shall send  SDARS Antenna - Antenna not connected  message with Proxi byte 82, bit 3(“Reserved for SDARS / DAB")  = "Present" in Vehicle configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the GPS module is open circuit.
+- Grooming Status: Blocked
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, send, Message, byte, bit, WLMR, Present, configuration" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when SDARS unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): In Work
+
+2. ID: 3922255
+- Contents: If Key-On, the system shall detect the Fault Conditions.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Pre condition Key-ON.
+- Grooming Status: Blocked
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when SDARS unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): In Work
+
+3. ID: 3922256
+- Contents: If the Maturation time is 10sec &  DC current connection senses a current< 2mA , the system shall come into contact with Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Maturation time as 10s.
+- Grooming Status: Blocked
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when SDARS unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): In Work
+
+4. ID: 3922257
+- Contents: If the De-Maturation is 10sec & DC current connection senses a current of 20÷228mA , the system shall face with De-Maturation Failure Threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: SXM
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the De-Maturation time as 10s.
+- Grooming Status: Blocked
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, system, to 1, detects, face, equal, amp, message, condition, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250225: Protocol test with 0x1906yy to check pos response will be possible. Applicative test to set DTC to state active/passive could be possible, when SDARS unit is available AND correct OEM antennas for good case.
+Info: verification criteria looks wrong "..GPS module.."
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.39 SDARS Antenna - Antenna not connected (0x9003, 0x13) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

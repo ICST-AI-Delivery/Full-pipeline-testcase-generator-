@@ -1,0 +1,142 @@
+# VFI-F813 6.2.2.32  HVB Recharge Indications Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32 VFI-F813 HVB Recharge Indications
+
+- ID: 4764367
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4889509
+- Contents: System shall display Indexes and gauges to the user when vehicle is "plug in"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that system able to display Indexes and gauges when vehicle is "plugged in"
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, vehicle, display, is, Indexes, gauges, user, plug" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4889510
+- Contents: IDC shall display the parameters while battery is "plugged in" or "charging"
+ to the user:
+(see: image50.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system able to display the parameters, when battery is "plugged in" or "charging"
+
+IDC-457430- HMI_CAN:
+- Grooming Status: Approved
+- Grooming Comments: Data is parsed by System and provided to HMI
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, is, plugged, charging, parameters, battery, user" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image50.png
+
+3. ID: 4889515
+- Contents: IDC shall display the graphic animation to the user in real time for the following graph indicators :
+1. Range-time graph
+2. Charging power-time graph
+3. SOC-time graph
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system able to provide graphs to the user
+
+1. Range-time graph
+2. Charging power-time graph
+3. SOC-time graph
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4889516
+- Contents: IDC shall update Charging Parameter measurement unit, When system measurement units update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system able update changing unit when system units are updated.
+ SET-6 Measurement units setup
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "measurement units, update, Charging, measurement unit" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4889520
+- Contents: When Indexes/Parameters are shown more than one display, the indicators/gauges/graphs/values shall show same values & information.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System able to synchronize the values when Indexes/parameter are  shown in more than one display.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4889506
+- Contents: This function allows the visualization on central and rear displays of charging information
+(see: image48.png)
+(see: image49.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image48.png, image49.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image50.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image48.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image49.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F813 6.2.2.32  HVB Recharge Indications Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

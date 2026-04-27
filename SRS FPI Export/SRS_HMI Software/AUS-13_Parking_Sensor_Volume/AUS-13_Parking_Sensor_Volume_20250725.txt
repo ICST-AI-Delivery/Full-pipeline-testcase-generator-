@@ -1,0 +1,282 @@
+# AUS-13 6.2.1.18  Parking Sensor Volume Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.18 AUS-13 Parking Sensor Volume
+
+- ID: 4075391
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Grooming Comments: 25.02.2025, Ahmed, Pend, Abdul: Approved
+
+30.01.2025: One SRS requirement need confirmation from Domain team/FO
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4075410
+- Contents: The system shall manage Parking sensor volume setting only if satisfying the following proxi condition.
+NSP == '1'("present")
+NSP_Buzzer == '0'("Not Active")
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the proxi parameter NSP=1, NSP_Buzzer=0.
+ Verify that the Parking sensor volume setting is visible and user can turn on/off settings values. 
+Verify that the Parking sensor volume setting is hided if NSP=0 or NSP_Buzzer =1.
+- Grooming Status: Approved
+- Grooming Comments: NSP == '1'("present")
+NSP_Buzzer == '0'("Not Active")
+
+Manage means: hide to grey out if NSP =0
+or NSP_buzzer =1
+
+2:Ask on Engineering menu if it is mentioned in SRS
+
+https://jira.harman.com/jira/browse/FQ-894
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, manage, Parking, setting only, satisfying, following, volume, condition, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4077197
+- Contents: The system shall provide the "rear sensor - chime sound preview" at the selected volume level as "feedback" while adjusting the volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the parking sensor volume.
+
+While volume is being adjusted, Verify the preview of 'chime sound at the selected volume level' on HMI
+
+Note:
+The chime that shall be used for the preview is the Rear Sensor sound
+- Grooming Status: Approved
+- Grooming Comments: muthu: Audio play back
+
+Ahmed: OK to approve
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, provide, selected, adjusting, preview, level, feedback, volume" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HMI-LF-11256 - The chime that shall be used for the preview is the Rear Sensor sound
+
+3. ID: 4076096
+- Contents: The system shall allow the Parking sensor volume adjustment within the allowed range.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Change the volume
+Verify the volume change within range(1 to 8)
+
+Volume change should be reflected on HMI and in the CAN signal IDC_AudioStreams2.ParkAssistVolume
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Park Volume CAN signal: IDC_AudioStreams2.ParkAssistVolume
+
+Refer to IDC-417329 -
+FAD-0 Ferrari Audio Director Introduction.
+
+For Volume range : Refer IDC-423483
+
+4. ID: 4077027
+- Contents: The system shall always align HMI indication of Parking Sensor volume to the latest volume.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Start the system
+
+Verify the latest volume value is reflected on HMI.
+
+
+Note: The volume can be updated from HMI and other interface than the setting.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4763818
+- Contents: If setting Persistence type is Standard, the system shall persist the 'Parking sensor
+Volume' setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Parking sensor
+volume) for a user.
+.
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, setting, across, independent, cycles" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4763819
+- Contents: If setting persistent type = standard, the system shall set the 'Parking sensor
+volume' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the standard persistency.
+Change the Parking sensor
+volume setting value.
+
+Create error in memory reading.
+Verify that the Parking sensor
+volume setting value is set to default value in HMI..
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, sensorvolume, value, portion" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4763820
+- Contents: If setting Persistence type = Profiled, the system shall store the last 'Parking sensor
+volume' setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Parking sensor
+volume) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, sensorvolume, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4763821
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Parking sensor
+volume) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]: Persistence type can not be set via HMI. Ok to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4763822
+- Contents: If setting Persistence type = Profiled, the system shall set the 'Parking sensor volume' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Parking sensor
+volume setting value.
+
+create error in memory reading.
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu 11.12.2024]:OK to approve
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, Parking, to default, read, stored, volume, value, portion" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4075408
+- Contents: This setting allows the user to adjust the Parking Sensor Volume.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4076095
+- Contents: The system shall display the "Parking Sensor Volume" interfaces as per Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer HMI-LF-4517 - Parking sensor
+volume.
+
+3. ID: 4076103
+- Contents: The system shall store the updated value in Park_Volume in the Volume Database When the user updates the Parking sensor volume value.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, store, updated, updates, value, Database" )
+- State (Harman_Requirement): Review
+
+4. ID: 4076970
+- Contents: [Info] Refer to HMI specification for details about Parking sensor sound preview
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+5. ID: 4077042
+- Contents: The system shall apply the Persistence logics defined in Audio setting introduction.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Networking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer IDC-430467 - AUS-0 Audio setting introduction.
+
+6. ID: 4077052
+- Contents: Proxi
+Start Byte 29, start bit 0 - NSP (0 = "absent", 1 = "present")
+Start Byte 133, start bit 6 - NSP_Buzzer (0 = "Not Active", 1 = "Active")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 4077053
+- Contents: Output
+INFO_CAN:
+IDC_AudioStreams.ParkAssistVolume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-13 6.2.1.18  Parking Sensor Volume Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,128 @@
+# PFL-4 6.2.6.5  Delete profile Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.5 PFL-4 Delete profile
+
+- ID: 3939838
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3969974
+- Contents: IDC shall allow the user to delete any of existing User Profiles except Guest profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the user able to delete existing user profiles except guest profile.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "except" ) 
+Unclear term
+ (Look for: "any" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3969975
+- Contents: When the user requests to delete a selected User Profile through HMI then:
+IDC shall ask user confirmation for "User Profile Deletion".
+IDC shall clear the slot occupied by the selected User Profile  and reset availability by setting output signal PresentProfile[n] = 0where n is the index of the correspondent bit when the deletion confirm.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user profile delete procedure.
+
+verify the user confirmation for profile deletion 
+
+verify the slot after deletion.
+
+output signal PresentProfile[n] = 0,
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "n, requests, delete, ask, clear, occupied, selected, setting, is, confirm, Profile, HMI, confirmation, Deletion, slot, availability, index, bit" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3969976
+- Contents: IDC shall inform the user the deletion procedure has failed through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that deletion procedure is failed through HMI.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3969977
+- Contents: IDC shall restart the deletion process when the user asks to repeat the deletion procedure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to restart the deletion process when user ask to repeat the deletion.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "restart, asks" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3969978
+- Contents: If the user deletes the currently active User Profile, then:
+IDC shall Activate the default (Guest) profile.
+Provide a dedicated visualization cycle
+IDC shall Set output signal ActiveProfile = 0("Guest_Profile").
+Update all the internal settings values
+Retrieve driver position for guest profile
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to set guest profile when user delete the active user profile.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Activate, Set, signal" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3969973
+- Contents: This function allows the user to delete an existing User Profile.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-4 6.2.6.5  Delete profile Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

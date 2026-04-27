@@ -1,0 +1,176 @@
+=== COMPLETE IMAGE TEXT EXTRACTION ===
+
+IMAGE HEADER INFORMATION:
+Name: F834_VfB_R3_VehicleNotInUse
+Date: 2/23/2024, 11:30 AM
+
+=== ALL VISIBLE TEXT ELEMENTS ===
+
+LEFT SIDE INPUT SIGNALS:
+- EngineOnFoolLeftVeh
+- NFR_Speed_FA
+- NFR_Speed_FA_FailSts
+- EngineSts
+- EDriveSts
+- GasPedalPosition
+- VCUBrakePedalStsInfo
+- GasPedalPct1
+- GasPedalPct2
+
+LEFT SIDE SIGNAL PATHS (with arrows):
+- (~/EngineOnFoolLeftVeh/~)
+- (~/NFR_Speed_FA/~)
+- (~/NFR_Speed_FA_FailSts/~)
+- (~/EngineSts/~)
+- (~/EDriveSts/~)
+- (~/GasPedalPosition/~)
+- (~/VCUBrakePedalStsInfo/~)
+- (~/GasPedalPct1/~)
+- (~/GasPedalPct2/~)
+
+MAIN PROCESSING COMPONENT (Yellow Box):
+VehicleNotInUseAcq
+- NFR_Speed_FA
+- NFR_Speed_FA_FailSts
+- EngineSts
+- EDriveSts
+- GasPedalPosition
+- VCUBrakePedalStsInfo
+- GasPedalPct1
+- GasPedalPct2
+- VehicleNotInUse
+Type: VehicleNotInUse
+
+CENTRAL MANAGEMENT COMPONENT (Yellow Box):
+VehicleNotInUseMng
+- NotInUseMonitoringTimer
+- EngineOnFoolLeftVeh
+Horn/Interface_Horn
+Type: VehicleNotInUseMng
+
+SIGNAL PATHS FROM CENTRAL COMPONENT:
+- (~/NotInUseMonitoringTimer/~)
+- (~/Interface_Horn/~)
+
+RIGHT SIDE INTERFACE COMPONENTS:
+
+VehicleNotInUseInd (Yellow Box):
+- VehicleNotInUseSignaling
+Type: VehicleNotInUseInd
+
+Horn Interface (Yellow Box):
+- Interface_Horn
+Type: Horn
+
+CountdownVisualizationInterface (Yellow Box):
+- Interface_CountdownVisualization
+Type: CountdownVisualization
+
+SIGNAL PATHS TO RIGHT COMPONENTS:
+- (~/VehicleNotInUse/~)
+- (~/VehicleNotInUseSignaling/~)
+- (~/Interface_CountdownVisualization/~)
+
+BOTTOM COMPONENTS:
+
+VehicleNotInUse_Standby (connected with signal path):
+- (~/VehicleNotInUse_Standby/~)
+- VehicleNotInUse_Standby
+
+ECU COMPONENTS (Blue boxes):
+BCM (bottom center)
+VCU (bottom left)
+IDC (bottom right)
+
+=== COMPLETE SIGNAL FLOW MAPPING ===
+
+INPUT STAGE:
+EngineOnFoolLeftVeh → (~/EngineOnFoolLeftVeh/~) → VehicleNotInUseAcq
+NFR_Speed_FA → (~/NFR_Speed_FA/~) → VehicleNotInUseAcq
+NFR_Speed_FA_FailSts → (~/NFR_Speed_FA_FailSts/~) → VehicleNotInUseAcq
+EngineSts → (~/EngineSts/~) → VehicleNotInUseAcq
+EDriveSts → (~/EDriveSts/~) → VehicleNotInUseAcq
+GasPedalPosition → (~/GasPedalPosition/~) → VehicleNotInUseAcq
+VCUBrakePedalStsInfo → (~/VCUBrakePedalStsInfo/~) → VehicleNotInUseAcq
+GasPedalPct1 → (~/GasPedalPct1/~) → VehicleNotInUseAcq
+GasPedalPct2 → (~/GasPedalPct2/~) → VehicleNotInUseAcq
+
+PROCESSING STAGE:
+VehicleNotInUseAcq → VehicleNotInUse → VehicleNotInUseMng
+
+MANAGEMENT STAGE:
+VehicleNotInUseMng → NotInUseMonitoringTimer → (~/NotInUseMonitoringTimer/~)
+VehicleNotInUseMng → Horn/Interface_Horn → (~/Interface_Horn/~)
+
+OUTPUT STAGE:
+VehicleNotInUse → (~/VehicleNotInUse/~) → VehicleNotInUseInd
+VehicleNotInUse → (~/VehicleNotInUse/~) → VehicleNotInUseSignaling
+VehicleNotInUse → (~/VehicleNotInUse/~) → CountdownVisualizationInterface
+CountdownVisualizationInterface → (~/Interface_CountdownVisualization/~) → Interface_CountdownVisualization
+
+STANDBY STAGE:
+VehicleNotInUse_Standby → (~/VehicleNotInUse_Standby/~) → VehicleNotInUse_Standby
+
+=== COMPONENT TYPE ANNOTATIONS ===
+
+All yellow components show "Type:" labels:
+- VehicleNotInUseAcq: Type: VehicleNotInUse
+- VehicleNotInUseMng: Type: VehicleNotInUseMng  
+- VehicleNotInUseInd: Type: VehicleNotInUseInd
+- Horn/Interface_Horn: Type: Horn
+- CountdownVisualizationInterface: Type: CountdownVisualization
+
+=== ECU COMPONENTS ===
+
+Three blue ECU boxes at bottom:
+- VCU (Vehicle Control Unit) - bottom left
+- BCM (Body Control Module) - bottom center  
+- IDC (Instrument Display Cluster) - bottom right
+
+=== SIGNAL PATH NOTATION ===
+
+All signal paths use the format: (~/SignalName/~)
+This appears to be a standardized VfB (Virtual Function Bus) signal naming convention.
+
+=== COMPLETE CSV DATA EXTRACTION ===
+
+ALL_COMPONENTS.csv:
+Component_Name,Component_Type,Color,Position,Type_Label
+VehicleNotInUseAcq,Processing_Module,Yellow,Center_Left,VehicleNotInUse
+VehicleNotInUseMng,Management_Module,Yellow,Center,VehicleNotInUseMng
+VehicleNotInUseInd,Interface_Module,Yellow,Right,VehicleNotInUseInd
+Horn_Interface_Horn,Interface_Module,Yellow,Right,Horn
+CountdownVisualizationInterface,Interface_Module,Yellow,Right,CountdownVisualization
+VCU,ECU,Blue,Bottom_Left,ECU
+BCM,ECU,Blue,Bottom_Center,ECU
+IDC,ECU,Blue,Bottom_Right,ECU
+
+ALL_SIGNALS.csv:
+Signal_Name,Source,Target,Signal_Path,Direction
+EngineOnFoolLeftVeh,External,VehicleNotInUseAcq,~/EngineOnFoolLeftVeh/~,Input
+NFR_Speed_FA,External,VehicleNotInUseAcq,~/NFR_Speed_FA/~,Input
+NFR_Speed_FA_FailSts,External,VehicleNotInUseAcq,~/NFR_Speed_FA_FailSts/~,Input
+EngineSts,External,VehicleNotInUseAcq,~/EngineSts/~,Input
+EDriveSts,External,VehicleNotInUseAcq,~/EDriveSts/~,Input
+GasPedalPosition,External,VehicleNotInUseAcq,~/GasPedalPosition/~,Input
+VCUBrakePedalStsInfo,External,VehicleNotInUseAcq,~/VCUBrakePedalStsInfo/~,Input
+GasPedalPct1,External,VehicleNotInUseAcq,~/GasPedalPct1/~,Input
+GasPedalPct2,External,VehicleNotInUseAcq,~/GasPedalPct2/~,Input
+VehicleNotInUse,VehicleNotInUseAcq,VehicleNotInUseMng,Direct_Connection,Internal
+NotInUseMonitoringTimer,VehicleNotInUseMng,External,~/NotInUseMonitoringTimer/~,Output
+Interface_Horn,VehicleNotInUseMng,External,~/Interface_Horn/~,Output
+VehicleNotInUseSignaling,VehicleNotInUseInd,External,~/VehicleNotInUseSignaling/~,Output
+Interface_CountdownVisualization,CountdownVisualizationInterface,External,~/Interface_CountdownVisualization/~,Output
+VehicleNotInUse_Standby,External,External,~/VehicleNotInUse_Standby/~,Bidirectional
+
+=== EXACT TEXT POSITIONS AND LABELS ===
+
+Every visible text element has been captured including:
+- All input signal names (9 total)
+- All signal path notations with (~/~/~) format
+- All component names and their exact spelling
+- All "Type:" labels and their values
+- All ECU abbreviations (VCU, BCM, IDC)
+- Header information (Name and Date)
+- All connection arrows and their directions
+- All color coding (Yellow for processing modules, Blue for ECUs)

@@ -1,0 +1,78 @@
+# VFI-F020 6.2.2.1  Speedometer Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.1 VFI-F020 Speedometer
+
+- ID: 3408232
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, Security, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3645231
+- Contents: IDC shall provide speed indication through HMI on NDR(central) display.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify HMI indication of speed on central display
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, Security, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3645233
+- Contents: IDC shall synchronize the speed value when the speed showing in more than one display.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the synchronization(same speed values)  when the speed is shown in more than one display
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3645232
+- Contents: IDC shall display vehicle speed units in KMPH/MPH through HMI
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if the speed units are displayed in KMPH/MPH through HMI
+
+VEH_Speed_Indicator_kmh
+VEH_Speed_Indicator_mph
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F020 6.2.2.1  Speedometer Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

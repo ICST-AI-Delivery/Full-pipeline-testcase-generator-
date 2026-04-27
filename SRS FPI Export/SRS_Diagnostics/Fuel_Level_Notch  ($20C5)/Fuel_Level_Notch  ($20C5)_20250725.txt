@@ -1,0 +1,233 @@
+# UnknownID 6.2.4.3.2.17 Fuel Level Notch  ($20C5) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.17 Fuel Level Notch  ($20C5)
+
+- ID: 3982744
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- Grooming Comments: As per MTA it is not applicable for current programe. Need to chekc with Ferrari.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3982746
+- Contents: The System shall have the command allows to read the fuel (petrol) level in % of tank capacity.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the command should read the fuel (petrol) level.
+Unit- % of tank capacity.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3983431
+- Contents: The System shall have RecordDataIdentifier ($20C5) to know the Fuel Level Notch.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20C5)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3983485
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Conversions in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3983496
+- Contents: (101) FuelLevel_notch2
+If the 2nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch2 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3983520
+- Contents: (102) FuelLevel_notch3
+If the 3nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch3 as  Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3983559
+- Contents: (103) FuelLevel_notch4
+If the 4nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch4 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3983575
+- Contents: (104) FuelLevel_notch5
+If the 5nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch5 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3983580
+- Contents: (105) FuelLevel_notch6
+If the 6nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch6 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3983583
+- Contents: (106) FuelLevel_notch7
+If the 7nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch7 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3983587
+- Contents: (107) FuelLevel_notch8
+If the 8nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch8 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3983589
+- Contents: (108) FuelLevel_notch9
+If the 9nd notch switch-off threshold, the System shall Switch ON the FuelLevel_notch9 as Switching on = Switching off threshold + 2% (hysteresis).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Switching on = Switching off threshold + 2% (hysteresis).
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, notch, Switch, Switching, threshold, off, hysteresis" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3983590
+- Contents: The System shall support the following NRC's
+Read NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3983609
+- Contents: The System shall support the following NRC's
+Write NR
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the response code and error text in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No chance to simulate the fuel level so far, missing details for msg simulation.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.17 Fuel Level Notch  ($20C5) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

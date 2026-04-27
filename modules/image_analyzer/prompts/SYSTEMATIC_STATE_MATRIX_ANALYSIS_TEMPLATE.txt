@@ -1,0 +1,174 @@
+# SYSTEMATIC STATE MATRIX ANALYSIS TEMPLATE
+## Placeholder-Based Methodology for Complete State Matrix Generation
+
+**METHODOLOGY:** Systematic 2^n State Matrix Analysis with Placeholder Approach
+**PURPOSE:** Ensure complete and accurate state matrix generation through structured analysis
+**APPROACH:** Step-by-step output signal analysis with initial placeholder matrix
+
+---
+
+## STEP 1: INITIAL SETUP AND PLACEHOLDER MATRIX CREATION
+
+### A. Input Signal Identification
+**Extract from image:**
+- Signal 1: [Name] - [Description] - Binary: 0=[State0], 1=[State1]
+- Signal 2: [Name] - [Description] - Binary: 0=[State0], 1=[State1]
+- Signal 3: [Name] - [Description] - Binary: 0=[State0], 1=[State1]
+- Signal 4: [Name] - [Description] - Binary: 0=[State0], 1=[State1]
+- Signal 5: [Name] - [Description] - Binary: 0=[State0], 1=[State1]
+[Add more signals as needed]
+
+**Total Input Signals:** n = [number]
+**Total States Required:** 2^n = [calculation]
+
+### B. Output Signal Identification
+**Extract from image:**
+- Output 1: [Name] - [Description] - Binary: 0=[Inactive], 1=[Active]
+- Output 2: [Name] - [Description] - Binary: 0=[Inactive], 1=[Active]
+- Output 3: [Name] - [Description] - Binary: 0=[Inactive], 1=[Active]
+- Output 4: [Name] - [Description] - Binary: 0=[Inactive], 1=[Active]
+- Output 5: [Name] - [Description] - Binary: 0=[Inactive], 1=[Active]
+[Add more outputs as needed]
+
+### C. Create Initial Placeholder Matrix
+**PLACEHOLDER STATE MATRIX: [System Name] (from [image])**
+
+| State | Input1 | Input2 | Input3 | Input4 | Input5 || Output1 | Output2 | Output3 | Output4 | Output5 | State_Description |
+|-------|--------|--------|--------|--------|--------||---------|---------|---------|---------|---------|-------------------|
+| 00    | 0      | 0      | 0      | 0      | 0      || X       | X       | X       | X       | X       | [To be determined] |
+| 01    | 0      | 0      | 0      | 0      | 1      || X       | X       | X       | X       | X       | [To be determined] |
+| 02    | 0      | 0      | 0      | 1      | 0      || X       | X       | X       | X       | X       | [To be determined] |
+| 03    | 0      | 0      | 0      | 1      | 1      || X       | X       | X       | X       | X       | [To be determined] |
+[Continue for all 2^n states...]
+
+---
+
+## STEP 2: OUTPUT SIGNAL ANALYSIS (REPEAT FOR EACH OUTPUT)
+
+### OUTPUT 1 ANALYSIS: [Output1 Name]
+
+#### A. Visual Pattern Recognition
+**From timing diagram/matrix grid:**
+- Examine visual indicators (●/○, HIGH/LOW, filled/unfilled)
+- Identify which time columns show this output as active
+- Note any visual patterns or correlations
+
+#### B. Logic Rule Determination
+**Analyze input conditions for Output1 = 1:**
+- Review each state where visual shows Output1 active
+- Identify common input parameter patterns
+- Determine the Boolean logic rule
+
+**Derived Logic Rule for Output1:**
+```
+Output1 = 1 when: [Boolean expression using Input1, Input2, etc.]
+Example: Output1 = 1 when (Input1=1 AND Input2=1 AND Input3=1)
+```
+
+#### C. Apply Logic to All States
+**State-by-state evaluation:**
+- State 00 (00000): Input conditions → Output1 = [0 or 1] because [reason]
+- State 01 (00001): Input conditions → Output1 = [0 or 1] because [reason]
+- State 02 (00010): Input conditions → Output1 = [0 or 1] because [reason]
+[Continue for all states...]
+
+#### D. Replace X Values for Output1
+**Update placeholder matrix with Output1 values determined above**
+
+### OUTPUT 2 ANALYSIS: [Output2 Name]
+[Repeat the same process for Output2]
+
+### OUTPUT 3 ANALYSIS: [Output3 Name]
+[Repeat the same process for Output3]
+
+### OUTPUT 4 ANALYSIS: [Output4 Name]
+[Repeat the same process for Output4]
+
+### OUTPUT 5 ANALYSIS: [Output5 Name]
+[Repeat the same process for Output5]
+
+---
+
+## STEP 3: FINAL MATRIX COMPILATION
+
+### A. Complete State Matrix (All X Values Replaced)
+**FINAL STATE MATRIX: [System Name] (from [image])**
+
+| State | Input1 | Input2 | Input3 | Input4 | Input5 || Output1 | Output2 | Output3 | Output4 | Output5 | State_Description |
+|-------|--------|--------|--------|--------|--------||---------|---------|---------|---------|---------|-------------------|
+| 00    | 0      | 0      | 0      | 0      | 0      || [0/1]   | [0/1]   | [0/1]   | [0/1]   | [0/1]   | [Final description] |
+| 01    | 0      | 0      | 0      | 0      | 1      || [0/1]   | [0/1]   | [0/1]   | [0/1]   | [0/1]   | [Final description] |
+[Continue for all 2^n states with final values...]
+
+### B. Logic Rules Summary
+**Complete Boolean Logic for All Outputs:**
+- Output1 = [Boolean expression]
+- Output2 = [Boolean expression]
+- Output3 = [Boolean expression]
+- Output4 = [Boolean expression]
+- Output5 = [Boolean expression]
+
+### C. Validation Checklist
+**Systematic Verification:**
+- [ ] All 2^n states included (no missing combinations)
+- [ ] All X placeholders replaced with 0 or 1
+- [ ] Logic rules consistently applied across all states
+- [ ] Visual patterns from image accurately reflected
+- [ ] Domain-specific rules (automotive/system logic) validated
+- [ ] State descriptions updated with final determinations
+
+---
+
+## STEP 4: ANALYSIS VALIDATION
+
+### A. Cross-Reference with Visual Evidence
+**Visual Validation:**
+- Compare final matrix against timing diagram columns
+- Verify circle patterns (●=1, ○=0) match output values
+- Confirm state transitions align with visual sequence
+
+### B. Logic Consistency Check
+**Internal Consistency:**
+- Verify Boolean expressions produce expected results
+- Check for contradictions in logic rules
+- Validate dependency relationships between inputs/outputs
+
+### C. Domain Validation
+**System-Specific Rules:**
+- Apply automotive safety rules (if applicable)
+- Check hierarchical dependencies
+- Validate operational sequences
+- Confirm invalid states properly identified
+
+---
+
+## METHODOLOGY ADVANTAGES
+
+**Systematic Benefits:**
+1. **Complete Coverage:** Ensures all 2^n states are analyzed
+2. **Structured Approach:** Breaks complex analysis into manageable steps
+3. **Audit Trail:** Clear documentation of how each value was determined
+4. **Error Prevention:** Placeholder system prevents missing states
+5. **Logic Clarity:** Separate analysis of each output improves accuracy
+6. **Validation Framework:** Built-in checks ensure consistency
+
+**Quality Assurance:**
+- No states accidentally omitted
+- Clear reasoning for each output value
+- Systematic verification process
+- Visual evidence correlation
+- Domain rule validation
+
+---
+
+## TEMPLATE USAGE INSTRUCTIONS
+
+1. **Replace all [bracketed] placeholders** with actual values from the image
+2. **Follow the step sequence exactly** - do not skip steps
+3. **Complete one output analysis before moving to the next**
+4. **Document reasoning** for each logic rule determination
+5. **Validate against visual evidence** at each step
+6. **Perform final verification** using the checklist
+
+**File:** `analysis_templates/SYSTEMATIC_STATE_MATRIX_ANALYSIS_TEMPLATE.txt`
+**Status:** Ready for implementation in state matrix analyses

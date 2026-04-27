@@ -1,0 +1,174 @@
+# AUS-14 6.2.1.19  Vehicle Sound Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.19 AUS-14 Vehicle Sound
+
+- ID: 5520762
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Autosar, Media Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5561262
+- Contents: The system shall display the "Vehicle Sound" interfaces as per Ferrari design.
+(see: image26.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Verify the CAN signals and values when the settings menu is adjusted.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image26.png
+
+2. ID: 5520778
+- Contents: The system shall set the "NIT_VEHICLE_SETUP_3.StealthModeActive" output signal value according to HMI_Value as follows when the user requests a change of the Vehicle Sound setting value:
+HMI meaning      StealthModeActive
+Level 0                 1 ("Stealth")
+Level 1                 0 ("Amplified")
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the CAN signals and values when the settings menu is adjusted.
+- Grooming Status: Approved
+- Grooming Comments: [Ahmed_10-04-2025]
+Ferrari had a typo in this REQ, the correct values for stealth and amplified 
+Amplified = 0
+Stealth = 1
+
+Please refer FQ: https://jira.harman.com/jira/browse/FQ-1105
+- Expert Domains: Android HMI, IOC_Autosar
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, according, follows, requests, setting, meaning, Amplified, value, change" ) 
+Missing unit 
+ (Look for: "‘0,1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5561265
+- Contents: If setting Persistence type is Standard, the system shall persist the 'Vehicle Sound' setting independent of the users across different ignition cycles.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Set the Audio settings Persistence Type as Standard (proxi parameter "Profile" = 0 ("absent").)
+Change the Audio settings (Vehicle Sound) for a user.
+
+Verify the last value (value in the last user profile) is displayed on HMI settings for all users. 
+
+Verify the same setting is persisted for all the users across different ignition cycles.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, persist, setting, across, independent, cycles" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5561266
+- Contents: If setting persistent type = standard, the system shall set the 'Vehicle Sound' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Select the standard persistency.
+Change the Vehicle Sound setting value.
+
+Create new user profile.
+
+Verify that the Vehicle Sound setting value is set to default value in HMI..
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, set, to default, read, stored, type   standard, value, portion" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5561267
+- Contents: If setting Persistence type = Profiled, the system shall store the last 'Vehicle Sound' setting value for the current active user profile before system shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Vehicle Sound) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, store, setting, reboot, last, value, profile, shutdown" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5561269
+- Contents: If setting Persistence type = Profiled, the system shall recover the stored value for each profiled setting according to the active profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: set the Proxi parameter "Profile" =1.
+
+Verify that the last HMI Audio settings (Vehicle Sound) value is shown/restored as per the current user profile.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Profiled, recover, stored, profiled, according, value, setting, profile" )
+- State (Harman_Requirement): Approved
+
+7. ID: 5558570
+- Contents: If setting Persistence type = Profiled, the system shall set the 'Vehicle Sound' setting value to default value if the system can't read stored value from the dedicated memory portion.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Verification Criteria: Select the Profiled persistency. (set the Proxi parameter "Profile" =1.)
+
+Change the Vehicle Sound setting value.
+
+create new user profile.
+
+Verify the Audio settings value is set to default value in HMI
+- Grooming Status: Approved
+- Grooming Comments: [Muthu_15-04-2025]Default value is Amplified(0).
+- Expert Domains: Android HMI, Media Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, setting, Profiled, set, to default, read, stored, value, portion" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5561263
+- Contents: The system shall apply the Persistence logics defined in Audio setting introduction.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC-430467 - AUS-0 Audio setting introduction Persistence paragraph.
+
+2. ID: 5561285
+- Contents: HMI_CAN:
+NIT_VEHICLE_SETUP_3.StealthModeActive
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image26.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of AUS-14 6.2.1.19  Vehicle Sound Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,223 @@
+# PRK-2 6.2.4.3  GRID VIEWS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3 PRK-2 GRID VIEWS
+
+- ID: 3939638
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4759641
+- Contents: IDC-451440 - HMI-LF-7863 - Parking lines in rear camera + frontal and rear sensors configuration
+IDC-451817 - HMI-LF-7864 - Parking lines in Surround View.
+- Artifact Type: SRS Req
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4601313
+- Contents: The system shall allow the user to configure all the colors, distance thresholds, & 'lines dimensions & positions' of obstacle in Grid line.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the colors, distance thresholds, & "lines dimensions and positions" of the obstacle in Grid line can be configured via configuration file.
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4601502
+- Contents: The system shall support the following kind of grids
+Guidance lines
+Maximum turning lines
+Flagging lines
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: step1: Set the Gear direction to Forward or Reverse.
+step2: Rotate the steering angle.
+
+Verify that following are visible in Grid view
+
+Guidance lines
+Maximum turning lines 
+Flagging lines
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3958286
+- Contents: The system shall evaluate the curvature of a visualized trajectory if 'Ie_bol_LWSOK (signal "GE.LWSFailSts")' is valid. -> Map to below SRS
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, evaluate, visualized, curvature, trajectory" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3958292
+- Contents: The system shall deform visualized grids based on obstacle distance and position given by NSP(parking sensors) signals.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, deform, visualized, based, given, NSPparking, grids, distance, position, signals" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3958294
+- Contents: The system shall implement the following kinds of grids:
+Guidance lines
+Maximum turning lines
+Flagging lines
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "Maximum" )
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3958303
+- Contents: The system shall use(GE.LWS_Angle) to evaluate "the curvature of the visualized grids for the forecasted trajectory" If steering angle ("GE.LWSFailSts")' is valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the value of the signal GE.LWSFailSts to 0x0 (Fail Not Present).
+Verify the curvature of the visualized grids, based on the steering angle (GE.LWS_Angle).
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, evaluate, visualized, forecasted, curvature, grids, trajectory" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3958305
+- Contents: The system shall not visualize grid for the fore-casted trajectory If the signal GE.LWSFailSts is not valid.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: GE.LWSFailSts is not valid (0x1, 0x2, 0x3).
+
+Verify that the parking grids are not visible in surround view.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3958312
+- Contents: The system shall show the front or rear parking grid lines of the vehicle based on the signal NCR_INFO.FutureSyncGear.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the signal NCR_INFO.FutureSyncGear) = "R
+
+Verify that the Grid line indicate the Rear side of the vehicle
+
+Set the signal NCR_INFO.FutureSyncGear) != "R
+
+Verify that the Grid line indicate the front side of the vehicle
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "they" ) 
+Passive voice
+ (Look for: "are shown, is set" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3958322
+- Contents: The system shall activate or deactivate grids by toggling the dedicated HMI button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Sensor
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, deactivate, toggling, grids, button" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3958089
+- Contents: This function describes the parking lines (grids/guidance lines) management.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3958257
+- Contents: The system shall display the Grid Views as reported in: 
+IDC-451441 - HMI-LF-7862 - Parking Lines
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, Views, lines, camera, sensors, View" )
+- State (Harman_Requirement): Review
+
+3. ID: 3958267
+- Contents: The system shall implement the logics of Grid Views according to:
+IDC-451442 - SFS F802 – Front and Rear Parking Camera Management 
+IDC-451815 - SFS F560 – Surround View Management
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, according, logics, Views, Parking, Management" )
+- State (Harman_Requirement): Review
+
+4. ID: 4601503
+- Contents: Refer to HMI specification for all parking lines visualization, shape, color, and animations.
+- Artifact Type: Information
+- Grooming Status: Review
+- State (Harman_Requirement): Review
+
+5. ID: 3958288
+- Contents: The system shall not visualize trajectory if 'Ie_bol_LWSOK' is  not valid. -> Map below
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-2 6.2.4.3  GRID VIEWS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

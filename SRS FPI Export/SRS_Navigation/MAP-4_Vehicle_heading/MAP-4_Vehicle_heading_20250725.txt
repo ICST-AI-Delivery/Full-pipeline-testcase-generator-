@@ -1,0 +1,75 @@
+# MAP-4 6.2.1.4  Vehicle heading Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4 MAP-4 Vehicle heading
+
+- ID: 3713664
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, GNSS_Navigation
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713687
+- Contents: System shall access the GPS heading information in order to retrieve the exact car heading.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify the compass direction in IVI display
+- Grooming Status: Approved
+- Grooming Comments: ferrari head unit does not have internal compass sensor and assumption is to provide GPS heading.
+- Expert Domains: GNSS_Navigation
+- RQA Score: 90
+- Issues Found by RQA: Escape clause
+ (Look for: "in order to" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+2. ID: 3713688
+- Contents: IDC shall provide compass (GPS heading) information through HMI interface.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: Verify the compass direction in IVI display
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Domain team will provide the verification criteria once the development is completed, and confluence page will be shared.
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713686
+- Contents: This function allows User to observe the compass icon and text label of the movement direction in the dedicated status area, if Compass visualization is enabled.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of MAP-4 6.2.1.4  Vehicle heading Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,64 @@
+# ICM-1 6.2.1.1.3  NVO Physical Command Skip/Seek Button Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.3 ICM-1 NVO Physical Command Skip/Seek Button
+
+- ID: 3595732
+- Artifact Type: SRS Feature
+- Responsible Domain: Media Core
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3533758
+- Contents: IDC shall support Skip/Seek forwards command that changes media track or radio player with gestures available as pressure, short press, continuous press, long pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Skip/Seek forwards command functionality with the gestures mentioned. CAN Signal used : STATUS_NVO.AudioModeUpCntrl
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3533759
+- Contents: IDC shall support Skip/Seek backwards command that changes media track or radio player with gestures available as pressure, short press, continuous press, long pressure
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Skip/Seek Backwards command functionality with the gestures mentioned. CAN Signal used : STATUS_NVO.AudioModeDownCntrl
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of ICM-1 6.2.1.1.3  NVO Physical Command Skip/Seek Button Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

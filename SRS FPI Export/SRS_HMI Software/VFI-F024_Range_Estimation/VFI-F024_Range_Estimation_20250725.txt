@@ -1,0 +1,192 @@
+# VFI-F024 6.2.2.24  Range Estimation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.24 VFI-F024 Range Estimation
+
+- ID: 3918540
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: 27
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3918541
+- Contents: IDC shall retrieve ElectricRangeHMI_BEV value to provide the Available Range indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the Available range indication when ElectricRangeHMI_BEV value retrieved.
+
+xEV_RANGE_HMI.ElectricRangeHMI_BEV
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3918542
+- Contents: IDC shall convert the retrieved value in miles/kms( IDC-425412 - SET-6 Measurement units setup).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if the retrieved values are in miles/kms
+IDC-425412 - SET-6 Measurement units setup
+
+xEV_RANGE_HMI.ElectricRangeHMI_BEV
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3918543
+- Contents: IDC shall read ElectricRangeHMI_DuringCharge value to retrieve the "Range added during charge" information in kms/miles.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check range added during charge information in kms/miles when ElectricRangeHMI_DuringCharge value read.
+
+xEV_RANGE_HMI.ElectricRangeHMI_DuringCharge
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3918544
+- Contents: IDC shall display the Range added indication when IDC receive OBC_Status= (AC_Power_flow_active OR DC_Power_flow_active) on cluster C2.1 area.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check the range added indication when  IDC receives 
+OBC_Status= (AC_Power_flow_active OR DC_Power_flow_active).
+
+xEV_RANGE_HMI.ElectricRangeHMI_DuringCharge
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, added, receive, indication" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4728631
+- Contents: IDC shall display a popup when xEV_RANGE_HMI is not receive.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the popup when xEV_RANGE_HMI is not receive
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, is, receive" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4728630
+- Contents: IDC shall display a popup when PWT_STATUS7 is not receive.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up when PWT_STATUS7 is not receive
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, is, receive" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3918545
+- Contents: IDC shall read HVB_TimeToFullDisharge to provide the indication of time to flat battery.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check the indication of time to flat battery when HVB_TimeToFullDisharge read.
+
+PWT_STATUS7.HVB_TimeToFullDisharge
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3918548
+- Contents: IDC shall display Residual time to complete charge indication when time to discharge is less than 60min.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to see HVB_TimeToFullDisharge value when HVB_TimeToFullDisharge value <60 min.
+
+PWT_STATUS7.HVB_TimeToFullDisharge
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, to complete, to discharge, is, time, indication" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3918550
+- Contents: IDC shall display time to discharge in HH:MM format if the battery discharge estimation is 60 minutes to 1440 minutes.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to see the indication in hh:mm format.
+
+PWT_STATUS7.HVB_TimeToFullDisharge
+
+Condtion:
+60 min ≤ HVB_TimeToFullDisharge<1440 min.
+
+where hh = HVB_TimeToFullDisharge / 60 and mm = HVB_TimeToFullDisharge % 60.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, to discharge, time, MM" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3918549
+- Contents: IDC shall display time to discharge in dd format If the battery discharge estimation is less than or equal to1440 min.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to see the indication in dd format.
+
+PWT_STATUS7.HVB_TimeToFullDisharge
+- Grooming Status: Review
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, to discharge, time, format" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F024 6.2.2.24  Range Estimation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

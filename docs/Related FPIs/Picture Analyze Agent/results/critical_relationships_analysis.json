@@ -1,0 +1,66 @@
+[
+  {
+    "target_feature": "Low_Fuel_Warning",
+    "matrix_source": "sample_relationship_matrix.json",
+    "critical_relationships": {
+      "input_dependencies": [],
+      "output_dependencies": [
+        "Warning_Display"
+      ]
+    },
+    "analysis_summary": {
+      "total_input_dependencies": 0,
+      "total_output_dependencies": 1,
+      "bidirectional_dependencies": []
+    }
+  },
+  {
+    "target_feature": "Power_Management",
+    "matrix_source": "sample_relationship_matrix.json",
+    "critical_relationships": {
+      "input_dependencies": [],
+      "output_dependencies": [
+        "Sleep_Mode"
+      ]
+    },
+    "analysis_summary": {
+      "total_input_dependencies": 0,
+      "total_output_dependencies": 1,
+      "bidirectional_dependencies": []
+    }
+  },
+  {
+    "target_feature": "Ambient_Light_Sensor",
+    "matrix_source": "sample_relationship_matrix.json",
+    "critical_relationships": {
+      "input_dependencies": [],
+      "output_dependencies": [
+        "Auto_Headlights"
+      ]
+    },
+    "analysis_summary": {
+      "total_input_dependencies": 0,
+      "total_output_dependencies": 1,
+      "bidirectional_dependencies": []
+    }
+  },
+  {
+    "target_feature": "Fuel_Level",
+    "matrix_source": "sample_relationship_matrix.json",
+    "critical_relationships": {
+      "input_dependencies": [
+        "Low_Fuel_Warning"
+      ],
+      "output_dependencies": [
+        "Low_Fuel_Warning"
+      ]
+    },
+    "analysis_summary": {
+      "total_input_dependencies": 1,
+      "total_output_dependencies": 1,
+      "bidirectional_dependencies": [
+        "Low_Fuel_Warning"
+      ]
+    }
+  }
+]

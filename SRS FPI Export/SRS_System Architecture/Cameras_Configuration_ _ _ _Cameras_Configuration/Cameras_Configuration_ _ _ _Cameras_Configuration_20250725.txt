@@ -1,0 +1,86 @@
+# UnknownID 6.1.5.2.1 Cameras Configuration       Cameras Configuration Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.5.2.1 Cameras Configuration       Cameras Configuration
+
+- ID: 2354071
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354072
+- Contents: 6.1.5.2.1.1 The System shall guarantee at least the following cameras configuration setup: *...       The System shall guarantee at least the following cameras configuration setup:   Basic configuration: Only the rear camera is connected to the ECU;   Dual configuration: rear and front cameras connected to the ECU;   Surround configuration: rear, front, and two lateral cameras connected to the ECU.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+- Test Stage: System Qualification Test
+- Verification Criteria: receiving video streams through the cameras running in each configuration
+- Grooming Status: Approved
+- Grooming Comments: The Dual camera is requested by Ferrari in SVS requirements. It is red label.
+- State (Harman_Requirement): Approved
+
+2. ID: 2354073
+- Contents: 6.1.5.2.1.2 For RVC configuration, it shall be possible to display the video output on several displays according to the Ferrari specification.   Note: RVC on IVI display is from white label
+- Artifact Type: SRS Req
+- Responsible Domain: Camera Access
+- Verification Criteria: Activate the reverse gear
+Verify that the RVC view in the displays applicable to Ferrari.
+
+RVC view should be removed from the displays on deactivating the reverse gear.
+- Grooming Status: Blocked
+- Grooming Comments: avaloor, Nithin Prakash, Debojyoti Pal 01.12.2013:
+VC can be updated after the confirmation Ferrari
+- Expert Domains: FuSa, Virtualization
+
+3. ID: 3142236
+- Contents: 6.1.5.2.1.3 For SVC configuration, it shall be possible to display the video output on several displays according to the Ferrari specification.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Blocked
+- Grooming Comments: 1. Whether different contents to be displayed or same content to be displayed?
+2. What is the resolution and control ability of the display (whether display would be controlled by main screen?)
+3. what are the screen numbers on which video need to display?
+4. is it be displayed simultaneously? or on different time instant video need to be displayed?
+- State (Harman_Requirement): New
+
+4. ID: 2354074
+- Contents: 6.1.5.2.1.4 When the HMI of the configuration contains language-specific symbols or words, t...       When the HMI of the configuration contains language-specific symbols or words, the System shall update them according to the selected language.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Blocked
+- Grooming Comments: camara team need to clarify - need team to groom this req.
+- Expert Domains: DMS-OMS
+
+### Informational Items:
+
+1. ID: 2354075
+- Contents: 6.1.6 Cluster Functionalities       Cluster Functionalities
+- Artifact Type: Information
+
+2. ID: 2354076
+- Contents: 6.1.6.1 Cluster Features       Cluster Features
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.5.2.1 Cameras Configuration       Cameras Configuration Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

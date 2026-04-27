@@ -1,0 +1,157 @@
+# SET-71 6.2.3.7.10  Snow Chain mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.10 SET-71 Snow Chain mode
+
+- ID: 4009312
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4015817
+- Contents: System shall manage the "Snow Chain mode" setting when proxi parameter "RWS" == 1 ("present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition.
+"RWS" == 1 ("present").
+
+Start Byte 28, start bit 6 - RWS (0 = "Absent", 1 = "Present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, manage, setting, proxi, mode, parameter, RWS, present" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 4015821
+- Contents: System shall start a timer for limited waiting of the feedback signal SnowChainModeLampSts when each transition from (HMISts == HMI_OFF OR HMI_ON) to (HMISts == HMI_PowerOn).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the functionality of the timer for feedback signal waiting during HMI transitions. (HMISts == HMI_OFF OR HMI_ON) to (HMISts == HMI_PowerOn).
+
+STATUS_C_RWS.SnowChainModeLampSts
+
+timer value - 2000ms
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, start, timer, waiting, SnowChainModeLampSts, transition, HMISts" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4015820
+- Contents: IDC shall inhibit the "Snow Chain mode" setting until the timer expiration OR the feedback signal should receive.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to restrict the snow chain mode setting until either the timer expires, or the feedback signal is received.
+
+NIT_VEHICLE_SETUP.SnowChainMode
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall inhibit, should receive" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4015822
+- Contents: System shall inhibit user's interactions with the "Snow Chain mode" setting when the input signal WarningLamp==1("Yellow_Lamp")OR2("Red_Lamp").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to restrict the snow chain mode setting when the input signal received.
+
+WarningLamp==1("Yellow_Lamp")OR2("Red_Lamp").
+
+STATUS_C_RWS.WarningLamp
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inhibit, setting, interactions, mode, signal WarningLamp  1" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4015819
+- Contents: IDC shall set the output signal according to start the timer When the user requests the change of the Snow chain mode setting state.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the output signal when user change the snow chain mode setting.
+
+NIT_VEHICLE_SETUP.SnowChainMode
+
+INFO_SnowChainMode
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, according, start, requests, selection, timer, change, mode, state" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4015825
+- Contents: IDC shall allow user to activate/deactivate the snow chain mode through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to activate/deactivate the snow chain mode.
+
+NIT_VEHICLE_SETUP.SnowChainMode
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to activate, deactivate, mode, HMI" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4015824
+- Contents: IDC shall allow user to select Lamp_off/Lamp_on snow chain lamp mode setting through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check if user able to select Lamp_off/Lamp_on snow chain lamp mode setting.
+
+STATUS_C_RWS.SnowChainModeLampSts
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4015818
+- Contents: This setting allows the user to adjust the system for driving the car safely, when the snow chains are mounted on wheels.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-71 6.2.3.7.10  Snow Chain mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

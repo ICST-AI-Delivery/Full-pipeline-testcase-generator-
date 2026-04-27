@@ -1,0 +1,132 @@
+# UnknownID 6.2.1.1.28.1 AM HD Radio (MPS Only)skip Functionality Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.28.1 AM HD Radio (MPS Only)skip Functionality
+
+- ID: 5107421
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5107425
+- Contents: System shall allow user to skip the AM HD radio stations by short press on SWC button of Radio player.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify the AM radio station is skipped by short press on swc button
+
+Skip down: command triggers next station (major frequency)
+Skip up: command triggers previous station (major frequency).
+- Grooming Status: Approved
+- Grooming Comments: Adding systemcore and IOC as experts for hard keys handling
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 5107437
+- Contents: System shall allow user to set the next favourite frequency available for AM HD Radio in favourite list by short press on skip buttons when favourite station is playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: when favourite flag is on and skip up button is pressed user can able to go the next favourite station in the favourite list
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, station, allow, to set, is, playing, frequency, Radio, list, press, buttons" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5107497
+- Contents: User shall have the option for disabling HD Radio technology then all AM HD Radio features will disabled.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: When user disable HD Raido it should will go back to analog stations and HD stations will be removed from ststion list.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall have, shall grayed out" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5107444
+- Contents: AM HD Radio Tune Up/Down Functionality shall implemented according to HD radio guidelines RD_HD-05
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Its a white label requirement, space4 will take care of this
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Functionality, implemented, according, Up, guidelines" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5107446
+- Contents: system shall exclude the management of SPS channels for AM HD Radio technology as following logic: (see: image11.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Skip UP will only go to next MPS stations  available in station list.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image11.png
+
+6. ID: 5074469
+- Contents: when the antenna is detached from the radio then functionality shall unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall disable the strong list functionality when antena is detached.
+
+In Now playing Screen, No Station available will be displayed.
+
+Reconnect the antenna will solve it of the active scan of available station.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is detached" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5107423
+- Contents: [Info]This function allows the user to jump to the next/previous AM HD Radio stations on the station list or favorite list via physical and soft buttons
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image11.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.28.1 AM HD Radio (MPS Only)skip Functionality Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

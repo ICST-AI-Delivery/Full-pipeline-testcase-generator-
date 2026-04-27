@@ -1,0 +1,117 @@
+# UnknownID 6.1.4.3.3.1 General Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.4.3.3.1 General
+
+- ID: 2354057
+- Artifact Type: SRS Feature
+- Responsible Domain: USB
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354058
+- Contents: 6.1.4.3.3.1.1 The System shall support any USB 2.0/3.2 Hub silicons.       The System shall support any USB 2.0/3.2 Hub silicons.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+
+2. ID: 2354059
+- Contents: 6.1.4.3.3.1.2 The System shall support data transmission on all USB ports of the USB Hub simultaneously.   Note: the Hub side adaptation is from Red label
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Connect multiple devices on the two ports of the USB hub , Verify that the devices are working.
+Note: The supported devices are AA, CarPlay/Carlife, Pen drive, MTP. iPOD
+- Grooming Status: Approved
+- Grooming Comments: the Hub side adaptation is from Red label
+- Expert Domains: USB
+- TestTeamComment: JHaerig: Approved in regrooming 08.12.23
+
+3. ID: 2354060
+- Contents: 6.1.4.3.3.1.3 The System shall perform a USB role switch (toggle between USB Device and Host Mode) for any customer USB port, e.g., Apple CarPlay use.   Note: Hub side adaptation is from red label
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: Software Qualification Test, System Qualification Test
+- Verification Criteria: Verify that role switch is happened for the connected Carplay device.
+Verify the Carplay session is established.
+
+This can be verified by using the logs (e.g logcat)
+- Grooming Status: Approved
+- Grooming Comments: Gabriel Grigoras 23.08.2023]  Out of 2 USB ports, only one port supports projection . Other one is used for GNSS module connection.
+
+This is white label. Need to get confirmation on the applicability in Red Label.
+- TestTeamComment: Hsutter [2024-04-09]Send mail to Andreas Major: Information in Verification Criteria is missing
+
+4. ID: 2354061
+- Contents: 6.1.4.3.3.1.4 The System shall perform an on-the-fly change between the device connected to any USB ports of the USB Hub as the USB host (e.g., in Apple CarPlay mode).
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Grooming Comments: [avaloor, JoPaul, BTanwar 28.07.2023]
+White label requirement.
+- Expert Domains: Security
+
+5. ID: 2354062
+- Contents: 6.1.4.3.3.1.5 The System shall ensure that the role-change is only enabled on one of the devices connected to the USB Hub, i.e. the System shall only support one instance of CarPlay over USB at a time.   Note: the Hub support is from Red label
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that, the role switch should happen for one device at a time.
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+6. ID: 2354063
+- Contents: 6.1.4.3.3.1.6 The System shall support Dual Upstream technology.
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Carplay session got established with the Carplay device.
+- Grooming Status: Blocked
+- Grooming Comments: 18.12.2023
+Dipin, Josmon, Abdul : Approved
+
+
+Need update from domain team
+
+7. ID: 2354064
+- Contents: 6.1.4.3.3.1.7 The System shall support Multi-Host technology (e.g., FlexConnect)
+- Artifact Type: SRS Req
+- Responsible Domain: USB
+- Grooming Status: Blocked
+- Grooming Comments: Need update from domain team
+
+### Informational Items:
+
+1. ID: 2354065
+- Contents: 6.1.5 Infotainment Functionalities       Infotainment Functionalities
+- Artifact Type: Information
+
+2. ID: 2354066
+- Contents: 6.1.5.1 Android Auto       Android Auto
+- Artifact Type: Information
+
+3. ID: 2354067
+- Contents: 6.1.5.1.1 Connection       Connection
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.4.3.3.1 General Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

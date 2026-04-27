@@ -1,0 +1,240 @@
+# PMN-3 6.2.2.3  Cabin Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3 PMN-3 Cabin Mode
+
+- ID: 3408205
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4033969
+- Contents: IDC shall manage Cabin Mode functionality only if proxi parameter CabinMode == 1 ("present").
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the proxi condition to manage cabin mode.
+
+CabinMode == 1 ("present").
+
+Proxi
+Start Byte 184 , Start bit 7 - CabinMode (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+2. ID: 3408206
+- Contents: IDC shall allow user to activate/deactivate the cabin mode
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user able to enable /disable the cabin mode.
+
+
+HMI_CAN:
+HMI_INFO.CabinModeSts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to activate, deactivate, mode" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4607360
+- Contents: System shall provide the F169 Info 1 popup to allow the user to activate the setting when HVB_SOC_HMI > SOC_Thd1.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the F169 info1 pop up when  HVB_SOC_HMI > SOC_Thd1
+
+xEV_STS_HMI.HVB_SOC_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, allow, to activate, popup, user, setting" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+4. ID: 4607361
+- Contents: System shall provide the F169 Info "2" to allow the user to activate the setting when SOC_Thd2< HVB_SOC_HMI ≤ SOC_Thd1.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the F169 info2 pop up when  SOC_Thd2< HVB_SOC_HMI ≤ SOC_Thd1
+
+xEV_STS_HMI.HVB_SOC_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, allow, to activate, Info, user, setting" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+5. ID: 4607364
+- Contents: System shall prevent the setting activation and provide F169 Info 3 pop up when HVB_SOC_HMI ≤ SOC_Thd2.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the F169 info3 pop up when  HVB_SOC_HMI ≤ SOC_Thd2
+
+xEV_STS_HMI.HVB_SOC_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, prevent, provide, activation, Info, up" )
+- TestTeamComment: Dev Studio is Implemented for Base ,As ferrari is Advanced,so dev studio is under Implemented as per discussion in Proxi Parameter Meeting
+- State (Harman_Requirement): Approved
+
+6. ID: 4636074
+- Contents: System shall set CabinModeSts as Disabled when HVB_SOC_HMI ≤ SOC_Thd2.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system able to disable the cabin mode when HVB_SOC_HMI ≤ SOC_Thd2.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "Disabled" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4605323
+- Contents: Activating cabin mode all passenger's climate function shall be aligned with the driver ones
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the synchronization
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "all" ) 
+Passive voice
+ (Look for: "be aligned" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4605333
+- Contents: System shall Hide the sync buttons when cabin mode is on.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the sync buttons when cabin mode is ON
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Hide, is, buttons, mode" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4605348
+- Contents: System shall disable the cabin mode when vehicle is in ON and notin parking.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to disable the cabin mode when vehicle is in ON and not in parking.
+
+HMIPowerOnReq == 1 ("Active")
+ActualGearforDisplay != P
+Then IDC shall set CabinModeSts = 0 ("Not_Enabled")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, vehicle, disable, is, mode, parking" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4605372
+- Contents: System shall display warning pop up when user trying to activate cabin mode in vehicle power on state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the warning pop up in vehicle in power on and trying to activate cabin mode
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, trying, to activate, up, mode, power" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4605433
+- Contents: System shall allow user to manage climate and shall't switch off blower when HMI and Cabin modes are ON state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to manage climate and unable to switch off blower when HMI and CABIN modes ON
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, modes, allow, to manage, switch off, are, climate, blower, HMI, state" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4605447
+- Contents: System shall show a message in my Ferrari app when cabin mode is active after a calibrated time out.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the message in my Ferrari app when cabin mode is active.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, show, is active, calibrated, message, app, mode, time out" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4033972
+- Contents: IDC shall provide this visualization cycle if Cabin Mode is enabled AND IDC receives a
+transition of VPSDoorSts from [2 ("Unlocked_External") OR 3 ("Unlocked_Internal")] to [0("Locked_External") OR 1 ("Locked_internal")]
+F169 Info 1 (16901):
+[Info] This popup allows the user to confirm or discard the cabin mode activation and provides information about the user about the functionality
+F169 Info 2 (16902):
+[Info] This popup allows the user to confirm or discard the cabin mode activation and provides information about the user about the low battery condition
+
+F169 Info 3 (16903):
+[Info] This popup prevents the user to activate the cabin mode activation due to critically low battery condition
+(see: image3.png)
+- Artifact Type: Information
+- State (Harman_Requirement): Approved
+- Visual Elements: image3.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image3.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PMN-3 6.2.2.3  Cabin Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

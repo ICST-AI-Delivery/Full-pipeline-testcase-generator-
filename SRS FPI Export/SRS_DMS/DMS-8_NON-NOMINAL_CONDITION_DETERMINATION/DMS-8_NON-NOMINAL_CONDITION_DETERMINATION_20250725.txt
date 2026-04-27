@@ -1,0 +1,610 @@
+# DMS-8 6.2.1.9  NON-NOMINAL CONDITION DETERMINATION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.9 DMS-8 NON-NOMINAL CONDITION DETERMINATION
+
+- ID: 3788603
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: Audio Control, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4381048
+- Contents: The system shall show visual acoustic on HMI if IDC is in Nominal condition with "VehicleSpeedVSOSig" >= '20' km/h "(Ce_v_SpeedThAct1)" & <'50' km/h "(Ce_v_SpeedThAct2)" & driver is inattentive for '5.5' Seconds "(Ce_t_WrnActTime1)" during "No-DMS" failure.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+No DMS failure and IDC is in Nominal condition
+
+1. Set the VehicleSpeedVSOSig >=  20 km/h and less than 50 km/h.
+2. Driver is inattentive for 5.5 sec.
+
+Verify the Visual acoustic on HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Marwan_06-11-2025] Requirement is Red label.
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, is inattentive, acoustic, HMI, amp, Seconds, No-DMS, failure" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: During No DMS failure, the system shall show visual acoustic on HMI if IDC is in Nominal condition with VehicleSpeedVSOSig ">= 20 Km/h(Ce_v_SpeedThAct1)" & "< 50 km/h (Ce_v_SpeedThAct2)" & driver is inattentive for 5.5 Sec(Ce_t_WrnActTime1).
+
+2. ID: 4355863
+- Contents: The system shall show Visual acoustic on HMI if IDC is in Non-nominal condition with"(VehicleSpeedVSOSig)" >= '20' km/h"(Ce_v_SpeedThAct1)" & < '50' km/h"(Ce_v_SpeedThAct2)" & Driver is "inattentive" for '4.5' seconds"(Ce_t_WrnActTime2+ Ce_t_WrnActTimeNonNom)" during "No-DMS" failure.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System validation Test
+- Verification Criteria: Precondition:
+No DMS failure and IDC is in Non- Nominal condition
+
+Set the speed >= 20 km/h and , 50 km/h
+
+Driver is inattentive for 4.5 seconds (Ce_t_WrnActTime2+ Ce_t_WrnActTimeNonNom)
+
+Verify the Visual acoustic on HMI
+- Grooming Status: Approved
+- Grooming Comments: [Marwan_06-11-2025] Requirement is Red label.
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, is, acoustic, HMI, amp, seconds, No-DMS, failure" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4381059
+- Contents: The system shall show visual acoustic on HMI if IDC is in Nominal condition with "VehicleSpeedVSOSig" >= '50' km/h"(Ce_v_SpeedThAct2)" & Driver is "inattentive" for '3' seconds"(Ce_t_WrnActTime2)" during "No-DMS" Failure.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondtion:
+No DMS failure and IDC is in  Nominal condition
+
+1. Set the VehicleSpeedVSOSig >= 50 km/h (Ce_v_SpeedThAct2)
+
+2. Driver is inattentive for 3 seconds (Ce_t_WrnActTime2)
+
+Verify the Visual acoustic on HMI
+- Grooming Status: Approved
+- Grooming Comments: [Marwan_06-11-2025] Requirement is Red label.
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, is, acoustic, HMI, km/h, amp, seconds, No-DMS, Failure" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4355889
+- Contents: The system shall show visual acoustic on HMI if IDC is in Non-Nominal Condition with "VehicleSpeedVSOSig" >= '50' km/h"(Ce_v_SpeedThAct2)" & Driver is "inattentive" for '4.5' seconds"(Ce_t_WrnActTime2+Ce_t_WrnActTimeNonNom)" during "NO-DMS" failure.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+No DMS failure and IDC is in Non- Nominal condition
+
+1.Set the speed >= 50 km/h
+2. Driver is inattentive for 4.5 seconds (Ce_t_WrnActTime2+ Ce_t_WrnActTimeNonNom)
+
+Verify the Visual acoustic on HMI
+- Grooming Status: Approved
+- Grooming Comments: [Marwan_06-11-2025] Requirement is Red label.
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, is, acoustic, HMI, km/h, amp, seconds, NO-DMS, failure" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3788610
+- Contents: The system shall detect the Non-Nominal condition when Power On request is active(key-on).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate Ignition.
+
+Set the below Non-Nominal condition for greater than or equal to 2 seconds(Ce_t_NonNomTimeTh)
+
+Verify the value of the CAN signal NonNomCond is set to 2.
+
+Non-Nominal Conditions : mouth mask, face occlusion, partial cover are detected in all combinations.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, request, detect, is activekey, Condition, Power" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3788613
+- Contents: The system shall recognize if the driver is wearing IR blocking glasses.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+7. ID: 3788626
+- Contents: The System shall set Le_bol_NonNomCond as TRUE if the driver is wearing IR blocking glasses.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3788625
+- Contents: The System shall send Oe_enu_NIRBlockGlassDet = glasses_detection and calculate Le_enu_CabinDivision using coarse gaze(head direction estimation) algorithm if the driver is wearing IR blocking glasses.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3788785
+- Contents: The System shall set Oe_enu_NIRBlockGlassDet = No_glasses_detection if the driver is not wearing IR blocking glasses.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 60
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3788791
+- Contents: The system shall recognize mouth occlusion(eg. if the driver is wearing a face-mask).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3788799
+- Contents: The system shall recognize if any facial occlusion that could influence attentiveness detection is present.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 50
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3788802
+- Contents: The System shall recognize if the driver has only one eye visible.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+13. ID: 3788803
+- Contents: The system shall recognize if the driver has part of the face covered.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3871045
+- Contents: The system shall detect non nominal condition in case the eye gaze direction quality Ce_pct_EyeGazeQualityNNTh  is less than 25% & the head tracking quality Ce_pct_HeadTrackQualityNNTh is less than 25%.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: Precondition: Create the Non nominal conditions(with value : Ce_pct_EyeGazeQualityNNTh  is less than 25% & the head tracking quality Ce_pct_HeadTrackQualityNNTh is less than 25%.)
+
+Verify that Non_ Nominal conditions are detected.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall detect, shall guarantee" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Description: Threshold for non nominal condition due to low eye gaze direction quality
+Ce_pct_EyeGazeQualityNNTh: Range: 0 - 100 %
+
+Name: Ce_pct_HeadTrackQualityNNTh
+Description: Threshold for non nominal condition due to low head tracking quality
+Value: TBD
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+15. ID: 3788810
+- Contents: The system shall not detect the Non-Nominal condition if any of the Non-Nominal conditions are detected for a duration less than 2 seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Create the Non-Nominal condition for less than 2 seconds('Ce_t_NonNomTimeTh').
+
+Verify that the CAN signal NonNomCond is equal to 1(FALSE).
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "any" ) 
+Passive voice
+ (Look for: "is detected" )
+- State (Harman_Requirement): Approved
+
+16. ID: 3788815
+- Contents: The system shall clear the Non-Nominal condition detection if the non-nominal conditions are not detected anymore for a duration greater than or equal to "2" seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Clear the active non-nominal condition.
+and wait for > =2 seconds('Ce_t_NonNomTimeTh').
+
+Verify that the CAN signal NonNomCond is equal to 1(FALSE).
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3789901
+- Contents: The system shall set the Non Nominal Condition if Ce_pct_EyeGazeQualityDegTh(50%) <= Le_pct_EyeGazeQuality < 25% (Ce_pct_EyeGazeQualityNNTh) for a duration greater than or equal 2 seconds (Ce_t_NonNomTimeTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Eye gaze quality Ce_pct_EyeGazeQualityDegTh < 50% and Ce_pct_EyeGazeQualityNNTh < 25% for >=2 seconds.
+
+
+ 
+
+Verify that the system detects non nominal condition ( CAN signal NonNomCond is equal to (TRUE)).
+- Grooming Status: Approved
+- Grooming Comments: The content in the linked CRS (Pi4) is correct. Need to get the proper contents in CRS.
+
+Blocked : Need to ask Customer.
+
+Need proper value for the parameters Ce_pct_EyeGazeQualityDegTh and Ce_pct_EyeGazeQualityNNTh to achieve the below condition
+ 
+Ce_pct_EyeGazeQualityDegTh(50%) <= Le_pct_EyeGazeQuality < 25% (Ce_pct_EyeGazeQualityNNTh)
+
+Note : Currently in PI6, the value of the parameter is TBD.
+
+https://jira.harman.com/jira/browse/FQ-825
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, TRUE, duration" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Ce_pct_EyeGazeQualityDegTh
+Description: Threshold for degradation condition due to low eye gaze direction quality
+Value: 50
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+Name: Le_pct_EyeGazeQuality
+Description: Percentage of confidence of the eye gaze direction algorithms
+Unit: Percentage [%]
+Name: Le_pct_HeadTrackQuality
+Description: Percentage of confidence of the head tracking algorithms
+Unit: Percentage [%]
+Name: Le_pct_EyeClosedQuality
+Description: Percentage
+
+Note:
+Le = local, Ie: input from CAN, Oe: Output to CAN
+
+18. ID: 3789902
+- Contents: The system shall set the Non Nominal Condition if Ce_pct_HeadTrackQualityDegTh(70%)<= Le_pct_HeadTrackQuality < Ce_pct_HeadTrackQualityNNTh(25%) for a duration greater than or equal to 2 seconds (Ce_t_NonNomTimeTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the HeadTrack quality <25% for >=2 seconds.
+
+Verify that the system sets non nominal condition ( CAN signal NonNomCond is equal to (TRUE).).
+- Grooming Status: Blocked
+- Grooming Comments: The content in the linked CRS (Pi4) is correct. Need to get the proper contents in CRS.
+
+Blocked : Need to ask Customer.
+
+
+Need proper value for the parameters Ce_pct_HeadTrackQualityDegTh and 
+Ce_pct_HeadTrackQualityNNTh to achieve the below condition
+ 
+Ce_pct_HeadTrackQualityDegTh(70%)<= Le_pct_HeadTrackQuality < Ce_pct_HeadTrackQualityNNTh(25%)
+
+Note : Currently in PI6, the value of the parameter is TBD.
+https://jira.harman.com/jira/browse/FQ-825
+
+[Antonio_28.02.2025] Head track quality is not available
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, TRUE, duration" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Name: Ce_pct_HeadTrackQualityDegTh
+Description: Threshold for degradation condition due to low head tracking quality
+Value: TBD
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+Name: Ce_pct_HeadTrackQualityNNTh
+Description: Threshold for non nominal condition due to low head tracking quality
+Value: TBD
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+19. ID: 3790106
+- Contents: The system shall set the Non Nominal Condition if Ce_pct_EyeClosedQualityDegTh<= Le_pct_EyeClosedQuality < 25% (Ce_pctEyeClosedQualityNNTh) for a duration greater than or equal to 2 seonds (Ce_t_NonNomTimeTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the EyeClosedQuality to <25% for >=2 seconds.
+
+Verify that the system sets non nominal condition ( CAN signal NonNomCond is equal to (TRUE).).
+- Grooming Status: Blocked
+- Grooming Comments: Need to ask customer :
+
+Need proper value for the parameters Ce_pct_EyeClosedQualityDegTh and 
+Ce_pctEyeClosedQualityNNTh to achieve the below condition
+ 
+Ce_pct_EyeClosedQualityDegTh<= Le_pct_EyeClosedQuality < 25% (Ce_pctEyeClosedQualityNNTh)
+
+Note : Currently in PI6, the value of the parameter is TBD.
+https://jira.harman.com/jira/browse/FQ-825
+
+[Antonio_28.02.2025] Eye closed quality is not available
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, TRUE, duration" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Name: Ce_pct_EyeClosedQualityDegTh
+Description: Threshold for degradation condition due to low eye closed detection quality
+Value: TBD
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+Ce_pctEyeClosedQualityNNTh -> Not available in CRS
+
+20. ID: 3790173
+- Contents: The system shall clear the Non Nominal Condition and set the DMS status & DMS Fail Status to 'Degraded' when Le_pct_EyeGazeQuality < 50%(Ce_pct_EyeGazeQualityDegTh) for a duration greater than or equal 8 seconds(Ce_t_DegTimeTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Eye gaze quality <25% for >=8 seconds.
+
+Verify that the system clear the non nominal condition ( CAN signal Nominal_condition is equal to 1 (FALSE).
+
+Verify the below CAN signal values are set to Degraded.
+FailStsDMS
+DebugStsDMS
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, Degraded, duration" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Ce_pct_EyeGazeQualityDegTh
+Description: Threshold for degradation condition due to low eye gaze direction quality
+Value: 50
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+Name: Le_pct_EyeGazeQuality
+Description: Percentage of confidence of the eye gaze direction algorithms
+Unit: Percentage [%]
+Name: Le_pct_HeadTrackQuality
+Description: Percentage of confidence of the head tracking algorithms
+Unit: Percentage [%]
+Name: Le_pct_EyeClosedQuality
+Description: Percentage
+
+Note:
+Le = local, Ie: input from CAN, Oe: Output to CAN 
+
+
+Name: Le_enu_StatusDMS
+Description: Current status of DMS according to the system state machine
+Unit: Enumeration (0: INIT, 2: USER PRESENCE, 3: ACTIVE, 4: RUNNING, 5: WARNING, 6: DEGRADED, 7:
+ERROR)
+
+21. ID: 3790174
+- Contents: The system shall clear the Non Nominal Condition and set the DMS status & DMS Fail status to 'Degraded' when Le_pct_HeadTrackQuality < 25%(Ce_pct_HeadTrackQualityDegTh) for a duration greater than or equal to 8 seconds (Ce_t_DegTimeTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the HeadTrack quality <25% for >= 8 seconds.
+
+Verify that the system sets non nominal condition ( CAN signal NonNomCond is equal to (TRUE)).
+
+Verify the below CAN signal values are set to Degraded.
+FailStsDMS
+DebugStsDMS
+- Grooming Status: Approved
+- Grooming Comments: The content in the linked CRS (Pi4) is incorrect. Need to get the proper contents in CRS.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, Degraded, duration" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Ce_pct_HeadTrackQualityDegTh
+Description: Threshold for degradation condition due to low head tracking quality
+Value: TBD
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+Name: Ce_pct_HeadTrackQualityNNTh
+Description: Threshold for non nominal condition due to low head tracking quality
+Value: TBD
+Unit: Percentage [%]
+Range: 0 - 100 %
+Resolution: 1 %
+
+22. ID: 3790176
+- Contents: The system shall clear Non Nominal Condition and set the DMS Status & DMS Fail Status to 'Degraded' when Le_pct_HeadTrackQuality < 25% Ce_pct_EyeClosedQualityDegTh for a duration greater than or equal to 8 seconds (Ce_t_DegTimeTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the HeadTrack quality <25% for >=8 seconds.
+
+Verify that the system clear non nominal condition ( CAN signal NonNomCond is equal to (TRUE)).
+
+Verify the below CAN signal values are set to Degraded.
+FailStsDMS
+DebugStsDMS
+- Grooming Status: Approved
+- Grooming Comments: The content in the linked CRS (Pi4) is correct. Need to get the proper contents in CRS.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, set, Degraded, duration" )
+- State (Harman_Requirement): Approved
+
+23. ID: 3790180
+- Contents: The system shall calculate Le_enu_CabinDivision using coarse gaze (head direction estimation) algorithm if Le_pct_EyeGazeQuality < 50%(Ce_pct_EyeGazeQualityDegTh).
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the Eyegaze quality <50% for >=8 seconds.
+
+Verify that the system clear non nominal condition ( CAN signal NonNomCond is equal to (TRUE)).
+
+Verify the below CAN signal values are set to Degraded.
+FailStsDMS
+DebugStsDMS
+- Grooming Status: Approved
+- Grooming Comments: The content in the linked CRS (Pi4) is correct. Need to get the proper contents in CRS.
+
+Need to check with customer:
+
+Condition is incorrect
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Name: Le_enu_CabinDivision
+Description: The area of the vehicle cabin that the driver is looking at according to the areas defined in the
+ADDW regulation [1]
+Unit: Enumeration (0: Not_Available, 1: Area_1, 2: Area_2, 3: Area_3)
+
+24. ID: 3790182
+- Contents: The system shall set the CAN signal DMS_INFO.Nominal_condition on deteciting the Non nominal condition.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Create Non Nominal_condition.
+Verify the CAN signal 
+CAN signal: DMS_INFO.Nominal_condition
+is set to TRUE.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+25. ID: 3790183
+- Contents: The system shall clear the CAN signal DMS_INFO.Nominal_condition on detecting the Nominal condition.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the CAN signal: DMS_INFO.Nominal_condition
+is set to FALSE during Nominal Conditions
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3788604
+- Contents: This function explains how to manage non-nominal conditions of the driver's detection.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- State (Harman_Requirement): New
+
+2. ID: 4365052
+- Contents: Non - Nominal : System shall be able to detect at least: mouth mask, face occlusion, partial cover and all combinations.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- State (Harman_Requirement): New
+
+3. ID: 3788609
+- Contents: The system shall implement the logics of Non-Nominal Condition Determination according to Performance Target setting.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+- Requirement Rationale: Refer SFS F531.
+
+4. ID: 3788788
+- Contents: NOTE: It shall be possible to change the severty of the IR blocking glasses detection from Non-nominal condition to degradation if head position determination for attentiveness estimation does not meet the expected performance.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3871072
+- Contents: Non-nominal-condition use cases must be agreed between the two parties for homologation purposes.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- State (Harman_Requirement): New
+
+6. ID: 4312263
+- Contents: NOTE: System shall be able to detect at least: IR glasses, mouth occlusions (masks, scarfs, driver's arm, etc.), face occlusion, partial cover and all combinations.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- State (Harman_Requirement): New
+
+7. ID: 3788816
+- Contents: DMS shall recognize the situation that lowers the confidence of system algorithms.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Verification Criteria: Verify that the situation that lowers the confidence of the system algorithm is detected.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "DMS, recognize, lowers, following, situation, confidence, algorithms, logic" )
+- State (Harman_Requirement): Review
+
+8. ID: 3790185
+- Contents: Diagnosis
+Calibration Parameters
+Ce_t_NonNomTimeTh
+Ce_pct_EyeGazeQualityDegTh
+Ce_pct_HeadTrackQualityDegTh
+Ce_pct_EyeClosedQualityDegTh
+Ce_t_DegTimeTh
+Ce_pct_EyeGazeQualityNNTh
+Ce_pct_HeadTrackQualityNNTh
+Ce_pctEyeClosedQualityNNTh
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 3790186
+- Contents: Network interfaces
+Outputs
+Oe_enu_NIRBlockGlassDet
+Oe_enu_DMSNomCond
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 3790187
+- Contents: Internal interfaces
+Outputs
+Oe_enu_NIRBlockGlassDet
+Oe_enu_DMSNomCond
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-8 6.2.1.9  NON-NOMINAL CONDITION DETERMINATION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

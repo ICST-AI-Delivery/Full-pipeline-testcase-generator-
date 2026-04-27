@@ -1,0 +1,377 @@
+# PRK-15 6.2.4.16  DYNAMIC STICHING Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.16 PRK-15 DYNAMIC STICHING
+
+- ID: 3939657
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3977733
+- Contents: The system shall 'dynamically' adjust the stitching areas where the images from two cameras overlap to have a 'clear-visualization' of obstacle.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Surround view should be launched.
+Vehicle should be Running.
+
+ 
+Switch to top view then verify that stitching areas are dynamically adjusted.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, adjust, overlap, have, areas, images" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3977769
+- Contents: The system shall detect the presence of obstacles in the stitching areas based on parking sensors information received from NSP through the following CAN signals:
+STATUS_NSP2.TotalFrameNumber
+STATUS_NSP2.FrameNumber
+STATUS_NSP2.NSPFailSts
+STATUS_NSP2.NSPControlSts
+STATUS_NSP2.LHLateralObstacleDistance
+STATUS_NSP2.LHCentralObstacleDistance
+STATUS_NSP2.RHLateralObstacleDistance
+STATUS_NSP2.RHCentralObstacleDistance
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Surround view should be launched.
+Obstacle should be present in either of the corner area.
+
+Parking sensors should be Enabled.
+
+Verify the obstacles are detected.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3977779
+- Contents: The system shall define the default stitching areas by configurable(at compile time) angles of the "4" bisectors(primary stitching position) in the absence of obstacles near the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Configure the default stitching area via configuration file.
+
+Verify the stitching area in the 2D view is inline with the configuration, in the absence of obstacle near the vehicle.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Wei, Abdul 19.03.2025] Approved
+
+[Ganesh 11.03.2025] Blocked
+
+To Dev Team
+
+1. What and where we need to configure?
+2. If it's configurable, What we gonna test?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, define, stitching, areas, angles, position, obstacles, vehicle" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3977957
+- Contents: The system shall move the angles of the bisectors that define the areas to a different configurable angle (secondary stitching position) If obstacles are present in the stitching areas
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Configure the default stitching area via configuration file.
+Obstacle is present in the stitching areas
+
+
+Verify the stitching area use the secondary stitching angle
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Wei, Art, Abdul 19.03.2025] Approved
+
+[Ganesh 11.03.2025] Blocked
+
+To Dev Team
+
+1. What and where we need to configure?
+2. If it's configurable, What we gonna test?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, define, moved, stitching, angles, bisectors, areas, anglesecondary, position" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3977979
+- Contents: The system shall allow the 4 bisectors to move independently based on the obstacles presence.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn on the surround view
+and simulate the obstacle.
+
+Verify the 4 bisectors (front, right, left, rear)
+are moving independently of each others.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh, Wei, Abdul 19.03.2025] Approved
+
+[Ganesh 11.03.2025] Blocked
+
+To Dev Team
+
+1. What and where we need to configure?
+2. If it's configurable, What we gonna test?
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: dynamic stitching is applicable for top view
+(Bird view for Ferrari)
+
+6. ID: 3977987
+- Contents: The system shall switch the active bisector from primary to secondary position if any active bisector passes through a virtual wall displayed at a distance below the configurable threshold for a configurable time.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Configure the default stitching area (with primary and secondary position) via configuration file.
+ 
+Simulate Obstacle in the primary  area (CAN signal) and is below the configured disatnce threshold for the configured time.
+
+Verify the active bisector is moving from primary area to seconday area via HMI.
+- Grooming Status: Approved
+- Grooming Comments: [Ganesh 11.03.2025] Blocked
+
+To Dev Team
+
+1. What and where we need to configure?
+2. If it's configurable, What we gonna test?
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "any, below" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3977990
+- Contents: The system shall switch the active bisector from secondary to primary position if any passive bisector in primary position does not intercept virtual wall displayed at a distance under configurable threshold for a configurable time.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Configure the default stitching area (with primary and secondary position) via configuration file.
+ 
+Step 1: Simulate Obstacle in the primary  area (CAN signal) and is below the configured disatnce threshold for the configured time.
+
+Verify the active bisector is moving from primary area to seconday area via HMI.
+
+Step 2 : Remove the Obstacle from primary srea
+Verify teh bisector is moved back to primary area
+- Grooming Status: Approved
+- Grooming Comments: [Artashes, Abdul, Ganesh 21.03.2025] Approved
+
+[Ganesh 11.03.2025] Blocked
+
+To Dev Team
+
+1. What and where we need to configure?
+2. If it's configurable, What we gonna test?
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, bisector, secondary, position" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3977991
+- Contents: The system shall apply Dynamic Stitching function when the vehicle is moving(Ie_v_VehicleSpeed > 0 km/h).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+-Surround view is launched.
+
+Steps:
+-Drive the vehicle and speed should be > 0km/h.
+-Verify that the images are stitched dynamically.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, vehicle, apply, is moving, function" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3977994
+- Contents: The system shall complete the transition (bisector is moving from primary to secondary or viceversa) If the vehicle stops while NSW is switching between dynamic stitching position.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the transition (bisector is moving from primary to secondary or viceversa) is completed in the mentioned condition.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, NSW, complete, is, switching, transition, position" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4613587
+- Contents: The system shall not switch the Bisector if both "primary and secondary position" contain an obstacle below configurable threshold.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Simulate obstacle in bot hprimary and secondary positions (via CAN) under the thrshold.
+
+Verify the Bisector is not switched
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3978001
+- Contents: The system shall transition between primary and secondary stitching position(and viceversa) in a time of 'Ce_t_DynSttchTransTime'.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Configure the default stitching area (with primary and secondary position) via configuration file.
+ 
+Step 1: Simulate Obstacle in the primary  or secondary  area (CAN signal) and is below the configured disatnce threshold for the configured time.
+
+Verify the active bisector is moving from primary area to seconday area and vicersa  within the configured time ('Ce_t_DynSttchTransTime).
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, transition, stitching, viceversa, time" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3978005
+- Contents: The system shall allow to configure the value of the parameter Ce_t_DynSttchTransTime  .
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify  the value of the parameter can be configured via json file
+
+Default Value: 0.35s
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Ce_t_DynSttchTransTime
+Description: Transition time between primary and secondary stitching position
+Default Value: 0.35s
+
+### Informational Items:
+
+1. ID: 3977731
+- Contents: This function describes the dynamic stitching funcionality of surround view.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3977734
+- Contents: (see: image120.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image120.png
+
+3. ID: 3977739
+- Contents: The system shall move the stitching area if an obstacle is present in one of the stitching areas so that the obstacle is shown from a single-camera.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Escape clause
+ (Look for: "so that" ) 
+Passive voice
+ (Look for: "is shown" )
+- State (Harman_Requirement): New
+
+4. ID: 3977742
+- Contents: (see: image121.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image121.png
+
+5. ID: 3977780
+- Contents: (see: image122.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image122.png
+
+6. ID: 3977978
+- Contents: (see: image123.png, image124.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image123.png, image124.png
+
+7. ID: 3978007
+- Contents: Diagnosis
+Calibration Parameters
+Ce_t_DynSttchTransTime
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 3978009
+- Contents: Inputs
+Ie_v_VehicleSpeed
+Ie_enu_NSPTotFrmNbr
+Ie_enu_NSPFrmNbr
+Ie_enu_NSPFailSts
+Ie_enu_NSPCtrlSts
+Ie_len_NSPLHLatObstDist
+Ie_len_NSPLHCenObstDist
+Ie_len_NSPRHLatObstDist
+Ie_len_NSPRHCenObstDist
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image121.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image122.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image123.png, image124.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image120.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-15 6.2.4.16  DYNAMIC STICHING Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,103 @@
+# PRK-4 6.2.4.5.1  Failure and malfunctioning Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.5.1 PRK-4 Failure and malfunctioning
+
+- ID: 4355511
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4355514
+- Contents: The system shall not visualize the parking sensor view (in RVC configuration) in case of sensor failure.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Create the Front/Rear Parking sensor Failure (can be simulated via STATUS_NSP2.NSPFailSts)
+in RVC configuration:
+Verify that the Parking sensors View (2D Virtual Wall )are not visualized on HMI
+- Grooming Status: Approved
+- Grooming Comments: Sunil , Saheel 29.01.2025: Need clarity from Ferarri
+
+To Ferrari:Wei, Prashant: 29.11.2024
+
+why it is not applicable for surround view?
+what happens if sensor failure happens with surround view?
+
+2.If this is applicable for RVC,
+Whether the entire sensor view  to be disabled or only the 2D virtual walls to be disabled?
+[Wei 13.03.2025]: only 2D Virtual walls to be disabled
+
+3. For RVC, what will be the parking sensor button status?
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4355528
+- Contents: The system shall detect camera blindness when one or more cameras are blinded.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Cover one or more camera 
+Verify that the blindness of each camera is detected.
+
+Verify the warning on the HMI
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are blinded" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4355540
+- Contents: The system shall detect & show the user a visual warning to indicate which is the blind camera.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Cover one or more cameras.
+
+Verify the warning on HMI to indicate which are the blind cameras. 
+
+Verify the popup on HMI
+LIMITED FUNCTIONALITY, CLEAN REAR CAMER
+LIMITED FUNCTIONALITY, CLEAN REAR CAMERA.
+LIMITED FUNCTIONALITY, CLEAN FRONT CAMERA.
+LIMITED FUNCTIONALITY, CLEAN REAR CAMERA
+- Grooming Status: Approved
+- Grooming Comments: Wei: Ok to approve
+
+[Sunil 07.11.2024]: Need clarity on who is detecting. Artashes/Syed to confirm
+- Expert Domains: Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, to indicate, is, warning, camera" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-4 6.2.4.5.1  Failure and malfunctioning Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

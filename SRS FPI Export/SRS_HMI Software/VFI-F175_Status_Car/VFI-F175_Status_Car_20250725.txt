@@ -1,0 +1,326 @@
+# VFI-F175 6.2.2.12  Status Car Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.12 VFI-F175 Status Car
+
+- ID: 4136852
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: 27
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4156548
+- Contents: System shall display Status Car screen when HMI Power-ON when following conditions meet.
+Index_TempExtFrontRight !="0" OR
+Index_TempExtFrontLeft !="0" OR
+Index_TempExtRearRight !="0" OR
+Index_TempExtRearLeft !="0" OR
+Index_FrontRightBrakeDiskExtTemp !="0" OR
+Index_FrontLeftBrakeDiskExtTemp !="0" OR
+Index_RearRightBrakeDiskExtTemp !="0" OR
+Index_RearLeftBrakeDiskExtTemp !="0"
+AND StatusCarIndexValidData =="0"("valid").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display status car screen when HMI power ON.
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "display, meet" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4156550
+- Contents: System shall manage the Status Car availability based on the ActualGearForDisplayvalue.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to manage the status car availability based on ActualGearForDisplay value.
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4156549
+- Contents: IDC shall display the status car through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the car status through HMI.
+
+ActualGearForDisplay ==C ("D")
+
+negative condition
+ActualGearForDisplay != C ("D")
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 4156558
+- Contents: IDC shall provide for each Status Car model element with the numerical indications:
+Battery - Temperature Value
+Front Right Tyre - Temperature Value
+Front Left Tyre - Temperature Value
+Rear Right Tyre - Temperature Value
+Rear Left Tyre - Temperature Value
+Front Right tyre - Pressure Value
+Front Left tyre - Pressure Value
+Rear Right tyre - Pressure Value
+Rear Left tyre - Pressure Value
+Front Right Brake - Temperture value
+Front Left Brake - Temperature value
+Rear Right Brake - Temperature value
+Rear Left Brake - Temperature value
+Front Right Motor - Temperature Value
+Front Left Motor - Temperature Value
+Rear Right Motor - Temperature Value
+Rear Left Motor - Temperature Value
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the status car numerical indications as mentioned.
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4156555
+- Contents: IDC shall provide a colour indication for each Status Car
+Default colour (e.g. Green)
+Blue
+Red
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the colour indication for each status car.
+StatusCarIndexValidData == 0 ("valid")
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4156554
+- Contents: System shall provide a colour indication for each Status Car based on Index input signal:
+Battery - Temperature Status
+Front Right Tyre - Temperature Status
+Front Left Tyre - Temperature Status
+Rear Right Tyre - Temperature Status
+Rear Left Tyre - Temperature Status
+Front Right tyre - Pressure Status
+Front Left tyre - Pressure Status
+Rear Right tyre - Pressure Status
+Rear Left tyre - Pressure Status
+Front Right Brake - Temperature Status
+Front Left Brake - Temperature Status
+Rear Right Brake - Temperature Status
+Rear Left Brake - Temperature Status
+Front Right Motor - Temperature Status
+Front Left Motor - Temperature Status
+Rear Right Motor - Temperature Status
+Rear Left Motor - Temperature Status
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the colour indication for each status car based on index input signal.
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4156564
+- Contents: System shall not provide a colour indication for each status car and StatusIndex signal is ignore in Not used state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system not able to provide colour indicatiom for status car in not used condition.
+
+f StatusCarIndexValidData == "Not_used"
+
+STATUS_CAR.StatusCarIndexValidData
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4156562
+- Contents: IDC shall display the "Warm-up" state based on the status index value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the warmup state based on status index value.
+StatusIndex == 0(“_-1")
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 4156561
+- Contents: IDC shall display the "OK" state based on the status index value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the ok state based on th eindex value.
+
+StatusIndex == 1 (“_0")
+- Grooming Status: Approved
+- Grooming Comments: [AR 10.04.2025]: 
+From: Sennakesavan, Muthuraj <Muthuraj.Sennakesavan@harman.com> 
+Sent: Wednesday, April 9, 2025 8:32 PM
+To: Rudrapati, Ananda
+Subject: Tentative: [Ferrari]: Re-assignment of white label requirements - S4 doesn`t offer - Session 2
+When: Thursday, April 10, 2025 4:30 PM-5:00 PM (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi.
+Where: Microsoft Teams Meeting
+
+Hi Ananda,
+You can mark All HMI items Red only.
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+10. ID: 4623615
+- Contents: IDC shall display "OVER" state based on the status index value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the over state based on the index value.
+
+StatusIndex == 2 (“_1")
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4156572
+- Contents: This function defines the input and logics needed to display the vehicle performance contents (e.g. tyre, battery, engines status and details).
+(see: image36.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image36.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image36.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F175 6.2.2.12  Status Car Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

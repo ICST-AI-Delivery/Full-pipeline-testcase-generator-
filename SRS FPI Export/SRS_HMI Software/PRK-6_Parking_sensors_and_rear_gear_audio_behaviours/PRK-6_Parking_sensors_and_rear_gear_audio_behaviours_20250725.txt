@@ -1,0 +1,215 @@
+# PRK-6 6.2.4.7.1  Parking sensors and rear gear audio behaviours Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.7.1 PRK-6 Parking sensors and rear gear audio behaviours
+
+- ID: 4524597
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Parking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4524600
+- Contents: The System shall provide the "Parking sensors audio" if 'sensors are active' & 'an obstacle detection inside the sensors threshold area'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Parking Audio if Parking sensors are active and an obstacle is detected inside the threshold area.
+
+Parking sound is preserved for Reverse gear also.
+
+Note:
+Use the below CAN signals for audio playback
+ISTATUS_NSP2.LHNSPBuzzerReqSts
+STATUS_NSP2.RHNSPBuzzerReqSts
+STATUS_NSP2.CNSPBuzzerReqSts
+
+STATUS_NSP2.FrameNumber
+STATUS_NSP2.NSPBuzzerRepetitionRate
+STATUS_NSP2.TotalFrameNumber
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are active" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Parking sound is preserved for Reverse gear also.
+
+2. ID: 4524606
+- Contents: The system shall allow to turn on/off the front sensors and their audio.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to Turn On/Off the Front Sensors and their audio
+
+Verify that the Audio from Frontal sensors is not played in Off condition
+- Grooming Status: Review
+- Grooming Comments: [Yuanhang, Abdul 14.02.2025] This is not valid for Audio, Audio play back only depends on the CAN signal.
+Map to HMI SRS where turn on/off the front sensor is there
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to turn, sensors, audio" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: If Off any
+audio feedback from Frontal sensors is not played.
+
+3. ID: 4524607
+- Contents: The system shall give the feedback in real time if the audio sensor is adjusted by settings while the sensors are already playing.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: parking Audio is playing.
+Adjust the Parking Audio volume from HMI volume settings.
+
+Verify the Audio feedback while adjusting volume.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1074
+
+Cluster is not needed in PRK-6, Audio is ok
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "adjusted, playing" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: If the sensors are not playing during the
+feedback adjusting, the system plays beeper once after each change
+
+4. ID: 5028928
+- Contents: The system shall play beeper once after each change (not continuously) if the sensors are not playing during the feedback adjusting
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking sensors Audio is not playing
+Change the Parking audio volume from HMI setting
+Verify that the  beeper once after each change (not continuously during the feedback adjusting
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1074
+- RQA Score: 70
+- Issues Found by RQA: Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "each" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5028949
+- Contents: The system shall play the sensors sound untill the obstacle is present when an obstacle is "detected"(front/rear or both) and the reverse gear = engaged with speed = "0" km/h.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+reverse gear is engaged and Speed =0  km/h
+Verify that, sensors sound is played until the obstacle is present if an obstacle is detected (front/rear or both) 
+
+The Audio activation is based on the below CAN signals
+FrameNumber == 0 AND LHNSPBuzzerReqSts RHNSPBuzzerReqSts
+CFNSPBuzzerReq
+- Grooming Status: Approved
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, obstacle, play, untill, is present, is, detected, engaged, sensors, rear, speed" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: The Audio activation is based on the below CAN signals
+FrameNumber == 0 AND LHNSPBuzzerReqSts RHNSPBuzzerReqSts
+CFNSPBuzzerReq
+
+6. ID: 5028951
+- Contents: The system shall play the front sensors sound & rear sensors sound according to the direction of obstacle position
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the sound of front sensors and rear sensors are  as per the direction of obstacle position
+
+Note:
+Use the below CAN signals for audio playback
+ISTATUS_NSP2.LHNSPBuzzerReqSts
+STATUS_NSP2.RHNSPBuzzerReqSts
+STATUS_NSP2.CNSPBuzzerReqSts
+
+STATUS_NSP2.FrameNumber
+STATUS_NSP2.NSPBuzzerRepetitionRate
+STATUS_NSP2.TotalFrameNumber
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 4524617
+- Contents: The system shall perform or process the worst "obstacle feedback" if "more" sounds are "performed".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Simulate more obstacle sound
+
+Verify the worst obstacle (near by obstacle) audio is played
+- Grooming Status: Review
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1093
+[18.03.2025]
+To Ferarri
+Audio will be played based on the CAN signal 'NSPBuzzerRepetitionRate
+- Expert Domains: Audio Control, Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, perform, process, worst, feedback" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 4524609
+- Contents: The system shall "play" the "Reverse gear sound" associated untill these "conditions" "are" "preserved", if the "Reverse gear" = "engaged" & "V=0"
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Engage the reverse gear when Vehicle speed =0
+
+Verify the reverse gear sound is head continuossly?
+- Grooming Status: Review
+- Expert Domains: Audio Control, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, play, associated, untill, are, preserved, sound, conditions" )
+- State (Harman_Requirement): Analyzed
+- Requirement Rationale: HMI-LF-6925 - Starting from these conditions, if an obstacle is detected, no matter which side
+is involved (front/rear or both), only the sensors sound shall be played until the obstacle is
+present.
+
+2. ID: 4524610
+- Contents: The system shall play different audio for Front Sensors sound and Rear sensors sound
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: Audio Control, Cluster SW, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, play, sound, audio" )
+- State (Harman_Requirement): Analyzed
+- Requirement Rationale: sound shall be directional and perceived according to the obstacle position.
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-6 6.2.4.7.1  Parking sensors and rear gear audio behaviours Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

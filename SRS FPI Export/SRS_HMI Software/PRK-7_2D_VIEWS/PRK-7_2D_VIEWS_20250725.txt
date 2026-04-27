@@ -1,0 +1,182 @@
+# PRK-7 6.2.4.8  2D VIEWS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.8 PRK-7 2D VIEWS
+
+- ID: 3939644
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3972026
+- Contents: The system shall compliant all '2D' views to the applicable Regulation requirements defined in reference documents PRK_UN_01, PRK_UN_02, PRK_US_01, PRK_SK_01, PRK_CH_01
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the 2D view satisfies the regulation requirements
+- Grooming Status: Approved
+- Grooming Comments: No Expert Domain
+- Expert Domains: Parking
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer the documents PRK_UN_01, PRK_UN_02, PRK_US_01, PRK_SK_01, PRK_CH_01
+
+This includes rear view also.
+
+2. ID: 3972050
+- Contents: The system shall configure & calibrate all the '2-D' views.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 2D view resolution, size and  position by changing the parameters in configuration file.
+- Grooming Status: Approved
+- Grooming Comments: No Expert Domain
+- Expert Domains: Parking
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4613900
+- Contents: The system shall render Steering guidelines in Front and Rear 2D views.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the steering guidelines are visible on the 2D view
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, render, Steering, steering, according, guidelines, delta, Front, views, VIEWS" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This is according to PRK-2 GRID VIEWS
+
+4. ID: 3972138
+- Contents: The system shall support the following 2D views:
+Rear View (video stream from Rear Camera)
+Front View (video stream from Front Camera)
+Left View (video stream from Left Camera)
+Right View (video stream from Right Camera)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to Switch to the below mentioned the 2D views using the HMI button 
+
+
+Rear View (video stream from Rear Camera)
+Front View (video stream from Front Camera)
+Left View (video stream from Left Camera)
+Right View (video stream from Right Camera)
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3972152
+- Contents: The system shall  show 2D views in full screen toggling the dedicated Wide View button.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 80
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3971988
+- Contents: This function describes all the possible views coming from a single camera.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3971989
+- Contents: The system shall display the 2D Views as reported in: 
+HMI-LF-7903 - Surround Stream Frame Views.
+HMI-LF-7929 - Wide View.
+HMI-LF-8001 - Parking buttons for each configuration
+HMI-LF-7933 - Normative boundaries.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Expert Domains: Android HMI, Kernel, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+3. ID: 3972001
+- Contents: The system shall implement the logics of '2D' Views according to:
+SFS F802 – Front & Rear Parking Camera Management.
+SFS F560 – Surround View Management.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: Android HMI, Kernel, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘2 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+4. ID: 3972145
+- Contents: The system shall compliant Rear View to all applicable Regulation requirements.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: Audio Control, Kernel, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "applicable" )
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer documents PRK_UN_01, PRK_UN_02, PRK_US_01, PRK_SK_01, PRK_CH_01
+
+5. ID: 3972160
+- Contents: The system shall implement a rear view with the video stream coming from the Rear Camera.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Expert Domains: Android HMI, Kernel, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): New
+
+6. ID: 3972195
+- Contents: The system shall compliant Rear View to all applicable Regulation requirements.
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- Expert Domains: Android HMI, Kernel, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "applicable" )
+- State (Harman_Requirement): New
+- Requirement Rationale: Refer documents PRK_UN_01, PRK_UN_02, PRK_US_01, PRK_SK_01, PRK_CH_01
+
+7. ID: 3972198
+- Contents: Proxi
+Start Byte 112, Start bit 6- Rear View Camera disable/enable (0 = "disabled", 1 = "enabled")
+Start Byte 184, Start bit 4- IDC_SurroundViewFunctionality (0 = "Not Present", 1 = "Present")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-7 6.2.4.8  2D VIEWS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,93 @@
+# UnknownID 6.2.2.32.8 Residual time to complete charge Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.32.8 Residual time to complete charge
+
+- ID: 4895712
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895715
+- Contents: IDC shall provide the "Residual time to complete charge" indication based on  "HVB_RechargeTimeLeft_HMI" signal in "C2.8" area
+If
+Value of "HVB_RechargeTimeLeft_HMI" < "60" (min)
+Then
+IDC shall provide the value "HVB_RechargeTimeLeft_HMI" (in minutes) as Residual time to complete charge indication
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RechargeTimeLeft_HM Status, when "HVB_RechargeTimeLeft_HMI" < "60"
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall provide" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895723
+- Contents: IDC shall provide the "Residual time to complete charge" indication based on  "HVB_RechargeTimeLeft_HMI" signal in "C2.8" area
+If
+"60" (min) ≤ "HVB_RechargeTimeLeft_HMI" < "1440" (min)
+Then
+IDC shall display the indication in "hh:mm" format.
+where
+"hh = HVB_RechargeTimeLeft_HMI / 60"
+and
+"mm = HVB_RechargeTimeLeft_HMI % 60"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RechargeTimeLeft_HMI status when "60" (min) ≤ "HVB_RechargeTimeLeft_HMI" < "1440
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall provide, shall display" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895724
+- Contents: IDC shall provide the "Residual time to complete charge" indication based on  "HVB_RechargeTimeLeft_HMI" signal in "C2.8" area
+If
+"HVB_RechargeTimeLeft_HMI" ≥ "1440" (min)
+Then
+IDC shall provide the indication in "dd format", where "dd =  HVB_RechargeTimeLeft_HMI/1440"
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the RechargeTimeLeft_HMI status when "HVB_RechargeTimeLeft_HMI" ≥ "1440"
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall provide" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.32.8 Residual time to complete charge Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

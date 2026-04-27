@@ -1,0 +1,129 @@
+# PMN-5 6.2.2.5  Suspend to RAM Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.5 PMN-5 Suspend to RAM
+
+- ID: 3880670
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3880682
+- Contents: IDC shall implement a maintenance every 24h at T_hour When in S2R.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system implements maintenance every 24h while in suspended to RAM (S2R) mode.
+
+Diagnosis
+Calibration parameters
+T_hour
+S2RTimer
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, support, according, following, implement, perform, awaking, go, expire, wake up, awakening, Suspend, mode, every, specific, network, transit, sleep" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4078134
+- Contents: System shall perform a reset specific T_hour without awaking the network and go again into S2R within 55seconds when the S2RTimer isn't expire.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system performs a reset to the specified threshold (T_h) without awaking the network and returns to S2R mode with in the 55 seconds.
+
+Diagnosis
+Calibration parameters
+T_hour
+S2RTimer
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, perform, awaking, go, expire, specific, network" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4078133
+- Contents: System shall wake up, without awakening the network, and transit to full sleep when the S2RTimer expire.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system wakes up without activating any network and successfully enters full sleep after the timer expires.
+
+Diagnosis
+Calibration parameters
+T_hour
+S2RTimer
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, wake, awakening, expire, up, network, transit, sleep" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3452754
+- Contents: IDC shall transition from Suspended to RAM to Full Sleep If a dedicated timeout is elapsed
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if the mode changes from Suspend to Ram to Full Sleep Mode when a timer is elapsed
+- Grooming Status: Approved
+- Expert Domains: System Core
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3880725
+- Contents: Reset shall postpone of 2h when IDC is in running state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the reset should be postponed 2h
+when IDC in running state.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Reset, IDC, postpone, is, running, state" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3880749
+- Contents: Reset shall perform at next T_hour (calibrated value) when IDC is up and running even after 2h.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the reset performs at the next scheduled time (T_h calibrated value) when the system is up and running even after 2h delay.
+- Grooming Status: Review
+- Expert Domains: Android HMI, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Reset, IDC, perform, is up, running, even" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PMN-5 6.2.2.5  Suspend to RAM Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

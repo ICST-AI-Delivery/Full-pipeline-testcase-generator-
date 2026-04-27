@@ -1,0 +1,253 @@
+# VEH-F821 6.2.1.1.2.39  Rear Wheel Steering Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.39 VEH-F821 Rear Wheel Steering
+
+- ID: 3408607
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3715875
+- Contents: If Proxi "RWS" == "absent" (byte 28, bit 6), then the system shall stop displaying the Rear Wheel Steering indications.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:
+Proxi "RWS" == "absent" (byte 28, bit 6)
+
+Verify that the System stops displaying the Rear Wheel Steering Indications when proxi RWS is Absent.
+
+Signal :When SnowChainModeLampSts == Lamp_ON, if INFO_SnowChainMode has a transition to Active to Not_Active but SnowChainModeLampSts remains in Lamp_ON
+- Grooming Status: Approved
+- Grooming Comments: Default Proxi value is un-known and not able to change the proxi values.
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, stop, displaying, Steering, Wheel, indications" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3715876
+- Contents: Sytem shall store the last valid value received from INFO_SnowChainMode
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall store the store the last valid value received from INFO-SnowChainMode.
+- Grooming Status: Approved
+- Grooming Comments: Need to know about Snow_Chain mode .
+
+Internal Input Interfaces:
+INFO_SnowChainMode
+- Expert Domains: Android HMI, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3715879
+- Contents: System shall display Warning-1 Pop-up with Buzzer2B and  send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS  when Warning Lamp is Yellow Lamp.
+Note:Warning-1 follows D01 visualisation behaviour with priority-1.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+WarningLamp = Yellow_Lamp
+
+Verify that the System displays warning-1 Pop-up with buzzer in B24 Wireframe area when Warning Lamp is Yellow Lamp.
+
+CAN Signal: STATUS_C_RWS.WarningLamp
+- Grooming Status: Approved
+- Grooming Comments: Miss match from PDF and HMI.POP.IND
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, Warning, is, follows, Pop-up, Buzzer, Telltale, area, Lamp, priority-1" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3715880
+- Contents: System shall display Warning-2 Pop-up with Buzzer2B send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Warning Lamp is Red Lamp.
+Note:Warning-2 follows D01 visualisation behaviour with priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+WarningLamp = Red_Lamp
+
+Verify that the System displays warning-2 Pop-up with buzzer and telltale in B24 Wireframe area when Warning Lamp is Red Lamp.
+
+CAN Signal: STATUS_C_RWS.WarningLamp
+- Grooming Status: Approved
+- Grooming Comments: Miss match from PDF and HMI.POP.IND
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Buzzer, Telltale, area, Lamp, priority-0" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3715881
+- Contents: System shall display Info-1 Pop-up and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS When SnowChainModeLampSts == Lamp_ON,  INFO_SnowChainMode has a transition to Active to Not_Active and   SnowChainModeLampSts remains in Lamp_ON
+Note: Info-1 Follows D01 visualisation behaviour with priority-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+When SnowChainModeLampSts == Lamp_ON, if INFO_SnowChainMode has a transition to Active to Not_Active but SnowChainModeLampSts remains in Lamp_ON
+
+Verify that the System shall display Info-1 Deactivation snow chain mode refused Pop-up when Snow Chain Model Lamp Status is Lamp ON.
+
+CAN-Signal: STATUS_C_RWS.SnowChainModeLampSts
+- Grooming Status: Approved
+- Grooming Comments: Miss match from PDF and HMI.POP.IND
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Model Lamp Status, is present, display, snow, refused, is, Follows, request, Deactivation, mode, Pop-up, Lamp, priority-3" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3715882
+- Contents: System shall display Info-2 Pop-up When SnowChainModeLampSts == Lamp_OFF,  INFO_SnowChainMode has a transition to Active to Not_Active and   SnowChainModeLampSts remains in Lamp_OFF.
+Note: Info-2 Follows D01 visualisation behaviour with priority-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+When SnowChainModeLampSts == Lamp_OFF, if INFO_SnowChainMode has a transition to Not_Active to Active but SnowChainModeLampSts remains in
+Lamp_OFF
+
+Verify that the System shall display Info-2 Activation snow chain mode refused Pop-up when Snow Chain Model Lamp Status is Lamp OFF.
+
+CAN- Singal: STATUS_C_RWS.SnowChainModeLampSts
+- Grooming Status: Approved
+- Grooming Comments: Miss match from Master document and HMI.POP.IND
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Model Lamp Status, display, snow, refused, is, Follows, Activation, mode, Pop-up, OFF, priority-3" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3715883
+- Contents: System shall display Feedback-1 Snow chain mode disactivated Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Chain Model Lamp Status transition from Lamp On to Lamp OFF.
+Note: Feedback-1 follows D01 visualisation behaviour with priority-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+SnowChainModeLampSts has a transition from Lamp_ON to Lamp_OFF OR after the activation
+
+Verify that the System displays Feedback-1 snow chain mode disactivated Pop-up when  chain Model Lamp status is Lamp Off.
+
+CAN-Signal:STATUS_C_RWS.SnowChainModeLampSts
+- Grooming Status: Approved
+- Grooming Comments: Miss match from Master Spec to HMI.POP.IND
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Model Lamp Status, display, disactivated, is, follows, mode, Pop-up, OFF, priority-3" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3715884
+- Contents: System shall display Feedback-2 Snow chain mode disactivated Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Chain Model Lamp Status transition from Lamp OFF to Lamp ON.
+Note: Feedback-2 follows D01 visualisation behaviour with priority-3.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Condition:
+SnowChainModeLampSts has a transition from Lamp_OFF to Lamp_ON OR after the activation
+
+Verify that the System displays Feedback-2 snow chain mode disactivated Pop-up when  chain Model Lamp status is Lamp ON.
+
+CAN-Signal:STATUS_C_RWS.SnowChainModeLampSts
+- Grooming Status: Approved
+- Grooming Comments: Miss match from Master spec to HMI.POP.IND doc
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Model Lamp Status, display, activated, is, completed, follows, mode, Pop-up, present, Lamp, priority-3" ) 
+Negative statement
+ (Look for: "not active" ) 
+Passive voice
+ (Look for: "escaped" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4707554
+- Contents: IF System detects an Message Counter error on STATUS_C_RWS message for more than MC_CRC_error_counter samples THEN System shall show the visualization cycle F821 Warning 2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the F821 Warning-2 is displayed when Message Counter error On STATUS_C_RWS message is more than
+
+
+Verify that the system set Telltale_AreaSts_NQS.TAreaSts_16 = "RWS fail red lamp" in less than (F244_RWS_FHT_IDC-FDT_F244_STATUS_C_RWS_E2E) if CAN communication error on STATUS_C_RWS is detected by the System.
+- Grooming Status: Approved
+- Grooming Comments: Need to know the Timing value for MC_CRC_error_counter, Create Jira if needed.
+- Expert Domains: FuSa, IOC_Autosar, IOC_Networking
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3715872
+- Contents: System shall display Rear wheel Steering Indications are displayed as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "are displayed" )
+- State (Harman_Requirement): In Work
+
+2. ID: 3715874
+- Contents: For the visualization cycles F821 Info 1, Info 2, Feedback 1 and Feedback 2 refer to the state machine detailed in SFS F821 and reported below:
+(see: image195.png)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Compound requirement
+ (Look for: "cycles, Info 2, refer, machine, SFS" ) 
+Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "reported" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): New
+- Visual Elements: image195.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image195.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F821 6.2.1.1.2.39  Rear Wheel Steering Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

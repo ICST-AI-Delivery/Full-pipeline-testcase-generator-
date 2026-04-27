@@ -1,0 +1,159 @@
+# GEN-4 6.2.1.4  Factory Reset Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4 GEN-4 Factory Reset
+
+- ID: 3408169
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: need to discuss with ferrari.
+
+Domain team already created a Jira ticket here is the link
+
+https://jira.harman.com/jira/browse/FQ-127
+
+Its cluster HMI
+- Expert Domains: Android HMI, Cluster SW, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3440773
+- Contents: IDC shall provide an HMI option to allow the user to perform factory reset.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to perform the factory reset through HMI
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3440836
+- Contents: IDC shall start the factory reset when the user short press on "start factory reset" icon on HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to short press start factory reset through HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "start, reset, short, press, icon, HMI" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3440774
+- Contents: IDC shall inform the user with a popup about the status of the Factory Reset process.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to get popup about the status of the Factory Reset process.
+- Grooming Status: Approved
+- Grooming Comments: Its rejected
+- Expert Domains: Android HMI, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: inprogress/completed
+
+4. ID: 3635600
+- Contents: IDC shall set default values during the factory reset when no persistence stored.
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Integration Test
+- Verification Criteria: Check if user able to Activate/ Deactivate an option “Reset All contents" to perform factory reset.
+- Grooming Status: Approved
+- Grooming Comments: Its rejected
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, to activate, deactivate, option, to perform, reset" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3440835
+- Contents: System shall perform a reboot after factory reset is completed.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if system able to perform reboot after factory reset
+- Grooming Status: Approved
+- Expert Domains: System Core
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is completed" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4006615
+- Contents: System shall retain MAP data, variant coding and PROXI_DATA  after factory reset
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the MAP data, variant coding and PROXI_DATA should be available after factory reset.
+
+commands should be available before delivery of the feature.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, retain, data, coding, reset" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4008635
+- Contents: System shall reset all contents to default values via dedicated diagnostic routine
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Verification Criteria: Check the default values via diagnostic routine when reset all contents.
+
+Set Factory Defaults IDC-427805 - Set Factory Defaults ($FF87)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4615706
+- Contents: System shall inform the user that the reset procedure is  unavailable
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that reset process unavailable
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inform, is  unavailable, procedure" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3440778
+- Contents: This function allows the user to reset infotainment content with persistence to default values
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of GEN-4 6.2.1.4  Factory Reset Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,90 @@
+# UnknownID 6.2.2.2.1 Default driver position (Only developer mode) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2.1 Default driver position (Only developer mode)
+
+- ID: 4763858
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4763859
+- Contents: IDC shall provide default profile via diagnosis.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the default profile is settable via diagnosis
+
+DefaultPosition  IDC-436338 - DRIVERSEAT_AND_MIRROR_SETTINGS ($050C)
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4763860
+- Contents: IDC shall set driver position as nominal position if it is set to nominal position in default profile.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the driver position as nominal position if it is set to nominal position in default profile.
+
+this is through dianalyzer.
+
+COMMAND_NIT_TO_NAG_NAP_V2.NIT_DriverSeatLongitudinalPos
+COMMAND_NIT_TO_NAG_NAP_V2.NIT_DriverSeatTiltPos
+COMMAND_NIT_TO_NAG_NAP_V2.NIT_DriverSeatBackRestPos
+COMMAND_NIT_TO_NAG_NAP_V2.NIT_DriverSeatLiftPos
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4763861
+- Contents: IDC shall recover the last default profile drive position If it is set to Last position.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the recovery that last default profile drive position If it is set to Last position.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "it" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.2.1 Default driver position (Only developer mode) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,288 @@
+# VEH-F516 6.2.1.1.2.26  Keyless Ignition Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.26 VEH-F516 Keyless Ignition Management
+
+- ID: 3408591
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3714960
+- Contents: System shall display warning-1 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+MsgFobLeftVeh=MSG_ACTIVE and
+Vehicle configured Speed lessthan or equal to V_car_moving
+Note: Warning-1 follows D04 Visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-1 Pop-up with buzzer when 
+*MsgFobLeftVeh is MSG_ACTIVE and
+*Vehicle configured Speed lessthan or equal to V_car_moving.
+
+Pop-Up ID: 05160001
+
+Buzzer:2B
+
+CAN-Signal:RFHUB2.MsgFobLeftVeh
+
+V_Car_Moving = 5KM/Hr
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, met, configured, moving, follows, pop-up, buzzer, lessthan, Priority-0" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3714962
+- Contents: System shall display warning-2 pop-up ,send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when below conditions met:
+MsgFobLeftVeh=MSG_ACTIVE and
+Vehicle configured Speed greaterthan or equal to V_car_moving
+Note: Warning-2 follows D04 Visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-1 Pop-up when 
+*MsgFobLeftVeh is MSG_ACTIVE and
+*Vehicle configured Speed greaterthan or equal to V_car_moving.
+
+Pop-Up ID: 05160002
+
+CAN-Signal:RFHUB2.MsgFobLeftVeh
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, met, configured, moving, follows, pop-up, buzzer, greaterthan, Priority-0" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3714963
+- Contents: System shall display warning-3 pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when MsgServPEKG =MSG_ACTIVE
+Note: Warning-3 follows D11 Visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays warning-3 Pop-up with Buzzer when MsgServPEKG is MSG_ACTIVE.
+
+Pop-Up ID:05160003
+Audio Buzzer: Buzzer 2B
+
+CAN-Signal: RFHUB2.MsgServPEKG
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, follows, pop-up, buzzer, Priority-0" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3714966
+- Contents: System shall display warning-4 pop-up with buzzer when send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS MsgFobNotFnd=MSG_ACTIVE
+Note: Warning-4 follows D05 Visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays warning-4 Pop-up with Buzzer when MsgFobNotFnd is MSG_ACTIVE.
+
+Pop-Up ID: 05160004
+Audio Buuzer: Buzzer 2B
+
+CAN-Signal: RFHUB2.MsgFobNotFnd
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, follows, pop-up, buzzer, Priority-0" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3714967
+- Contents: System shall display the Warning-5 Pop-Up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when Proxi byte-28, bit-5 is present  AND RFHUB2.MsgNotInPark is "MSG_ACTIVE".
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-5 Pop-Up is displayed  when Proxi byte -28 , bit-5 is present AND RFHUB2.Msg.NotInPark is "MSG_ACTIVE".
+
+Pop-Up ID: 05160005
+
+CAN-Signal: RFHUB2.MsgNotInPark
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, AND RFHUB2.MsgNotInPark, display, is present, is, Warning-5" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3919788
+- Contents: System Shall display warning-6 Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS When Proxi byte 28 , bit 5 present AND KHDFailSts is "Fail_Present".
+Note: Warning-6 shall follow D04 Visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Warning-6 Pop-Up is displayed when Proxi Byte 28 , bit 5 Present AND KHDFailSts is Fail_Present.
+
+Pop-Up ID: 05160010
+
+CAN-Signal: STATUS_KHD.KHDFailsts
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, follow, byte, bit, KHDFailSts, Priority-0" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3919800
+- Contents: System shall display warning-7 Pop-upsend the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS. when Proxi byte-28, bit-5 present AND NPE_ActuationReq is Insert_Key_Request.
+Note: Warning-7 shall follow D11 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-7 Pop-Up when Proxi is Present AND NPE_ActuationReq is Insert_Key_Request.
+- Grooming Status: Blocked
+- Grooming Comments: Raise JIRA for clarification , Text is missing
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, warning, is, follow, Pop-up, present, NPE, Priority-0" )
+- State (Harman_Requirement): Obsolete
+
+8. ID: 3919915
+- Contents: System shall set IDC_Visualisation is Insert_Key_Vis
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: Req In-complete Raise Jira, Who will visualise this Insert Key Visualisation request.
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3920361
+- Contents: System shall display Warning-8 Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Proxi byte-28 , bit-5 present AND MsgRemovePlug is MSG_ACTIVE.
+Note: Warning-8 follows D04 visualisation with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system displays Warning-8 Pop-Up when Proxi is Present AND MsgRemovePlug is MSG_ACTIVE.
+
+Pop-Up ID: 05160012
+
+
+CAN-Signal: RFHUB2.MsgRemovePlug
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, present, MSG_ACTIVE, Priority-0" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3920990
+- Contents: System shall Warning-9 Pop-up when Proxi byte 28 , bit 5 present AND KHDFail Status is Fail Present.
+Note: Warning-9 follows D04 visualisation behaviour with priority-0.
+IDC-456647|
+IDC-456663|
+IDC-456662|
+IDC-456666|
+IDC-456668|
+IDC-456670|
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Warning, is, follows, Pop-up, byte, bit, Status, Present, priority-0" ) 
+Missing unit 
+ (Look for: "‘5’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3921048
+- Contents: System shall display Info-2 Pop-up with buzzer send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Proxi byte-28, bit-5 present AND MsgAutoIngOFF is Key_OFF_Ongoing.
+Note: Info-2 follows D04 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System displays Info-2 Pop-up with Buzzer when Proxi is present and MsgAutoIgnOFF is Key_OFF_Ongoing.
+
+Pop-Up ID: 05160007
+Buzzer:2B
+
+CAN-Signal:RFHUB2.MsgautoIngOFF
+- Grooming Status: Approved
+- Grooming Comments: Req says 2B buzzer but thr HMI.POP.IND is having 4A. which is correct??
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, buzzer, byte-28, present, MsgAutoIngOFF, Priority-0" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4705746
+- Contents: System shall display Info-4 Pop-up send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Proxi byte-28, bit-5 present AND Key_ON_Visualisation is Active..
+Note: Info-4 follows D04 visualisation behaviour with Priority-0.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Info-4 is displayed when Proxi is present and Key On visualisation is active.
+
+Proxi: Byte 28  and Bit-5.
+Pop_up ID: 5160013
+
+CAN-Signal: RFHUB2. Key_ON_Visualization
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, send, using, is Active, follows, Pop-up, status, IVI, INDICATOR_STATUS, present, Priority-0" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4719869
+- Contents: DTC memorization in case of recovery (RFHUB2 missing on the Network).
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the DTC is memorized by  the system in case of recovery.
+- Grooming Status: Approved
+- Grooming Comments: Is there any DTC log based on the missing the  RFHUB2 message ?
+- Expert Domains: IOC_Diag
+- RQA Score: 40
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3714939
+- Contents: System shall display Keyless Ignition Management as per the Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F516 6.2.1.1.2.26  Keyless Ignition Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,715 @@
+# VEH-F140 6.2.1.1.1.13  Unfastened Seat Belts Signalling Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1.13 VEH-F140 Unfastened Seat Belts Signalling
+
+- ID: 3406516
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3481707
+- Contents: System shall display the warning sign when the seat belt unfastens as per the Ferrari design.
+(see: image33.png)
+Note: For proxi information refer Buckle Switch in NAB_Configuration_4
+(see: image34.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale is displayed when the seat belt is unfastened by the driver and the passenger
+
+If the seat is occupied and seat belt is unfastened for Front Right
+ 
+verify Front Right seat belt telltale is indicated in red. And repeat for FL ,RR and RL ,RM.
+
+Verify for combinations of seat belt unfastened.
+
+Proxi:
+
+Byte 59, bits 4-5 ("Country Market": USA / CANADA / Extra Market / Mercato Arabia) 
+ Byte 59, bits 6-7 ("Detail for Extra market": all other country / Japanese / UK) 
+ Byte 68, bit 1 ("Buzzer wear seat belt": absent / present) 
+ Byte 112, bit 5 ("SBRSource": NAB / NAP) 
+ Byte 58, bit 4 ("Side driver": left / right) 
+ Byte 112, bit 4 ("Segnalazione cintura sicurezza": Enable / Disable)
+ Byte 108, bit 3 ("Rear_Central_Passenger_Buckle_Switch": Present / Absent)
+Byte 108, bit 2 ("Rear_Lateral_Passenger_Buckle_Switch": Present / Absent)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, sign, unfastens, design" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+- Visual Elements: image33.png, image34.png
+
+2. ID: 3624014
+- Contents: System shall stop Telltale and buzzer , comes to ready state for new visualisation cycle when seat-belts fastened for Warning-1,Warning-2,Warning-3,Warning-4.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale and Buzzer is off and Shall be ready for next visualisation cycle when there is change from Ceat belt un-fastened to fastened for the Warning-1,2,3,4.
+
+
+Please refer:3525455
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, stop, comes, to ready, fastened, buzzer, state, visualisation cycle" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+
+3. ID: 3624015
+- Contents: System shall interrupt the current display  telltale when another display activate following the logic:
+Seat belt shall remain ON when new seatbelt visualisation cycle activate.
+Acoustic signalling shall stop when new Acoustic warning is Trigger.
+If the new acoustic signalling terminate then the previous active acoustic signal will play till the end of maximum duration depending on the country market.
+If the driver seat belt is Un-fastened the virtual telltale shall remain ON till the seat belt is Fasten.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the current display Telltale is interrupted when another display using the logics.
+
+Please refer to:3525455
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, signalling, warning, signal, telltale, interrupt, display, activate, following, remain, stop, new, is, will play, depending, till, logic, Trigger, terminate, end, duration, market, belt, Fasten" ) 
+Unclear term
+ (Look for: "current, another, maximum" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3715366
+- Contents: If during the incoming visualization cycle, the seat belt fasten, the active  Warning shall terminate when:
+Seat belt shall remain ON when new telltale activate.
+Acoustic signalling shall stop when new Acoustic warning is Trigger.
+If the new acoustic signalling terminate then the previous active acoustic signal will play till the end of maximum duration depending on the country market.
+If the driver seat belt is Un-fastened the virtual telltale shall remain ON till the end of the maximum duration.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Incoming visualisation cycle that the seat belt is Fastened and active warning shall be terminated using the logics.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "signalling, warning, signal, telltale, fasten, terminate, remain, stop, new, is, will play, depending, seat, fastened, visualization cycle, activate, Trigger, till, end, duration, market, belt" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3715367
+- Contents: If a Key-OFF transition perform, the active visualization cycle shall terminate as:
+Seat belt shall remain ON when new telltale activate.
+Acoustic signalling shall stop when new Acoustic warning is Trigger.
+If the new acoustic signalling terminate then the previous active acoustic signal will play till the end of maximum duration depending on the country market.
+If the driver seat belt is Un-fastened the virtual telltale shall remain ON till the end of the maximum duration.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system shall stop display when necessary conditions met during the key-off event is happened.
+
+Max Time for Seat Belt  Warning: 55 sec.
+
+Please Refer:3525455
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "visualization cycle, signalling, warning, signal, telltale, perform, terminate, remain, stop, new, is, will play, depending, seat, fastened, activate, Trigger, till, end, duration, market, belt" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3624016
+- Contents: System  stop's the Warning-5 and Warning-6 when Rear seat belt were fastened and shall be ready for the new warning.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify That the system stops displaying the Warning-5 and 6 when Rear seat belt is fastened.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "were fastened" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3715361
+- Contents: System shall stop current warning when new warning activate using the logic:
+Seat belt shall remain ON when new warningin visualisation cycle activate.
+Acoustic signalling shall stop when new Acoustic warning  trigger.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the System stops current warning when activation logics are met.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "stop, signalling" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3715369
+- Contents: If during the incoming visualization cycle, the seat belt fasten, the active  Warning shall terminate as:
+Seat belt shall remain ON when new telltale activate.
+Acoustic signalling shall stop when new Acoustic warning is Trigger.
+If the new acoustic signalling terminate then the previous active acoustic signal will play till the end of maximum duration depending on the country market.
+If the driver seat belt is Un-fastened the virtual telltale shall remain ON till the end of the maximum duration.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the During the Visualisation if any of the seat belt is fastened the active shall be stopped as per the logics.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 50
+- Issues Found by RQA: Compound requirement
+ (Look for: "signalling, warning, signal, telltale, fasten, terminate, remain, stop, new, is, will play, depending, seat, fastened, visualization cycle, Warning, activate, Trigger, till, end, duration, market, belt" ) 
+Unclear term
+ (Look for: "maximum" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3715375
+- Contents: If proxi = “NAB” and PPD_psngr_info = (“PPD_Fault” or “PPD_device_not_present”), then System shall behave as if received PPD_psngr_info = “passenger_absent” and  the virtual telltales shall disappear after 6 seconds.that involve the green icon (driver seat belt fasten, passenger seat belt fasten, driver and passenger seat belts fasten)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Set proxi  to Present and Verify that the Green Telltales shall disappear after 6 seconds from the starting of Green telltales.
+
+Proxi:
+Byte 112, bit 5 ("SBRSource": NAB / NAP)
+
+CAN-Signal:
+AIRBAG1.Ppd_psngr_info
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, NAB, behave, received, absent, PPD_Fault" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3715387
+- Contents: The rear seat belt icon shall be visualized on Key-ON state.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the rear seat belt Icon shall be displayed t Key-On state.
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be visualized" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3715400
+- Contents: System shall display the rear left AND right seatbelt. when PROXI Rear_Lateral_Passengers_Buckle_Switches== Present (PROXI start Byte 108,  bit 2),
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: PROXI Rear_Lateral_Passengers_Buckle_Switches== Present (PROXI start Byte 108, bit 2), 
+
+Verifyt that the System shall display the Rear Left and Right seat belt 
+
+Proxi:
+Byte 108, bit 2 ("Rear_Lateral_Passengers_Buckle_Switch": Present / Absent)
+- Grooming Status: Approved
+- Grooming Comments: Please refer JIRA- 
+
+https://jira.harman.com/jira/browse/FQ-1070
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to bit, left, seatbelt, 108, bit" ) 
+Missing unit 
+ (Look for: "‘2’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3715540
+- Contents: If left rear seat belt change from un-fastened to Fastend system shall show as per the Ferrari design.
+(see: image35.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: If there is any change in un-fastened to Fastened in Left Rear Seat belt , Verify that the system indicates the visualisation as per the Ferrari design. 
+
+Proxi:
+Byte 108, bit2 ("Rear_Lateral_Passenger_Buckle_Switch": Present / Absent
+
+CAN-Signal:
+AIRBAG1.SBR2RowLeftSeatSts 
+AIRBAG1.SBR2RowLeftSeatConfigSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "rear, system, left, seat, fastened, show, change, design" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image35.png
+
+13. ID: 3715541
+- Contents: If right rear seat belt change from un-fastened to Fastend system shall show as per the Ferrari design.
+(see: image36.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: If there is any change in un-fastened to Fastened in Right Rear Seat belt , Verify that the system indicates the visualisation as per the Ferrari design. 
+
+Proxi:
+Byte 108, bit2 ("Rear_Lateral_Passenger_Buckle_Switch": Present / Absent
+
+CAN-Signal:
+AIRBAG1.SBR2RowRightSeatSts 
+AIRBAG1.SBR2RowRightSeatConfigSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, fastened, show, change, design" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image36.png
+
+14. ID: 3715543
+- Contents: If central rear seat belt change from un-fastened to Fastend system shall show as per the Ferrari design.
+(see: image37.png)
+Note: proxi (byte 180, bit 3) Rear_Central_Passenger_Buckle_Switch = "Present",
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: If there is any change in un-fastened to Fastened in Central Rear Seat belt , Verify that the system indicates the visualisation as per the Ferrari design. 
+
+Proxi:
+Byte 108, bit 3 ("Rear_Central_Passenger_Buckle_Switch": Present / Absent)
+
+CAN-Signal:
+AIRBAG1.SBR2RowCentralSeatSts 
+AIRBAG1.SBR2RowCentralSeatConfigSts
+- Grooming Status: Approved
+- Grooming Comments: Please refer :
+
+https://jira.harman.com/jira/browse/FQ-1070
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "rear, system, seat, fastened, show, proxi, change, design, byte 180, Present" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image37.png
+
+15. ID: 3481708
+- Contents: The system shall give Telltale with buzzer if vehicle speed, elapsed time  greater than configured value and driver unfastens the seat belt for Europe markets.
+Note: For proxi information please refer Country Market in  Car_Configuration_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:VehicleSpeedVSOSig > SeatBeltSpeed_min AND Elapsed time > SeatBeltTime_max
+and
+VehicleSpeedVSOSig > SeatBeltSpeed_max
+
+Verify that the telltale and the buzzer is triggered when the driver unfastens the seat belt as per  Europe behaviour
+
+Buzzer: Buzzer_Seatbelt
+
+CAN-Signal:
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, give, Telltale, buzzer" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+
+16. ID: 3604177
+- Contents: The System shall give Telltale with buzzer if Vehicle speed is greater than the configured value for the seat belt function.
+The time elapsed is greater than the configured time
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Telltale with Buzzer when Vehicle speed is greater than the configured value for the seat belt function and the time elapsed is greater than configured time.
+
+Buzzer: Buzzer_Seatbelt
+
+CAN-Signal:
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, give Telltale, elapsed, is, configured, buzzer, belt, time" )
+- State (Harman_Requirement): Approved
+
+17. ID: 3526506
+- Contents: System   shall deactivate acoustic warning cycle for both front and rear seat belts by End Of Line programming,
+If proxi Buzzer wear seat belt is in Absent , acoustic warning-1 ,warning-3 and warning-6 are not reproduce for Europe market.
+Note:The driver cannot deactivate the signalling of the seat belts virtual telltale on System   0440325
+For proxi information please refer Country Market in  Car_Configuration_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Acoustic warning can be deactivated by EOL programming.
+
+Proxi:
+Byte 108, bit 3 ("Rear_Central_Passenger_Buckle_Switch": Present / Absent)
+Byte 108, bit 2 ("Rear_Lateral_Passenger_Buckle_Switch": Present / Absent
+
+Byte 59, bits 4-5 ("Country Market": USA / CANADA / Extra Market / Mercato Arabia) 
+Byte 59, bits 6-7 ("Detail for Extra market": all other country / Japanese / UK)
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, deactivate, reproduce, refer, warning cycle, belts, programming, market, driver, signalling, telltale, Market" ) 
+Negative statement
+ (Look for: "not, cannot" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+
+18. ID: 3526507
+- Contents: If second seat belt unfasten While one seat belt unfasten acoustic signalling is active system shall over lap the timer event which is active and extend the acoustic signalling.
+if the second seat belt unfastened fasten before end of first seat belt acoustic unfastened signalling system shall stop acoustic signalling on timer expiry for the seat belt.
+Note: SeatBeltTime_max = 55 Sec
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the system shall over lap the timer event which is already active and extend the acoustic signalling.
+
+CAN-Signal:
+AIRBAG1.SBR1RowDriverSeatSts 
+AIRBAG1.SBR1RowDriverSeatConfigSts 
+AIRBAG1.SBR1RowPsngrSeatSts 
+AIRBAG1.SBR1RowPsngrSeatConfigSts 
+AIRBAG1.SBR2RowRightSeatSts 
+AIRBAG1.SBR2RowRightSeatConfigSts 
+AIRBAG1.SBR2RowLeftSeatSts 
+AIRBAG1.SBR2RowLeftSeatConfigSts 
+AIRBAG1.SBR2RowCentralSeatSts 
+AIRBAG1.SBR2RowCentralSeatConfigSts
+
+Note:
+ SeatBeltTime_max = 55 Sec
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "signalling, system, second seat belt, unfasten, is, over lap, is active, extend, unfastened, fasten, stop, event, end, expiry, belt" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+
+19. ID: 3491856
+- Contents: When the market set to USA and Canada system shall trigger telltale and buzzer send the Warning status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when the driver unfastens seat belt.
+(see: image38.png)
+Note:  For proxi information please refer Country Market in  Car_Configuration_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale and the buzzer is triggered when the driver unfastens the seat belt as per  USA and Canada Behavior
+
+CAN-Signal:
+AIRBAG1.SBR1RowDriverSeatSts 
+AIRBAG1.SBR1RowDriverSeatConfigSts 
+AIRBAG1.SBR1RowPsngrSeatSts 
+AIRBAG1.SBR1RowPsngrSeatConfigSts 
+AIRBAG1.SBR2RowRightSeatSts 
+AIRBAG1.SBR2RowRightSeatConfigSts 
+AIRBAG1.SBR2RowLeftSeatSts 
+AIRBAG1.SBR2RowLeftSeatConfigSts 
+AIRBAG1.SBR2RowCentralSeatSts 
+AIRBAG1.SBR2RowCentralSeatConfigSts
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, trigger, unfastens" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+- Visual Elements: image38.png
+
+20. ID: 3492621
+- Contents: When the market set to Europe behaviour system shall trigger telltale and buzzer and send the Warning status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when when the passenger seat belt  unfastened.
+(see: image39.png)
+For proxi information please refer Country Market in  Car_Configuration_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale and the buzzer is triggered when the passenger unfastens the seat belt as per  Europe behaviour
+
+CAN-Signal:
+AIRBAG1.SBR1RowDriverSeatSts 
+AIRBAG1.SBR1RowDriverSeatConfigSts 
+AIRBAG1.SBR1RowPsngrSeatSts 
+AIRBAG1.SBR1RowPsngrSeatConfigSts 
+AIRBAG1.SBR2RowRightSeatSts 
+AIRBAG1.SBR2RowRightSeatConfigSts 
+AIRBAG1.SBR2RowLeftSeatSts 
+AIRBAG1.SBR2RowLeftSeatConfigSts 
+AIRBAG1.SBR2RowCentralSeatSts 
+AIRBAG1.SBR2RowCentralSeatConfigSts
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "market, system, passenger, set, trigger, seat, unfastened, refer, telltale, buzzer, belt, Market" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+- Visual Elements: image39.png
+
+21. ID: 3492625
+- Contents: When the market set to USA and Canada system shall trigger telltale and buzzer when the passenger seat belt  unfastened.
+(see: image39.png)
+For proxi information please refer Country Market in  Car_Configuration_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale and the buzzer is triggered when the passenger unfastens the seat belt as per  USA And Canada behaviour
+
+CAN-Signals:
+CAN-Signal:
+AIRBAG1.SBR1RowDriverSeatSts 
+AIRBAG1.SBR1RowDriverSeatConfigSts 
+AIRBAG1.SBR1RowPsngrSeatSts 
+AIRBAG1.SBR1RowPsngrSeatConfigSts 
+AIRBAG1.SBR2RowRightSeatSts 
+AIRBAG1.SBR2RowRightSeatConfigSts 
+AIRBAG1.SBR2RowLeftSeatSts 
+AIRBAG1.SBR2RowLeftSeatConfigSts 
+AIRBAG1.SBR2RowCentralSeatSts 
+AIRBAG1.SBR2RowCentralSeatConfigSts
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "market, system, passenger, set, trigger, seat, unfastened, refer, telltale, buzzer, belt, Market" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+- Visual Elements: image39.png
+
+22. ID: 3481710
+- Contents: System shall turn off Telltale and the buzzer shall stop signaling when the seat belt fastened.
+(see: image40.png)
+For proxi information please refer Country Market in  Car_Configuration_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the telltale and buzzer stop after the seat belt is fastened by the driver and passenger.
+
+CAN-Signal:
+AIRBAG1.SBR1RowDriverSeatSts 
+AIRBAG1.SBR1RowDriverSeatConfigSts 
+AIRBAG1.SBR1RowPsngrSeatSts 
+AIRBAG1.SBR1RowPsngrSeatConfigSts 
+AIRBAG1.SBR2RowRightSeatSts 
+AIRBAG1.SBR2RowRightSeatConfigSts 
+AIRBAG1.SBR2RowLeftSeatSts 
+AIRBAG1.SBR2RowLeftSeatConfigSts 
+AIRBAG1.SBR2RowCentralSeatSts 
+AIRBAG1.SBR2RowCentralSeatConfigSts
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, buzzer, turn off, stop signaling, fastened, Telltale, belt" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+- Visual Elements: image40.png
+
+23. ID: 3481711
+- Contents: System shall trigger a warning for 60 seconds for below conditions
+At key-On when seatbelt not fastened by front passengers (or)
+Seatbelt fastened and then unfastened by rear passengers
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Conditions:Key-On and seat belt is not fastened by the rear passenger.
+
+Verify that the telltale and the buzzer triggers for 60 seconds when the fastened seat belt is unfastened  and Key-On behaviour is observed by the system.
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, fastened, unfastened, warning, conditions, passengers" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 Document F140 Warning 5
+
+24. ID: 3526528
+- Contents: System shall deactivate warning for below conditions:
+after 60 seconds from the start of warning (or)
+Seat belt fasten by the rear passenger (or)
+Key-off event happen.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale turns off when the  input conditions are satisfied.
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, deactivate, warning, fasten, happen, conditions, start, passenger" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+
+25. ID: 3491866
+- Contents: System shall trigger warning and buzzer for 90 seconds for below conditions
+At key-On fastened rear seat belt became unfastened (or)
+Vehicle speed greater than minimum speed value for seat belt and time elapsed greater than maximum speed value for seat belt (or)
+Vehicle speed greater than maximum speed value for seat belt.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:VehicleSpeedVSOSig > SeatBeltSpeed_min AND Elapsed time > SeatBeltTime_max 
+and
+VehicleSpeedVSOSig > SeatBeltSpeed_max
+
+Verify that the telltale and the buzzer triggers for 90 seconds when the fastened seat belt is unfastened  and Key-On behaviour is observed by the system.
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+
+
+
+Need to create Jira , Why two warning trigger condition. What is the difference between the trigger conditions one from the ID's from the table and the one from the SeatBeltSpeed_min and other parameters?
+- Expert Domains: Android HMI, Audio Control, Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, fastened, became, elapsed, warning, buzzer, conditions, seat, value, belt, time" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202 F140  Document Warning 6
+
+26. ID: 3526537
+- Contents: System shall deactivate warning for below conditions:
+after 90 seconds from the start of warning (or)
+Seat belt fasten by the rear passenger (or)
+Key-off event happen.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the telltale turns off when the  input conditions are satisfied.
+- Grooming Status: Approved
+- Grooming Comments: Proxy file is not Available , requirement can be marked as groomed once Proxy file is available.
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, deactivate, warning, fasten, happen, conditions, start, passenger" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Please refer 3712871: Proxi_NextGen_240419_rev463.xls
+
+### Informational Items:
+
+1. ID: 3523976
+- Contents: System shall receives “SBR1RowPsngrSeatConfigSts, SBR1RowDriverSeatConfigSts, SBR1RowPsngrSeatSts and SBR1RowDriverSeatSts”, “SBR2RowLeftSeatConfigSts, SBR2RowRightSeatConfigSts,SBR2RowCentralSeatConfigSts, SBR2RowLeftSeatSts, SBR2RowRightSeatSts and SBR2RowCentralSeatS ts” signals from NAB via C-CAN network to determine which seats have to be checked and the status of the seat belt.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Refer Info 329576 for CAN Signals
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "signals, receives, network, to determine, have, RowPsngrSeatConfigSts, RowDriverSeatConfigSts, RowPsngrSeatSts, RowDriverSeatSts, RowLeftSeatConfigSts, RowRightSeatConfigSts, RowCentralSeatConfigSts, RowLeftSeatSts, RowRightSeatSts, NAB, seats, status, belt" ) 
+Passive voice
+ (Look for: "to be checked" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+2. ID: 3525455
+- Contents: Seat Belt telltale management logic flow. (see: image32.png)
+For reference  look buckle switch proxi in
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): In Work
+- Requirement Rationale: For reference look at the proxi file in the reference section.
+- Visual Elements: image32.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image33.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image38.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image35.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image40.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image36.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image39.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image37.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image34.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image32.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F140 6.2.1.1.1.13  Unfastened Seat Belts Signalling Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

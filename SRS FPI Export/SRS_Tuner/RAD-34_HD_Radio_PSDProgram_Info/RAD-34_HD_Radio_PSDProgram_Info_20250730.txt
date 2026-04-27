@@ -1,0 +1,97 @@
+# RAD-34 6.2.1.1.35  HD Radio PSD/Program Info Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.35 RAD-34 HD Radio PSD/Program Info
+
+- ID: 4094218
+- Artifact Type: SRS Feature
+- Responsible Domain: AM_FM_HD
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4094242
+- Contents: System shall retrieve text information of now playing audio by PSD message.
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: defined in RD_HD-05
+
+2. ID: 4094243
+- Contents: System shall show song metadata and artist metadata. Song information shall show in first row and Artist metadata on the second row,  If song/Artist data unavailable then the Song/Artist information shall show in the first row.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall show song and artist information If both are available. Song information shall show in first row and Artist information on the second row,  If one of them are unavailable then the remaining information shall show in the first row
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, information, show, metadata, row, data unavailable" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4094245
+- Contents: System shall have highest PSD priority incase of simulatenous presence of PTY, RT, RT+
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "highest" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4094248
+- Contents: HD Radio PSD/Program Info shall applicable to AM HD Radio, FM HD Radio
+- Artifact Type: SRS Req
+- Responsible Domain: AM_FM_HD
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Whitelabel- Implementation from Space 4, Hence test team approval is not needed
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4094247
+- Contents: [Info] It is possible to populate, with the PSD field data, the information to be visualized on the HMI that can be retrieved from the PSD function described in RAD-18 (see: image13.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image13.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image13.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-34 6.2.1.1.35  HD Radio PSD/Program Info Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,180 @@
+# DMS-0 6.2.1.1  INTRODUCTION Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1 DMS-0 INTRODUCTION
+
+- ID: 3408499
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Grooming Comments: [Abdul 05.07.2024]:one SRS is blocked due to verification criteria.
+- Expert Domains: Android HMI, Cluster SW, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3716692
+- Contents: The System shall enable/disable the DMS feature based on the proxi parameter "Distraction" -> Driver distraction is in DMS 11 -> [Marwan]: Remove it from DMS0
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn On  the Ignition 
+Verify that the DMS feature is enabled/disabled based on the proxi parameter.
+Use the DMS log to check the DMS functionality is enabled/disabled.
+
+Verify the DMS system status by using the CAN signal DMS_INFO.DMSSystemStatus
+- Grooming Status: Review
+- Grooming Comments: [Antonio 25.07,2024]: OK to approve.
+Proxi with name "DMS" is not valid and not needed.
+
+[19.07.2024, Mayank, LakshmiPrasad, Abdul]: Blocked , need to get clarification on the enable/disable from HMI:
+
+Blocked
+DMS_Enable /DMS_Not_Enable fromo HMI:
+OUr understanding, it is fr enabling/disBLING dms DISTRACTION WARNING
+
+Question: then how the below part is becomes ok?
+F244-33185 -
+IF
+NIT_ADAS_SETUP2.DMS_Enable == “Not_Enable”
+THEN
+IDC shall transmit DMSSystemStatus == “Off”
+
+,
+Is there any input 
+
+
+
+[Ankit, Antonio, 15.07.2024] Need to get confirmation on the power state (is it just KL 30 is both KL 30 and KL 15) ?
+
+[Abdul 15.07.2024]: Is the CAN signal NIT_ADAS_SETUP2.DMS_Enable is an input signal? if yes is this enabled always?
+
+Mayank: This can signal can be put under the warning enable/disable featute
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "always" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3729975
+- Contents: The system shall allow the user to enable/disable the DMS warning via HMI
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that it is possible to enable/disable the DMS warning via HMI.
+
+Verify the DMS system status by using the CAN signal DMS_INFO.DMSSystemStatus
+- Grooming Status: Approved
+- Grooming Comments: [Antonio, Abdul 18.12.2024]: Approved
+
+[Blocked 19.07.2024], need clarification form customer
+
+Need clarification on Verification Criteria from FO
+
+https://jira.harman.com/jira/browse/FQ-427
+- Expert Domains: Android HMI, Cluster SW
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, enable, disable, feature" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3538172
+- Contents: The system shall implement the logics of Driving Monitoring System according to Ferrari design.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- State (Harman_Requirement): Approved
+
+2. ID: 3716657
+- Contents: The system manages the detection of distraction through active user monitoring with the aid of a camera sensor capable of analyzing facial movements and all the interactions the user has with it.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3558278
+- Contents: The system shall analyze facial movements and all the interactions the user has with it to detect the signs of distraction.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3538188
+- Contents: IF not specified otherwise, every requirement is valid for any DMS camera installation
+position (e.g. dashboard, A-pillar, steering wheel column), both for left-hand driving and right-hand driving vehicles.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Analyzed
+- Requirement Rationale: DMS camera installation
+position includes dashboard, A-pillar, steering wheel column.
+
+5. ID: 3733556
+- Contents: NOTE: the definition of Nominal_condition is described in FTS
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3729948
+- Contents: (see: image1.png)
+Figure:  DMS Cluster warnings
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image1.png
+
+7. ID: 3729952
+- Contents: (see: image2.png)
+Figure: DMS Central HMI warning
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image2.png
+
+8. ID: 3538189
+- Contents: CAN signals and their characteristics shall be developed according to DBC file.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+9. ID: 3538196
+- Contents: Diagnosis and Network must be compliant to international and FCA standards agreed in the Product Card and Reference documents.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3733554
+- Contents: DMS shall enable the possibility to manage ALL the settings via DATASET, during the development phase
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image1.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image2.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-0 6.2.1.1  INTRODUCTION Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

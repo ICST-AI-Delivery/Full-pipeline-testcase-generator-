@@ -1,0 +1,118 @@
+# PHN-9 6.2.1.9  Accept Call Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.9 PHN-9 Accept Call
+
+- ID: 3407134
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: BT
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3430921
+- Contents: IDC shall display a pop-up to accept the secondary incoming call when the primary call is in progress on projection(Android auto and CarPlay).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify IDC shall display popup to accept the secondary incoming call when the primary call is in progress on projection.
+- Grooming Status: Approved
+- Grooming Comments: HMI is  Ferrari specific.
+- Expert Domains: BT, Projections
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, call, display, to accept, incoming, is, pop-up, secondary, progress, CarPlay" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3430922
+- Contents: System shall allow user to end the primary call and Accept the Secondary call or end the incoming secondary call, when the active call is present on the primary (projection) phone and the new incoming call is present on the secondary (BT) phone
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to end the active call on the primary and answer the secondary active call or end the incoming call from secondary phone.
+- Grooming Status: Approved
+- Grooming Comments: [Ferrari]: yes it is a typo; it shall allow the user to end the call on the primary and answer the incoming on the secondary or  decline the call on the secondary. We will update the requirement according to this comment
+
+[Harman]: Is there a typo in the requirement? How to end the call on the secondary device if the active call is on the primary device?
+
+
+Need more information about primary and secondary Active call at a time?
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, call, allow, to end, Accept, end, is present, phone" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3558044
+- Contents: System shall handle incoming call only from BT phone (i.e., secondary phone).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall handle Incoming call  only from BT phone i.e., secondary phone.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "only" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3558109
+- Contents: IDC shall display an HMI interface to allow the user to Accept the incoming call when
+incoming call is present for phone.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check system shall allow user to accept the income call.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, call, display, allow, to Accept, is present, interface, user, phone" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: According to HMI specification package
+
+5. ID: 3558122
+- Contents: IDC shall display Active call, after the user has accepted the incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: Projections
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the Active call interface after accepting the Incoming call.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, has accepted, call" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3558106
+- Contents: [Info] Incoming call on the primary phone is managed by a smartphone projection, IDC streams the incoming call to the HMI from the primary phone (connected as Android Auto or Apple Carplay)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-9 6.2.1.9  Accept Call Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

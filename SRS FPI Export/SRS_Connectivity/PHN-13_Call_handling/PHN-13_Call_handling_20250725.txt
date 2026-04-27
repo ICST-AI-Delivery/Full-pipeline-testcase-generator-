@@ -1,0 +1,117 @@
+# PHN-13 6.2.1.13  Call handling Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.13 PHN-13 Call handling
+
+- ID: 3713691
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Audio Control, BT, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713692
+- Contents: System shall notify the user with a ringtone when incoming call detects.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Verify system shall notify the user with a ringtone when incoming call is detected.
+- Grooming Status: Approved
+- Expert Domains: Audio Control, BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "notify, detects" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: system notifies it to the user by BT protocol ringtone melody if supported from the phone. If not supported by the protocol, system ringtone is used.
+
+2. ID: 3713949
+- Contents: System shall mute the ringtone volume till the end of current incoming call after short press of physical volume knob during an incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall mute the ringtone volume temporarily until the end of current incoming call after short press of physical volume knob during an incoming call.
+- Grooming Status: Approved
+- Expert Domains: System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, mute, short, volume, end, call, press" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3713948
+- Contents: System shall allow user to end the current active call and accept incoming call when two phones connected.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system allow user to end the current active call and accept incoming call when two phones are connected.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to end, accept, connected, call, phones" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3713947
+- Contents: The system shall allow user to accept or decline the incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to accept or decline the incoming call.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to accept, decline, call" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3713955
+- Contents: The system shall allow user to end the current active call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow user to end the current active call.
+- Grooming Status: Approved
+- Expert Domains: BT
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This requirement is applicable when one or two phone connected.
+
+6. ID: 3713956
+- Contents: The system shall allow the user to activate/deactivate the microphone or Hold during the active call.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify system shall allow the user to activate/deactivate the microphone or Hold during the active call.
+(By using Mute HMI Interface or microphone keys.)
+- Grooming Status: Approved
+- Expert Domains: Audio Control, System Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to activate, deactivate, microphone, call" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PHN-13 6.2.1.13  Call handling Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

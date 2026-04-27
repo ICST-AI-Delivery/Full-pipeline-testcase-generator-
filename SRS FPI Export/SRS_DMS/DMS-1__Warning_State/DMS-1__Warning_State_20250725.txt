@@ -1,0 +1,116 @@
+# DMS-1 6.2.1.2.5 _Warning State Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.5 DMS-1_Warning State
+
+- ID: 3784386
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3784387
+- Contents: The DMS shall switch to Warning state from Running state if driver is 'not-attentive'.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: DMS is in running state
+Set the below condition:
+driver is not attentive
+
+Verify that the DMS is switched to warning state.
+
+Verify the below CAN signal values
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+'DMS_INFO.DMSSystemStatus' according to Settings Management
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4642801
+- Contents: The system shall send the below CAN signal values in DMS 'WARNING' state.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = 5 (WARNING).
+ActiveDMS_INFO.DMSSystemStatus according to Settings Management
+DMS_INFO.HMICode_DMS according to Attention Warning
+Oe_enu_DrvrAttentive according to Attentiveness Estimation
+DMS_INFO.DMS_DriverPresent according to Face Landmark Location
+DMS_INFO.Nominal_condition according to Non-Nominal Condition Determination
+DMS_INFO.DMSSystemFail = not_fail
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+DMS is in 'WARNING' state.
+
+Verify that the mentioned CAN signals & Values are sent..
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-893
+- Expert Domains: DMS-OMS, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3538885
+- Contents: DMS shall alert the inattentive driver through the distraction warning according to Attention Warning in WARNING state.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to Warning state.
+
+Verify the CAN signal value:
+DMS_INFO.HMICode_DMS = visual_acoustic
+
+Verify the Visual acoustic warning in the cluster HMI.
+- Grooming Status: Approved
+- Expert Domains: Cluster SW
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer the below link for the warning details:
+
+
+Refer the artifact ID 3729948 for warning in cluster
+
+4. ID: 3792773
+- Contents: The system shall switch to Running state from Warning state when the driver is Attentive
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the DMS is switched from Warning state to Running state when the driver is not attentive.
+
+Check the below CAN signal for verification.
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, Warning, is, state, Attentive" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-1 6.2.1.2.5 _Warning State Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

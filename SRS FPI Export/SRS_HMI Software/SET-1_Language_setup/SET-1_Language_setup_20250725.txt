@@ -1,0 +1,95 @@
+# SET-1 6.2.3.7.15  Language setup Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.15 SET-1 Language setup
+
+- ID: 4009304
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: OEM feature
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4011297
+- Contents: IDC shall allow user to short press on “System language” a sub-level list should open with available languages:
+English (UK)
+English (US)
+Deutsch
+Italiano
+Français FR (France)
+Français CA (Canada)
+Español (Spanish ES - Spain)
+Español (Spanish ES - Mexico)
+Русский (Cyrillic - Russia)
+中国 (Chinese)
+العربية (Arabic)
+Türkish
+日本の(Japanese)
+Portoguese
+Polish
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify the languages when user able to short press on system language.
+
+HMI-CAN:
+NIT_VEHICLE_SETUP.LanguageSelection
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall shall, should should" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4011299
+- Contents: IDC shall display a popup to the user to confirm/cancel the language change through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify the pop up that user able to confirm /cancel the language change.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, to confirm, cancel, popup, user, HMI" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4011298
+- Contents: IDC shall inform the user about the status of the language update.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Integration Test, System Qualification Test
+- Verification Criteria: verify the status of language update.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-1 6.2.3.7.15  Language setup Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,64 @@
+# UnknownID 6.2.1.1.4 External Amplifier Missing Message (0xD82287) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.4 External Amplifier Missing Message (0xD82287)
+
+- ID: 3886348
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3886349
+- Contents: The system shall be able to detect External Amplifier missing message within 1sec  during A2B Network 2 Sub 0 Discovered  & External Amplifier does not reply on I2C over A2B communication.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: -Set external amplifier missing messages.
+-Or do not send External Amplifier does not reply on I2C over A2B communication. messages to trigger the fault.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250121: Test that DTC is supported and with external AMP also active/passive state
+- State (Harman_Requirement): Approved
+
+2. ID: 3886352
+- Contents: The System shall de-validate/clear the External Amplifier Missing Message   within 1sec with External Amplifier replies on I2C over A2B communication
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_Diag
+- Test Stage: System Qualification Test
+- Verification Criteria: Send External Amplifier does not reply on I2C over A2B communication.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Amplifier, communication, system, replies, face, time, amp, Failure Threshold" )
+- TestTeamComment: RWeber_DIAG_250121: Test that DTC is supported and with external AMP also active/passive state
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.1.4 External Amplifier Missing Message (0xD82287) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

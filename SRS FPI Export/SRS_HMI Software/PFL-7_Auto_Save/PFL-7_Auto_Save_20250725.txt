@@ -1,0 +1,132 @@
+# PFL-7 6.2.6.8  Auto Save Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.8 PFL-7 Auto Save
+
+- ID: 3939841
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: this entair feature fall under profile setting
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3970783
+- Contents: When the user sets Auto Save to OFF then:
+IDC shall display a pop up to the user to save the new value set for the current profile.
+IDC shall overwrite the value stored when the user asks for the new value memorization.
+IDC shall not modify the stored value in database of active profile when  the user does not confirm value saving.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the Auto save OFF conditions below.
+
+verify the pop up that the user to save the new value set for the current profile.
+
+verify new value memorization.
+
+verify the database when user does not confirm value saving condition.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, sets, display, to save, set, overwrite, stored, asks, modify, does, confirm, saving, Save, pop, user, value, profile, memorization, database" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3970782
+- Contents: IDC shall display a pop up to the user to save the new values set for the current profile when more than one profile feature should update by the user within T_autosave.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the popup for saving profile changes.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, to save, set, profiled, update, pop, user, values, profile, feature" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3970780
+- Contents: When the user sets Auto Save to ON then:
+IDC shall update the related output signals.
+IDC shall overwrite when the stored value changed setting with the new set value.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the auto save ON condition
+
+verify the output signals. (ref menu structure doc)
+
+verify the stored value changed setting with new set value.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "sets, update, overwrite, stored, changed, setting, Save, signals, value" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3970779
+- Contents: IDC shall inform the user the changes have been saved.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the pop up that the changes are saved.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "have been saved" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3970778
+- Contents: system shall store the last Auto Save value for the active profile in the portion of memory dedicated to the current active user profile, before IDC shutdown or reboot.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the last auto save value is properly stored before an IDC shutdown or reboot.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, store, dedicated, reboot, value, profile, portion, memory" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3970777
+- Contents: System shall recover the stored value for Auto Save setting to the active profile when profile activation in progress.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system recovers and applies the stored auto save setting to the active profile during the activation process.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, recover, stored, setting, value, profile, activation, progress" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-7 6.2.6.8  Auto Save Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

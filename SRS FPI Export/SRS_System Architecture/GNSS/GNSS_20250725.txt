@@ -1,0 +1,258 @@
+# UnknownID 6.1.2.4 GNSS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.4 GNSS
+
+- ID: 2353922
+- Artifact Type: SRS Feature
+- Responsible Domain: Hardware
+- Expert Domains: NavSens
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353923
+- Contents: 6.1.2.4.1 The ECU shall integrate a GNSS receiver capable of simultaneous multi-constellation reception.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Grooming Status: Approved
+- Grooming Comments: Offered by the chip supplier implicitly.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+2. ID: 3330047
+- Contents: 6.1.2.4.2 The GNSS receiver shall cover all required standards and regulations for the planned markets.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Grooming Status: New
+- Expert Domains: NavSens
+- State (Harman_Requirement): New
+
+3. ID: 2353924
+- Contents: 6.1.2.4.3 The GNSS receiver shall support the following GNSS constellations: GPSGLONASS / ГЛОНАССBDS / 北斗卫星导航系统Galileo
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: System Integration Test
+- Verification Criteria: Test scripts to interpret signals and check the messages through the roof antenna.
+- Grooming Status: Approved
+- Grooming Comments: Domain team to provide inputs to Jens & team, later the VC will be updated accordingly.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+4. ID: 3330048
+- Contents: 6.1.2.4.4 The GNSS receiver shall support the following SBAS: EGNOS
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Grooming Status: New
+- Expert Domains: NavSens
+- State (Harman_Requirement): New
+
+5. ID: 2353925
+- Contents: 6.1.2.4.5 The GNSS receiver shall support L1 band.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: Guaranteed by Design, System Integration Test
+- Grooming Status: Approved
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+6. ID: 2353927
+- Contents: 6.1.2.4.7 The GNSS receiver shall be able to output a PVT solution at 10 Hz or faster.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: Inspection / Review, System Integration Test
+- Verification Criteria: Test case to check the max output raw data on Android.
+
+-Test measures for 30 mins with +-25ms.
+- Grooming Status: Approved
+- Grooming Comments: Test measures for 30 mins with +-25ms.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+7. ID: 2353928
+- Contents: 6.1.2.4.8 GNSS jitter shall not affect the rate of the physical measurement updated at each sample time.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: Inspection / Review, System Integration Test
+- Verification Criteria: Test measures for 30 mins with +-25ms.
+
+
+Check to see if all the messages are received without dropping.
+- Grooming Status: Approved
+- Grooming Comments: Test measures for 30 mins with +-25ms.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+8. ID: 2353929
+- Contents: 6.1.2.4.9 The GNSS receiver shall acquire and track multiple GNSS constellations concurrently.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: - By default supports multiple systems reported in the message.
+-Can be verified at Android level testing.
+- Grooming Status: Approved
+- Grooming Comments: Depends on the location and the environment (open sky, building et.,)
+- Expert Domains: NavSens
+- TestTeamComment: Hsutter [2024-04-10]  Send mail to Philippe Dostert  -> Information in Verification Criteria is missing
+
+
+[Hsutter, 2024-01-15]
+JHaerig: 
+30.10.2023: Mail sent by Saranya, no further update received
+20231120_Anbadea:Waiting for feedback from Sunil Nagaraju:
+
+20231108_Hsutter: General requirement. Has nothing to do with SystemTest
+20231120_Anbadea:Waiting for feedback from Sunil Nagaraju:
+- State (Harman_Requirement): Approved
+
+9. ID: 2353930
+- Contents: 6.1.2.4.10 The GNSS receiver shall have a dynamic sensitivity of −165 dBm or better.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Test Stage: Inspection / Review, Third Party Test
+- Verification Criteria: HW with SW tooling provided by Ublox for testing; to measure the sensitivity.
+
+HW validation can be done with ground truth reference device like Novatel, OTS to measure the accuracy.
+- Grooming Status: Approved
+- Grooming Comments: - Dynamic Sensitivity is out of scope for HARMAN.
+
+- Positioning accuracy is provided in open sky with ideal antenna.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+10. ID: 3330064
+- Contents: 6.1.2.4.11 The GNSS receiver shall have a position accuracy of 2 meters or better.
+- Artifact Type: SRS Req
+- Responsible Domain: Hardware
+- Grooming Status: New
+- Expert Domains: NavSens
+- State (Harman_Requirement): New
+
+11. ID: 2353931
+- Contents: 6.1.2.4.12 The GNSS receiver shall use available satellite-based augmentation systems (SBAS).
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Grooming Status: Approved
+- Grooming Comments: Offered by Supplier.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+12. ID: 2353932
+- Contents: 6.1.2.4.13 The Supplier shall provide the list of supported SBAS services.
+- Artifact Type: SRS Req
+- Responsible Domain: PM
+- Grooming Status: Approved
+- Grooming Comments: Provided by Supplier
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+13. ID: 2353934
+- Contents: 6.1.2.4.15 The GNSS receiver shall have a TTFF (Time To First Fix) of 2 seconds or better for a hot start.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: Software Qualification Test
+- Verification Criteria: Pre-condition: Existing 3D fix
+
+Perform reset of the system and measure time between reset and next 3D fix.
+- Grooming Status: Approved
+- Grooming Comments: Warms startup it is possible and not for Cold.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+14. ID: 2353936
+- Contents: 6.1.2.4.17 The GNSS receiver shall store the last valid positioning data internally.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: Software Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Not clear about the VC and Test stage.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+15. ID: 2353937
+- Contents: 6.1.2.4.18 The ECU shall store all NMEA 0183 data output by GNSS receiver.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: Software Qualification Test
+- Grooming Status: Blocked
+- Grooming Comments: 4/8/2023: Anju: The requirement is not clear and need to discuss with the CPM team
+- Expert Domains: NavSens
+- State (Harman_Requirement): In Work
+
+16. ID: 2353938
+- Contents: 6.1.2.4.19 The positioning system shall output coordinates in the coordinate system defined by ISO 8855.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Grooming Status: Approved
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+17. ID: 2353940
+- Contents: 6.1.2.4.21 The Supplier shall share the firmware version of the GNSS receiver, the most recent firmware version supported by the vendor of the GNSS receiver, and the related errata.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Grooming Status: Approved
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+18. ID: 2353941
+- Contents: 6.1.2.4.22 The GNSS receiver shall output DOP (Dilution Of Precision) information.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Grooming Status: Approved
+- Grooming Comments: Offered by the chip set, out of scope for HARMAN.
+- Expert Domains: NavSens
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 2353926
+- Contents: 6.1.2.4.6 The GNSS receiver shall optionally provide raw satellite measurements such as pseudoranges.
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+2. ID: 2353933
+- Contents: 6.1.2.4.14 The system shall be capable use an external network connection (e.g. LTE) to provide data to the GNSS receiver. No special arrangements with mobile network operators shall be needed. The solution shall be network operator independent and globally available.
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+3. ID: 2353935
+- Contents: 6.1.2.4.16 The ECU shall use AGNSS (Assisted GNSS).
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+4. ID: 2353939
+- Contents: 6.1.2.4.20 The GNSS receiver's software/firmware shall be updatable.
+- Artifact Type: Information
+- State (Harman_Requirement): Obsolete
+
+5. ID: 2353990
+- Contents: 6.1.3 System and Software Architecture       System and Software Architecture
+- Artifact Type: Information
+
+6. ID: 2353991
+- Contents: 6.1.3.7 Overview       Overview
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.4 GNSS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

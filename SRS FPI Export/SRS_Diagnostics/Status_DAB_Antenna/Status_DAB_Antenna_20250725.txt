@@ -1,0 +1,128 @@
+# UnknownID 6.2.4.3.1.17 Status DAB Antenna Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.17 Status DAB Antenna
+
+- ID: 3948466
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- Grooming Comments: Currently S4 ready upgrade only supports DAB BER for FIC and not for MSC , since it is specific to Ferrari S4/platform tuner team is asking for CR to support MSC Ber for Dab.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3952520
+- Contents: The system shall have the Read access to Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and  Dimension: 9 Bytes, Data type: HEX.
+- Grooming Status: Approved
+- Grooming Comments: Currently S4 ready upgrade only supports DAB BER for FIC and not for MSC , since it is specific to Ferrari S4/platform tuner team is asking for CR to support MSC Ber for Dab.
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 3952554
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall return details about the Status of Digital Radio Antenna as follows:
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned details about the Status of Digital Radio Antenna in Table.
+- Grooming Status: Approved
+- Grooming Comments: Currently S4 ready upgrade only supports DAB BER for FIC and not for MSC , since it is specific to Ferrari S4/platform tuner team is asking for CR to support MSC Ber for Dab.
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 3952948
+- Contents: The Status DAB Antenna parameter fields shall populate as Antenna DAB current, DAB Bit Error Rate FIC and DAB Bit Error Rate MSC shown in the below table.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Antenna DAB current, DAB Bit Error Rate FIC and DAB Bit Error Rate MSC shown in the below table.
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "fields, Rate, populate, shown, current, MSC, table" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3952949
+- Contents: The System shall support the Antenna DAB Current values  as follows
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Antenna DAB current values in table.
+- Grooming Status: Approved
+- Grooming Comments: Currently S4 ready upgrade only supports DAB BER for FIC and not for MSC , since it is specific to Ferrari S4/platform tuner team is asking for CR to support MSC Ber for Dab.
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3952951
+- Contents: The System shall support the DAB Bit Error Rate FIC values  as follows
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DAB Bit Error Rate FIC values in table.
+- Grooming Status: Approved
+- Grooming Comments: Currently S4 ready upgrade only supports DAB BER for FIC and not for MSC , since it is specific to Ferrari S4/platform tuner team is asking for CR to support MSC Ber for Dab.
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+6. ID: 3952952
+- Contents: The System shall support the DAB Bit Error Rate MSC values  as follows
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the DAB Bit Error Rate MSC values in table.
+- Grooming Status: Approved
+- Grooming Comments: Currently S4 ready upgrade only supports DAB BER for FIC and not for MSC , since it is specific to Ferrari S4/platform tuner team is asking for CR to support MSC Ber for Dab.
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3952544
+- Contents: Refer to standard ETSI EN 300 401.
+- Artifact Type: Information
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: DAB_Cross Dev, IOC_Diag
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.17 Status DAB Antenna Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

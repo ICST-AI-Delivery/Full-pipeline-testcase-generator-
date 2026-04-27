@@ -1,0 +1,204 @@
+# PRK-8 6.2.4.9  BIRD VIEW Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.9 PRK-8 BIRD VIEW
+
+- ID: 3939645
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4759677
+- Contents: HMI-LF-7880 - Surround View Buttons
+- Artifact Type: SRS Req
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3968442
+- Contents: The system shall implement a Bird View displaying the environment around the vehicle stitching the frames from 4 cameras(Rear, Front, Left, Right).
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open the Bird View 
+Verify that the  environment around the vehicle, stitching the frames from 4 cameras(Rear, Front, Left, Right).is being displayed.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, displaying, stitching, environment, frames, camerasRear, Front, Left, Right" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3968466
+- Contents: The system shall use the stitched camera frames in Bird View as a texture to a flat planar surface shaped configurable mesh.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Visually verify the Top view and there should not be any distortion in the ground plane.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3968475
+- Contents: The system shall support smooth and seamless image transition in bird view as below
+From Front image to the Right mage,
+From the Right image to the Rear image
+From the Rear image to the Left image
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open Bird view
+
+Verify it is possible to transition the images as below
+Front image to the Right mage,
+
+from the Right image to the Rear image
+
+ from the Rear image to the Left image
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, transition, images, image, mage, amp, Left, seamless" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3968480
+- Contents: The SV shall render a silhouette with configurable dimensions similar in form to a "car shadow" to cover the blind area in Bird View.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn On the surround view
+Verify that the blind area of the Bird View is covered with the car shadow
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "similar" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3968484
+- Contents: The SV shall render a 3D Vehicle model over the blind area in Bird View.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Veirify that the 3D vehicle model is rendered  in Bird view  (in the blind area)
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3968493
+- Contents: Bird view image shall contain the vehicle surrounding of at least 2 m from vehicle periphery & configurable.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the vehicle  surroundings of configured distance (>2m) is shown in bird view.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3968494
+- Contents: The system shall render 3D Vehicle model in the middle of Bird view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Launch the bird view.
+Verify that 3D Vehicle model is rendered in the middle of Bird view.
+- Grooming Status: Approved
+- Grooming Comments: Wei 11.12.2024: OK to approve
+
+Prashant: Blocked. Need confirmation from Camera team
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be rendered" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3968495
+- Contents: The system shall render all parking lines on Bird view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parking lines are visible on Bird view.
+Refer: PRK-2 GRID VIEWS.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be rendered" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer PRK-2 GRID VIEWS.
+
+10. ID: 3968496
+- Contents: The system shall render Parking sensors overlays in Bird View
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Parking sensors overlays are rendered  in Bird View
+
+Note: This should be as per PRK-3 VIRTUAL WALLS.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be rendered" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: This is according to PRK-3 VIRTUAL WALLS.
+
+### Informational Items:
+
+1. ID: 3968360
+- Contents: This function describes the Surround View Bird View.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3968361
+- Contents: The system shall display the Bird View as reported in:
+HMI-LF-7874 - Surround View Bird View: elements and interactions
+HMI-LF-7999 - Elements visualized for each configuration
+HMI-LF-8001 - Parking buttons for each configuration
+- Artifact Type: Information
+- Responsible Domain: Surround_View
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, reported, elements, interactions, Buttons" )
+- State (Harman_Requirement): New
+
+3. ID: 3968441
+- Contents: The system shall implement the logics of Bird View according to:
+SFS F560 – Surround View Management
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+4. ID: 3968497
+- Contents: Refer to HMI specification for all buttons and graphic elements to be shown in Bird View.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-8 6.2.4.9  BIRD VIEW Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

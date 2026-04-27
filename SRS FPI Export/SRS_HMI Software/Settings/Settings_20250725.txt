@@ -1,0 +1,590 @@
+# UnknownID 6.1.4.12 Settings
+
+
+
+Settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.4.12 Settings
+
+
+
+Settings
+
+- ID: 2354794
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354795
+- Contents: 6.1.4.12.1 The System shall give the User the possibility to customize the experience.
+
+
+
+The System shall give the User the possibility to customize the experience.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+
+2. ID: 2354796
+- Contents: 6.1.4.12.2 The System shall store the user's settings values.
+
+
+
+The System shall store the user's settings values.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+3. ID: 2354797
+- Contents: 6.1.4.12.3 The System shall provide to the first User the Main user profile.
+
+
+
+The System shall provide to the first User the Main user profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+4. ID: 2354798
+- Contents: 6.1.4.12.4 The System shall have a guest user profile with limitations configurable by the...
+
+
+
+The System shall have a guest user profile with limitations configurable by the Main user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+5. ID: 2354799
+- Contents: 6.1.4.12.5 The System shall have a valet mode as a heavily restricted user configurable by...
+
+
+
+The System shall have a valet mode as a heavily restricted user configurable by the Main user.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+6. ID: 2354800
+- Contents: 6.1.4.12.6 A starting template will be preloaded in the vehicle by Ferrari. When activated...
+
+
+
+A starting template will be preloaded in the vehicle by Ferrari. When activated all IVI systems in the vehicle will trigger Valet mode or beside the main IVI, shutdown, or enter disable state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+
+7. ID: 2354801
+- Contents: 6.1.4.12.7 The Main user shall be able to set restrictions for specific settings.
+
+
+
+The Main user shall be able to set restrictions for specific settings.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Grooming Comments: [Azamat]: One need to clarify a list of restrictions with Ferrari and break down per domain (it could restrictions on different parts of the system, this needs clarifications). Again this is not SW architecture. There is HMI parts that are related to setting of restrictions and UI. Then based on the list of set restrictions how can set other domains
+- Expert Domains: Software Architecture
+
+8. ID: 2354802
+- Contents: 6.1.4.12.8 The Main user shall be able to add a new user via the website, QR code, or new r...
+
+
+
+The Main user shall be able to add a new user via the website, QR code, or new registration in the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: What type of config is associated with each user? Example seat position, favorite color pattern? Is this config then applied whenever a specific user profile is chosen.
+[Bernard]:  What type of user is meant? Is it a real Android user (Android multi-user) or some Ferrari specific user? If Ferrari specific, by what component is it managed?
+- Expert Domains: Software Architecture
+
+9. ID: 2354803
+- Contents: 6.1.4.12.9 The Main user shall be able to manage the type of content the user(s) can send t...
+
+
+
+The Main user shall be able to manage the type of content the user(s) can send to the vehicle from the cloud.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]:It is not clear what is meant by "content",  is it file from the cloud storage, multi-media content. There shall be some controls in HMI to configures such options. Then the routing of this content can be discussed. Again this is not SW architecture specific. There is a chunk that shall be done in HMI. I suggest removing SW arch from this and other similar reqs.
+- Expert Domains: Software Architecture
+
+10. ID: 2354804
+- Contents: 6.1.4.12.10 The Main user shall be able to mute other users.
+
+
+
+The Main user shall be able to mute other users.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: This is HMI and Audio. SW arch can support wherever required.
+
+[Bernard]: propose to shift to HMI as Audio likely has interface/API to mute something
+
+what is the use case for mute other users.
+
+11. ID: 2354805
+- Contents: 6.1.4.12.11 The Main user shall be able to set the Parental control restrictions.
+
+
+
+The Main user shall be able to set the Parental control restrictions.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+12. ID: 2354806
+- Contents: 6.1.4.12.12 This Main user profile shall include but are not limited by: * Listing user-prof...
+
+
+
+This Main user profile shall include but are not limited by:
+
+Listing user-profiles registered on the vehicle
+
+Adding new user profiles
+
+Deleting user profiles
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+
+13. ID: 2354807
+- Contents: 6.1.4.12.13 The System shall have the ability to recognize the User via a biometrics system...
+
+
+
+The System shall have the ability to recognize the User via a biometrics system or via a pin login.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: DMS-OMS, Security
+
+14. ID: 2354808
+- Contents: 6.1.4.12.14 The System shall manage whitelisted 3rd party app settings make them available v...
+
+
+
+The System shall manage whitelisted 3rd party app settings make them available via the global settings for the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+
+15. ID: 2354809
+- Contents: 6.1.4.12.15 The Purchaser shall be able to add app UID (unique identifier) to a global list...
+
+
+
+The Purchaser shall be able to add app UID (unique identifier) to a global list allowing global settings integration.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: Needs clarification from Ferrari. Where is the global application kept and managed?
+[Bernard]: IMHO could be part of Android infrastructure to configure this ID for Apps (or it is within the App itself).
+- Expert Domains: Software Architecture
+
+16. ID: 2354811
+- Contents: 6.1.4.12.16 The User shall be able to connect and manage the settings for the devices that i...
+
+
+
+The User shall be able to connect and manage the settings for the devices that include but are not limited by:
+
+Adding new devices via search
+
+Setting which nearby device is the preferred one
+
+Which device can sync contacts and recent calls with the vehicle
+
+Setup notifications sound, on/off for each device
+
+Sync Messages
+
+Forget and Disconnect devices
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+17. ID: 2354812
+- Contents: 6.1.4.12.17 The User shall be able to manage the lights settings that include but are not li...
+
+
+
+The User shall be able to manage the lights settings that include but are not limited by:
+
+The behavior of the headlights: on, off, parking, auto
+
+Turning on/off fog lights
+
+The behavior of the dome lights: on, off, auto
+
+The ambient lights
+
+Enable or disable auto high beams
+
+Headlights behavior after vehicle exit and amount of time
+
+Steering wheel lights
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: need clarity from respective domains
+
+18. ID: 2354813
+- Contents: 6.1.4.12.18 The User shall be able to customize the display interface settings that include...
+
+
+
+The User shall be able to customize the display interface settings that include but are not limited by:
+
+The brightness of the display(s), auto setting
+
+The language of the interface
+
+The theme of the interface
+
+The time format
+
+The date format
+
+Units for distance
+
+Units for temperature
+
+Units for tire pressure
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: need clarity from respective domans
+
+19. ID: 2354814
+- Contents: 6.1.4.12.19 The User shall be able to manage the navigation settings that include but are no...
+
+
+
+The User shall be able to manage the navigation settings that include but are not limited by:
+
+Enable or disable Navigation AI recommendations
+
+Navigation Volume
+
+Online Optimal routing – creating optimal routes and alternatives based on current online data, weather, traffic, etc.
+
+Minimal time saved for proposing alternative routes
+
+Avoid Toll Roads
+
+Avoid Ferries
+- Artifact Type: SRS Req
+- Responsible Domain: GNSS_Navigation
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the options available in the navigation settings screen are selectable.
+- Grooming Status: Blocked
+- Grooming Comments: 4/8/2023: Anju: Ferrari support Navigation only via projection mode, hence the requirement is not valid
+- State (Harman_Requirement): New
+
+20. ID: 2354815
+- Contents: 6.1.4.12.20 The User shall be able to access and manage the input methods that include but a...
+
+
+
+The User shall be able to access and manage the input methods that include but are not limited by:
+
+ 
+
+Enable/Disable Overall Voice Assistant
+
+Enable/Disable All In One Mode (A1M)
+
+Enable/Disable Wake Up Word
+
+Enable/Disable Barge-in recognition
+
+Select Wake Up Word
+
+Select Language models to Download - offline mode
+
+Select Default voice for recognition
+
+Select Default Language for Voice Assistant response
+
+Voice interface language, tone, gender, and speed
+
+Enable/Disable Handwriting 
+
+Select Language models to Download - offline mode
+
+Select Default voice for recognition
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+
+21. ID: 2354816
+- Contents: 6.1.4.12.21 The User shall be able to manage the type of the System's notifications that inc...
+
+
+
+The User shall be able to manage the type of the System's notifications that include but are not limited by:
+
+Notifications volumes
+
+Turn all notifications on
+
+Turn all notifications off
+
+Turn on notifications configured in the User profile
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+
+22. ID: 2354817
+- Contents: 6.1.4.12.22 The User shall be able to set multiple notification profiles and can activate, e...
+
+
+
+The User shall be able to set multiple notification profiles and can activate, edit and delete safety notification profiles that include but are not limited by:
+
+Pedestrians and objects in front of the vehicle
+
+Possible collision changing lanes or departing
+
+Side collision warnings that might activate steering intervention
+
+Stationary or parked state warnings that might activate steering intervention
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: discussion should be done between ADAS team and HMI team for safty criticle warning
+
+23. ID: 2354818
+- Contents: 6.1.4.12.23 The User shall be able to manage the steering assistance settings that include b...
+
+
+
+The User shall be able to manage the steering assistance settings that include but are not limited by:
+
+Vehicle audio volume reduction allows the parking system to tone down the media
+
+Enable or disable the automatic lane change system
+
+Enable or disable the eye-tracking system
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Expert Domains: DMS-OMS
+
+24. ID: 2354819
+- Contents: 6.1.4.12.24 The User shall be able to manage the parking assistance settings that include bu...
+
+
+
+The User shall be able to manage the parking assistance settings that include but are not limited by:
+
+Enable or disable automatic parking assistance
+
+
+
+oThe System shall enable automatic parking assistance when detecting an object at low speed
+
+Enable or disable braking intervention with the following options:
+
+
+
+oEnable All / Disable all
+
+oEnable rear
+
+oEnable sides
+
+Enable or disable parking space notification
+
+Enable or disable automatic parking
+
+Enable or disable smart cameras
+
+Smart cameras distance settings
+
+Enable or disable passenger mirror assistance
+
+Automated backup speed
+
+Parking preferences
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+
+25. ID: 2354820
+- Contents: 6.1.4.12.25 The User shall be able to manage the safety settings that include but are not li...
+
+
+
+The User shall be able to manage the safety settings that include but are not limited by:
+
+Allow direct mobile companion app access via Bluetooth
+
+Restart the display
+
+To set a speed limit of the vehicle
+
+Lock drive start (pin)
+
+Access to cameras via mobile
+
+Front camera behavior and ability to save the recorded footage
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: Add all the expert domains and prepare for the discussion.
+
+moved to Systems domain from HMI Software
+
+26. ID: 2354821
+- Contents: 6.1.4.12.26 The User shall be able to manage the service settings that include but are not l...
+
+
+
+The User shall be able to manage the service settings that include but are not limited by:
+
+Owner's Manual
+
+Towing information
+
+Wash modes like folding mirrors, locking wipers, etc.
+
+Camera(s) calibration
+
+Eye-tracking calibration
+
+Factory reset
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: need clarity from respective domains
+- Expert Domains: DMS-OMS
+
+27. ID: 2354822
+- Contents: 6.1.4.12.27 The User shall be able to access and manage the information that includes but ar...
+
+
+
+The User shall be able to access and manage the information that includes but are not limited by:
+
+VIN
+
+SW/FW version and update date
+
+Customization packages enabled
+
+Access to release notes for the current version
+
+Checking for SW updates
+
+Any app data considered part of the System (music, navigation, etc.)
+
+Data and Analytics collection on/off
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Expert Domains: Security
+
+28. ID: 2354823
+- Contents: 6.1.4.12.28 The User shall be able to manage the subscription(s) settings that include but a...
+
+
+
+The User shall be able to manage the subscription(s) settings that include but are not limited by:
+
+Display current subscription purchased
+
+Subscriptions end dates
+
+Ability to cancel a subscription
+
+Get detailed information about subscription
+
+Search and Add subscriptions
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: This is HMI. Input might be required from Ferrari about subscriptions, is it car subscriptions or some android app subscriptions? HMI/Android colleagues need clarify this point.
+[Bernard]: OK - Fine with shifting to HMI, impacted domains and interfaces to be clarified in requirement grooming.
+
+check with Hans
+- Expert Domains: Software Architecture
+
+29. ID: 2354824
+- Contents: 6.1.4.12.29 The User shall be able to manage a preferred payment method(s). No payment sensi...
+
+
+
+The User shall be able to manage a preferred payment method(s). No payment sensitive data shall be saved on the vehicle.
+- Artifact Type: SRS Req
+- Responsible Domain: Software Architecture
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat]: As with the requirement on subscription, this needs clarification with Customer. Not directly architecture topic
+[Bernard]: To be clarified with Ferraris what component shall manage the data. When known shift to matching domain.
+- Expert Domains: Software Architecture
+
+30. ID: 2354810
+- Contents: 6.1.4.12.30 Vehicle settings shall include but are not limited by: * Bluetooth on/off * Blue...
+
+
+
+Vehicle settings shall include but are not limited by:
+
+Bluetooth on/off
+
+Bluetooth discovery and settings
+
+Wi-Fi networks and status, connecting or adding networks
+
+Wi-Fi on/off
+
+Audio notifications profile
+
+User profile and profile selection
+
+Mobile data settings
+
+Screen Brightness with auto mode
+
+Lights on/off, Parking only, auto mode
+
+Mirror folding/unfolding
+
+Wipers on/off, speed, auto mode
+
+Window Lock, Child lock
+
+Mirrors position
+
+Seat configuration
+
+Steering Wheel configuration
+
+Recording settings (record intersections while driving, time to keep recordings, etc.)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Blocked
+- Grooming Comments: need clarity from respective domains
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.4.12 Settings]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

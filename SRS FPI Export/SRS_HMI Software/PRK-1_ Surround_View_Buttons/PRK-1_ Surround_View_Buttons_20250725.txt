@@ -1,0 +1,217 @@
+# PRK-1 6.2.4.2.3 : Surround View Buttons Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.3 PRK-1: Surround View Buttons
+
+- ID: 4662098
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4662103
+- Contents: The system shall "not-provide" the surround view button when the surround view functionality is unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Disable the parking by using the proxi parameter
+
+Verify the buttons for parking is not available on HMI
+
+Note: refer the artifact 4662099 for parking button details
+- Grooming Status: Approved
+- Grooming Comments: [Dhivakar Abdul, Ganesh]: Same as above feature and OK to approve.
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, provide, is unavailable, button, functionality" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4886511
+- Contents: The system shall high light the active surround view button
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Turn on the Surround view via HMI button.
+Verify the surround view button is highlighted.
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "feature, system, Engaged, is active, Accepted, high light, status, button" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4886513
+- Contents: The system shall engage the Parking button when the user selects that button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the button is highlighted when user select the parking button
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, engage, selects, button" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5038127
+- Contents: The system shall provide the Close button outside the parking layout.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the parking view close button is in outside the parking layout.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4662104
+- Contents: The system shall show Surround view if a front obstacle detection in first gear when user activates the front sensors by pressing the sensors button on IDC.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Fontal sensor is disable 
+Simulate the obstacle and activate the front sensor.
+
+Verify the surround view is shown on IDC screen
+- Grooming Status: Approved
+- Grooming Comments: [Dhivakar Abdul, Ganesh]: Same as above feature and OK to approve.
+
+4662091: The system shall show the front sensor view only if "the obstacle is detected when first gear is engaged" on activating the front sensor button
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: refer to HMI-LF-4150
+
+6. ID: 4662105
+- Contents: The system shall support "the front parking sensors button behavior in first-gear" as mentioned in the below table when frontal sensors are already active.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Frontal sensors are engaged.
+First gear is engaged.
+
+
+Verify the  Front parking sensors button behavior as mentioned in the artifact ID 5037911
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Sunil R 18.02.2025] Approved
+
+[Abdul 13.02.2025] The Jira ticket is not clarified
+
+[Abdul,Dhivakar 04.02.2025] Approved
+
+https://jira.harman.com/jira/browse/FQ-948
+- Expert Domains: Camera, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, sensors, support, mentioned, are, button, table, active" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4662108
+- Contents: The system shall allow the user to turn off the 'frontal parking sensors' & frontal parking sound if frontal parking sensor button is 'active' during the reverse gear.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: frontal obstacle is detected.
+frontal parking sensors are engaged
+Reverse gear engaged.
+
+Press the frontal sensor button
+
+Verify that the frontal sensor button is turned off and frontal parking sound is Off
+
+Note: Refer the artifact ID 5034177
+- Grooming Status: Approved
+- Grooming Comments: [Dhivakar Abdul, Ganesh]: Same as above feature and OK to approve.
+- Expert Domains: Camera, Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, sensors, support, mentioned, are, button, gear, table, active" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4662099
+- Contents: Following table report all surround view control:
+(see: image91.png)
+(see: image92.png)
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Expert Domains: Sensor
+- State (Harman_Requirement): New
+- Visual Elements: image91.png, image92.png
+
+2. ID: 5037911
+- Contents: (see: image93.png)
+(see: image94.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image93.png, image94.png
+
+3. ID: 5034177
+- Contents: (see: image95.png)
+(see: image96.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): New
+- Visual Elements: image95.png, image96.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image91.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image95.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image92.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image93.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image96.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image94.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-1 6.2.4.2.3 : Surround View Buttons Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

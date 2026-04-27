@@ -1,0 +1,1429 @@
+{
+  "timestamp": "2026-04-16T20:02:17.572972",
+  "main_fpi": "DMS-7_DRIVER_GAZE_ESTIMATION",
+  "methodology": "Corrected Antisymmetric Matrix Analysis",
+  "context_injection_summary": {
+    "critical_upstream": [
+      {
+        "fpi": "Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS_-_DEBUG_MESSAGES_ACTIVATION_STATUS ($FE50)",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS_-_DMS_SETTINGS_ACTIVATION_STATUS_($FE51)",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS_-_POWER-RELATED_ERRORS_(0xD90001)",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state",
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "T_POWER_MANAGEMENT_($0503)",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_DMS_ACTIVATION_STATES_MANAGEMENT",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_DMS_State_Active",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_DMS_State_INIT",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_DMS_State_USER_PRESENCE",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_Running_State",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_State_DEGRADED",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1_Warning_State",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1__DMS_State_Active",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1__DMS_State_INIT",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1__DMS_State_USER_PRESENCE",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1__Running_State",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1__State_DEGRADED",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS-1__Warning_State",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "DMS_1_ERROR State",
+        "score": -3,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "PMN-1_IDC_Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_ON",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      }
+    ],
+    "high_upstream": [
+      {
+        "fpi": "FAD-1_Calibration",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "FAD-2_Calibration",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "FAD-2 Calibration",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "FAD-4_Proxi_Parameters",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "FAD-7_Flat_Audio_Calibration",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Engineering_Test_Parameters",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Active_suspension_parameters  ($2032)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "ECU_time_stamps_from_KeyOn_(EEPROM)  ($2009)",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "ECU_time_stamps_from_KeyOn_(RAM)_($1009)",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "EOL_Calibration_Pattern_Height_-_FL_($FE7A)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "EOL_Calibration_Pattern_Height_-_FR_($FE7B)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "EOL_Calibration_Pattern_Height_-_RL_($FE7C)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "EOL_Calibration_Pattern_Height_-_RR_($FE7D)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Flat_Audio_Calibration_($0529)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Flat_Audio_Calibration_(0xD85054)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Front_Camera_-_Intrinsics_parameters_($FE64)",
+        "score": -2,
+        "context": [
+          "Camera system configuration and status"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "GRAPH_PARAMETERS_($052E)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "HMI_CAN_Bus-off_(0xD001,_0x88)",
+        "score": -2,
+        "context": [
+          "CAN bus communication status"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "HMI_CAN_Missing_Message_(0xD001,_0x87)",
+        "score": -2,
+        "context": [
+          "CAN bus communication status"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "KeyOn_counter_(EEPROM)  ($200A)",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "KeyOn_Counter_Status_(EEPROM)  ($200F)",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Left_Camera_-_Intrinsics_parameters_($FE70)",
+        "score": -2,
+        "context": [
+          "Camera system configuration and status"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Rear_Camera_-_Intrinsics_parameters_($FE6A)",
+        "score": -2,
+        "context": [
+          "Camera system configuration and status"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Right_Camera_-_Intrinsics_parameters_($FE76)",
+        "score": -2,
+        "context": [
+          "Camera system configuration and status"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Routine_Output_Data_parameters",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "S2R_calibration",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SVS_-_Intrinsics_Parameter_Fail_(0x9110,_0x91)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SVS_-_Missing_Calibration_(0x9110,_0x54)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SVS_- Calibration_Fail_(0x9110,_0x46)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SVS_EOL_Calibration_($F001)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SXM_CALIBRATION($TBD)",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Telemetry_parameters_configuration  ($20BA)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Trip_Parameters  ($20B0)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Yaw_rate_sensor_parameters  ($2033)",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "DMS_system_calibration",
+        "score": -2,
+        "context": [
+          "DMS system status and operational state",
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Availability_based_on_Key_Presence_in_cabin",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Keyboard",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Keyboards",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PFL-2_Profile-Key_Pairing",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PFL-8_Profile_Disconnection_from_key",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0_Surround_View_Management_EOL_Configuration_Parameters",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-0__Surround_View_Management_EOL_Configuration_Parameters",
+        "score": -2,
+        "context": [
+          "General system context"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-17_EOL_CALIBRATION_MANAGEMENT",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-18_ONLINE_CALIBRATION",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "PRK-4_Camera_View_Warning_calibration_(only_for_Surround_View)",
+        "score": -2,
+        "context": [
+          "Camera system configuration and status",
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SET-7_Keyboard_Layout",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "SET-F135_TPMS_Calibration",
+        "score": -2,
+        "context": [
+          "Calibration parameters and tolerances"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VFI-F200_Dependence_on_vehicle_state_conditions",
+        "score": -2,
+        "context": [
+          "Vehicle state and operational mode"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F040_Key_Status",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F231_Key_Indentification_Managment",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "VEH-F516_Keyless_Ignition_Management",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "KEY-1_Keyboard",
+        "score": -2,
+        "context": [
+          "Ignition status and key position"
+        ],
+        "justification": "High priority upstream dependency"
+      }
+    ],
+    "optional_upstream": [
+      {
+        "fpi": "AUD-2_A2B_Network_2_configuration_via_diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Diagnostics_Test_Tone_Generator",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ESE-1_ESE_BEV_Management_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Active_Roles",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Disallowed_Certificate_List",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Previous_Access",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_t_DebounceTimeDTC_($FE48)",
+        "score": -1,
+        "context": [
+          "DMS system status and operational state"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DTCFailureType  ($6082)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ECU_Time_first_DTC_detection_(EEPROM)  ($200B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "INTERIOR_BUTTON_LIGHTS_($0508)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Adaptive Front_Lighting_System -_HMI_settings",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Ambient_Light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_settings_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "AUS-0__Audio_settings_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Chill_Mode_Or_All_Ambient_Light_-_HMI_settings",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ExternalLightSensorLevel_-_HMI_settings",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-30_Cabin_Ambient_Light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-31_Interior_button_lights",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-32_Cabin_Footwell_Lights",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-33_Attenuation_Light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-34_Rear_dome_light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-35_Courtesy_Light_at_door_opening",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-4_Light_(dusk)_sensor_sensibility",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-8_Chill_Mode_Or_All_Ambient_Light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "SET-F247_Parking_Lights",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F027_Position_Lights_DRL_and_Parking_Lights_Management",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F030_Plate_Light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F033_Rear_Fog_Light",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F042_Low_Beam_Lights",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F047_High_Beam_Lights",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F051_Turn_Indicators_and_Hazard_Lights",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F057_Rear_LR_Stop_Lights_and_Third_Stop_Management",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F247_External_Lights_Management",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F858_Light_Sensor_Management",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      }
+    ],
+    "critical_downstream": [
+      {
+        "fpi": "6.3.2.2.4_S.W._Driver_action_HMI_inhibition",
+        "score": 3,
+        "context": [
+          "Gaze direction visualization and cabin area status"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      }
+    ],
+    "high_downstream": [
+      {
+        "fpi": "DMS-14_Debug_Info_during_development_phase",
+        "score": 2,
+        "context": [
+          "Gaze estimation debug information and quality metrics"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "DMS-14__Debug_Info_during_development_phase",
+        "score": 2,
+        "context": [
+          "Gaze estimation debug information and quality metrics"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "Driver_Seat_- Behavior_at_wake_up",
+        "score": 2,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "VEH-F532_Driver_Drowsiness_and_Attention_Monitoring",
+        "score": 2,
+        "context": [
+          "Gaze direction and cabin division data",
+          "Eye gaze quality and direction accuracy"
+        ],
+        "justification": "High priority downstream dependency"
+      }
+    ],
+    "optional_downstream": [
+      {
+        "fpi": "Speech_Dialog_and_Readout_Sources",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Quality_of_Service",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "AIRQUALITY($052D)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_1_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940092)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_2_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940192)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_3_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940292)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_4_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940392)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_5_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940492)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_6_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940592)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_7_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940692)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Channel_8_Loudspeaker_Output_-_Performance_or_incorrect_operation_(0x940792)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_pct_EyeClosedQualityDegTh_($FE43)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_pct_EyeClosedQualityNNTh_($FE4C)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_pct_EyeGazeQualityDegTh ($FE41)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_pct_EyeGazeQualityNNTh_($FE4A)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_pct_HeadTrackQualityDegTh_($FE42)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_pct_HeadTrackQualityNNTh_($FE4B)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Logic",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Logistic_Mode",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Air_Quality",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Brightness_-Central_Display_-_HMI_settings",
+        "score": 1,
+        "context": [
+          "Gaze direction visualization and cabin area status"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Driver_Positions_Memories_Saving_logic",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "ENG-1_Logic_of_access",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "ENG-3_Download_log",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Performance",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "SET-67-Long_Parking_- SOMEIP_Service_Logic",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "SET-67-L_ong_Parking_- SOMEIP_Service_Logic",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Settings_Logic",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VFI-f067-Driver_Seat_&_Steering_wheel_position_-_Sound_logic",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VFI-F601_Logistic_Mode",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VEH-F175_Visualization_of_Vehicle_Performance",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VEH-F601_Logistic_Mode_Power_Supply",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VEH-PN001_Physical_needleAnalog_needle_management_on_Binnacle_(NQS)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "MAP-6_Air_Quality_System_(AQS)",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Network_Topology_ _ _ _Network_Topology",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "RAD-21_Station_LogoAlbum_Cover_Art",
+        "score": 1,
+        "context": [
+          "General gaze estimation context"
+        ],
+        "justification": "Optional downstream dependency"
+      }
+    ]
+  },
+  "testcase_generation_guidance": {
+    "mandatory_upstream_context": [
+      "Power_Management: Power state and voltage requirements",
+      "DMS_-_DEBUG_MESSAGES_ACTIVATION_STATUS ($FE50): DMS system status and operational state",
+      "DMS_-_DMS_SETTINGS_ACTIVATION_STATUS_($FE51): DMS system status and operational state",
+      "DMS_-_POWER-RELATED_ERRORS_(0xD90001): DMS system status and operational state; Power state and voltage requirements",
+      "T_POWER_MANAGEMENT_($0503): Power state and voltage requirements",
+      "DMS-1_DMS_ACTIVATION_STATES_MANAGEMENT: DMS system status and operational state",
+      "DMS-1_DMS_State_Active: DMS system status and operational state",
+      "DMS-1_DMS_State_INIT: DMS system status and operational state",
+      "DMS-1_DMS_State_USER_PRESENCE: DMS system status and operational state",
+      "DMS-1_Running_State: DMS system status and operational state",
+      "DMS-1_State_DEGRADED: DMS system status and operational state",
+      "DMS-1_Warning_State: DMS system status and operational state",
+      "DMS-1__DMS_State_Active: DMS system status and operational state",
+      "DMS-1__DMS_State_INIT: DMS system status and operational state",
+      "DMS-1__DMS_State_USER_PRESENCE: DMS system status and operational state",
+      "DMS-1__Running_State: DMS system status and operational state",
+      "DMS-1__State_DEGRADED: DMS system status and operational state",
+      "DMS-1__Warning_State: DMS system status and operational state",
+      "DMS_1_ERROR State: DMS system status and operational state",
+      "Power_Management: Power state and voltage requirements",
+      "PMN-1_IDC_Power_Management: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_OFF: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM: Power state and voltage requirements",
+      "Power_Management_-_Power_State_IDC_ON: Power state and voltage requirements"
+    ],
+    "mandatory_downstream_context": [
+      "6.3.2.2.4_S.W._Driver_action_HMI_inhibition: Gaze direction visualization and cabin area status"
+    ],
+    "recommended_upstream_context": [
+      "FAD-1_Calibration: Calibration parameters and tolerances",
+      "FAD-2_Calibration: Calibration parameters and tolerances",
+      "FAD-2 Calibration: Calibration parameters and tolerances",
+      "FAD-4_Proxi_Parameters: General system context",
+      "FAD-7_Flat_Audio_Calibration: Calibration parameters and tolerances",
+      "Engineering_Test_Parameters: General system context",
+      "A2B_Network_1_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD81094): General system context",
+      "A2B_Network_1_-_Sub_0_to_Sub_1-_Defective_node_or_wrong_software_parameter_(0xD81494): General system context",
+      "A2B_Network_2_-_Master_to_Sub_0_-_Defective_node_or_wrong_software_parameter_(0xD82094): General system context",
+      "A2B_Network_2_-_Sub_0_to_Sub_1_-_Defective_node_or_wrong_software_parameter_(0xD82494): General system context",
+      "A2B_Network_2_-_Sub_1_to_Sub_2_-_Defective_node_or_wrong_software_parameter_(0xD82894): General system context",
+      "A2B_Network_2_-_Sub_2_to_Sub_3_-_Defective_node_or_wrong_software_parameter_(0xD82C94): General system context",
+      "Active_suspension_parameters  ($2032): General system context",
+      "ECU_time_stamps_from_KeyOn_(EEPROM)  ($2009): Ignition status and key position",
+      "ECU_time_stamps_from_KeyOn_(RAM)_($1009): Ignition status and key position",
+      "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C): Ignition status and key position",
+      "EOL_Calibration_Pattern_Height_-_FL_($FE7A): Calibration parameters and tolerances",
+      "EOL_Calibration_Pattern_Height_-_FR_($FE7B): Calibration parameters and tolerances",
+      "EOL_Calibration_Pattern_Height_-_RL_($FE7C): Calibration parameters and tolerances",
+      "EOL_Calibration_Pattern_Height_-_RR_($FE7D): Calibration parameters and tolerances",
+      "Flat_Audio_Calibration_($0529): Calibration parameters and tolerances",
+      "Flat_Audio_Calibration_(0xD85054): Calibration parameters and tolerances",
+      "Front_Camera_-_Intrinsics_parameters_($FE64): Camera system configuration and status",
+      "GRAPH_PARAMETERS_($052E): General system context",
+      "HMI_CAN_Bus-off_(0xD001,_0x88): CAN bus communication status",
+      "HMI_CAN_Missing_Message_(0xD001,_0x87): CAN bus communication status",
+      "KeyOn_counter_(EEPROM)  ($200A): Ignition status and key position",
+      "KeyOn_Counter_Status_(EEPROM)  ($200F): Ignition status and key position",
+      "Left_Camera_-_Intrinsics_parameters_($FE70): Camera system configuration and status",
+      "Rear_Camera_-_Intrinsics_parameters_($FE6A): Camera system configuration and status",
+      "Right_Camera_-_Intrinsics_parameters_($FE76): Camera system configuration and status",
+      "Routine_Output_Data_parameters: General system context",
+      "S2R_calibration: Calibration parameters and tolerances",
+      "SVS_-_Intrinsics_Parameter_Fail_(0x9110,_0x91): General system context",
+      "SVS_-_Missing_Calibration_(0x9110,_0x54): Calibration parameters and tolerances",
+      "SVS_- Calibration_Fail_(0x9110,_0x46): Calibration parameters and tolerances",
+      "SVS_EOL_Calibration_($F001): Calibration parameters and tolerances",
+      "SXM_CALIBRATION($TBD): Calibration parameters and tolerances",
+      "Telemetry_parameters_configuration  ($20BA): General system context",
+      "Trip_Parameters  ($20B0): General system context",
+      "Yaw_rate_sensor_parameters  ($2033): General system context",
+      "DMS_system_calibration: DMS system status and operational state; Calibration parameters and tolerances",
+      "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile): Ignition status and key position",
+      "Availability_based_on_Key_Presence_in_cabin: Ignition status and key position",
+      "Keyboard: Ignition status and key position",
+      "Keyboards: Ignition status and key position",
+      "PFL-2_Profile-Key_Pairing: Ignition status and key position",
+      "PFL-8_Profile_Disconnection_from_key: Ignition status and key position",
+      "PRK-0_Surround_View_Management_EOL_Configuration_Parameters: General system context",
+      "PRK-0__Surround_View_Management_EOL_Configuration_Parameters: General system context",
+      "PRK-17_EOL_CALIBRATION_MANAGEMENT: Calibration parameters and tolerances",
+      "PRK-18_ONLINE_CALIBRATION: Calibration parameters and tolerances",
+      "PRK-4_Camera_View_Warning_calibration_(only_for_Surround_View): Camera system configuration and status; Calibration parameters and tolerances",
+      "SET-7_Keyboard_Layout: Ignition status and key position",
+      "SET-F135_TPMS_Calibration: Calibration parameters and tolerances",
+      "VFI-F200_Dependence_on_vehicle_state_conditions: Vehicle state and operational mode",
+      "VEH-F040_Key_Status: Ignition status and key position",
+      "VEH-F231_Key_Indentification_Managment: Ignition status and key position",
+      "VEH-F516_Keyless_Ignition_Management: Ignition status and key position",
+      "KEY-1_Keyboard: Ignition status and key position"
+    ],
+    "recommended_downstream_context": [
+      "DMS-14_Debug_Info_during_development_phase: Gaze estimation debug information and quality metrics",
+      "DMS-14__Debug_Info_during_development_phase: Gaze estimation debug information and quality metrics",
+      "Driver_Seat_- Behavior_at_wake_up: General gaze estimation context",
+      "VEH-F532_Driver_Drowsiness_and_Attention_Monitoring: Gaze direction and cabin division data; Eye gaze quality and direction accuracy"
+    ]
+  },
+  "statistics": {
+    "total_features_analyzed": 1426,
+    "total_dependencies_found": 162,
+    "critical_upstream_count": 25,
+    "high_upstream_count": 60,
+    "optional_upstream_count": 36,
+    "critical_downstream_count": 1,
+    "high_downstream_count": 4,
+    "optional_downstream_count": 36
+  }
+}

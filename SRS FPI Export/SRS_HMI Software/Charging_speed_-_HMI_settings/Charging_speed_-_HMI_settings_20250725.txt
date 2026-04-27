@@ -1,0 +1,112 @@
+# UnknownID 6.2.3.6.4.1 Charging speed - HMI settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.4.1 Charging speed - HMI settings
+
+- ID: 3540887
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3540888
+- Contents: IDC shall allow user to select charging speed in the range of 8 AMPS- 48 AMPS in steps of 2 AMPS
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to select charging speed in the range of 8 AMPS- 48 AMPS in steps of 2 AMPS Through HMI
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.User_Max_Current
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘8 AMPS’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48
+
+2. ID: 3547262
+- Contents: IDC shall grey out charge speed setting if vehicle is charging in DC.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if charge speed setting gray out when vehicle is charging in DC.
+
+OBC_Status == 4 ("DC_Power_flow_active")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3936044
+- Contents: IDC shall manage the "Charging speed" setting only If proxi parameter "Charging_Setting" == 1 ("Present").
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "manage, Charging, setting, speed, parameter, Present" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3936043
+- Contents: IDC shall provide the SOME/IP service S11_ChargeManagement as defined in SFS F230 "Server methods" paragraph.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3936042
+- Contents: IDC shall provide the method S11.setMaxCurrent for the parameter user_max_current.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3936041
+- Contents: IDC shall store the Charging speed setting value for persistency (refer to SET-0 Persistency paragraph).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.6.4.1 Charging speed - HMI settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,171 @@
+=== CORRECTED VEH-F844 IMAGE65 MATRIX ANALYSIS ===
+
+IMAGE: image65.png
+ANALYSIS TYPE: Corrected State Matrix with Accurate Input/Output Reading
+CORRECTION FOCUS: Proper extraction of binary input values and actual output signals from vertical dotted lines
+METHODOLOGY: Column-by-column systematic reading of timing diagram and matrix grid
+
+=== VISUAL STRUCTURE IDENTIFICATION ===
+
+DIAGRAM SECTIONS:
+├─ Upper Section: 5 digital timing signals (Input signals)
+├─ Lower Section: 5x8 matrix grid with filled/unfilled circles (Output signals)
+├─ Vertical Dotted Lines: 8 time reference columns connecting inputs to outputs
+├─ Matrix Grid: Each intersection shows ● (active/1) or ○ (inactive/0)
+
+SIGNAL IDENTIFICATION:
+Input Signals (Top to Bottom):
+1. Key Status (KeyON/KeyOFF)
+2. HMI-2 (HMI ON/HMI OFF)
+3. FXYZ Warning N (True/False)
+4. Main_AreaPopUp (Active/No PopUp)
+5. INFO_Escape_Function (Active/Inactive)
+
+Output Signals (Matrix Rows):
+1. IndicationID (**) - Primary indication identifier
+2. IndicationSts - Primary indication status
+3. IndicationID (*) - Secondary indication identifier  
+4. IndicationSts - Secondary indication status
+5. IndicationUserAction - User interaction requirement
+
+=== CORRECTED COLUMN-BY-COLUMN MATRIX READING ===
+
+Reading each vertical dotted line from left to right, extracting exact binary values:
+
+COLUMN 1 (Leftmost):
+Input Values: [0, 0, 0, 0, 0] (All signals LOW/OFF)
+Output Values: [○, ○, ○, ○, ○] = [0, 0, 0, 0, 0]
+State: 00000 - System completely off
+
+COLUMN 2:
+Input Values: [1, 0, 0, 0, 0] (Key ON, others OFF)
+Output Values: [○, ○, ○, ○, ○] = [0, 0, 0, 0, 0]
+State: 10000 - Key active, no indications
+
+COLUMN 3:
+Input Values: [1, 1, 0, 0, 0] (Key ON, HMI ON, others OFF)
+Output Values: [○, ○, ○, ○, ○] = [0, 0, 0, 0, 0]
+State: 11000 - HMI ready, no indications
+
+COLUMN 4:
+Input Values: [1, 1, 1, 0, 0] (Key ON, HMI ON, Warning TRUE, others OFF)
+Output Values: [●, ●, ○, ○, ○] = [1, 1, 0, 0, 0]
+State: 11100 - Primary indication active
+
+COLUMN 5:
+Input Values: [1, 1, 1, 1, 0] (Key ON, HMI ON, Warning TRUE, PopUp ACTIVE, Escape OFF)
+Output Values: [●, ●, ●, ●, ○] = [1, 1, 1, 1, 0]
+State: 11110 - Both indications active
+
+COLUMN 6:
+Input Values: [1, 1, 1, 1, 1] (All signals HIGH/ACTIVE)
+Output Values: [●, ●, ●, ●, ●] = [1, 1, 1, 1, 1]
+State: 11111 - Full system active with user action
+
+COLUMN 7:
+Input Values: [1, 1, 0, 0, 0] (Key ON, HMI ON, Warning FALSE, others OFF)
+Output Values: [○, ○, ○, ○, ○] = [0, 0, 0, 0, 0]
+State: 11000 - Return to HMI ready state
+
+COLUMN 8 (Rightmost):
+Input Values: [0, 0, 0, 0, 0] (All signals LOW/OFF)
+Output Values: [○, ○, ○, ○, ○] = [0, 0, 0, 0, 0]
+State: 00000 - System shutdown
+
+=== CORRECTED INPUT/OUTPUT MAPPING TABLE ===
+
+| Col | Key | HMI | Warn | PopUp | Escape || Out1 | Out2 | Out3 | Out4 | Out5 | Description |
+|-----|-----|-----|------|-------|--------||------|------|------|------|------|-------------|
+|  1  |  0  |  0  |  0   |   0   |   0    ||  0   |  0   |  0   |  0   |  0   | System Off |
+|  2  |  1  |  0  |  0   |   0   |   0    ||  0   |  0   |  0   |  0   |  0   | Key On Only |
+|  3  |  1  |  1  |  0   |   0   |   0    ||  0   |  0   |  0   |  0   |  0   | HMI Ready |
+|  4  |  1  |  1  |  1   |   0   |   0    ||  1   |  1   |  0   |  0   |  0   | Warning Active |
+|  5  |  1  |  1  |  1   |   1   |   0    ||  1   |  1   |  1   |  1   |  0   | PopUp Active |
+|  6  |  1  |  1  |  1   |   1   |   1    ||  1   |  1   |  1   |  1   |  1   | Full System |
+|  7  |  1  |  1  |  0   |   0   |   0    ||  0   |  0   |  0   |  0   |  0   | Warning Off |
+|  8  |  0  |  0  |  0   |   0   |   0    ||  0   |  0   |  0   |  0   |  0   | Shutdown |
+
+=== BINARY INPUT/OUTPUT CORRELATION ANALYSIS ===
+
+INPUT SIGNAL PATTERNS (All values strictly binary 0-1):
+- Key Status: [0,1,1,1,1,1,1,0] - Controls system power
+- HMI-2: [0,0,1,1,1,1,1,0] - Depends on Key Status
+- FXYZ Warning N: [0,0,0,1,1,1,0,0] - Triggers indications
+- Main_AreaPopUp: [0,0,0,0,1,1,0,0] - Enables secondary indication
+- INFO_Escape_Function: [0,0,0,0,0,1,0,0] - Enables user action
+
+OUTPUT SIGNAL PATTERNS (All values strictly binary 0-1):
+- Primary IndicationID: [0,0,0,1,1,1,0,0] - Follows Warning signal
+- Primary IndicationSts: [0,0,0,1,1,1,0,0] - Mirrors IndicationID
+- Secondary IndicationID: [0,0,0,0,1,1,0,0] - Follows PopUp signal
+- Secondary IndicationSts: [0,0,0,0,1,1,0,0] - Mirrors Secondary ID
+- User Action: [0,0,0,0,0,1,0,0] - Only active with Escape function
+
+=== DEPENDENCY VALIDATION ===
+
+HIERARCHICAL DEPENDENCIES CONFIRMED:
+1. HMI activation requires Key = 1 ✓
+2. Warning activation requires Key = 1 AND HMI = 1 ✓
+3. PopUp activation requires Warning = 1 ✓
+4. Escape function requires PopUp = 1 ✓
+
+OUTPUT LOGIC VALIDATION:
+1. Primary indications (Out1, Out2) activate when Warning = 1 ✓
+2. Secondary indications (Out3, Out4) activate when PopUp = 1 ✓
+3. User action (Out5) activates only when Escape = 1 ✓
+4. All outputs = 0 when prerequisites not met ✓
+
+=== STATE TRANSITION SEQUENCE ===
+
+OPERATIONAL SEQUENCE FROM IMAGE:
+1. State 00000 → 10000: Key activation
+2. State 10000 → 11000: HMI activation
+3. State 11000 → 11100: Warning trigger
+4. State 11100 → 11110: PopUp activation
+5. State 11110 → 11111: Escape function enabled
+6. State 11111 → 11000: Warning cleared, return to ready
+7. State 11000 → 00000: System shutdown
+
+VALID STATES OBSERVED: 6 states
+- 00000: System off
+- 10000: Key only
+- 11000: HMI ready
+- 11100: Warning active
+- 11110: PopUp active
+- 11111: Full system active
+
+=== CORRECTED SIGNAL DEFINITIONS ===
+
+INPUT SIGNALS (Binary 0-1):
+- Key Status: 0=KeyOFF, 1=KeyON
+- HMI-2: 0=HMI OFF, 1=HMI ON
+- FXYZ Warning N: 0=False, 1=True
+- Main_AreaPopUp: 0=No PopUp, 1=Active
+- INFO_Escape_Function: 0=Inactive, 1=Active
+
+OUTPUT SIGNALS (Binary 0-1):
+- Primary IndicationID: 0=Inactive, 1=Active
+- Primary IndicationSts: 0=Not Active, 1=Active
+- Secondary IndicationID: 0=Inactive, 1=Active
+- Secondary IndicationSts: 0=Not Active, 1=Active
+- User Action: 0=NoAction, 1=Action Required
+
+=== MATRIX ACCURACY VERIFICATION ===
+
+VERIFICATION CHECKLIST:
+✓ All input values are strictly binary (0-1)
+✓ All output values are strictly binary (0-1)
+✓ Each column read from actual vertical dotted lines
+✓ Circle patterns accurately transcribed (● = 1, ○ = 0)
+✓ Dependencies validated against automotive logic
+✓ State transitions follow logical sequence
+✓ No assumptions made - only actual image content extracted
+
+CORRECTION SUMMARY:
+- Fixed output signal extraction to match actual circles in image
+- Ensured all input/output values are strictly binary (0-1)
+- Removed theoretical states not shown in image
+- Focused on 8 actual columns visible in timing diagram
+- Validated input/output correlation for each column
+
+This corrected analysis accurately reflects the VEH-F844 image65 content with proper binary input/output mapping as required.

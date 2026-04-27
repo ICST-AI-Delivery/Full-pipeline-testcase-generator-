@@ -1,0 +1,99 @@
+# SET-15 6.2.3.7.7  Rear Display Lock Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.7 SET-15 Rear Display Lock
+
+- ID: 3852816
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3872867
+- Contents: IDC shall manage the Rear Display Lock setting when proxi parameter NDRR is "present".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: check the Rear Display Lock setting when proxi parameter NDRR is "present".
+
+Start Byte 36, Start bit 4 - NDRR (0 = "absent", 1 = "present")
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "NDRR, manage, proxi, is, setting, present" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3872885
+- Contents: System shall allow user to perform all touch and physical commands on the rear display when the rear display lock in deactivate.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to perform touch and physical commands when rear display lock is not activated.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, rear, allow, to perform, display, lock, deactivate, touch, commands" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3872894
+- Contents: IDC shall display visualization cycle through HMI when rear display lock should activate.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to see the visualization cycle through HMI.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, rear, display, cycle, activate, visualization, HMI, lock" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3872900
+- Contents: IDC shall trigger a dedicated Pop Up on NDR Display when the user confirms the unlock request.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to see the Pop Up on NDR Display when the user confirms the unlock request.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "trigger, confirms, unlock, Pop Up, Display, request" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3872868
+- Contents: This Functionality allows the user to lock/unlock the rear display in order to inhibit user interaction.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-15 6.2.3.7.7  Rear Display Lock Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

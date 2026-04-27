@@ -1,0 +1,85 @@
+# UnknownID 6.2.4.3.2.16 Telemetry parameters configuration  ($20BA) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.2.16 Telemetry parameters configuration  ($20BA)
+
+- ID: 3982691
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_Diag
+- Grooming Comments: Not applicable as per MTA. Need to check with Ferrari.
+
+need to check with System core team.
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3982700
+- Contents: The System shall have the command which is use to check algorithm table version.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the command should check algorithm table version.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, have, is use, to check, command, version" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No info about telemetry params so far, missing details. No plan what is expected.
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3982711
+- Contents: The System shall have RecordDataIdentifier ($20BA) to know the Telemetry parameters configuration.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20BA)
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No info about telemetry params so far, missing details. No plan what is expected.
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3982728
+- Contents: The System shall follow the below conversions
+DataRecord (zz)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Conversions in table.
+- Grooming Status: Review
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250221: Only check to pos.resp. No info about telemetry params so far, missing details. No plan what is expected.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.2.16 Telemetry parameters configuration  ($20BA) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

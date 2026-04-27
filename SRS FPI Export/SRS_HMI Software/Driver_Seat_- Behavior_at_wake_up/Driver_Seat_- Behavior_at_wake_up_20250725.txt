@@ -1,0 +1,301 @@
+# UnknownID 6.2.2.2.5 Driver Seat - Behavior at wake up Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.2.5 Driver Seat - Behavior at wake up
+
+- ID: 4764054
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking, System Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4764055
+- Contents: IDC shall set Seat Profile as Not_Active at wake up.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile at wake up
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4764095
+- Contents: IDC shall set Column Profile as Not_Active at wake up.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the column profile at wake up
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4764084
+- Contents: IDC shall set SeatProfileReq=2 ("ProfileReq") when
+[(IDC performs a transition to HMI_PowerON state
+AND
+STS_DRS_DriverDoorSts==1("Closed"))
+OR
+(IDC is in HMI_PowerOn state and detects the transition from STS_DRS_DriverDoorSts !=1("Closed") to STS_DRS_DriverDoorSts==1("Closed"))]
+AND
+SeatProfileSts !=[5("Manual_Moving") OR1("Fail_Present")]
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile request when 
+
+[(IDC performs a transition to HMI_PowerON state
+
+AND
+
+STS_DRS_DriverDoorSts == 1 ("Closed"))
+
+OR
+
+(IDC is in HMI_PowerOn state and detects the transition from STS_DRS_DriverDoorSts != 1 ("Closed") to STS_DRS_DriverDoorSts == 1 ("Closed"))]
+
+AND
+
+SeatProfileSts != [5("Manual_Moving") OR 1 ("Fail_Present")]
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, set, performs, state, Closed, is, detects, SeatProfileSts, ProfileReq, transition, STS" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4764085
+- Contents: IDC shall set SeatProfileReq =0 ("Not_Active") when
+SeatProfileSts == [5("Manual_Moving") OR
+1("Fail_present") OR
+(2("ProfileReached) for Nsample of message SETUP_NAG_V3)]
+OR
+a transition of SeatProfileSts !=6("NAGInternalFunction") to SeatProfileSts ==6("NAGInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the seat profile req (Not active) when 
+
+SeatProfileSts == [5("Manual_Moving") OR
+
+1 ("Fail_present") OR
+
+(2 ("ProfileReached) for Nsample of message SETUP_NAG_V3)]
+
+OR
+
+a transition of SeatProfileSts != 6 ("NAGInternalFunction") to SeatProfileSts == 6 ("NAGInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "transition, set, SeatProfileSts, SeatProfileReq, Not_Active, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4764089
+- Contents: IDC shall set ColumnProfileReq = 2 ("ProfileReq") when
+[(IDC performs a transition to HMI_PowerON state
+AND
+STS_DRS_DriverDoorSts ==1("Closed"))
+OR
+(IDC is in HMI_PowerOn state and detects the transition from STS_DRS_DriverDoorSts !=1("Closed") to  STS_DRS_DriverDoorSts ==1("Closed"))]
+AND
+ColumnProfileSts != ( Manual_Moving OR Fail_Present).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the column profile request (Profile req) when
+
+[(IDC performs a transition to HMI_PowerON state
+
+AND
+
+STS_DRS_DriverDoorSts == 1 ("Closed"))
+
+OR
+
+(IDC is in HMI_PowerOn state and detects the transition from STS_DRS_DriverDoorSts != 1 ("Closed") to  STS_DRS_DriverDoorSts == 1 ("Closed"))]
+
+AND
+
+ColumnProfileSts != ( Manual_Moving OR Fail_Present).
+
+Message: STATUS_DOORS
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, set, performs, state, Closed, is, detects, ColumnProfileSts, ProfileReq, transition, STS" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4764091
+- Contents: IDC shall set ColumnProfileReq = 0 ("Not_Active") when
+ColumnProfileSts ==
+[5("Manual_Moving") OR
+1("Fail_present") OR
+(2 ("ProfileReached) for Nsample of message SETUP_NAG_V3)]
+OR
+a transition of ColumnProfileSts != 6("NAGInternalFunction") to ColumnProfileSts == 6("NAGInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the column profile req (Not active) when
+
+ColumnProfileSts == [ 5 ("Manual_Moving") OR
+
+1 ("Fail_present") OR
+
+(2 ("ProfileReached) for Nsample of message SETUP_NAG_V3)]
+
+OR
+
+a transition of ColumnProfileSts != 6 ("NAGInternalFunction") to ColumnProfileSts == 6 ("NAGInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "transition, set, ColumnProfileSts, ColumnProfileReq, Not_Active, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4884430
+- Contents: IDC shall set SeatProfileReq = 2 ("ProfileReq") when
+profile ==1("present")
+AND
+a profile activation is request
+AND
+IDC is in Power On state
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+AND
+SeatProfileSts != [ 5("ManualMoving") OR 1("Fail_Present")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile request (profile req)
+when
+
+profile ==1 ("present")
+AND
+
+a profile activation is requested 
+AND
+IDC is in Power On state
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+AND
+SeatProfileSts != [ 5 ("ManualMoving") OR 1 ("Fail_Present")].
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "activation, set, is, Closed, ANDSeatProfileSts, ProfileReq, present, Power" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4884431
+- Contents: System shall set SeatProfileReq = 0 ("Not_Active") when
+SeatProfileSts == [5("Manual_Moving") OR 1("Fail_present") OR (2("ProfileReached) for Nsample of
+message SETUP_NAG_V3)]
+OR
+a transition of SeatProfileSts != 6("NAGInternalFunction") to SeatProfileSts == 6("NAGInternalFunction")
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the seat profile req (Not active) when 
+
+SeatProfileSts == [5 ("Manual_Moving") OR 1 ("Fail_present") OR (2 ("ProfileReached) for Nsample of
+message SETUP_NAG_V3)]
+OR
+a transition of SeatProfileSts != 6 ("NAGInternalFunction") to SeatProfileSts == 6("NAGInternalFunction")
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, SeatProfileSts, SeatProfileReq, Not_Active, Manual_Moving, ofmessage, transition, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4884433
+- Contents: IDC shall set ColumnProfileReq = 2 ("ProfileReq") when
+profile ==1("present")
+AND
+a profile activation is request 
+AND
+IDC is in Power On state
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+AND
+ColumnProfileSts != [ 5("ManualMoving") OR 1("Fail_Present")].
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the column profile req (profile req) when
+
+profile ==1 ("present")
+AND a profile activation is requested 
+AND
+IDC is in Power On state
+AND
+STS_DRS_DriverDoorSts == 1("Closed")
+AND
+ColumnProfileSts != [ 5("ManualMoving") OR 1 ("Fail_Present")].
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "activation, set, is request, is, Closed, ANDColumnProfileSts, ProfileReq, present, ANDIDC, Power" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4884432
+- Contents: System shall set ColumnProfileReq = 0 ("Not_Active") when
+ColumnProfileSts == [5("Manual_Moving") OR 1("Fail_present") OR (2("ProfileReached) for Nsample of
+message SETUP_NAG_V3)]
+OR
+a transition of ColumnProfileSts != 6("NAGInternalFunction") to ColumnProfileSts == 6("NAGInternalFunction").
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the column profile req (Not active) when
+
+ColumnProfileSts == [5 ("Manual_Moving") OR 1 ("Fail_present") OR (2 ("ProfileReached) for Nsample of
+message SETUP_NAG_V3)]
+OR
+a transition of ColumnProfileSts != 6 ("NAGInternalFunction") to ColumnProfileSts == 6
+("NAGInternalFunction").
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, ColumnProfileSts, ColumnProfileReq, Not_Active, Manual_Moving, ofmessage, transition, NAGInternalFunction" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.2.2.5 Driver Seat - Behavior at wake up Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

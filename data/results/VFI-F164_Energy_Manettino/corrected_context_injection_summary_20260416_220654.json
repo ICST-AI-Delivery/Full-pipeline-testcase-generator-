@@ -1,0 +1,765 @@
+{
+  "timestamp": "2026-04-16T22:06:59.083626",
+  "main_fpi": "VFI-F164_Energy_Manettino",
+  "methodology": "Corrected Antisymmetric Matrix Analysis",
+  "context_injection_summary": {
+    "critical_upstream": [
+      {
+        "fpi": "Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "ECU_time_stamps_from_KeyOn_(EEPROM)  ($2009)",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "ECU_time_stamps_from_KeyOn_(RAM)_($1009)",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C)",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "KeyOn_counter_(EEPROM)  ($200A)",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "KeyOn_Counter_Status_(EEPROM)  ($200F)",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "T_POWER_MANAGEMENT_($0503)",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile)",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Availability_based_on_Key_Presence_in_cabin",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Keyboard",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Keyboards",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "PFL-2_Profile-Key_Pairing",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "PFL-8_Profile_Disconnection_from_key",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "SET-7_Keyboard_Layout",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "VFI-F200_Dependence_on_vehicle_state_conditions",
+        "score": -3,
+        "context": [
+          "Vehicle state and energy mode availability"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "VEH-F040_Key_Status",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "VEH-F231_Key_Indentification_Managment",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "VEH-F516_Keyless_Ignition_Management",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "KEY-1_Keyboard",
+        "score": -3,
+        "context": [
+          "Ignition status and key position for E-Manettino activation"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "PMN-1_IDC_Power_Management",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      },
+      {
+        "fpi": "Power_Management_-_Power_State_IDC_ON",
+        "score": -3,
+        "context": [
+          "Power state and voltage requirements for E-Manettino"
+        ],
+        "justification": "Critical upstream dependency for testcase preconditions"
+      }
+    ],
+    "high_upstream": [
+      {
+        "fpi": "HMI_CAN_Bus-off_(0xD001,_0x88)",
+        "score": -2,
+        "context": [
+          "CAN bus communication for PWT_STATUS_2 signals",
+          "HMI display status for energy mode visualization"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "HMI_CAN_Missing_Message_(0xD001,_0x87)",
+        "score": -2,
+        "context": [
+          "CAN bus communication for PWT_STATUS_2 signals",
+          "HMI display status for energy mode visualization"
+        ],
+        "justification": "High priority upstream dependency"
+      },
+      {
+        "fpi": "Brightness_-Central_Display_-_HMI_settings",
+        "score": -2,
+        "context": [
+          "HMI display status for energy mode visualization"
+        ],
+        "justification": "High priority upstream dependency"
+      }
+    ],
+    "optional_upstream": [
+      {
+        "fpi": "AUD-2_A2B_Network_2_configuration_via_diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "AVAS_1_AVAS_switch_off_speed_configuration_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Diagnostics_Test_Tone_Generator",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ESE-1_ESE_BEV_Management_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Active_Roles",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Disallowed_Certificate_List",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Authenticated_Diagnostics_-_Previous_Access",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Control_Unit_-_High_temperature_(0x910C,_0x4B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Control_Unit_- Low_temperature_(0x920C,_0x4B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Control_unit_internal_temperature_sensor_2",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DMS_-_Ce_t_DebounceTimeDTC_($FE48)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DMS_-_OVER_TEMPERATURE_(0xD90098)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "DTCFailureType  ($6082)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "ECU_Time_first_DTC_detection_(EEPROM)  ($200B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Engine_Water_Temperature_($1032)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "External_temperature  ($1038)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Front_Camera_-_Internal_Temperature_($FE65)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Front_Camera_-_Over_Temperature_(0x9103,_0x98)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Left_Camera_-_Internal_Temperature_($FE71)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Left_Camera_-_Over_Temperature_(0x9105,_0x98)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "NCL_-_Node_Absent_(0xD708,_0x87)_-_Climate Node",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "NCL_-_Node_Faulty_(0xD708,_0x86)_-_Climate Node",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Rear_Camera_-_Internal_Temperature_($FE6B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Rear_Camera_-_Over_Temperature_(0x9104,_0x98)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Right_Camera_-_Internal_Temperature($FE77)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Right_Camera_-_Over_Temperature_(0x9106,_0x98)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "USB_C_-_Over_Temperature_(0x9033,_0x4B)",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "AUS-0_Audio_settings_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "AUS-0__Audio_settings_via_Diagnostics",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Temperature_Unit_-_HMI_settings",
+        "score": -1,
+        "context": [
+          "HMI display status for energy mode visualization"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Temperature - Sync_with_Rear_display,_Binnacle",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VFI-F192_External_temperature",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F135_Tyre_Pressure_and_Temperature_Monitoring_System",
+        "score": -1,
+        "context": [
+          "System initialization and startup status"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F148_Brakes_Temperature_Extimation",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "VEH-F192_External_Temperature_Management",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Displays_Physical_Commands_for_Central_Display_-_Climate",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      },
+      {
+        "fpi": "Displays_Physical_commands_for Rear_Display_-_Climate",
+        "score": -1,
+        "context": [
+          "General system context"
+        ],
+        "justification": "Optional upstream dependency"
+      }
+    ],
+    "critical_downstream": [
+      {
+        "fpi": "AUD-6_Energy_Profile_Management",
+        "score": 3,
+        "context": [
+          "Energy mode selection (COMFORT, SPORT, RACE, ESC_OFF)",
+          "Energy management system control and optimization"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      },
+      {
+        "fpi": "ESE_1_ESE_BEV Energy_Profile_Management",
+        "score": 3,
+        "context": [
+          "Energy mode selection (COMFORT, SPORT, RACE, ESC_OFF)",
+          "Energy management system control and optimization"
+        ],
+        "justification": "Critical downstream dependency for verification"
+      }
+    ],
+    "high_downstream": [
+      {
+        "fpi": "Battery_Precondition_control_-_HMI_settings",
+        "score": 2,
+        "context": [
+          "Energy mode visualization and E-Manettino position display",
+          "Battery management optimization based on energy mode"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "SET-68_Battery_Precondition_control",
+        "score": 2,
+        "context": [
+          "Battery management optimization based on energy mode"
+        ],
+        "justification": "High priority downstream dependency"
+      },
+      {
+        "fpi": "VEH-F175_Visualization_of_Vehicle_Performance",
+        "score": 2,
+        "context": [
+          "Vehicle performance parameters based on energy mode"
+        ],
+        "justification": "High priority downstream dependency"
+      }
+    ],
+    "optional_downstream": [
+      {
+        "fpi": "Speech_Dialog_and_Readout_Sources",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Logic",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Logistic_Mode",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Driver_Positions_Memories_Saving_logic",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "ENG-1_Logic_of_access",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "ENG-3_Download_log",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "SET-67-Long_Parking_- SOMEIP_Service_Logic",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "SET-67-L_ong_Parking_- SOMEIP_Service_Logic",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Settings_Logic",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VFI-f067-Driver_Seat_&_Steering_wheel_position_-_Sound_logic",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VFI-F601_Logistic_Mode",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VEH-F601_Logistic_Mode_Power_Supply",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "VEH-PN001_Physical_needleAnalog_needle_management_on_Binnacle_(NQS)",
+        "score": 1,
+        "context": [
+          "Energy management system control and optimization"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "Network_Topology_ _ _ _Network_Topology",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      },
+      {
+        "fpi": "RAD-21_Station_LogoAlbum_Cover_Art",
+        "score": 1,
+        "context": [
+          "General energy mode context"
+        ],
+        "justification": "Optional downstream dependency"
+      }
+    ]
+  },
+  "testcase_generation_guidance": {
+    "mandatory_upstream_context": [
+      "Power_Management: Power state and voltage requirements for E-Manettino",
+      "ECU_time_stamps_from_KeyOn_(EEPROM)  ($2009): Ignition status and key position for E-Manettino activation",
+      "ECU_time_stamps_from_KeyOn_(RAM)_($1009): Ignition status and key position for E-Manettino activation",
+      "ECU_Time_Stamps_from_KeyOn_first_DTC_detection_(EEPROM)  ($200C): Ignition status and key position for E-Manettino activation",
+      "KeyOn_counter_(EEPROM)  ($200A): Ignition status and key position for E-Manettino activation",
+      "KeyOn_Counter_Status_(EEPROM)  ($200F): Ignition status and key position for E-Manettino activation",
+      "T_POWER_MANAGEMENT_($0503): Power state and voltage requirements for E-Manettino",
+      "Automatic_activation_(Profile_linked_to_a_key_or_Guest_profile): Ignition status and key position for E-Manettino activation",
+      "Availability_based_on_Key_Presence_in_cabin: Ignition status and key position for E-Manettino activation",
+      "Keyboard: Ignition status and key position for E-Manettino activation",
+      "Keyboards: Ignition status and key position for E-Manettino activation",
+      "PFL-2_Profile-Key_Pairing: Ignition status and key position for E-Manettino activation",
+      "PFL-8_Profile_Disconnection_from_key: Ignition status and key position for E-Manettino activation",
+      "Power_Management: Power state and voltage requirements for E-Manettino",
+      "SET-7_Keyboard_Layout: Ignition status and key position for E-Manettino activation",
+      "VFI-F200_Dependence_on_vehicle_state_conditions: Vehicle state and energy mode availability",
+      "VEH-F040_Key_Status: Ignition status and key position for E-Manettino activation",
+      "VEH-F231_Key_Indentification_Managment: Ignition status and key position for E-Manettino activation",
+      "VEH-F516_Keyless_Ignition_Management: Ignition status and key position for E-Manettino activation",
+      "KEY-1_Keyboard: Ignition status and key position for E-Manettino activation",
+      "PMN-1_IDC_Power_Management: Power state and voltage requirements for E-Manettino",
+      "Power_Management_-_Power_State_IDC_OFF: Power state and voltage requirements for E-Manettino",
+      "Power_Management_-_Power_State_IDC_Off_-_Full_Sleep: Power state and voltage requirements for E-Manettino",
+      "Power_Management_-_Power_State_IDC_OFF_-_Suspend_to_RAM: Power state and voltage requirements for E-Manettino",
+      "Power_Management_-_Power_State_IDC_ON: Power state and voltage requirements for E-Manettino"
+    ],
+    "mandatory_downstream_context": [
+      "AUD-6_Energy_Profile_Management: Energy mode selection (COMFORT, SPORT, RACE, ESC_OFF); Energy management system control and optimization",
+      "ESE_1_ESE_BEV Energy_Profile_Management: Energy mode selection (COMFORT, SPORT, RACE, ESC_OFF); Energy management system control and optimization"
+    ],
+    "recommended_upstream_context": [
+      "HMI_CAN_Bus-off_(0xD001,_0x88): CAN bus communication for PWT_STATUS_2 signals; HMI display status for energy mode visualization",
+      "HMI_CAN_Missing_Message_(0xD001,_0x87): CAN bus communication for PWT_STATUS_2 signals; HMI display status for energy mode visualization",
+      "Brightness_-Central_Display_-_HMI_settings: HMI display status for energy mode visualization"
+    ],
+    "recommended_downstream_context": [
+      "Battery_Precondition_control_-_HMI_settings: Energy mode visualization and E-Manettino position display; Battery management optimization based on energy mode",
+      "SET-68_Battery_Precondition_control: Battery management optimization based on energy mode",
+      "VEH-F175_Visualization_of_Vehicle_Performance: Vehicle performance parameters based on energy mode"
+    ]
+  },
+  "statistics": {
+    "total_features_analyzed": 1426,
+    "total_dependencies_found": 86,
+    "critical_upstream_count": 25,
+    "high_upstream_count": 3,
+    "optional_upstream_count": 38,
+    "critical_downstream_count": 2,
+    "high_downstream_count": 3,
+    "optional_downstream_count": 15
+  }
+}

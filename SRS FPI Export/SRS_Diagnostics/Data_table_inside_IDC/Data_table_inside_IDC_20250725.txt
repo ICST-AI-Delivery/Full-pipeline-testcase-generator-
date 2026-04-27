@@ -1,0 +1,476 @@
+# UnknownID 6.2.4.2.1.6 Data table inside IDC Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.6 Data table inside IDC
+
+- ID: 4717128
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4717130
+- Contents: The system shall read data type inside IDC with an active extended diagnostic session
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the user is able to read data type inside IDC with an active extended diagnostic session
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+
+2. ID: 4717131
+- Contents: The system shall return the map data table, upon requesting data identifier with the Read Data by Identifier “diagnostic session”.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify  system shall return the map data table, upon requesting data identifier with the Read Data by Identifier “diagnostic session”.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, return, requesting, table, identifier, Data, session" )
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+
+3. ID: 4717134
+- Contents: IDC shall respond with one map per line (1 - 16), responding with the data table fields: (see: image119.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image119.png
+
+4. ID: 4718191
+- Contents: (see: image120.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image120.png
+
+5. ID: 4718193
+- Contents: (see: image121.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image121.png
+
+6. ID: 4718196
+- Contents: (see: image122.png, image123.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image122.png, image123.png
+
+7. ID: 4718210
+- Contents: (see: image124.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image124.png
+
+8. ID: 4718198
+- Contents: (see: image125.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image125.png
+
+9. ID: 4718200
+- Contents: (see: image126.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image126.png
+
+10. ID: 4718202
+- Contents: Map ID 09: (see: image127.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image127.png
+
+11. ID: 4718204
+- Contents: (see: image128.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image128.png
+
+12. ID: 4718205
+- Contents: (see: image129.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image129.png
+
+13. ID: 4718888
+- Contents: (see: image130.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image130.png
+
+14. ID: 4718889
+- Contents: (see: image131.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image131.png
+
+15. ID: 4718891
+- Contents: (see: image132.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image132.png
+
+16. ID: 4718898
+- Contents: (see: image133.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image133.png
+
+17. ID: 4718910
+- Contents: (see: image134.png, image135.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image134.png, image135.png
+
+18. ID: 4718912
+- Contents: (see: image136.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image136.png
+
+19. ID: 4718914
+- Contents: (see: image137.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image137.png
+
+20. ID: 4718916
+- Contents: (see: image138.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image138.png
+
+21. ID: 4718917
+- Contents: (see: image139.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image139.png
+
+22. ID: 4718918
+- Contents: (see: image140.png)
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the calibration parameter value from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250225: No verification criteria.
+BUT
+Protocol test with 0x22yy (RDBI) to check pos response will be possible. applicative test to get map info should be tested by MAP domain or experts. N info about how to handle map issues.
+- State (Harman_Requirement): Approved
+- Visual Elements: image140.png
+
+### Informational Items:
+
+1. ID: 4718922
+- Contents: [Info] Please refer to MAP-7 for additional information  regarding the map table's composition
+- Artifact Type: Information
+- Responsible Domain: ADAS_Horizon
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image131.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image138.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image132.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image130.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image127.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image126.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image136.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image125.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image121.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image119.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image140.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image129.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image122.png, image123.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image120.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image137.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image133.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image134.png, image135.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image124.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image139.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image128.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.6 Data table inside IDC Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

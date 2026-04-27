@@ -1,0 +1,230 @@
+# DMS-3 6.2.1.4  SETTINGS MANAGEMENT Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.4 DMS-3 SETTINGS MANAGEMENT
+
+- ID: 3881278
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS-OMS
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3882198
+- Contents: At key-on, IF PROXI Parameter Distraction = absent the system shall go to the correct state according to DMS Activation States Management & send 'DMS_INFO.DMSSystemStatus = Off' after system initialization is over.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: At key on, set the PROXI Parameter Distraction = absent 
+
+Verify the current  DMS state  (by using the CAN signal) 
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus)
+ and CAN singal  DMS_INFO.DMSSystemStatus = Off after system initialization is over.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, initialization, go, according, behave, follows, is over, state, Management" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3882408
+- Contents: At key on,  IF PROXI Parameters 'Distraction = present' &  'ADA_Type = without_memory',  the system shall go to the correct state according to DMS Activation States Management & send 'DMS_INFO.DMSSystemStatus = On' after system initialization is over.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: At key on, set the PROXI Parameter Distraction = Present  & ADA_Type = without_memory
+
+Verify the current  DMS state  (by using the CAN signal) 
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = 3 (ACTIVE if DMS Warning from HMI is enabled).
+ and CAN singal  DMS_INFO.DMSSystemStatus = On after system initialization is over.
+
+Disable/Enable the DMS Warning from HMI
+Do an ignition reset
+Verify the value if  DMS_INFO.DMSSystemStatus = On
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4644494
+- Contents: The system shall send  the previously saved value for DMS_INFO.DMSSystemStatus if PROXI Parameter Distraction = present & ADA_Type = with_memory at key-on.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Start the system with with PROXI Parameter ADA_Type is with_memory.
+Verify the current  DMS state  (by using the CAN signal) 
+MSG_DMS_DebugInfo.SG_DMS_DebugStatus = 3 (ACTIVE if DMS Warning from HMI is enabled).
+ and CAN singal  DMS_INFO.DMSSystemStatus = On
+
+ Disable/Enable the DMS Warning from HMI
+Do an ignition reset
+Verify the value if  DMS_INFO.DMSSystemStatus =  value as per the HMI value (Enable/Disable) in the previous cycle
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "previously" ) 
+Passive voice
+ (Look for: "saved" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3882734
+- Contents: The system shall  send "DMS_INFO.DMSSystemStatus" = "on/off"  if the DMS warning is on/Off from  HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Enable/Disable the DMS warning from HMI
+Verify the DMS status (DMS_INFO.DMSSystemStatus = ON) if it is enabled.
+Verify the DMS status (DMS_INFO.DMSSystemStatus = OFF) if it is disabled
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3882869
+- Contents: At key-off, IF PROXI Parameter ADA_Type = with_memory, the system shall
+ save the DMS_INFO.DMSSystemStatus & recover at the next key-on
+- Artifact Type: SRS Req
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the PROXI Parameter ADA_Type = with_memory
+
+Do an Igntion reset and verify the DMS_INFO.DMSSystemStatus is same as teh revious cycle.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, save, to recovered, value, variable, key, ADA_Type" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3881279
+- Contents: This function describes the DMS Settings management.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3881284
+- Contents: By default, system shall be initialized to a state, then it can be activated/deactivated by user.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3881285
+- Contents: The system shall display the Settings management as reported in:
+IDC-451920 - HMI-LF-4611 - Distraction Monitoring System (DMS) [NORMATIVE NOT YET CONFIRMED]
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+4. ID: 3881288
+- Contents: The system shall implement the logics of Settings Management according to: 
+ SFS F531
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+5. ID: 3881311
+- Contents: The system shall set the internal variable'Le_bol_DMSSettingSts' to OFF if PROXI Parameter Distraction is absent at Key-on.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Distraction, set, to OFF, is absent, variable" )
+- State (Harman_Requirement): Review
+
+6. ID: 3881489
+- Contents: The system shall set the internal variable 'Le_bol_DMSSettingSts' as follows If PROXI Parameter Distraction is present.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+7. ID: 3881491
+- Contents: The system shall set internal variable 'Le_bol_DMSSettingSts' to ON If PROXI Parameter ADA_Type is without_memory.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "set, is" )
+- State (Harman_Requirement): Review
+
+8. ID: 3881501
+- Contents: The system shall recover the previously saved value of internal variable 'Le_bol_DMSSettingSts' If PROXI Parameter ADA_Type is with_memory during system initialization.
+- Artifact Type: Information
+- Responsible Domain: DMS-OMS
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, recover, saved, value, variable" )
+- State (Harman_Requirement): Review
+
+9. ID: 3882870
+- Contents: Data
+  Proxi
+Start Byte 174, Start bit 2 - Distraction (0 = absent, 1 = present)
+Start Byte 174, Start bit 3 - ADA_Type (0 = without_memory, 1 = with_memory)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 3883573
+- Contents: Network interfaces
+Outputs
+Oe_enu_DMSSysSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+11. ID: 3883576
+- Contents: Internal interfaces
+Inputs
+Ie_enu_NITDMSEnable
+Outputs
+Oe_enu_DMSSysSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+12. ID: 4650135
+- Contents: System shall display the Settings management as reported in:
+IDC-451920 - HMI-LF-4611 - Distraction Monitoring System (DMS) [NORMATIVE NOT YET CONFIRMED]
+DMS-3 HMI Settings
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of DMS-3 6.2.1.4  SETTINGS MANAGEMENT Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

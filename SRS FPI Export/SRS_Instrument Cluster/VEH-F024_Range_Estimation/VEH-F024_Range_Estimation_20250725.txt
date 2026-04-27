@@ -1,0 +1,355 @@
+# VEH-F024 6.2.1.1.2.44  Range Estimation Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.44 VEH-F024 Range Estimation
+
+- ID: 3406466
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3427694
+- Contents: System shall receive the range estimation information in km from the signal ElectricRangeHMI_BEV
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Range estimation in KM is displayed by the system using the CAN-signal.
+
+CAN-Siganl: ElectricRangeHMI_BEV.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+2. ID: 4634292
+- Contents: System shall colour the Electric range using the signal  HVB_SOC_Colour_HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the colour of the Electric Range using the signal HVB_SOC_Colour_HMI.
+
+CAN-Signal:
+xEV_STS_HMI.HVB_SOC_Colour_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 4634295
+- Contents: System shall display the Electric range visualisation through ElectricRangeHMIDisplayInfo signal following the below logic: (see: image209.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the Range is displayed in KMS if ElectricRangeHMIDisplayInfo is Enabled.
+
+CAN-Signal:
+xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image209.png
+
+4. ID: 3721000
+- Contents: System shall display the distance measurement unit (km o mi) for the Range Estimation using the value of the internal signal INFO_DistanceUnit
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the distance measurement unit (km or mi) for the Range estimation usinf the  Signal: INFO_Distance Unit is displayed by the system.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3612238
+- Contents: When INFO_DistanceUnit == mi, System shall convert the range estimation from km to mi following the formula: ElectricRangeHMI_BEV[mi] = ElectricRangeHMI_BEV*0
+,6214.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the range estimation shall be converted from KM to MI using the formula 
+
+Formula: ElectricRangeHMI_BEV[mi] = ElectricRangeHMI_BEV*0
+,6214.
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘, 6214’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+6. ID: 3612254
+- Contents: System shall display total Range Estimation Indicator implementing the below logic: (see: image210.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Range Estimation is displayed in KM (or) mi based on the user setting.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image210.png
+
+7. ID: 3612279
+- Contents: System shall display positive range estimate values.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that only numbers were displayed in positive range estimation.
+
+CAN-Signal:xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "range" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3612280
+- Contents: System shall not display visualisation,
+if failure occured OR
+the range estimation value is NOT available.IDC-439492
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that no visualisation is displayed if failure OR the range estimation value is not available.
+
+CAN-Signal: xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+- Grooming Status: Blocked
+- Grooming Comments: What is the failure signal. Not available in the requiremnt
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "occured, is" ) 
+Negative statement
+ (Look for: "not, NOT" )
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3612282
+- Contents: After the Key-ON action, the system shall display  the Range indicator in the specific area of the Primary Dial(E Binnacle Area)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the System shall display the range indicator in the primary dial.
+
+CAN-Signal: xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, action, indicator, area, Area" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3612501
+- Contents: System shall show SOC threshold colours is indicated  with dedicated feedback  when the range(11% to 20% of the battery level) is low.
+(see: image211.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the SOC threshold colours were displayed when the range is low 
+
+CAN-Signal: xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+
+xEV_RANGE_HMI.ElectricRangeHMI_BEV
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Missing limits
+ (Look for: "‘11 %’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "is indicated" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image211.png
+
+11. ID: 4662022
+- Contents: System shall display "---km (or mi)" , In case of missing message of EletricRangeHMI_BEV or ElectricRangeHMIDisplayInfo
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the --km(or mi) is displayed incase of missing message from ElectricRangeHMI_BEV or ElectricRangeHMIDisplayInfo.
+
+CAN-Signal:
+xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+xEV_RANGE_HMI.ElectricRangeHMI_BEV
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, km, mi" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4662023
+- Contents: In case of missing message of HVB_SOC_Colour_HMI shall not colour Range Estimation Indicator.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Stop sending the values through HVB_SOC_Colour_HMI and verify that no colour is highlighted for Range Estimation Indicator.
+
+CAN-Signal:
+xEV_STS_HMI.HVB_SOC_Colour_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3612510
+- Contents: System shall display  '--km (or mi)'. when Electric Range HMI Display Info Disabled.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition: ElectricRangeHMIDisplayInfo == Disabled
+
+Verify that the '--km (or mi)' symbol is displayed when Electric HMI Display info disabled.
+
+CAN-Signal:
+
+xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Range HMI, display, Display, km, mi, Info" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3612512
+- Contents: System shall show range estimation info at key-off
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the range estimation is displayed after key off.
+
+CAN-Signal:STATUS_B_CAN.KeySts
+
+xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+- Grooming Status: Approved
+- Grooming Comments: How Long should it display after key -off need to be known.
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+15. ID: 3612517
+- Contents: System shall show range estimation info at key-on
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the range estimation is displayed after key on.
+
+CAN-Signal:STATUS_B_CAN.KeySts
+
+xEV_RANGE_HMI.ElectricRangeHMIDisplayInfo
+- Grooming Status: Approved
+- Grooming Comments: Typo in the requirement
+- Expert Domains: IOC_IOC, System Core
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+16. ID: 4634366
+- Contents: System shall colour Range Estimation and SOC Indication with same colour as below:
+SOC threshold 1 (e.g 21%-100%): colour 1 (e.g Green)
+SOC threshold 2 (e.g 11% - 20%): colour 2 (e.g Yellow)
+SOC threshold 3 (e.g 0% - 10%): colour 3 (e.g Red)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Range Estimation and SOC indication are displayed with same colour.
+
+CAN-Signal:
+xEV_STS_HMI.HVB_SOC_Colour_HMI
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, colour, Estimation, Indication" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4662056
+- Contents: System shall display Warning-1 Pop-up and Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when ElectricRangeHMI_Warning is Low_Range.
+Note: Warning-1 follows D04 visualisation behaviour with Priority-1
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Warning-1 Pop-Up and Buzzer is triggered when necessary conditions are met.
+
+POP-UP ID:00240001
+
+Buzzer:2B
+
+CAN-Signal:
+xEV_RANGE_HMI.ElectricRangeHMI_Warning
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follows, Pop-up, Buzzer, Priority-1" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3427689
+- Contents: System shall display range estimation as per the Ferrari design
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the range estimation is displayed as per the Ferrari Design.
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Review
+
+2. ID: 3973080
+- Contents: 6.2.1.1.2.44.1 F024 Ethernet Signal
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image210.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image211.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image209.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F024 6.2.1.1.2.44  Range Estimation Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

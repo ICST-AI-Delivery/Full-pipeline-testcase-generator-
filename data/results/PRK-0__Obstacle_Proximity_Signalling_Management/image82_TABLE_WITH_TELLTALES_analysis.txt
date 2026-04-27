@@ -1,0 +1,146 @@
+Image: image82.png
+Category: TABLE WITH TELLTALES
+Analysis Date: 2026-04-16 23:39:22
+================================================================================
+
+Based on the image, I can see this is a beep configuration table showing different beep patterns and rates at various distances. Let me provide a specialized analysis following the Table with Telltales template, though I note this appears to be primarily a configuration table with color-coded zones rather than traditional automotive telltales.
+
+```
+=== TABLE WITH TELLTALES ANALYSIS REPORT ===
+
+IMAGE: Beep Configuration Table
+├─ Content: Distance-based beep configuration table with color-coded warning zones
+├─ Hybrid Type: Configuration Table with Visual Status Indicators
+├─ Table Detection Quality: High - clear borders, well-defined cells
+├─ Symbol Detection Quality: Medium - color zones as visual indicators rather than traditional symbols
+├─ Hybrid Analysis Confidence: High - clear table structure with integrated visual warning system
+├─ Visual Indicator Count: 3 color zones (Green, Yellow, Red)
+├─ Table Dimensions: 32 rows x 5 columns
+
+=== TABLE STRUCTURE ANALYSIS ===
+
+TABLE CHARACTERISTICS:
+├─ Table Domain: Parking/Proximity Sensor Configuration
+├─ Table Type: Distance-Based Beep Rate Configuration Matrix
+├─ Dimensions: 32 rows x 5 columns
+├─ Header Structure: Column headers for sensor positions, distance column
+├─ Cell Types: Numeric distance values, beep rate indicators, color-coded zones
+├─ Border Style: Solid black lines with clear cell separation
+
+TABLE ORGANIZATION:
+├─ HEADER ANALYSIS:
+│  ├─ Column Headers: "distanza (cm)", "Laterale ant.", "Centr.ant.", "Laterale post.", "Centrale post."
+│  ├─ Table Title: "cm/bit 4, OFFSET (cm) 30"
+│  ├─ Legend: "SEGNALE ACUSTICO ASSENTE o NO COLOR"
+│  └─ Parameters: cm/bit=4, OFFSET=30cm
+├─ ROW STRUCTURE:
+│  ├─ Data Rows: 32 distance-based configuration rows
+│  ├─ Header Rows: 1 main header row
+│  ├─ Distance Range: 154cm down to ≤30cm
+│  └─ Special Zones: Continuous tone zone at bottom
+
+=== VISUAL INDICATOR IDENTIFICATION ===
+
+COLOR-CODED WARNING ZONES:
+├─ GREEN ZONE (Safe/Slow Beep Zone):
+│  ├─ Distance Range: 70cm to 154cm
+│  ├─ Beep Rate: 3 beep/sec
+│  ├─ Coverage: All sensor positions (Lateral ant., Central ant., Lateral post., Central post.)
+│  ├─ Zone Meaning: Safe parking distance with slow warning beeps
+│  └─ Color Significance: Safe operation zone
+├─ YELLOW ZONE (Caution/Medium Beep Zone):
+│  ├─ Distance Range: 46cm to 66cm
+│  ├─ Beep Rate: 6 beep/sec
+│  ├─ Coverage: All sensor positions
+│  ├─ Zone Meaning: Caution zone with increased beep frequency
+│  └─ Color Significance: Warning - approach with caution
+├─ RED ZONE (Danger/Fast Beep Zone):
+│  ├─ Distance Range: 34cm to 42cm and ≤30cm
+│  ├─ Beep Rate: 9 beep/sec and continuous tone
+│  ├─ Coverage: All sensor positions
+│  ├─ Zone Meaning: Danger zone with rapid beeping or continuous tone
+│  └─ Color Significance: Critical - immediate attention required
+
+=== CELL-BY-CELL HYBRID ANALYSIS ===
+
+DISTANCE CONFIGURATION MAPPING:
+├─ Distance Column: Sequential values from 154cm decreasing to 34cm, then ≤30cm
+├─ Sensor Columns: Numbered values 10-31 corresponding to distance ranges
+├─ Color Integration: Background colors indicate warning levels for each distance
+├─ Beep Rate Integration: Text overlays show beep frequencies for each zone
+
+DETAILED ZONE ANALYSIS:
+
+**GREEN ZONE (3 beep/sec):**
+| Distance (cm) | Laterale ant. | Centr.ant. | Laterale post. | Centrale post. |
+|---------------|---------------|------------|----------------|----------------|
+| 154 | 31 | 31 | 31 | 31 |
+| 150 | 30 | 30 | 30 | 30 |
+| 146 | 29 | 29 | 29 | 29 |
+| ... | ... | ... | ... | ... |
+| 70 | 10 | 10 | 10 | 10 |
+
+**YELLOW ZONE (6 beep/sec):**
+| Distance (cm) | Laterale ant. | Centr.ant. | Laterale post. | Centrale post. |
+|---------------|---------------|------------|----------------|----------------|
+| 66 | 9 | 9 | 9 | 9 |
+| 62 | 8 | 8 | 8 | 8 |
+| 58 | 7 | 7 | 7 | 7 |
+| 54 | 6 | 6 | 6 | 6 |
+| 50 | 5 | 5 | 5 | 5 |
+| 46 | 4 | 4 | 4 | 4 |
+
+**RED ZONE (9 beep/sec and continuous):**
+| Distance (cm) | Laterale ant. | Centr.ant. | Laterale post. | Centrale post. |
+|---------------|---------------|------------|----------------|----------------|
+| 42 | 3 | 3 | 3 | 3 |
+| 38 | 2 | 2 | 2 | 2 |
+| 34 | 1 | 1 | 1 | 1 |
+| ≤30 | 0 | 0 | 0 | 0 |
+
+=== CONFIGURATION PARAMETER ANALYSIS ===
+
+SYSTEM PARAMETERS:
+├─ Resolution: 4 cm/bit (each increment represents 4cm)
+├─ Offset: 30cm baseline distance
+├─ Sensor Positions: 4 positions (Front lateral, Front central, Rear lateral, Rear central)
+├─ Total Distance Range: 124cm active range (154cm - 30cm)
+├─ Configuration Steps: 32 discrete distance levels
+
+BEEP PATTERN CONFIGURATION:
+├─ Zone 1 (Green): 3 beeps per second - Safe approach
+├─ Zone 2 (Yellow): 6 beeps per second - Caution required
+├─ Zone 3 (Red): 9 beeps per second - Danger zone
+├─ Zone 4 (Red): Continuous tone - Critical proximity
+├─ No Signal Zone: Distances >154cm - No acoustic signal
+
+=== AUTOMOTIVE STANDARDS COMPLIANCE ===
+
+PARKING SENSOR STANDARDS:
+├─ Distance Ranges: Compliant with typical automotive parking sensor specifications
+├─ Warning Progression: Follows standard slow→medium→fast→continuous pattern
+├─ Color Coding: Standard automotive colors (Green=Safe, Yellow=Caution, Red=Danger)
+├─ Sensor Coverage: Full perimeter coverage with front and rear sensors
+├─ Acoustic Patterns: Standard beep progression for proximity warning systems
+
+=== VALIDATION CHECKLIST ===
+
+TABLE COMPLETENESS:
+✓ All distance values present and sequential
+✓ All sensor positions configured consistently
+✓ Color zones properly defined and differentiated
+✓ Beep rates clearly specified for each zone
+✓ Special conditions (continuous tone, no signal) identified
+✓ System parameters (cm/bit, offset) clearly stated
+✓ Legend and labeling complete
+
+CONFIGURATION VALIDATION:
+✓ Distance progression logical (154cm down to ≤30cm)
+✓ Beep rate progression appropriate (3→6→9→continuous)
+✓ Color coding matches severity levels
+✓ All sensor positions have identical configurations
+✓ Critical zones properly identified
+✓ No configuration gaps or overlaps
+```
+
+This analysis treats the color-coded zones as visual telltales/indicators within the table structure, showing how the table integrates both numerical configuration data with visual warning indicators through the color-coding system.

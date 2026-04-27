@@ -1,0 +1,58 @@
+# UnknownID 6.1.6.1.1 Sleep mode       Sleep Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.6.1.1 Sleep mode       Sleep Mode
+
+- ID: 2354077
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354078
+- Contents: 6.1.6.1.1.1 The System shall be able to achieve a sleep state if the vehicle is a hybrid or...       The System shall be able to achieve a sleep state if the vehicle is a hybrid or has a sizeable battery.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+2. ID: 2354079
+- Contents: 6.1.6.1.1.2 The System shall run in a limited mode while in sleep mode.       The System shall run in a limited mode while in sleep mode.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the time RTC, is working as expected (time is running acc.), also check wakeup sources are captured during the sleep.
+
+Measure the current (in order of mA) in the sleep mode.
+
+Check the limited modes in sleep mode.
+- Grooming Status: Approved
+- Grooming Comments: [R Selensky]: Modes supported and communicated to Ferrari are Full_ON, FULL_OFF/SHULTDOWN, Sleep, S2R(Partial refresh mode etc.,)
+Will be offered.
+
+The modes will be provided as per the TRS.
+
+The 'Limited modes' is interpreted as what ever Harman provides to Ferrari.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.6.1.1 Sleep mode       Sleep Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

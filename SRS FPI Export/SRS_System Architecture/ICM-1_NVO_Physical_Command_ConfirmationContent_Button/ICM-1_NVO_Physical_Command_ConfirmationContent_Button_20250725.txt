@@ -1,0 +1,108 @@
+# ICM-1 6.2.1.1.1  NVO Physical Command Confirmation/Content Button Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.1 ICM-1 NVO Physical Command Confirmation/Content Button
+
+- ID: 3595748
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need confirmation from Azamat on this if Instrument cluster team will be responsible for this. Ongoing mail chain
+- Expert Domains: Android HMI, IOC_Networking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5022659
+- Contents: System shall trigger the action related to the interacted command after T3_NVOCONT seconds when the pressure detect for t > n_press*T2NVO_CONT{X}H seconds.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the interact command every T3_NVOCONT seconds when pressure detect for t > n_press*T2NVO_CONT{X}H seconds.
+
+buttons on steering wheel
+
+ NVO_INFO_V2.ContentsCommand
+
+T3_NVOCONT
+
+
+
+t2=500msec
+t3=200msec
+t4=150msec
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, interacted, detect, action, command, seconds" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5022667
+- Contents: System shall trigger the action related to the interacted command after T4_NVOCONTsecondsOLE Object
+when the pressure of the physical button detect for t> (n_press*T2_NVOCONT{X}H + n_press*T3_NVOCONT) seconds
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the interact command every T4_NVOCONTsecondsOLE when the pressure of the physical button detect for t> (n_press*T2_NVOCONT{X}H + n_press*T3_NVOCONT) seconds
+
+ NVO_INFO_V2.ContentsCommand
+T3_NVOCONT
+T4_NVOCONT
+ n_press
+
+
+t2=500msec
+t3=200msec
+t4=150msec
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, trigger, interacted, detect, action, command, pressure, seconds" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3533755
+- Contents: IDC shall support Confirmation Command that manages pop ups and interacts with content on right dial with gestures available as Pressure, Short Pressure, Long pressure, continuous pressure
+- Artifact Type: Information
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3533756
+- Contents: IDC shall support Contents Command that changes contents of right dial with gestures available as pressure, short press, continuous press, long pressure
+- Artifact Type: Information
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Imprecise verb
+ (Look for: "be able to" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of ICM-1 6.2.1.1.1  NVO Physical Command Confirmation/Content Button Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

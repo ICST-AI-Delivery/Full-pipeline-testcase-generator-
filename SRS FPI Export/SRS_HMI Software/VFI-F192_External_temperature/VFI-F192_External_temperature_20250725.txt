@@ -1,0 +1,111 @@
+# VFI-F192 6.2.2.26  External temperature Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.26 VFI-F192 External temperature
+
+- ID: 4035486
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- HB_Comment: 03
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4035507
+- Contents: IDC shall provide External Temperature indication when VEH_DisplayedTemperatureError!= Error.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the indication of external temp.
+
+VEH_DisplayedTemperatureError!= Error
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5241842
+- Contents: System shall provide external temperature to the user when HMI ON.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to see the external temp when HMI ON
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, temperature, user, ON" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5241847
+- Contents: When external temperature is shown in more than one display, the
+indicators/gauges/graphs/values shall show the same values and information.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the synchronization of external temp value.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "temperature, values, is, shown, show, theindicators, gauges, graphs, information" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4035521
+- Contents: IDC shall replace numerical indication with dedicated indication (e.g. "---") in error state.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system shall replace numerical indication with dedicated indication in error state.
+
+internal interface VEH_DisplayedTemperatureError
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "value, replace, according, is, indication, specification, VEH, Error" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4035529
+- Contents: IDC shall display ice warning pop up when a possibility of ice on the street due to low external temperature.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the ice warning pop up at low external temp.
+
+Main_AreaPopUp[F192_Warning1] + VEH_INDICATOR_STATUS + INDICATOR_STATUS
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, possibility, display, warning, ice, pop up, street, temperature" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F192 6.2.2.26  External temperature Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

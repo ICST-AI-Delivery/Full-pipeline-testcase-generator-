@@ -1,0 +1,70 @@
+# UnknownID 6.2.1.5.26 Rear Camera - Blinded (0x9104, 0x86) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.5.26 Rear Camera - Blinded (0x9104, 0x86)
+
+- ID: 4466497
+- Artifact Type: SRS Feature
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4466498
+- Contents: If the Rear camera detects Camera vision occlusion with in 5sec when SV/RVC in active state, the system shall send Rear camera blinded message.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify Rear camera vision occluded
+-Verify SV/RVC is in active state
+-Verify Camera occlusion is detected during camera blockage algorithm check run with a periodicity of 1 second
+-Verify (0x9104,0x86) DTC shall trigger.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "camera, system, detects, send, blinded, occlusion, SV, RVC, state, message" )
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. No info in diag spec about "blinded camera" state or use case. Applicative test not possible. Also no info at "Verification Criteria" field.
+- State (Harman_Requirement): Approved
+
+2. ID: 4466499
+- Contents: The System shall resolve the Rear camera blinded within 1s when camera occlusion is absent.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Test Stage: System Qualification Test
+- Verification Criteria: -Verify No fault is detected in Rear camera vision.
+-Verify (0x9104,0x86) DTC shall clear.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, occlusion, resolve, blinded, is absent, camera" )
+- TestTeamComment: RWeber_DIAG_241122: Only test at protocol level, if DTC can be read out. No info in diag spec about "blinded camera" state or use case. Applicative test not possible. Also no info at "Verification Criteria" field.
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.5.26 Rear Camera - Blinded (0x9104, 0x86) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

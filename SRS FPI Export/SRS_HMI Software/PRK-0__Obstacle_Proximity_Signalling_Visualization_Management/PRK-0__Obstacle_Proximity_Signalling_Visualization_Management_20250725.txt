@@ -1,0 +1,172 @@
+# PRK-0 6.2.4.1.17.3 : Obstacle Proximity Signalling Visualization Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.1.17.3 PRK-0: Obstacle Proximity Signalling Visualization Management
+
+- ID: 3851660
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3872469
+- Contents: The system shall indicate the maximum distance if the value of the obstacle distance is equal(or higher) to the green-zone threshold
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Set the obstacle distance <(maximum distance threshold) and >= green zone value (Refer the Artifact ID 3553482)
+
+Verify from HMI, the distance is displayed as maximum threshold distance
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-591
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is, indicate" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3851758
+- Contents: The system shall manage the "Obstacle Proximity Signaling Visualization" based on the proxi parameter IDC_SurroundViewFunctionality.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Obstacle Proximity Signaling visualization is enabled/disabled based on the proxi parameter IDC_SurroundViewFunctionality
+- Grooming Status: Approved
+- Grooming Comments: [Prashant, Abdul 17.01.2025] Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "based on" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3872765
+- Contents: If STATUS_NCP.CapoteSts is Opened, system shall display the opened capote graphic
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the capote opened state graphic is displayed on HMI if capote status is Open
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is Opened" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3872767
+- Contents: IF STATUS_NCP.CapoteSts = Closed THEN system shall display the closed capote graphic.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the capote closed state graphic is displayed on HMI if capote status is closed
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 3872771
+- Contents: The system shall display the same graphic of previous "capote status" untill the "capote' cycle" = "ended" if "STATUS_NCP.CapoteSts = (Closing/Opening/middle)".
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Capote is opening or closing or in middle.
+Verify the the graphic of previous capote state
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, untill, ended, graphic, status, capote, Opening/middle" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3872778
+- Contents: The system shall display closed capote graphic if 'STATUS_NCP' message is missing.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Stop sending the STATUS_NCP' message.
+
+Verify that the closed capote graphic is  displayed.
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is missing" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3872780
+- Contents: The popups shall not overlap the camera stream view & frames when Parking system is visualized.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that no popup is shown on top of the Parking system visualization.
+- Grooming Status: Approved
+- Expert Domains: Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "popups, overlap, frames, visualized, amp, system" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3872471
+- Contents: The system shall indicate central obstacle distance zone on HMI with yellow color
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): New
+
+2. ID: 3872474
+- Contents: The system shall indicate near obstacle distance zone on HMI with red color
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): New
+
+3. ID: 3872690
+- Contents: (see: image85.png)
+Figure: Obstacle Proximity Signalling Visualization Example
+- Artifact Type: Information
+- Responsible Domain: Parking
+- State (Harman_Requirement): New
+- Visual Elements: image85.png
+
+4. ID: 3872760
+- Contents: The system shall "change the graphic representation of the car" in "parking sensor system visualization" based on the status of
+the capote indicated by STATUS_NCP.CapoteSts.
+- Artifact Type: Information
+- Responsible Domain: Parking
+- Verification Criteria: Verify that the graphic representation is of the car in parking sensor visualization is based in the signal 
+STATUS_NCP.CapoteSts 
+
+Note: The visualization will not show if capote status is not open or not closed
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image85.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-0 6.2.4.1.17.3 : Obstacle Proximity Signalling Visualization Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

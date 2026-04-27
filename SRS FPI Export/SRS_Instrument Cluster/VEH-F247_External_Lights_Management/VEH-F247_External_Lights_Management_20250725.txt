@@ -1,0 +1,792 @@
+# VEH-F247 6.2.1.1.2.19  External Lights Management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.19 VEH-F247 External Lights Management
+
+- ID: 3408585
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Audio Processing, IOC_IOC, System Infra
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3554960
+- Contents: System shall display F247 Info4 visualization for 30seconds upto seven times when
+Keyoff status
+Byte_146, bit_4 (“Automatic_High_Beam”: absent/present) = absent
+Low beam status is ON
+High beam status change from ON to OFF
+with
+D05 visualization
+priority_2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition : Keyoff status
+Byte 146, bit 4 (“Automatic_High_Beam”: absent/present) = absent
+
+Trigger info4 visualization by below logic. Verify Info4 shown as per HMI_POP.IND with popup and graphic  for F247 <POP IND ID  24706>
+Verify visualization repeated for 7 cycles with 30s timer when condition met
+
+Trigger : EXTERNAL_LIGHTS.LowBeamSts= 0x01 on receiving a transition of EXTERNAL_LIGHTS.HighBeamSts (1->0) IDC 
+
+CAN-Signals: CAN-Signal: EXTERNAL_LIGHTS.ExternalLightsSts
+STATUS_B_CAN.KeySts
+
+Proxi:
+Byte 146, bit 4 (“Automatic_High_Beam”: absent/present)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, display, is, visualization, times, bit_4  #8220, absent, change" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3554967
+- Contents: System shall stop F247 Info4 visualization and reset 30s timer when low beam status is OFF
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger info4 visualization by below logic. 
+
+Trigger : EXTERNAL_LIGHTS.LowBeamSts= 0x01 on receiving a transition of EXTERNAL_LIGHTS.HighBeamSts (1->0) IDC 
+
+When Info4 display ongoing, set EXTERNAL_LIGHTS.LowBeamSts= 0x00
+
+Verify visualization interrupted
+
+Set Low Beam status to OFF and verify that the Info-4 visualisation id displayed for 30 sec.
+
+CAN-Signals: CAN-Signal: EXTERNAL_LIGHTS.ExternalLightsSts
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, stop, is OFF, visualization, timer" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4705667
+- Contents: System shall display Info-5 Pop-up with buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when  LowBeamSts is set to OFF.
+Note: Info5 follows D04 visualisation behaviour with priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+LowBeamSts==OFF
+
+Set the low beam status to OFF and verify the Pop-up and buzzer is played and sent to central display.
+
+CAN-Signals:EXTERNAL_LIGHTS.LowBeamSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, LowBeamSts, display, send, using, follows, Pop-up, buzzer, status, IVI, INDICATOR, OFF" ) 
+Passive voice
+ (Look for: "is set" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4705669
+- Contents: System shall play F247 Info-7 with Buzzer and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.when  LBCmdNightInfoForDisplay is Active.
+Note:F247 follows D04 visualisation behaviour with priority-2.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Trigger Condition:
+(LBCmdNightInfoForDisplay = Active
+
+
+Verify that the Info-7 is displayed when LBCmdNightInfoForDisplay is active.
+
+CAN-Signal: VEHSTAT_V2.LBCmdNightInfoForDisplay
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, LBCmdNightInfoForDisplay, play, send, using, is, follows, F247 Info-7, Buzzer, status, IVI, INDICATOR, Active" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4705671
+- Contents: Service for V_Car_Moving parameter adjustment.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the V_Car_Moving parameter default vlaue is 5km/hr and it can be tunable using the V_Car_Moving parameter.
+
+
+Reference: Please refer 3971355 Req Id in the Diagnostic SRS.
+- Grooming Status: Approved
+- Grooming Comments: Please refer JIRA.
+
+https://jira.harman.com/jira/browse/FQ-1068
+- Expert Domains: IOC_Diag
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): Approved
+
+6. ID: 4889708
+- Contents: System shall dispalay a Pop-Up Lights switch On/Off on the Binnacle and  show  relative indicationsWhen LowBeamSts (Position Light OR Low Beam OR Auto Low Beam) has an On/Off (ON --> OFF OR OFF --> ON) transition,
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the Pop-up lights Switch On/Off is displayed when the new ignition cycle is detected. 
+
+CAN-Signal: EXTERNAL_LIGHTS.HighBeamSts
+EXTERNAL_LIGHTS.LowBeamSts
+EXTERNAL_LIGHTS.ExternalLightsSts
+
+Note: Please refer to HMI spec  (HMI-LF-9786)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, dispalay, switch, show, has, Lights, Off, Light, On/Off, transition" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4889714
+- Contents: When RearfogSts (Rear Fog Lights) has an On/Off (ON --> OFF OR OFF --> ON) transition, the IDC shall show the relative indication
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the rear Fog lights Switch On/Off is displayed when the new ignition cycle is detected. 
+
+CAN-Signal: EXTERNAL_LIGHTS.RearFogLightSts
+
+
+Note: Please refer to HMI spec  (HMI-LF-9786)
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 4889715
+- Contents: If signals have no transition within t_PopUp_Lights (1second) , then system shall manage the classic Virtual telltale visualization.
+Default: 1 Second
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the System displays the virtual telltale with in 1 second if there is no transition for EXTERNAL_LIGHTS.LowBeamSts , EXTERNAL_LIGHTS.HighBeamSts
+- Grooming Status: Approved
+- Grooming Comments: What is classic telltale visualisation  , need to know from the customer.
+
+Classic means no animation or Rolling telltales , just a static
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "manage, Default" ) 
+Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3532442
+- Contents: When proxi bit for Automatic High Beam (AHB) is True, system shall display external light indication as per table for key-on and steady state
+(see: image119.png)
+Note: High Beam and Low Beam lights will be displayed in the B14 wireframe Area
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:AHB is set to True.
+
+Proxi: proxi (byte 146, bit 4) Automatic High Beam absent/present ="Present ",
+
+Verify that the Automatic High Beam is ON Status and Telltlaes  were displayed as per the table.
+Verify telltales are not active during key off
+CAN Signals
+ EXTERNAL_LIGHTS.HighBeamSts
+ EXTERNAL_LIGHTS.LowBeamSts
+ EXTERNAL_LIGHTS.ExternalLightsSts
+EXTERNAL_LIGHTS.AHBFeature
+
+Telltale codes
+High Beam : 00790
+Low Beam ON : 00800
+Auto high beam Engaged : 00810
+Auto high beam Armed : 00820
+Auto low beam Engaged : 00830
+- Grooming Status: Approved
+- Grooming Comments: Tabl updated w/o logic change
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "proxi bit, system, is, display, indication, table, state, lights, Area" ) 
+Passive voice
+ (Look for: "be displayed" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image119.png
+
+10. ID: 5530191
+- Contents: When proxi bit for Automatic High Beam (AHB) is True, And AHB is set to OFF system shall display external light indication as per table for key-on and steady state
+(see: image120.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Pre-Condition:AHB is set to True.
+
+Proxi: proxi (byte 146, bit 4) Automatic High Beam absent/present ="Present ",
+
+Verify that the Automatic High Beam is OFF Status and Telltlaes  were displayed as per the table.
+Verify telltales are not active during key off
+CAN Signals
+ EXTERNAL_LIGHTS.HighBeamSts
+ EXTERNAL_LIGHTS.LowBeamSts
+ EXTERNAL_LIGHTS.ExternalLightsSts
+EXTERNAL_LIGHTS.AHBFeature
+
+Telltale codes
+High Beam : 00790
+Low Beam ON : 00800
+Auto high beam Engaged : 00810
+Auto high beam Armed : 00820
+Auto low beam Engaged : 00830
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+- Visual Elements: image120.png
+
+11. ID: 3532455
+- Contents: When proxi bit for Automatic High Beam (AHB) is False, system shall display external light indication as per table for key on and steady state
+(see: image121.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:AHB is set to False
+Proxi: proxi (byte 146, bit 4) Automatic High Beam absent/present ="Absent ",
+
+Verify that the Automatic High Beam Status  were turned as per the table.
+Verify telltales are not active during key off
+CAN Signals
+ EXTERNAL_LIGHTS.HighBeamSts
+ EXTERNAL_LIGHTS.LowBeamSts
+ EXTERNAL_LIGHTS.ExternalLightsSts
+EXTERNAL_LIGHTS.AHBFeature
+
+Telltale codes
+High Beam : 00790
+Low Beam ON : 00800
+Auto high beam Engaged : 00810
+Auto high beam Armed : 00820
+Auto low beam Engaged : 00830
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "proxi bit, system, is, display, indication, table, state" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image121.png
+
+12. ID: 4710638
+- Contents: System shall stop displaying the telltales relative these signals listed below when the vehicle is in KEY-OFF conditions:
+EXTERNAL_LIGHTS.HighBeamSts
+EXTERNAL_LIGHTS.LowBeamSts
+EXTERNAL_LIGHTS.AHBFeature.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the telltales were not displayed when key is in OFF
+
+CAN-Signal:
+EXTERNAL_LIGHTS.HighBeamSts
+ EXTERNAL_LIGHTS.LowBeamSts
+ EXTERNAL_LIGHTS.AHBFeature
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "these" ) 
+Compound requirement
+ (Look for: "System, vehicle, visualize, is, conditions" ) 
+Negative statement
+ (Look for: "not" ) 
+Passive voice
+ (Look for: "listed" )
+- State (Harman_Requirement): Approved
+
+13. ID: 3919993
+- Contents: System shall perform F247 Warning1 when proxi (byte 146, bit 4) Automatic High Beam absent/present !="Absent ",
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify warning 1 not displayed when AHB proxi absent.
+
+Verify warning 1 displayed when AHB proxi present.
+
+Proxi: byte 146, bit 4
+
+CAN-Signal: HAPTIC1.AHBFault
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, perform, proxi, 1, byte, present, Absent" )
+- State (Harman_Requirement): Approved
+
+14. ID: 3532490
+- Contents: System shall display automatic high beam failure telltale as per Ferrari Design when AHB fault detected.
+(see: image122.png)
+Note : Function shall have D01 visualization behaviour and priority zero
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger AHB fault (AHBFault=ON)
+
+Verify AHB failure telltale displayed as per Telltale Binnacle <00230>
+
+Verify D01 behaviour for visualization. Refer 3494873: CAN input Visualization Cycle behavior codes 
+
+CAN-Signal: HAPTIC1.AHBFault
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, Function, display, have D, high beam failure telltale, Design, fault, visualization, priority zero" ) 
+Passive voice
+ (Look for: "detected" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer HMI_LF_Binnacle_Telltales
+- Visual Elements: image122.png
+
+15. ID: 3532568
+- Contents: System shall play External light management 2B buzzer on detecting automatic high beam failure
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Pre-Condition:AHB features is to be Enabled
+
+Trigger AHB fault (AHBFault=ON)
+
+Verify buzzer audible as per wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3 for F247 (2B buzzer)
+
+CAN-Signal:HAPTIC1.AHBFault
+- Grooming Status: Approved
+- Grooming Comments: When the lamp is OFF and Error signal is received should the error be displayed.
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3
+
+16. ID: 3532569
+- Contents: System shall display warning text as per Ferrari Design on detecting automatic high beam lamp sen.d the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS
+Note : Function shall have D01 visualization behaviour
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger AHB fault (AHBFault=ON)
+
+Verify warning text displayed as per F244_HMI_POP.IND for F247 <HMI POP IND ID 24701>
+
+Verify D01 behaviour for visualization. Refer 3494873: CAN input Visualization Cycle behavior codes 
+
+CAN-Signal: HAPTIC1.AHBFault
+- Grooming Status: Approved
+- Grooming Comments: Warning Icon is TBD
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall have D" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202
+
+17. ID: 3919997
+- Contents: System shall perform F247 Warning2 when proxi (byte 146, bit 4) Automatic High Beam absent/present !="Absent ",
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify warning2 not displayed when AHB proxi absent.
+
+Verify warning2 displayed when AHB proxi present.
+
+Proxi: Byte 146 , Bit4)
+
+CAN-Signal: HAPTIC1.SensorBlinded
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, perform, proxi, 2, byte, present, Absent" )
+- State (Harman_Requirement): Approved
+
+18. ID: 3532660
+- Contents: System shall play External light management 2B buzzer on detecting light sensor blinded.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger light sensor blinded (SensorBlinded=ON):
+
+Verify buzzer audible as per wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3 for F247 (2B buzzer)
+
+CAN-Signal: HAPTIC1.SensorBlinded
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3
+
+19. ID: 3532661
+- Contents: System shall display warning text as per Ferrari Design on detecting light sensor blinded and send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS.
+Note : Function shall have D01 visualization behaviour and priority0
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger light sensor blinded (SensorBlinded=ON):
+
+Verify warning text displayed as per F244_HMI_POP.IND for F247 <POP IND ID 24702>
+
+Verify D01 behaviour for visualization. Refer 3494873: CAN input Visualization Cycle behavior codes 
+
+CAN-Signal: HAPTIC1.SensorBlinded
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall display, shall have D" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202
+
+20. ID: 3532680
+- Contents: System shall display F247 Info1 Pop-up warning text as per Ferrari Design when external light status is 'ManualDay'
+Note : Function shall have D01 visualization behaviour and priority2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger external light status as Manual Day
+(ExternalLightSts=ManualDay)
+
+Verify warning text displayed as per F244_HMI_POP.IND for F247 <POP IND ID  24703>
+
+Verify D01 behaviour for visualization. Refer 3494873: CAN input Visualization Cycle behavior codes 
+
+CAN-Signal:EXTERNAL_LIGHTS.ExternalLightsSts
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, Function, display, warning, is, have D, text, Design, ManualDay, visualization" )
+- State (Harman_Requirement): Obsolete
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202
+
+21. ID: 3532682
+- Contents: System shall display F247 Info2 Pop-up when external light status is 'ManualNight'
+Note : Function shall have D01 visualization behaviour and priority2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger external light status as Manual Day
+(ExternalLightSts=ManualNight)
+
+Verify warning displayed as per F244_HMI_POP.IND for F247 <POP IND ID  24704>
+
+Verify D01 behaviour for visualization. Refer 3494873: CAN input Visualization Cycle behavior codes 
+
+CAN-Signal: EXTERNAL_LIGHTS.ExternalLightsSts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, status, Function, display, is, have D, ManualNight, visualization" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer F244_HMI_POP.IND_PI3_S2_240202
+
+22. ID: 3532683
+- Contents: System shall play audio buzzer 2A when vehicle speed above configure threshold with Manual light warning active
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger Manual Night warning (ExternalLightSts=ManualNight)
+
+Increase vehicle speed above threshold
+VehicleSpeedVSOSig.V_Car_Moving
+
+Verify buzzer audible as per wav file at IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3 for F247 (2B buzzer)
+
+Verify audio buzzer stop when vehicle speed below threshold / (ExternalLightSts != ManualNight)
+
+CAN-Signal: EXTERNAL_LIGHTS.ExternalLightsSts
+NFR_SPEED.VehicleSpeedVSOSig
+- Grooming Status: Approved
+- Expert Domains: Audio Processing, IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, speed, play, configure, buzzer, threshold, active" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Refer IDC_Vehicle_Buzzer_Priority_Matrix_1B_PI3
+
+23. ID: 3935767
+- Contents: System shall display the Icon in wire-frame Area TBD. IDC-459161|
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+24. ID: 3935768
+- Contents: System shall display the Icon in wire-frame Area TBD. IDC-459269|
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+25. ID: 3554944
+- Contents: System shall display F247 Info-3 Pop-up when
+proxi (byte_146, bit_4) Automatic High Beam absent/present =="Absent ",
+The state saved on the IDC, from the previous KeyOn -> KeyOFF, is on ManualNight or ManualDay mode (AND)
+after 2 seconds from next keyOn event, first sample of ExternalLightSts is equal to AutoDay or AutoNight
+Note:Info3 shall follow D04 Behaviour with priority-2
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :   proxi (byte 146, bit 4) Automatic High Beam absent/present =="Absent ",
+Set the saved Light status as Manual day or Manual Night from Key On to Key Off. Set the Light status to AutoDay or Auto Night after 2 seconds from the key On event.
+Verify F247 Info3 visualization as per HMI_POP.IND  for F247 <POP IND ID  24705>
+
+CAN-Signal: EXTERNAL_LIGHTS.ExternalLightsSts
+STATUS_B_CAN.KeySts
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, state, Info3, display, present, saved, is, is equal, follow, Absent, IDC, KeyOn -  KeyOFF, mode, event, sample, ExternalLightSts, AutoDay, AutoNight" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3715956
+- Contents: PROXI
+ADAS_Configuration_1 " Automatic_High_Beam” (byte 146, bit 4).
+Proxi China Icone Voute e piene TBD
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): New
+
+2. ID: 3715957
+- Contents: System shall use the mentioned CAN signals to display External Lights Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: IOC_IOC
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+3. ID: 3935769
+- Contents: System shall use the mentioned CAN signals to display External Lights Management as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4889703
+- Contents: System shall display a Pop-Up Lights during the Key-On /Key -Off Event on the Binnacle.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify that the external light Pop-Up is displayed during the Key-On and Key_Off .
+
+CAN-Signal:
+STATUS_B_CAN.KeySts
+- Grooming Status: Review
+- TestTeamComment: FX9.1 APPROVAL PENDING
+- State (Harman_Requirement): In Work
+
+5. ID: 3532441
+- Contents: 6.2.1.1.2.19.1 External Lights Management - General
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+6. ID: 3532488
+- Contents: 6.2.1.1.2.19.2 External Light Management - F247 - Warning 1
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+7. ID: 3532658
+- Contents: 6.2.1.1.2.19.3 External Light Management - F247 - Warning 2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+8. ID: 3532678
+- Contents: 6.2.1.1.2.19.4 External Light Management - F247 - Info 1
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+9. ID: 3532681
+- Contents: 6.2.1.1.2.19.5 External Light Management - F247 - Info 2
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+10. ID: 3554943
+- Contents: 6.2.1.1.2.19.6 External Light Management Info-3
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- RQA Score: 10
+- State (Harman_Requirement): In Work
+
+11. ID: 3554937
+- Contents: 6.2.1.1.2.19.7 VEH-F247 - External Light Management Info-4
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): Approved
+
+12. ID: 3967625
+- Contents: 6.2.1.1.2.19.7.1 DATA USAGE NOT CLEAR - ETH SEGNAL
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- State (Harman_Requirement): In Work
+
+13. ID: 3967901
+- Contents: Signals: Main_AreaPopUp[F247_Info1]+ SEGNALE_ETH
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): Obsolete
+
+14. ID: 3967908
+- Contents: Signals: Main_AreaPopUp[F247_Info2]+ Buzzer2A + VEH_Buzzer2A + SEGNALE_ETH
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Missing limits
+ (Look for: "‘A 2’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+15. ID: 3968186
+- Contents: Signals: Main_AreaPopUp[F247_Info3]+ SEGNALE_ETH
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 0
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Incomplete: Missing action
+ (Look for: "What is being done" ) 
+Incomplete: Missing object 
+ (Look for: "What is the action being done to or on" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image121.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image122.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image119.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image120.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F247 6.2.1.1.2.19  External Lights Management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

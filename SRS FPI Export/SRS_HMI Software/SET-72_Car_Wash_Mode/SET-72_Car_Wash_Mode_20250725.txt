@@ -1,0 +1,138 @@
+# SET-72 6.2.3.7.11  Car Wash Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.7.11 SET-72 Car Wash Mode
+
+- ID: 5025763
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- HB_Comment: pf
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5025766
+- Contents: System shall inhibit the Carwash mode setting interface from user interaction when
+RoboticTransmissionWarning =! Carwash_mode_activation
+AND
+[ VehicleSpeedVSOSig !=0
+OR
+VehicleSpeedVSOSigFailSts == 1("Fail_present")
+OR 
+ActualGearForDisplay != 0xF ("N")
+OR
+PowertrainSts != 1("ON")].
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user not able to access carwash mode when
+
+RoboticTransmissionWarning =! Carwash_mode_activation
+AND
+[ VehicleSpeedVSOSig != 0
+OR
+VehicleSpeedVSOSigFailSts == 1 ("Fail_present")
+OR 
+ActualGearForDisplay != 0xF ("N")
+OR
+PowertrainSts != 1 ("ON")].
+
+STATUS_C_NCA_NCR.RoboticTransmissionWarning
+ STATUS_C_NCA_NCR.ActualGearForDisplay
+ PWT_STATUS_2.PowertrainSts
+ RFHUB1.HMIPowerOnReq
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, inhibit, setting, mode, interface, interaction, ActualGearForDisplay, ORPowertrainSts" )
+- State (Harman_Requirement): Approved
+
+2. ID: 5025804
+- Contents: IDC shall allow user to ON/OFF car wash through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify carwash ON/OFF.
+
+ COMMAND_HMI_TO_VEHICLE.Carwash_Rqt
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+3. ID: 5025811
+- Contents: System shall set Carwash_Rqt = 0("No_Rqt") after receiving the input signal RoboticTransmissionWarning != Carwash_mode_activation, when t = t_act_CW_max from Carwash mode activation request (Carwash_Rqt is one).
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the carwash request when
+(Carwash_Rqt = 1). 
+
+IDC
+receives the input signal RoboticTransmissionWarning != Carwash_mode_activation
+ COMMAND_HMI_TO_VEHICLE.Carwash_Rqt
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, receiving, act, is, No_Rqt, RoboticTransmissionWarning, mode, request" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5025814
+- Contents: IDC shall set Carwash_Rqt = 0("No_Req") when the Carwash mode is Active AND IDC reads the transition of input signal ActualGearForDis
+play from N to !N.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the carwash request when it is active.
+
+Carwash_Rqt = 0 ("No_Req") 
+
+STATUS_C_NCA_NCR.ActualGearForDisplay
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "mode, set, is, reads, AND, transition, ActualGearForDisplay" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5033209
+- Contents: (see: image65.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image65.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image65.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-72 6.2.3.7.11  Car Wash Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

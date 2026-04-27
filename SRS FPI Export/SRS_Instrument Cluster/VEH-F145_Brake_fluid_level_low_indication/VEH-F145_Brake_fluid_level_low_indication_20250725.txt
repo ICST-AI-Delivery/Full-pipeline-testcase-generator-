@@ -1,0 +1,125 @@
+# VEH-F145 6.2.1.1.2.11  Brake fluid level low indication Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.2.11 VEH-F145 Brake fluid level low indication
+
+- ID: 3406517
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Grooming Comments: Need HMI design
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3660641
+- Contents: System shall display Warning-1 pop-up with Buzzer  and Telltale send the status to IVI using VEH_INDICATOR_STATUS , to Ethernet using INDICATOR_STATUS when Brake Fluid Level Status is Low Level
+Note: Warning-1 shall follow D01 Visualisation Behaviour with Priority-0
+BRK001(RoW) (see: image98.png)
+CAN input shared physical telltale BRK001(RoW)/BRK002(USA) with S05 Behaviour
+BRK002(USA) (see: image99.png)
+(see: image100.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Trigger-Condition: BrakeFluidLevelSts = Low Level
+
+Verify that the Warning 1 is triggered when Brake Fluid Level Status is Low Level.
+
+CAN-Signal:
+NFR_HMI.BrakeFluidLevelSts
+
+Proxi:
+Byte 59. bits 4-5 (“Country market”) for destination market selection (USA or other destination market) 
+Byte 59, bits 6-7(“Details for Extra Market”)
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, Audio Processing, IOC_IOC, System Core, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, is, follow, pop-up, Buzzer, Telltale, Status, Level, Priority-0" )
+- State (Harman_Requirement): Approved
+- Visual Elements: image98.png, image99.png, image100.png
+
+### Informational Items:
+
+1. ID: 3660289
+- Contents: System shall display Brake fluid level low indication as per Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Brake fluid level low indication is displayed as per the Ferrari design.
+Trigger-Condition: BrakeFluidLevelSts = Low Level
+- Grooming Status: Approved
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is indicated" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3909604
+- Contents: PROXI:
+Byte 59. bits 4-5 (“Country market”) for destination market selection (USA or other destination market)
+Byte 59, bits 6-7(“Details for Extra Market”)
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 10
+- Issues Found by RQA: Compound requirement
+ (Look for: "bits, destination, #8220, market #8221, selection USA, market, Details, Market" ) 
+Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" ) 
+Missing imperative
+ (Look for: "Every requirement should have a ‘will, shall, must, should, could, or would’" )
+- State (Harman_Requirement): New
+
+3. ID: 3909566
+- Contents: System shall use the mentioned CAN signals to display Brake fluid level low indication System as per the Ferrari Design.
+- Artifact Type: Information
+- Responsible Domain: Cluster SW
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image100.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image99.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image98.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VEH-F145 6.2.1.1.2.11  Brake fluid level low indication Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

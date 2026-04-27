@@ -1,0 +1,148 @@
+# FAD-2 6.2.2.3.4  Persistence Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.3.4 FAD-2 Persistence
+
+- ID: 3826968
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Expert Domains: Audio Control, Media Core
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3557726
+- Contents: The system shall persist mute status for all sources (except for ringtone and phone) during same key cycle.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the mute status is persisted during the same ignition cycle for all the audio sources except for ringtone and call audio.
+- Grooming Status: Approved
+- Expert Domains: Media Core
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, persist, excluding, status, sources, ringtone, phone, key cycle" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3557728
+- Contents: The system shall unmute the proper channels through the FAD_CTRL__setMute(void *fad_ctrl_memory, fad_source_id_e sourceID, bool enable) API at each new key cycle, where:
+sourceID = SOURCE ID of the source being unmuted
+enable = false
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the muted audio source is unmuted after an ignition reset.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, unmute, muted, excluding, phone, ringtone, cylce" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3557729
+- Contents: The system shall unmute the muted phone source when an active call is ended.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that call audio is unmuted after the call is ended.
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 70
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3557730
+- Contents: The system shall unmute the ringtone source at each incoming call.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Verification Criteria: Verify that the nuted ringtone audio is umnuted on receving a new incoming call
+- Grooming Status: Review
+- Expert Domains: Audio Control
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3932567
+- Contents: IDC_AudioStreams2.BSM_RCTADirectionality
+IDC_AudioStreams2.LaneCorssingDirectionality
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 0
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3557725
+- Contents: The volume values shall be stored in the volume database for persistence.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3622225
+- Contents: Diagnosis
+Calibration Parameters
+Entertainment_Volume
+Ringtone_Volume
+Phone_Volume
+Voice_Volume
+Park_Volume
+Navigation_Volume
+General_Warning_Volume
+MaxSwitchOnVolume
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3622226
+- Contents: Inputs
+HMI_CAN:
+STATUS_NVO.VolumeDial
+STATUS_NVO.VolumeRotation
+STATUS_NVO.VolumeButtonPushSts
+DISPLAY_FRONT_COMMAND.Button_DH_1_Rotary
+DISPLAY_FRONT_COMMAND.Button_DH_1
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+4. ID: 3622227
+- Contents: Outputs
+INFO_CAN:
+IDC_AudioStreams.EntertainmentVolume
+IDC_AudioStreams.TelephonyVoiceVolume
+IDC_AudioStreams.NavigationVolume
+IDC_AudioStreams.HMIAndroidVolume
+IIDC_AudioStreams.HMILinuxVolume
+IDC_AudioStreams2.ParkAssistVolume
+IIDC_StreamVolume.GeneralWarning1Volume
+IDC_StreamVolume.GeneralWarning2Volume
+IDC_AudioStreams.EntertainmentMute
+IDC_AudioStreams.TelephonyVoiceMute
+IDC_AudioStreams.NavigationMute
+IDC_AudioStreams.HMIAndroidMute
+IDC_AudioStreams.HMIAndroidMute
+IDC_AudioStreams.ParkAssistDirectionality
+IDC_AudioStreams.BSM_RCTADirectionality
+IDC_AudioStreams.LaneCorssingDirectionality
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-2 6.2.2.3.4  Persistence Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

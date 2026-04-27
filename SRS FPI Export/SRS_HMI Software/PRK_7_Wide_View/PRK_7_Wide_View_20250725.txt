@@ -1,0 +1,108 @@
+# UnknownID 6.2.4.8.2 PRK 7: Wide View Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.8.2 PRK 7: Wide View
+
+- ID: 4613084
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4613085
+- Contents: The system shall allow to activate the Wide view in the below views by scrolling stream frame from right to left.
+all kind of view except for Frontal parking Sensors view(Rear & Front sensors, plus Rear camera version)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Verification Criteria: Precondition:
+2D View is active
+
+Vefify it is possible to activate the Wide view by scrolling stream frame from right to left
+- Grooming Status: Review
+- Grooming Comments: Abdul 31.12.2024: Not offered in CRS.
+
+[06.12.2024 Prashant, Abdul] Need confirmation from Ferrari in this requirement
+
+Not offered now,Scrolling/Slidiing is not supported ,only button touch is possible
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Escape clause
+ (Look for: "except" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4613087
+- Contents: If Wide view is active, the system shall allow to activate the previous visualization by scrolling stream frame from left to right.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Verification Criteria: Precondition: Wide view is active
+
+Verify it is possible to activate the previous visualization by scrolling stream frame from left to right.
+- Grooming Status: Review
+- Grooming Comments: Abdul 31.12.2024: Not offered in CRS
+
+[06.12.2024 Prashant, Abdul] Need confirmation from Ferrari in this requirement
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to activate, scrolling, left, visualization, frame, right" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 4613092
+- Contents: HMI-LF-7931 - The wide view shall be available in "all" kind of view except for "Frontal parking sensors view"(Rear and Front sensors, plus Rear camera version).-> Mapped below
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "view, be available, Rear, sensors, version" ) 
+Escape clause
+ (Look for: "except" ) 
+Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 4613096
+- Contents: The system shall show the 'Wide View' in 'all the parking layout area in the below views' & make invisible the 'Sensor view/the bird views'.
+all kind of view except for Frontal parking Sensors view(Rear & Front sensors, plus Rear camera version)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the Wide view
+
+Verify that 
+Wide View uses all the parking layout area in the mentioned views and the Sensor view/the bird view is not visible
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.8.2 PRK 7: Wide View Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

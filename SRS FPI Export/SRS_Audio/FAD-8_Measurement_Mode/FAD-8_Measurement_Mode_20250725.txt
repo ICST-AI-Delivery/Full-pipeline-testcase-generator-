@@ -1,0 +1,96 @@
+# FAD-8 6.2.2.9  Measurement Mode Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.9 FAD-8 Measurement Mode
+
+- ID: 3408490
+- Artifact Type: SRS Feature
+- Responsible Domain: Audio Control
+- Grooming Status: Approved
+- Grooming Comments: [29.04.2024, Ahmed]: OK to approve this SRS feature and the object ID IDC-437475 is already clarified with Ferrari and has no SRS impact.
+- Expert Domains: System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3500313
+- Contents: The system shall send the A2B Network_2 configuration details to the FAD library.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set A2B_Network 2 Configuration (standard /measurement configuration) via AME commands.
+verify A2B_Network 2 Configuration is sent to FAD.
+Use the logs (DLT logs for linux and DSP, Logcat logs for Android) for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 100
+- State (Harman_Requirement): Obsolete
+
+2. ID: 4097259
+- Contents: The system shall end the value of calibration parameter A2B_2_Configuration to the FAD library when the value of the calibration parameter A2B_2_Configuration changes.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Set A2B_Network 2 Configuration (standard /measurement configuration) via AME commands
+
+Verify the value of the calibration parameter A2B_Network 2 Configuration is sent to FAD when the value of the A2B_Network 2 Configuration changes.
+Use the logs (DLT logs for linux and DSP, Logcat logs for Android) for verification.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "every" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3622609
+- Contents: Internal interfaces
+MeasurementMode
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Grooming Status: Review
+- RQA Score: 10
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3622602
+- Contents: [Info] This function describes the FAD measurement mode.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4724522
+- Contents: The system shall send the value of calibration parameter A2B_2_Configuration to
+the FAD library through the FAD_CTRL__init(void*fad_ctrl_memory, float AudioLevel, int SideDriver, int RoofType, int MeasurementMode) API every time the value of the calibration parameter A2B_2_Configuration changes,where:
+MeasurementMode = A2B_2_Configuration calibration parameter
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+3. ID: 3622608
+- Contents: Calibration Parameters
+A2B_2_Configuration
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of FAD-8 6.2.2.9  Measurement Mode Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

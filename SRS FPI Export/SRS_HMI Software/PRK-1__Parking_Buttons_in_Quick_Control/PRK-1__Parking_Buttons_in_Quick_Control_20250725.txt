@@ -1,0 +1,167 @@
+# PRK-1 6.2.4.2.1 : Parking Buttons in Quick Control Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1 PRK-1: Parking Buttons in Quick Control
+
+- ID: 4153264
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Grooming Comments: [Divakar S, Ganesh N, Abdul V 31.01.2025 Approved
+- Expert Domains: Audio Control, IOC_IOC, Parking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4612338
+- Contents: The parking system shall allow the user to interact with the parking features via buttons in quick control when parking view is "not" displayed(quick controls are visible).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Parking view is not displayed (quick controls are shown).
+
+Verify that it is possible to   interact with the parking features via buttons in quick control
+- Grooming Status: Approved
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, view, allow, to interact, is, are visible, features, buttons, control, controls" ) 
+Negative statement
+ (Look for: "not" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3883628
+- Contents: The system shall activate/deactivate the parking system visualization via Camera button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the parking system visualization can be activated/deactivated by using camera button short press.
+- Grooming Status: Approved
+- Grooming Comments: [Divakar S, Ganesh N, Abdul V 31.01.2025 Approved
+
+https://jira.harman.com/jira/browse/FQ-603
+
+Prashant: OK to approve
+
+https://jira.harman.com/jira/browse/FQ-598
+
+$ 16
+
+[comment to customer]:Muthu Sunil
+
+F244-25060 (560 doc): and HMI-LF-4135 :
+What is the camera button and home button ?
+Is it a physical button or HMI UX button.
+
+Please provide the UX reference (if it is a HMI UX button)
+
+2. if reverse gear is engaged, then quick control menu will not be available to user, hence camera button will not be available to use, pls clarify.
+
+There is no Home button in HMI, how to handle this
+- Expert Domains: Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, deactivate, visualization, button short press" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4661908
+- Contents: The system shall make the Parking sensor button unavailable in a gear different from "Reverse" in case of markets in which the activation of the rear camera stream view is available "only in Reverse" & is impossible to dismiss the rear camera stream view in Reverse.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: Software Qualification Test
+- Verification Criteria: Precondition:
+Only for Rear and front sensors plus Rear camera version
+
+Configure the market in which rear camera stream view is possible only in reverse gear.
+
+Verify that the front parking sensor button is not available in gear other than reverse gear
+- Grooming Status: Approved
+- Grooming Comments: [Divakar S, Ganesh N, Abdul V 31.01.2025 Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, make, button, different, Reverse" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4661981
+- Contents: For surround view, the system shall make available the camera button only at speed < 20 km/h.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Camera button is available only at speed  < 20 Kmph
+- Grooming Status: Approved
+- Grooming Comments: [Divakar S, Ganesh N, Abdul V 31.01.2025 Approved
+- Expert Domains: IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, make available, view, button" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3883614
+- Contents: The system shall allow the user to activate/deactivate front sensors via Front parking sensors button & shall manage the sound feedback and the automatic activation of the parking sensor view according to the obstacle presence when sensors are active.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the front parking sensors visualization  can be activated/deactivated by using the front parking sensor button.
+Verify by using the state of the button (On/Off)
+Verify the acoustic feedback based on the Audio CAN signal
+- Grooming Status: Approved
+- Grooming Comments: Ok to approve. [Inform Xiongwei on this]
+- Expert Domains: Android HMI, Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, use, button, to activate, deactivate, parking, sensors, amp, feedback" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3883623
+- Contents: The system shall make available the front parking sensors button only at speed < 8km/h.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the Front Parking sensors button is available only at speed  < 8 Kmph
+- Grooming Status: Approved
+- Grooming Comments: [Divakar S, Ganesh N, Abdul V 31.01.2025 Approved
+- Expert Domains: Android HMI, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘8 km’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3883592
+- Contents: (see: image86.png)
+Figure: HMI-LF-4129 - Buttons in Quick Control
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Expert Domains: Camera, Parking
+- State (Harman_Requirement): New
+- Visual Elements: image86.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image86.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-1 6.2.4.2.1 : Parking Buttons in Quick Control Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

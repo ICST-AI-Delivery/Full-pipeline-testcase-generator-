@@ -1,0 +1,131 @@
+# UnknownID 6.2.3.1.6 BT Enabled ($5041) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.6 BT Enabled ($5041)
+
+- ID: 4008641
+- Artifact Type: SRS Feature
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 0
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4008643
+- Contents: The system shall support BT Enabled with an active extended diagnostic session.
+Protocol service: $2F
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session and protocol service- $2F
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 80
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "This" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for BT system/HMI functionality. This applicative test should be handle in other department.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Protocol service: $2F
+
+2. ID: 4008647
+- Contents: The System shall support the BT Enable table as follows (see: image78.png)
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the BT enable from the given table.
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for BT system/HMI functionality. This applicative test should be handle in other department.
+- State (Harman_Requirement): Approved
+- Visual Elements: image78.png
+
+3. ID: 4008650
+- Contents: If the Control service is correctly activated, the IDC shall apply the following logics
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify Control service is correctly activated
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Unclear term
+ (Look for: "correctly" ) 
+Passive voice
+ (Look for: "activated" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for BT system/HMI functionality. This applicative test should be handle in other department.
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Info] The given period of time is by default 2 seconds
+
+4. ID: 4008681
+- Contents: If Bluetooth is disabled, the system  shall set the BT port as ACTIVE
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the BT is active
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is disabled" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for BT system/HMI functionality. This applicative test should be handle in other department.
+- State (Harman_Requirement): Approved
+
+5. ID: 4008684
+- Contents: if Bluetooth is enabled, the system shall set the BT port as NOT ACTIVE
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the BT is not active
+- Grooming Status: Approved
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "is enabled" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for BT system/HMI functionality. This applicative test should be handle in other department.
+- State (Harman_Requirement): Approved
+
+6. ID: 4008699
+- Contents: The system shall disconnect the phone & set the BT port in Deactive state if the phone paired as secondary phone with IDC.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the BT is in deactive state
+- Expert Domains: BT, IOC_Diag
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, disconnect, set, amp, port, state" )
+- TestTeamComment: RWeber_DIAG_250218: Only test to protocol if specified IO control param worked. No applicative test, for BT system/HMI functionality. This applicative test should be handle in other department.
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image78.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.6 BT Enabled ($5041) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

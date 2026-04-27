@@ -1,0 +1,215 @@
+# PRK-1 6.2.4.2.5  : Parking user interaction description Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.5  PRK-1: Parking user interaction description
+
+- ID: 3927214
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3930939
+- Contents: The system shall restore previous screen when Parking system view is closed(due to external trigger event, or manual user action).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Surround View  view is active.
+close Surround View from HMI.
+
+Verify the previous HMI  screen is restored
+- Grooming Status: Approved
+- Grooming Comments: [Sunil, Abdul 06.02.2025] Approved
+
+https://jira.harman.com/jira/browse/FQ-602
+
+what is parking view
+- Expert Domains: Android HMI, Camera, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, view, restore, is closeddue, screen, event, action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3930967
+- Contents: The system shall activate the parking screen by Reverse gear engagement event for the following elements.
+Sensors visualization (according to sensors engaged) + camera + audio.
+Surround visualization + Front and Rear sensor + audio
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the parking screen can be activated via reverse gear engagement for the mentioned elements
+- Grooming Status: Approved
+- Grooming Comments: [Sunil R, Abdul 06.02.2025] Approved
+- Expert Domains: Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, activate, following, according, engaged, screen, event, elements, sensors, audio" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3930970
+- Contents: The system shall provide "Activation trigger" by a short press on "Camera button" if "Reverse gear = "engaged" and It is valid for following elements:
+Sensors visualization(according to sensors engaged) + camera.
+Surround visualization(No matter what gear = engaged).
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the camera button can be activated y a short press on "Camera button" if "Reverse gear = "engaged
+
+Verify this for the following scenarios
+
+Sensors visualization(according to sensors engaged) + camera.
+Surround visualization(No matter what gear = engaged).
+- Grooming Status: Approved
+- Grooming Comments: [Sunil, Abdul 18.02.2025] approved
+
+[Prashant, Abdul 05.02.2025]
+Need clarification on this statement
+whether reverse gear is engaged or not ?
+
+confirm with Sunil
+
+
+https://jira.harman.com/jira/browse/FQ-598
+
+[Abdul] blocked, what is camera button
+- Expert Domains: Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, provide, visualizationaccording, engaged, trigger, press, button, sensors, camera" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3930988
+- Contents: The system shall follow the below behavior  on short pressing the Front parking sensor button when the speed is lower than 8km/h.
+Front sensors visualization/sensors view + audio.
+Surround visualization (only if an obstacle is detected under threshold) + audio
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: vehiclde speed is < 8kmph
+No reverse gear engaged
+Click the front parking sensor button
+verify that front sensor view is launched
+
+Verify the Surround visualization (only if an obstacle is detected under threshold) + audio
+- Grooming Status: Approved
+- Grooming Comments: [Sunil 12.03.2025] Approved
+
+[Sunil 26.01.2025] Need clarity
+https://jira.harman.com/jira/browse/FQ-926
+
+RD: Parking, ED: HMI, System infra, IOC,Audio  RL,
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, speed, follow, pressing, is, behavior, parking, button" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3930990
+- Contents: The system shall Deactivate the active Rear sensors visualization + rear camera stream frame + audio" on disengaging the Reverse gear (Not valid for Surround view).
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Rear sensors visualization + rear camera stream frame + audio is deactivated on disengaging the reverse gear
+
+Verify the surround view visualization is still active after disengaging the rear gear
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, Deactivate, disengaging, valid, visualization, camera stream frame + audio, gear Not, view" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3930996
+- Contents: On closing the camera view, "the system shall close the camera view & keep the audio feedback active if "Reverse gear" = "engaged"("no" matter what gear for Surround view) with obstacle detection" for the following elements
+"Sensors visualization(according to sensors engaged and present) + camera (if present)".
+Surround visualization.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Reverse gear is engaged with or obstacle detection
+
+Close the Camera view and verify the behavior
+- Grooming Status: Approved
+- Grooming Comments: [Sunil 18.02.2025, Adbul] Corercted the SRS as per CRS and approved
+
+[Ganesh, Abdul 18.02.2025] Approved
+
+https://jira.harman.com/jira/browse/FQ-598
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "closing, close, keep, Surround" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3931003
+- Contents: The system shall allow to deactivate the  Sensor view visualization(Sensors view + audio) via Front parking sensors button short press when reverse gear is  "not-engaged".
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: sensor visualization (front)  is active (Sensors view + audio for front obstacle)
+
+Verify the behavior on short press on the front parking sensors button when reverse gear is not engaged
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-602
+
+# 17
+
+[Prashant; ]Why this is not valid for Surround view?
+Is there any difference in Audio for front and rear obstacles?
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, gear, allow, to deactivate, view, parking, button, short, is, engaged, press" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Not valid for Surround
+view
+
+8. ID: 3931010
+- Contents: The system shall allow the user to close the park assist visualization(RVC and surround view)  & move to the previous screen on Central Display with the following behavior.
+The audio feedback remains active irrespective of the  Reverse gear status if an obstacle is present.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+RVC or Surround view is active
+Based on market, Parking view can be closed , but Audio should be active if obstacle is detected
+- Grooming Status: Approved
+- Grooming Comments: [Abdul, Sunil,Prashant 06.02.2025] Approved
+
+https://jira.harman.com/jira/browse/FQ-602
+
+# 18
+
+Question to customer:
+how the rear view can be closed if reverse gear is active?
+- Expert Domains: Android HMI, Audio Control, Camera
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, feedback, allow, close, assist, move, following, remains, park, visualizationRVC, amp, screen, Display, behavior, irrespective, status" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-1 6.2.4.2.5  : Parking user interaction description Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

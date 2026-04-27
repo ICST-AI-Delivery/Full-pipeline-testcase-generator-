@@ -1,0 +1,66 @@
+# UnknownID 6.2.4.2.2.27 DMS - Ce_t_MaxDegToFailTime ($FE34) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.2.27 DMS - Ce_t_MaxDegToFailTime ($FE34)
+
+- ID: 3753420
+- Artifact Type: SRS Feature
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3753425
+- Contents: The system shall have the Read access to Extended diagnostic session with TBD as Dimension and Data type.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the user can able to Read the data in Extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, have, Read, access, session, Dimension, type" )
+- TestTeamComment: RWeber_DIAG_241001: Check to NRC if request for read would be in Default Session or write in DEF/EXT
+- State (Harman_Requirement): Approved
+
+2. ID: 3753432
+- Contents: Whenever the user requests the Data Identifier with the diagnostic service Read Data By Identifier, the ECU shall get back the saved value of DMS utmost time after which a degradation condition activates on a short-term degradation warning.
+- Artifact Type: SRS Req
+- Responsible Domain: DMS
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the time after which a degradation condition activates a temporary degradation warning.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "get, saved, activates, value, time, warning" )
+- TestTeamComment: RWeber_DIAG_241001: Only check to pos. response in extended session to read current value, because no info about Data record structure (TBD in spec PI5.1)
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.2.27 DMS - Ce_t_MaxDegToFailTime ($FE34) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

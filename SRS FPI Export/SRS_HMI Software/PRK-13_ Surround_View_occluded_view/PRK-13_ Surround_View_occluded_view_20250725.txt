@@ -1,0 +1,216 @@
+# PRK-13 6.2.4.14.1 : Surround View occluded view Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.14.1 PRK-13: Surround View occluded view
+
+- ID: 5410692
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5325991
+- Contents: The system shall show the opened door in the car model on detecting the door as open & activate the parking Lines and virtual walls if enabled.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open the door 
+
+Verify the opened door in the car model 
+ and  the parking Lines and virtual walls are visible (if enabled).
+
+Note: parking Lines and virtual walls are visible for rear and Front View
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, opened, detecting, still active, door, model, open  amp, Lines, walls" ) 
+Passive voice
+ (Look for: "are, enabled" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: parking Lines and virtual walls are visible for rear and Front View
+
+2. ID: 5325993
+- Contents: The system shall display the icon of the closed lateral view mirrors in bird view when the vehicle’s lateral view mirrors are closed
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Close  the vehicle’s lateral view mirrors
+
+Verify the the icon of the
+closed lateral view mirrors are displayed in bird view
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, closed, icon, mirrors, view, vehicle" ) 
+Passive voice
+ (Look for: "are closed" )
+- State (Harman_Requirement): Approved
+
+3. ID: 5325996
+- Contents: The system shall hide the corresponding lateral camera icon in bird view when the respective door is open.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Open any of the door .
+The corresponding lateral camera icon is not visible in Bird view
+
+e.g. If the right door is open the lateral right camera disappear
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, door, hide, icon, view" ) 
+Passive voice
+ (Look for: "is open" )
+- State (Harman_Requirement): Approved
+
+4. ID: 5390000
+- Contents: The system shall hide the corresponding lateral camera icon in bird view when the lateral rear view mirror is closed.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Close the lateral rear view mirror (right, left mirror).
+Verify the corresponding lateral camera icon is not visible in Bird view
+
+e.g. If the right mirror is closed the lateral right camera disappear
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, hide, icon, view, mirror" ) 
+Passive voice
+ (Look for: "is closed" )
+- State (Harman_Requirement): Approved
+
+5. ID: 5326013
+- Contents: The system shall follow the below behavior if the user has previously selected the corresponding lateral view camera icon and subsequently opening the door or closing the rear view mirrors in that side.
+continue showing the corresponding label (camera name)
+greyed the lateral stream frame
+activate the Auto cam icon in bird view & lateral camera icon is no longer shown
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+ lateral view camera icon is selected
+
+ subsequently opening the corresponding door or closing the the corresponding rear view mirrors in that side.
+
+Verify the behavior as mentioned.
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 40
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, icon, follow, has previously, selected, corresponding, opening, closing, continue, showing, greyed, activate, behavior, view, door, mirrors, side, label camera name, frame, amp" ) 
+Negative statement
+ (Look for: "no longer" ) 
+Unclear term
+ (Look for: "subsequently" )
+- State (Harman_Requirement): Approved
+
+6. ID: 5326018
+- Contents: The system shall hide the lateral camera icon in the bird view on changing the view
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+The stream frame lateral camera was selected, Door is opened or mirror is closed
+Auto cam icon is visible in bird view.
+
+Change the view to different camera.
+
+Verify the lateral camera icon is not visible in the bird view on changing the view
+- Grooming Status: Approved
+- Expert Domains: Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 5326029
+- Contents: The system shall obscure the Rear stream view & show a warning message(PAR_trunk_open_REAR_warning) if the Trunk is open/not correctly closed.
+- Artifact Type: SRS Req
+- Responsible Domain: Camera
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Trunk is open/not correctly closed.
+
+Verify the stream frame view in not proper.
+Verify the warning message (PAR_trunk_open_REAR_warning) is shown.
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_IOC, Parking, System Infra
+- RQA Score: 30
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, obscure, show, warning, amp, messagePAR" ) 
+Negative statement
+ (Look for: "not" ) 
+Unclear term
+ (Look for: "correctly" ) 
+Passive voice
+ (Look for: "is open, closed" )
+- State (Harman_Requirement): Approved
+
+8. ID: 5326035
+- Contents: The system shall display icon of the open trunk in the corresponding side of the
+vehicle and hide the Rear camera icon when the portion of the screen which shows the images of the Rear camera is obscured in bird view.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open the trunk when rear camera icon is visible.
+
+Verify the trunk opened icon is displayed In Bird view & rear camera icon is hided
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 60
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, portion, display, hide, shows, icon, trunk, side, screen, images, camera, view" ) 
+Passive voice
+ (Look for: "is obscured" )
+- State (Harman_Requirement): Approved
+
+9. ID: 5326043
+- Contents: The system shall display open trunk icon over "the parking guidance lines and maximum turning lines and under the 2D walls".
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition: Trunk is open/not correctly closed.
+Verify the open trunk icon is shown as mentioned.
+- Grooming Status: Approved
+- Expert Domains: Android HMI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, display, open, icon, lines, walls" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 5326021
+- Contents: These requirements are applied if the Surround View rear camera is installed on the trunk.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-13 6.2.4.14.1 : Surround View occluded view Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,352 @@
+# VFI-F914 6.2.2.30  Calendar Management and settings Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.30 VFI-F914 Calendar Management and settings
+
+- ID: 4035490
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_Networking, System Infra
+- HB_Comment: 33
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4089831
+- Contents: IDC shall turn off scheduling setting when user fails to choose a departure or charge schedule.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the scheduling type is off when user fails to select departure or charge.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "turn off, scheduling, fails, choose, setting, departure, schedule" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4089835
+- Contents: IDC shall allow user to select time and weekdays for car charge through HMI.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to set the time and days for car charging.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, select, activate, time, weekdays, schedule" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4089834
+- Contents: IDC shall allow user to select charging power in the range of 22KW - 0.5KW.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify user able to set the charging power range
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘8 AMPS’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4552847
+- Contents: System shall set default charging speed value as MAX when user not set.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the default value (MAX) of charging speed.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+5. ID: 4552848
+- Contents: System shall disable the + button when charge speed reach to MAX.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to disable the + button when it reaches to MAX
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, disable, charge, button, reach, MAX" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4552851
+- Contents: System shall disable the - button when charge speed reach to MIN.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to disable the - button when it reaches to MIN
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, disable, charge, button, reach, MIN" )
+- State (Harman_Requirement): Approved
+
+7. ID: 4552858
+- Contents: System shall increment/decrement charge speed value rapidly when user long press on +/- buttons.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the that the system able to increment/decrement charge speed rapidly in long press of +/- buttons.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, increment, decrement, rapidly, press, buttons" )
+- State (Harman_Requirement): Approved
+
+8. ID: 4552864
+- Contents: System shall increment/decrement charge speed to next value when user short press on +/- buttons.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the that the system able to increment/decrement charge speed values in short press of +/- buttons.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, increment, to next, short, speed, value, press, buttons" )
+- State (Harman_Requirement): Approved
+
+9. ID: 4089833
+- Contents: System shall display start charge/ end charge timings when user press on charge option.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able display start/end charge timing selection when user press on charge option.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "allow, select, activate, time, weekdays, schedule" )
+- State (Harman_Requirement): Approved
+
+10. ID: 4552875
+- Contents: System shall allow user to adjust timing resolution insteps of 15 minutes.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the user able to adjust the charge timing resolution
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘15 minutes’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+11. ID: 4552880
+- Contents: System shall display to set start/end charge time when user exit from schedule screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to display to set start/end charge time when user exit from schedule screen.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to set, exit, time, screen" )
+- State (Harman_Requirement): Approved
+
+12. ID: 4552966
+- Contents: System shall display to set departure time when user exit from schedule screen.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the system able to display to departure time when user exit from schedule screen
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, to set, exit, time, screen" )
+- State (Harman_Requirement): Approved
+
+13. ID: 4096907
+- Contents: System shall manage the Charging Calendar composed by a set of 3 setting Type:
+Power
+Schedule
+Departure
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the 3 charging calendar settings
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘4’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+14. ID: 4096909
+- Contents: IDC shall manage the following fields for each setting Type:
+ID
+Status
+Setting Type
+Charge Location
+Day Mask
+Start Time
+End Time
+Precond Type
+ACMaxPowerSet
+ACMaxPowerAvail
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the mentioned fields for each setting
+
+IDC-483128
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Cluster SW, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+15. ID: 4097901
+- Contents: System shall retrieve Calendar information when HMI ON status.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the calendar information in HMI ON 
+
+S07.getCalendarCharging
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, invoke, getCalendarCharging, to retrieve, method, information, status" )
+- State (Harman_Requirement): Approved
+
+16. ID: 4097906
+- Contents: System shall update the calendar information in its temporary memory when IDC receives Calendar Charging response.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to update the calendar information in temporary memory
+
+S07.getCalendarCharging.functional_ack=='0x0000'.
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, update, receives, getCalendarCharging, memory, response" )
+- State (Harman_Requirement): Approved
+
+17. ID: 4097913
+- Contents: If for any internal reason IDC is not able to manage the calendar, it shall invoke the
+method S07.getCalendar.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify if system face any internal issue get calendal method active
+
+S07.getCalendar
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, invoke, manage, method S07.getCalendar, IDC, reason" )
+- State (Harman_Requirement): Approved
+
+18. ID: 4097916
+- Contents: IDC shall provide HMI interface for calender.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system provides HMI interface for calendar
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+19. ID: 4098777
+- Contents: IDC shall retry Get Calendar Charging request up to T_Retry times.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system retry get calendar charging request for T retry times
+
+S07.getCalendarCharging.
+S07.getCalendarCharging.functional_ack != '0x0000' .
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, retry, getCalendarCharging, receive, S07.getCalendarCharging.calendarCharging, times, response" )
+- State (Harman_Requirement): Approved
+
+20. ID: 4098778
+- Contents: System shall not provide calendar settings when response not receive after T_Retry times.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system not able to provide calendar settings when response not received
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, receive, settings, times" )
+- State (Harman_Requirement): Approved
+
+21. ID: 4098779
+- Contents: System shall update HMI indications according to the calendar Charging parameter values when IDC receives Change Calendar notification.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to update HMI indications when system receives change calendar notification
+
+S10.onChangeCalendar.calendarCharging parameter
+S10.onChangeCalendar
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, update, according, receives, indications, values, notification" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4490580
+- Contents: (see: image46.png)
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image46.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image46.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F914 6.2.2.30  Calendar Management and settings Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

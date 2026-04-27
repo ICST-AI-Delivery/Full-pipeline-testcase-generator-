@@ -1,0 +1,46 @@
+# UnknownID 6.1.9.1.1 Runtime KPIs       Runtime KPIs Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.9.1.1 Runtime KPIs       Runtime KPIs
+
+- ID: 2354104
+- Artifact Type: SRS Feature
+- Responsible Domain: System Core
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2354105
+- Contents: 6.1.9.1.1.1 Latency" defines the time required to change the first frame after the trigger...       "Latency" defines the time required to change the first frame after the trigger input (e.g., CAN signal changes). Table {caption:Table} Runtime KPIs       Performance Type    Short Description   Timing Target        Rear View Camera    Visualization of RVC video after rear gear selected     < 400 ms       PARKING SYSTEM    The system shall display the visible parking system   < 400 ms       HMI - Layout change   Change the HMI layout consecutively to the user interaction (e.g., move gauges in another position, change the Navi visualization, visualize the camera images, CarPlay activation, etc.)    < 50 ms (Latency)       HMI - Scroll    Scroll a menu/list item consecutively to user interaction via touch or command  (e.g., scroll of the following menu/list: vehicle menu, contact list media, radio list, Navi destination, etc.)    < 50 ms (Latency)        HMI - Change Screen   Change the screen consecutively to an user action (e.g. enter/ exit from one menu/screen to another)    < 50 ms (Latency)         Navi Zoom   Zoom In/Out of the Navi maps consecutively to user interaction via touch.   Destination fixed at 500 km    < 100 ms (Latency)        Navi - Interactive   mode    Visualization of the consonant or vowel after the inserting/selection (e.g. address name inserting)    < 100 ms (Latency)         HMI - Setting/Icon   Change the setting/icon status consecutively to user interaction via touch or command (e.g., set up the temperature)   < 50 ms (Latency)        HMI - Pop-Up   Visualization of a pop-up consecutively to a trigger activation.   < 100 ms       HMI - Splash Screen/Logo/Ceremony (sleep)   Visualization of a Logo/Splash Screen/Ceremony consecutively a trigger activation starting from sleep mode.   < 1000 ms       HMI - Splash Screen/Logo/Ceremony (network active)   Visualization of a Logo/Splash Screen/Ceremony consecutively a trigger activation starting from network active.   < 200 ms       HMI - Display Content   Visualization latency of the same information in several display at the same time (e.g. navigation info, etc.)   < 5 ms       HMI - Info visualization   Shown on display the info received by a vehicle network (e.g. CAN, Ethernet, etc.)   < 20 ms       MEDIA - Mute BT   source    Mute of BT source starting from user interaction   < 50 ms       Smartphone pairing   timing    Complete the smartphone pairing consecutively to the user  acceptance   Note: first pairing    < 2500 ms       Navi - Manual route   Entry (500 km)    Route calculation starts from the manual destination entries.   Route calculation minimum 500 km   (e.g. from Maranello to Via tuscolana, Roma)   < 2000 ms       Navi - Manual route   Entry (1000 km)   Route calculation starts from the manual destination entries.   Route calculation minimum 1000 km   (e.g. from Maranello to Crotone)   < 2000 ms        Voice Detection Entry - Navi (500 km)    Route calculation starts from valid VDE entries.   Route calculation minimum 500 km   (e.g. from Maranello to Via Tuscolana, Roma)    < 2000 ms         Voice Detection   Entry - Navi (1000 km)   Route calculation starts from valid VDE entries.   Route calculation minimum 1000 km   (e.g. from Maranello to Crotone)   < 2000 ms
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+
+### Informational Items:
+
+1. ID: 3408185
+- Contents: 6.2 IDC_FineSpecs
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.9.1.1 Runtime KPIs       Runtime KPIs Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,162 @@
+# VFI-F562 6.2.2.21  Traffic Sign Recognition information management Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.2.21 VFI-F562 Traffic Sign Recognition information management
+
+- ID: 3408242
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3713086
+- Contents: IDC shall publish ADASIS messages regardless proxi parameter Traffic_sign_recognition value.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the ADASIS messages in any case for Traffic_sign_recognition value.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+2. ID: 3713091
+- Contents: IDC shall manage visual warnings when user enable the TRS feature.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the visual warnings when user enable the TRS feature.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "manage, enable" )
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+3. ID: 3713099
+- Contents: IDC shall display indication when TSR feature change from "OFF" to "ON", or from "ON" to "OFF"
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Check the indication on display when TSR feature change from "OFF" to "ON", or from "ON" to "OFF"
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, display, indication, change, OFF" )
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+4. ID: 3713100
+- Contents: IDC shall display the pop-up HMI messages related to the fault signals information.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Check if user able to get the pop-up HMI messages related to the fault signals information.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+5. ID: 3713120
+- Contents: IDC shall retrive and read the following data:
+TSRMainSign1 = "Unknown" when the fuse speed limit should Unknown or a system fault.
+TSRMainSign1 = "Cancellation" when a speed cancellation is detect.
+TSRMainSign1 = "X_kmh_mph" when the fuse speed limit should X km/h [mph]
+TSRSpdLimitUnits = "Unknown" when the speed units for the fused speed limit  value should unknown.
+TSRSpdLimitUnits = "Km/h" when the speed units for the fused        speed limit value is in km/h.
+TSRSpdLimitUnits = "Mph" when the speed units for the fused speed limit value is in mph.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the TSRMainSign1 conditions.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall, read, is, should" )
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+6. ID: 3713533
+- Contents: IDC shall use the speed limit value from map database when HALF messages has invalid or inconsistent.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the speed limit value from map database when HALF messages are invalid/inconsistent.
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "messages, use, has invalid, value, database, inconsistent" )
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+7. ID: 3713534
+- Contents: IDC shall provide speed limit sign visualization when HALF ECU is never in error state.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the speed limit sign visualization when HALF is not in error state
+- Grooming Status: Approved
+- Expert Domains: IOC_Networking, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ECU, provide, sign, is never, visualization, state" )
+- TestTeamComment: procced with the default proxi parameter provided by ferrari and testing team will modify the proxi parameters when architectural team concludes on the design of proxi settings.
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3713087
+- Contents: HALF (Haptic Lane Feedback Node) ECU is the master of TSR functionality, and it is in charge of managing the   storage, fusion and transmission of the traffic signs.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3713537
+- Contents: The following tables defines the source for IDC visualization of speed limit sign in different use cases that considers:
+Country is supported or not supported by IDC and by HALF
+TSR setting value
+TSR_ON value
+ADASIS_V2 message sent/not sent by IDC
+Traffic_sign_recognition proxi value
+TSR_Fault value
+TSR OperatingStatus value
+TSRMainSign1 value
+TSRMainSign2 value
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of VFI-F562 6.2.2.21  Traffic Sign Recognition information management Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

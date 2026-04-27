@@ -1,0 +1,120 @@
+# UnknownID 6.2.3.1.12 Disabled Indication ($20F7) Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.1.12 Disabled Indication ($20F7)
+
+- ID: 5075042
+- Artifact Type: SRS Feature
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- Grooming Comments: Need to check with Cluster SW team.
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 5075043
+- Contents: The Disabled Indication command shall disable & enable indication.
+0x00: disabled
+0xFF enabled
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "disabled, enabled" )
+- TestTeamComment: RWeber_DIAG_250313: Only test to protocol if specified IO control param worked. No applicative test, for indication system or HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+2. ID: 5075065
+- Contents: The System shall have RecordDataIdentifier ($20F7) to know the disabled indication.
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify
+Identifier: RecordDataIdentifier ($20F7)
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘$ 20 F’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- TestTeamComment: RWeber_DIAG_250313: Only test to protocol if specified IO control param worked. No applicative test, for indication system or HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+3. ID: 5075068
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250313: Only test to protocol if specified IO control param worked. No applicative test, for indication system or HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+4. ID: 5075105
+- Contents: If the Test system doesn't send functional request, the ECU shall skip the implement functional positive response(Default values: see Protocol Services-Overview)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the positive response with respect to the Request in Table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250313: Only test to protocol if specified IO control param worked. No applicative test, for indication system or HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+
+5. ID: 5075070
+- Contents: DataRecord (zz)
+(see: image88.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the data record from the given table.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250313: Only test to protocol if specified IO control param worked. No applicative test, for indication system or HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+- Visual Elements: image88.png
+
+6. ID: 5075074
+- Contents: Read NR
+(see: image89.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Cluster SW
+- Verification Criteria: Verify the response code from the given table
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250313: Only test to protocol if specified IO control param worked. No applicative test, for indication system or HMI functionality. This applicative test should be handle in other department or domain.
+- State (Harman_Requirement): Approved
+- Visual Elements: image89.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image88.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image89.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.3.1.12 Disabled Indication ($20F7) Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

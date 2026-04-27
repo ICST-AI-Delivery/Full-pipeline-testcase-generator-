@@ -1,0 +1,347 @@
+# UnknownID 6.2.1.2.1 IOC: Audio System State Machine Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.2.1 IOC: Audio System State Machine
+
+- ID: 3559796
+- Artifact Type: SRS Feature
+- Responsible Domain: IOC_IOC
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3416842
+- Contents: In IDC_ON state, the system shall trigger the A2B network discovery on "A2B Network 1".
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Connect the Nodes (Voice Mic/RTM) to A2B Network 1. 
+Switch to IDC ON State (set MainWakeSts_BCM = 1 ("Active"))
+
+Verify the connected Nodes on A2B Network1 are discovered.
+Use IOC logs for Verification..
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "state, system, trigger, discovery" )
+- State (Harman_Requirement): Approved
+
+2. ID: 3416382
+- Contents: On transitioning to "IDC ON" state, the Audio System shall be set to "A2B_2 INIT" State & set the signal 'IDC_AudioStreams2.AudioSts' = '0 '("A2B_INIT").
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to IDC ON State ( set MainWakeSts_BCM = 1 ("Active"))
+
+Verify the Audio state is A2B_2 INIT state.
+Verify by using the IOC log.
+
+Verify the AudioSts signal = 0 ("A2B_INIT") by using IVI/Linux/DSP logs.
+
+Verify the value of the CAN signal IDC_AudioStreams2.AudioSts = 0 ("A2B_INIT").
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be set" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3553049
+- Contents: When the Audio System is in "A2B_2 INIT" state, the system shall trigger the A2B Network Discovery on "A2B Network 2".
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Connect the Nodes (External Amplifier/Accelerometer Rear) to A2B Network 2. 
+set MainWakeSts_BCM = 1 ("Active"))
+
+Verify the connected Nodes on A2B Network2 are discovered.
+
+Use IOC logs for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "Audio System, system, is, state, trigger, Discovery" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3941713
+- Contents: The system shall mute all internal and external output FAD library channels when transitioning to "A2B_2 INIT" state.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to A2B_2_INIT state
+Verify that all internal and external  speakers are muted.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, mute, transitioning, outputs, state" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3553431
+- Contents: IF the Audio System is in "A2B_2 INIT" state AND the Discovery of external amplifier node is complete, THEN the Audio System shall have a transition to "AMP ON" state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Audio system is in A2B_2 INIT state.
+Connect an external amplifier on A2B 
+
+Wait for the completion of the connected external amplifier discovery.
+Verify the Audio system is switched to  "AMP ON" state.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "is" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3553050
+- Contents: In "AMP ON" state, the system shall initiate an I2C over A2B communication with the external amplifier.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to AMP ON state.
+
+Verify the I2C over A2B communication between IDC and external amplifier. 
+
+Use A2B Sniffer for verification.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+7. ID: 3553051
+- Contents: ON transitioning to "AMP ON" state, the Audio System shall be set to  "AUDIO NOT AVAILABLE" State & set the signal 'IDC_AudioStreams2.AudioSts' = '1' ("AUDIO_NOT_AVAILABLE").
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to AMP ON state.
+Verify the Audio System is in AUDIO NOT AVAILABLE STATE" in AMP ON state.
+
+Verify the signal AudioSts = 1 ("AUDIO_NOT_AVAILABLE").
+
+Use IOC logs for verification
+
+Verify the value of the CAN signal IDC_A
+udioStreams2.AudioSts. = 1 ("AUDIO_NOT_AVAILABLE").
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be set" )
+- State (Harman_Requirement): Approved
+
+8. ID: 3941714
+- Contents: The system shall mute all internal and external FAD library output channels when transitioning to "AUDIO NOT AVAILABLE" state.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to AUDIO NOT AVAILABLE
+
+Verify that all internal and external speakers are muted
+- Grooming Status: Approved
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+9. ID: 3553430
+- Contents: Audio system shall be switched from "AUDIO NOT AVAILABLE state" to "AUDIO AVAILABLE state & set the signal IDC_AudioStreams2.AudioSts =2", if the external amplifier on "A2B Network 2" is capable of playing  Audio AND No active Emergency Call.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+External Amplifier connected to A2B Network 2 is ready to play.
+No ECall is triggered (the CAN signal HMI_INFO.Ecall_IDCMuteReq = 0) and Audio system is in "AUDIO NOT AVAILABLE" State.
+
+Verify the Audio system switched from "AUDIO NOT AVAILABLE" State.to "AUDIO AVAILABLE" State.
+
+Verify the signal AudioSts = 2 ("AUDIO_AVAILABLE").
+Use IOC trace for verification
+ 
+
+Verify using the CAN signal IDC_AudioStreams2.AudioSts = 2 ("AUDIO_AVAILABLE")
+- Grooming Status: Approved
+- Grooming Comments: [16.05.2024 Dawid] 
+OK to approve with the below CAN signal (Which is available in PI4 document) in the verification criteria IDC_AudioStreams2.AudioSts
+- Expert Domains: Audio Control
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, NOT, state" )
+- State (Harman_Requirement): Approved
+
+10. ID: 3941715
+- Contents: The system shall un-mute all internal and external FAD library output  channels when transitioning to "AUDIO AVAILABLE" state.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Switch to AUDIO AVAILABLE state.
+
+Verify that all internal and external speakers are un-muted.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Approved
+
+11. ID: 3553433
+- Contents: The system shall switch the audio state from "AUDIO AVAILABLE state" to "AUDIO NOT AVAILABLE state" upon verification of one of the following conditions
+The External Amplifier is in "INIT" state.
+There is no response from the external amplifier on the I2C communication.
+Active Emergency Call.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Audio system is in "AUDIO AVAILABLE" State.
+
+Follow any of the below condition:
+Set the External Amplifier connected to A2B Network 2  in INIT state (Disconnect and reconnect the amplifier)
+    or 
+Create I2C communication error  (external amplifier to IDC)
+  or 
+Trigger an emergency call (the CAN signal HMI_INFO.Ecall_IDCMuteReq = 1 ("Active"))
+  
+Verify the Audio system switched from "AUDIO AVAILABLE" State.to "AUDIO NOT AVAILABLE" State.
+- Grooming Status: Approved
+- Expert Domains: Audio Control
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "no" )
+- State (Harman_Requirement): Approved
+
+12. ID: 3553053
+- Contents: Audio system shall be switched from "AMP ON" to "A2B_2 INIT" state if external amplifier node of "A2B Network 2" drops.
+- Artifact Type: SRS Req
+- Responsible Domain: IOC_IOC
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+IDC Audio system is in AMP ON state.
+
+Remove the external amplifier (Node 0) from the A2B Network 2.
+
+Verify the Audio system is switched to  A2B_2 INIT state.
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- RQA Score: 90
+- Issues Found by RQA: Passive voice
+ (Look for: "be switched" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 3417031
+- Contents: The Audio System shall follow the below state machine.
+(see: image1.png)
+- Artifact Type: Information
+- Responsible Domain: IOC_IOC
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+- Visual Elements: image1.png
+
+2. ID: 3559797
+- Contents: The system shall support the following logical states:                                                                             
+⦁    "IDC OFF"
+⦁    "IDC ON"
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+3. ID: 3415686
+- Contents: In "IDC ON" power state, the Audio System shall support the following logical states:
+⦁    "A2B_2 INIT"
+⦁    "AMP ON"
+- Artifact Type: Information
+- Verification Criteria: Switch to IDC ON State ( set MainWakeSts_BCM == 1 ("Active"))
+Verify the below Audio states are supported .
+Verify by using the IOC log.
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+4. ID: 3415746
+- Contents: In "AMP ON" state, the Audio System shall support the following sub-states:
+ 
+⦁    "AUDIO NOT AVAILABLE"
+⦁    "AUDIO AVAILABLE"
+- Artifact Type: Information
+- Grooming Status: Approved
+- State (Harman_Requirement): Approved
+
+5. ID: 4727206
+- Contents: When transitioning to "A2B_2 INIT" state, the IDC shall mute all FAD library audio outputs through the FAD_CTRL__setMuteAll(void *fad_ctrl_memory, bool enable) API, where:
+enable = true
+(refer to IDC-481838  IDC-481838 - FAD Control Library APIs)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 4643407
+- Contents: Inputs
+I2C over A2B
+ExternalAmplifierSts
+ExternalAmplifierFailSts
+AVASFailSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+7. ID: 4643408
+- Contents: HMI_CAN
+HMI_INFO.Ecall_IDCMuteReq
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+8. ID: 4643410
+- Contents: Outputs
+I2C over A2B
+ExternalAmplifierMuteAll
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+9. ID: 4643411
+- Contents: INFO_CAN
+IDC_AudioStreams.ExternalAmplifierSts
+IDC_AudioStreams.ExternalAmplifierFailSts
+IDC_AudioStreams.ExternalAmplifierMuteAll
+IDC_AudioStreams2.AudioSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+10. ID: 4614088
+- Contents: HMI_CAN
+AUDIO_INFO.AVASFailSts
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image1.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.2.1 IOC: Audio System State Machine Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

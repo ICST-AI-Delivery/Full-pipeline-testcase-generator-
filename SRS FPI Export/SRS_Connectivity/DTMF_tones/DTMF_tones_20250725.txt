@@ -1,0 +1,133 @@
+# UnknownID 6.1.3.1.7 DTMF tones
+
+
+
+DTMF tones Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.3.1.7 DTMF tones
+
+
+
+DTMF tones
+
+- ID: 2353731
+- Artifact Type: SRS Feature
+- Responsible Domain: BT
+- Grooming Status: Blocked
+- State (Harman_Requirement): Review
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353732
+- Contents: 6.1.3.1.7.1 The System shall be able to send single DTMF tones.
+
+
+
+The System shall be able to send single DTMF tones.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+2. ID: 2353733
+- Contents: 6.1.3.1.7.2 The System shall be able to send sequences of DTMF tones.
+
+
+
+The System shall be able to send sequences of DTMF tones.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+3. ID: 2353734
+- Contents: 6.1.3.1.7.3 The System shall buffer entered DTMF tones and send them immediately, sequential...
+
+
+
+The System shall buffer entered DTMF tones and send them immediately, sequentially in the entered order until the buffer is empty.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+4. ID: 2353735
+- Contents: 6.1.3.1.7.4 The System shall clear unsend tones in the DTMF tone buffer if the current call...
+
+
+
+The System shall clear unsend tones in the DTMF tone buffer if the current call leaves the call state 'Active'.
+- Artifact Type: SRS Req
+- Responsible Domain: Audio Control
+
+5. ID: 2353736
+- Contents: 6.1.3.1.7.5 Appended DTMF tones: If a valid character for appended DTMF tones is detected ("...
+
+
+
+Appended DTMF tones: If a valid character for appended DTMF tones is detected ("+", "p" or "w ", ";", ",") by the telephone application(cause it is already checking the vanity numbers) then all digits, starting at and including the DTMF tone indicators shall be deleted.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if a valid character for appended DTMF tones is detected by the telephone application, then all digits, starting at and including the DTMF tone indicators are deleted.
+- Grooming Status: Blocked
+- Grooming Comments: To discuss internally. Is pre defined DTMF tones available - Chris
+
+Basic DTMF feature will work.
+@Chris Hilton to take up with Ferrari on special character DTMF tones.
+
+6. ID: 2353737
+- Contents: 6.1.3.1.7.6 The System shall be able to hang up the call while sending the DTMF sequence.
+
+
+
+The System shall be able to hang up the call while sending the DTMF sequence.
+- Artifact Type: SRS Req
+- Responsible Domain: BT
+
+7. ID: 2353738
+- Contents: 6.1.3.1.7.7 The System shall be able to send DTMF tones or DTMF tone sequences in call state...
+
+
+
+The System shall be able to send DTMF tones or DTMF tone sequences in call state dialing and alerting, depending on the diagnosis adaption flag "DTMF without active call".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify if DTMF tones or DTMF tone sequences are available in call state dialing and alerting.
+- Grooming Status: Blocked
+- Grooming Comments: To discuss internally. Is pre defined DTMF tones available - Chris
+
+@Chris,To be taken with Ferrari.DTMF will be active only during active call.
+
+8. ID: 2353739
+- Contents: 6.1.3.1.7.8 The System shall remove all not DTMF-related characters from the selected DTMF s...
+
+
+
+The System shall remove all not DTMF-related characters from the selected DTMF sequence before sending it to the HFP connected ME or phone module.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the system remove all not DTMF related characters before sending to HFP connected ME or phone module.
+- Grooming Status: Blocked
+- Grooming Comments: Need input from connectivity team -  Chris - How to remove non DTMF related characters
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.3.1.7 DTMF tones]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

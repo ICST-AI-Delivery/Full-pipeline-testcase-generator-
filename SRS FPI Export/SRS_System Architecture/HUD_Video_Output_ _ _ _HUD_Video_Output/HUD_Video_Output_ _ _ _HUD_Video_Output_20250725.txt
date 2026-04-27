@@ -1,0 +1,69 @@
+# UnknownID 6.1.2.2.12.5 HUD Video Output       HUD Video Output Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.1.2.2.12.5 HUD Video Output       HUD Video Output
+
+- ID: 2353903
+- Artifact Type: SRS Feature
+- Responsible Domain: System Architecture
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 2353904
+- Contents: 6.1.2.2.12.5.1 The ECU is master for HUD HMI and it will contain all graphical resources and vi...       The ECU is master for HUD HMI and it will contain all graphical resources and visualization logics.
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+- Grooming Status: Blocked
+- Grooming Comments: [Azamat Shakhimardanov]: Need clarification from Ferrari about the "all graphical resources and visualization"
+
+2. ID: 2353905
+- Contents: 6.1.2.2.12.5.2 The ECU shall be equipped with FPD-IV serializer compatible with DS90UB926-Q1 de...       The ECU shall be equipped with FPD-IV serializer compatible with DS90UB926-Q1 deserializer (available on current HUD).
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+3. ID: 2353906
+- Contents: 6.1.2.2.12.5.3 The Supplier shall provide the overall video compatibility with the current desi...       The Supplier shall provide the overall video compatibility with the current design of HUD (pinout, deserializer/serializer, cabling, etc.) considering the following information:       Current resolution of HUD: 800x480;   Table {caption:Table} Pinout       Pin   Usage       1   Din 2+       2   Din 1+       3   Din 2-       4   Din 1-       Shield   GND
+- Artifact Type: SRS Req
+- Responsible Domain: System Architecture
+
+4. ID: 2353907
+- Contents: 6.1.2.2.12.5.4 The ECU shall transmit an image 800x480 pix, but only the upper left corner of the transmitted pixels (400x120 pix) are used by the HUD ECU, as shown in the picture:
+- Artifact Type: SRS Req
+- Responsible Domain: System Core
+- Grooming Comments: Debo, Avaloor, Ardnt 01.12.2023
+Need input from System architect, moved to HMI software.
+
+Black screen in HUD is transparent in the wind shield of the vehicle
+
+Muthuraj 13-Dec-2023 -->HUD is not applicable for Ferrari.Confirmed with Sivaprakasam
+- Expert Domains: Virtualization
+
+### Informational Items:
+
+1. ID: 2353908
+- Contents: 6.1.2.2.12.6 Further Video Output       Further Video Output
+- Artifact Type: Information
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.1.2.2.12.5 HUD Video Output       HUD Video Output Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

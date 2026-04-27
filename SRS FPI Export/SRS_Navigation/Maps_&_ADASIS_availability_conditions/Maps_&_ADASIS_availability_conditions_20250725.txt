@@ -1,0 +1,88 @@
+# UnknownID 6.2.1.7.1 Maps & ADASIS availability conditions Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.7.1 Maps & ADASIS availability conditions
+
+- ID: 4895670
+- Artifact Type: SRS Feature
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Grooming Status: Approved
+- Expert Domains: IOC_IOC
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4895671
+- Contents: ADASIS functionalities shall be available for Emilia Romagna region when all maps AND testing license present in the IDC AND InitCarDate == 20FF FF FF.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the ADASIS functionalities for Emilia Romagna region when map and testing license present.
+InitCarDate == 20FF FF FF
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ADASIS functionalities, be available, testing, region, present, InitCarDate, FF" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4895675
+- Contents: ADASIS functionalities shall be available when select map AND the associated license is present in the IDC AND InitCarDate != 20FFFFFF.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the ADASIS functionalities when map license present.
+InitCarDate != 20FF FF FF
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "ADASIS functionalities, be available, select, associated, is present, license, InitCarDate" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4895677
+- Contents: The maps/ADASIS shall unavailable when the VIN number linked to the map license doesn't correspond to the actual VIN number.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify system able to not provide map/ADASIS when VIN Number Mismatch
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "maps, ADASIS, unavailable, linked, correspond, number, license" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4895680
+- Contents: IDC shall display a popup as License  unavailable when License does not activate.
+- Artifact Type: SRS Req
+- Responsible Domain: ADAS_Horizon
+- Test Stage: System Integration Test, Third Party Test
+- Verification Criteria: verify the pop up when license not active
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "IDC, License, display, activate, popup, unavailable" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.1.7.1 Maps & ADASIS availability conditions Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

@@ -1,0 +1,69 @@
+# UnknownID 6.2.4.3.1.27 Number of satellites in Code-Lock Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.3.1.27 Number of satellites in Code-Lock
+
+- ID: 4016063
+- Artifact Type: SRS Feature
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4016065
+- Contents: The system shall read Number of Satelite in Code-lock with an active extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the user can be able to read the data in extended diagnostic session.
+- Grooming Status: Approved
+- Expert Domains: IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 1 bytes. No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+
+2. ID: 4016069
+- Contents: Upon requesting data identifier with the diagnostic service Read Data By Identifier the ECU
+shall return the number of satellites in Code-lock as follows (see: image180.png, image181.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the returned module information for satellite code lock in Table.
+- Grooming Status: Approved
+- Grooming Comments: If we have more than 16 satellites in code locked state then what value needs to be updated?
+- Expert Domains: IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_241210: Only check to pos resp with DL of 1 bytes. No applicative test with correct values for each byte possible, because no simulation available for satellite signal.
+- State (Harman_Requirement): Approved
+- Visual Elements: image180.png, image181.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image180.png, image181.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.3.1.27 Number of satellites in Code-Lock Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

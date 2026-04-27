@@ -1,0 +1,108 @@
+# RAD-21 6.2.1.1.22  Station Logo/Album Cover Art Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1.22 RAD-21 Station Logo/Album Cover Art
+
+- ID: 3939620
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3978507
+- Contents: System shall display the Station Logo/Album Cover Art interfaces:
+1. If there is no cover art a placeholder shall show
+(see: image7.png)
+(see: image8.png)
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the Station Logo/Album Cover Art as mentioned in Content.
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Visual Elements: image7.png, image8.png
+
+2. ID: 3978510
+- Contents: System shall display cover art in the the below priority:
+1. System shall display the cover art of the now playing artist, song, or program when Artist/song/program cover art available
+2. System shall display channel's cover art when artist/song/program  cover art unavailable.
+3. System shall display predefined place holder image when artist/song/program/channel cover art unavailable.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display the coverart for current playing channel/program or a placeholder only in HD radio player with the following priority:
+1. Artist/song/Program coverart (if available).
+2. Channel coverart (if program coverart not available).
+3. Placeholder (if program and channel coverart are not available).
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, display, playing, predefined, art, priority, artist, program, Artist, cover, image, program/channel cover art unavailable" )
+- State (Harman_Requirement): Approved
+
+3. ID: 3978511
+- Contents: System shall display retrieved image instead of station logo on radio player for DAB stations.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify System shall display Image on radio player for DAB stations
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, DAB_Cross Dev
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: IDC shall retrieve cover arts directly transmitted by the broadcaster
+currently in playback
+
+### Informational Items:
+
+1. ID: 3978506
+- Contents: [Info] This function is dedicated to station logo management.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3978513
+- Contents: This considered that broadcasted cover arts are usually "live" information referred to what is currently being played
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image8.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+Element: image7.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of RAD-21 6.2.1.1.22  Station Logo/Album Cover Art Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

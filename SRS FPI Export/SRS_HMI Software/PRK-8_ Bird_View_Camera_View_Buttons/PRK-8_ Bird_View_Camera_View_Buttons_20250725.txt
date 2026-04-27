@@ -1,0 +1,166 @@
+# PRK-8 6.2.4.9.1 : Bird View: Camera View Buttons Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.9.1 PRK-8: Bird View: Camera View Buttons
+
+- ID: 4615683
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4615686
+- Contents: The system shall support the below five camera buttons in bird view:
+Auto:
+Front:
+Left side:
+Right side:
+Rear:
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that the below 5 camera buttons are supported in bird view
+
+Auto: 
+Front:
+Left side:
+Right side: 
+Rear:
+- Grooming Status: Approved
+- Expert Domains: Camera, Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Auto: manages automatically front/rear/topfront/toprear views
+Front: manual activation of front view, if selected Topfront view is not shown
+Left side: manual activation of left view
+Right side: manual activation of right view
+Rear: manual activation of rear view, if selected TopRear view is not shown
+
+2. ID: 4615703
+- Contents: The system shall sletect the Auto camera button by default.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Start the Bird View
+
+Verify that the the Auto camera button is selected by default
+- Grooming Status: Approved
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+- Requirement Rationale: HMI-LF-10574 - The default camera selected is Auto. Auto Camera manages automatically the
+front/rear/topfront/toprear according to the gear engaged and the obstacle distance.
+
+3. ID: 4615714
+- Contents: The system shall select the Auto camera, in case of interaction with gear that requires a stream frame different from the selected one (e.g market in which rear camera shall display in Reverse R)
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition:
+Camera is active.
+
+Select the gear that required stream frame different from the selected camera
+
+Verify the auto camera is selected and shown the relevant camera based on the gear position.
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall select" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: system shall select the Auto camera. automatically.
+
+4. ID: 4615727
+- Contents: The system shall show the related View in "Views Stream Frame Area" When a camera view button is "selected".
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Press on the Camera view button in bird view.
+
+Verify that the selected Camera view is displayed on views stream area.
+
+Note: Refer the artifact provided below (Id 5109736)
+- Grooming Status: Approved
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, show, is, selected, View, button" )
+- State (Harman_Requirement): Approved
+
+5. ID: 4615739
+- Contents: The camera view buttons shall have available status in some market according to the gear engaged.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: Precondition :
+-> Proxi:
+Start Byte 186, Start bit 1 - IDC_SurroundView_Compliance_Norm (0 = "Not Present", 1 = "Default", 2 = "FMVSS", 3 = "KMVSS", 4 = "UNECE_R158")
+->Camera is available 
+->Reverse gear is engaged.
+
+Verify the camera view buttons in HMI.
+- Grooming Status: Approved
+- Grooming Comments: https://jira.harman.com/jira/browse/FQ-1075
+
+To Ferrari: 13.03.2025  Wei, Abdul
+Is this means 
+
+The camera view buttons are hidden in some market  and in which gear?
+
+ What button is referred here?
+
+in which market this will be disabled ?
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "may, some" )
+- State (Harman_Requirement): Approved
+
+6. ID: 4615745
+- Contents: The system shall show the floor under the vehicle while the vehicle is in motion
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Verification Criteria: Verify the floor under the vehicle is visible while vehcile is in motion
+- Grooming Status: Review
+- Grooming Comments: [Artashes, Wei 18.12.2025] Not Offered
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, vehicle, show, is, floor, motion" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 5109736
+- Contents: Figure: Figure 14 auto view selected (see: image119.png)
+- Artifact Type: Information
+- State (Harman_Requirement): New
+- Visual Elements: image119.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image119.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-8 6.2.4.9.1 : Bird View: Camera View Buttons Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

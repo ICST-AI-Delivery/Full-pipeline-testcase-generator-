@@ -1,0 +1,131 @@
+# PFL-6 6.2.6.7  Duplicate Profile Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.6.7 PFL-6 Duplicate Profile
+
+- ID: 3939840
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- State (Harman_Requirement): Obsolete
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3969995
+- Contents: System shall allow the user to duplicate of existing personal User Profiles except Guest profile when one profile's slot is empty.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the user able to duplicate user profile when one profile slot is empty except guest profile.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+NIT_VEHICLE_SETUP_3.PresentProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, allow, to duplicate, existing, is empty, Profiles, profile, slot" )
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3969996
+- Contents: IDC shall create a new User Profile updating Present Profile when the user requests a profile_x duplication.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the new profile and original profile ensure that all relevant information has been correctly duplicated.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+NIT_VEHICLE_SETUP_3.PresentProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "create, updating, requests, Profile, profile_x duplication" )
+- State (Harman_Requirement): Obsolete
+
+3. ID: 3969997
+- Contents: System shall provide default name for the new Profile by adding of a numeric suffix to the source Profile's name and ask the user to rename the new Profile.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system able to provide default name for the new profile with a numeric suffix and prompts the user to rename it.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+NIT_VEHICLE_SETUP_3.PresentProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, provide, adding, ask, to rename, name, Profile, suffix, user" )
+- State (Harman_Requirement): Obsolete
+
+4. ID: 3969998
+- Contents: System shall copy all the values from the source profile to the new profile during the duplication process.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the new profile and original profile ensure that all relevant information has been correctly duplicated.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+NIT_VEHICLE_SETUP_3.PresentProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Obsolete
+
+5. ID: 3969999
+- Contents: IDC shall activate the duplicate profile and set the output signal ActiveProfile = n (Profile_n) when Profile duplication should complete.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the duplicate profile is activated as expected after duplication.
+
+HMI_CAN:
+NIT_VEHICLE_SETUP_3.ActiveProfile
+NIT_VEHICLE_SETUP_3.PresentProfile
+- Grooming Status: Approved
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Core, System Infra, WIFI
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "duplication, activate, set, complete, profile, ActiveProfile" )
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3969994
+- Contents: This function allows the user to duplicate an existing User Profile, in order to simplify tuning of a new profile.
+- Artifact Type: Information
+- Expert Domains: AM_FM_HD, BT, IOC_Networking, Media Core, Projections, SXM, System Infra, WIFI
+- State (Harman_Requirement): Obsolete
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PFL-6 6.2.6.7  Duplicate Profile Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

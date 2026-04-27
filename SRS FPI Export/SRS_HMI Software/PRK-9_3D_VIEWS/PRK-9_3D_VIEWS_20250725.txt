@@ -1,0 +1,404 @@
+# PRK-9 6.2.4.10  3D VIEWS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.10 PRK-9 3D VIEWS
+
+- ID: 3939641
+- Artifact Type: SRS Feature
+- Responsible Domain: Parking
+- Grooming Status: Approved
+- Expert Domains: Android HMI, Camera, IOC_IOC, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4759689
+- Contents: HMI-LF-7874 - Surround View Bird View: elements & interactions.
+HMI-LF-7880 - Surround View Buttons.
+- Artifact Type: SRS Req
+- Grooming Status: Review
+- State (Harman_Requirement): Obsolete
+
+2. ID: 3978154
+- Contents: The system shall configure & calibrate all '3D' views.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the 3D view resolution, size and  position by changing the parameters in configuration file.
+Note: This is applicable for 3D view (top front and top rear and top view)
+- Grooming Status: Approved
+- Grooming Comments: This is applicable for 3D view (top front and top rear and top view)
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Artashes 16.12.2024:
+This is applicable for 3D view (top front and top rear and top view)
+
+3. ID: 3978155
+- Contents: The system shall show the vehicle '3D' model & a smooth representation of the environment around the vehicle in 3D View.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Activate the 3D view
+
+Verify that Ego vehicle 3D model and environment around the Ego vehicle are shown
+- Grooming Status: Approved
+- Grooming Comments: This is applicable for 3D view (top front and top rear and top view)
+- Expert Domains: Android HMI
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+4. ID: 3978158
+- Contents: The system shall use the stitched camera frames in 3D Views as a texture to a 3D bowl shaped configurable mesh.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Visually verify the 3D view and there should not be any distortion in the ground plane.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, 21.02.2025] Approved
+
+Art, Abdul 16.12.2024
+This is not applicable) . Create a ticket to ferrari.
+
+Ask Ferrari:
+[Wei 11.12.2024] Wei to confirm with Art, then the question to be asked Ferrari on the applicability of 3D view.
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+5. ID: 3978239
+- Contents: The system shall support smooth and seamless image transition in 3D view as below
+Front image to the Right mage
+from the Right image to the Rear image
+from the Rear image to the Left image
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Open 3D view
+
+Verify it is possible to transition the images as below:
+
+Front image to the Righti mage,
+from the Right image to the Rear image
+ from the Rear image to the Left image
+- Grooming Status: Approved
+- Grooming Comments: This is applicable for 3D view (top front and top rear and top view)
+- Expert Domains: Parking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, transition, image, amp, Left, seamless" )
+- State (Harman_Requirement): Approved
+
+6. ID: 3979264
+- Contents: The SV shall render a silhouette with configurable dimensions similar in form to a "car shadow" to cover the blind area in 3D Views.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Launch the surround view
+Verify that the blind area of the 3D view is covered with the car shadow.
+- Grooming Status: Approved
+- Grooming Comments: This is applicable for 3D view (top front and top rear and top view)
+- Expert Domains: Parking
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+
+7. ID: 3979265
+- Contents: The SV shall render a 3D Vehicle model over the blind area in 3D Views.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Veirify that the 3D vehicle model is rendered  in 3D view  (in the blind area)
+- Grooming Status: Approved
+- Grooming Comments: This is applicable for 3D view (top front and top rear and top view)
+- Expert Domains: Parking
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+8. ID: 3979267
+- Contents: The system shall restrict the location of VAC to the inside of the bowl.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Visually verify that the location of VAC is restricted inside the 3D bowl.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Abdul 21.02.2025] Approved
+
+[Art, Abdul 16.12.2024
+This is not applicable) . Create a ticket to Ferrari.
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+9. ID: 3979268
+- Contents: The system shall show all 3-D views in full screen on swiping the dedicated Wide View button
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Grooming Comments: [Abdul 18.02.2025]: Marked as Obsolete since it is Not offered in CRS.
+
+[Wei 11.12.2024]
+Keep it as blocked. this will be marked as Not offered.
+- Expert Domains: Sensor
+- RQA Score: 80
+- Issues Found by RQA: Unclear term
+ (Look for: "all" )
+- State (Harman_Requirement): Obsolete
+
+10. ID: 3979269
+- Contents: The system shall switch between 2D views and 3D views visualization toggling the dedicated HMI button.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Sensor
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, switch, toggling, views, visualization, button" )
+- State (Harman_Requirement): Obsolete
+
+11. ID: 3979271
+- Contents: The system shall implement the following 3D views selectable by HMI interaction on dedicated buttons:
+Around Front
+Around Front Right
+Around Right
+Around Rear Right
+Around Rear
+Around Rear Left
+Around Left
+Around Front Left
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Obsolete
+
+12. ID: 3979272
+- Contents: The system shall implement the following 3D views shown via automatic activation based on parking sensors signals.
+Top Front (activated by front obstacle detection if NCR_INFO.FutureSyncGear != "R")
+Top Rear (activated by rear obstacle detection if NCR_INFO.FutureSyncGear == "R")
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the Top  Front 3D View is activated by front obstacle detection if NCR_INFO.FutureSyncGear != "R")
+Top Rear 3D is activated by rear obstacle detection if NCR_INFO.FutureSyncGear == "R")
+- Grooming Status: Approved
+- Expert Domains: Camera, IOC_IOC, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, implement, following, shown, based, listed, activated, views, activation, signals, detection" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: [Prashant 16,12.2024]
+Top Front and Top rear can be supported.
+
+But other 3D view is not supported.
+
+13. ID: 4613782
+- Contents: The system shall render Steering guidelines in 3D views.
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify the automatic activation of 3D view ( top front and top rear view) based on the obstacle detection.
+Verify the steering guidelines are visible in 3D view.
+
+Refer: PRK-2 GRID VIEWS.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Saheel, Abdul 26.02.2025] Approved
+
+maximum steering delta is NA
+
+
+Comment to customer: 12.12.2024:  Ask Wei first
+1. How to activate 3D view  (The button was there in PI4/PI5.1)
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Approved
+
+14. ID: 4613785
+- Contents: The system shall render Parking sensors overlays in 3D views
+- Artifact Type: SRS Req
+- Responsible Domain: Parking
+- Test Stage: System Qualification Test
+- Verification Criteria: Verify that Parking sensors overlays are rendered  in 3D View ( top front and top rear view)
+
+Note: This should be as per PRK-3 VIRTUAL WALLS.
+- Grooming Status: Approved
+- Grooming Comments: [Wei, Saheel, Abdul 26.02.2025] Approved.
+
+This is applicable for 3D view (top front and top rear and top view(Bird view)
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Reference: according to PRK-3 VIRTUAL WALLS.
+
+15. ID: 3979274
+- Contents: The system shall permit to freely rotate the view as follows, Additionally to the 3D views listed above.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Sensor
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+16. ID: 3979276
+- Contents: The system shall always orient VAC in such a way that is facing towards the center of the bowl.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, always, is, facing, VAC, way, center" )
+- State (Harman_Requirement): Obsolete
+
+17. ID: 3979277
+- Contents: The system shall allow user to freely rotate the VAC horizontally(along the z axis) provided that the VAC always faces towards the center of the blind area.
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to freely, rotate, horizontallyalong, provided, faces, VAC, axis, center" )
+- State (Harman_Requirement): Obsolete
+
+18. ID: 3979278
+- Contents: The system shall support horizontal rotation through touch interface using a one finger swipe motion.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- Expert Domains: Sensor
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+19. ID: 3979279
+- Contents: The system shall allow user to increase/decrease(zoom in/zoom out) the distance between the VAC and the center of the blind area within configurable bounds. [min XX meters max YY meters]
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to increase, zoom out, decreasezoom, distance, VAC, center, area, bounds, meters" )
+- State (Harman_Requirement): Obsolete
+
+20. ID: 3979280
+- Contents: The system shall support increase/decrease through touch interface using two finger pinch or the inverse.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, support, using, touch interface, pinch, inverse" )
+- State (Harman_Requirement): Obsolete
+
+21. ID: 3979281
+- Contents: The system shall allow user to rotate the VAC vertically by manipulating the angle a within configurable bounds. [min: YY rad, max ZZ rad]
+- Artifact Type: SRS Req
+- Responsible Domain: Surround_View
+- Grooming Status: Review
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "system, allow, to rotate, manipulating, user, bounds, rad, max ZZ rad" )
+- State (Harman_Requirement): Obsolete
+
+22. ID: 3979282
+- Contents: The system shall support vertical rotation through touch interface using one finger swipe motion.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Grooming Status: Review
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- State (Harman_Requirement): Obsolete
+
+### Informational Items:
+
+1. ID: 3978108
+- Contents: This function describes all the possible 3D views in Surround View configuration
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 3978111
+- Contents: The system shall display the '3D' Views as reported in: 
+HMI-LF-7903 - Surround Stream Frame Views.
+HMI-LF-7929 - Wide View.
+HMI-LF-7999 - Elements visualized for each configuration
+HMI-LF-8001 - Parking buttons for each configuration
+- Artifact Type: Information
+- Responsible Domain: Parking
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+3. ID: 3978116
+- Contents: The system shall implement the logics of 3D Views according to: 
+SFS F560 – Surround View Management
+- Artifact Type: Information
+- Responsible Domain: Parking
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+4. ID: 3979266
+- Contents: The system shall generate 3D Views from a POV (point of view) of a VAC(virtual camera).
+- Artifact Type: Information
+- Responsible Domain: Parking
+- RQA Score: 80
+- Issues Found by RQA: Missing limits
+ (Look for: "‘3 D’ is an exact value, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" )
+- State (Harman_Requirement): New
+
+5. ID: 3979284
+- Contents: Proxi
+Start Byte 112, Start bit 6- Rear View Camera disable/enable (0 = "disabled", 1 = "enabled")
+Start Byte 184, Start bit 4- IDC_SurroundViewFunctionality (0 = "Not Present", 1 = "Present")
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+6. ID: 3979285
+- Contents: Inputs
+Ie_bol_RevGearBCSts
+Ie_bol_StpGoEn
+Ie_enu_NSPTotFrmNbr
+Ie_enu_NSPFrmNbr
+Ie_enu_NSPFailSts
+Ie_enu_NSPCtrlSts
+Ie_len_NSPLHLatObstDist
+Ie_len_NSPLHCenObstDist
+Ie_len_NSPRHLatObstDist
+Ie_len_NSPRHCenObstDist
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of PRK-9 6.2.4.10  3D VIEWS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

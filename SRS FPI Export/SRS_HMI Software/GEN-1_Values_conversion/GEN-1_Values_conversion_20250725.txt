@@ -1,0 +1,103 @@
+# GEN-1 6.2.1.1  Values conversion Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.1.1 GEN-1 Values conversion
+
+- ID: 4032644
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: Cluster SW, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4032650
+- Contents: System shall select a conversion factor presented below, depending on the source and destination measurement units.
+km to miles --- 0.621
+km/h to m/s --- 0.278
+Miles/h to feet/s --- 1.467
+UK gallon to Liters --- 4.546
+US gallon to Liters ---3.785
+Degrees Fahrenheit (TF) to degrees Celsius ---(TF-32) *5/9
+Yard to meters --- 0.914
+Bar to psi ---14.5038
+meters to feet ---3.28084
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the conversion factors as mentioned.
+
+the same conversion values will display in all displays.
+
+we can change volumes and measurement units in the system settings.
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, select, presented, depending, to m, to feet, to meters, factor, source, units, miles, Liters" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4032656
+- Contents: System shall convert approximate floating value to a nearest
+available discrete value, supported for the exact result.
+- Artifact Type: SRS Req
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Verification Criteria: verify that the system accurately converts floating values to the nearest discrete value.
+
+ex:
+20.40 km ~ 20 km
+20.60 km ~21 km
+- Grooming Status: Approved
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, approximate, converted, floating, supported, value, result" )
+- State (Harman_Requirement): Approved
+
+### Informational Items:
+
+1. ID: 4032651
+- Contents: This function handles the conversion between different measurement units for one property/function.
+- Artifact Type: Information
+- State (Harman_Requirement): New
+
+2. ID: 4032646
+- Contents: IDC shall apply value conversion whenever a unit of measurement conversion is required.
+- Artifact Type: Information
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Review
+- Expert Domains: System Infra
+- RQA Score: 70
+- Issues Found by RQA: Unclear pronoun
+ (Look for: "this" ) 
+Passive voice
+ (Look for: "is required" )
+- State (Harman_Requirement): In Work
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of GEN-1 6.2.1.1  Values conversion Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

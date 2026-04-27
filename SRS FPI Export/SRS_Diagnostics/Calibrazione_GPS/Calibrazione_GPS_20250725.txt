@@ -1,0 +1,88 @@
+# UnknownID 6.2.4.2.1.5 Calibrazione GPS Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.4.2.1.5 Calibrazione GPS
+
+- ID: 3837691
+- Artifact Type: SRS Feature
+- Responsible Domain: NavSens
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, IOC_Diag, System Infra
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 3837693
+- Contents: The system shall support Read access for Calibrazione GPS with an active Extended diagnostic session.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System validation Test
+- Verification Criteria: Verify the Calibration GPS function supports only Read data By Identifier.
+- Grooming Status: Approved
+- Grooming Comments: Need to check with customer what is GPS calibration. 
+What customer expect
+
+Is this mean dead reckoning Kallman filter calibration status?
+- Expert Domains: GNSS_Navigation, IOC_Diag, System Infra
+- RQA Score: 70
+- Issues Found by RQA: Missing unit 
+ (Look for: "‘1’ has no units and has no tolerance. Add a unit, and, unless this refers to countable items, it should have a tolerance, such as less than, or +/- 5%" ) 
+Passive voice
+ (Look for: "Unsigned" )
+- TestTeamComment: RWeber_DIAG_250212: okay, but no applicative test if response shows real ystem state (GPS calibration)
+- State (Harman_Requirement): Approved
+- Requirement Rationale: Dimension: 1 Byte
+Data type: Unsigned
+
+2. ID: 3837694
+- Contents: When requesting data identifier with the Read Data by Identifier “diagnostic session”, the ECU shall return the GPS Calibration status as per the below table.
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System validation Test
+- Verification Criteria: Verify the GPS calibration status.
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, IOC_Diag, System Infra
+- RQA Score: 100
+- Issues Found by RQA: No issues found by RQA
+- TestTeamComment: RWeber_DIAG_250212: okay, but no applicative test if response shows real ystem state (GPS calibration)
+- State (Harman_Requirement): Approved
+
+3. ID: 3837704
+- Contents: The system shall support the value as per given table. (see: image118.png)
+- Artifact Type: SRS Req
+- Responsible Domain: NavSens
+- Test Stage: System validation Test
+- Grooming Status: Approved
+- Expert Domains: GNSS_Navigation, IOC_Diag, System Infra
+- TestTeamComment: RWeber_DIAG_250212: okay, but no applicative test if response shows real ystem state (GPS calibration)
+- State (Harman_Requirement): Approved
+- Visual Elements: image118.png
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+Element: image118.png
+  - Description: [Analyze the image and describe its relationship to requirements]
+  - Purpose: [Explain the purpose of this visual element]
+  - Design: [Describe the design elements or create a table representation if applicable]
+  - User Interpretation: [Explain how a user should interpret this element]
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of UnknownID 6.2.4.2.1.5 Calibrazione GPS Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]

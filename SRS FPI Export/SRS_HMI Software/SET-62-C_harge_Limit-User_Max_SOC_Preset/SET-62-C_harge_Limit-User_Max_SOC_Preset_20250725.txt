@@ -1,0 +1,109 @@
+# SET-62-C 6.2.3.6.3.4 harge Limit-User Max SOC Preset Analysis
+
+# Data_Consolidation
+
+## Feature Overview
+6.2.3.6.3.4 SET-62-Charge Limit-User Max SOC Preset
+
+- ID: 4754749
+- Artifact Type: SRS Feature
+- Responsible Domain: Android HMI
+- Test Stage: System Qualification Test
+- Grooming Status: Approved
+- Expert Domains: ADVNet, IOC_Networking, System Infra
+- HB_Comment: 28
+- State (Harman_Requirement): Approved
+
+## Requirements Analysis
+
+### Primary Requirements:
+
+1. ID: 4754750
+- Contents: IDC shall provide the method S11.setMaxSOCPreset for the UserSOCPreset parameter.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify the method for user SOC preset parameter
+
+ S11.setMaxSOCPreset_return.UserSOCPreset
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Incomplete: Missing actor
+ (Look for: "Who or what is doing the action" )
+- State (Harman_Requirement): Approved
+
+2. ID: 4754753
+- Contents: System shall receive S11.setMaxSOCPreset request, then:
+IDC shall align the setting visualization to the User values received.
+IDC shall populate CAN output signal User_Max_SOC according to UserMaxSOC parameter value
+IDC shall populate CAN output signal User_SOC_Preset according to the UserSOCPreset
+ parameter value received.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify output signals user max SOC and user SOC preset when 
+S11.setMaxSOCPreset request
+
+ S11.setMaxSOCPreset_return.UserSOCPreset
+- Grooming Status: Approved
+- Expert Domains: ADVNet, Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "shall receive, shall align, shall shall, shall populate" )
+- State (Harman_Requirement): Approved
+
+3. ID: 4754754
+- Contents: System shall set functional_ack = 0x0000 when CAN output signals User_Max_SOC AND User_SOC_Preset according to the parameters value received
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify ack function and output signals user max SOC and user SOC preset.
+
+ S11.setMaxSOCPreset_return.UserSOCPreset
+
+ S11.setMaxSOCPreset_return.functional_ack
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 70
+- Issues Found by RQA: Compound requirement
+ (Look for: "System, set, output, according, received, functional_ack, value" )
+- State (Harman_Requirement): Approved
+
+4. ID: 4754755
+- Contents: System shall set functional_ack = 0x0051 when not able to align the CAN output signal User_Max_SOC
+OR User_SOC_Preset according to the parameters values received.
+- Artifact Type: SRS Req
+- Responsible Domain: System Infra
+- Test Stage: System Qualification Test
+- Verification Criteria: verify ack function and output signals user max SOC and user SOC preset.
+
+S11.setMaxSOCPreset_return.UserSOCPreset
+
+ S11.setMaxSOCPreset_return.functional_ack
+- Grooming Status: Approved
+- Expert Domains: Android HMI, IOC_Networking
+- RQA Score: 90
+- Issues Found by RQA: Negative statement
+ (Look for: "when not able" )
+- State (Harman_Requirement): Approved
+
+
+
+# Data Analyze
+
+## Visual Elements Analysis
+No visual elements found in this feature.
+
+## Data Structure Analysis
+No specific data structures identified in this feature.
+
+## Process Flow Analysis
+[Describe any flow diagrams or process sequences presented in the feature]
+
+## Core Functionality Considerations
+Summary: [Summarize the core functionality of SET-62-C 6.2.3.6.3.4 harge Limit-User Max SOC Preset Analysis]
+- Validation Criteria: [Define validation methods based on the data]
+- Test Scenarios: [List key test scenarios with priorities A-D]
+- Gaps/Ambiguities: [Note any potential functional gaps or ambiguities]
+- Grooming Status: [Check and report on the grooming status of requirements]
