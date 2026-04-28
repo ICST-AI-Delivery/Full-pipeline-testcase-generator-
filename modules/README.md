@@ -243,7 +243,7 @@ python modules/fpi_analyzer/corrected_antisymmetric_fpi_analyzer.py --validate-o
 ## Module 3: Test Case Generator
 
 ### Purpose
-Generates comprehensive SRS analysis documents and test cases using a 5-phase approach to manage context limits effectively.
+Generates comprehensive SRS analysis documents and test cases using a 5-phase approach to manage context limits effectively. This is the **core test case generator** of the project that transforms SRS requirements and visual analysis into complete test documentation.
 
 ### Structure
 ```
@@ -260,20 +260,166 @@ testcase_generator/
 - **Purpose**: 5-phase SRS analysis and test case generation
 - **Features**: Context management, progressive document building
 - **Integration**: HARMAN LLM API with specialized templates
+- **API**: Uses `openai/sonnet-4.6-asia` model at `https://brllm.harman.com`
+- **Token Limit**: 4000 tokens per phase to avoid timeouts
 
 #### 2. Test Case Generator (`testcase_generator.py`)
 - **Purpose**: Utility functions for test case creation
 - **Features**: Template management, validation, formatting
 
+### How It Works - Detailed Process
+
+The `SRSAnalysisGenerator` class orchestrates the entire process:
+
+#### Initialization & Input Discovery
+1. **Loads HARMAN API key** from environment variables
+2. **Searches for SRS requirements file** in multiple locations:
+   - `SRS FPI Export/[FEATURE_NAME].txt`
+   - `SRS FPI Export/[Domain]/[FEATURE_NAME]/*.txt`
+   - `models/Pre-FineTuneLearning Model/SRS FPI export/[Domain]/[FEATURE_NAME]/*.txt`
+3. **Finds visual analysis files**:
+   - Consolidated analysis: `data/results/[FEATURE_NAME]/c.txt`
+   - Individual analyses: `data/results/[FEATURE_NAME]/*.txt`
+
+#### Progressive Document Building
+Instead of sending everything in one massive request (which would exceed token limits), the system **splits the work into 5 sequential phases**, each building on the previous one.
+
 ### 5-Phase Analysis Process
 
-| Phase | Focus | Sections | Purpose |
-|-------|-------|----------|---------|
-| **Phase 1** | Foundation Setup | 1-2 | Feature overview, requirements summary |
-| **Phase 2** | Technical Analysis | 3-4 | Visual elements, data structure analysis |
-| **Phase 3** | Functionality Analysis | 5-8 | Core functionality, domain analysis |
-| **Phase 4** | Test Case Generation | 9 | Comprehensive test cases |
-| **Phase 5** | Final Integration | 10-11 | Dependency mapping, requirement matrix |
+| Phase | Focus | Sections | Purpose | Key Features |
+|-------|-------|----------|---------|--------------|
+| **Phase 1** | Foundation Setup | 1-2 | Feature overview, requirements summary | Counts all requirements, creates individual entries |
+| **Phase 2** | Technical Analysis | 3-4 | Visual elements, data structure analysis | Preserves individual image distinctions |
+| **Phase 3** | Functionality Analysis | 5-8 | Core functionality, domain analysis | Prepares foundation for test cases |
+| **Phase 4** | Test Case Generation | 9 | Comprehensive test cases | Creates actual test procedures |
+| **Phase 5** | Final Integration | 10-11 | Dependency mapping, requirement matrix | Ensures complete traceability |
+
+### Detailed Phase Breakdown
+
+#### **Phase 1: Foundation Setup**
+**What it does:**
+- Reads the full SRS requirements document
+- Automatically counts requirement IDs using regex patterns
+- Sends to LLM API with prompt to create:
+  - **Section 1**: Feature Overview (ID, description, domain, approval status)
+  - **Section 2**: Requirements Summary with **mandatory individual entries** for each requirement
+- **Critical requirement**: Forces the LLM to process EVERY requirement individually (no grouping allowed)
+- **Creates new output file** with Phase 1 results
+
+**Example prompt structure:**
+```
+You must process ALL 25 requirements found in the SRS document.
+MANDATORY FORMAT FOR EACH REQUIREMENT:
+**Req. ID**: [EXACT_REQUIREMENT_ID] - [SPECIFIC_REQUIREMENT_TITLE]
+- **Testability**: [High/Medium/Low] - [SPECIFIC_VERIFICATION_METHOD]
+- **Dependencies**: [LIST_SPECIFIC_DEPENDENCIES]
+- **Implementation**: [SPECIFIC_IMPLEMENTATION_DETAILS]
+```
+
+#### **Phase 2: Technical Analysis**
+**What it does:**
+- Passes the consolidated visual analysis (`c.txt`) to the LLM
+- Sends the **entire existing document** from Phase 1 as context
+- Asks LLM to append:
+  - **Section 3**: Visual Elements Analysis — one subsection per image
+  - **Section 4**: Data Structure & Signal Analysis (CAN signals, tables)
+- **Critical requirement**: Forces individual image separation (no merging images)
+
+**Why it's slower:** The payload now includes Phase 1 content + new prompt + visual analysis data
+
+#### **Phase 3: Functionality Analysis**
+**What it does:**
+- Sends **entire existing document** (Phases 1-2) as context
+- Asks LLM to append:
+  - **Section 5**: Core Functionality & Gaps
+  - **Section 6**: Domain-Specific Analysis
+  - **Section 7**: Formula & Calculation Verification
+  - **Section 8**: Image-to-TestCase Traceability Matrix
+
+**Why it's slower:** Payload is now even larger with accumulated content
+
+#### **Phase 4: Test Case Generation**
+**What it does:**
+- Sends **entire existing document** (Phases 1-3) as context
+- Asks LLM to append:
+  - **Section 9**: Full Test Cases with IDs like `TC_VEH-F165_Manettino_01_...`
+  - Each test case includes step-by-step instructions + expected results
+  - Includes CAN signal values, timing, priorities (A/B/C/D)
+
+**Why it's the most timeout-prone:** Largest payload with all previous content + complex test case generation
+
+#### **Phase 5: Final Integration**
+**What it does:**
+- Sends **entire existing document** (Phases 1-4) as context
+- Asks LLM to append:
+  - **Section 10**: Test Case Dependency Mapping (execution order, risk)
+  - **Section 11**: Requirements Traceability Matrix (maps every requirement to a test case)
+
+**Final validation:** Ensures every requirement from Phase 1 has corresponding test coverage
+
+### Input Requirements Detail
+
+#### SRS Files Search Order
+The system searches for SRS files in this exact order:
+1. **Direct paths**: `SRS FPI Export/[FEATURE_NAME].txt`
+2. **Hierarchical structure**: `SRS FPI Export/[Domain]/[FEATURE_NAME]/[requirements].txt`
+3. **Legacy location**: `models/Pre-FineTuneLearning Model/SRS FPI export/[Domain]/[FEATURE_NAME]/[requirements].txt`
+
+#### Supported SRS Domains
+- SRS_Instrument Cluster
+- SRS_Audio
+- SRS_Connectivity
+- SRS_Diagnostics
+- SRS_DMS
+- SRS_HMI Software
+- SRS_Navigation
+- SRS_System Architecture
+- SRS_Tuner
+
+#### Visual Analysis Integration
+- **Consolidated analysis**: `data/results/[FEATURE_NAME]/c.txt` (summary of all image analyses)
+- **Individual analyses**: `data/results/[FEATURE_NAME]/*.txt` (per-image analysis files)
+
+### Technical Implementation Details
+
+#### API Configuration
+- **Model**: `openai/sonnet-4.6-asia`
+- **Base URL**: `https://brllm.harman.com`
+- **Max Tokens**: 4000 per phase (reduced from 8000 to avoid timeouts)
+- **Temperature**: 0.1 (for consistent, deterministic output)
+
+#### Text Processing
+- **Unicode cleaning**: Before every API call, special characters are sanitized
+- **Encoding handling**: Converts problematic characters to ASCII equivalents
+- **Multiple space cleanup**: Normalizes whitespace
+
+#### File Operations
+- **Phase 1**: Creates new file with `create_new_file()`
+- **Phases 2-5**: Append to existing file with `append_to_file()`
+- **Output location**: `generated_testcases(final output)/[FEATURE_NAME]_SRS_Analysis_and_TestCases.md`
+
+### Why Gateway Timeout Happens
+
+**Root cause:** As phases progress, the payload sent to the API grows exponentially:
+
+| Phase | Payload Size | Content |
+|-------|--------------|---------|
+| Phase 1 | Small | SRS content + prompt |
+| Phase 2 | Medium | Phase 1 output + visual analysis + prompt |
+| Phase 3 | Large | Phases 1-2 output + prompt |
+| Phase 4 | Very Large | Phases 1-3 output + prompt |
+| Phase 5 | Largest | Phases 1-4 output + prompt |
+
+**Why it worked before but fails now:**
+- Previous runs may have had slightly less content
+- Server load varies throughout the day
+- Accumulated document size increases processing time
+
+**Solutions to avoid timeouts:**
+1. **Reduce `max_tokens`** from 8000 to 4000 (already implemented)
+2. **Wait and retry** - often just a temporary server issue
+3. **Run phases individually** instead of all at once
+4. **Process during off-peak hours** when server load is lower
 
 ### Commands
 

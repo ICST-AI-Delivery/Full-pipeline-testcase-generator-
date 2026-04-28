@@ -65,7 +65,7 @@ def test_image_analysis(image_path):
     print("🌐 Making API call...")
     try:
         response = completion(
-            model="openai/sonnet-4-asia",
+            model="openai/sonnet-4.6-asia",
             max_tokens=4000,
             messages=[{
                 "role": "user",

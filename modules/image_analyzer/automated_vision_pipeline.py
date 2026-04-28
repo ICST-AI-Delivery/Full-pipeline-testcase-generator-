@@ -92,7 +92,7 @@ def analyze_image(api_key, image_path, prompt_text, image_name):
     
     try:
         response = completion(
-            model="openai/sonnet-4-asia",
+            model="openai/sonnet-4.6-asia",
             max_tokens=4000,
             messages=[{
                 "role": "user",

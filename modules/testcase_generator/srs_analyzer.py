@@ -725,7 +725,7 @@ Apply the strengthened quality assurance framework to ensure document completene
                 prompt = prompt.encode('utf-8', errors='replace').decode('utf-8')
             
             response = completion(
-                model="openai/sonnet-4-asia",
+                model="openai/sonnet-4.6-asia",
                 messages=[
                     {
                         "role": "user",

@@ -16,7 +16,7 @@ from utils.env_manager import env_manager
 
 # HARMAN API configuration
 HARMAN_BASE_URL = "https://brllm.harman.com"
-DEFAULT_MODEL = "openai/sonnet-4-asia"
+DEFAULT_MODEL = "openai/sonnet-4.6-asia"
 
 def load_prompt_template():
     """Load the consolidated analysis prompt template"""

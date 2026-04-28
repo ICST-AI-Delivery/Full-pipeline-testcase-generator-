@@ -726,7 +726,7 @@ Apply the strengthened quality assurance framework to ensure document completene
                 prompt = prompt.encode('utf-8', errors='replace').decode('utf-8')
             
             response = completion(
-                model="openai/sonnet-4-asia",
+                model="openai/sonnet-4.6-asia",
                 messages=[
                     {
                         "role": "user",
@@ -735,7 +735,7 @@ Apply the strengthened quality assurance framework to ensure document completene
                 ],
                 api_key=self.api_key,
                 base_url="https://brllm.harman.com",
-                max_tokens=8000,
+                max_tokens=4000,
                 temperature=0.1
             )
             
